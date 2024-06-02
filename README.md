@@ -3,19 +3,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <body style="background-color:yellow;">
 <head>
-<title>黄色网站</title>
-<!--这里是css-->
-<style>
-.ff {
-  font-size:30;
-}
-.aa {
-  font-size:60;
-}
-.bb {
-  font-size:20;color:red
-}
-</style>
+  
+# 绿色网站
+
 </head>
 <!--这里是内容-->
 <p class="ff">当你看到这个网站的标题名字时，不要慌。因为那只是个简称，这个网站的全称叫做
