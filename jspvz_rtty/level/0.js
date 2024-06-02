@@ -35,9 +35,6 @@ oS.Init({
 			,
 			b.src = "http://" + $User.AuthorWebsite + "/js/Process.js?" + Math.random()) : $("sTime").innerHTML = oS.Version
 		})();*/
-
-		oSym.Start();
-
 		$("dServer") && SetBlock($("dServer"));
 
 		let TitleStart = true, Ele = $("dBalloonZombie");
