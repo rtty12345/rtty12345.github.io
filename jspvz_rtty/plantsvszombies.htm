@@ -27,7 +27,7 @@ google_ad_height = 15;
 	<a href="http://www.baidu.com/s?wd=%D6%B2%CE%EF%B4%F3%D5%BD%BD%A9%CA%AC%CD%F8%D2%B3%B0%E6" target="_blank">搜索游戏内容</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="javascript:;" target="_blank" id="aLvlLink">本关攻略</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="http://www.lonelystar.org/html/1-1.htm" target="_blank">壁纸和音乐</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="http://blog.lonelystar.org" target="_blank">原作者博客</a>
+	<a href="http://blog.lonelystar.org" target="_blank">作者博客</a>
 </div>
 
 </div>
@@ -115,11 +115,11 @@ google_ad_height = 15;
 						<div><input type="checkbox" id="cSilence" value="1"> <label for="cSilence" id="lSilence">静&nbsp;&nbsp; &nbsp;&nbsp;音&nbsp;&nbsp;  </label></div>
 					</div>
 				</div>
-				<div class="BigLevel button" onclick="ShowLevel()">选关</div>
-				<div class="BigLevel button" onclick="ShowSpeed()">调速</div>
-				<div class="BigLevel button" onclick="ViewHandBook()">图鉴</div>
-				<div class="BigLevel button" onclick="SelectModal(oS.Lvl)">重玩</div>
-				<div class="BigLevel button" onclick="SelectModal(0);HiddenOptions();SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();">菜单</div>
+				<div class="BigLevel button" onclick="ShowLevel()">选关卡</div>
+				<div class="BigLevel button" onclick="ShowSpeed()">调倍速</div>
+				<div class="BigLevel button" onclick="ViewHandBook()">看图鉴</div>
+				<div class="BigLevel button" onclick="SelectModal(oS.Lvl)">重新玩</div>
+				<div class="BigLevel button" onclick="SelectModal(0);HiddenOptions();SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();">主界面</div>
 				<div class="OptionsMenuButton" style="margin-top:20px" onmousedown="OptionsMenuDown(this,$('sOptionsMenu'))" onmouseup="OptionsMenuUP(this,$('sOptionsMenu'));HiddenOptions();CheckAutoSun($('cAutoSun'));CheckSilence($('cSilence'))"><span id="sOptionsMenu" class="OptionsMenuButtonSpan">继续游戏</span></div>
 			</div>
 <script>
@@ -202,7 +202,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 							'ZombieRun','僵尸快跑！','jiangshikuaipao.png',
 							'MassGrave','乱葬岗','luanzanggang.png',
 							'DependOnHeavenForFood','靠天吃饭','kaotianchifan.png',
-							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg', 
+							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg',
 						], v, i = 0, n, l = ar.length, s = "";
 
 						for (n = 0; n < l; n += 3) {
@@ -539,61 +539,9 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 
 <!--开发进度显示-->
 <div id="dProcess">
-		<script>
-var ArLvl={1:'一',2:'二',3:'三',4:'四',5:'五',6:'六',7:'七',8:'八',9:'九',10:'十'},
-LvlList=function(BLvl,SLvl1,SLvl2){
-	var s='',startlvl=BLvl*10;
-	do{
-		s+='<span class="lvl" onclick="StartAdventure('+(startlvl+SLvl1)+')">第'+ArLvl[SLvl1]+'关</span>';
-	}while(SLvl1++<SLvl2)
-	document.write(s);
-};
-</script>
-		</div>
-		<div id="dAdvSmallContainer" class="TitleSmallContainer Challenge_Background">
-			<div id="dAdvSmallTitle">冒险模式</div>
-			<div class="list">
-				<div class="title">前院白天</div>
-				<div class="icon">
-					<img class="img1" style="clip:rect(0,61px,auto,0);left:16px" border="0" src="images/interface/Almanac_Ground.jpg" width="366" height="61"></td>
-					<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76"></p>
-				</div>
-				<div class="lvl2">
-					<script>LvlList(0,1,10)</script>
-				</div>
-			</div>
-			<div class="list">
-				<div class="title">前院夜晚</div>
-				<div class="icon">
-					<img class="img1" style="clip:rect(0,183px,auto,122px);left:-106px" border="0" src="images/interface/Almanac_Ground.jpg" width="366" height="61"></td>
-					<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76"></p>
-				</div>
-				<div class="lvl2">
-					<script>LvlList(1,1,10)</script>
-				</div>
-			</div>
-			<div class="list">
-				<div class="title">后院白天</div>
-				<div class="icon">
-					<img class="img1" style="clip:rect(0,305px,auto,244px);left:-228px" border="0" src="images/interface/Almanac_Ground.jpg" width="366" height="61"></td>
-					<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76"></p>
-				</div>
-				<div class="lvl2">
-					<script>LvlList(2,1,10)</script>
-				</div>
-			</div>
-			<div class="list">
-				<div class="title">后院夜晚</div>
-				<div class="icon">
-					<img class="img1" style="clip:rect(0,244px,auto,183px);left:-167px" border="0" src="images/interface/Almanac_Ground.jpg" width="366" height="61"></td>
-					<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76"></p>
-				</div>
-				<div class="lvl2">
-					<script>LvlList(3,1,5)</script>
-				</div>
-			</div>
-			<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenLevel()">关闭</div>
-		</div>
+	<div id="dProcess2">
+		<span id="sFailed"><br><br>未成功从作者网站上加载到进度文件<br>如果互联网未连接或者作者网站无法成功打开则无法查看最新进度显示！</span>
+	</div>
 	<br>
 	<input class="button" type="button" value="关闭" onclick="SetHidden($('dProcess'))">
 	<script>document.write('<a style="margin-left:50px;cursor:pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold" target="_blank" href="http://'+$User.AuthorWebsite+'/process.htm">查看更多开发进度信息 >>></a>');</script>
@@ -622,11 +570,16 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 		<marquee onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="2">感谢游玩本改版，原作者是囧姨，特别感谢星云的帮助。想玩原版请自己点击：<a href="http://jspvz.com/plantsvszombies.htm">国内服</a>或者<a href="http://lonelystar.org/plantsvszombies.htm">国际服</a></marquee>
 	</div>
 	<div class="dLittleChat">
+		<input type="button" value="星空之旅" class="game_ipt_01" onclick="window.open('./')">
+		<input type="button" value="资源下载" class="game_ipt_01" onclick="window.open('./download.htm')">
+		<input id="bViewChat" type="button" value="显示聊天" class="game_ipt_01" onclick="ViewChat(this)">
+	</div>
+</div>
 
 
 <!--游戏调速-->
 <div id="dSpeedContainer">
-	<div class="title">应玩家要求，囧姨在原版jspvz特推出游戏调速功能</div>
+	<div class="title">应玩家要求，囧姨她特推出游戏调速功能</div>
 	<div class="dSpeed" title="点击一个速度选择软加速">
 		<div class="dS1">在相应的速度上点击</div>
 		<div class="dS2"><div onclick="CSpeed(1,20,.5)">1/2<br><br>┕━</div><div onclick="CSpeed(1,10,1)">原速<br><br>━┻━</div><div onclick="CSpeed(2,10,2)">2<br><br>━┻━</div><div onclick="CSpeed(5,10,5)">5<br><br>━┻━</div><div onclick="CSpeed(5,5,10)">10<br><br>━┛</div></div>
@@ -674,4 +627,4 @@ InitGame();
 </script>
 <script id="JSPVZ"></script>
 </body>
-	</html>
+			</html>
