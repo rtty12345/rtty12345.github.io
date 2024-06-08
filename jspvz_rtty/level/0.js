@@ -37,7 +37,7 @@ oS.Init({
 		})();*/
 		$("dServer") && SetBlock($("dServer"));
 
-		let TitleStart = true, Ele = $("1717251538528057c14ff6b76633537ce4508eb4cd82ddba71a14");
+		let TitleStart = true, Ele = $("1717251538528057c14ff6b76633537ce4508eb4cd82ddba71a14.jpg");
 		let f1 = () => {
 			if (TitleStart != true) return;
 			oEf.Animate(Ele, { top: "34px" }, 2, "linear", f2);
