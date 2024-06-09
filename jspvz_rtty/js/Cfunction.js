@@ -50,7 +50,7 @@
 		AuthorWebsite: a,
 		isAuthorWebsite: true,
 		Visitor: {
-			UserName: "Guest",
+			UserName: "邻居",
 			UserAuthority: 0,
 			Progress: 1,
 			SelectServerT: 0,
