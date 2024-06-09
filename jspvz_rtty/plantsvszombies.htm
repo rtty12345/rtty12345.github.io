@@ -112,7 +112,7 @@ google_ad_height = 15;
 				<div class="OMd0">
 					<div class="OMd1">
 						<div><input type="checkbox" id="cAutoSun" value="1" onchange="CheckAutoSun(this)"> <label for="cAutoSun" id="lAutoSun">自动拾取阳光</label></div>
-						<div><input type="checkbox" id="cSilence" value="1"> <label for="cSilence" id="lSilence">静&nbsp;&nbsp; &nbsp;&nbsp;音&nbsp;&nbsp;  </label></div>
+						<div><input type="checkbox" id="cSilence" value="1"> <label for="cSilence" id="lSilence">静&nbsp;&nbsp; &nbsp;&nbsp;音&nbsp;&nbsp;  </label></div>
 					</div>
 				</div>
 				<div class="BigLevel button" onclick="ShowLevel()">选关卡</div>
@@ -175,7 +175,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 					<script>LvlList(3,1,5)</script>
 				</div>
 			</div>
-			<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenLevel()">关闭</div>
+			<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenLevel()">关闭</div>
 		</div>
 		
 		<div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
@@ -205,7 +205,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 							'MassGrave','乱葬岗','luanzanggang.png',
 							'DependOnHeavenForFood','靠天吃饭','kaotianchifan.png',
 							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg',
-						        'jiajuewang','假·绝望','jiajuewang.png',
+							'jiajuewang','假·绝望','jiajuewang.png',
 						], v, i = 0, n, l = ar.length, s = "";
 
 						for (n = 0; n < l; n += 3) {
@@ -223,7 +223,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 					})()
 				</script>
 				</table>
-				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
+				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
 			</div>
 		</div>
 
@@ -279,7 +279,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 						</script>
 					</table>
 				</div>
-				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="ReturnRiddleInx()">益智模式索引</div>
+				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="ReturnRiddleInx()">益智模式索引</div>
 			</div>
 			<!--对战界面-->
 			<div id="dRiddle1">
@@ -299,8 +299,8 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 						<iframe name="fRiddleAlreadyCreateGame" id="fRiddleAlreadyCreateGame" marginwidth="1" marginheight="1" height="460" width="100%" scrolling="no" border="0" frameborder="0" allowtransparency="true" style="background-color:transparent"></iframe>
 					</div>
 				</div>
-				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="ReturnRiddleInx()">益智模式索引</div>
-				<div class="button" style="left:204px" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="if($User.Visitor.UserName!='游客'||confirm('游客只能体验创建功能无法存档\n请使用注册用户以保存你的创意！'))SelectModal('ImZombieCreateGame')">创建我是僵尸关卡</div>
+				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="ReturnRiddleInx()">益智模式索引</div>
+				<div class="button" style="left:204px" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="if($User.Visitor.UserName!='游客'||confirm('游客只能体验创建功能无法存档\n请使用注册用户以保存你的创意！'))SelectModal('ImZombieCreateGame')">创建我是僵尸关卡</div>
 			</div>
 			<div id="dRiddleClose" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="HiddenRiddleGame()">关 闭&nbsp;</div>
 		</div>
@@ -542,36 +542,9 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 
 <!--开发进度显示-->
 <div id="dProcess">
-<div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
-			<div id="dMiniSmallTitle">迷 你 游 戏</div>
-			<div id="dMini0" style="width:885px;height:475px;overflow-y:scroll;">
-				<table cellspacing="10" width="100%" style="position:static;">
-				<script>
-					(function () {
-						var ar = [
-							'DailyLevel','【每日关卡】','DailyLevel.png',
-							'LayDown','你敢放下他么','LayDown.png',
-							'CardRain','种子雨','CardRain.png',
-							'PovertyOfTheSoil','贫瘠之地','pinjizhidi.png',
-							'PovertyOfTheSoil2','贫瘠之地2','PovertyOfTheSoil2.png',
-							'TenFlowers','十朵金花','shiduojinhua.png',
-							'HazeYard','阴霾小院','yinmaixiaoyuan.png',
-							'NutBowling','坚果保龄球','baolingqiu.png',
-							'NutBowling2','坚果保龄球 2','baolingqiu.png',
-							'Boom','核爆！','hebao.png',
-							'FlightOfFancy','我心飞翔','woxinfeixiang.png',
-							'FlightOfFancy2','我心飞翔2','woxingfeixiang2.png',
-							'FlightOfFancy3','我心飞翔3','woxinfeixiang3.png',
-							'DisposableProducts','一次性消费','yicixingxiaofei.gif',
-							'StrongLevel','超乎寻常的压力！','yali.gif',
-							'TestUHeart','你的心脏够强劲吗？','xinzang.png',
-							'ZombieRun','僵尸快跑！','jiangshikuaipao.png',
-							'MassGrave','乱葬岗','luanzanggang.png',
-							'DependOnHeavenForFood','靠天吃饭','kaotianchifan.png',
-							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg',
-						        'jiajuewang','假·绝望','jiajuewang.png',
-						], v, i = 0, n, l = ar.length, s = "";
-
+	<div id="dProcess2">
+		<span id="sFailed"><br><br>未成功从作者网站上加载到进度文件<br>如果互联网未连接或者作者网站无法成功打开则无法查看最新进度显示！</span>
+	</div>
 	<br>
 	<input class="button" type="button" value="关闭" onclick="SetHidden($('dProcess'))">
 	<script>document.write('<a style="margin-left:50px;cursor:pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold" target="_blank" href="http://'+$User.AuthorWebsite+'/process.htm">查看更多开发进度信息 >>></a>');</script>
@@ -591,16 +564,13 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 	</div>
 </div>
 
-
-
-
 <!--公告和分享-->
 <div class="Announcement">
 	<div class="d1">
 		<div class="bshare-custom icon-medium-plus"><a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=16c48152-78f6-44e2-bbc7-bcaabd464bba&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 	</div>
 	<div class="d1" style="width:270px;line-height:30px">
-		<marquee onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="2">本程序为改版，原版作者是囧姨，如果想玩原版jspvz点击：<a href="http://jspvz.com/plantsvszombies.htm">国内服</a>，<a href="http://lonelystar.org/plantsvszombies.htm"></a></marquee>
+		<marquee onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="2">感谢游玩本改版，原作者是囧姨，特别感谢星云的帮助。想玩原版请自己点击：<a href="http://jspvz.com/plantsvszombies.htm">国内服</a>或者<a href="http://lonelystar.org/plantsvszombies.htm">国际服</a></marquee>
 	</div>
 	<div class="dLittleChat">
 		<input type="button" value="星空之旅" class="game_ipt_01" onclick="window.open('./')">
@@ -609,6 +579,19 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 	</div>
 </div>
 
+
+<!--游戏调速-->
+<div id="dSpeedContainer">
+	<div class="title">应玩家要求，囧姨她特推出游戏调速功能</div>
+	<div class="dSpeed" title="点击一个速度选择软加速">
+		<div class="dS1">在相应的速度上点击</div>
+		<div class="dS2"><div onclick="CSpeed(1,20,.5)">1/2<br><br>┕━</div><div onclick="CSpeed(1,10,1)">原速<br><br>━┻━</div><div onclick="CSpeed(2,10,2)">2<br><br>━┻━</div><div onclick="CSpeed(5,10,5)">5<br><br>━┻━</div><div onclick="CSpeed(5,5,10)">10<br><br>━┛</div></div>
+	</div>
+	<div class="nowspeed">当前的游戏速度:<span id="dDisplaySpeed">1</span> 倍速</div>
+	<div class="content"><span>&nbsp;&nbsp;&nbsp; 调速说明</span>：理想状态下，游戏提供的速度调节是<font color="#FFFF00">1/2倍速-10倍速</font>。但是调速效果跟你的浏览器以及电脑有关，比如IE6浏览器在再好的电脑上也别指望能上10倍速。<br>&nbsp;&nbsp;&nbsp; 调速后可能画面视觉会出现偶尔有点一顿一顿的感觉，并且在比较高的速度时某些浏览器可能无法实现加速效果或者只能短时间加速然后速度便慢下来。<br>&nbsp;&nbsp;&nbsp; <span style="color:#FF0"><b>最后强烈推荐使用IE9,Chrome,FireFox,Opera浏览器，能让你用豌豆射手体验到机关枪的感觉！<br>&nbsp;&nbsp;&nbsp; 声明：受浏览器和电脑限制，该调速不保证一定能达到选择速度的效果！</b></span></div>
+	<br>
+	<div><input type=button value="返回游戏" onclick="HiddenSpeed()">&nbsp;&nbsp; <input type=button value="恢复原速" onclick="CSpeed(1,10,1)"></div>
+</div>
 
 
 <script>
@@ -647,4 +630,4 @@ InitGame();
 </script>
 <script id="JSPVZ"></script>
 </body>
-			</html>
+</html>
