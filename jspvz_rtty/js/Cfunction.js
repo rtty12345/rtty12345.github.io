@@ -2209,7 +2209,7 @@ ShowMiniGame = function() {
 	SetBlock($("dMiniSmallContainer"))
 },
 
-ShowMiniGame2 = function() {
+ShowMiniGame = function() {
 	PlayAudio("gravebutton");
 	SetBlock($("dMiniSmallContainer2"))
 },	
