@@ -2020,7 +2020,7 @@ GameLogout = function() {
 	SetNone($("dShowMsgLogin"));
 	SetHidden($("dLoadUserName"));
 	//SetVisible($("dLoginButton"), $("dRegButton"));
-	a.UserName = "游客";
+	a.UserName = "rtty";
 	a.UserAuthority = 0;
 	a.Progress = 1;
 	$("dName").innerHTML = "Guest!";
