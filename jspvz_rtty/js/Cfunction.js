@@ -2206,15 +2206,8 @@ HiddenLevel = function() {
 },
 ShowMiniGame = function() {
 	PlayAudio("gravebutton");
-	SetNone($"dMiniSmallContainer2");
 	SetBlock($("dMiniSmallContainer"))
 },
-
-ShowMiniGame2 = function() {
-	PlayAudio("gravebutton");
-	SetNone($("dMiniSmallContainer");
-	SetBlock($("dMiniSmallContainer2"))
-},	
 	 
 HiddenMiniGame = function(a) { ! a && PlayAudio("tap");
 	SetNone($("dMiniSmallContainer"),$("dMiniSmallContainer"))
