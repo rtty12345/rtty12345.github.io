@@ -1,6 +1,5 @@
 <html>
 <head>
-<title>jspvz_rtty版</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta http-equiv="Cache-Control" content="max-age=3600">
 <meta name="keywords" content="lonelystar,星空之旅,植物大战僵尸,植物大战僵尸下载,植物大战僵尸游戏下载,植物大战僵尸游戏攻略,植物大战僵尸网页版,JS植物大战僵尸,植物僵尸,植物大战,僵尸大战,PVZ植物大战僵尸,新版植物大战僵尸,JSPVZ,JS版植物大战僵尸,植物大战僵尸javascript,植物大战僵尸小游戏,植物人大战僵尸,d2forum,D2,辣妈僵尸,网页游戏,植物大站僵尸源代码,囧丫乙,在线植物大战僵尸,大波僵尸,僵尸大战植物,online web game,web game,webgame,youxi,xiaoyouxi">
@@ -81,7 +80,7 @@ google_ad_height = 15;
 			<tr>
 				<td width="107" height="142" valign="bottom">
 				<img border="0" src="images/interface/dialog_topleft.png" width="107" height="97"></td>
-				<td style="background: url(images/interface/dialog_topmiddle.png) repeat-x bottom center" height="142" valign="top" align="center">
+				<td style="background: url(images/interface/dialog_topmiddle.png)repeat-x bottom center" height="142" valign="top" align="center">
 				<img border="0" src="images/interface/dialog_header.png" width="187" height="64"></td>
 				<td width="120" height="142" valign="bottom">
 				<img border="0" src="images/interface/dialog_topright.png" width="120" height="97"></td>
@@ -206,7 +205,6 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 							'MassGrave','乱葬岗','luanzanggang.png',
 							'DependOnHeavenForFood','靠天吃饭','kaotianchifan.png',
 							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg',
-							'jiajuewang','假·绝望','jiajuewang.png',
 						], v, i = 0, n, l = ar.length, s = "";
 
 						for (n = 0; n < l; n += 3) {
@@ -215,25 +213,19 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 							(i + 1) % 5 == 0 ? (s += '</tr>', i = 0): ++i;
 						}
 
-						if (i != 0) {
+					 if (i != 0) {
 							l < 5 && i < 5 && (s += "<td></td>");
 							s += "</tr>";
 						}
 
 						document.write(s);
 					})()
-				
-					</script>
+				</script>
 				</table>
-             <div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame()">上一页</div>
-<div id="minigame_next_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame2()">下一页</div>
 				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
 			</div>
 		</div>
-		
 
-<
-		
 		<div id="dRiddleSmallContainer" class="TitleSmallContainer Almanac_ZombieBack">
 			<div id="dRiddleTitle">益 智 模 式</div>
 			<!--单机对战选择界面-->
@@ -276,7 +268,6 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 										while (i % 5 != 0) s += "<td></td>", ++i;
 										s += "</tr><tr>";
 									}
-
 									// 加入该入口的 HTMl 元素
 									s += '<td height="139" valign="top" onclick="SelectModal(\'' + Q + '\')"><div><img src="images/interface/' + IMG + '"></div><div class="list">' + Title + '</div></td>';
 									++i, l = Math.floor(i / 5) + 1, i % 5 == 0 && (++l, s += "</tr>"); // 如果末尾，则换行 
@@ -307,7 +298,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 					</div>
 				</div>
 				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="ReturnRiddleInx()">益智模式索引</div>
-				<div class="button" style="left:204px" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="if($User.Visitor.UserName!='游客'||confirm('游客只能体验创建功能无法存档\n请使用注册用户以保存你的创意！'))SelectModal('ImZombieCreateGame')">创建我是僵尸关卡</div>
+    <div class="button" style="left:204px" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="if($User.Visitor.UserName!='游客'||confirm('游客只能体验创建功能无法存档\n请使用注册用户以保存你的创意！'))SelectModal('ImZombieCreateGame')">创建我是僵尸关卡</div>
 			</div>
 			<div id="dRiddleClose" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="HiddenRiddleGame()">关 闭&nbsp;</div>
 		</div>
@@ -369,7 +360,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 				<td class="ShowMsgButtonL"></td>
 				<!--英文fontsize:24px-->
 				<!--中文fontsize:20px-->
-				<td class="ShowMsgButton" valign="top">
+		<td class="ShowMsgButton" valign="top">
 				<!--OK-->
 				</td>
 				<td class="ShowMsgButtonR"></td>
@@ -429,7 +420,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 			<tbody><tr onclick="GameLogin(1);PlayAudio('gravebutton');">
 				<td class="ShowMsgButtonL"></td>
 				<td class="ShowMsgButton" valign="top" style="font-size:20px">注册</td>
-				<td class="ShowMsgButtonR"></td>
+    <td class="ShowMsgButtonR"></td>
 			</tr>
 		</tbody></table>
 		</div>
@@ -516,8 +507,8 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 				<span class="cost">花费:</span><span id="spSunNum"></span><span class="cool">冷却:</span><span id="spCoolTime"></span>
 			</div>
 		</div>
-	</div>
-	<div id="dHandBookZ">
+			</div>
+   <div id="dHandBookZ">
 		<div class="title">图鉴——僵尸</div>
 		<div id="dHandBookZCard"></div>
 		<div id="pZombieBack"></div>
@@ -577,7 +568,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 		<div class="bshare-custom icon-medium-plus"><a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=16c48152-78f6-44e2-bbc7-bcaabd464bba&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 	</div>
 	<div class="d1" style="width:270px;line-height:30px">
-		<marquee onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="2">感谢游玩本改版，原作者是囧姨，特别感谢星云的帮助。想玩原版请自己点击：<a href="http://jspvz.com/plantsvszombies.htm">国内服</a>或者<a href="http://lonelystar.org/plantsvszombies.htm">国际服</a>其他改版：<a href="https://tedu666.github.io/tedu666/Jspvz_LAS/index.html">las版</a>，<a href="https://cutexingyun.github.io/Jspvz_xingyun/plantsvszombies.htm">xingyun版</a></marquee>
+		<marquee onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="2">感谢游玩本改版，原作者是囧姨，特别感谢星云的帮助。想玩原版请自己点击：<a href="http://jspvz.com/plantsvszombies.htm">国内服</a>或者<a href="http://lonelystar.org/plantsvszombies.htm">国际服</a></marquee>
 	</div>
 	<div class="dLittleChat">
 		<input type="button" value="星空之旅" class="game_ipt_01" onclick="window.open('./')">
