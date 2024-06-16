@@ -2211,11 +2211,11 @@ ShowMiniGame = function() {
 
 ShowMiniGame2 = function() {
 	PlayAudio("gravebutton");
-	SetBlock($("dMiniSmallContainer"))
+	SetBlock($("dMiniSmallContainer2"))
 },	
 	 
 HiddenMiniGame = function(a) { ! a && PlayAudio("tap");
-	SetNone($("dMiniSmallContainer"))
+	SetNone($("dMiniSmallContainer"),$("dMiniSmallContainer"))
 },
 ShowRiddleGame = function() {
 	PlayAudio("gravebutton");
