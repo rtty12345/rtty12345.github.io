@@ -2209,9 +2209,9 @@ ShowMiniGame = function() {
 	SetBlock($("dMiniSmallContainer"))
 },
 
-ShowMiniGame = function() {
+ShowMiniGame2 = function() {
 	PlayAudio("gravebutton");
-	SetBlock($("dMiniSmallContainer2"))
+	SetBlock($("dMiniSmallContainer"))
 },	
 	 
 HiddenMiniGame = function(a) { ! a && PlayAudio("tap");
