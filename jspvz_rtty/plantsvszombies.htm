@@ -225,10 +225,59 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 				</script>
 				</table>
 				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="Set_Next_Page_Minigames(-1)">上一页</div>
-                    <div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="Set_Next_Page_Minigames(1)">下一页</div>
+                    <div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="dMini1(1)">下一页</div>
 				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
 			</div>
 		</div>
+
+                     <div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
+			<div id="dMiniSmallTitle">迷 你 游 戏</div>
+			<div id="dMini1" style="width:885px;height:475px;overflow-y:scroll;">
+				<table cellspacing="10" width="100%" style="position:static;">
+				<script>
+					(function () {
+						var ar = [
+							'TenFlowers','十朵金花','shiduojinhua.png',
+							'HazeYard','阴霾小院','yinmaixiaoyuan.png',
+							'NutBowling2','坚果保龄球 2','baolingqiu.png',
+							'NutBowling','坚果保龄球','baolingqiu.png',
+							'Boom','核爆！','hebao.png',
+							'FlightOfFancy','我心飞翔','woxinfeixiang.png',
+							'DisposableProducts','一次性消费','yicixingxiaofei.gif',
+							'StrongLevel','超乎寻常的压力！','yali.gif',
+							'TestUHeart','你的心脏够强劲吗？','xinzang.png',
+							'ZombieRun','僵尸快跑！','jiangshikuaipao.png',
+							'PovertyOfTheSoil','贫瘠之地','pinjizhidi.png',
+							'MassGrave','乱葬岗','luanzanggang.png',
+							'DependOnHeavenForFood','靠天吃饭','kaotianchifan.png',
+							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg',
+							'PovertyOfTheSoil2','贫瘠之地2','PovertyOfTheSoil2.png',
+							'CardRain','种子雨','CardRain.png',
+							'DailyLevel','【每日关卡】','DailyLevel.png', 
+							'LayDown','你敢放下他么','LayDown.png', 
+						], v, i = 0, n, l = ar.length, s = "";
+
+						for (n = 0; n < l; n += 3) {
+							i % 5 == 0 && (s += '<tr>');
+							s += '<td height="139" valign="top" onclick="SelectModal(\''+ar[n]+'\')"><div><img src="images/interface/'+ar[n+2]+'"></div><div class="list">'+ar[n+1]+'</div></td>';
+							(i + 1) % 5 == 0 ? (s += '</tr>', i = 0): ++i;
+						}
+
+						if (i != 0) {
+							l < 5 && i < 5 && (s += "<td></td>");
+							s += "</tr>";
+						}
+
+						document.write(s);
+					})()
+				</script>
+				</table>
+				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
+			</div>
+		     </div>
+
+
+		
 
 		<div id="dRiddleSmallContainer" class="TitleSmallContainer Almanac_ZombieBack">
 			<div id="dRiddleTitle">益 智 模 式</div>
