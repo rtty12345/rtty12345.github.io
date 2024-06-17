@@ -2218,7 +2218,7 @@ ShowMiniGame2 = function() {
 ShowChinaGame = function() {
 	PlayAudio("gravebutton");
 	SetNone($("dMiniSmallContainer"),$("dMiniSmallContainer2"));
-	SetBlock($("dChinaGame"))
+	SetBlock($("dChinaSmallContainer"))
 },	 
 	 
 HiddenMiniGame = function(a) { ! a && PlayAudio("tap");
