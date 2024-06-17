@@ -228,7 +228,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 				<table cellspacing="10" width="100%" style="position:static;">
 				<script>
 					(function () {
-						var ar =[
+						var ar =['jiajuewang','假·绝望','jiajuewang.png',
 							
 				                ], v, i = 0, n, l = ar.length, s = "";
 
@@ -247,8 +247,8 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 					})()
 				</script>
 				</table>
-				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame()">上一页</div>
-				<div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame()">下一页</div>
+				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame(-1)">上一页</div>
+				<div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame(1)">下一页</div>
 				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
 			</div>
 		</div>
