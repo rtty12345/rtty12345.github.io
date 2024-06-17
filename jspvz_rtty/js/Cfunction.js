@@ -2206,15 +2206,20 @@ HiddenLevel = function() {
 },
 ShowMiniGame = function() {
 	PlayAudio("gravebutton");
-	SetNone($("dMiniSmallContainer2"));
+	SetNone($("dMiniSmallContainer2"),$("dChinaGame"));
 	SetBlock($("dMiniSmallContainer"))
 },
 
 ShowMiniGame2 = function() {
 	PlayAudio("gravebutton");
-	SetNone($("dMiniSmallContainer"));
+	SetNone($("dMiniSmallContainer"),$("dChinaGame"));
 	SetBlock($("dMiniSmallContainer2"))
 },
+ShowChinaGame = function() {
+	PlayAudio("gravebutton");
+	SetNone($("dMiniSmallContainer"),$("dMiniSmallContainer2"));
+	SetBlock($("dChinaGame"))
+},	 
 	 
 HiddenMiniGame = function(a) { ! a && PlayAudio("tap");
 	SetNone($("dMiniSmallContainer"),$("dMiniSmallContainer2"))
