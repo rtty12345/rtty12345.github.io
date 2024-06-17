@@ -180,6 +180,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 		</div>
 		
 		<div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
+			<div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
 			<div id="dMiniSmallTitle">迷 你 游 戏（第1页）</div>
 			<div id="dMini0" style="width:885px;height:475px;overflow-y:scroll;">
 				<table cellspacing="10" width="100%" style="position:static;">
@@ -226,6 +227,7 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 				</table>
 				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame(-1)">上一页</div>
 				<div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame2(1)">下一页</div>
+				<div id="Beta_Button" class="button" style="left: 650px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowChinaGame()">中国馆</div>
 				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
 			</div>
 		</div>
@@ -257,6 +259,39 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 				</table>
 				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame(-1)">上一页</div>
 				<div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame2(1)">下一页</div>
+				<div id="Beta_Button" class="button" style="left: 650px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowChinaGame()">中国馆</div>
+				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
+			</div>
+	       </div>
+
+		<div id="ShowChinaGame" class="TitleSmallContainer Challenge_Background">
+			<div id="dMiniSmallTitle"中 国 馆</div>
+			<div id="dMini0" style="width:885px;height:475px;overflow-y:scroll;">
+				<table cellspacing="10" width="100%" style="position:static;">
+				<script>
+					(function () {
+						var ar = ['jiajuewang','假·绝望','jiajuewang.png',
+							
+						], v, i = 0, n, l = ar.length, s = "";
+
+						for (n = 0; n < l; n += 3) {
+							i % 5 == 0 && (s += '<tr>');
+							s += '<td height="139" valign="top" onclick="SelectModal(\''+ar[n]+'\')"><div><img src="images/interface/'+ar[n+2]+'"></div><div class="list">'+ar[n+1]+'</div></td>';
+							(i + 1) % 5 == 0 ? (s += '</tr>', i = 0): ++i;
+						}
+
+					 if (i != 0) {
+							l < 5 && i < 5 && (s += "<td></td>");
+							s += "</tr>";
+						}
+
+						document.write(s);
+					})()
+				</script>
+				</table>
+				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="Show(-1)">上一页</div>
+				<div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="Show(1)">下一页</div>
+				<div id="Beta_Button" class="button" style="left: 650px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="ShowMiniGame()">小游戏</div>
 				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
 			</div>
 	       </div>
