@@ -1351,12 +1351,190 @@ oCherryBomb = InheritO(CPlants, {
 		[a.id])
 	}
 }),
+
+oStarfruit = InheritO(CPlants, {
+	EName: "oStarfruit1437",
+	CName: "1437大帝",
+	width: 77,
+	height: 70,
+	beAttackedPointR: 57,
+	SunNum: 1437,
+	BKind:0,
+	GetDY: function(b, c, a) {
+		return a[0] ? -17 : -10
+	},
+	PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
+	Tooltip: "向五个方向发射小杨桃",
+	Produce: '杨桃可以向五个方向发射小杨桃。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">五个方向</font></p>杨桃：“嘿，哥们，有一天我去看牙医，他说我有四个牙洞。我一数，我就只有一颗牙齿！一颗牙齿长了四个牙洞？怎么会这样啊？”',
+	getTriggerRange: function(e, g, f) {
+		var a = this.R,
+		b = GetY(a),
+		c = oS.W,
+		j = this.ArFlyTime,
+		h = this.ArHitX,
+		i,
+		d = 0.5 * (g + f); ! j && (j = this.ArFlyTime = {},
+		h = this.ArHitX = {});
+		switch (true) {
+		case e < a: j[e] = [(i = b - GetY(e)) / 5, i / 3];
+			h[e] = [d, d + i / 3 * 4];
+			return [[100, c, 0]];
+		case e == a: return ([[100, g + 25, 4]]);
+		default:
+			j[e] = [(i = GetY(e) - b) / 5, i / 3];
+			h[e] = [d, d + i / 3 * 4];
+			return [[100, c, 0]]
+		}
+	},
+	AttackCheck2: function(l) {
+		var j = l.R;
+		if (j == this.R) {
+			return (l.Altitude > 0)
+		}
+		var q = 0,
+		t = l.AttackedLX,
+		b = l.AttackedRX,
+		e, g, d = this.ArFlyTime,
+		c = this.ArHitX,
+		s = d[j],
+		r = c[j],
+		f = l.WalkDirection ? -1 : 1,
+		k = false,
+		m,
+		p,
+		n,
+		h,
+		a = l.Speed;
+		while (q < s.length) {
+			h = a * s[q] * f * 0.1;
+			e = Math.floor(t - h);
+			g = Math.floor(b - h);
+			p = r[0];
+			n = r[1];
+			if (e + 20 < p && g - 20 > p || e < n && g > n) {
+				k = true;
+				break
+			}++q
+		}
+		return (k && (l.Altitude == 1 || l.Altitude == 2))
+	},
+	getTriggerR: function(a) {
+		return [1, oS.R]
+	},
+	PrivateBirth: function(d) {
+		var c = d.pixelLeft + 38,
+		b = c - 15,
+		a = d.pixelTop + 20;
+		d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
+	},
+	PrivateDie: function(a) {
+		a.BulletEle = null
+	},
+	getHurt: function(d, b, a) {
+		var c = this;
+		b != 3 && c.NormalAttack(); (c.HP -= a) < 1 && c.Die()
+	},
+	NormalAttack: function() {
+		var g = this,
+		f = g.pixelLeft + 38,
+		d = f - 15,
+		b = g.pixelTop + 20,
+		c = g.R,
+		e = f + 15,
+		a = function(j, i, h) {
+			return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
+		}; (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(m, k, l, i, j) {
+				j(oZ.getZ1(m, k), 4, i) && ((m -= 5) < 100 ? ClearChild(i) : (i.style.left = (l -= 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+			},
+			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(m, n, l, k, i, j) {
+				j(oZ.getRangeLeftZ(m, n, l), 6, i) && ((k -= 5) < -15 ? ClearChild(i) : (i.style.top = k + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
+			},
+			[d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(m, n, l, k, i, j) {
+				j(oZ.getRangeLeftZ(m, n, l), 2, i) && ((k += 5) > 600 ? ClearChild(i) : (i.style.top = k + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
+			},
+			[d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 7, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 1, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random())
+	}
+}),
+	 
 oJalapeno = InheritO(oCherryBomb, {
 	EName: "oJalapeno",
 	CName: "火爆辣椒",
 	width: 68,
 	height: 89,
 	beAttackedPointR: 48,
+	SunNum:125,
 	PicArr: ["images/Card/Plants/Jalapeno.png", "images/Plants/Jalapeno/0.gif", "images/Plants/Jalapeno/Jalapeno.gif", "images/Plants/Jalapeno/JalapenoAttack.gif"],
 	AudioArr: ["jalapeno"],
 	Tooltip: "消灭整行的敌人",
