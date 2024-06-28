@@ -207,26 +207,29 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 							'DependOnHeavenForFood','靠天吃饭','kaotianchifan.png',
 							'CanYouDigIt','攻守兼备','gongshoujianbei.jpg',
 							'jiajuewang','假·绝望','jiajuewang.png',
+							'test','测试','shiduojinhua.png',
 						], v, i = 0, n, l = ar.length, s = "";
 
-                                                for (n = 0; n < l; n += 3) {
-                                                        i % 5 == 0 && (s += '<tr>');
-                                                        s += '<td height="139" valign="top" onclick="SelectModal(\''+ar[n]+'\')"><div><img src="images/interface/'+ar[n+2]+'"></div><div class="list">'+ar[n+1]+'</div></td>';
-                                                        (i + 1) % 5 == 0 ? (s += '</tr>', i = 0): ++i;
-                                                }
+						for (n = 0; n < l; n += 3) {
+							i % 5 == 0 && (s += '<tr>');
+							s += '<td height="139" valign="top" onclick="SelectModal(\''+ar[n]+'\')"><div><img src="images/interface/'+ar[n+2]+'"></div><div class="list">'+ar[n+1]+'</div></td>';
+							(i + 1) % 5 == 0 ? (s += '</tr>', i = 0): ++i;
+						}
 
-                                                if (i != 0) {
-                                                        l < 5 && i < 5 && (s += "<td></td>");
-                                                        s += "</tr>";
-                                                }
+						if (i != 0) {
+							l < 5 && i < 5 && (s += "<td></td>");
+							s += "</tr>";
+						}
 
-                                                document.write(s);
-                                        })()
-                                </script>
-                                </table>
-                                <div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
-                        </div>
-                </div>
+						document.write(s);
+					})()
+				</script>
+				</table>
+				<div id="minigame_last_page" class="button" style="left: 34px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="Set_Next_Page_Minigames(-1)">上一页</div>
+                    <div id="minigame_next_page" class="button" style="left: 134px; background-position: center top;" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="Set_Next_Page_Minigames(1)">下一页</div>
+				<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenMiniGame()">关闭</div>
+			</div>
+		</div>
 
 		<div id="dRiddleSmallContainer" class="TitleSmallContainer Almanac_ZombieBack">
 			<div id="dRiddleTitle">益 智 模 式</div>
