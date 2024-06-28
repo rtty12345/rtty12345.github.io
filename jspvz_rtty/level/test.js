@@ -1,5 +1,5 @@
 oS.Init({
-	PName: [oStarfruit1437,oStarfruit],
+	PName: [oStarfruit1437,oStarfruit,oIceThreepeater,Threepeater],
 	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oPoleVaultingZombie, oBucketheadZombie],
 	PicArr: ["images/interface/background1.jpg", "images/interface/trophy.png"],
 	backgroundImage: "images/interface/background1.jpg",
