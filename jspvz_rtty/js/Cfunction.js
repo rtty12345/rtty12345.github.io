@@ -1,5 +1,6 @@
 ﻿var $User = function() {
 	var b = navigator.platform,
+ name = prompt("请输入您的名字："),
 	i = navigator.userAgent,
 	f = (b == "Win32" || b == "Windows"),
 	g = (b == "Mac68K" || b == "MacPPC" || b == "Macintosh"),
