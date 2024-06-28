@@ -1,6 +1,6 @@
 ﻿var $User = function() {
 	var b = navigator.platform,
- name = prompt("请输入您的名字："),
+ name = confirm("本游戏为jspvz的改版，想玩原版可以去找我的B站账号“jspvz玩家rtty”，也欢迎投稿"),
 	i = navigator.userAgent,
 	f = (b == "Win32" || b == "Windows"),
 	g = (b == "Mac68K" || b == "MacPPC" || b == "Macintosh"),
