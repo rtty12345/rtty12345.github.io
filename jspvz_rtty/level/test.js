@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oStarfruit1437,oStarfruit],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oPoleVaultingZombie, oBucketheadZombie],
+	ZName: [oConeheadZombie2],
 	PicArr: ["images/interface/background1.jpg", "images/interface/trophy.png"],
 	backgroundImage: "images/interface/background1.jpg",
 	CanSelectCard: 0,
@@ -65,12 +65,7 @@ oS.Init({
 	}
 }, {
 	AZ: [
-		[oZombie, 1, 1],
-		[oZombie2, 1, 1],
-		[oZombie3, 1, 1],
-		[oConeheadZombie, 5, 1],
-		[oPoleVaultingZombie, 2, 1],
-		[oBucketheadZombie, 5, 1]
+		[oConeheadZombie2, 1, 1]
 	],
 	FlagNum: 20,
 	FlagToSumNum: {
