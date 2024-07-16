@@ -11,7 +11,7 @@ oS.Init({
     CardKind: 1, // 卡片种类
     DKind: 0, // D种类
     LevelName:'三种僵尸', // 关卡名称
-    LvlEName: "ImZombie", // 关卡E名称
+    LvlEName: "Three Zombies", // 关卡E名称
     LoadMusic: "Mountains", // 加载音乐
     StartGameMusic: "Mountains", // 开始游戏音乐
     ArP: { // ArP对象
