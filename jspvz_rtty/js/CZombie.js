@@ -2609,3 +2609,189 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 });
+
+
+
+oDiggerZombie1 = InheritO(OrnNoneZombies, {
+    EName: "oDiggerZombie1",
+    CName: "矿工僵尸",
+    Lvl: 4,
+    SunNum: 225,
+    HP: 500,
+    BreakPoint: 70,
+    width: 167,
+    height: 170,
+    GetDTop: 20,
+    beAttackedPointL: 65,
+    beAttackedPointR: 120,
+    OrnHP: 100,
+    OSpeed: 7.8,
+    Speed: 7.8,
+    Altitude: 0, // 挖矿
+    CardGif: 0,
+    StandGif: 1,
+    StaticGif: 2,
+    NormalGif: 3,
+    WalkGif0: 3,
+    WalkGif1: 4,
+    WalkGif2: 5,
+    AttackGif: 3,
+    AttackGif_Up0: 6,
+    AttackGif_Up1: 7,
+    HeadGif: 8,
+    DieGif: 9,
+    UpGif: 10,
+    DownGif: 11,
+    BoomDieGif: 8,
+    LostHeadGif: 5,
+    LostHeadAttackGif: 5,
+
+    Produce: '这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢</font><BR>特点：<font color="#FF0000">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#FF0000">分裂射手，磁力菇</font></p>矿工僵尸在死之前，还只是一个普通的矿工，邪恶的资本家疯狂压榨他，以至于他30岁就患上了绝症。他是怎么死的？伙计，你去了解一下灯火实验，你就明白了。',
+    BirthCallBack: function(f) {
+      var e = f.delayT,
+        d = f.id,
+        c = (f.Ele = $(d));
+      (f.EleShadow = c.firstChild),
+      (f.EleBody = c.childNodes[1]),
+      SetHidden(f.EleShadow);
+      e
+        ?
+        oSym.addTask(
+          e,
+          function(h, g) {
+            var i = $Z[h];
+            i && ((i.FreeSetbodyTime = 0), SetBlock(g));
+          },
+          [d, c]
+        ) :
+        SetBlock(c);
+    },
+    HeadPosition: [{
+      x: 42,
+      y: 146
+    }, {
+      x: 40,
+      y: 147
+    }, ],
+    getShadow: function(a) {
+      return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 20) + "px";
+    },
+    isUp: 0,
+    JudgeLR: function(f, d, e, c, g) {
+      return e > 10 || e < 1 ?
+        false :
+        (function() {
+          d += --e + "_";
+          var h = 3,
+            i;
+          while (h--) {
+            if ((i = g[d + h]) && i.canEat) {
+              return i.AttackedRX >= c && i.AttackedLX <= c ?
+                [f.id, i.id] :
+                false;
+            }
+          }
+        })();
+    },
+    JudgeSR: function(f, d, e, c, g) {
+      return e > 9 ?
+        false :
+        (function() {
+          d += e + "_";
+          var h = 3,
+            i;
+          while (h--) {
+            if ((i = g[d + h]) && i.canEat) {
+              return i.AttackedRX >= c && i.AttackedLX <= c ?
+                [f.id, i.id] :
+                false;
+            }
+          }
+        })();
+    },
+    PicArr: (function() {
+      var a = "images/Zombies/Diggerzombie/";
+      return [
+        "images/Card/Zombies/Diggerzombie.png",
+        a + "0.gif",
+        a + "DiggerZombie.gif",
+        a + "Walk1.gif",
+        a + "Walk2.gif",
+        a + "Walk3.gif",
+        a + "Attack1.gif",
+        a + "Attack2.gif",
+        "images/Plants/Peashooter/NonePeashooter.gif" + $Random,
+        a + "Die.gif" + $Random,
+        a + "Up.gif" + $Random,
+        a + "Down.gif" + $Random,
+        a + "BoomDie.gif" + $Random,
+      ];
+    })(),
+    AudioArr: ["zombie_entering_water"],
+    Go_Up: function(a, WD) {
+      // WD: 方向，1右0左
+      a.isUp = 1; //a.Ifgc=0;
+      a.beAttacked &&
+        ((a.WalkDirection = WD),
+          (a.BoomDieGif = 12),
+          PlayAudio("zombie_entering_water"),
+          (a.Altitude = 4),
+          SetVisible(a.EleShadow),
+          (a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
+          (a.OSpeed = a.Speed = 0)),
+        (a.ChkActs = function() {
+          return 1;
+        }); // 跳起来
+      oSym.addTask(
+        100,
+        function(c, b) {
+          WD
+            ?
+            ((b.AttackGif = b.AttackGif_Up0),
+              (b.AttackedRX += 30),
+              (b.beAttackedPointL = 70),
+              (b.beAttackedPointR = 130),
+              (b.Ele.lastChild.style.left = "40px"),
+              (b.JudgeAttack = b.JudgeAttack_Up1)) :
+            (b.AttackGif = b.AttackGif_Up1); // GIF
+          $Z[c] &&
+            b.beAttacked &&
+            (WD && b.ExchangeLR(b, WD),
+              (b.Altitude = 1),
+              (b.isAttacking = 0),
+              (b.EleBody.src = b.PicArr[(b.NormalGif = b.DownGif)])); // 眩晕
+          $Z[c] &&
+            b.beAttacked &&
+            oSym.addTask(
+              WD ? 400 : 0,
+              function(c, b) {
+                // 行走
+                (b.EleBody.src =
+                  b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
+                (b.OSpeed = b.Speed = 1.6),
+                (b.ChkActs =
+                  OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
+              },
+              [c, b]
+            );
+        },
+        [a.id, a]
+      );
+    },
+    CanDig: {
+      oPotatoMine: true
+    },
+    JudgeAttack_Dig: function() {
+      var g = this,
+        d = g.ZX,
+        e = g.R + "_",
+        f = GetC(d),
+        h = oGd.$,
+        c;
+      (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) &&
+      g.CanDig[$P[c[1]]["EName"]] ?
+        (!g.isAttacking &&
+          ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
+          g.NormalAttack(c[0], c[1])) :
+        g.isAttacking &&
+   
