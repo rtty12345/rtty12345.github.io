@@ -2794,4 +2794,36 @@ oDiggerZombie1 = InheritO(OrnNoneZombies, {
           ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
           g.NormalAttack(c[0], c[1])) :
         g.isAttacking &&
+         ((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
+    },
+    JudgeAttack_Up1: function() {
+      var g = this,
+        d = g.AttackedRX,
+        e = g.R + "_",
+        f = GetC(d),
+        h = oGd.$,
+        c;
+      (c = g.JudgeSR(g, e, f, d, h) || g.JudgeLR(g, e, f, d, h)) ?
+      (!g.isAttacking &&
+        ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
+        g.NormalAttack(c[0], c[1])) :
+      g.isAttacking &&
+        ((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
+    },
+    Stone_of_Sinan_Up: function() {
+      // 被磁铁吸了镐子调用的函数
+      var g = this; //alert(1);
+      if (g.isUp) {
+        g.EleBody.src =
+          g.PicArr[
+            g.isAttacking ?
+            (g.AttackGif = g.AttackGif_Up1) :
+            (g.NormalGif = g.WalkGif2)
+          ];
+      } else {
+        g.Go_Up(g, 0);
+      }
+      g.Stone_of_Sinan_Up = function() {};
+    },
+  });
    
