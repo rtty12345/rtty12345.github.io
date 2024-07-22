@@ -1,3 +1,4 @@
+SelectModal("ss")
 // 初始化游戏设置
 oS.Init({
     PName: [oSunFlower,oGloomShroom,oPumpkinHead,oGatlingPea,oSquash,oCactus,oTallNut,oGraveBuster,oDoomShroom], // 植物名称数组
@@ -11,11 +12,11 @@ oS.Init({
     CardKind: 1, // 卡片种类
     DKind: 0, // D种类
     LevelName:'三种僵尸', // 关卡名称
-    LvlEName: "ThreeZombies ", // 关卡E名称
+    LvlEName: "ThreeZombies", // 关卡E名称
     LoadMusic: "Mountains", // 加载音乐
     StartGameMusic: "Mountains", // 开始游戏音乐
     ArP: { // ArP对象
-        ArC: [1, 8], // ArC数组（列数）
+        ArC: [1, 7], // ArC数组（列数）
         ArR: [1, 5], // ArR数组（行数）
         Auto: 1, // 是否自动
         P: [
@@ -45,10 +46,13 @@ oS.Init({
         [3, 6, 4],
       [4, 7, 1],
      [4, 7, 5],
+     [4, 2, 3],
+     [4, 4, 3],
      [5, 1, 2],
      [5, 1, 4],
      [5, 5, 1],
      [5, 5, 5],
+     [5, 5, 3],
      [6, 4, 1],
      [6, 4, 5],
      [6, 7, 2],
@@ -57,14 +61,11 @@ oS.Init({
      [6, 6, 3],
      [7, 1, 1],
      [7, 2, 1],
-     [7, 3, 1],
+     [7, 8, 3],
      [7, 1, 5],
      [7, 2, 5],
-     [7, 3, 5],
-     [8, 2, 3],
-     [8, 3, 3],
-     [8, 4, 3],
-     [8, 5, 3]
+     [7, 7, 3],
+     [8, 3, 3]
 	] // P数组
     },
     // 自动增长谜题
