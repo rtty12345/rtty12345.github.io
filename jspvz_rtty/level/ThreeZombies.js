@@ -1,4 +1,3 @@
-SelectModal("ss")
 // 初始化游戏设置
 oS.Init({
     PName: [oSunFlower,oGloomShroom,oPumpkinHead,oGatlingPea,oSquash,oCactus,oTallNut,oGraveBuster,oDoomShroom], // 植物名称数组
