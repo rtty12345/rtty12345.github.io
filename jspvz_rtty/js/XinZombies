@@ -197,4 +197,117 @@ oNewspaperZombie1= InheritO(OrnIIZombies, {
     getHit1: function (b, a) {
       (b.HP -= a) < b.BreakPoint
         ? (b.GoingDie(
-            b.PicArr[[b.LostHeadGif, b
+            b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]
+          ),
+          (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
+          (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
+          (b.getHit =
+            b.getHit0 =
+            b.getHit1 =
+            b.getHit2 =
+            b.getHit3 =
+              function () {}))
+        : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0),
+          b.SetAlpha(b, b.EleBody, 50, 0.5),
+          oSym.addTask(
+            10,
+            function (d, c) {
+              (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
+            },
+            [b.id]
+          ));
+    },
+    getHit2: function (b, a) {
+      (b.HP -= a) < b.BreakPoint
+        ? (b.GoingDie(
+            b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]
+          ),
+          (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
+          (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
+          (b.getHit =
+            b.getHit0 =
+            b.getHit1 =
+            b.getHit2 =
+            b.getHit3 =
+              function () {}))
+        : (b.SetAlpha(b, b.EleBody, 50, 0.5),
+          oSym.addTask(
+            10,
+            function (d, c) {
+              (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
+            },
+            [b.id]
+          ));
+    },
+    getHit3: function (b, a) {
+      (b.HP -= a) < b.BreakPoint
+        ? (b.GoingDie(
+            b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]
+          ),
+          (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
+          (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
+          (b.getHit =
+            b.getHit0 =
+            b.getHit1 =
+            b.getHit2 =
+            b.getHit3 =
+              function () {}))
+        : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0),
+          b.SetAlpha(b, b.EleBody, 50, 0.5),
+          oSym.addTask(
+            10,
+            function (d, c) {
+              (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
+            },
+            [b.id]
+          ));
+    },
+    CheckOrnHP: function (g, h, d, c, f, b, a) {
+      var e = OrnNoneZombies.prototype;
+      (g.OrnHP = d -= c) < 1 &&
+        (a && (g.HP += d),
+        (g.ChkActs = function () {
+          return 1;
+        }),
+        (g.ChkActs1 = function () {
+          return 1;
+        }),
+        (g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random()),
+        (g.Ornaments = 0),
+        (g.LostHeadGif = 8),
+        (g.LostHeadAttackGif = 9),
+        (g.getFirePea = e.getFirePea),
+        (g.getSnowPea = e.getSnowPea),
+        (g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit),
+        oSym.addTask(
+          150,
+          function (m, l) {
+            var k = $Z[m];
+            if (!k) {
+              return;
+            }
+            var j = CZombies1.prototype,
+              i = (k.OSpeed = k.LostPaperSpeed);
+            k.Attack = j.Attack;
+            k.ChkActs = j.ChkActs;
+            k.ChkActs1 = j.ChkActs1;
+            k.Speed && (k.Speed = !k.FreeSlowTime ? i : 0.5 * i);
+            if (!k.beAttacked) {
+              return;
+            }
+            PlayAudio("newspaper_rarrgh2");
+            k.EleBody.src = l;
+            k.JudgeAttack();
+          },
+          [
+            h,
+            f[
+              [
+                (g.NormalGif = g.OrnLostNormalGif),
+                (g.AttackGif = g.OrnLostAttackGif),
+              ][b]
+            ],
+          ]
+        ));
+    },
+  }),
