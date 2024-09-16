@@ -1,3 +1,21 @@
+OrnIIZombies1 = InheritO(OrnNoneZombies, {
+    Ornaments: 2,
+    BreakPoint: 91,
+    NormalGif: 2,
+    AttackGif: 3,
+    LostHeadGif: 4,
+    LostHeadAttackGif: 5,
+    OrnLostNormalGif: 6,
+    OrnLostAttackGif: 7,
+    OrnLostHeadNormalGif: 8,
+    OrnLostHeadAttackGif: 9,
+    HeadGif: 10,
+    DieGif: 11,
+    BoomDieGif: 12,
+    Attack: 1000,
+  }),
+oNewspaperZombie1= InheritO(OrnIIZombies, {
+    EName: "oNewspaperZombie2",
 oNewspaperZombie1= InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie2",
     CName: "伪无名读报僵尸",
