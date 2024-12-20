@@ -598,8 +598,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	height: 176,
 	BookHandPosition: "70% 70%",
 	AudioArr: ["dancer"],
-	OSpeed: 7.2,
-	Speed: 7.2,
+	OSpeed: 100,
+	Speed: 100,
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
