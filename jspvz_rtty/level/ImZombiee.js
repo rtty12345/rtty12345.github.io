@@ -1,7 +1,7 @@
 // 初始化游戏设置
 oS.Init({
     PName: [oSunFlower, oPumpkinHead, oPotatoMine,oGarlic,oStarfruit,oPuffShroom,oWallNut,oSpikeweed,oSpiltPea,oSpikerock,oRepeater,oGloomShroom,oGatlingPea,oTorchwood], // 植物名称数组
-    ZName: [oNewspaperZombie2,oZomboni], // 僵尸名称数组
+    ZName: [oNewspaperZombie1,oZomboni], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
@@ -13,7 +13,7 @@ oS.Init({
     LevelName:'极速二爷测试', // 关卡名称
     LvlEName: "ImZombiee", // 关卡E名称
     LoadMusic: "Mountains", // 加载音乐
-    StartGameMusic: "losemusic", // 开始游戏音乐
+    StartGameMusic: "Mountains", // 开始游戏音乐
     ArP: { // ArP对象
         ArC: [1, 8], // ArC数组
         ArR: [1, 5], // ArR数组
