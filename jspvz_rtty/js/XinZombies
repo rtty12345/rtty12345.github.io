@@ -16,8 +16,6 @@ OrnIIZombies1 = InheritO(OrnNoneZombies, {
   }),
 oNewspaperZombie1= InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie2",
-oNewspaperZombie1= InheritO(OrnIIZombies, {
-    EName: "oNewspaperZombie2",
     CName: "伪无名读报僵尸",
     OrnHP: 150,
     HP: 800,
