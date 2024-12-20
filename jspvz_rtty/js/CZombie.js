@@ -769,7 +769,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		r];
 		func = function(t, o) {
 			var u = $Z[t];
-			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 100, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
 		};
 		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
 		oSym.addTask(c,
