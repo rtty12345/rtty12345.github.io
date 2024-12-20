@@ -597,9 +597,9 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	width: 184,
 	height: 176,
 	BookHandPosition: "70% 70%",
-	AudioArr: ["Explosion"]，
-	OSpeed: 100,
-	Speed: 100,
+	AudioArr: ["explosion"]，
+	OSpeed: 7.2,
+	Speed: 7.2，
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
@@ -769,7 +769,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		r];
 		func = function(t, o) {
 			var u = $Z[t];
-			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 100, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
 		};
 		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
 		oSym.addTask(c,
@@ -947,7 +947,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer)。CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oZomboni)。CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
@@ -1053,7 +1053,7 @@ OrnIZombies = function() {
 oConeheadZombie = InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障僵尸",
-	OrnHP: 370,
+	OrnHP: 500,
 	Lvl: 2,
 	SunNum: 75,
 	StandGif: 11,
@@ -1305,7 +1305,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	},
 	getFirePea: function(f, b, e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
-		f.Attack = 100;
+		f.Attack = 300;
 		var d = f.AttackedLX,
 		g = f.AttackedRX,
 		a = oZ.getArZ(d, d + 40, f.R),
@@ -1599,8 +1599,8 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	height: 200,
 	beAttackedPointL: 40,
 	beAttackedPointR: 100,
-	OSpeed: 3.2,
-	Speed: 3.2,
+	OSpeed:100，
+	Speed: 100,
 	Altitude: 1,
 	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">潜泳以避免遭到攻击<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
 	JumpTime: 40,
@@ -1907,8 +1907,8 @@ oZomboni = function() {
 		GetDY: function() {
 			return 0
 		},
-		OSpeed: 2.5,
-		Speed: 2.5,
+		OSpeed: 10,
+		Speed: 10,
 		AKind: 2,
 		Attack: 50,
 		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高</font><br>特点：<font color="#FF0000">碾压植物，留下条冰道</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
@@ -2404,7 +2404,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})(e.ZX, e.R), e.DisappearDie())
+				})(e.ZX, e.R), e.NormalDie())
 			},
 			[c]))
 		},
@@ -2464,7 +2464,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 oBalloonZombie = InheritO(OrnIZombies, {
 	EName: "oBalloonZombie",
 	CName: "气球僵尸",
-	OrnHP: 20,
+	OrnHP: 100,
 	SunNum: 100,
 	width: 207,
 	height: 197,
@@ -2617,7 +2617,7 @@ oDiggerZombie1 = InheritO(OrnNoneZombies, {
     CName: "矿工僵尸",
     Lvl: 4,
     SunNum: 225,
-    HP: 500,
+    HP: 270,
     BreakPoint: 70,
     width: 167,
     height: 170,
@@ -2730,7 +2730,7 @@ oDiggerZombie1 = InheritO(OrnNoneZombies, {
     AudioArr: ["zombie_entering_water"],
     Go_Up: function(a, WD) {
       // WD: 方向，1右0左
-      a.isUp = 1; //a.Ifgc=0;
+      a.isUp = 0; //a.Ifgc=0;
       a.beAttacked &&
         ((a.WalkDirection = WD),
           (a.BoomDieGif = 12),
