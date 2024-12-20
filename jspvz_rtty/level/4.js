@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie,oNewspaperZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie],
 	PicArr: ["images/interface/background1unsodded2.jpg", "images/interface/background1.jpg"],
 	backgroundImage: "images/interface/background1unsodded2.jpg",
 	CanSelectCard: 0,
