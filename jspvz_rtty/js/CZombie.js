@@ -597,7 +597,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	width: 184,
 	height: 176,
 	BookHandPosition: "70% 70%",
-	AudioArr: ["dancer"],
+	AudioArr: ["Explosion"]，
 	OSpeed: 100,
 	Speed: 100,
 	NormalGif: 9,
@@ -947,7 +947,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie)。CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer)。CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
@@ -1244,7 +1244,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	LostPaperSpeed: 4.8,
+	LostPaperSpeed: 100,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
