@@ -928,7 +928,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		d.ChkActs = d.ChkTmp;
 		d.ChkTmp = b;
 		a.src = "images/Zombies/DancingZombie/Summon1.gif";
-		PlayAudio("dancer");
+		PlayAudio("Explosion");
 		oSym.addTask(10,
 		function(f, e) {
 			var g = $Z[f];
@@ -947,7 +947,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie)。CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
