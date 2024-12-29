@@ -1101,8 +1101,8 @@ oFootballZombie = InheritO(oConeheadZombie, {
 	height: 160,
 	OSpeed: 3.2,
 	Speed: 3.2,
-	beAttackedPointL: 1000,
-	beAttackedPointR: 134,
+	beAttackedPointL: 500,
+	beAttackedPointR: 500,
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
@@ -1123,8 +1123,8 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	height: 218,
 	OSpeed: 3.2,
 	Speed: 3.2,
-	beAttackedPointL: 215,
-	beAttackedPointR: 260,
+	beAttackedPointL: 300,
+	beAttackedPointR: 300,
 	StandGif: 13,
 	GetDX: function() {
 		return - 238
@@ -1239,13 +1239,14 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	CName: "读报僵尸",
 	OrnHP: 150,
 	Lvl: 2,
+	HP:400,
 	LostPaperGif: 13,
 	StandGif: 14,
 	width: 216,
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	LostPaperSpeed: 4.8,
+	LostPaperSpeed: 30,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
