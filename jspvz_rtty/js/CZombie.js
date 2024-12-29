@@ -447,6 +447,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	CName: "伴舞僵尸",
 	OSpeed: 3.5,
 	Speed: 3.5,
+	HP:540,
 	Lvl: 1,
 	StandGif: 9,
 	CanSelect: 0,
@@ -587,7 +588,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 oDancingZombie = InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
-	HP: 500,
+	HP: 1000,
 	BreakPoint: 166,
 	Lvl: 3,
 	StandGif: 9,
@@ -947,7 +948,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer)。CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
@@ -1100,7 +1101,7 @@ oFootballZombie = InheritO(oConeheadZombie, {
 	height: 160,
 	OSpeed: 3.2,
 	Speed: 3.2,
-	beAttackedPointL: 40,
+	beAttackedPointL: 1000,
 	beAttackedPointR: 134,
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
