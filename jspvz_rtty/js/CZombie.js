@@ -1024,8 +1024,8 @@ oFlagZombie = InheritO(oZombie, {
 	})(),
 	EName: "oFlagZombie",
 	CName: "旗帜僵尸",
-	OSpeed: 2.2,
-	Speed: 2.2,
+	OSpeed: 10,
+	Speed: 10,
 	beAttackedPointR: 101,
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
