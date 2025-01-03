@@ -1028,7 +1028,7 @@ oFlagZombie = InheritO(oZombie, {
 	Speed: 10,
 	HP:500,
 	beAttackedPointR: 101,
-	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快，无视植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
+	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
 OrnIZombies = function() {
 	var a = function(f, b) {
@@ -1374,7 +1374,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	CName: "铁栅门僵尸",
 	OrnHP: 10000,
 	Lvl: 3,
-	SunNum: 100,
+	SunNum: 200,
 	StandGif: 13,
 	width: 166,
 	height: 144,
@@ -1556,7 +1556,7 @@ oDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	EName: "oDuckyTubeZombie2",
 	CName: "路障鸭子救生圈僵尸",
-	OrnHP: 370,
+	OrnHP: 500,
 	Lvl: 2,
 	SunNum: 75,
 	CanDisplay: 0,
@@ -1580,7 +1580,7 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	EName: "oDuckyTubeZombie3",
 	CName: "铁桶鸭子救生圈僵尸",
-	OrnHP: 1100,
+	OrnHP: 1000,
 	Lvl: 3,
 	SunNum: 125,
 	PlayNormalballAudio: function() {
@@ -1906,7 +1906,7 @@ oZomboni = function() {
 		beAttackedPointL: 140,
 		beAttackedPointR: 290,
 		BreakPoint: 200,
-		SunNum: 350,
+		SunNum:250,
 		GetDY: function() {
 			return 0
 		},
@@ -2110,7 +2110,7 @@ oZomboni = function() {
 oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	EName: "oDolphinRiderZombie",
 	CName: "海豚骑士僵尸",
-	HP: 500,
+	HP: 800,
 	Lvl: 2,
 	BreakPoint: 167,
 	width: 282,
@@ -2315,7 +2315,7 @@ oImp = InheritO(OrnNoneZombies, {
 oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
-	SunNum: 100,
+	SunNum: 150,
 	HP: 500,
 	BreakPoint: 167,
 	Lvl: 3,
@@ -2468,7 +2468,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	EName: "oBalloonZombie",
 	CName: "气球僵尸",
 	OrnHP: 20,
-	SunNum: 100,
+	SunNum: 125,
 	width: 207,
 	height: 197,
 	beAttackedPointL: 30,
