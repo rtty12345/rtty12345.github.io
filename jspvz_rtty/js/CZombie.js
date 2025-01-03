@@ -599,8 +599,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	height: 176,
 	BookHandPosition: "70% 70%",
 	AudioArr: ["dancer"],
-	OSpeed:7.2,
-	Speed:7.2,
+	OSpeed:100,
+	Speed:100,
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
@@ -632,7 +632,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		b = d + "spotlight2" + c + ".png" + $Random;
 		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
 	})(),
-	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">较高（1000）</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
 	getSnowPea: function() {
 		this.PlaySlowballAudio();
 	},
@@ -770,7 +770,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		r];
 		func = function(t, o) {
 			var u = $Z[t];
-			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 100, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
 		};
 		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
 		oSym.addTask(c,
@@ -948,7 +948,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
@@ -1026,8 +1026,10 @@ oFlagZombie = InheritO(oZombie, {
 	CName: "旗帜僵尸",
 	OSpeed: 10,
 	Speed: 10,
+	HP:500,
+	CanPass:1,
 	beAttackedPointR: 101,
-	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
+	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快，无视植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
 OrnIZombies = function() {
 	var a = function(f, b) {
@@ -1072,7 +1074,7 @@ oConeheadZombie = InheritO(OrnIZombies, {
 oBucketheadZombie = InheritO(oConeheadZombie, {
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
-	OrnHP: 1100,
+	OrnHP: 1000,
 	Lvl: 3,
 	SunNum: 125,
 	PlayNormalballAudio: function() {
@@ -1093,7 +1095,7 @@ oBucketheadZombie = InheritO(oConeheadZombie, {
 oFootballZombie = InheritO(oConeheadZombie, {
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
-	OrnHP: 1400,
+	OrnHP: 2800,
 	Lvl: 3,
 	SunNum: 175,
 	StandGif: 11,
@@ -1118,7 +1120,7 @@ oFootballZombie = InheritO(oConeheadZombie, {
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
-	HP: 500,
+	HP: 300,
 	width: 348,
 	height: 218,
 	OSpeed: 3.2,
@@ -1140,7 +1142,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/PoleVaultingZombie.png", a + "0.gif", a + "PoleVaultingZombie.gif", a + "PoleVaultingZombieAttack.gif", a + "PoleVaultingZombieLostHead.gif", a + "PoleVaultingZombieLostHeadAttack.gif", a + "PoleVaultingZombieHead.gif" + $Random, a + "PoleVaultingZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "PoleVaultingZombieWalk.gif", a + "PoleVaultingZombieLostHeadWalk.gif", a + "PoleVaultingZombieJump.gif", a + "PoleVaultingZombieJump2.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["polevault", "grassstep"],
-	Produce: '撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+	Produce: '撑杆僵尸影子在贴图后一格，免疫直线子弹，不免疫穿透和灰烬<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">如 跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
 	},
@@ -1234,10 +1236,10 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	DieGif: 11,
 	BoomDieGif: 12
 }),
-oNewspaperZombie = InheritO(OrnIIZombies, {
+oNewspaperZombie = InheritO(OrnIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "读报僵尸",
-	OrnHP: 150,
+	OrnHP: 20,
 	Lvl: 2,
 	HP:400,
 	LostPaperGif: 13,
@@ -1371,7 +1373,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	EName: "oScreenDoorZombie",
 	CName: "铁栅门僵尸",
-	OrnHP: 1100,
+	OrnHP: 10000,
 	Lvl: 3,
 	SunNum: 100,
 	StandGif: 13,
@@ -1387,7 +1389,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Produce: '他的铁栅门是有效的盾牌。<p>韧性：<font color="#FF0000">低</font><br>铁栅门韧性：<font color="#FF0000">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
+	Produce: '他的铁栅门是有效的盾牌。<p>韧性：<font color="#FF0000">低</font><br>铁栅门韧性：<font color="#FF0000">极高（10000）</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
@@ -1877,12 +1879,12 @@ oZomboni = function() {
 	var a = function(d, b) {
 		var c = d.HP;
 		switch (true) {
-		case(d.HP = c -= b) < 200 : d.GoingDie();
+		case(d.HP = c -= b) < 0 : d.GoingDie();
 			d.getHit0 = d.getHit1 = d.getHit2 = d.getHit3 = function() {};
 			return;
-		case c < 391 : d.EleBody.src = "images/Zombies/Zomboni/3.gif";
+		case c < 700 : d.EleBody.src = "images/Zombies/Zomboni/3.gif";
 			break;
-		case c < 871 : d.EleBody.src = "images/Zombies/Zomboni/2.gif"
+		case c < 1400 : d.EleBody.src = "images/Zombies/Zomboni/2.gif"
 		}
 		d.SetAlpha(d, d.EleBody, 50, 0.5);
 		oSym.addTask(10,
@@ -1892,8 +1894,8 @@ oZomboni = function() {
 	};
 	return InheritO(OrnNoneZombies, {
 		EName: "oZomboni",
-		CName: "冰车僵尸",
-		HP: 1350,
+		CName: "重型冰车僵尸",
+		HP: 2100,
 		Lvl: 3,
 		StandGif: 2,
 		DieGif: 6,
@@ -1909,11 +1911,11 @@ oZomboni = function() {
 		GetDY: function() {
 			return 0
 		},
-		OSpeed: 2.5,
-		Speed: 2.5,
+		OSpeed: 2,
+		Speed: 2,
 		AKind: 2,
 		Attack: 50,
-		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高</font><br>特点：<font color="#FF0000">碾压植物，留下条冰道</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
+		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高（2100）</font><br>特点：<font color="#FF0000">碾压植物，留下条冰道</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
 		PicArr: (function() {
 			var b = "images/Zombies/Zomboni/";
 			return ["images/Card/Zombies/Zomboni.png", b + "0.gif", b + "1.gif", b + "2.gif", b + "3.gif", b + "4.gif", b + "5.gif" + $Random, b + "BoomDie.gif" + $Random, b + "ice.png", b + "ice_cap.png"]
