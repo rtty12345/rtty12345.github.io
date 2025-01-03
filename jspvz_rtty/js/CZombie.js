@@ -599,8 +599,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	height: 176,
 	BookHandPosition: "70% 70%",
 	AudioArr: ["dancer"],
-	OSpeed:100,
-	Speed:100,
+	OSpeed:50,
+	Speed:50,
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
@@ -770,7 +770,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		r];
 		func = function(t, o) {
 			var u = $Z[t];
-			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 100, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 50, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
 		};
 		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
 		oSym.addTask(c,
@@ -948,7 +948,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
@@ -1027,7 +1027,6 @@ oFlagZombie = InheritO(oZombie, {
 	OSpeed: 10,
 	Speed: 10,
 	HP:500,
-	CanPass:1,
 	beAttackedPointR: 101,
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快，无视植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
