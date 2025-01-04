@@ -886,7 +886,7 @@ oPumpkinHead = InheritO(CPlants, {
 	beAttackedPointR: 82,
 	SunNum: 125,
 	PKind: 2,
-	HP: 4000,
+	HP: 5000,
 	coolTime: 30,
 	zIndex: 1,
 	PicArr: ["images/Card/Plants/PumpkinHead.png", "images/Plants/PumpkinHead/0.gif", "images/Plants/PumpkinHead/PumpkinHead.gif", "images/Plants/PumpkinHead/PumpkinHead1.gif", "images/Plants/PumpkinHead/PumpkinHead2.gif", "images/Plants/PumpkinHead/pumpkin_damage1.gif", "images/Plants/PumpkinHead/pumpkin_damage2.gif", "images/Plants/PumpkinHead/Pumpkin_back.gif"],
