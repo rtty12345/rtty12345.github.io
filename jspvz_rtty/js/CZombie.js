@@ -1068,7 +1068,7 @@ oConeheadZombie = InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。'
+	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中(500+270)</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。'
 }),
 oBucketheadZombie = InheritO(oConeheadZombie, {
 	EName: "oBucketheadZombie",
@@ -1096,7 +1096,7 @@ oFootballZombie = InheritO(oConeheadZombie, {
 	CName: "橄榄球僵尸",
 	OrnHP: 2000,
 	Lvl: 3,
-	SunNum: 175,
+	SunNum: 200,
 	StandGif: 11,
 	width: 154,
 	height: 160,
@@ -1114,7 +1114,7 @@ oFootballZombie = InheritO(oConeheadZombie, {
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
 	},
-	Produce: '橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">极高</font><br>速度：<font color="#FF0000">快</font><br>弱点：<font color="#FF0000">磁力菇</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。'
+	Produce: '橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">极高(2000+270)</font><br>速度：<font color="#FF0000">快</font><br>弱点：<font color="#FF0000">磁力菇</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。'
 }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
@@ -1141,7 +1141,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/PoleVaultingZombie.png", a + "0.gif", a + "PoleVaultingZombie.gif", a + "PoleVaultingZombieAttack.gif", a + "PoleVaultingZombieLostHead.gif", a + "PoleVaultingZombieLostHeadAttack.gif", a + "PoleVaultingZombieHead.gif" + $Random, a + "PoleVaultingZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "PoleVaultingZombieWalk.gif", a + "PoleVaultingZombieLostHeadWalk.gif", a + "PoleVaultingZombieJump.gif", a + "PoleVaultingZombieJump2.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["polevault", "grassstep"],
-	Produce: '撑杆僵尸影子在贴图后一格，免疫直线子弹，不免疫穿透和灰烬<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">如 跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+	Produce: '撑杆僵尸影子在贴图后一格，免疫直线子弹，不免疫穿透和灰烬<p>韧性：<font color="#FF0000">中(300)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">如 跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
 	},
@@ -1247,6 +1247,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
+	SunNum: 100,
 	LostPaperSpeed: 25,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
