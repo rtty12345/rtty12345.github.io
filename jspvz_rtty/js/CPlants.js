@@ -527,6 +527,7 @@ oRepeater = InheritO(oPeashooter, {
 	CName: "双发射手",
 	width: 73,
 	height: 71,
+	BKind:0,
 	beAttackedPointR: 53,
 	SunNum: 200,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
@@ -549,6 +550,7 @@ oThreepeater = InheritO(oPeashooter, {
 	CName: "三线射手",
 	width: 73,
 	height: 80,
+	BKind:-1,
 	beAttackedPointR: 53,
 	SunNum: 325,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
@@ -654,7 +656,7 @@ oGatlingPea = InheritO(oPeashooter, {
 			var c = $P[d];
 			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id, 3])
+		[this.id，5])
 	}
 }),
 oSplitPea = InheritO(oPeashooter, {
