@@ -656,7 +656,7 @@ oGatlingPea = InheritO(oPeashooter, {
 			var c = $P[d];
 			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id，5])
+		[this.id,5])
 	}
 }),
 oSplitPea = InheritO(oPeashooter, {
