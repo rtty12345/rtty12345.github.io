@@ -518,7 +518,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
 		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
 	},
-	Produce: '当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#FF0000">低</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
+	Produce: '当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#FF0000">中（400）</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
 	BirthCallBack: function(e) {
 		var d = e.delayT,
 		c = e.id,
@@ -1235,6 +1235,22 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	DieGif: 11,
 	BoomDieGif: 12
 }),
+    OrnIIZombies1 = InheritO(OrnNoneZombies, {
+    Ornaments: 2,
+    BreakPoint: 91,
+    NormalGif: 2,
+    AttackGif: 3,
+    LostHeadGif: 4,
+    LostHeadAttackGif: 5,
+    OrnLostNormalGif: 6,
+    OrnLostAttackGif: 7,
+    OrnLostHeadNormalGif: 8,
+    OrnLostHeadAttackGif: 9,
+    HeadGif: 10,
+    DieGif: 11,
+    BoomDieGif: 12,
+    Attack: 800,
+  }),
 oNewspaperZombie = InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "读报僵尸",
@@ -1309,7 +1325,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	},
 	getFirePea: function(f, b, e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
-		f.Attack = 100;
+		f.Attack = 800;
 		var d = f.AttackedLX,
 		g = f.AttackedRX,
 		a = oZ.getArZ(d, d + 40, f.R),
