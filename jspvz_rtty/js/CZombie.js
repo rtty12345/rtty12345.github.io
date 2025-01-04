@@ -487,7 +487,7 @@ OrnNoneZombies1= function() {
 			e < b && (f.FreeSlowTime = b, oSym.addTask(1000,
 			function(h, d) {
 				var i = $Z[h];
-				i && i.FreeSlowTime == d && (i.FreeSlowTime = 0, i.Attack = 100, i.Speed && (i.Speed = i.OSpeed))
+				i && i.FreeSlowTime == d && (i.FreeSlowTime = 0, i.Attack =800, i.Speed && (i.Speed = i.OSpeed))
 			},
 			[f.id, b]));
 			f.getHit0(f, c, g)
