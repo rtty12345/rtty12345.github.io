@@ -527,14 +527,14 @@ oRepeater = InheritO(oPeashooter, {
 	CName: "双发射手",
 	width: 73,
 	height: 71,
-	BKind:0,
+	BKind:-1,
 	beAttackedPointR: 53,
 	SunNum: 200,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次发射两颗豌豆",
 	Produce: '双发射手可以一次发射两颗豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
-	NormalAttack1: oPeashooter.prototype.NormalAttack,
+	NormalAttack1: oSnowPea.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
