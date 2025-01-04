@@ -1388,7 +1388,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低</font><br>铁门韧性：<font color="#FF0000">极高（10000）</font><br>弱点：大喷菇和磁力菇</p>made in China!'，
+	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低</font><br>铁门韧性：<font color="#FF0000">极高（10000）</font><br>弱点：大喷菇和磁力菇</p>made in China!',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
