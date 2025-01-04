@@ -2404,7 +2404,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 3.6,
 	Speed: 3.6,
-	Produce: '这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
 	PicArr: (function() {
 		var a = "images/Zombies/JackinTheBoxZombie/";
@@ -2536,7 +2536,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 oBalloonZombie = InheritO(OrnIZombies, {
 	EName: "oBalloonZombie",
 	CName: "气球僵尸",
-	OrnHP: 20,
+	OrnHP:100,
 	SunNum: 125,
 	width: 207,
 	height: 197,
