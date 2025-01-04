@@ -447,7 +447,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	CName: "伴舞僵尸",
 	OSpeed: 3.5,
 	Speed: 3.5,
-	HP:540,
+	HP:400,
 	Lvl: 1,
 	StandGif: 9,
 	CanSelect: 0,
@@ -588,7 +588,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 oDancingZombie = InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
-	HP: 1000,
+	HP: 600,
 	BreakPoint: 166,
 	Lvl: 3,
 	StandGif: 9,
@@ -1026,7 +1026,7 @@ oFlagZombie = InheritO(oZombie, {
 	CName: "旗帜僵尸",
 	OSpeed: 10,
 	Speed: 10,
-	HP:500,
+	HP:400,
 	beAttackedPointR: 101,
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
@@ -1094,7 +1094,7 @@ oBucketheadZombie = InheritO(oConeheadZombie, {
 oFootballZombie = InheritO(oConeheadZombie, {
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
-	OrnHP: 2800,
+	OrnHP: 2000,
 	Lvl: 3,
 	SunNum: 175,
 	StandGif: 11,
@@ -1134,7 +1134,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return 2
 	},
 	Lvl: 2,
-	SunNum: 75,
+	SunNum: 125,
 	BookHandPosition: "-30px 70%",
 	PicArr: (function() {
 		var a = "images/Zombies/PoleVaultingZombie/";
@@ -1238,7 +1238,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 oNewspaperZombie = InheritO(OrnIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "读报僵尸",
-	OrnHP: 20,
+	OrnHP: 400,
 	Lvl: 2,
 	HP:400,
 	LostPaperGif: 13,
@@ -1247,13 +1247,13 @@ oNewspaperZombie = InheritO(OrnIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	LostPaperSpeed: 30,
+	LostPaperSpeed: 25,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
+	Produce: '他的报纸只能提供有限的防御，报纸优先承伤<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">中（400）</font><br>速度：正常，而后超级快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -1371,7 +1371,7 @@ oNewspaperZombie = InheritO(OrnIZombies, {
 }),
 oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	EName: "oScreenDoorZombie",
-	CName: "铁栅门僵尸",
+	CName: "铁门僵尸",
 	OrnHP: 10000,
 	Lvl: 3,
 	SunNum: 200,
@@ -1388,7 +1388,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Produce: '他的铁栅门是有效的盾牌。<p>韧性：<font color="#FF0000">低</font><br>铁栅门韧性：<font color="#FF0000">极高（10000）</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
+	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低</font><br>铁门韧性：<font color="#FF0000">极高（10000）</font><br>弱点：大喷菇和磁力菇</p>made in China!'，
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
@@ -1602,8 +1602,8 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	height: 200,
 	beAttackedPointL: 40,
 	beAttackedPointR: 100,
-	OSpeed: 3.2,
-	Speed: 3.2,
+	OSpeed: 5,
+	Speed:5,
 	Altitude: 1,
 	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">潜泳以避免遭到攻击<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
 	JumpTime: 40,
@@ -2139,7 +2139,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DolphinRiderZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Jump2.gif" + $Random, a + "Walk3.gif", a + "Walk4.gif", a + "Die2.gif" + $Random, a + "Jump3.gif" + $Random]
 	})(),
 	AudioArr: ["dolphin_before_jumping", "dolphin_appears", "zombie_entering_water"],
-	Produce: '海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
+	Produce: '海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#FF0000">中(800)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
