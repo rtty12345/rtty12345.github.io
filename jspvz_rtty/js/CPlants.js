@@ -619,7 +619,7 @@ oThreepeater = InheritO(oPeashooter, {
 }),
 oGatlingPea = InheritO(oPeashooter, {
 	EName: "oGatlingPea",
-	CName: "加特林",
+	CName:"机枪射手",
 	width: 88,
 	height: 84,
 	beAttackedPointR: 68,
