@@ -1251,7 +1251,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
     BoomDieGif: 12,
     Attack: 800,
   }),
-oNewspaperZombie = InheritO(OrnIIZombies, {
+oNewspaperZombie = InheritO(OrnIIZombies1, {
 	EName: "oNewspaperZombie",
 	CName: "读报僵尸",
 	OrnHP: 40,
