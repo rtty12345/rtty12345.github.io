@@ -2509,7 +2509,7 @@ oBlover = InheritO(CPlants, {
 		var id = this.id, z, oBalloon;
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
-		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(); //把气球吹跑
+		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie,oZombie,oZombie2,oZombie3,oImp') && oBalloon.getDispelled(); //把气球吹跑
 
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
