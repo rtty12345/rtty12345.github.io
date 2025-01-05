@@ -1974,7 +1974,7 @@ oZomboni = function() {
 		GetDTop: 104,
 		beAttackedPointL: 140,
 		beAttackedPointR: 290,
-		BreakPoint: 200,
+		BreakPoint: 0,
 		SunNum:250,
 		GetDY: function() {
 			return 0
