@@ -265,7 +265,7 @@ oStarfruit = InheritO(CPlants, {
 	height: 70,
 	beAttackedPointR: 57,
 	canEat: 0,
-	SunNum: 150,
+	SunNum: 200,
 	GetDY: function(b, c, a) {
 		return a[0] ? -17 : -10
 	},
