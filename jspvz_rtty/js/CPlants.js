@@ -550,7 +550,7 @@ oThreepeater = InheritO(oPeashooter, {
 	CName: "三线射手",
 	width: 73,
 	height: 80,
-	BKind:-1,
+	BKind:1,
 	beAttackedPointR: 53,
 	SunNum: 325,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
@@ -572,13 +572,13 @@ oThreepeater = InheritO(oPeashooter, {
 				X: e,
 				R: b,
 				D: 0,
-				Attack: 20,
-				Kind: 0,
+				Attack: 40,
+				Kind: 1,
 				ChangeC: 0,
 				pixelLeft: d,
 				F: oGd.MB1
 			}));
-			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+			f.BulletEle.push(NewImg(0, "images/Plants/PB10.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
 		}
 	},
 	PrivateDie: function(a) {
@@ -602,7 +602,7 @@ oThreepeater = InheritO(oPeashooter, {
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
 				f = oZ["getZ" + e](p, k);
-				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				o == 1 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
 					0 : "getPea",
