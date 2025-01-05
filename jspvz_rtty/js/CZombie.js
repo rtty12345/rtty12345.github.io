@@ -1049,7 +1049,7 @@ oZombie = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/Zombie/";
 		return ["images/Card/Zombies/Zombie.png", a + "0.gif", a + "Zombie.gif", a + "ZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
-	Produce: '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。'
+	Produce: '韧性：<font color="#FF0000">低</font></p>理想很美好。'
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2"
