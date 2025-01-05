@@ -2385,7 +2385,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
 	SunNum: 150,
-	HP: 500,
+	HP: 800,
 	BreakPoint: 167,
 	Lvl: 3,
 	Status: 1,
@@ -2411,7 +2411,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
 	RandomOpenBox: function(a) {
-		oSym.addTask(Math.floor(Math.random() * 100) > 4 ? Math.floor(1325 + Math.random() * 976) : Math.floor(450 + Math.random() * 301),
+		oSym.addTask(Math.floor(Math.random() * 100) > 50? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
 		function(c) {
 			var b = $Z[c];
 			b && b.beAttacked && b.OpenBox(c)
@@ -2476,7 +2476,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})(e.ZX, e.R), e.DisappearDie())
+				})， 
 			},
 			[c]))
 		},
