@@ -2476,7 +2476,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})， 
+				})
 			},
 			[c]))
 		},
