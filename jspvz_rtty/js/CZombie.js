@@ -650,7 +650,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	width: 184,
 	height: 176,
 	BookHandPosition: "70% 70%",
-	AudioArr: ["dancer"],
+	AudioArr: ["Beatit"],
 	OSpeed:30,
 	Speed:30,
 	NormalGif: 9,
@@ -981,7 +981,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		d.ChkActs = d.ChkTmp;
 		d.ChkTmp = b;
 		a.src = "images/Zombies/DancingZombie/Summon1.gif";
-		PlayAudio("dancer");
+		PlayAudio("Beatit");
 		oSym.addTask(10,
 		function(f, e) {
 			var g = $Z[f];
