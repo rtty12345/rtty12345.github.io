@@ -1305,7 +1305,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
   }),
 oNewspaperZombie = InheritO(OrnIIZombies1, {
 	EName: "oNewspaperZombie",
-	CName: "读报僵尸",
+	CName: "你亲爱的二爷",
 	OrnHP: 40,
 	Lvl: 2,
 	HP:400,
@@ -1322,7 +1322,7 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的报纸只能提供有限的防御<p>韧性：<font color="#FF0000">中（400）</font><br>报纸韧性：<font color="#FF0000">超低（40）</font><br>速度：正常，而后超级快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（400）</font><br>报纸韧性：<font color="#FF0000">超低（40）</font><br>速度：正常，而后超级快(失去报纸后)</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
