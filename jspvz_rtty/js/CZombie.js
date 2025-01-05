@@ -644,7 +644,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	BreakPoint: 166,
 	Lvl: 3,
 	StandGif: 9,
-	SunNum: 350,
+	SunNum: 400,
 	beAttackedPointL: 40,
 	beAttackedPointR: 85,
 	width: 184,
