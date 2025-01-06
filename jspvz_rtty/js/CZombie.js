@@ -449,9 +449,9 @@ OrnNoneZombies1= function() {
 			c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {};
 			return
 		}
-		c.SetAlpha(c, c.EleBody, 50, 0.5);
+		c.SetAlpha(c, c.EleBody,400,0.5);
 		oSym.addTask(10,
-		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
+		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
 		},
 		[c.id])
 	};
