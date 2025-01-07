@@ -1438,7 +1438,7 @@ oNewspaperZombie = InheritO(OrnIZombies1, {
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
 }),
-  oNewspaperZombie = InheritO(OrnIIZombies, {
+  oNewspaperZombie1= InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie",
     CName: "读报僵尸",
     OrnHP: 180,
