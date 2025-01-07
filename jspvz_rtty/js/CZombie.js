@@ -157,12 +157,30 @@ var CZombies = function(b, a) {
 			return this.DisappearDie(),
 			1
 		},
-		getExplosion: function() {
-			this.ExplosionDie()
-		},
-		getThump: function() {
-			this.DisappearDie()
-		},
+        getExplosion: function(Attack , howDie , callback) {
+            Attack = Attack == undefined?1800:Attack;
+            howDie = howDie == undefined?"ExplosionDie":howDie;
+            if(this.OrnHP>=Attack){
+                this.OrnHP-=Attack;
+            }else if(this.OrnHP<1){
+                if(this.HP>Attack){
+                    this.HP-=Attack;
+                }else if(this.HP<=Attack){
+                    this[howDie](this);
+                }
+            }else if(this.OrnHP<Attack && this.OrnHP>1){
+                if(this.OrnHP+this.HP>Attack){
+                    this.OrnHP=0;
+                    this.HP-=(Attack-this.OrnHP);
+                }else if(this.OrnHP+this.HP<=Attack){
+                    this[howDie](this);
+                }
+            }
+            callback && callback();
+        },
+        getThump: function(Attack,callback) {
+            this.getExplosion(Attack,"DisappearDie",callback);
+        },
 		PlayNormalballAudio: function() {
 			PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 		},
