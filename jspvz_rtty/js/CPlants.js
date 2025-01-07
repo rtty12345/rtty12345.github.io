@@ -716,7 +716,100 @@ oSplitPea = InheritO(oPeashooter, {
 		},
 		[this.id, a, b])
 	},
-	NormalAttack: function(c) {
+		NormalAttack: function() {
+		var g = this,
+		f = g.pixelLeft + 38,
+		d = f - 15,
+		b = g.pixelTop + 20,
+		c = g.R,
+		e = f + 15,
+		a = function(j, i, h) {
+			return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
+		}; (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(m, k, l, i, j) {
+				j(oZ.getZ1(m, k), 4, i) && ((m -= 5) < 100 ? ClearChild(i) : (i.style.left = (l -= 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+			},
+			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(m, n, l, k, i, j) {
+				j(oZ.getRangeLeftZ(m, n, l), 6, i) && ((k -= 5) < -15 ? ClearChild(i) : (i.style.top = k + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
+			},
+			[d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(m, n, l, k, i, j) {
+				j(oZ.getRangeLeftZ(m, n, l), 2, i) && ((k += 5) > 600 ? ClearChild(i) : (i.style.top = k + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
+			},
+			[d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 7, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 1, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random())
+	}
+}),
+	NormalAttack1: function(c) {
 		var d = this,
 		e, a = c ? (oSym.addTask(15,
 		function(f) {
