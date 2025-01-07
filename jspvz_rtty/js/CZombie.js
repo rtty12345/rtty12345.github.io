@@ -515,8 +515,8 @@ OrnNoneZombies1= function() {
 oBackupDancer = InheritO(OrnNoneZombies, {
 	EName: "oBackupDancer",
 	CName: "伴舞僵尸",
-	OSpeed: 3.5,
-	Speed: 3.5,
+	OSpeed:5,
+	Speed: 5,
 	HP:400,
 	Lvl: 1,
 	StandGif: 9,
