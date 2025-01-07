@@ -1728,7 +1728,7 @@ oNewspaperZombie = InheritO(OrnIZombies1, {
           ));
     },
   }),
-oScreenDoorZombie = InheritO(oNewspaperZombie, {
+oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
 	CName: "铁门僵尸",
 	OrnHP: 10000,
