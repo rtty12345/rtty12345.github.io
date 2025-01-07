@@ -1287,7 +1287,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	DieGif: 11,
 	BoomDieGif: 12
 }),
-    OrnIIZombies1 = InheritO(OrnNoneZombies1, {
+    OrnIZombies1 = InheritO(OrnNoneZombies1, {
     Ornaments: 2,
     BreakPoint: 91,
     NormalGif: 2,
@@ -1303,7 +1303,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
     BoomDieGif: 12,
     Attack: 800,
   }),
-oNewspaperZombie = InheritO(OrnIIZombies1, {
+oNewspaperZombie = InheritO(OrnIZombies1, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 40,
