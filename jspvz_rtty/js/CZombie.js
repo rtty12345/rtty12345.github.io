@@ -1306,7 +1306,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	BoomDieGif: 12
 }),
     OrnIIZombies1 = InheritO(OrnNoneZombies1, {
-    Ornaments: 1,
+    Ornaments: 2,
     BreakPoint: 91,
     NormalGif: 2,
     AttackGif: 3,
