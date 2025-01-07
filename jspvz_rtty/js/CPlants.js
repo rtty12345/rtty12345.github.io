@@ -1052,7 +1052,7 @@ oPotatoMine = InheritO(CPlants, {
 		c = oZ.getArZ(j, h, e),
 		f = c.length,
 		a;
-		while (f--) { (a = c[f]).Altitude < 2 && a.getThump()
+		while (f--) { (a = c[f]).Altitude < 2 && a.getThump(1000)
 		}
 		g.Die(1);
 		PlayAudio("potato_mine");
@@ -1335,7 +1335,7 @@ oCherryBomb = InheritO(CPlants, {
 				do {
 					h = (d = oZ.getArZ(l, k, g)).length;
 					while (h--) {
-						d[h].getExplosion()
+						d[h].getExplosion(2000)
 					}
 				} while ( g ++< e );
 				c.Die(1);
@@ -1382,7 +1382,7 @@ oJalapeno = InheritO(oCherryBomb, {
 				g = oGd.$Ice[f],
 				d = oGd.$Crater;
 				while (e--) {
-					c[e].getExplosion()
+					c[e].getExplosion(2000)
 				}
 				h.Die(1);
 				EditEle(b.childNodes[1], {
@@ -1580,7 +1580,7 @@ oSquash = InheritO(CPlants, {
 			var g = oZ.getArZ(l, l + 100, j),
 			h = g.length,
 			k;
-			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.getThump()
+			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.getThump(1500)
 			}
 			oSym.addTask(185, ClearChild, [f])
 		},
@@ -2125,7 +2125,7 @@ oDoomShroom = InheritO(oFumeShroom, {
 				do {
 					k = (e = oZ.getArZ(n, m, h)).length;
 					while (k--) {
-						e[k].getExplosion()
+						e[k].getExplosion(10000)
 					}
 				} while ( h ++< f );
 				PlayAudio("doomshroom");
