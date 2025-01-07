@@ -1369,7 +1369,7 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 		case(h -= g) < 1 : e.HP = 0;
 			e.NormalDie();
 			return;
-		case h < 91 : e.HP = h;
+		case h < 1 : e.HP = h;
 			e.GoingDie(d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]);
 			return
 		}
