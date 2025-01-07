@@ -1122,28 +1122,6 @@ OrnIZombies = function() {
 		getHit3: a
 	})
 } (),
-OrnIZombies1= function() {
-	var a = function(f, b) {
-		var d = f.OrnHP,
-		c = f.HP,
-		e = OrnNoneZombies.prototype; (d = f.OrnHP -= b) < 1 && (f.HP += d, f.Ornaments = 0, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit);
-		f.SetAlpha(f, f.EleBody, 50, 0.5);
-		oSym.addTask(10,
-		function(h, g) { (g = $Z[h]) && g.SetAlpha(g, g.EleBody, 100, 1)
-		},
-		[f.id])
-	};
-	return InheritO(OrnNoneZombies, {
-		Ornaments: 2,
-		OrnLostNormalGif: 6,
-		OrnLostAttackGif: 7,
-		getHit: a,
-		getHit0: a,
-		getHit1: a,
-		getHit2: a,
-		getHit3: a
-	})
-} (),
 oConeheadZombie = InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障僵尸",
@@ -1328,7 +1306,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	BoomDieGif: 12
 }),
     OrnIIZombies1 = InheritO(OrnNoneZombies1, {
-    Ornaments: 2,
+    Ornaments: 1,
     BreakPoint: 91,
     NormalGif: 2,
     AttackGif: 3,
@@ -1343,7 +1321,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
     BoomDieGif: 12,
     Attack: 800,
   }),
-oNewspaperZombie = InheritO(OrnIZombies1, {
+oNewspaperZombie = InheritO(OrnIIZombies1, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 40,
