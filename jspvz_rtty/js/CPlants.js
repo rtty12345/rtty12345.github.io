@@ -648,7 +648,7 @@ oGatlingPea = InheritO(oPeashooter, {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
 	},
-	NormalAttack1: oThreepeater.prototype.NormalAttack,
+	NormalAttack1:oPeashooter.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
