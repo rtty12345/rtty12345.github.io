@@ -1014,22 +1014,6 @@ oPotatoMine = InheritO(CPlants, {
 	Status: 0,
 	AudioArr: ["potato_mine"],
 	canTrigger: 0,
-	BirthStyle: function(d, e, c, b, a) {
-		c.childNodes[1].src = !a ? "images/Plants/PotatoMine/PotatoMineNotReady.gif": (~
-		function() {
-			d.Status = 1;
-			d.canTrigger = 1;
-			d.getHurt = d.getHurt2
-		} (), "images/Plants/PotatoMine/PotatoMine.gif");
-		EditEle(c, {
-			id: e
-		},
-		b, EDPZ)
-	},
-	getHurt2: function(d, b, a) {
-		var c = this;
-		b > 2 ? (c.HP -= a) < 1 && c.Die() : c.NormalAttack(c.pixelLeft, c.pixelRight, c.R)
-	},
 	PrivateBirth: function(b, a) { ! a && oSym.addTask(1500,
 		function(d) {
 			var c = $P[d];
