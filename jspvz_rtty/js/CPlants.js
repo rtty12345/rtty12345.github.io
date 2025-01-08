@@ -1014,6 +1014,29 @@ oPotatoMine = InheritO(CPlants, {
 	Status: 0,
 	AudioArr: ["potato_mine"],
 	canTrigger: 0,
+		BirthStyle: function(d, e, c, b, a) {
+		c.childNodes[1].src = !a ? "images/Plants/PotatoMine/PotatoMineNotReady.gif": (~
+		function() {
+			d.Status = 1;
+			d.canTrigger = 1;
+			d.getHurt = d.getHurt2
+		} (), "images/Plants/PotatoMine/PotatoMine.gif");
+		EditEle(c, {
+			id: e
+		},
+		b, EDPZ)
+	},
+	getHurt2: function(d, b, a) {
+		var c = this;
+		b > 2 ? (c.HP -= a) < 1 && c.Die() : c.NormalAttack(c.pixelLeft, c.pixelRight, c.R)
+	},
+	PrivateBirth: function(b, a) { ! a && oSym.addTask(1500,
+		function(d) {
+			var c = $P[d];
+			c && ($(d).childNodes[1].src = "images/Plants/PotatoMine/PotatoMine.gif", c.Status = 1, c.canTrigger = 1, c.getHurt = c.getHurt2)
+		},
+		[b.id])
+	},
 	getTriggerRange: function(a, b, c) {
 		return [[b, c, 0]]
 	},
@@ -1292,7 +1315,7 @@ oCherryBomb = InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/CherryBomb.png", "images/Plants/CherryBomb/0.gif", "images/Plants/CherryBomb/CherryBomb.gif", "images/Plants/CherryBomb/Boom.gif" + $Random],
 	AudioArr: ["cherrybomb"],
 	Tooltip: "炸掉一定区域内的所有僵尸",
-	Produce: '樱桃炸弹，能炸掉一定区域内所有僵尸。他们一种下就会立刻引爆。所以请把他们种在僵尸们的身边。<p>伤害：<font color="#FF0000">巨大</font><br>范围：<font color="#FF0000">一个中等区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，立即爆炸</font></p>“我要‘爆’开了。”樱桃一号说。“不，我们是要‘炸’开了！”它哥哥樱桃二号说。经过激烈的商议之后，他们才统一“爆炸这个说法。”',
+	Produce: '樱桃炸弹，能炸掉一定区域内所有僵尸。他们一种下就会立刻引爆。所以请把他们种在僵尸们的身边。<p>伤害：<font color="#FF0000">巨大(2000)</font><br>范围：<font color="#FF0000">一个中等区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，立即爆炸</font></p>“我要‘爆’开了。”樱桃一号说。“不，我们是要‘炸’开了！”它哥哥樱桃二号说。经过激烈的商议之后，他们才统一“爆炸这个说法。”',
 	InitTrigger: function() {},
 	getHurt: function() {},
 	PrivateBirth: function(a) {
@@ -1345,7 +1368,7 @@ oJalapeno = InheritO(oCherryBomb, {
 	PicArr: ["images/Card/Plants/Jalapeno.png", "images/Plants/Jalapeno/0.gif", "images/Plants/Jalapeno/Jalapeno.gif", "images/Plants/Jalapeno/JalapenoAttack.gif"],
 	AudioArr: ["jalapeno"],
 	Tooltip: "消灭整行的敌人",
-	Produce: '火爆辣椒可以摧毁一整条线上的敌人。<p>伤害：<font color="#FF0000">极高</font><br>范围：<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在不会爆炸，还不到时候，不过快了，喔~，快了快了，快来了。他知道，他感受到了，他一生都是在等待这个时刻！',
+	Produce: '火爆辣椒可以摧毁一整条线上的敌人。<p>伤害：<font color="#FF0000">极高(2000)</font><br>范围：<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在不会爆炸，还不到时候，不过快了，喔~，快了快了，快来了。他知道，他感受到了，他一生都是在等待这个时刻！',
 	PrivateBirth: function(a) {
 		oSym.addTask(72,
 		function(j) {
@@ -2063,7 +2086,7 @@ oDoomShroom = InheritO(oFumeShroom, {
 	SunNum: 125,
 	PicArr: ["images/Card/Plants/DoomShroom.png", "images/Plants/DoomShroom/0.gif", "images/Plants/DoomShroom/DoomShroom.gif", "images/Plants/DoomShroom/Sleep.gif", "images/Plants/DoomShroom/BeginBoom.gif", "images/Plants/DoomShroom/crater10.png", "images/Plants/DoomShroom/crater11.png", "images/Plants/DoomShroom/crater20.png", "images/Plants/DoomShroom/crater21.png", "images/Plants/DoomShroom/crater30.png", "images/Plants/DoomShroom/crater31.png", "images/Plants/DoomShroom/Boom.png"],
 	Tooltip: "造成大规模的伤害, 但会在原地留下一个坑, 坑中无法种植物",
-	Produce: '毁灭菇可以摧毁大范围的僵尸，并留下一个不能种植物的大弹坑。<p>伤害：<font color="#FF0000">极高</font><br>范围：<font color="#FF0000">大范围内的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">留下一个弹坑<br>白天睡觉</font></p>“你很幸运，我是和你一伙的，”毁灭菇说，“我能摧毁任何你所珍视的东西，小菜一碟。”',
+	Produce: '毁灭菇可以摧毁大范围的僵尸，并留下一个不能种植物的大弹坑。<p>伤害：<font color="#FF0000">极高(10000)</font><br>范围：<font color="#FF0000">大范围内的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">留下一个弹坑<br>白天睡觉</font></p>“你很幸运，我是和你一伙的，”毁灭菇说，“我能摧毁任何你所珍视的东西，小菜一碟。”',
 	InitTrigger: function() {},
 	AudioArr: ["doomshroom"],
 	BirthStyle: function(c, d, b, a) {
