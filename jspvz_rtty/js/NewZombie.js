@@ -1,4 +1,4 @@
-var CZombies = function(b, a) {
+var CZombies1= function(b, a) {
 	return (a = function() {}).prototype = {
 		name: "Zombies",
 		HP: 270,
@@ -409,7 +409,7 @@ var CZombies = function(b, a) {
 	},
 	a
 } (),
-OrnNoneZombies = function() {
+OrnNoneZombies2= function() {
 	var a = function(c, b) {
 		if ((c.HP -= b) < c.BreakPoint) {
 			c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]);
@@ -461,7 +461,7 @@ OrnNoneZombies = function() {
 		}
 	})
 } (),
-OrnNoneZombies1= function() {
+OrnNoneZombies3= function() {
 	var a = function(c, b) {
 		if ((c.HP -= b) < c.BreakPoint) {
 			c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]);
@@ -513,7 +513,7 @@ OrnNoneZombies1= function() {
 		}
 	})
 } (),
-oBackupDancer = InheritO(OrnNoneZombies, {
+oBackupDancer1= InheritO(OrnNoneZombies, {
 	EName: "oBackupDancer",
 	CName: "伴舞僵尸",
 	OSpeed:5,
@@ -656,7 +656,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 
 
 
-oDancingZombie = InheritO(OrnNoneZombies, {
+oDancingZombie1= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
 	HP: 600,
@@ -1019,7 +1019,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(220,
 					function() {
