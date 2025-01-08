@@ -1014,13 +1014,6 @@ oPotatoMine = InheritO(CPlants, {
 	Status: 0,
 	AudioArr: ["potato_mine"],
 	canTrigger: 0,
-	PrivateBirth: function(b, a) { ! a && oSym.addTask(1500,
-		function(d) {
-			var c = $P[d];
-			c && ($(d).childNodes[1].src = "images/Plants/PotatoMine/PotatoMine.gif", c.Status = 1, c.canTrigger = 1, c.getHurt = c.getHurt2)
-		},
-		[b.id])
-	},
 	getTriggerRange: function(a, b, c) {
 		return [[b, c, 0]]
 	},
