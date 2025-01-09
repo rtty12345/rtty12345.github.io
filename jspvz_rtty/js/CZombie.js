@@ -153,10 +153,26 @@ var CZombies = function(b, a) {
 		getCrushed: function(c) {
 			return true
 		},
-		getRaven: function() {
-			return this.DisappearDie(),
-			1
-		},
+        getRaven: function(a, Attack1, Attack2) {
+            Attack1 = Attack1 == undefined?1800:Attack1;
+            Attack2 = Attack2 == undefined?60:Attack2;
+            if(this.OrnHP>=Attack1){
+               this.OrnHP-=Attack2;
+            }else if(this.OrnHP<1){
+                if(this.HP>Attack1){
+                    this.HP-=Attack2;
+                }else if(this.HP<=Attack1){
+                    return this.DisappearDie(), 1
+                }
+            }else if(this.OrnHP<Attack1 && this.OrnHP>1){
+                if(this.OrnHP+this.HP>Attack1){
+                    this.OrnHP=0;
+                    this.HP-=(Attack2-this.OrnHP);
+                }else if(this.OrnHP+this.HP<=Attack1){
+                    return this.DisappearDie(), 1
+                }
+            }
+        },
         getExplosion: function(Attack , howDie , callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"ExplosionDie":howDie;
