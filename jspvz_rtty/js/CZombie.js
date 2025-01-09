@@ -1347,6 +1347,13 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
+	getExplosion: function(){
+            if(this.OrnHP >= 1){
+                this.OrnHP = 0
+            }else{
+                this.ExplosionDie(this)
+            }
+        },
 	GoingDie: function(b) {
 		var a = this,
 		c = a.id;
