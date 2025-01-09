@@ -1052,7 +1052,7 @@ oPotatoMine = InheritO(CPlants, {
 		c = oZ.getArZ(j, h, e),
 		f = c.length,
 		a;
-		while (f--) { (a = c[f]).Altitude < 2 && a.getThump(1000)
+		while (f--) { (a = c[f]).Altitude < 2 && a.getExplosion(1000)
 		}
 		g.Die(1);
 		PlayAudio("potato_mine");
