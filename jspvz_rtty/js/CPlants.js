@@ -980,6 +980,7 @@ oPotatoMine = InheritO(CPlants, {
 	CName: "土豆雷",
 	width: 75,
 	height: 55,
+	HP:8000,
 	beAttackedPointR: 55,
 	SunNum: 25,
 	coolTime: 30,
@@ -1255,7 +1256,7 @@ oBoomNutBowling = InheritO(oNutBowling, {
 				do {
 					k = (e = oZ.getArZ(u, r, j)).length;
 					while (k--) {
-						e[k].ExplosionDie()
+						e[k].ExplosionDie(2000)
 					}
 				} while ( j ++< g );
 				s.Die(1);
