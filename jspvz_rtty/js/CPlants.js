@@ -648,7 +648,7 @@ oGatlingPea = InheritO(oPeashooter, {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
 	},
-	NormalAttack1:	NormalAttack: function() {
+	NormalAttack1:function() {
 		var a, c = this,
 		d, b = 0;
 		for (a in c.oTrigger) {
