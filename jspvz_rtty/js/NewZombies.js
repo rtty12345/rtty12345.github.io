@@ -63,7 +63,7 @@ var oSquashZombie = InheritO(oConeheadZombie, {
     oPeaZombie = InheritO(oNewspaperZombie, {
         EName: "oPeaZombie",
         CName: "豌豆铁门僵尸",
-        OrnHP: 1200,
+        OrnHP: 10000,
         HP: 300,
         Lvl: 3,
         SunNum: 250,
@@ -83,7 +83,7 @@ var oSquashZombie = InheritO(oConeheadZombie, {
         PlayNormalballAudio: function() {
             PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
         },
-        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(300)</font><br>铁栅门韧性：<font color="#FF0000">高(1200)</font></p><div style="color:red">特点：发射豌豆</div>铁栅门僵尸在一次意外中改造出了这一个头，对于其他僵尸来说，这可算是高科技武器了。',
+        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(300)</font><br>铁栅门韧性：<font color="#FF0000">高(10000)</font></p><div style="color:red">特点：发射豌豆</div>当豌豆铁门僵尸被tiiiiiiiii做到rtty版时，tiiiiiiiii隐约听到了“崇林寺不要啦”这样胜似那个人的叫声,tiiiiiiiii不语，只是将它手里的门换成了中国铁门',
         GoingDie: CZombies.prototype.GoingDie,
         PrivateBirth: function(a){
             let z = $(a.id);
