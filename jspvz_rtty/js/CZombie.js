@@ -1828,11 +1828,11 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 }),
     oGatlingPeaZombie = InheritO(OrnIIZombies, {
         EName: "oGatlingPeaZombie",
-        CName: "机枪僵尸",
+        CName: "普通报纸",
         OrnHP: 800,
         HP:300,
         Lvl: 4,
-        SunNum:300,
+        SunNum:75,
         LostPaperGif: 13,
         StandGif: 14,
         width: 216,
