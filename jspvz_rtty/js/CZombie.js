@@ -3019,7 +3019,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 });
-oSquashZombie = InheritO(oConeheadZombie, {
+var oSquashZombie = InheritO(oConeheadZombie, {
         EName: "oSquashZombie",
         CName: "窝瓜僵尸",
         Speed:3.2,
