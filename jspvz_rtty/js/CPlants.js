@@ -648,7 +648,37 @@ oGatlingPea = InheritO(oPeashooter, {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
 	},
-	NormalAttack1:oPeashooter.prototype.NormalAttack,
+	NormalAttack1:	NormalAttack: function() {
+		var a, c = this,
+		d, b = 0;
+		for (a in c.oTrigger) {
+			EditEle(c.BulletEle[b++].cloneNode(false), {
+				id: d = "PB" + Math.random()
+			},
+			0, EDPZ);
+			oSym.addTask(15,
+			function(f) {
+				var e = $(f);
+				e && SetVisible(e)
+			},
+			[d]);
+			oSym.addTask(1,
+			function(h, l, j, e, p, k, o, m, q, i) {
+				var n, g = GetC(p),
+				f = oZ["getZ" + e](p, k);
+				o == 1 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				f && f.Altitude == 1 ? (f[{
+					"-1": "getSnowPea",
+					0 : "getPea",
+					1 : "getFirePea"
+				} [o]](f, j, e), (SetStyle(l, {
+					left: q + 28 + "px",
+					width: "52px",
+					height: "46px"
+				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
+			},
+			[d, $(d), 20, 0, c.AttackedLX, a, 0, 0, c.AttackedLX - 40, oGd.$Torch])
+		},
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
