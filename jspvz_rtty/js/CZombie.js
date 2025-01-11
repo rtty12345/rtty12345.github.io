@@ -3063,7 +3063,6 @@ oSquashZombie = InheritO(oConeheadZombie, {
                     a.NormalDie();
                     break;
                 }
-            }
         },
         DisappearDie:function(a){
             this.NormalDie()
