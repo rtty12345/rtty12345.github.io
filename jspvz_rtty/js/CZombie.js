@@ -1204,13 +1204,13 @@ oFootballZombie = InheritO(oConeheadZombie, {
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
-	HP: 300,
+	HP: 600,
 	width: 348,
 	height: 218,
 	OSpeed: 3.2,
 	Speed: 3.2,
-	beAttackedPointL: 300,
-	beAttackedPointR: 300,
+	beAttackedPointL: 215,
+	beAttackedPointR:260,
 	StandGif: 13,
 	GetDX: function() {
 		return - 238
@@ -1226,7 +1226,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/PoleVaultingZombie.png", a + "0.gif", a + "PoleVaultingZombie.gif", a + "PoleVaultingZombieAttack.gif", a + "PoleVaultingZombieLostHead.gif", a + "PoleVaultingZombieLostHeadAttack.gif", a + "PoleVaultingZombieHead.gif" + $Random, a + "PoleVaultingZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "PoleVaultingZombieWalk.gif", a + "PoleVaultingZombieLostHeadWalk.gif", a + "PoleVaultingZombieJump.gif", a + "PoleVaultingZombieJump2.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["polevault", "grassstep"],
-	Produce: '撑杆僵尸影子在贴图后一格，免疫直线子弹，不免疫穿透和灰烬<p>韧性：<font color="#FF0000">中(300)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">如 跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+	Produce: '撑杆僵尸影子在贴图后一格，免疫直线子弹，不免疫穿透和灰烬<p>韧性：<font color="#FF0000">中(600)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">如 跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
 	},
@@ -1241,7 +1241,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		h = oGd.$,
 		f,
 		a,
-		e = b - 74;
+		e = b - 80;
 		for (f = c - 2; f <= c; f++) {
 			if (f > 9) {
 				continue
@@ -1290,7 +1290,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 			k,
 			q,
 			r;
-			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL) + h.beAttackedPointR, SetStyle(i, {
+			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL-120) + h.beAttackedPointR, SetStyle(i, {
 				left: h.X + "px"
 			}), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 1.6, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = CZombies.prototype).NormalAttack, h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR) + h.beAttackedPointL, SetStyle(i, {
 				left: h.X + "px"
