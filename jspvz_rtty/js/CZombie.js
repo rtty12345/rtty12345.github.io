@@ -1166,15 +1166,6 @@ oBucketheadZombie = InheritO(oConeheadZombie, {
 	},
 	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
-PrivateAct: function(a){
-            if(!a.Change){
-                a.Change = true;
-                oSym.addTask(300,function(a){
-                    a.ChangeR(a);
-                    a.Change = false;
-                },[a])
-            }
-        },
 {
 	PicArr: {
 		0 : "images/Card/Zombies/BucketheadZombie.png",
