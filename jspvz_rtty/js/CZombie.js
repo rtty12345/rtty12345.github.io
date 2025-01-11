@@ -173,7 +173,7 @@ var CZombies = function(b, a) {
                 }
             }
         },
-        getExplosion: function(Attack , howDie , callback) {
+        getExplosion: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"ExplosionDie":howDie;
             if(this.OrnHP>=Attack){
