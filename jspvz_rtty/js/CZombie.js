@@ -3019,217 +3019,172 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 });
-oDiggerZombie1 = InheritO(OrnNoneZombies, {
-    EName: "oDiggerZombie1",
-    CName: "矿工僵尸",
-    Lvl: 4,
-    SunNum: 225,
-    HP: 500,
-    BreakPoint: 70,
-    width: 167,
-    height: 170,
-    GetDTop: 20,
-    beAttackedPointL: 65,
-    beAttackedPointR: 120,
-    OrnHP: 100,
-    OSpeed: 7.8,
-    Speed: 7.8,
-    Altitude: 0, // 挖矿
-    CardGif: 0,
-    StandGif: 1,
-    StaticGif: 2,
-    NormalGif: 3,
-    WalkGif0: 3,
-    WalkGif1: 4,
-    WalkGif2: 5,
-    AttackGif: 3,
-    AttackGif_Up0: 6,
-    AttackGif_Up1: 7,
-    HeadGif: 8,
-    DieGif: 9,
-    UpGif: 10,
-    DownGif: 11,
-    BoomDieGif: 8,
-    LostHeadGif: 5,
-    LostHeadAttackGif: 5,
-
-    Produce: '这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢</font><BR>特点：<font color="#FF0000">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#FF0000">分裂射手，磁力菇</font></p>矿工僵尸在死之前，还只是一个普通的矿工，邪恶的资本家疯狂压榨他，以至于他30岁就患上了绝症。他是怎么死的？伙计，你去了解一下灯火实验，你就明白了。',
-    BirthCallBack: function(f) {
-      var e = f.delayT,
-        d = f.id,
-        c = (f.Ele = $(d));
-      (f.EleShadow = c.firstChild),
-      (f.EleBody = c.childNodes[1]),
-      SetHidden(f.EleShadow);
-      e
-        ?
-        oSym.addTask(
-          e,
-          function(h, g) {
-            var i = $Z[h];
-            i && ((i.FreeSetbodyTime = 0), SetBlock(g));
-          },
-          [d, c]
-        ) :
-        SetBlock(c);
-    },
-    HeadPosition: [{
-      x: 42,
-      y: 146
-    }, {
-      x: 40,
-      y: 147
-    }, ],
-    getShadow: function(a) {
-      return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 20) + "px";
-    },
-    isUp: 0,
-    JudgeLR: function(f, d, e, c, g) {
-      return e > 10 || e < 1 ?
-        false :
-        (function() {
-          d += --e + "_";
-          var h = 3,
-            i;
-          while (h--) {
-            if ((i = g[d + h]) && i.canEat) {
-              return i.AttackedRX >= c && i.AttackedLX <= c ?
-                [f.id, i.id] :
-                false;
-            }
-          }
-        })();
-    },
-    JudgeSR: function(f, d, e, c, g) {
-      return e > 9 ?
-        false :
-        (function() {
-          d += e + "_";
-          var h = 3,
-            i;
-          while (h--) {
-            if ((i = g[d + h]) && i.canEat) {
-              return i.AttackedRX >= c && i.AttackedLX <= c ?
-                [f.id, i.id] :
-                false;
-            }
-          }
-        })();
-    },
-    PicArr: (function() {
-      var a = "images/Zombies/Diggerzombie/";
-      return [
-        "images/Card/Zombies/Diggerzombie.png",
-        a + "0.gif",
-        a + "DiggerZombie.gif",
-        a + "Walk1.gif",
-        a + "Walk2.gif",
-        a + "Walk3.gif",
-        a + "Attack1.gif",
-        a + "Attack2.gif",
-        "images/Plants/Peashooter/NonePeashooter.gif" + $Random,
-        a + "Die.gif" + $Random,
-        a + "Up.gif" + $Random,
-        a + "Down.gif" + $Random,
-        a + "BoomDie.gif" + $Random,
-      ];
-    })(),
-    AudioArr: ["zombie_entering_water"],
-    Go_Up: function(a, WD) {
-      // WD: 方向，1右0左
-      a.isUp = 1; //a.Ifgc=0;
-      a.beAttacked &&
-        ((a.WalkDirection = WD),
-          (a.BoomDieGif = 12),
-          PlayAudio("zombie_entering_water"),
-          (a.Altitude = 4),
-          SetVisible(a.EleShadow),
-          (a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
-          (a.OSpeed = a.Speed = 0)),
-        (a.ChkActs = function() {
-          return 1;
-        }); // 跳起来
-      oSym.addTask(
-        100,
-        function(c, b) {
-          WD
-            ?
-            ((b.AttackGif = b.AttackGif_Up0),
-              (b.AttackedRX += 30),
-              (b.beAttackedPointL = 70),
-              (b.beAttackedPointR = 130),
-              (b.Ele.lastChild.style.left = "40px"),
-              (b.JudgeAttack = b.JudgeAttack_Up1)) :
-            (b.AttackGif = b.AttackGif_Up1); // GIF
-          $Z[c] &&
-            b.beAttacked &&
-            (WD && b.ExchangeLR(b, WD),
-              (b.Altitude = 1),
-              (b.isAttacking = 0),
-              (b.EleBody.src = b.PicArr[(b.NormalGif = b.DownGif)])); // 眩晕
-          $Z[c] &&
-            b.beAttacked &&
-            oSym.addTask(
-              WD ? 400 : 0,
-              function(c, b) {
-                // 行走
-                (b.EleBody.src =
-                  b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
-                (b.OSpeed = b.Speed = 1.6),
-                (b.ChkActs =
-                  OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
-              },
-              [c, b]
-            );
+var oSquashZombie = InheritO(oConeheadZombie, {
+        EName: "oSquashZombie",
+        CName: "窝瓜僵尸",
+        Speed:3.2,
+        OrnHP: 1100,
+        Lvl: 2,
+        SunNum: 75,
+        GetSunNum: 0,
+        PlayNormalballAudio: function() {
+            PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
         },
-        [a.id, a]
-      );
-    },
-    CanDig: {
-      oPotatoMine: true
-    },
-    JudgeAttack_Dig: function() {
-      var g = this,
-        d = g.ZX,
-        e = g.R + "_",
-        f = GetC(d),
-        h = oGd.$,
-        c;
-      (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) &&
-      g.CanDig[$P[c[1]]["EName"]] ?
-        (!g.isAttacking &&
-          ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
-          g.NormalAttack(c[0], c[1])) :
-        g.isAttacking &&
-         ((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
-    },
-    JudgeAttack_Up1: function() {
-      var g = this,
-        d = g.AttackedRX,
-        e = g.R + "_",
-        f = GetC(d),
-        h = oGd.$,
-        c;
-      (c = g.JudgeSR(g, e, f, d, h) || g.JudgeLR(g, e, f, d, h)) ?
-      (!g.isAttacking &&
-        ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
-        g.NormalAttack(c[0], c[1])) :
-      g.isAttacking &&
-        ((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
-    },
-    Stone_of_Sinan_Up: function() {
-      // 被磁铁吸了镐子调用的函数
-      var g = this; //alert(1);
-      if (g.isUp) {
-        g.EleBody.src =
-          g.PicArr[
-            g.isAttacking ?
-            (g.AttackGif = g.AttackGif_Up1) :
-            (g.NormalGif = g.WalkGif2)
-          ];
-      } else {
-        g.Go_Up(g, 0);
-      }
-      g.Stone_of_Sinan_Up = function() {};
-    },
-  });
+        Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
+        CanPass: function(d, c) {
+            return c;
+        },
+        PrivateBirth:function(a){
+            let z = $(a.id);
+            z.SquashHeadId = "Squash" + Math.random();
+            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
+            z.appendChild(squash);
+        },
+        PrivateAct:function(a){
+            let z = $(a.id),
+                s = $(z.SquashHeadId);
+            for(let i = 3;i >= 0;i--){
+                let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
+                if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                    a.Speed = 0;
+                    EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
+                        left:"0px",
+                        top:"-50px"
+                    },0);
+                    oSym.addTask(50,function(p,s){
+                        try{
+                            PlayAudio("gargantuar_thump");
+                            p && p.Die();
+                            ClearChild(s);
+                        }catch(e){
+                            document.write(e);
+                        }
+                    },[p,s]);
+                    a.NormalDie();
+                    break;
+                }
+            }
+        },
+        DisappearDie:function(a){
+            this.NormalDie()
+        },
+        CrushDie: function(){
+            this.NormalDie();
+        }
+    }, {
+        PicArr: {
+            0: "images/Card/Zombies/BucketheadZombie.png",
+            1: "images/Zombies/BucketheadZombie/0.gif",
+            2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
+            3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
+            9: "images/Zombies/Zombie/Zombie2.gif",
+            11: "images/Zombies/BucketheadZombie/1.gif"
+        }
+    }),
+    oPeaZombie = InheritO(oNewspaperZombie1, {
+        EName: "oPeaZombie",
+        CName: "豌豆铁门僵尸",
+        OrnHP: 10000,
+        HP: 300,
+        Lvl: 3,
+        SunNum: 250,
+        StandGif: 13,
+        width: 166,
+        height: 144,
+        beAttackedPointL: 60,
+        beAttackedPointR: 116,
+        PicArr: (function() {
+            var a = "images/Zombies/ScreenDoorZombie/",
+                b = "images/Zombies/Zombie/";
+            return ["images/Card/Zombies/ScreenDoorZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", b + "Zombie2.gif", b + "ZombieAttack.gif", b + "ZombieLostHead.gif", b + "ZombieLostHeadAttack.gif", b + "ZombieHead.gif" + $Random, b + "ZombieDie.gif" + $Random, b + "BoomDie.gif" + $Random, a + "1.gif"]
+        })(),
+        CanPass: function(d, c) {
+            return c;
+        },
+        PlayNormalballAudio: function() {
+            PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
+        },
+        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(300)</font><br>铁栅门韧性：<font color="#FF0000">高(10000)</font></p><div style="color:red">特点：发射豌豆</div>当豌豆铁门僵尸被tiiiiiiiii做到rtty版时，tiiiiiiiii隐约听到了“崇林寺不要啦”这样胜似那个人的叫声,tiiiiiiiii不语，只是将它手里的门换成了中国铁门',
+        GoingDie: CZombies.prototype.GoingDie,
+        PrivateBirth: function(a){
+            let z = $(a.id);
+            z.PeaHead = "Pea" + Math.random();
+            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+            z.appendChild(pea);
+        },
+        PrivateAct: function(a){
+            if(!a.bool){
+            a.bool = 1;
+            oSym.addTask(125,function(a){
+            let z = $(a.id);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/PB00.gif">';
+            EditEle(div,0,{
+                position:"absolute",
+                zIndex:"24",
+                left:z.offsetLeft + "px",
+                top:z.offsetTop + 40 + "px"
+            },EDPZ,0)
+            oSym.addTask(1,function(z,d,a){
+                try{
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                let pea = $(d);
+                let C = GetC(z.offsetLeft + 40);
+                for(let i = 3;i >= 0;i--){
+                    for(let j = 1;j <= C;j++){
+                        let p = oGd.$[a.R+"_"+j+"_"+i];
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.HP <= 0) && p.Die();
+                    }
+                }
+                if($(d).offsetLeft <= 0){
+                    ClearChild($(d));
+                    $(d).isDie = true;
+                }
+                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
+                }catch(e){
+                }
+            },[z,d,a]);
+            !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
+            },[a]);
+            }
+        },
+        DisappearDie:function(a){
+            this.NormalDie();
+        },
+        CrushDie: function(){
+            this.NormalDie();
+        },
+        getExplosion:CZombies.prototype.getExplosion,
+        getFirePea: function(c, a, b) {
+            PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+            c.getHit0(c, a, b)
+        },
+        getFirePeaSputtering: function() {},
+        getSnowPea: function(c, a, b) {
+            PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+            c.getHit0(c, a, b)
+        },
+        getPea: function(c, a, b) {
+            PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+            c.getHit0(c, a, b)
+        },
+        getHit0: function(c, a, b) {
+            b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+                (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
+            }, [c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
+        },
+        CheckOrnHP: function(g, h, d, c, f, b, a) {
+            var e = OrnNoneZombies.prototype;
+            (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]], g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getPea = e.getPea, g.getFirePea = e.getFirePea, g.getFirePeaSputtering = e.getFirePeaSputtering, g.getSnowPea = g.getSnowPea, g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
+        },
+        getFireball: function(c, a, b) {
+            b != c.WalkDirection ? (c.FreeSlowTime = 0, c.Attack = 100, c.Speed != c.OSpeed ? (c.PlayNormalballAudio(), c.Speed = c.OSpeed) : c.PlayFireballAudio()) : c.PlayNormalballAudio()
+        },
+        getSputtering: function() {},
+        getSlow: function(d, a, c, b, e) {
+            (b != d.WalkDirection || e != -1) ? CZombies.prototype.getSlow(d, a, c) : d.PlayNormalballAudio()
+        }
+    }),
