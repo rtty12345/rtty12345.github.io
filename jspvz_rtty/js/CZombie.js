@@ -542,8 +542,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	height: 152,
 	beAttackedPointL: 50,
 	beAttackedPointR: 95,
-	Speed: 3.5,
-	OSpeed: 3.5,
 	PicArr: (function() {
 		var a = "images/Zombies/BackupDancer/";
 		return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random]
@@ -555,7 +553,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		a.WalkDirection = 1;
 		a.ZX = a.AttackedRX;
 		a.ChkActs = a.ChkActs1;
-		a.Speed = 3.5;
+		a.Speed = 10;
 		a.ChangeChkActsTo1(a, a.id, a.EleBody);
 		oP.MonPrgs()
 	},
@@ -662,10 +660,10 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		switch (true) {
 		case(b.FreeFreezeTime || b.FreeSetbodyTime) == 1 : a && (b.Speed = 0);
 			break;
-		case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 1.75);
+		case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 5);
 			break;
 		default:
-			a != 3.5 && (b.Speed = 3.5)
+			a != 5&& (b.Speed = 5)
 		}
 	}
 }),
