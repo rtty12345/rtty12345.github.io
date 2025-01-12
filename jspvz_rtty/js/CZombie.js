@@ -2511,7 +2511,7 @@ oZomboni = function() {
 		beAttackedPointL: 140,
 		beAttackedPointR: 290,
 		BreakPoint: 1,
-		SunNum:350,
+		SunNum:300，
 		GetDY: function() {
 			return 0
 		},
