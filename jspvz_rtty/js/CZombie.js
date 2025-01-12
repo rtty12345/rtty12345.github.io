@@ -2482,7 +2482,7 @@ oZomboni = function() {
 	var a = function(d, b) {
 		var c = d.HP;
 		switch (true) {
-		case(d.HP = c -= b) < 0 : d.GoingDie();
+		case(d.HP = c -= b) < 1 : d.GoingDie();
 			d.getHit0 = d.getHit1 = d.getHit2 = d.getHit3 = function() {};
 			return;
 		case c < 700 : d.EleBody.src = "images/Zombies/Zomboni/3.gif";
@@ -2509,8 +2509,8 @@ oZomboni = function() {
 		GetDTop: 104,
 		beAttackedPointL: 140,
 		beAttackedPointR: 290,
-		BreakPoint: 0,
-		SunNum:250,
+		BreakPoint: 1,
+		SunNum:350,
 		GetDY: function() {
 			return 0
 		},
