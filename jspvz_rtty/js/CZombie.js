@@ -1082,7 +1082,7 @@ oZombie = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/Zombie/";
 		return ["images/Card/Zombies/Zombie.png", a + "0.gif", a + "Zombie.gif", a + "ZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
-	Produce: '韧性：<font color="#FF0000">低</font></p>理想很美好。'
+	Produce: '韧性：<font color="#FF0000">低'
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2"
@@ -1111,6 +1111,7 @@ oFlagZombie = InheritO(oZombie, {
 	CName: "旗帜僵尸",
 	OSpeed: 10,
 	Speed: 10,
+	SunNum: 75,
 	HP:400,
 	beAttackedPointR: 101,
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
