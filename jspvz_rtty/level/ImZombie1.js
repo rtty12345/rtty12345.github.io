@@ -1,5 +1,5 @@
-oS.Init({PName:[oPeashooter,oSunFlower,oSnowPea,oSquash],
-    ZName:[oZombie,oBucketheadZombie,oFootballZombie,oNewspaperZombie],
+oS.Init({PName:[oPeashooter,oSunFlower,oSnowPea,oSquash,oSpiltPea],
+    ZName:[oZombie,oBucketheadZombie,oFootballZombie,oNewspaperZombie,oPoleVaultingZombie],
     PicArr:["images/interface/background2.jpg",
     "images/interface/trophy.png","images/interface/Dave.gif",
     "images/interface/Dave2.gif","images/interface/Dave3.gif",
@@ -15,7 +15,7 @@ oS.Init({PName:[oPeashooter,oSunFlower,oSnowPea,oSquash],
     AudioArr:["crazydaveshort1","crazydavelong1","crazydavelong2","crazydavelong3"],
     LoadMusic:"Mountains",
     StartGameMusic:"Mountains",
-    ArP:{ArC:[1,4],ArR:[1,5],Auto:1,P:[0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,3,3,3]},
+    ArP:{ArC:[1,4],ArR:[1,5],Auto:1,P:[0,0,0,0,0,0,1,1,1,1,1,1,2,2,3,3,3,4,4]},
     RiddleAutoGrow:function(){var k=oS.ArP,f=k.ArC,j=k.ArR,e=k.P,d=oS.PName,
         c,g=f[0],b=f[1],i=j[0],h=j[1],a;
         if(k.Auto){
