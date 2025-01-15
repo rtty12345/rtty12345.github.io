@@ -15,7 +15,7 @@ oS.Init({PName:[oPeashooter,oSunFlower,oSnowPea,oSquash,oSpiltPea],
     AudioArr:["crazydaveshort1","crazydavelong1","crazydavelong2","crazydavelong3"],
     LoadMusic:"Mountains",
     StartGameMusic:"Mountains",
-    ArP:{ArC:[1,4],ArR:[1,5],Auto:1,P:[0,0,0,0,0,0,1,1,1,1,1,1,2,2,3,3,3,4,4]},
+    ArP:{ArC:[1,4],ArR:[1,5],Auto:1,P:[0,0,0,0,0,0,1,1,1,1,1,1,2,2,3,3,3,4,4,4]},
     RiddleAutoGrow:function(){var k=oS.ArP,f=k.ArC,j=k.ArR,e=k.P,d=oS.PName,
         c,g=f[0],b=f[1],i=j[0],h=j[1],a;
         if(k.Auto){
