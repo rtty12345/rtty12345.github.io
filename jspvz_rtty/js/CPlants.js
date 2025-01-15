@@ -663,7 +663,7 @@ oPeashooter1= InheritO(CPlants, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),40,0, a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),40,0, a.AttackedLX, a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oGatlingPea = InheritO(oPeashooter, {
