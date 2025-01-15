@@ -613,7 +613,7 @@ oThreepeater = InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
 			},
-			[d, $(d), 20,1, c.AttackedLX, a, 0, 0, c.AttackedLX - 40, oGd.$Torch])
+			[d, $(d), 20,0, c.AttackedLX, a, 0, 0, c.AttackedLX - 40, oGd.$Torch])
 		}
 	}
 }),
