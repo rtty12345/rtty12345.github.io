@@ -763,7 +763,7 @@ oSplitPea = InheritO(oPeashooter, {
 		function(c, e, g) {
 			var f; (f = $P[c]) && f.AttackCheck1(e, g)
 		},
-		[this.id,2,a, b])
+		[this.id,a, b])
 	},
 	NormalAttack: function(c) {
 		var d = this,
