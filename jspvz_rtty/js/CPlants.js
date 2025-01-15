@@ -542,7 +542,7 @@ oRepeater = InheritO(oPeashooter, {
 			var b = $P[c];
 			b && b.NormalAttack1()
 		},
-		[this.id])
+		[this.id,2])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -552,11 +552,11 @@ oThreepeater = InheritO(oPeashooter, {
 	height: 80,
 	BKind:1,
 	beAttackedPointR: 53,
-	SunNum: 325,
+	SunNum: 275,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次射出三行的豌豆",
-	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
+	Tooltip: "一次射出三行的假的火豌豆",
+	Produce: '三线射手可以在三条线上同时射出假的火豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerR: function(a) {
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
 	},
@@ -672,12 +672,12 @@ oGatlingPea = InheritO(oPeashooter, {
 	width: 88,
 	height: 84,
 	beAttackedPointR: 68,
-	SunNum: 250,
+	SunNum: 400,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次发射六颗豌豆<br>(需要双发射手)",
-	Produce: '加特林可以一次发射六颗豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">六倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
+	Tooltip: "一次发射六颗真正的火豌豆<br>(需要双发射手)",
+	Produce: '加特林可以一次发射六颗真正的火豌豆<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000">六倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	PrivateBirth: function(c) {
 		var b = c.AttackedLX,
 		a = b - 40;
@@ -763,7 +763,7 @@ oSplitPea = InheritO(oPeashooter, {
 		function(c, e, g) {
 			var f; (f = $P[c]) && f.AttackCheck1(e, g)
 		},
-		[this.id, a, b])
+		[this.id,2,a, b])
 	},
 	NormalAttack: function(c) {
 		var d = this,
@@ -798,7 +798,7 @@ oSplitPea = InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [m])) : (q += (o = !f ? 5 : -5)) < oS.W && q > 100 ? (m.style.left = (r += o) + "px", oSym.addTask(1, arguments.callee, [i, m, k, f, q, l, p, n, r, j])) : ClearChild(m)
 			},
-			[e, $(e), 20, c, d.AttackedLX, d.R, 0, 0, a, oGd.$Torch])
+			[e, $(e), 20, c, d.AttackedLX, d.R,0, 0, a, oGd.$Torch])
 		};
 		b()
 	}
