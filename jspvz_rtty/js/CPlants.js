@@ -572,8 +572,8 @@ oThreepeater = InheritO(oPeashooter, {
 				X: e,
 				R: b,
 				D: 0,
-				Attack: 40,
-				Kind: 1,
+				Attack: 20,
+				Kind: 0,
 				ChangeC: 0,
 				pixelLeft: d,
 				F: oGd.MB1
