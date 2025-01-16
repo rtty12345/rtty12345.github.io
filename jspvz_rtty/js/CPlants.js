@@ -553,7 +553,7 @@ oThreepeater = InheritO(oPeashooter, {
 	BKind:1,
 	beAttackedPointR: 53,
 	SunNum: 275,
-	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出三行的假的火豌豆",
 	Produce: '三线射手可以在三条线上同时射出假的火豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
