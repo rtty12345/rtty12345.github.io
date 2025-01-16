@@ -2486,9 +2486,9 @@ oZomboni = function() {
 		case(d.HP = c -= b) < 1 : d.GoingDie();
 			d.getHit0 = d.getHit1 = d.getHit2 = d.getHit3 = function() {};
 			return;
-		case c < 700 : d.EleBody.src = "images/Zombies/Zomboni/3.gif";
+		case c < 1000 : d.EleBody.src = "images/Zombies/Zomboni/3.gif";
 			break;
-		case c < 1400 : d.EleBody.src = "images/Zombies/Zomboni/2.gif"
+		case c < 2000 : d.EleBody.src = "images/Zombies/Zomboni/2.gif"
 		}
 		d.SetAlpha(d, d.EleBody, 50, 0.5);
 		oSym.addTask(10,
@@ -2499,7 +2499,7 @@ oZomboni = function() {
 	return InheritO(OrnNoneZombies, {
 		EName: "oZomboni",
 		CName: "重型冰车僵尸",
-		HP: 2100,
+		HP:3000,
 		Lvl: 3,
 		StandGif: 2,
 		DieGif: 6,
