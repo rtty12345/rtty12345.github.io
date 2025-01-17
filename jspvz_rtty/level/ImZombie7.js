@@ -1,6 +1,6 @@
 // 初始化游戏设置
 oS.Init({
-    PName: [oSunFlower, oPotatoMine, oHypnoShroom, oSquash], // 植物名称数组
+    PName: [oSunFlower, oPotatoMine, oHypnoShroom, oSquash,oChomper], // 植物名称数组
     ZName: [oZombie,oBucketheadZombie,oPoleVaultingZombie,oDancingZombie, oBackupDancer], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
@@ -18,7 +18,7 @@ oS.Init({
         ArC: [1, 5], // ArC数组
         ArR: [1, 5], // ArR数组
         Auto: 1, // 是否自动
-        P: [0, 0, 0, 0, 2, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2] // P数组
+        P: [0, 0, 0, 0, 2, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2,4,4] // P数组
     },
     // 自动增长谜题
     RiddleAutoGrow: function() {
