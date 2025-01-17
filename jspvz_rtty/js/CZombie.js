@@ -154,8 +154,8 @@ var CZombies = function(b, a) {
 			return true
 		},
         getRaven: function(a, Attack1, Attack2) {
-            Attack1 = Attack1 == undefined?1800:Attack1;
-            Attack2 = Attack2 == undefined?60:Attack2;
+            Attack1 = Attack1 == undefined?0:Attack1;
+            Attack2 = Attack2 == undefined?100:Attack2;
             if(this.OrnHP>=Attack1){
                this.OrnHP-=Attack2;
             }else if(this.OrnHP<1){
