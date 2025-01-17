@@ -1642,6 +1642,7 @@ oChomper = InheritO(CPlants, {
 	CName: "大嘴花",
 	width: 130,
 	height: 114,
+	HP:1000,
 	beAttackedPointR: 70,
 	SunNum: 150,
 	PicArr: ["images/Card/Plants/Chomper.png", "images/Plants/Chomper/0.gif", "images/Plants/Chomper/Chomper.gif", "images/Plants/Chomper/ChomperAttack.gif", "images/Plants/Chomper/ChomperDigest.gif"],
