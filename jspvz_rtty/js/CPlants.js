@@ -1671,7 +1671,7 @@ oChomper = InheritO(CPlants, {
 			function(e, f) {
 				var g = $P[e],
 				h;
-				g && ((h = $Z[f]) && h.beAttacked && h.PZ ? $(e).childNodes[1].src = h.getRaven(e) ? (oSym.addTask(1500,
+				g && ((h = $Z[f]) && h.beAttacked && h.PZ ? $(e).childNodes[1].src = h.getRaven(e) ? (oSym.addTask(500,
 				function(i) {
 					var j = $P[i];
 					j && (j.canTrigger = 1, $(i).childNodes[1].src = "images/Plants/Chomper/Chomper.gif")
