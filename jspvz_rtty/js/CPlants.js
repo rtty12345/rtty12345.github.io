@@ -1647,7 +1647,7 @@ oChomper = InheritO(CPlants, {
 	SunNum: 200,
 	PicArr: ["images/Card/Plants/Chomper.png", "images/Plants/Chomper/0.gif", "images/Plants/Chomper/Chomper.gif", "images/Plants/Chomper/ChomperAttack.gif", "images/Plants/Chomper/ChomperDigest.gif"],
 	Tooltip: "能一直啃咬僵尸，当僵尸低于200血时直接吃，进入15s消化",
-	Produce: '大嘴花能对僵尸造成一口100的啃咬伤害，低于200血时直接吃，并进入15s消化<p>伤害：<font color="#FF0000">中（1000）</font><br>范围：<font color="#FF0000">非常近</font><br>韧性：<font color="#FF0000">中（1000）</font></p>大嘴花几乎可以去“恐怖小店”，来表演它的绝技了，不过他的经纪人压榨了他太多的钱，所以他没去成。尽管如此，大嘴花没有怨言，只说了句这只是交易的一部分。',
+	Produce: '大嘴花能对僵尸造成一口100的啃咬伤害，低于200血时直接吃，并进入15s消化<p>伤害：<font color="#FF0000">中（100）</font><br>范围：<font color="#FF0000">非常近</font><br>韧性：<font color="#FF0000">中（1000）</font></p>大嘴花几乎可以去“恐怖小店”，来表演它的绝技了，不过他的经纪人压榨了他太多的钱，所以他没去成。尽管如此，大嘴花没有怨言，只说了句这只是交易的一部分。',
 	GetDX: function() {
 		return - 40
 	},
