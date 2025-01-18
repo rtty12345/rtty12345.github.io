@@ -1102,6 +1102,24 @@ oZombie3 = InheritO(oZombie, {
 		9 : "images/Zombies/Zombie/3.gif"
 	}
 }),
+PrivateAct: function(a){
+            if(a.HP <= 70){
+            oSym.addTask(100,function(a){
+                PlayAudio("explosion");
+                let R = (a.R - 1) || 0,
+                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
+                    C = GetC($(a.id).offsetLeft + 80);
+                for(let i = R;i <= RM;i++){
+                    for(let j = C - 1;j <= C + 1;j++){
+                        for(let k = 0;k <= 3;k++){
+                            let p = oGd.$[i+"_"+j+"_"+k];
+                            p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && p.BoomDie();
+                        }
+                    }
+                }
+            },[a])
+            }
+        },
 oFlagZombie = InheritO(oZombie, {
 	PicArr: (function() {
 		var a = "images/Zombies/FlagZombie/";
