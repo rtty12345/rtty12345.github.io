@@ -12,8 +12,8 @@ oS.Init({
     DKind: 0, // D种类
     LevelName:'三种僵尸', // 关卡名称
     LvlEName: "ThreeZombies", // 关卡E名称
-    LoadMusic: "Mountains", // 加载音乐
-    StartGameMusic: "Mountains", // 开始游戏音乐
+    LoadMusic: "kunqu", // 加载音乐
+    StartGameMusic: "kunqu", // 开始游戏音乐
     ArP: { // ArP对象
         ArC: [1, 7], // ArC数组（列数）
         ArR: [1, 5], // ArR数组（行数）
