@@ -1,4 +1,4 @@
-oS.Init({PName:[oPeashooter,oSunFlower,oSnowPea,oSquash,oFumeShroom],
+oS.Init({PName:[oPeashooter,oSunFlower,oSnowPea,oSquash,oSpikerock],
     ZName:[oZombie,oBucketheadZombie,oFootballZombie,oNewspaperZombie,oPoleVaultingZombie],
     PicArr:["images/interface/background2.jpg",
     "images/interface/trophy.png","images/interface/Dave.gif",
