@@ -1029,7 +1029,7 @@ oPotatoMine = InheritO(CPlants, {
 	CName: "土豆雷",
 	width: 75,
 	height: 55,
-	HP:8000,
+	HP:20000,
 	beAttackedPointR: 55,
 	SunNum: 25,
 	coolTime: 30,
@@ -1110,12 +1110,12 @@ oPotatoMine = InheritO(CPlants, {
 			src: "images/Plants/PotatoMine/PotatoMine_mashed.gif"
 		},
 		{
-			width: "132px",
-			height: "93px",
-			left: "-40px",
-			top: "-20px"
+			width: "272px",
+			height: "186px",
+			left: "-80px",
+			top: "-40px"
 		});
-		NewImg(0, "images/Plants/PotatoMine/ExplosionSpudow.gif", "left:-90px;top:-40px", d);
+		NewImg(0, "images/Plants/PotatoMine/ExplosionSpudow.gif", "left:-180px;top:-90px", d);
 		oSym.addTask(200,
 		function(i) {
 			ClearChild(i.lastChild);
@@ -1467,7 +1467,7 @@ oSpikeweed = InheritO(CPlants, {
 	Stature: -1,
 	canEat: 0,
 	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.gif", "images/Plants/Spikeweed/Spikeweed.gif"],
-	Attack: 20,
+	Attack: 30,
 	ArZ: {},
 	Tooltip: "扎破轮胎, 也能伤害走在上面的僵尸",
 	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
@@ -1728,7 +1728,7 @@ oFumeShroom = InheritO(CPlants, {
 	NormalAttack: function() {
 		PlayAudio("fume");
 		var f = this,
-		d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX + 330, oS.W), f.R),
+		d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX +800, oS.W), f.R),
 		e = d.length,
 		g,
 		c = f.id,
