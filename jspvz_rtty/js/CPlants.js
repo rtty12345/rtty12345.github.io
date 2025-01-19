@@ -1723,7 +1723,7 @@ oFumeShroom = InheritO(CPlants, {
 		ClearChild($(a.id + "_Bullet"))
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[b, Math.min(c + 330, oS.W), 0]]
+		return [[b, Math.min(c + 800, oS.W), 0]]
 	},
 	NormalAttack: function() {
 		PlayAudio("fume");
