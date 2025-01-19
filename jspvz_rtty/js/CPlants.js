@@ -1115,7 +1115,7 @@ oPotatoMine = InheritO(CPlants, {
 			left: "-80px",
 			top: "-40px"
 		});
-		NewImg(0, "images/Plants/PotatoMine/ExplosionSpudow.gif", "left:-180px;top:-90px", d);
+		NewImg(0, "images/Plants/PotatoMine/ExplosionSpudow.gif", "left:-90px;top:-40px", d);
 		oSym.addTask(200,
 		function(i) {
 			ClearChild(i.lastChild);
