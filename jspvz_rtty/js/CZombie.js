@@ -416,11 +416,26 @@ var CZombies = function(b, a) {
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
 		},
-		SetAlpha: $User.Browser.IE ?
-		function(f, d, e, c) {
-			d.style.filter = (f.CSS_alpha = "alpha(opacity=" + e + ")") + f.CSS_fliph
-		}: function(f, d, e, c) {
+		SetAlpha: function(f, d, e, c) {
 			d.style.opacity = c
+		},
+		Async_Picture: function () {
+			let self = this; self.HeadTargetPosition = self.HeadTargetPosition.concat(); // 备份 HeadTargetPosition
+			if (!__Open_Async_Picture__ && !this.__Open_Async_Picture__) return;
+			self.PicArr = self.PicArr.concat();
+			for (let index in self.PicArr) {
+				if (self.PicArr[index] && !/base64/.test(self.PicArr[index])) {
+					self.PicArr[index] = self.RandomPic(self.PicArr[index], false, true);
+				};
+			};
+		},
+		RandomPic: function (l, a, b, callback = null) {
+			let link = l + ((l.indexOf('?') != -1) ? "&" : "?") + Math.random();
+			if (callback) callback(link);
+			return link;
+		},
+		GoingDieGetHit: function (c, b) {
+			c.HP -= b / 5;
 		}
 	},
 	a
