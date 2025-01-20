@@ -1154,7 +1154,49 @@ oConeheadZombie = InheritO(OrnIZombies, {
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中(500+270)</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。'
 }),
-oBucketheadZombie = InheritO(oConeheadZombie, {
+  oConeheadZombie1= InheritO(OrnIZombies, {
+        EName: "oConeheadZombie",
+        CName: "路障僵尸",
+        OrnHP: 500,
+        Lvl: 2,
+        SunNum: 125,
+        StandGif: 11,
+        PicArr: (function() {
+            var b = "images/Zombies/ConeheadZombie/",
+                a = "images/Zombies/Zombie/";
+            return ["images/Card/Zombies/ConeheadZombie.png", b + "0.gif", b + "ConeheadZombie.gif", b + "ConeheadZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Zombie.gif", a + "ZombieAttack.gif", b + "1.gif"]
+        })(),
+        AudioArr: ["plastichit"],
+        PlayNormalballAudio: function() {
+            PlayAudio("plastichit")
+        },
+        PrivateBirth: function(a){
+            a.PrivateAct = random(0,1) ? a.PrivateAct1 : a.PrivateAct2;
+        },
+        PrivateAct1: function(a){
+            if(!a.Change){
+                a.Change = true;
+                oSym.addTask(300,function(a){
+                    a.ChangeR(a);
+                    a.Change = false;
+                },[a])
+            }
+        },
+        PrivateAct2: function(a){
+            if(!a.bool){
+                a.Speed = 6.4;
+                var C = GetC(a.X + 80);
+                var p = oGd.$[`${a.R}_${C}_1`];
+                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                    a.bool = 1;
+                    p.Die();
+                    PlayAudio("bowlingimpact");
+                    a.Speed = 1.6;
+                    a.Attack = 300;
+                }
+            }
+        },
+oBucketheadZombie = InheritO(oConeheadZombie， {
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
 	OrnHP: 1000,
