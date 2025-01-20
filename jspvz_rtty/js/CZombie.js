@@ -1199,7 +1199,7 @@ oBucketheadZombie = InheritO(oConeheadZombie,{
                     a.Attack = 150;
                 }
             }
-        },
+        }
 }),
 oFootballZombie = InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
