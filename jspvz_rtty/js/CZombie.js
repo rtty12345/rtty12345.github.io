@@ -1198,7 +1198,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。'
 }),
-oBucketheadZombie = InheritO(oConeheadZombie1,{
+oBucketheadZombie = InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
 	OrnHP: 1000,
@@ -1219,7 +1219,7 @@ oBucketheadZombie = InheritO(oConeheadZombie1,{
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	}
 }),
-oFootballZombie = InheritO(oConeheadZombie， {
+oFootballZombie = InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
 	OrnHP: 2000,
