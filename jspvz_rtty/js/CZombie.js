@@ -1154,10 +1154,10 @@ oConeheadZombie = InheritO(OrnIZombies, {
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中(500+270)</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。'
 }),
-  oConeheadZombie1= InheritO(OrnIZombies, {
+  oConeheadZombie = InheritO(OrnIZombies, {
         EName: "oConeheadZombie",
-        CName: "路障僵尸",
-        OrnHP: 500,
+        CName: "è·¯éåµå°¸",
+        OrnHP: 800,
         Lvl: 2,
         SunNum: 125,
         StandGif: 11,
@@ -1192,10 +1192,12 @@ oConeheadZombie = InheritO(OrnIZombies, {
                     p.Die();
                     PlayAudio("bowlingimpact");
                     a.Speed = 1.6;
-                    a.Attack = 300;
+                    a.Attack = 150;
                 }
             }
         },
+        Produce: 'ä»çè·¯éå¤´çï¼ä½¿ä»ä¸¤ååé§äºæ®éåµå°¸,è·¯éåµå°¸ä¼ä¸æ­å°æ¹åèªå·±çä½ç½®,æäºä¼å²éææ­»ç¬¬ä¸æ ªæ¤ç©ã<p>é§æ§ï¼<font color="#FF0000">ä¸­(æ¬ä½ï¼300  å¸½å­ï¼800)</font></p>åå¶ä»åµå°¸ä¸æ ·ï¼è·¯éå¤´åµå°¸ç²ç®å°ååãä½æäºäºç©å´ä½¿ä»åä¸èæ­¥ï¼æ¡èµ·ä¸ä¸ªäº¤éè·¯éï¼å¹¶åºå®å¨èªå·±çèè¢ä¸ãæ¯çï¼ä»å¾åæ¬¢åå èä¼ã'
+    }),
 oBucketheadZombie = InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
