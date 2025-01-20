@@ -1196,7 +1196,7 @@ oConeheadZombie = InheritO(OrnIZombies, {
                 }
             }
         },
-oBucketheadZombie = InheritO(oConeheadZombie， {
+oBucketheadZombie = InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
 	OrnHP: 1000,
