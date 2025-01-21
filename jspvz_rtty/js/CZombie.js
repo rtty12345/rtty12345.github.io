@@ -1198,7 +1198,7 @@ oFootballZombie = InheritO(oConeheadZombie,{
 	height: 160,
 	OSpeed: 6.4,
 	Speed: 6.4,
-	Attack:300,
+	Attack:150,
 	beAttackedPointL: 40,
 	beAttackedPointR: 134,
 	PlayNormalballAudio: function() {
@@ -1231,7 +1231,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return 2
 	},
 	Lvl: 2,
-	SunNum: 125,
+	SunNum: 100,
 	BookHandPosition: "-30px 70%",
 	PicArr: (function() {
 		var a = "images/Zombies/PoleVaultingZombie/";
@@ -1793,7 +1793,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	HP:300,
 	oSpeed:1.6,
 	Speed:1.6,
-	SunNum: 200,
+	SunNum: 150,
 	StandGif: 13,
 	width: 166,
 	height: 144,
