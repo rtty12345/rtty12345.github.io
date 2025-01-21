@@ -1196,8 +1196,9 @@ oFootballZombie = InheritO(oConeheadZombie,{
 	StandGif: 11,
 	width: 154,
 	height: 160,
-	OSpeed: 3.2,
-	Speed: 3.2,
+	OSpeed: 6.4,
+	Speed: 6.4,
+	Attack:300,
 	beAttackedPointL: 40,
 	beAttackedPointR: 134,
 	PlayNormalballAudio: function() {
