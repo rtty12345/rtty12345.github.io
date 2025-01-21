@@ -1363,7 +1363,7 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
 	SunNum: 100,
-	LostPaperSpeed: 35,
+	LostPaperSpeed: 32,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
