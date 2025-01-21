@@ -1164,7 +1164,7 @@ oBucketheadZombie = InheritO(oConeheadZombie,{
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
 	PrivateBirth: function(a){
-            a.PrivateAct = random(0,1) ? a.PrivateAct1 : a.PrivateAct2;
+            a.PrivateAct = a.PraivateAct1;
         },
         PrivateAct1: function(a){
             if(!a.Change){
@@ -1173,20 +1173,6 @@ oBucketheadZombie = InheritO(oConeheadZombie,{
                     a.ChangeR(a);
                     a.Change = false;
                 },[a])
-            }
-        },
-        PrivateAct2: function(a){
-            if(!a.bool){
-                a.Speed = 6.4;
-                var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-                    a.bool = 1;
-                    p.Die();
-                    PlayAudio("bowlingimpact");
-                    a.Speed = 1.6;
-                    a.Attack = 150;
-                }
             }
         },
 	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
