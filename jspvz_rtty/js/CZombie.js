@@ -1163,17 +1163,6 @@ oBucketheadZombie = InheritO(oConeheadZombie,{
 	PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
-},
-{
-	PicArr: {
-		0 : "images/Card/Zombies/BucketheadZombie.png",
-		1 : "images/Zombies/BucketheadZombie/0.gif",
-		2 : "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
-		3 : "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
-		9 : "images/Zombies/Zombie/Zombie2.gif",
-		11 : "images/Zombies/BucketheadZombie/1.gif"
-	},
 	PrivateBirth: function(a){
             a.PrivateAct = random(0,1) ? a.PrivateAct1 : a.PrivateAct2;
         },
@@ -1199,7 +1188,18 @@ oBucketheadZombie = InheritO(oConeheadZombie,{
                     a.Attack = 150;
                 }
             }
-        }
+        },
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+},
+{
+	PicArr: {
+		0 : "images/Card/Zombies/BucketheadZombie.png",
+		1 : "images/Zombies/BucketheadZombie/0.gif",
+		2 : "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
+		3 : "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
+		9 : "images/Zombies/Zombie/Zombie2.gif",
+		11 : "images/Zombies/BucketheadZombie/1.gif"
+	},
 }),
 oFootballZombie = InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
