@@ -550,13 +550,13 @@ oThreepeater = InheritO(oPeashooter, {
 	CName: "三线射手",
 	width: 73,
 	height: 80,
-	BKind:1,
+	BKind:0,
 	beAttackedPointR: 53,
 	SunNum: 275,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次射出三行的假的火豌豆",
-	Produce: '三线射手可以在三条线上同时射出假的火豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
+	Tooltip: "一次射出三行的豌豆",
+	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerR: function(a) {
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
 	},
@@ -578,7 +578,7 @@ oThreepeater = InheritO(oPeashooter, {
 				pixelLeft: d,
 				F: oGd.MB1
 			}));
-			f.BulletEle.push(NewImg(0, "images/Plants/PB10.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
 		}
 	},
 	PrivateDie: function(a) {
