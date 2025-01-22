@@ -1204,6 +1204,7 @@ oFootballZombie = InheritO(oConeheadZombie,{
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
+	getSnowPea:OrnNoneZombies.prototype.getPea,
 	PicArr: (function() {
 		var a = "images/Zombies/FootballZombie/";
 		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
