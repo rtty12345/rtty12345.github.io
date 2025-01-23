@@ -1206,6 +1206,7 @@ oFootballZombie = InheritO(oConeheadZombie,{
 		PlayAudio("plastichit")
 	},
 	getSnowPea:OrnNoneZombies.prototype.getPea,
+	getFirePea:OrnNoneZombies.prototype.getPea,
 	PicArr: (function() {
 		var a = "images/Zombies/FootballZombie/";
 		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
@@ -1213,7 +1214,7 @@ oFootballZombie = InheritO(oConeheadZombie,{
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
 	},
-	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
