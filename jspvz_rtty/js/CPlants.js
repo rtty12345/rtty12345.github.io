@@ -1432,7 +1432,7 @@ oJalapeno = InheritO(oCherryBomb, {
 				g = oGd.$Ice[f],
 				d = oGd.$Crater;
 				while (e--) {
-					c[e].bedevil(10000)
+					c[e].getExplosion(2000)
 				}
 				h.Die(1);
 				EditEle(b.childNodes[1], {
