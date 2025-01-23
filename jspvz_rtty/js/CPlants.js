@@ -1414,7 +1414,7 @@ oJalapeno = InheritO(oCherryBomb, {
 	width: 68,
 	height: 89,
 	beAttackedPointR: 48,
-	SunNum:125,
+	SunNum:200,
 	PicArr: ["images/Card/Plants/Jalapeno.png", "images/Plants/Jalapeno/0.gif", "images/Plants/Jalapeno/Jalapeno.gif", "images/Plants/Jalapeno/JalapenoAttack.gif"],
 	AudioArr: ["jalapeno"],
 	Tooltip: "消灭整行的敌人",
@@ -1432,7 +1432,7 @@ oJalapeno = InheritO(oCherryBomb, {
 				g = oGd.$Ice[f],
 				d = oGd.$Crater;
 				while (e--) {
-					c[e].getExplosion(2000)
+					c[e].bedevil(10000)
 				}
 				h.Die(1);
 				EditEle(b.childNodes[1], {
@@ -1521,12 +1521,13 @@ oSpikerock = InheritO(oSpikeweed, {
 	CName: "地刺王",
 	width: 84,
 	height: 43,
+	HP:1000,
 	beAttackedPointL: 10,
 	beAttackedPointR: 74,
 	SunNum: 125,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/Spikerock.png", "images/Plants/Spikerock/0.gif", "images/Plants/Spikerock/Spikerock.gif", "images/Plants/Spikerock/2.gif", "images/Plants/Spikerock/3.gif"],
-	Attack: 40,
+	Attack:45,
 	Tooltip: "能扎破多个轮胎, 并伤害经过上面的僵尸<br>(需要地刺)",
 	Produce: '地刺王可以扎破多个轮胎，并对踩到他的僵尸造成伤害。<p><font color="#FF0000">必须种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，也认识了很多有趣的人。这些都真的拓展了他的视野——他从来不知道，他们建造了这么大的博物馆，有这么多的画作。这对他来说太惊奇了。',
 	CanGrow: function(b, a, d) {
