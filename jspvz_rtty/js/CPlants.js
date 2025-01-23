@@ -1797,7 +1797,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 	width: 88,
 	height: 83,
 	beAttackedPointR: 68,
-	SunNum: 150,
+	SunNum: 200,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GloomShroom.png", "images/Plants/GloomShroom/0.gif", "images/Plants/GloomShroom/GloomShroom.gif", "images/Plants/GloomShroom/GloomShroomSleep.gif", "images/Plants/GloomShroom/GloomShroomAttack.gif", "images/Plants/GloomShroom/GloomShroomBullet.gif"],
 	AudioArr: ["kernelpult", "kernelpult2"],
