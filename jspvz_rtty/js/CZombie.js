@@ -1110,6 +1110,7 @@ oFlagZombie = InheritO(oZombie, {
 	OSpeed: 10,
 	Speed: 10,
 	SunNum: 75,
+	Attack:500,
 	HP:400,
 	beAttackedPointR: 101,
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
@@ -2729,7 +2730,7 @@ oZomboni = function() {
 oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	EName: "oDolphinRiderZombie",
 	CName: "海豚骑士僵尸",
-	HP: 800,
+	HP: 400,
 	Lvl: 2,
 	BreakPoint: 167,
 	width: 282,
@@ -2745,7 +2746,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return 0
 	},
 	GetDTop: 0,
-	Altitude: 1,
+	Altitude: 2,
 	haveDolphin: 1,
 	JumpTime: 45,
 	beAttackedPointL: 110,
@@ -2758,7 +2759,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DolphinRiderZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Jump2.gif" + $Random, a + "Walk3.gif", a + "Walk4.gif", a + "Die2.gif" + $Random, a + "Jump3.gif" + $Random]
 	})(),
 	AudioArr: ["dolphin_before_jumping", "dolphin_appears", "zombie_entering_water"],
-	Produce: '海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#FF0000">中(800)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
+	Produce: '海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#FF0000">中(400)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
