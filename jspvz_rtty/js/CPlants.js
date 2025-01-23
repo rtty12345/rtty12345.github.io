@@ -1840,7 +1840,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 		l = j + "_Bullet";
 		for (g = k.MinR; g <= f; g++) {
 			e = oZ.getArZ(c, b, g);
-			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHit1(a, 80)) {}
+			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getSnowPea(a, 80)) {}
 		}
 		oSym.addTask(100,
 		function(i) {
