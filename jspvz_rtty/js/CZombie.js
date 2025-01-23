@@ -2734,7 +2734,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	BreakPoint: 167,
 	width: 282,
 	height: 210,
-	Lvl: 2,
+	Lvl:3,
 	getShadow: function(a) {
 		return ("left:105px;top:175px")
 	},
@@ -2827,7 +2827,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		SetHidden(c);
 		f.isAttacking = 1;
 		f.Altitude = 2;
-		f.haveDolphin = 0;
+		f.haveDolphin = 1;
 		PlayAudio("dolphin_before_jumping");
 		f.getFreeze = function() {
 			f.getSnow(f, 20, 0)
