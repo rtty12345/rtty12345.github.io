@@ -10,7 +10,7 @@ oS.Init({
     oCactus,
     oLilyPad,
   ],
-  ZName: [oZombie,oDolphinRiderZombi,oFootballZombie],
+  ZName: [oZombie,oDolphinRiderZombie,oFootballZombie],
   PicArr: [
     "images/interface/background4.jpg",
     "images/interface/trophy.png",
