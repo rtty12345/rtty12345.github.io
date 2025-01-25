@@ -1351,7 +1351,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
     BoomDieGif: 12,
     Attack: 800,
   }),
-oNewspaperZombie = InheritO(OrnIIZombies, {
+oNewspaperZombie = InheritO(OrnIIZombies1, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
@@ -1487,7 +1487,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			}
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
-			k.Altitude=1,
+			k.Altitude=1;
 			k.Attack=800;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
@@ -1497,8 +1497,8 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			}
 			PlayAudio("newspaper_rarrgh2");
 			k.EleBody.src = l;
-			k.JudgeAttack()
-			k.Attack=800;
+			k.JudgeAttack();
+			k.Attack=800
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
