@@ -1351,14 +1351,12 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
     BoomDieGif: 12,
     Attack: 800,
   }),
-oNewspaperZombie = InheritO(OrnIIZombies1, {
+oNewspaperZombie = InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
 	Lvl: 2,
 	HP:450,
-	oSpeed:3,
-	Speed:3,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -1374,7 +1372,7 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（450）</font><br>封印韧性：<font color="#FF0000">低（60）</font><br>速度：不正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为800（只能一次）</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（450）</font><br>封印韧性：<font color="#FF0000">低（60）</font><br>速度：不正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为800（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
