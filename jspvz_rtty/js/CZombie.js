@@ -950,7 +950,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		g.LostHeadGif = 15;
 		g.NormalGif = 10;
 		g.Speed = g.DZMSpeed = g.DZStep = 0;
-		g.DZStepT = oSym.Now + 200;
+		g.DZStepT = oSym.Now + 100;
 		oSym.addTask(200,
 		function(j, i) {
 			var k = $Z[j];
