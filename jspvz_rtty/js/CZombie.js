@@ -1352,14 +1352,15 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
     BoomDieGif: 12,
     Attack: 800,
   }),
-oNewspaperZombie = InheritO(OrnIIZombies1, {
+oNewspaperZombie = InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
-	OrnHP: 60,
+	OrnHP: 200,
 	Lvl: 2,
 	HP:450,
 	oSpeed:3,
 	Speed:3,
+	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
 	width: 216,
@@ -1368,6 +1369,7 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 	beAttackedPointR: 130,
 	SunNum: 100,
 	LostPaperSpeed: 32,
+	LostPaperAtack:800,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
@@ -1478,7 +1480,7 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(150,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=2,g.getFirePea = e.getFirePea, g.getSnowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -1486,6 +1488,8 @@ oNewspaperZombie = InheritO(OrnIIZombies1, {
 			}
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
+			k.Altitude=1,
+			k.Attack=k.LostPaperAttack;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
