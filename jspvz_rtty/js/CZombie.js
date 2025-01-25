@@ -412,7 +412,6 @@ var CZombies = function(b, a) {
 			c.PZ = 0;
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
-			c.Attack=300,
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
 		},
