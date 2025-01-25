@@ -1497,8 +1497,8 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			}
 			PlayAudio("newspaper_rarrgh2");
 			k.EleBody.src = l;
+			k.JudgeAttack(800)
 			k.Attack=k.LostPaperAttack;
-			k.JudgeAttack()
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
