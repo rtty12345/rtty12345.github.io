@@ -2516,7 +2516,7 @@ oZomboni = function() {
 	return InheritO(OrnNoneZombies, {
 		EName: "oZomboni",
 		CName: "重型冰车僵尸",
-		HP:3000,
+		HP:2500,
 		Lvl: 3,
 		StandGif: 2,
 		DieGif: 6,
@@ -2938,7 +2938,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
 	SunNum: 150,
-	HP: 800,
+	HP: 400,
 	BreakPoint: 167,
 	Lvl: 3,
 	Status: 1,
