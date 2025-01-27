@@ -557,6 +557,9 @@ oThreepeater = InheritO(oPeashooter, {
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出三行的豌豆",
 	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
+	getTriggerRange: function(a, b, c) {
+		return [[b, Math.min(c + 250, oS.W), 0]]
+	},
 	getTriggerR: function(a) {
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
 	},
@@ -584,7 +587,7 @@ oThreepeater = InheritO(oPeashooter, {
 	PrivateDie: function(a) {
 		a.BulletEle.length = 0
 	},
-	NormalAttack: function() {
+	NormalAttack1: function() {
 		var a, c = this,
 		d, b = 0;
 		for (a in c.oTrigger) {
@@ -615,6 +618,15 @@ oThreepeater = InheritO(oPeashooter, {
 			},
 			[d, $(d), 20,0, c.AttackedLX, a, 0, 0, c.AttackedLX - 40, oGd.$Torch])
 		}
+	},
+NormalAttack: function(a) {
+	this.NormalAttack1();
+	oSym.addTask(15,
+	function(d, b) {
+		var c = $P[d];
+		c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
+		},
+		[this.id,10])
 	}
 }),
 oPeashooter1= InheritO(CPlants, {
