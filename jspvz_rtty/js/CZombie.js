@@ -1220,10 +1220,10 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
 	HP: 600,
-	width: 348,
-	height: 218,
-	OSpeed: 3.2,
-	Speed: 3.2,
+	width:500,
+	height: 432,
+	OSpeed: 10,
+	Speed: 10,
 	beAttackedPointL: 215,
 	beAttackedPointR:260,
 	StandGif: 13,
@@ -1256,7 +1256,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		h = oGd.$,
 		f,
 		a,
-		e = b - 7200;
+		e = b - 80;
 		for (f = c - 2; f <= c; f++) {
 			if (f > 9) {
 				continue
@@ -1305,7 +1305,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 			k,
 			q,
 			r;
-			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL-10000) + h.beAttackedPointR, SetStyle(i, {
+			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL-480) + h.beAttackedPointR, SetStyle(i, {
 				left: h.X + "px"
 			}), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 1.6, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = CZombies.prototype).NormalAttack, h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR) + h.beAttackedPointL, SetStyle(i, {
 				left: h.X + "px"
