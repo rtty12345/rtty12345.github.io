@@ -146,7 +146,7 @@
 		$P.length -= 1; ! a && ClearChild($(c));
 		b.PrivateDie(b)
 	}
-})，
+}),
 oGraveBuster = InheritO(CPlants, {
 	EName: "oGraveBuster",
 	CName: "墓地苔",
@@ -188,7 +188,7 @@ oGraveBuster = InheritO(CPlants, {
 		},
 		[a.id])
 	}
-})，
+}),
 oLawnCleaner = InheritO(CPlants, {
 	EName: "oLawnCleaner",
 	CName: "草地剪草机",
@@ -220,7 +220,7 @@ oLawnCleaner = InheritO(CPlants, {
 			k > c ? b.Die() : (b.pixelRight += 10, b.AttackedLX = k += 10, b.AttackedRX = j += 10, g.style.left = (b.pixelLeft += 10) + "px", oSym.addTask(1, arguments.callee, [b, c, k, j, e, g]))
 		})(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
 	}
-})，
+}),
 oPoolCleaner = InheritO(oLawnCleaner, {
 	EName: "oPoolCleaner",
 	CName: "池塘清扫车",
@@ -232,7 +232,7 @@ oPoolCleaner = InheritO(oLawnCleaner, {
 	PicArr: ["images/interface/PoolCleaner.png"],
 	Tooltip: "池塘清扫车",
 	AudioArr: ["pool_cleaner"]
-})，
+}),
 oBrains = InheritO(CPlants, {
 	EName: "oBrains",
 	CName: "脑子",
@@ -257,7 +257,7 @@ oBrains = InheritO(CPlants, {
 	GetDX: function() {
 		return - 40
 	}
-})，
+}),
 oStarfruit = InheritO(CPlants, {
 	EName: "oStarfruit",
 	CName: "杨桃",
