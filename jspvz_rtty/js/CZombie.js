@@ -1254,7 +1254,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                 d = g.R + "_",
                 c = GetC(b),
                 h = oGd.$,
-                f, a, e = b - 80;
+                f, a, e = b - 100;
             for (f = c - 2; f <= c; f++) {
                 if (f > 9) {
                     continue
