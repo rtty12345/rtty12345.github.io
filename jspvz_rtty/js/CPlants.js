@@ -555,8 +555,8 @@ oThreepeater = InheritO(oPeashooter, {
 	SunNum: 275,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次射出三行的豌豆",
-	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
+	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
+	Produce: '三线射手可以在三条线上同时大量射出豌豆，攻击距离短<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerRange: function(a, b, c) {
 		return [[b, Math.min(c + 250, oS.W), 0]]
 	},
