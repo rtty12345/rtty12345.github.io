@@ -146,7 +146,7 @@
 		$P.length -= 1; ! a && ClearChild($(c));
 		b.PrivateDie(b)
 	}
-}),
+})，
 oGraveBuster = InheritO(CPlants, {
 	EName: "oGraveBuster",
 	CName: "墓地苔",
@@ -188,7 +188,7 @@ oGraveBuster = InheritO(CPlants, {
 		},
 		[a.id])
 	}
-}),
+})，
 oLawnCleaner = InheritO(CPlants, {
 	EName: "oLawnCleaner",
 	CName: "草地剪草机",
@@ -220,7 +220,7 @@ oLawnCleaner = InheritO(CPlants, {
 			k > c ? b.Die() : (b.pixelRight += 10, b.AttackedLX = k += 10, b.AttackedRX = j += 10, g.style.left = (b.pixelLeft += 10) + "px", oSym.addTask(1, arguments.callee, [b, c, k, j, e, g]))
 		})(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
 	}
-}),
+})，
 oPoolCleaner = InheritO(oLawnCleaner, {
 	EName: "oPoolCleaner",
 	CName: "池塘清扫车",
@@ -232,7 +232,7 @@ oPoolCleaner = InheritO(oLawnCleaner, {
 	PicArr: ["images/interface/PoolCleaner.png"],
 	Tooltip: "池塘清扫车",
 	AudioArr: ["pool_cleaner"]
-}),
+})，
 oBrains = InheritO(CPlants, {
 	EName: "oBrains",
 	CName: "脑子",
@@ -257,7 +257,7 @@ oBrains = InheritO(CPlants, {
 	GetDX: function() {
 		return - 40
 	}
-}),
+})，
 oStarfruit = InheritO(CPlants, {
 	EName: "oStarfruit",
 	CName: "杨桃",
@@ -558,7 +558,7 @@ oThreepeater = InheritO(oPeashooter, {
 	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
 	Produce: '三线射手可以在三条线上同时大量射出豌豆，攻击距离短<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerRange: function(a, b, c) {
-		return [[b, Math.min(c + 250, oS.W), 0]]
+		return [[b, Math.min(c + 150, oS.W), 0]]
 	},
 	getTriggerR: function(a) {
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
