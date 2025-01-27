@@ -1221,7 +1221,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	CName: "撑杆僵尸",
 	HP: 600,
 	width:348,
-	height: 432,
+	height: 218,
 	OSpeed: 10,
 	Speed: 10,
 	beAttackedPointL: 215,
