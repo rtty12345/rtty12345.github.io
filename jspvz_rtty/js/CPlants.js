@@ -512,7 +512,7 @@ oSnowPea = InheritO(oPeashooter, {
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
-				1 : "getFirePea"
+				1 : "getSlowPea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
 				width: "52px",
@@ -586,7 +586,7 @@ oThreepeater = InheritO(oPeashooter, {
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
 					0 : "getPea",
-					1 : "getFirePea"
+					1 : "getSlowPea"
 				} [o]](f, j, e), (SetStyle(l, {
 					left: q + 28 + "px",
 					width: "52px",
