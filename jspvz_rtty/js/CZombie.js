@@ -1437,7 +1437,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
-	getFirePea: function(f， b, e) {
+	getFirePea: function(f,b,e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
 		f.Attack = 800;
 		var d = f.AttackedLX,
