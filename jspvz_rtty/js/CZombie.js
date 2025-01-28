@@ -1078,8 +1078,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		[c, a])
 	}
 }),
-  oJalapenoZombie3 = InheritO(oZombie, {
-    EName: "oJalapenoZombie3",
+  oJalapenoZombie1= InheritO(oZombie, {
+    EName: "oJalapenoZombie1",
     CName: "火爆辣椒僵尸(瞬爆)",
     HP: 500,
     width: 68,
@@ -1124,7 +1124,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
     },
     CheckBoomFire: function (f) {
       oSym.addTask(
-        1000,
+        1,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -1135,7 +1135,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
         [f]
       );
     },
-oZombie = InheritO(OrnNoneZombies, {
+oZombie = InheritO(OrnNoneZombies,{
 	EName: "oZombie",
 	CName: "领带僵尸",
 	StandGif: 9,
