@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie,oNewspaperZombie],
 	PicArr: ["images/interface/background1unsodded2.jpg", "images/interface/background1.jpg"],
 	backgroundImage: "images/interface/background1unsodded2.jpg",
 	CanSelectCard: 0,
@@ -62,7 +62,7 @@ oS.Init({
 			})())
 		})(283, 122, 68, 117, 73, 71, 131, 511)
 	}
-}， {
+},{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
@@ -79,7 +79,7 @@ oS.Init({
 	},
 	FlagToEnd: function() {
 		(NewImg("imgSF", "images/interface/Shovel.png", "left:667px;top:330px;cursor:pointer", EDAll))
-		。onclick = function() {
+		.onclick = function() {
 			SetHidden(EDAll, $("dFlagMeter"));
 			(SetStyle($("imgSF"), {
 				left: "351px",
@@ -88,14 +88,14 @@ oS.Init({
 				height: "68px",
 				cursor: "default"
 			}))
-			。onclick = null;
+			.onclick = null;
 			$("iNewPlantCard")
-				。src = "images/interface/Shovel.png";
+				.src = "images/interface/Shovel.png";
 			innerText($("dNewPlantTitle"), "你获得了铲子！");
 			innerText($("dNewPlantName"), "铲子");
 			innerText($("dNewPlantTooltip"), "你可以使用铲子铲除掉草坪上的植物");
 			$("btnNextLevel")
-				。onclick = function() {
+				.onclick = function() {
 					SelectModal(5)
 				};
 			SetVisible($("dNewPlant"))
