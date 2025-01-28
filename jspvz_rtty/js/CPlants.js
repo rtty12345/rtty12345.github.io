@@ -663,7 +663,7 @@ oThreepeater1= InheritO(oPeashooter, {
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
 				f = oZ["getZ" + e](p, k);
-				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				o<1 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
 					0 : "getPea",
