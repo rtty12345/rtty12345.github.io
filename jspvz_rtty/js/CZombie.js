@@ -1831,11 +1831,11 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit0(c, a, b)
 	},
-	getPea: function(c， a, b) {
+	getPea: function(c,a,b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
-	getHit0: function(c， a, b) {
+	getHit0: function(c,a,b) {
 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10,
 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
 		},
