@@ -611,6 +611,7 @@ oThreepeater1= InheritO(oPeashooter, {
 	CName: "三线射手",
 	width: 73,
 	height: 80,
+	Bkind:-1,
 	beAttackedPointR: 53,
 	SunNum: 325,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
