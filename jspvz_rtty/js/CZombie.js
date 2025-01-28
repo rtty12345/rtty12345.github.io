@@ -1155,6 +1155,63 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		a = "images/Zombies/Zombie/";
 		return ["images/Card/Zombies/ConeheadZombie.png", b + "0.gif", b + "ConeheadZombie.gif", b + "ConeheadZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Zombie.gif", a + "ZombieAttack.gif", b + "1.gif"]
 	})(),
+		bedevil: function(a) {
+		a.ExchangeLR(a, 1);
+		a.JudgeAttack = a.JudgeAttackH;
+		a.PZ = 0;
+		a.WalkDirection = 1;
+		a.ZX = a.AttackedRX;
+		a.ChkActs = a.ChkActs1;
+		a.Speed = 10;
+		a.ChangeChkActsTo1(a, a.id, a.EleBody);
+		oP.MonPrgs()
+	},
+	getSlow: function(f, d, e) {
+		var b = oSym.Now + e,
+		c = f.FreeSlowTime,
+		a = 0;
+		switch (true) {
+		case ! c: f.PlaySlowballAudio();
+			f.Attack = 50;
+			f.FreeSlowTime = b;
+			a = 1;
+			break;
+		case c < b: f.PlayNormalballAudio();
+			f.FreeSlowTime = b;
+			a = 1
+		}
+		a && oSym.addTask(e,
+		function(h, g) {
+			var i = $Z[h];
+			i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+		},
+		[d, b])
+	},
+	getFreeze: function(b, a) {
+		b.beAttacked && b.getHit0(b, 20, 0);
+		oSym.addTask(400,
+		function(e, d, c) {
+			ClearChild(c);
+			var f = $Z[e];
+			f && f.FreeFreezeTime == d && (f.FreeFreezeTime = 0, f.Attack = 50, !f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(), oSym.addTask(1500,
+			function(h, g) {
+				var i = $Z[h];
+				i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+			},
+			[e, f.FreeSlowTime = oSym.Now + 1500]))
+		},
+		[a, b.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", b.getShadow(b), b.Ele)])
+	},
+	CustomBirth: function(g, d, a, b, j) {
+		var e = this,
+		c = GetY(g) + e.GetDY(),
+		f = c - e.height,
+		i = e.beAttackedPointL,
+		h = e.beAttackedPointR;
+		e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
+		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
+		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
+	},
 	AudioArr: ["plastichit"],
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
