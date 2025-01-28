@@ -1106,6 +1106,611 @@ oZombie3 = InheritO(oZombie, {
 		9 : "images/Zombies/Zombie/3.gif"
 	}
 }),
+ oJalapenoZombie1= InheritO(oZombie, {
+    EName: "oJalapenoZombie1",
+    CName: "火爆辣椒僵尸(瞬爆)",
+    HP: 500,
+    width: 68,
+    height: 89,
+    beAttackedPointL: 5,
+    beAttackedPointR: 48,
+    PicArr: (function () {
+      var a = "images/Plants/Jalapeno/",
+        b = "images/Zombies/Zombie/";
+      return [
+        "images/Card/Plants/Jalapeno.png",
+        a + "0.gif",
+        a + "Jalapeno.gif",
+        a + "Jalapeno.gif",
+        a + "Jalapeno.gif",
+        a + "Jalapeno.gif",
+        a + "Jalapeno.gif" + $Random,
+        a + "Jalapeno.gif" + $Random,
+        a + "Jalapeno.gif" + $Random,
+        a + "Jalapeno.gif",
+      ];
+    })(),
+	bedevil: function(a) {
+		a.ExchangeLR(a, 1);
+		a.JudgeAttack = a.JudgeAttackH;
+		a.PZ = 0;
+		a.WalkDirection = 1;
+		a.ZX = a.AttackedRX;
+		a.ChkActs = a.ChkActs1;
+		a.Speed = 10;
+		a.ChangeChkActsTo1(a, a.id, a.EleBody);
+		oP.MonPrgs()
+	},
+	getSlow: function(f, d, e) {
+		var b = oSym.Now + e,
+		c = f.FreeSlowTime,
+		a = 0;
+		switch (true) {
+		case ! c: f.PlaySlowballAudio();
+			f.Attack = 50;
+			f.FreeSlowTime = b;
+			a = 1;
+			break;
+		case c < b: f.PlayNormalballAudio();
+			f.FreeSlowTime = b;
+			a = 1
+		}
+		a && oSym.addTask(e,
+		function(h, g) {
+			var i = $Z[h];
+			i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+		},
+		[d, b])
+	},
+	getFreeze: function(b, a) {
+		b.beAttacked && b.getHit0(b, 20, 0);
+		oSym.addTask(400,
+		function(e, d, c) {
+			ClearChild(c);
+			var f = $Z[e];
+			f && f.FreeFreezeTime == d && (f.FreeFreezeTime = 0, f.Attack = 50, !f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(), oSym.addTask(1500,
+			function(h, g) {
+				var i = $Z[h];
+				i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+			},
+			[e, f.FreeSlowTime = oSym.Now + 1500]))
+		},
+		[a, b.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", b.getShadow(b), b.Ele)])
+	},
+	CustomBirth: function(g, d, a, b, j) {
+		var e = this,
+		c = GetY(g) + e.GetDY(),
+		f = c - e.height,
+		i = e.beAttackedPointL,
+		h = e.beAttackedPointR;
+		e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
+		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
+		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
+	},
+    Produce:
+      '韧性：<font color="#FF0000">中等</font></p>植物家族叛变的火爆辣椒，代号47，经常自爆以摧毁植物。',
+    BirthCallBack: function (f) {
+      var e = f.delayT,
+        d = f.id,
+        c = (f.Ele = $(d));
+      f.EleShadow = c.firstChild;
+      f.EleBody = c.childNodes[1];
+      e
+        ? oSym.addTask(
+            e,
+            function (h, g) {
+              var i = $Z[h];
+              i && ((i.FreeSetbodyTime = 0), SetBlock(g));
+            },
+            [d, c]
+          )
+        : SetBlock(c);
+      f.CheckBoomFire(f);
+    },
+    CheckBoomFire: function (f) {
+      oSym.addTask(
+        1000,
+        function (f) {
+          // 生成1到100之间的随机整数
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
+          oSym.addTask(100, arguments.callee, [f]);
+        },
+        [f]
+      );
+    },
+    BoomFire: function (y) {
+      PlayAudio("jalapeno");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+      for (let i = 1; i <= oS.C; i++) {
+        for (let j = 0; j < 4; j++) {
+          let g = oGd.$[y + "_" + i + "_" + j];
+          g && g.BoomDie();
+        }
+      }
+      this.DisappearDie();
+    },
+	BirthCallBack: function(e) {
+		var d = e.delayT,
+		c = e.id,
+		b = e.Ele = $(c),
+		a = e.EleBody = b.childNodes[1];
+		e.EleShadow = b.firstChild;
+		oSym.addTask(d,
+		function(g, f) {
+			var h = $Z[g];
+			h && (h.FreeSetbodyTime = 0, SetBlock(f))
+		},
+		[c, b])
+	},
+	ChangeChkActsTo0: function(c, b, a) {
+		if (!c.PZ) {
+			c.ChangeChkActsTo1(c, b, a);
+			return
+		}
+		c.LostHeadGif = 10;
+		c.NormalGif = 9; ! c.isAttacking && (a.src = c.PicArr[9]);
+		c.Speed = c.DZStep = 0;
+		oSym.addTask(200,
+		function(e, d) {
+			var f = $Z[e];
+			f && f.beAttacked && f.ChangeChkActsTo1(f, e, d)
+		},
+		[b, a])
+	},
+	ChangeChkActsTo1: function(c, b, a) {
+		c.LostHeadGif = 4;
+		c.NormalGif = 2;
+		c.DZStep = 1; ! c.isAttacking && (a.src = c.PicArr[2]);
+		c.PZ && oSym.addTask(220,
+		function(e, d) {
+			var f = $Z[e];
+			f && f.beAttacked && f.ChangeChkActsTo0(f, e, d)
+		},
+		[b, a])
+	},
+	ChkActs: function(g, d, h, c) {
+		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+			R: d,
+			ar: [oS.R - 1],
+			CustomTop: 400 - g.height + g.GetDY()
+		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
+		g.ChkSpeed(g);
+		return f
+	},
+	ChkSpeed: function(b) {
+		if (!b.DZStep) {
+			return
+		}
+		var a = b.Speed;
+		switch (true) {
+		case(b.FreeFreezeTime || b.FreeSetbodyTime) == 1 : a && (b.Speed = 0);
+			break;
+		case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 5);
+			break;
+		default:
+			a != 5&& (b.Speed = 5)
+		}
+	}
+  }),
+oDancingZombie1= InheritO(OrnNoneZombies, {
+	EName: "oDancingZombie",
+	CName: "舞王僵尸",
+	HP: 600,
+	BreakPoint: 166,
+	Lvl: 3,
+	StandGif: 9,
+	SunNum: 400,
+	beAttackedPointL: 40,
+	beAttackedPointR: 85,
+	width: 184,
+	height: 176,
+	BookHandPosition: "70% 70%",
+	AudioArr: ["Beatit"],
+	OSpeed:8,
+	Speed:8,
+	NormalGif: 9,
+	GetDTop: 5,
+	getShadow: function(a) {
+		return "left:30px;top:146px"
+	},
+	GetDX: function() {
+		return - 50
+	},
+	GetDY: function() {
+		return - 5
+	},
+	LostHeadGif: 14,
+	addSpotlight: (function() {
+		var a, b;
+		$User.Browser.IE6 ? (a = "_8", b = "filter:alpha(opacity=30)") : a = b = "";
+		return function(d, f, c) {
+			var g = $Z[d],
+			e;
+			NewEle(d + "_spotlightCon", "div", "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden", 0, c).appendChild(g.spotlight = NewImg(d + "_spotlight", "images/Zombies/DancingZombie/spotlight" + a + ".png", "left:0;top:0;width:920px;height:600px;" + b));
+			e = NewEle(d + "_spotlight2Con", "div", "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden", 0);
+			c.insertBefore(e, f.EleShadow);
+			e.appendChild(g.spotlight2 = NewImg(d + "_spotlight2", "images/Zombies/DancingZombie/spotlight2" + a + ".png", "left:0;top:0;width:920px;height:60px;" + b))
+		}
+	})(),
+	PicArr: (function() {
+		var d = "images/Zombies/DancingZombie/",
+		c = $User.Browser.IE6 ? "_8": "",
+		a = d + "spotlight" + c + ".png" + $Random,
+		b = d + "spotlight2" + c + ".png" + $Random;
+		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
+	})(),
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（600）</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。</font></p>游戏内音乐：《Beat it》-Michael Jackson',
+	getSnowPea: function() {
+		this.PlaySlowballAudio();
+	},
+	NormalDie: function() {
+		var a = this;
+		a.ResetBackupDancer(a);
+		a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+		oSym.addTask(250, ClearChild, [a.Ele]);
+		a.HP = 0;
+		delete $Z[a.id];
+		a.PZ && oP.MonPrgs()
+	},
+	ExplosionDie: function() {
+		var a = this;
+		a.ResetBackupDancer(a);
+		a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
+		oSym.addTask(300, ClearChild, [a.Ele]);
+		a.HP = 0;
+		delete $Z[a.id];
+		a.PZ && oP.MonPrgs()
+	},
+	DisappearDie: function() {
+		this.ResetBackupDancer(this);
+		ClearChild(this.Ele);
+		this.HP = 0;
+		delete $Z[this.id];
+		this.PZ && oP.MonPrgs()
+	},
+	CrushDie: function() {
+		var a = this;
+		a.ResetBackupDancer(a);
+		a.GoingDieHead(a.id, a.PicArr, a);
+		ClearChild(a.Ele);
+		a.HP = 0;
+		delete $Z[a.id];
+		a.PZ && oP.MonPrgs()
+	},
+	bedevil: function(b) {
+		var a = b.id;
+		b.ExchangeLR(b, 1);
+		b.JudgeAttack = b.JudgeAttackH;
+		b.PZ = 0;
+		b.WalkDirection = 1;
+		b.ZX = b.AttackedRX;
+		b.ChkActs = b.ChkActs1;
+		b.ChangeChkActsTo1(b, a, b.EleBody);
+		b.ResetBackupDancer(b);
+		$(a + "_spotlightCon").style.left = "20px",
+		$(a + "_spotlight2Con").style.left = "25px";
+		oP.MonPrgs()
+	},
+	ResetBackupDancer: function(f) {
+		var g = f.ArDZ,
+		d = g.length,
+		c, b, e, a = f.DZStep;
+		while (d--) {
+			if ((c = g[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
+				if (a > 0) {
+					switch (true) {
+					case(e.FreeFreezeTime || e.FreeSetbodyTime) == 1 : e.Speed = 0;
+						break;
+					case e.FreeSlowTime > 0 : e.Speed = 1.75;
+						break;
+					default:
+						e.Speed = 3.5
+					}
+				}
+			}
+		}
+		a > -1 && oSym.addTask(f.DZStepT - oSym.Now,
+		function(o, j) {
+			var m = 4,
+			l, k, n, h = "ChangeChkActsTo" + j;
+			while (m--) { (l = o[m]) && (k = l[0]) && (n = $Z[k]) && n.beAttacked && (n.DZStep = j, n[h](n, k, n.EleBody))
+			}
+		},
+		[g, [1, 0][a]])
+	},
+	BirthCallBack: function(d) {
+		var b = d.delayT,
+		l = d.id,
+		a = d.Ele = $(l),
+		c = 320,
+		i = oGd.$LF,
+		g = d.R,
+		s = g - 1,
+		n = g + 1,
+		e,
+		r,
+		q = LX - 60,
+		m = LX + 100,
+		k = LX - 130,
+		j = LX - 70,
+		h = LX + 30,
+		f = d.ArDZ = [0, 0, 0, 0];
+		d.EleShadow = a.firstChild;
+		d.EleBody = a.childNodes[1];
+		s > 0 && (e = i[s]) && e != 2 && (f[0] = ["", s,
+		function(o) {
+			return o
+		},
+		3 * s + 2,
+		function(o) {
+			return o - 70
+		},
+		GetY(s) - 155]);
+		n <= oS.R && (e = i[n]) && e != 2 && (f[2] = ["", n,
+		function(o) {
+			return o
+		},
+		3 * n + 2,
+		function(o) {
+			return o - 70
+		},
+		GetY(n) - 155]);
+		e = 3 * g + 2;
+		r = GetY(g) - 155;
+		f[3] = ["", g,
+		function(o) {
+			return o - 60
+		},
+		e,
+		function(o) {
+			return o - 130
+		},
+		r];
+		f[1] = ["", g,
+		function(o) {
+			return o + 100
+		},
+		e,
+		function(o) {
+			return o + 30
+		},
+		r];
+		func = function(t, o) {
+			var u = $Z[t];
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 20, u.DZStep = -1, u.DZStepT = oSym.Now + 150, u.FreeSetbodyTime = 0, SetBlock(o))
+		};
+		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
+		oSym.addTask(c,
+		function(o) {
+			var t = $Z[o];
+			t && t.beAttacked && !t.isAttacking && t.NormalAttack(o)
+		},
+		[d.id])
+	},
+	ChkActs1: function(e, b, f, a) {
+		var c, d; ! (e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += 3.5) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += 3.5, e.Ele.style.left = Math.ceil(e.X += 3.5) + "px", d = 1) : d = 1) : d = 1;
+		return d
+	},
+	ChkTmp: function(c, b, d, a) {
+		c.ChkSpeed(c);
+		return 0
+	},
+	ChkActs: function(g, d, h, c) {
+		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+			R: d,
+			ar: [oS.R - 1],
+			CustomTop: 400 - g.height + g.GetDY()
+		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
+		g.ChkSpeed(g);
+		return f
+	},
+	ChkSpeed: function(g) {
+		if (!g.DZStep) {
+			return
+		}
+		var h = g.ArDZ,
+		d = 4,
+		c, b, e, a = g.OSpeed,
+		f = [];
+		switch (true) {
+		case(g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1 : a = 0;
+			break;
+		case g.FreeSlowTime > 0 : a != 1.75 && (a = 1.75)
+		}
+		while (d--) {
+			if ((c = h[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
+				f.push(e);
+				switch (true) {
+				case(e.isAttacking || e.FreeFreezeTime || e.FreeSetbodyTime) == 1 : a = 0;
+					break;
+				case e.FreeSlowTime > 0 : a != 1.75 && (a = 1.75)
+				}
+			}
+		}
+		if (a != g.DZMSpeed) {
+			g.DZMSpeed = a;
+			d = f.length;
+			while (d--) { (e = f[d]).Speed != a && (e.Speed = a)
+			}
+			g.Speed != a && (g.Speed = a)
+		}
+	},
+	AttackZombie: function(a) {
+		this.ExchangeLR(this, 0);
+		var b = this.id;
+		this.isAttacking = 1;
+		this.EleBody.src = this.PicArr[this.AttackGif];
+		oSym.addTask(10,
+		function(d, c) {
+			var f = $Z[d],
+			e;
+			f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $Z[c]) ? (e.getHit0(e, 10, 0), oSym.addTask(10, arguments.callee, [d, c])) : (f.isAttacking = 0, f.EleBody.src = f.PicArr[f.NormalGif], f.TurnLeft(f)))
+		},
+		[b, a])
+	},
+	ChkBackupDancer: function(h, g, f) {
+		if (!h.PZ) {
+			h.ChangeChkActsTo1(h, g, f);
+			return
+		}
+		var b = h.ArDZ,
+		d = 4,
+		j = 1,
+		c, e, a;
+		while (d--) { (e = b[d]) && (!(c = e[0]) || !(a = $Z[c]) || (a.PZ ? false: (e[0] = "", true))) && (d = j = 0)
+		} ! h.isAttacking && j ? f.src = h.PicArr[10] : h.Summon(h, g);
+		h.ChangeChkActsTo0(h, g, f)
+	},
+	ChangeChkActsTo0: function(g, e, a) {
+		if (!g.PZ) {
+			g.ChangeChkActsTo1(g, e, a);
+			return
+		}
+		var d = 4,
+		h = g.ArDZ,
+		c, b, f;
+		while (d--) { (b = h[d]) && (c = b[0]) && (f = $Z[c]) && f.beAttacked && (f.LostHeadGif = 10, f.NormalGif = 9, !f.isAttacking && (f.EleBody.src = f.PicArr[9]), f.Speed = 0)
+		}
+		g.LostHeadGif = 15;
+		g.NormalGif = 10;
+		g.Speed = g.DZMSpeed = g.DZStep = 0;
+		g.DZStepT = oSym.Now + 100;
+		oSym.addTask(200,
+		function(j, i) {
+			var k = $Z[j];
+			k && k.beAttacked && k.ChangeChkActsTo1(k, j, i)
+		},
+		[e, a])
+	},
+	ChangeChkActsTo1: function(g, e, a) {
+		var d = 4,
+		h = g.ArDZ,
+		c, b, f;
+		while (d--) { (b = h[d]) && (c = b[0]) && (f = $Z[c]) && f.beAttacked && (f.LostHeadGif = 4, f.NormalGif = 2, !f.isAttacking && (f.EleBody.src = f.PicArr[2]))
+		}
+		g.LostHeadGif = 4;
+		g.NormalGif = 2;
+		g.DZStep = 1;
+		g.DZStepT = oSym.Now + 220; ! g.isAttacking && (a.src = g.PicArr[2]);
+		g.PZ && oSym.addTask(220,
+		function(j, i) {
+			var k = $Z[j];
+			k && k.beAttacked && k.ChkBackupDancer(k, j, i)
+		},
+		[e, a])
+	},
+	TurnLeft: function(c) {
+		var a = CZombies.prototype,
+		b = c.id;
+		c.AttackZombie = a.AttackZombie;
+		c.NormalAttack = a.NormalAttack;
+		c.OSpeed = 3.5; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 3.5);
+		c.getSnowPea = OrnNoneZombies.prototype.getSnowPea;
+		c.getFreeze = CZombies.prototype.getFreeze;
+		oSym.addTask(20,
+		function(d, e) {
+			$Z[d] && e.beAttacked && (e.addSpotlight(d, e, e.Ele), oSym.addTask(200,
+			function(g, f, i, h, k) {
+				var j = $Z[g];
+				j && (h > -736 ? h -= 184 : h = 0, f.style.left = h + "px", k > -736 ? k -= 184 : k = 0, i.style.left = k + "px", oSym.addTask(100, arguments.callee, [g, f, i, h, k]))
+			},
+			[d, e.spotlight, e.spotlight2, 0, 0]), oSym.addTask(200,
+			function(h, g) {
+				var f;
+				$Z[g] && h.beAttacked && (f = h.EleBody, !h.isAttacking ? f.src = h.PicArr[10] : h.isAttacking = 0, h.ChangeChkActsTo0(h, g, f))
+			},
+			[e, d]))
+		},
+		[b, c]);
+		c.Summon(c, b)
+	},
+	NormalAttack: function(a) {
+		var b = $Z[a];
+		b.ExchangeLR(b, 0);
+		b.TurnLeft(b)
+	},
+	Summon: function(d, c) {
+		d.LostHeadGif = 16;
+		var a = d.EleBody,
+		b = d.ChkActs;
+		d.ChkActs = d.ChkTmp;
+		d.ChkTmp = b;
+		a.src = "images/Zombies/DancingZombie/Summon1.gif";
+		PlayAudio("Beatit");
+		oSym.addTask(10,
+		function(f, e) {
+			var g = $Z[f];
+			g && g.beAttacked && (e.src = "images/Zombies/DancingZombie/Summon2.gif", oSym.addTask(10,
+			function(t, s, x) {
+				var h = $Z[t],
+				v = h.ZX,
+				m = h.ArDZ,
+				n = [],
+				k = "images/Zombies/BackupDancer/Mound.gif" + $Random + Math.random(),
+				r = 4,
+				w = [],
+				u = [],
+				o = 0,
+				q,
+				l;
+				if (h && h.beAttacked) {
+					s.src = "images/Zombies/DancingZombie/Summon3.gif";
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oJalapenoZombie1).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					}
+					oSym.addTask(220,
+					function() {
+						var i = arguments.length;
+						while (i--) {
+							ClearChild(arguments[i])
+						}
+					},
+					n);
+					oSym.addTask(110,
+					function(A, y, z, i) {
+						var B = $Z[A];
+						B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(100,
+						function(D, C) {
+							var E = $Z[D];
+							if (E && E.beAttacked) {
+								return
+							}
+							var j = C.length,
+							E;
+							while (j--) { (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
+							}
+						},
+						[A, z]))
+					},
+					[t, u, w, o]);
+					oSym.addTask(200,
+					function(y, i) {
+						var z = $Z[y],
+						j;
+						z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j)
+					},
+					[t, s])
+				}
+			},
+			[f, e]))
+		},
+		[c, a])
+	}
+}),
 oFlagZombie = InheritO(oZombie, {
 	PicArr: (function() {
 		var a = "images/Zombies/FlagZombie/";
