@@ -688,8 +688,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	height: 176,
 	BookHandPosition: "70% 70%",
 	AudioArr: ["Beatit"],
-	OSpeed:30,
-	Speed:30,
+	OSpeed:20,
+	Speed:20,
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
@@ -859,7 +859,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		r];
 		func = function(t, o) {
 			var u = $Z[t];
-			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 30, u.DZStep = -1, u.DZStepT = oSym.Now + 150, u.FreeSetbodyTime = 0, SetBlock(o))
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 20, u.DZStep = -1, u.DZStepT = oSym.Now + 150, u.FreeSetbodyTime = 0, SetBlock(o))
 		};
 		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
 		oSym.addTask(c,
