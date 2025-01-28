@@ -635,7 +635,7 @@ oRepeater = InheritO(oPeashooter, {
 		},
 		[this.id,3])
 	}
-})，
+}),
 oPeashooter1= InheritO(CPlants, {
 	EName: "oPeashooter",
 	CName: "豌豆射手",
