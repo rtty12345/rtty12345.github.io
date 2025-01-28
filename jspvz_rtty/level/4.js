@@ -22,7 +22,7 @@ oS.Init({
 			h += 16;
 			d += 16;
 			$("sod3row")
-				。style.width = e + "px";
+				.style.width = e + "px";
 			SetStyle($("SodRoll_1"), {
 				left: h + "px",
 				width: --b + "px",
