@@ -606,6 +606,77 @@ NormalAttack: function(a) {
 		[this.id,9])
 	}
 }),
+oThreepeater1= InheritO(oPeashooter, {
+	EName: "oThreepeater",
+	CName: "三线射手",
+	width: 73,
+	height: 80,
+	beAttackedPointR: 53,
+	SunNum: 325,
+	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
+	Tooltip: "一次射出三行的豌豆",
+	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
+	getTriggerR: function(a) {
+		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
+	},
+	PrivateBirth: function(f) {
+		var e = f.AttackedLX,
+		d = e - 40,
+		a, c = f.oTrigger,
+		b;
+		f.BulletClass = [];
+		f.BulletEle = [];
+		for (b in c) {
+			f.BulletClass.push(NewO({
+				X: e,
+				R: b,
+				D: 0,
+				Attack: 20,
+				Kind: 0,
+				ChangeC: 0,
+				pixelLeft: d,
+				F: oGd.MB1
+			}));
+			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+		}
+	},
+	PrivateDie: function(a) {
+		a.BulletEle.length = 0
+	},
+	NormalAttack: function() {
+		var a, c = this,
+		d, b = 0;
+		for (a in c.oTrigger) {
+			EditEle(c.BulletEle[b++].cloneNode(false), {
+				id: d = "PB" + Math.random()
+			},
+			0, EDPZ);
+			oSym.addTask(15,
+			function(f) {
+				var e = $(f);
+				e && SetVisible(e)
+			},
+			[d]);
+			oSym.addTask(1,
+			function(h, l, j, e, p, k, o, m, q, i) {
+				var n, g = GetC(p),
+				f = oZ["getZ" + e](p, k);
+				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				f && f.Altitude == 1 ? (f[{
+					"-1": "getSnowPea",
+					0 : "getPea",
+					1 : "getFirePea"
+				} [o]](f, j, e), (SetStyle(l, {
+					left: q + 28 + "px",
+					width: "52px",
+					height: "46px"
+				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
+			},
+			[d, $(d), 20, 0, c.AttackedLX, a, -1, 0, c.AttackedLX - 40, oGd.$Torch])
+		}
+	}
+}),
 oRepeater = InheritO(oPeashooter, {
 	EName: "oRepeater",
 	CName: "双发射手",
@@ -622,10 +693,10 @@ oRepeater = InheritO(oPeashooter, {
 		var c = b[1];
 		return c && c.EName == "oSnowPea"
 	},
-	getTriggerR:oThreepeater.prototype.getTriggerR,
-        PrivateBirth:oThreepeater.prototype.PrivateBirth,
-        PrivateDie:oThreepeater.prototype.PrivateDie,
-	NormalAttack1: oThreepeater.prototype.NormalAttack1,
+	getTriggerR:oThreepeater1.prototype.getTriggerR,
+        PrivateBirth:oThreepeater1.prototype.PrivateBirth,
+        PrivateDie:oThreepeater1.prototype.PrivateDie,
+	NormalAttack1: oThreepeater1.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
