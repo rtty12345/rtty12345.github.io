@@ -485,7 +485,7 @@ oPeashooter = InheritO(CPlants, {
 oSnowPea = InheritO(oPeashooter, {
 	EName: "oSnowPea",
 	CName: "寒冰射手",
-	SunNum: 175,
+	SunNum: 125,
 	BKind: -1,
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
@@ -520,33 +520,6 @@ oSnowPea = InheritO(oPeashooter, {
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
 		[b, $(b), 20, 0, a.AttackedLX, a.R, -1, 0, a.AttackedLX - 40, oGd.$Torch])
-	}
-}),
-oRepeater = InheritO(oPeashooter, {
-	EName: "oRepeater",
-	CName: "双发射手",
-	width: 73,
-	height: 71,
-	BKind:-1,
-	beAttackedPointR: 53,
-	SunNum: 150,
-	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
-	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次发射两颗寒冰豌豆",
-	Produce: '双发射手可以一次发射两颗寒冰豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
-	CanGrow: function(b, a, d) {
-		var c = b[1];
-		return c && c.EName == "oSnowPea"
-	},
-	NormalAttack1: oSnowPea.prototype.NormalAttack,
-	NormalAttack: function(a) {
-		this.NormalAttack1();
-		oSym.addTask(15,
-		function(c) {
-			var b = $P[c];
-			b && b.NormalAttack1()
-		},
-		[this.id,2])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -633,6 +606,36 @@ NormalAttack: function(a) {
 		[this.id,9])
 	}
 }),
+oRepeater = InheritO(oPeashooter, {
+	EName: "oRepeater",
+	CName: "双发射手",
+	width: 73,
+	height: 71,
+	BKind:-1,
+	beAttackedPointR: 53,
+	SunNum: 100,
+	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
+	Tooltip: "一次发射两颗寒冰豌豆",
+	Produce: '双发射手可以一次发射两颗寒冰豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
+	CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oSnowPea"
+	},
+	getTriggerR:oThreepeater.prototype.getTriggerR,
+        PrivateBirth:oThreepeater.prototype.PrivateBirth,
+        PrivateDie:oThreepeater.prototype.PrivateDie,
+	NormalAttack1: oThreepeater.prototype.NormalAttack,
+	NormalAttack: function(a) {
+		this.NormalAttack1();
+		oSym.addTask(15,
+		function(c) {
+			var b = $P[c];
+			b && b.NormalAttack1()
+		},
+		[this.id,3])
+	}
+})，
 oPeashooter1= InheritO(CPlants, {
 	EName: "oPeashooter",
 	CName: "豌豆射手",
