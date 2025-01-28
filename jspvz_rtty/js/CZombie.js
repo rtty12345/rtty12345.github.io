@@ -1078,63 +1078,6 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		[c, a])
 	}
 }),
-  oJalapenoZombie1= InheritO(oZombie, {
-    EName: "oJalapenoZombie1",
-    CName: "火爆辣椒僵尸(瞬爆)",
-    HP: 500,
-    width: 68,
-    height: 89,
-    beAttackedPointL: 5,
-    beAttackedPointR: 48,
-    PicArr: (function () {
-      var a = "images/Plants/Jalapeno/",
-        b = "images/Zombies/Zombie/";
-      return [
-        "images/Card/Plants/Jalapeno.png",
-        a + "0.gif",
-        a + "Jalapeno.gif",
-        a + "Jalapeno.gif",
-        a + "Jalapeno.gif",
-        a + "Jalapeno.gif",
-        a + "Jalapeno.gif" + $Random,
-        a + "Jalapeno.gif" + $Random,
-        a + "Jalapeno.gif" + $Random,
-        a + "Jalapeno.gif",
-      ];
-    })(),
-    Produce:
-      '韧性：<font color="#FF0000">中等</font></p>植物家族叛变的火爆辣椒，代号47，经常自爆以摧毁植物。',
-    BirthCallBack: function (f) {
-      var e = f.delayT,
-        d = f.id,
-        c = (f.Ele = $(d));
-      f.EleShadow = c.firstChild;
-      f.EleBody = c.childNodes[1];
-      e
-        ? oSym.addTask(
-            e,
-            function (h, g) {
-              var i = $Z[h];
-              i && ((i.FreeSetbodyTime = 0), SetBlock(g));
-            },
-            [d, c]
-          )
-        : SetBlock(c);
-      f.CheckBoomFire(f);
-    },
-    CheckBoomFire: function (f) {
-      oSym.addTask(
-        1,
-        function (f) {
-          // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-
-          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
-          oSym.addTask(100, arguments.callee, [f]);
-        },
-        [f]
-      );
-    },
 oZombie = InheritO(OrnNoneZombies,{
 	EName: "oZombie",
 	CName: "领带僵尸",
