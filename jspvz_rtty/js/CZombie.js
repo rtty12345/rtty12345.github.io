@@ -516,6 +516,10 @@ OrnNoneZombies1= function() {
 		getFirePeaSputtering: function() {
 			this.getHit0(this, 13)
 		},
+		getSlowPea: function(e,b,c){
+                e.getFirePea(e,b,c);
+                e.getSlow(e);
+                },
 		getSnowPea: function(f, c, g) {
 			var e = f.FreeSlowTime,
 			b = oSym.Now + 1000;
