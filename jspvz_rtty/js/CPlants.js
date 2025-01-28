@@ -508,7 +508,7 @@ oSnowPea = InheritO(oPeashooter, {
 		function(f, j, h, c, n, i, m, k, o, g) {
 			var l, e = GetC(n),
 			d = oZ["getZ" + c](n, i);
-			m < 1 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 40), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
+			m==0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 40), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getSlowPea",
