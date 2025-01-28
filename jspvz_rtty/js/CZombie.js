@@ -460,6 +460,10 @@ OrnNoneZombies = function() {
 		getFirePeaSputtering: function() {
 			this.getHit0(this, 13)
 		},
+		getSlowPea: function(e,b,c){
+                e.getFirePea(e,b,c);
+                e.getSlow(e);
+                },
 		getSnowPea: function(f, c, g) {
 			var e = f.FreeSlowTime,
 			b = oSym.Now + 1000;
@@ -1207,6 +1211,7 @@ oFootballZombie = InheritO(oConeheadZombie,{
 	},
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getFirePea:OrnNoneZombies.prototype.getPea,
+	getSlowPea:OrnNoneZombies.prototype.getPea,
 	PicArr: (function() {
 		var a = "images/Zombies/FootballZombie/";
 		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
@@ -1368,8 +1373,8 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	},
 	getExplosion: function(){
             if(this.OrnHP >= 1){
-                this.OrnLost,
-		this.HP=800
+                this.OrnHP=0,
+		this.HP=900
             }
 	    else{
                 this.NormalDie(this)
@@ -1424,7 +1429,11 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
-	getFirePea: function(f, b, e) {
+	getSlowPea:function(c, a, b) {
+		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+		c.getHit0(c, a, b)
+	},
+	getFirePea: function(f， b, e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
 		f.Attack = 800;
 		var d = f.AttackedLX,
@@ -1466,7 +1475,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=2,g.getFirePea = e.getPea, g.getSnowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(150,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=2,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -1606,6 +1615,10 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
       PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
       c.getHit0(c, a, b);
     },
+getSlowPea:function(c, a, b) {
+		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+		c.getHit0(c, a, b)
+	},
     getFirePea: function(f, b, e) {
       f.PlayFireballAudio();
       (f.FreeSlowTime || f.FreeFreezeTime) &&
@@ -1748,6 +1761,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
           (g.LostHeadAttackGif = 9),
           (g.getFirePea = e.getFirePea),
           (g.getSnowPea = e.getSnowPea),
+	 (g.getSlowPea = e.getPea),
           (g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit),
           oSym.addTask(
             150,
@@ -1813,18 +1827,22 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit0(c, a, b)
 	},
-	getPea: function(c, a, b) {
+	getSlowPea:function(c, a, b) {
+		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+		c.getHit0(c, a, b)
+	},
+	getPea: function(c， a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
-	getHit0: function(c, a, b) {
+	getHit0: function(c， a, b) {
 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10,
 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
 		},
 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
 	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]], g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getPea = e.getPea, g.getFirePea = e.getFirePea, g.getFirePeaSputtering = e.getFirePeaSputtering, g.getSnowPea = g.getSnowPea, g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]], g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getPea = e.getPea, g.getFirePea = e.getFirePea, g.getFirePeaSputtering = e.getFirePeaSputtering, g.getSnowPea = g.getSnowPea,g.getSlowPea=g.getSlowPea,g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
 	},
 	getFireball: function(c, a, b) {
 		b != c.WalkDirection ? (c.FreeSlowTime = 0, c.Attack = 100, c.Speed != c.OSpeed ? (c.PlayNormalballAudio(), c.Speed = c.OSpeed) : c.PlayFireballAudio()) : c.PlayNormalballAudio()
@@ -1985,6 +2003,10 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 (i = $Z[j]) && i.SetAlpha(i, i.EleBody, 100, 1)
             }, [f.id]))
         },
+	getSlowPea:function(c, a, b) {
+		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+		c.getHit0(c, a, b)
+	},
         getHit0: function(c, a, b) {
             b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
@@ -2580,6 +2602,7 @@ oZomboni = function() {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
 		},
+
 		getFirePea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
