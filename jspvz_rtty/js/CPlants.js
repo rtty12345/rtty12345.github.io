@@ -929,7 +929,7 @@ oSunFlower = InheritO(CPlants, {
 		function(d, c, b) {
 			$P[d] && (a.ChangePosition($(d), 1), oSym.addTask(100,
 			function(h, g, f, e) {
-				$P[h] && (AppearSun(Math.floor(g + Math.random() * 41), f, 25, 0), oSym.addTask(100,
+				$P[h] && (AppearSun(Math.floor(g + Math.random() * 41), f, 40,0), oSym.addTask(100,
 				function(i) {
 					$P[i] && a.ChangePosition($(i), 0)
 				},
