@@ -625,7 +625,7 @@ oRepeater = InheritO(oPeashooter, {
 	getTriggerR:oThreepeater.prototype.getTriggerR,
         PrivateBirth:oThreepeater.prototype.PrivateBirth,
         PrivateDie:oThreepeater.prototype.PrivateDie,
-	NormalAttack1: oThreepeater.prototype.NormalAttack,
+	NormalAttack1: oThreepeater.prototype.NormalAttack1,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
