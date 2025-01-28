@@ -1217,6 +1217,41 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		PlayAudio("plastichit")
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
+		ChangeChkActsTo0: function(c, b, a) {
+		if (!c.PZ) {
+			c.ChangeChkActsTo1(c, b, a);
+			return
+		}
+		c.LostHeadGif = 10;
+		c.NormalGif = 9; ! c.isAttacking && (a.src = c.PicArr[9]);
+		c.Speed = c.DZStep = 0;
+		oSym.addTask(200,
+		function(e, d) {
+			var f = $Z[e];
+			f && f.beAttacked && f.ChangeChkActsTo1(f, e, d)
+		},
+		[b, a])
+	},
+	ChangeChkActsTo1: function(c, b, a) {
+		c.LostHeadGif = 4;
+		c.NormalGif = 2;
+		c.DZStep = 1; ! c.isAttacking && (a.src = c.PicArr[2]);
+		c.PZ && oSym.addTask(220,
+		function(e, d) {
+			var f = $Z[e];
+			f && f.beAttacked && f.ChangeChkActsTo0(f, e, d)
+		},
+		[b, a])
+	},
+	ChkActs: function(g, d, h, c) {
+		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+			R: d,
+			ar: [oS.R - 1],
+			CustomTop: 400 - g.height + g.GetDY()
+		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
+		g.ChkSpeed(g);
+		return f
+	},
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
