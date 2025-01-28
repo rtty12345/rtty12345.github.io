@@ -2330,8 +2330,8 @@ oTangleKelp = InheritO(CPlants, {
 	},
 	NormalGif: 1,
 	PicArr: ["images/Card/Plants/TangleKlep.png", "images/Plants/TangleKlep/0.gif", "images/Plants/TangleKlep/Float.gif", "images/Plants/TangleKlep/Grab.png", "images/interface/splash.png"],
-	Tooltip: "可以将僵尸拉入水底的水生植物",
-	Produce: '缠绕水草是一种可以把接近他的僵尸拉进水中的水生植物。<p>伤害：<font color="#FF0000">极高</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>特点：<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就藏在水面下，没人会看到我。”他的朋友告诉他，他们可以清楚地看到他。不过，缠绕水草似乎不想改变自己的看法。',
+	Tooltip: "可以将114514血以下僵尸拉入水底的水生植物",
+	Produce: '缠绕水草是一种可以把接近他的僵尸拉进水中的水生植物。<p>伤害：<font color="#FF0000">极高（114514）</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>特点：<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就藏在水面下，没人会看到我。”他的朋友告诉他，他们可以清楚地看到他。不过，缠绕水草似乎不想改变自己的看法。',
 	CanGrow: function(c, b, d) {
 		var a = b + "_" + d,ArP=oS.ArP;
 	if(ArP){
@@ -2382,7 +2382,7 @@ oTangleKelp = InheritO(CPlants, {
 			function(i, j) {
 				ClearChild($(i))
 			});
-			h.DisappearDie();
+			h.getThump(114514);
 			g.Die()
 		},
 		[a, b])
