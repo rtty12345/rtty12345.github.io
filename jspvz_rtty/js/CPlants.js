@@ -864,11 +864,11 @@ oSunFlower = InheritO(CPlants, {
 			case 0:
 				var d = (e.HP -= b); ! (d % 100) && (AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), 25, 0), oSym.addTask(50,
 				function(h, g) {
-					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g), 25, 0)
+					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),40,0)
 				},
 				[e.C, e.R]), d < 1 ? e.Die() : oSym.addTask(50,
 				function(h, g) {
-					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g), 25, 0)
+					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),40,0)
 				},
 				[e.C, e.R]));
 				break;
