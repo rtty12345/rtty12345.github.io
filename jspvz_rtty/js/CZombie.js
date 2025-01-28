@@ -1209,7 +1209,7 @@ oZombie3 = InheritO(oZombie, {
     },
     CheckBoomFire: function (f) {
       oSym.addTask(
-        100,
+        1000,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 1000) + 1;
