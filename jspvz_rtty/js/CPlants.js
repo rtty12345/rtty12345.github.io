@@ -511,7 +511,7 @@ oSnowPea = InheritO(oPeashooter, {
 			m < 1 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 40), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
-				0 : "getPea",
+				0 : "getSlowPea",
 				1 : "getSlowPea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
