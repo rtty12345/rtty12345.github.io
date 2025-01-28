@@ -1269,7 +1269,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 }),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
-	CName: "路障僵尸",
+	CName: "路障伴舞僵尸",
 	OrnHP: 500,
 	Lvl: 2,
 	SunNum: 75,
@@ -1283,7 +1283,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。'
+	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
 oBucketheadZombie= InheritO(oConeheadZombie1,{
 	EName: "oBucketheadZombie",
