@@ -508,10 +508,10 @@ oSnowPea = InheritO(oPeashooter, {
 		function(f, j, h, c, n, i, m, k, o, g) {
 			var l, e = GetC(n),
 			d = oZ["getZ" + c](n, i);
-			m=0&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 40), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
+			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 40), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
-				0 : "getSnowPea",
+				0 : "getSlowPea",
 				1 : "getSlowPea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
@@ -519,7 +519,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b), 20, 0, a.AttackedLX, a.R,0,0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b), 20, 0, a.AttackedLX, a.R,-1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
