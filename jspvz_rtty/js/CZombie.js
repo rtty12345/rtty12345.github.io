@@ -2602,7 +2602,10 @@ oZomboni = function() {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
 		},
-
+		getSlowPea: function(c, b) {
+			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			c.getHit0(c, b)
+		},
 		getFirePea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
