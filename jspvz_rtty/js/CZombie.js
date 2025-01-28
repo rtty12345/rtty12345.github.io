@@ -1231,7 +1231,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
 			a != 5&& (b.Speed = 5)
 		}
 	}
-})
 }),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
