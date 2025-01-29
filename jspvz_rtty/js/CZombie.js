@@ -677,7 +677,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 oDancingZombie = InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
-	HP: 600,
+	HP:800,
 	BreakPoint: 166,
 	Lvl: 3,
 	StandGif: 9,
@@ -688,8 +688,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	height: 176,
 	BookHandPosition: "70% 70%",
 	AudioArr: ["Beatit"],
-	OSpeed:20,
-	Speed:20,
+	OSpeed:15,
+	Speed:15,
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
@@ -859,7 +859,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		r];
 		func = function(t, o) {
 			var u = $Z[t];
-			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 20, u.DZStep = -1, u.DZStepT = oSym.Now + 150, u.FreeSetbodyTime = 0, SetBlock(o))
+			u && (u.ExchangeLR(d, 1), u.DZMSpeed = 15, u.DZStep = -1, u.DZStepT = oSym.Now + 150, u.FreeSetbodyTime = 0, SetBlock(o))
 		};
 		b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
 		oSym.addTask(c,
@@ -1839,7 +1839,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	},
 	ChangeChkActsTo1: function(c, b, a) {
 		c.LostHeadGif = 4;
-		c.NormalGif = 2;
+		c.NormalGif = 3;
 		c.DZStep = 1; ! c.isAttacking && (a.src = c.PicArr[2]);
 		c.PZ && oSym.addTask(220,
 		function(e, d) {
