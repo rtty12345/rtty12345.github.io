@@ -1768,6 +1768,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		a.ZX = a.AttackedRX;
 		a.ChkActs = a.ChkActs1;
 		a.Speed = 10;
+		a.HP=500,
 		a.ChangeChkActsTo1(a, a.id, a.EleBody);
 		oP.MonPrgs()
 	},
@@ -1829,7 +1830,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		}
 		c.LostHeadGif = 4;
 		c.NormalGif = 9; ! c.isAttacking && (a.src = c.PicArr[9]);
-		c.Speed = c.DZStep =3.5;
+		c.Speed = c.DZStep =1.6;
 		oSym.addTask(200,
 		function(e, d) {
 			var f = $Z[e];
@@ -1863,12 +1864,12 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		}
 		var a = b.Speed;
 		switch (true) {
-		case(b.FreeFreezeTime || b.FreeSetbodyTime) == 1 : a && (b.Speed = 3.5);
+		case(b.FreeFreezeTime || b.FreeSetbodyTime) == 1 : a && (b.Speed = 1.6);
 			break;
-		case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 5);
+		case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 1.6);
 			break;
 		default:
-			a != 5&& (b.Speed = 5)
+			a != 1.6&& (b.Speed = 1.6)
 		}
 	}
 }),
