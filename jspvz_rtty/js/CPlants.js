@@ -1505,7 +1505,7 @@ oJalapeno = InheritO(oCherryBomb, {
 	width: 68,
 	height: 89,
 	beAttackedPointR: 48,
-	SunNum:200,
+	SunNum:125,
 	PicArr: ["images/Card/Plants/Jalapeno.png", "images/Plants/Jalapeno/0.gif", "images/Plants/Jalapeno/Jalapeno.gif", "images/Plants/Jalapeno/JalapenoAttack.gif"],
 	AudioArr: ["jalapeno"],
 	Tooltip: "消灭整行的敌人",
@@ -1722,7 +1722,7 @@ oSquash = InheritO(CPlants, {
 			var g = oZ.getArZ(l, l + 100, j),
 			h = g.length,
 			k;
-			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.getThump(1500)
+			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.bedevil()
 			}
 			oSym.addTask(185, ClearChild, [f])
 		},
