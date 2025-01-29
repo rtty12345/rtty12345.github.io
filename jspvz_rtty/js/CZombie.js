@@ -973,7 +973,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		g.LostHeadGif = 4;
 		g.NormalGif = 2;
 		g.DZStep = 1;
-		g.DZStepT = oSym.Now + 220; ! g.isAttacking && (a.src = g.PicArr[2]);
+		g.DZStepT = oSym.Now + 150; ! g.isAttacking && (a.src = g.PicArr[2]);
 		g.PZ && oSym.addTask(220,
 		function(j, i) {
 			var k = $Z[j];
@@ -1039,7 +1039,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
 					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
-					oSym.addTask(220,
+					oSym.addTask(150,
 					function() {
 						var i = arguments.length;
 						while (i--) {
@@ -1047,10 +1047,10 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 						}
 					},
 					n);
-					oSym.addTask(110,
+					oSym.addTask(90,
 					function(A, y, z, i) {
 						var B = $Z[A];
-						B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(100,
+						B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(80,
 						function(D, C) {
 							var E = $Z[D];
 							if (E && E.beAttacked) {
@@ -1064,7 +1064,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 						[A, z]))
 					},
 					[t, u, w, o]);
-					oSym.addTask(200,
+					oSym.addTask(100,
 					function(y, i) {
 						var z = $Z[y],
 						j;
