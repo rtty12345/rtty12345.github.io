@@ -678,7 +678,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
 	HP:800,
-	BreakPoint: 166,
+	BreakPoint: 1,
 	Lvl: 3,
 	StandGif: 9,
 	SunNum: 400,
