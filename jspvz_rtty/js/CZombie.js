@@ -1966,6 +1966,16 @@ oFootballZombie = InheritO(oConeheadZombie1,{
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getFirePea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getPea,
+	bedevil: function(c) {
+		c.ExchangeLR(c, 1);
+		c.JudgeAttack = c.JudgeAttackH;
+		c.PZ = 0;
+		c.WalkDirection = 1;
+	        c.ZX = c.AttackedRX;
+		c.ChkActs = c.ChkActs1;
+		c.Attack=150;
+		oP.MonPrgs()
+		},
 	PicArr: (function() {
 		var a = "images/Zombies/FootballZombie/";
 		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
@@ -2134,6 +2144,16 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
                 this.NormalDie(this)
             }
         },
+	bedevil: function(c) {
+			c.ExchangeLR(c, 1);
+			c.JudgeAttack = c.JudgeAttackH;
+			c.PZ = 0;
+			c.WalkDirection = 1;
+			c.ZX = c.AttackedRX;
+			c.ChkActs = c.ChkActs1;
+		        c.Attack=800;
+			oP.MonPrgs()
+		},
 	GoingDie: function(b) {
 		var a = this,
 		c = a.id;
@@ -3368,6 +3388,16 @@ oZomboni = function() {
 		getSnowPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
+		},
+		bedevil: function(c) {
+			c.ExchangeLR(c, 1);
+			c.JudgeAttack = c.JudgeAttackH;
+			c.PZ = 0;
+			c.Attack=1000;
+			c.WalkDirection = 1;
+			c.ZX = c.AttackedRX;
+			c.ChkActs = c.ChkActs1;
+			oP.MonPrgs()
 		},
 		getFirePeaSputtering: function() {},
 		getFreeze: function(c, b) {
