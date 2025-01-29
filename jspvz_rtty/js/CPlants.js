@@ -1722,7 +1722,7 @@ oSquash = InheritO(CPlants, {
 			var g = oZ.getArZ(l, l + 100, j),
 			h = g.length,
 			k;
-			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.bedevil()
+			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.bedevil(Infinity)
 			}
 			oSym.addTask(185, ClearChild, [f])
 		},
