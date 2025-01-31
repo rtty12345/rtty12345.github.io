@@ -204,7 +204,7 @@ var CZombies = function(b, a) {
 			if (o.AttackedLX > oS.W) {o.DisappearDie(); return;};
 			SetStyle($(id), {left: o.X + 'px'}); oSym.addTask(2, arguments.callee, [id]);
 		})(this.id);
-	}
+	},
         getbedevil: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"bedevil":howDie;
