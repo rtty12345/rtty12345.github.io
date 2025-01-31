@@ -2126,7 +2126,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
 	Lvl: 2,
-	HP:450,
+	HP:500,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
