@@ -1755,10 +1755,21 @@ oFlagZombie = InheritO(oZombie, {
 	SunNum: 75,
 	Attack:500,
 	HP:400,
-	CanPass: function(b,a) {
-		return b &&b!=1
-		},
 	beAttackedPointR: 101,
+	CanPass: function(b,a){
+            return a;
+        },
+        PrivateAct:function(a){
+            let z = oZ.getArZ(0,oS.W,a.R);
+            for(let i = 0;i < z.length;i++){
+                if(z[i].EName != "oFlagZombie"){
+                    if(!z[i].increaseSpeed){
+                        z[i].increaseSpeed = true;
+                        z[i].Speed += 2
+                    }
+                }
+            }
+        },
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
 OrnIZombies = function() {
