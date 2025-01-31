@@ -2999,7 +2999,7 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 		a = "images/Zombies/DuckyTubeZombie1/";
 		return ["images/Card/Zombies/DuckyTubeZombie1.png", b + "0.gif", b + "Walk1.gif", b + "Walk2.gif", b + "1.gif", b + "Attack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "Walk1.gif", a + "Walk2.gif", a + "Attack.gif"]
 	})()
-})，
+}),
 oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oSnorkelZombie",
 	CName: "潜水僵尸",
