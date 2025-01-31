@@ -1755,6 +1755,9 @@ oFlagZombie = InheritO(oZombie, {
 	SunNum: 75,
 	Attack:500,
 	HP:400,
+	CanPass: function(b,a) {
+		return a
+		},
 	beAttackedPointR: 101,
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低<p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
 }),
