@@ -2959,7 +2959,7 @@ oDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DuckyTubeZombie1.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random]
 	})(),
 	AudioArr: ["zombie_entering_water"]
-})，
+}),
 oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	EName: "oDuckyTubeZombie2",
 	CName: "路障鸭子救生圈僵尸",
@@ -2983,7 +2983,7 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	getHit1: OrnIZombies.prototype.getHit1,
 	getHit2: OrnIZombies.prototype.getHit2,
 	getHit3: OrnIZombies.prototype.getHit3
-})，
+}),
 oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	EName: "oDuckyTubeZombie3",
 	CName: "铁桶鸭子救生圈僵尸",
