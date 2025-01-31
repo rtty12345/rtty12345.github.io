@@ -3897,13 +3897,16 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	beAttackedPointR: 85,
 	OSpeed: 3.2,
 	Speed: 3.2,
-	Altitude: 2,
+	Altitude: 3,
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 3,
 	BreakBall: false, // 气球是否被戳破
 	MulBallNum: function() { // 减去气球数
 		if (!this.BreakBall) this.BreakBall = true, oGd.$Balloon[this.R] |= 0, --oGd.$Balloon[this.R];
 	},
+	CanPass: function(d, c) {
+		return c && c != 2
+		},
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 10) + "px;top:" + (a.height - 32) + "px"
 	},
