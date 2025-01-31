@@ -194,6 +194,17 @@ var CZombies = function(b, a) {
             }
             callback && callback();
         },
+		getDispelled: function() {
+		if (this.Altitude != 3 || this.AttackedRX < GetX(0)) {return;};
+		this.ChkActs = function() {return 1};
+		(function(id) {
+			var o = $Z[id]; if (!o) return;
+			var d = o.WalkDirection = 1, R = o.R, C = GetC(o.AttackedLX), sx = 50;
+			o.AttackedLX += sx; o.ZX += sx; o.X += sx;
+			if (o.AttackedLX > oS.W) {o.DisappearDie(); return;};
+			SetStyle($(id), {left: o.X + 'px'}); oSym.addTask(2, arguments.callee, [id]);
+		})(this.id);
+	}
         getbedevil: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"bedevil":howDie;
@@ -3025,7 +3036,7 @@ oSmallConeheadZombie = InheritO(oConeheadZombie, {
 	getShadow: function(a) {
 		return "width:43px;height:18px;left:" + (a.beAttackedPointL - 5) + "px;top:" + (a.height - 15) + "px"
 	}
-}),
+})，
 oSmallFootballZombie = InheritO(oFootballZombie, {
 	EName: "oSmallFootballZombie",
 	CName: "小橄榄球僵尸",
@@ -3053,7 +3064,7 @@ oSmallFootballZombie = InheritO(oFootballZombie, {
 	getShadow: function(a) {
 		return "width:43px;height:18px;left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
 	}
-}),
+})，
 oSmallSnorkelZombie = InheritO(oSnorkelZombie, {
 	EName: "oSmallSnorkelZombie",
 	CName: "小潜水僵尸",
@@ -3080,7 +3091,7 @@ oSmallSnorkelZombie = InheritO(oSnorkelZombie, {
 	getShadow: function(a) {
 		return "width:43px;height:18px;left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	}
-}),
+})，
 oZomboni = function() {
 	var a = function(d, b) {
 		var c = d.HP;
@@ -3699,7 +3710,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	Altitude: 3,
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 3,
-	BreakBall:true, // 气球是否被戳破
+	BreakBall:false, // 气球是否被戳破
 	MulBallNum: function() { // 减去气球数
 		if (!this.BreakBall) this.BreakBall = true, oGd.$Balloon[this.R] |= 0, --oGd.$Balloon[this.R];
 	},
