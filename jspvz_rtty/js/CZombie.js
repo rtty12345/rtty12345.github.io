@@ -2959,7 +2959,7 @@ oDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DuckyTubeZombie1.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random]
 	})(),
 	AudioArr: ["zombie_entering_water"]
-}),
+})，
 oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	EName: "oDuckyTubeZombie2",
 	CName: "路障鸭子救生圈僵尸",
@@ -2983,7 +2983,7 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	getHit1: OrnIZombies.prototype.getHit1,
 	getHit2: OrnIZombies.prototype.getHit2,
 	getHit3: OrnIZombies.prototype.getHit3
-}),
+})，
 oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	EName: "oDuckyTubeZombie3",
 	CName: "铁桶鸭子救生圈僵尸",
@@ -2999,7 +2999,7 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 		a = "images/Zombies/DuckyTubeZombie1/";
 		return ["images/Card/Zombies/DuckyTubeZombie1.png", b + "0.gif", b + "Walk1.gif", b + "Walk2.gif", b + "1.gif", b + "Attack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "Walk1.gif", a + "Walk2.gif", a + "Attack.gif"]
 	})()
-}),
+})，
 oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oSnorkelZombie",
 	CName: "潜水僵尸",
@@ -3906,9 +3906,6 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 10) + "px;top:" + (a.height - 32) + "px"
-	},
-	CanPass: function(d, c) {
-		return c
 	},
 	AudioArr: ["ballooninflate", "balloon_pop"],
 	BookHandPosition: "80% 80%",
