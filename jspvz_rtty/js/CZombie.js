@@ -1263,7 +1263,7 @@ oZombie3 = InheritO(oZombie, {
           g && g.BoomDie();
         }
       }
-      this.DisappearDie();
+      this.getThump(1);
     },
 	BirthCallBack: function(e) {
 		var d = e.delayT,
@@ -3699,7 +3699,10 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	Altitude: 3,
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 3,
-	BreakBall:false, // 气球是否被戳破
+	BreakBall:true, // 气球是否被戳破
+	MulBallNum: function() { // 减去气球数
+		if (!this.BreakBall) this.BreakBall = true, oGd.$Balloon[this.R] |= 0, --oGd.$Balloon[this.R];
+	},
 	CanPass: function(d, c) {
 		return c && c != 2
 		},
