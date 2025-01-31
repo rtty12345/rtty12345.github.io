@@ -1274,7 +1274,7 @@ oZombie3 = InheritO(oZombie, {
           g && g.BoomDie();
         }
       }
-      this.getThump(1);
+      this.getThump(10);
     },
 	BirthCallBack: function(e) {
 		var d = e.delayT,
