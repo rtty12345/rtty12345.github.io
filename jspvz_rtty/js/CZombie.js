@@ -3036,7 +3036,7 @@ oSmallConeheadZombie = InheritO(oConeheadZombie, {
 	getShadow: function(a) {
 		return "width:43px;height:18px;left:" + (a.beAttackedPointL - 5) + "px;top:" + (a.height - 15) + "px"
 	}
-})，
+}),
 oSmallFootballZombie = InheritO(oFootballZombie, {
 	EName: "oSmallFootballZombie",
 	CName: "小橄榄球僵尸",
@@ -3064,7 +3064,7 @@ oSmallFootballZombie = InheritO(oFootballZombie, {
 	getShadow: function(a) {
 		return "width:43px;height:18px;left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
 	}
-})，
+}),
 oSmallSnorkelZombie = InheritO(oSnorkelZombie, {
 	EName: "oSmallSnorkelZombie",
 	CName: "小潜水僵尸",
@@ -3091,7 +3091,7 @@ oSmallSnorkelZombie = InheritO(oSnorkelZombie, {
 	getShadow: function(a) {
 		return "width:43px;height:18px;left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	}
-})，
+}),
 oZomboni = function() {
 	var a = function(d, b) {
 		var c = d.HP;
