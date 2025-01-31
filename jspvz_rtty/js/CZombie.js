@@ -628,7 +628,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
 		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
 	},
-	Produce: '当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#FF0000">中（400）</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
+	Produce: '已被辞退</p><p>韧性：<font color="#FF0000">中（400）</font><br>孩子们，我被辞退了，什么罐头我说',
 	BirthCallBack: function(e) {
 		var d = e.delayT,
 		c = e.id,
@@ -742,7 +742,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		b = d + "spotlight2" + c + ".png" + $Random;
 		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
 	})(),
-	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（600）</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。</font></p>游戏内音乐：《Beat it》-Michael Jackson',
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（800）</font><br>特点：<font color="#FF0000">召唤路障僵尸</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
 	getSnowPea: function() {
 		this.PlaySlowballAudio();
 	},
