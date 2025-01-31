@@ -1244,9 +1244,9 @@ oZombie3 = InheritO(oZombie, {
         1000,
         function (f) {
           // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 1000) + 1;
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-          $Z[f.id] && randomNumber <= 1000 && f.BoomFire(f.R);
+          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
           oSym.addTask(100, arguments.callee, [f]);
         },
         [f]
