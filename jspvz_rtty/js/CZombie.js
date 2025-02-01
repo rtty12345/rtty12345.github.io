@@ -3775,7 +3775,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	BookHandPosition: "80% 80%",
 	PicArr: (function() {
 		var a = "images/Zombies/BalloonZombie/";
-		return ["images/Card/Zombies/Balloonzombie.png", a + "0.gif", a + "1.gif", a + "Attack.gif", a + "Walk2.gif", a + "Attack2.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Boom.gif", a + "Walk.gif", a + "Drop.gif", a + "Boom2.gif"]
+		return ["images/Card/Zombies/Balloonzombie.png", a + "0.gif", a + "1.gif", a + "Attack.gif", a + "Walk2.gif", a + "Attack2.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Boom.gif", a + "Walk.gif", a + "Drop.gif", a + "Boom2.gif",b + "ice.png", b + "ice_cap.png"]
 	})(),
 	Produce: '气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">飞行</font><br>弱点：<font color="#FF0000">仙人掌和三叶草</font></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
 	BirthCallBack: function(e) {
@@ -3791,7 +3791,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	ChkActs: function(f, d, g, c) {
 		var b, a, e;
 		if(f.Altitude == 3 && f.AttackedRX < GetX(1)) { // 气球掉落
-			f.Drop(); return 1;
+			f.Drop(1); return 1;
 		}
 		! (f.FreeFreezeTime || f.FreeSetbodyTime) ? ((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
 			R: d,
@@ -3800,6 +3800,16 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		})), f.ZX = f.AttackedLX -= b, f.Ele.style.left = Math.floor(f.X -= b) + "px", e = 1)) : e = 1;
 		return e
 	},
+	ChkActs1: function(e, j, q, k) {
+			var b, r, m, g, n = oGd.$Ice[j], d, h, f, c, l = $("dIceCar" + j);
+
+			if (l == null) { // 对没有冰道的情况下特判
+				l = NewEle("dIceCar" + j, "div", "position:absolute;z-index:1;left:145px;top:" + (GetY(e.R) - 65) + "px;width:800px;height:72px", 0, EDPZ); // 生成新的冰道
+				NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", l);
+				NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", l);
+				n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
+			}
+
 	Drop: function() {
 		var a = this;
 		PlayAudio("balloon_pop");
@@ -3893,5 +3903,26 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	getFirePeaSputtering: function() {
 		(this.Altitude == 1) && (this.getHit0(this, 13));
 	},
+			JudgeIce: function() {
+			var d = this, b = d.R, e = $("dIceCar" + b), c = oGd.$Ice[b];
+
+			if (d.PointZombie) return; // 如果冰车已经进入家门，则不产冰
+
+			e && e.childNodes[1] && SetBlock(e.childNodes[1]); (--c[0]) <= 0 && oSym.addTask(3000,
+			function(k, h) {
+				var j = oGd.$Ice[h],
+				g,
+				f = oGd.$Crater;
+				if (j && j[0] <= 0 && k) {
+					ClearChild(k);
+					g = j[1];
+					while (g < 11) {
+						delete f[h + "_" + g++];
+						delete oGd.$Ice[h]
+					}
+				}
+			},
+			[e, b])
+		},
 	prepareBirth: oZomboni.prototype.prepareBirth
 });
