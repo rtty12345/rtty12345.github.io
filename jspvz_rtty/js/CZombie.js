@@ -2810,6 +2810,7 @@ oAquaticZombie = InheritO(OrnNoneZombies, {
 oDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 	EName: "oDuckyTubeZombie1",
 	CName: "鸭子救生圈僵尸",
+	HP:300,
 	beAttackedPointR: 130,
 	GetDY: function() {
 		return 5
@@ -2864,7 +2865,7 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oSnorkelZombie",
 	CName: "潜水僵尸",
-	Lvl: 1,
+	Lvl: 2,
 	SunNum: 75,
 	width: 143,
 	height: 200,
@@ -3791,7 +3792,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	ChkActs: function(f, d, g, c) {
 		var b, a, e;
 		if(f.Altitude == 3 && f.AttackedRX < GetX(1)) { // 气球掉落
-			f.Drop(1); return 1;
+			f.Drop(); return 1;
 		}
 		! (f.FreeFreezeTime || f.FreeSetbodyTime) ? ((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
 			R: d,
