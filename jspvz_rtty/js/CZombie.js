@@ -1756,11 +1756,21 @@ oFlagZombie = InheritO(oZombie, {
 	Attack:500,
 	HP:400,
 	beAttackedPointR: 101,
+	bedevil: function(c) {
+			c.ExchangeLR(c, 1);
+		        c.Attack=500,
+			c.JudgeAttack = c.JudgeAttackH;
+			c.PZ = 0;
+			c.WalkDirection = 1;
+			c.ZX = c.AttackedRX;
+			c.ChkActs = c.ChkActs1;
+			oP.MonPrgs()
+		},
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 	flatTire:function(){
 	this.getPea(20)
 	},
-		JudgeAttack: function() {
+	JudgeAttack: function() {
 			var f = this,
 			c = f.ZX,
 			d = f.R + "_",
