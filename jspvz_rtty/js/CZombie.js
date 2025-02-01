@@ -3014,7 +3014,7 @@ oSmallFlagZombie = InheritO(oFlagZombie, {
 	height: 72,
 	beAttackedPointL: 41,
 	beAttackedPointR: 78,
-	BreakPoint: 25,
+	BreakPoint: 0,
 	Init: function(e, g, c, b) {
 		var a = 0,
 		f = this,
@@ -3808,8 +3808,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 				NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", l);
 				NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", l);
 				n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
-			}
-
+			},
 	Drop: function() {
 		var a = this;
 		PlayAudio("balloon_pop");
