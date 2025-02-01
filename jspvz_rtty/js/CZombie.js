@@ -1767,7 +1767,7 @@ oFlagZombie = InheritO(oZombie, {
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
 		},
-	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
+	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 	flatTire:function(){
 	this.getExplosion(20)
 	},
