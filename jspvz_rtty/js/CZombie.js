@@ -1755,6 +1755,7 @@ oFlagZombie = InheritO(oZombie, {
 	SunNum: 75,
 	Attack:500,
 	HP:400,
+	BreakPoint:1,
 	beAttackedPointR: 101,
 	bedevil: function(c) {
 			c.ExchangeLR(c, 1);
