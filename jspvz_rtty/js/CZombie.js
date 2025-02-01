@@ -3014,7 +3014,7 @@ oSmallFlagZombie = InheritO(oFlagZombie, {
 	height: 72,
 	beAttackedPointL: 41,
 	beAttackedPointR: 78,
-	BreakPoint: 0,
+	BreakPoint: 1,
 	Init: function(e, g, c, b) {
 		var a = 0,
 		f = this,
