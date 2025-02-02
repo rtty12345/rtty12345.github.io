@@ -2586,14 +2586,14 @@ oCactus = InheritO(CPlants, {
 		c = "CB" + Math.random(),
 		a = b.id;
 		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
-		oSym.addTask(40,
+		oSym.addTask(10,
 		function(e) {
 			var d = $(e);
 			d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif")
 		},
 		[a]);
 		NewImg(c, b.PicArr[8], "left:" + (b.AttackedRX + 25) + "px;top:" + (b.pixelTop + 103) + "px;visibility:hidden;z-index:" + (b.zIndex + 2), EDPZ);
-		oSym.addTask(20,
+		oSym.addTask(5,
 		function(e) {
 			var d = $(e);
 			d && SetVisible(d)
