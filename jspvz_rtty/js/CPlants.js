@@ -2456,6 +2456,7 @@ oCactus = InheritO(CPlants, {
 	width: 122,
 	height: 157,
 	SunNum: 125,
+	Attack:40,
 	beAttackedPointL: 10,
 	beAttackedPointR: 80,
 	AudioArr: ["plantgrow"],
