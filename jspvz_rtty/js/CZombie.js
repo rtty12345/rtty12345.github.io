@@ -1746,7 +1746,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 oFlagZombie = InheritO(oZombie, {
 	PicArr: (function() {
 		var a = "images/Zombies/FlagZombie/";
-		return ["images/Card/Zombies/FlagZombie.png", a + "0.gif", a + "FlagZombie.gif", a + "FlagZombieAttack.gif", a + "FlagZombieLostHead.gif", a + "FlagZombieLostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, "images/Zombies/Zombie/ZombieDie.gif" + $Random, "images/Zombies/Zombie/BoomDie.gif" + $Random, a + "1.gif"]
+		return ["images/Card/Zombies/FlagZombie.png", a + "0.gif", a + "1738471737507.gif", a + "FlagZombieAttack.gif", a + "FlagZombieLostHead.gif", a + "FlagZombieLostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, "images/Zombies/Zombie/ZombieDie.gif" + $Random, "images/Zombies/Zombie/BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
 	EName: "oFlagZombie",
 	CName: "旗帜僵尸",
