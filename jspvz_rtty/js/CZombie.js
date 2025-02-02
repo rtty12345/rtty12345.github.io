@@ -1768,12 +1768,6 @@ oFlagZombie = InheritO(oZombie, {
 			oP.MonPrgs()
 		},
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
-	PrivateBirth: function(a){
-            let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/interface/LawnCleaner.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:30px;",0);
-            z.appendChild(pea);
-        },
 	flatTire:function(){
 	this.getExplosion(20)
 	},
