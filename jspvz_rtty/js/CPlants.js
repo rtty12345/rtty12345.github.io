@@ -1480,6 +1480,7 @@ oCherryBomb = InheritO(CPlants, {
 					}
 				} while ( g ++< e );
 				c.Die(1);
+				c.CustomSpecial(oPotatoMine),
 				EditEle(f.childNodes[1], {
 					src: c.PicArr[3] + Math.random()
 				},
