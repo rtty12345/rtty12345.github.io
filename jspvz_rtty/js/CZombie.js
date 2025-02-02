@@ -2870,7 +2870,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	SunNum: 75,
 	width: 143,
 	height: 200,
-	HP:Infinity,
+	HP:200000,
 	beAttackedPointL: 40,
 	beAttackedPointR: 100,
 	OSpeed: 5,
