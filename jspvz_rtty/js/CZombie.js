@@ -2019,8 +2019,7 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 			k.EleBody.src = l;
 			k.JudgeAttack();
 			k.Attack=800
-		},
-		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
+		}
 	}
 }),
 oFootballZombie = InheritO(oConeheadZombie1,{
