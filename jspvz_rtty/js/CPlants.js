@@ -2631,7 +2631,17 @@ oCactus = InheritO(CPlants, {
 			e && e.Altitude == 3 ? (e.getHit0(e, 20, d), e.Drop(), ClearChild(i)) : (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
+	},
+	NormalAttack1: function(a) {
+		this.NormalAttack();
+		oSym.addTask(15,
+		function(c) {
+			var b = $P[c];
+			b && b.NormalAttack1()
+		},
+		[this.id,3])
 	}
+}),
 }),
 oBlover = InheritO(CPlants, {
 	EName: "oBlover",
