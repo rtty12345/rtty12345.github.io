@@ -1480,7 +1480,7 @@ oCherryBomb = InheritO(CPlants, {
 					}
 				} while ( g ++< e );
 				d.Die(1);
-				c.CustomSpecial(oNutBowing,d.R,d.C);
+				d.CustomSpecial(oNutBowing,d.R,d.C);
 				EditEle(f.childNodes[1], {
 					src: c.PicArr[3] + Math.random()
 				},
