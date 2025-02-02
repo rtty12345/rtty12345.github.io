@@ -1479,8 +1479,7 @@ oCherryBomb = InheritO(CPlants, {
 						d[h].getExplosion(2000)
 					}
 				} while ( g ++< e );
-				d.Die(1);
-				d.CustomSpecial(oNutBowing,d.R,d.C);
+				c.Die(1);
 				EditEle(f.childNodes[1], {
 					src: c.PicArr[3] + Math.random()
 				},
@@ -2109,14 +2108,14 @@ oHypnoShroom = InheritO(oFumeShroom, {
 		var c = this;
 		switch (b) {
 		case 3:
-			(c.HP -= a) < 1 && c.Die();
+			(c.HP -= a) < 1 && c.Die(1);
 			break;
 		case 0:
 			!c.Sleep && d.bedevil(d);
-			c.Die();
+			c.Die(1);
 			break;
 		default:
-			c.Die()
+			c.Die(1)
 		}
 	}
 }),
