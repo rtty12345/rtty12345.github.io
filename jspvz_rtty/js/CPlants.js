@@ -2637,7 +2637,7 @@ oCactus = InheritO(CPlants, {
 		oSym.addTask(15,
 		function(c) {
 			var b = $P[c];
-			b && b.NormalAttack()
+			b && b.NormalAttack1()
 		},
 		[this.id,2])
 	}
