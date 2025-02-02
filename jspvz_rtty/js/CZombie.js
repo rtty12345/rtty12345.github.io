@@ -1977,23 +1977,14 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
 	OrnHP: 1000,
+	HP:400,
 	Lvl: 3,
 	SunNum: 125,
+	LostPaperSpeed:15,
+	LostPaperGif:9,
 	PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	PrivateBirth: function(a){
-            a.PrivateAct = a.PraivateAct1;
-        },
-        PrivateAct1: function(a){
-            if(!a.Change){
-                a.Change = true;
-                oSym.addTask(300,function(a){
-                    a.ChangeR(a);
-                    a.Change = false;
-                },[a])
-            }
-        },
 	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
@@ -2002,9 +1993,35 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		1 : "images/Zombies/BucketheadZombie/0.gif",
 		2 : "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
 		3 : "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
-		9 : "images/Zombies/Zombie/Zombie2.gif",
+		9 : "images/Zombies/Zombie/unlook.gif",
+		10:"images/Zombies/Zombie/unlook.gif",
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	},
+	CheckOrnHP: function(g, h, d, c, f, b, a) {
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
+			return 1
+		},
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0,g.Altitude=4,oSym.addTask(1,
+		function(m, l) {
+			var k = $Z[m];
+			if (!k) {
+				return
+			}
+			var j = CZombies.prototype,
+			i = k.OSpeed = k.LostPaperSpeed;
+			k.Altitude=1;
+			k.Attack=800;
+			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
+			if (!k.beAttacked) {
+				return
+			}
+			PlayAudio("newspaper_rarrgh2");
+			k.EleBody.src = l;
+			k.JudgeAttack();
+			k.Attack=800
+		},
+		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
+	}
 }),
 oFootballZombie = InheritO(oConeheadZombie1,{
 	EName: "oFootballZombie",
