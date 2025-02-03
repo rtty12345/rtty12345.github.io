@@ -10,7 +10,7 @@ oS.Init({
     oCactus,
     oLilyPad,
   ],
-  ZName: [oZombie,oDolphinRiderZombie,oFootballZombie],
+  ZName: [oZombie,oDolphinRiderZombie,oFootballZombie,oZomboni,oFlagZombie,oSnorkelZombie,oDuckyTubeZombie3],
   PicArr: [
     "images/interface/background4.jpg",
     "images/interface/trophy.png",
@@ -26,7 +26,7 @@ oS.Init({
   BrainsNum: 6,
   CardKind: 1,
   LevelName: "海豚测试",
-  LvlEName: "ImZombiePool4",
+  LvlEName: "ImZombiePool2",
   LoadMusic: "Mountains",
   StartGameMusic: "Mountains",
   ArP: {
@@ -36,7 +36,7 @@ oS.Init({
     P: {
       Arr: [
         0, 0, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6, 6, 7,
-        7, 7,
+        7,7
       ],
       Arr1: [3, 3, 3, 3],
       Arr2: [1, 1, 1],
