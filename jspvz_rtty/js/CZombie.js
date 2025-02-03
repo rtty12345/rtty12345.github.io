@@ -2103,7 +2103,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     continue
                 }
                 for (a = 2; a > -1;
-                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
+                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = oFlagZombie.prototype.JudgeAttack, (g.NormalAttack = oFlagZombie.prototype.NormalAttack)(g.id, p.id)))) {}
             }
         },
         getCrushed: function(a) {
@@ -2120,6 +2120,41 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         getRaven: function(a) {
             return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0
         },
+	flatTire:function(){
+	this.getExplosion(20)
+	},
+	JudgeAttack: function() {
+			var f = this,
+			c = f.ZX,
+			d = f.R + "_",
+			e = GetC(c),
+			g = oGd.$,
+			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+		},
+		JudgeLR: function(e, c, d, b, f) {
+			return d > 10 || d < 1 ? false: function() {
+				c += --d + "_";
+				var g = 3,
+				h;
+				while (g--) {
+					if (h = f[c + g]) {
+						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
+					}
+				}
+			} ()
+		},
+		JudgeSR: function(e, c, d, b, f) {
+			return d > 9 ? false: function() {
+				c += d + "_";
+				var g = 3,
+				h;
+				while (g--) {
+					if (h = f[c + g]) {
+						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
+					}
+				}
+			} ()
+		},
         NormalAttack: function(d, b, g) {
             var f = $Z[d],
                 a = f.Ele,
