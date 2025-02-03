@@ -1159,7 +1159,7 @@ oZombie3 = InheritO(oZombie, {
 				d && ((d.HP -= 60) < 1 ? d.NormalDie() : d.AutoReduceHP(e))
 			},
 			[c])
-		}
+		},
 }),
  oJalapenoZombie1= InheritO(oZombie, {
     EName: "oJalapenoZombie1",
