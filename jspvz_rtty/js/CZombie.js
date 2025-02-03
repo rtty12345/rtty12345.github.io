@@ -493,9 +493,24 @@ OrnNoneZombies = function() {
 			this.getHit0(this, 13)
 		},
 		getSlowPea: function(e,b,c){
-                e.getFirePea(e,b,c);
+                e.getFirePea1(e,b,c);
                 e.getSlow(e);
                 },
+		getFirePea1: function(g, c, j) {
+			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
+			g.Attack = 100;
+			var f = g.AttackedLX,
+			h = g.AttackedRX,
+			b = oZ.getArZ(f, f + 40, g.R),
+			e = b.length;
+			while (e--) {
+				b[e].getFirePeaSputtering1()
+			}
+			g.getHit1(g, c, j)
+		},
+		getFirePeaSputtering: function() {
+			this.getSnowPea(this, 13)
+		},
 		getSnowPea: function(f, c, g) {
 			var e = f.FreeSlowTime,
 			b = oSym.Now + 1000;
