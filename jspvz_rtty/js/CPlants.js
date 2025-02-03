@@ -1429,6 +1429,7 @@ oTallNut = InheritO(oWallNut, {
 	height: 119,
 	beAttackedPointR: 63,
 	SunNum: 125,
+	Attack:20,
 	HP: 8000,
 	PicArr: ["images/Card/Plants/TallNut.png", "images/Plants/TallNut/0.gif", "images/Plants/TallNut/TallNut.gif", "images/Plants/TallNut/TallnutCracked1.gif", "images/Plants/TallNut/TallnutCracked2.gif"],
 	Tooltip: "不会被跳过的坚实壁垒",
@@ -1443,6 +1444,30 @@ oTallNut = InheritO(oWallNut, {
 	getHurt: function(e, b, a) {
 		var c = this,
 		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 2667 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 5333 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
+	},
+		NormalAttack: function(b, a) {
+		var c = $Z[b];
+		c.getHit2(c, this.Attack, 0)
+	},
+	GetDY: function(b, c, a) {
+		return - 2
+	},
+	getTriggerRange: function(a, b, c) {
+		return [[this.pixelLeft - 80, this.pixelRight + 80, 0]]
+	},
+	TriggerCheck: function(i, h) {
+		var c = i.id,
+		g = this.ArZ,
+		a, b, e, f;
+		i.PZ && !g[c] && (a = i.AttackedLX, b = i.AttackedRX, e = this.AttackedLX, f = this.AttackedRX, a <= f && a >= e || b <= f && b >= e || a <= e && b >= f) && this.AttackCheck2(i) && (g[c] = 1, this.NormalAttack(c), oSym.addTask(100,
+		function(d, j) {
+			var k = $P[d];
+			k && delete k.ArZ[j]
+		},
+		[this.id, c]))
+	},
+	AttackCheck2: function(a) {
+		return a.Altitude == 1 && a.beAttacked
 	}
 }),
 oCherryBomb = InheritO(CPlants, {
