@@ -1135,7 +1135,7 @@ oZombie = InheritO(OrnNoneZombies,{
 	})(),
 	Produce: '韧性：<font color="#FF0000">低',
 	AutoReduceHP: function(c) {
-			oSym.addTask(4500,
+			oSym.addTask(2500,
 			function(e) {
 				var d = $Z[e];
 				d && ((d.HP -= 60) < 1 ? d.NormalDie() : d.AutoReduceHP(e))
