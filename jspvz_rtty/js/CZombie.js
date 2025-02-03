@@ -1133,7 +1133,15 @@ oZombie = InheritO(OrnNoneZombies,{
 		var a = "images/Zombies/Zombie/";
 		return ["images/Card/Zombies/Zombie.png", a + "0.gif", a + "Zombie.gif", a + "ZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
-	Produce: '韧性：<font color="#FF0000">低'
+	Produce: '韧性：<font color="#FF0000">低',
+	AutoReduceHP: function(c) {
+			oSym.addTask(4500,
+			function(e) {
+				var d = $Z[e];
+				d && ((d.HP -= 60) < 1 ? d.NormalDie() : d.AutoReduceHP(e))
+			},
+			[c])
+		},
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2"
@@ -1822,8 +1830,7 @@ oFlagZombie = InheritO(oZombie, {
 		NormalAttack: function(c, b) {
 			var d = $Z[c];
 			$P[b].getHurt(d, 2, d.Attack)
-		},
-	prepareBirth: oZomboni.prototype.prepareBirth
+		}
 }),
 OrnIZombies = function() {
 	var a = function(f, b) {
