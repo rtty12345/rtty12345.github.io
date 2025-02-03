@@ -1151,15 +1151,7 @@ oZombie3 = InheritO(oZombie, {
 	PicArr: {
 		2 : "images/Zombies/Zombie/Zombie3.gif",
 		9 : "images/Zombies/Zombie/3.gif"
-	},
-	AutoReduceHP: function(c) {
-			oSym.addTask(2500,
-			function(e) {
-				var d = $Z[e];
-				d && ((d.HP -= 60) < 1 ? d.NormalDie() : d.AutoReduceHP(e))
-			},
-			[c])
-		},
+	}
 }),
  oJalapenoZombie1= InheritO(oZombie, {
     EName: "oJalapenoZombie1",
