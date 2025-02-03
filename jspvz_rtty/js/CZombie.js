@@ -1980,8 +1980,8 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 	HP:400,
 	Lvl: 3,
 	SunNum: 125,
-	LostPaperSpeed:15,
-	LostPaperGif:9,
+	LostOrnSpeed:15,
+	LostOrnGif:9,
 	PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
@@ -1999,14 +1999,14 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d),
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0,g.Altitude=4,oSym.addTask(100,
+		g.EleBody.src = f[g.LostOrnGif] + $Random + Math.random(),g.Altitude=4,oSym.addTask(100,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
 				return
 			}
 			var j = CZombies.prototype,
-			i = k.OSpeed = k.LostPaperSpeed;
+			i = k.OSpeed = k.LostOrnSpeed;
 			k.Altitude=1;
 			k.Attack=800;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
