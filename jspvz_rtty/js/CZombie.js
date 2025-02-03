@@ -1998,10 +1998,8 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
-			return 1
-		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0,g.Altitude=4,oSym.addTask(1,
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d),
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0,g.Altitude=4,oSym.addTask(100,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
