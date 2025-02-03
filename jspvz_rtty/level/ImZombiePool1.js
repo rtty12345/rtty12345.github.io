@@ -3,7 +3,7 @@
         关卡植物: 5大喷菇 3南瓜头 3魅惑菇 4土豆地雷 8向日葵 4三线射手 3机枪射手 3仙人掌 10荷叶
 */
 oS.Init({
-        PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunflower, oThreepeater, oGatlingPea, oCactus, oLilyPad],
+        PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oLilyPad],
         ZName: [oZombie, oConeheadZombie,oBucketheadZombie, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oPoleVaultingZombie, oBalloonZombie],
         PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
         backgroundImage: "images/interface/background4.jpg",
@@ -42,4 +42,4 @@ oS.Init({
                 SetVisible($("dFlagMeter"), $("dTop"));
                 oS.RiddleAutoGrow();
         }
-})
+});
