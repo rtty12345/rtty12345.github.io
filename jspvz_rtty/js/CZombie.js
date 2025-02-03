@@ -1995,7 +1995,6 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		3 : "images/Zombies/Zombie/unlook.gif",
 		4:"images/Zombies/Zombie/unlook.gif",
 		5:"images/Zombies/Zombie/unlook.gif",
-		7:"images/Zombies/Zombie/unlook.gif",
 		9 : "images/Zombies/Zombie/unlook.gif",
 		10:"images/Zombies/Zombie/unlook.gif",
 		11 : "images/Zombies/BucketheadZombie/1.gif"
