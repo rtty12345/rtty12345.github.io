@@ -42,4 +42,4 @@ oS.Init({
                 SetVisible($("dFlagMeter"), $("dTop"));
                 oS.RiddleAutoGrow();
         }
-});
+})
