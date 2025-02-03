@@ -1133,15 +1133,7 @@ oZombie = InheritO(OrnNoneZombies,{
 		var a = "images/Zombies/Zombie/";
 		return ["images/Card/Zombies/Zombie.png", a + "0.gif", a + "Zombie.gif", a + "ZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
-	Produce: '韧性：<font color="#FF0000">低',
-	AutoReduceHP: function(c) {
-			oSym.addTask(2500,
-			function(e) {
-				var d = $Z[e];
-				d && ((d.HP -= 60) < 1 ? d.NormalDie() : d.AutoReduceHP(e))
-			},
-			[c])
-		},
+	Produce: '韧性：<font color="#FF0000">低'
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2"
@@ -1159,7 +1151,15 @@ oZombie3 = InheritO(oZombie, {
 	PicArr: {
 		2 : "images/Zombies/Zombie/Zombie3.gif",
 		9 : "images/Zombies/Zombie/3.gif"
-	}
+	},
+	AutoReduceHP: function(c) {
+			oSym.addTask(2500,
+			function(e) {
+				var d = $Z[e];
+				d && ((d.HP -= 60) < 1 ? d.NormalDie() : d.AutoReduceHP(e))
+			},
+			[c])
+		}
 }),
  oJalapenoZombie1= InheritO(oZombie, {
     EName: "oJalapenoZombie1",
