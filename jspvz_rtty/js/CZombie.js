@@ -2131,30 +2131,6 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
 		},
-		JudgeLR: function(e, c, d, b, f) {
-			return d > 10 || d < 1 ? false: function() {
-				c += --d + "_";
-				var g = 3,
-				h;
-				while (g--) {
-					if (h = f[c + g]) {
-						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
-					}
-				}
-			} ()
-		},
-		JudgeSR: function(e, c, d, b, f) {
-			return d > 9 ? false: function() {
-				c += d + "_";
-				var g = 3,
-				h;
-				while (g--) {
-					if (h = f[c + g]) {
-						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
-					}
-				}
-			} ()
-		},
         NormalAttack: function(d, b, g) {
             var f = $Z[d],
                 a = f.Ele,
