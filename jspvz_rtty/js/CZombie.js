@@ -1997,28 +1997,6 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		10:"images/Zombies/Zombie/unlook.gif",
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	},
-	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d),
-		g.EleBody.src = f[g.LostOrnGif] + $Random + Math.random(),g.Altitude=4,oSym.addTask(100,
-		function(m, l) {
-			var k = $Z[m];
-			if (!k) {
-				return
-			}
-			var j = CZombies.prototype,
-			i = k.OSpeed = k.LostOrnSpeed;
-			k.Altitude=1;
-			k.Attack=800;
-			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
-			if (!k.beAttacked) {
-				return
-			}
-			PlayAudio("newspaper_rarrgh2");
-			k.EleBody.src = l;
-			k.JudgeAttack();
-			k.Attack=800
-		}
-	}
 }),
 oFootballZombie = InheritO(oConeheadZombie1,{
 	EName: "oFootballZombie",
