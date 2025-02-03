@@ -4,7 +4,7 @@
 */
 oS.Init({
         PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oLilyPad],
-        ZName: [oZombie, oConeheadZombie,oBucketheadZombie, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oPoleVaultingZombie, oBalloonZombie],
+        ZName: [oZombie,oBucketheadZombie,oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oPoleVaultingZombie, oBalloonZombie,oFlagZombie,oSnorkelZombie],
         PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
         backgroundImage: "images/interface/background4.jpg",
         Coord: 2, DKind: 0, LF: [0, 1, 1, 2, 2, 1, 1],
@@ -16,7 +16,7 @@ oS.Init({
         ArP: {
                 ArC: [1, 5], ArR: [1, 6], Auto: 1,
                 P: {
-                        Arr: [0, 0, 0, 0, 0, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7], 
+                        Arr: [0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2,2,4,4,4,4,4,5,5,6,6,6,6,7,7], 
                         Arr1: [3, 3, 3, 3], Arr2: [1, 1, 1]
                 }
         },
