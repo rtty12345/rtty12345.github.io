@@ -506,7 +506,7 @@ OrnNoneZombies = function() {
 			while (e--) {
 				b[e].getFirePeaSputtering1()
 			}
-			g.getHit1(g, c, j)
+			g.getHit0(g, c, j)
 		},
 		getFirePeaSputtering: function() {
 			this.getSnowPea(this, 13)
