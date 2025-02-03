@@ -1772,6 +1772,7 @@ oFlagZombie = InheritO(oZombie, {
 	HP:400,
 	BreakPoint:1,
 	beAttackedPointR: 101,
+	AudioArr:["lawnmower"],
 	bedevil: function(c) {
 			c.ExchangeLR(c, 1);
 		        c.Attack=500,
@@ -1821,7 +1822,8 @@ oFlagZombie = InheritO(oZombie, {
 		NormalAttack: function(c, b) {
 			var d = $Z[c];
 			$P[b].getHurt(d, 2, d.Attack)
-		}
+		},
+	prepareBirth: oZomboni.prototype.prepareBirth
 }),
 OrnIZombies = function() {
 	var a = function(f, b) {
