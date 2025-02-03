@@ -508,7 +508,7 @@ OrnNoneZombies = function() {
 			}
 			g.getHit0(g, c, j)
 		},
-		getFirePeaSputtering: function() {
+		getFirePeaSputtering1: function() {
 			this.getSnowPea(this, 13)
 		},
 		getSnowPea: function(f, c, g) {
