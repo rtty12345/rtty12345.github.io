@@ -68,9 +68,9 @@ oS.Init({
 		[oZombie, 1, 1],
 		[oZombie2, 1, 1],
 		[oZombie3, 1, 1],
-		[oConeheadZombie, 5, 1],
-		[oPoleVaultingZombie, 2, 1],
-		[oBucketheadZombie, 5, 1]
+		[oConeheadZombie, 3, 1],
+		[oPoleVaultingZombie, 10, 1],
+		[oBucketheadZombie, 3, 1]
 	],
 	FlagNum: 20,
 	FlagToSumNum: {
