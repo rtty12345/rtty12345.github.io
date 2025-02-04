@@ -98,7 +98,8 @@ oS.Init({
 			}
 		})(0)
 	}
-}, {
+},
+	{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
