@@ -1204,20 +1204,7 @@ oZombie3 = InheritO(oZombie, {
 		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
 	},
     Produce:
-      '撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
-	BirthCallBack: function(e) {
-		var d = e.delayT,
-		c = e.id,
-		b = e.Ele = $(c),
-		a = e.EleBody = b.childNodes[1];
-		e.EleShadow = b.firstChild;
-		oSym.addTask(d,
-		function(g, f) {
-			var h = $Z[g];
-			h && (h.FreeSetbodyTime = 0, SetBlock(f))
-		},
-		[c, b])
-	},
+      '撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆',
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
