@@ -1,13 +1,13 @@
 // VaseKillerNew4
 oS.Init({
-	PName: [oCherryBomb, oRepeater, oGatlingPea, oGarlic, oTallNut, oTorchwood, oBlover, oLilyPad, oCoffeeBean, oDoomShroom],
+	PName: [oCherryBomb, oRepeater, oSnowPea, oGarlic, oTallNut, oTorchwood, oBlover, oLilyPad, oCoffeeBean, oDoomShroom],
 	ZName: [oZombie, oZombie2, oZombie3, oPoleVaultingZombie, oBucketheadZombie, oDuckyTubeZombie1, oDuckyTubeZombie3, oBalloonZombie, oJackinTheBoxZombie],
 	PicArr: ["images/interface/background3.jpg","images/interface/trophy.png","images/interface/PointerDown.gif","images/interface/Stripe.png"], 
 	backgroundImage: "images/interface/background3.jpg", 
 	DKind: 1, ShowScroll: false, ProduceSun: false, 
 	LevelName: "不可犹豫", LvlEName: "VaseKillerNew4", 
 	Coord: 2, HaveFog: 0, LF: [0, 1, 1, 2, 2, 1, 1], 
-	CanSelectCard: 0, StartGameMusic: "Mountains", SunNum: 150, 
+	CanSelectCard: 0, StartGameMusic: "Mountains", SunNum: 300, 
 	RiddleAutoGrow: function() {
 		var P = oS.VaseArP, L = P.Left, R = P.Right, GNum = P.GreenNum, ZNum = P.ZombieNum, VaseList = [], GroundList = [];
 		var SummonAll = function () { // 生成罐子函数
@@ -77,7 +77,7 @@ oS.Init({
 		PlantP: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6], 
 		SunP: [] 
 	}
-}, 0, {
+}， 0, {
 	AutoSelectCard: function() {
 		SelectCard("oCherryBomb"), SelectCard("oLilyPad"), SelectCard("oCoffeeBean"), SelectCard("oTallNut");
 	}
