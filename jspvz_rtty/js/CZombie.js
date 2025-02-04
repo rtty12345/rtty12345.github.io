@@ -1193,17 +1193,6 @@ oZombie3 = InheritO(oZombie, {
       ];
     })(),
     AudioArr: ["polevault", "grassstep"],
-	bedevil: function(a) {
-		a.ExchangeLR(a, 1);
-		a.JudgeAttack = a.JudgeAttackH;
-		a.PZ = 0;
-		a.WalkDirection = 1;
-		a.ZX = a.AttackedRX;
-		a.ChkActs = a.ChkActs1;
-		a.Speed = 10;
-		a.ChangeChkActsTo1(a, a.id, a.EleBody);
-		oP.MonPrgs()
-	},
 	CustomBirth: function(g, d, a, b, j) {
 		var e = this,
 		c = GetY(g) + e.GetDY(),
