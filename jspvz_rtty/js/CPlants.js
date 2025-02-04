@@ -788,10 +788,6 @@ oGatlingPea = InheritO(oPeashooter, {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
 	},
-	getTriggerR:oThreepeater1.prototype.getTriggerR,
-        PrivateBirth:oThreepeater1.prototype.PrivateBirth,
-        PrivateDie:oThreepeater1.prototype.PrivateDie,
-	NormalAttack2: oThreepeater1.prototype.NormalAttack,
 	NormalAttack1:oPeashooter1.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
@@ -801,15 +797,6 @@ oGatlingPea = InheritO(oPeashooter, {
 			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
 		[this.id,7])
-	},
-	NormalAttack3: function(a) {
-		this.NormalAttack2();
-		oSym.addTask(15,
-		function(d, b) {
-			var c = $P[d];
-			c && c.NormalAttack2(); --b && oSym.addTask(15, arguments.callee, [d, b])
-		},
-		[this.id,5])
 	}	
 }),
 oSplitPea = InheritO(oPeashooter, {
