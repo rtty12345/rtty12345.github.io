@@ -2103,7 +2103,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     continue
                 }
                 for (a = 2; a > -1;
-                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = oFlagZombie.prototype.JudgeAttack, (g.NormalAttack = oFlagZombie.prototype.NormalAttack)(g.id, p.id)))) {}
+                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = oFlagZombie.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = oFlagZombie.prototype.JudgeAttack,g.JudgeLR=oFlagZombie.prototype.JudgeLR,g.JudgeSR=oFlagZombie.prototype.JudgeSR,(g.NormalAttack = oFlagZombie.prototype.NormalAttack)(g.id, p.id)))) {}
             }
         },
         getCrushed: function(a) {
