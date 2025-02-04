@@ -72,12 +72,12 @@ oS.Init({
 
 	VaseArP : {
 		GreenNum: 2, ZombieNum: 2, Left: 4, Right: 9, 
-		ZombieP: [6, 6, 6, 6, 6, 7, 7, 5], 
+		ZombieP: [6, 6, 6, 6, 6, 7,5,5], 
 		WaterZombieP: [4, 4, 4, 4, 3, 3], 
 		PlantP: [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 7, 7, 8, 8, 8], 
 		SunP: [] 
 	}
-}, 0, {
+}， 0, {
 	AutoSelectCard: function() {
 		SelectCard("oCoffeeBean"), SelectCard("oLilyPad"), SelectCard("oCherryBomb");
 	}
