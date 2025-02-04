@@ -77,7 +77,7 @@ oS.Init({
 		PlantP: [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 7, 7, 8, 8, 8], 
 		SunP: [] 
 	}
-}， 0, {
+},0,{
 	AutoSelectCard: function() {
 		SelectCard("oCoffeeBean"), SelectCard("oLilyPad"), SelectCard("oCherryBomb");
 	}
