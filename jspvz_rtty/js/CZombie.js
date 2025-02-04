@@ -2152,13 +2152,13 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     k, q, r;
                 h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL - 180) + h.beAttackedPointR, SetStyle(i, {
                     left: h.X  + "px",
-                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = CZombies.prototype)
+                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = oFlagZombie.prototype)
                     .NormalAttack, h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR  -180) + h.beAttackedPointL, SetStyle(i, {
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
                         t;
-                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = CZombies.prototype)
+                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = oFlagZombie.prototype)
                         .NormalAttack, u.getCrushed = t.getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven);
                 }, [m, n])))
             }, [d, b, a, c, e])
