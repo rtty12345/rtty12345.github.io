@@ -1192,33 +1192,9 @@ oZombie3 = InheritO(oZombie, {
         a + "1.gif",
       ];
     })(),
-    AudioArr: ["polevault", "grassstep"],
-	CustomBirth: function(g, d, a, b, j) {
-		var e = this,
-		c = GetY(g) + e.GetDY(),
-		f = c - e.height,
-		i = e.beAttackedPointL,
-		h = e.beAttackedPointR;
-		e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
-		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
-		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
-	},
+    AudioArr: ["polevault", "grassstep"],	
     Produce:
-      '撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆',
-	ChkSpeed: function(b) {
-		if (!b.DZStep) {
-			return
-		}
-		var a = b.Speed;
-		switch (true) {
-		case(b.FreeFreezeTime || b.FreeSetbodyTime) == 1 : a && (b.Speed = 0);
-			break;
-		case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 5);
-			break;
-		default:
-			a != 5&& (b.Speed = 5)
-		}
-	},
+      '撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆。',
     getShadow: function (a) {
       return (
         "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
