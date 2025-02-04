@@ -1204,42 +1204,6 @@ oZombie3 = InheritO(oZombie, {
 		a.ChangeChkActsTo1(a, a.id, a.EleBody);
 		oP.MonPrgs()
 	},
-	getSlow: function(f, d, e) {
-		var b = oSym.Now + e,
-		c = f.FreeSlowTime,
-		a = 0;
-		switch (true) {
-		case ! c: f.PlaySlowballAudio();
-			f.Attack = 50;
-			f.FreeSlowTime = b;
-			a = 1;
-			break;
-		case c < b: f.PlayNormalballAudio();
-			f.FreeSlowTime = b;
-			a = 1
-		}
-		a && oSym.addTask(e,
-		function(h, g) {
-			var i = $Z[h];
-			i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
-		},
-		[d, b])
-	},
-	getFreeze: function(b, a) {
-		b.beAttacked && b.getHit0(b, 20, 0);
-		oSym.addTask(400,
-		function(e, d, c) {
-			ClearChild(c);
-			var f = $Z[e];
-			f && f.FreeFreezeTime == d && (f.FreeFreezeTime = 0, f.Attack = 50, !f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(), oSym.addTask(1500,
-			function(h, g) {
-				var i = $Z[h];
-				i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
-			},
-			[e, f.FreeSlowTime = oSym.Now + 1500]))
-		},
-		[a, b.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", b.getShadow(b), b.Ele)])
-	},
 	CustomBirth: function(g, d, a, b, j) {
 		var e = this,
 		c = GetY(g) + e.GetDY(),
