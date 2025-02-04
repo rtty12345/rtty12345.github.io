@@ -2103,7 +2103,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     continue
                 }
                 for (a = 2; a > -1;
-                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack,(g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
+                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
             }
         },
         getCrushed: function(a) {
@@ -2120,14 +2120,6 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         getRaven: function(a) {
             return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0
         },
-	JudgeAttack: function() {
-			var f = this,
-			c = f.ZX,
-			d = f.R + "_",
-			e = GetC(c),
-			g = oGd.$,
-			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-		},
         NormalAttack: function(d, b, g) {
             var f = $Z[d],
                 a = f.Ele,
@@ -2155,7 +2147,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
                         t;
-                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t =CZombies.prototype)
+                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = CZombies.prototype)
                         .NormalAttack, u.getCrushed = t.getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven);
                 }, [m, n])))
             }, [d, b, a, c, e])
