@@ -439,7 +439,7 @@ oPeashooter = InheritO(CPlants, {
 	width: 71,
 	height: 71,
 	beAttackedPointR: 51,
-	SunNum: 100,
+	SunNum: 75,
 	BKind: 0,
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	PicArr: ["images/Card/Plants/Peashooter.png", "images/Plants/Peashooter/0.gif", "images/Plants/Peashooter/Peashooter.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
@@ -485,12 +485,12 @@ oPeashooter = InheritO(CPlants, {
 oSnowPea = InheritO(oPeashooter, {
 	EName: "oSnowPea",
 	CName: "寒冰射手",
-	SunNum: 125,
+	SunNum: 225,
 	BKind: 1,
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
 	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果",
-	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果。<p>伤害：<font color="#FF0000">中等，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
+	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果。<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
 	NormalAttack: function() {
 		var a = this,
 		b = "PB" + Math.random();
@@ -529,7 +529,7 @@ oThreepeater = InheritO(oPeashooter, {
 	height: 80,
 	BKind:0,
 	beAttackedPointR: 53,
-	SunNum: 275,
+	SunNum: 400,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
@@ -763,7 +763,7 @@ oGatlingPea = InheritO(oPeashooter, {
 	width: 88,
 	height: 84,
 	beAttackedPointR: 68,
-	SunNum: 300,
+	SunNum: 500,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
@@ -805,11 +805,11 @@ oSplitPea = InheritO(oPeashooter, {
 	width: 92,
 	height: 72,
 	beAttackedPointR: 72,
-	SunNum: 125,
+	SunNum: 175,
 	PicArr: ["images/Card/Plants/SplitPea.png", "images/Plants/SplitPea/0.gif", "images/Plants/SplitPea/SplitPea.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "前后双向发射豌豆",
-	Produce: '分裂射手，可以向前后两个方向发射豌豆。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">前面和后面</font><br>发射速度：<font color="#FF0000">前面为正常速度，后面为两倍速度</font></p>分裂射手：“没错，我就是双子座。我知道，这的确很令人惊奇。不过，有两个头，或者实际上，长着一个头和一个类似头的东西，在背上，对我这条线上的防守帮助很大。',
+	Produce: '分裂射手，可以向前后两个方向发射火豌豆。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">前面和后面</font><br>发射速度：<font color="#FF0000">前面为正常速度，后面为两倍速度</font></p>分裂射手：“没错，我就是双子座。我知道，这的确很令人惊奇。不过，有两个头，或者实际上，长着一个头和一个类似头的东西，在背上，对我这条线上的防守帮助很大。',
 	GetDX: function() {
 		return - 55
 	},
@@ -1150,7 +1150,7 @@ oPotatoMine = InheritO(CPlants, {
 		}
 	},
 	PicArr: ["images/Card/Plants/PotatoMine.png", "images/Plants/PotatoMine/0.gif", "images/Plants/PotatoMine/PotatoMine.gif", "images/Plants/PotatoMine/PotatoMineNotReady.gif", "images/Plants/PotatoMine/PotatoMine_mashed.gif", "images/Plants/PotatoMine/ExplosionSpudow.gif"],
-	Tooltip: "敌人接触后爆炸<br>需要时间安放",
+	Tooltip: "敌人接触后爆炸，血量极高<br>需要时间安放",
 	Produce: '土豆雷具有强大的威力，但是他们需要点时间来武装自己。你应把他们种在僵尸前进的路上，当他们一被接触就会发生爆炸。<p>伤害：<font color="FF0000">大(1000)</font><br>范围：<font color="#FF0000">一个小区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，需要一定准备时间才能起作用。</font></p>一些人说土豆雷很懒，因为他总是把所有事情留到最后。土豆雷才没空理他们，他正忙着考虑他的投资战略呢。',
 	Status: 0,
 	AudioArr: ["potato_mine"],
@@ -1251,7 +1251,7 @@ oWallNut = InheritO(CPlants, {
 	coolTime: 30,
 	PicArr: ["images/Card/Plants/WallNut.png", "images/Plants/WallNut/0.gif", "images/Plants/WallNut/WallNut.gif", "images/Plants/WallNut/Wallnut_cracked1.gif", "images/Plants/WallNut/Wallnut_cracked2.gif"],
 	Tooltip: "阻碍僵尸前进, 并保护你其他的植物",
-	Produce: '坚果墙拥有足以让你用来保护其它植物的坚硬外壳。<p>韧性：<font color="FF0000">高</font></p>坚果墙：“人们想知道，经常被僵尸啃的感觉怎样？他们不知道，我有限的感官，只能让我感到一种麻麻的感觉，像是，令人放松的背部按摩。”',
+	Produce: '坚果墙拥有足以让你用来保护其它植物的坚硬外壳，死后变成巨大坚果保龄球碾压一路僵尸<p>韧性：<font color="FF0000">高</font></p>坚果墙：“人们想知道，经常被僵尸啃的感觉怎样？他们不知道，我有限的感官，只能让我感到一种麻麻的感觉，像是，令人放松的背部按摩。”',
 	CanGrow: function(c, b, f) {
 		var a = b + "_" + f,
 		d = c[1],
