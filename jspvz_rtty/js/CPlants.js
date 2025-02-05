@@ -2033,6 +2033,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	height: 81,
 	beAttackedPointR: 37,
 	SunNum: 25,
+	HP:1300,
 	Cry: 0,
 	ArZ: [],
 	Attacking: 0,
@@ -2139,7 +2140,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 			break;
 		case 0:
 			!c.Sleep && d.bedevil(d);
-			c.Die(1);
+			c.Die();
 			break;
 		default:
 			c.Die(1)
@@ -2177,7 +2178,7 @@ oIceShroom = InheritO(oFumeShroom, {
 			if (f) {
 				PlayAudio("frozen");
 				var e, d, b = "Snow_" + Math.random();
-				for (d in $Z) { (e = $Z[d]).ZX < 901 && e.getFreeze(e, d)
+				for (d in $Z) { (e = $Z[d]).ZX < 901 && e.getFreeze(e,d,500)
 				}
 				oSym.addTask(40,
 				function(g) {
@@ -2690,7 +2691,7 @@ oBlover = InheritO(CPlants, {
 		var id = this.id, z, oBalloon;
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
-		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombieoSmallZombie') && oBalloon.getdispelled(114514); //把气球吹跑
+		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getdispelled(); //把气球吹跑
 
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
