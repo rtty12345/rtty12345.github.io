@@ -329,8 +329,8 @@ oStarfruit = InheritO(CPlants, {
 	},
 	PrivateBirth: function(d) {
 		var c = d.pixelLeft + 58,
-		b = c - 15,
-		a = d.pixelTop + 20;
+		b = c - 20,
+		a = d.pixelTop + 30;
 		d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
 	},
 	PrivateDie: function(a) {
@@ -343,10 +343,10 @@ oStarfruit = InheritO(CPlants, {
 	NormalAttack: function() {
 		var g = this,
 		f = g.pixelLeft + 58,
-		d = f - 15,
-		b = g.pixelTop + 20,
+		d = f - 20,
+		b = g.pixelTop + 30,
 		c = g.R,
-		e = f + 15,
+		e = f + 30,
 		a = function(j, i, h) {
 			return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
 		}; (function(h) {
