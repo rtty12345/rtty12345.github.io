@@ -1519,7 +1519,10 @@ oCherryBomb = InheritO(CPlants, {
 			}
 		},
 		[a.id])
-	}
+	},
+	PrivateDie:function(){
+            CustomSpecial(oPotatoMine,this.R,this.C);
+        }
 }),
 
 
