@@ -2130,10 +2130,6 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
 	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战。<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
-	PrivateBirth:function(a){
-            CustomZombie(oFootballZombie,a.R,a.C,1)
-            //document.write()
-        },
 	InitTrigger: function() {},
 	getHurt: function(d, b, a) {
 		var c = this;
