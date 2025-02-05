@@ -1665,7 +1665,7 @@ oSpikerock = InheritO(oSpikeweed, {
 			f.flatTire();
 			break;
 		case 1:
-			f.getHit2(f, 40, 0)
+			f.getHit2(f, 45, 0)
 		}
 		switch (true) {
 		case((d = e.HP -= b) < 1) : e.Die();
