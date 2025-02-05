@@ -1460,7 +1460,7 @@ oTallNut = InheritO(oWallNut, {
 		var c = i.id,
 		g = this.ArZ,
 		a, b, e, f;
-		i.PZ && !g[c] && (a = i.AttackedLX, b = i.AttackedRX, e = this.AttackedLX, f = this.AttackedRX, a <= f && a >= e || b <= f && b >= e || a <= e && b >= f) && this.AttackCheck2(i) && (g[c] = 1, this.NormalAttack(c), oSym.addTask(100,
+		i.PZ && !g[c] && (a = i.AttackedLX, b = i.AttackedRX, e = this.AttackedLX, f = this.AttackedRX,a<= f && a >= e || b <= f && b >= e || a <= e && b >= f) && this.AttackCheck2(i) && (g[c] = 1, this.NormalAttack(c), oSym.addTask(100,
 		function(d, j) {
 			var k = $P[d];
 			k && delete k.ArZ[j]
@@ -1709,8 +1709,8 @@ oSquash = InheritO(CPlants, {
 	coolTime: 30,
 	PicArr: ["images/Card/Plants/Squash.png", "images/Plants/Squash/0.gif", "images/Plants/Squash/Squash.gif", "images/Plants/Squash/SquashAttack.gif", "images/Plants/Squash/SquashL.png", "images/Plants/Squash/SquashR.png"],
 	AudioArr: ["squash_hmm", "gargantuar_thump"],
-	Tooltip: "压扁接近的僵尸",
-	Produce: '窝瓜会压扁第一个接近它的僵尸。<p>伤害：<font color="#FF0000">高(1500)</font><br>范围：<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了！”窝瓜大吼道，“干吧！！算我一份！没人比我厉害！我就是你要的人！来啊！等啥啊？要的就是这个！”',
+	Tooltip: "魅惑接近的僵尸",
+	Produce: '窝瓜会魅惑第一个接近它的僵尸。<p>伤害：<font color="#FF0000">高（114514）</font><br>范围：<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了！”窝瓜大吼道，“干吧！！算我一份！没人比我厉害！我就是你要的人！来啊！等啥啊？要的就是这个！”',
 	GetDY: function(b, c, a) {
 		return a[0] ? -21 : -10
 	},
@@ -2227,7 +2227,7 @@ oSunShroom = InheritO(oFumeShroom, {
 		a, EDPZ)
 	},
 	ProduceSun: function(a, c, b) {
-		AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 15 : 25, 0),
+		AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 25 : 40, 0),
 		oSym.addTask(2400,
 		function(g, f, e) {
 			var d = $P[g];
