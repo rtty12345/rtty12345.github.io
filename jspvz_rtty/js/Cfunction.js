@@ -137,7 +137,7 @@ oS = {
 	C: 9,
 	LawnMowerX: 70,
 	Lvl: 0,
-	MaxSunNum: 9990,
+	MaxSunNum: 114514,
 	GlobalVariables: {},
 	LvlVariables: {},
 	SelfVariables: [],
