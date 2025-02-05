@@ -806,7 +806,7 @@ oSplitPea = InheritO(oPeashooter, {
 	height: 72,
 	beAttackedPointR: 72,
 	SunNum: 125,
-	PicArr: ["images/Card/Plants/SplitPea.png", "images/Plants/SplitPea/0.gif", "images/Plants/SplitPea/SplitPea.gif", "images/Plants/PB00.gif", "images/Plants/PB01.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/SplitPea.png", "images/Plants/SplitPea/0.gif", "images/Plants/SplitPea/SplitPea.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "前后双向发射豌豆",
 	Produce: '分裂射手，可以向前后两个方向发射豌豆。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">前面和后面</font><br>发射速度：<font color="#FF0000">前面为正常速度，后面为两倍速度</font></p>分裂射手：“没错，我就是双子座。我知道，这的确很令人惊奇。不过，有两个头，或者实际上，长着一个头和一个类似头的东西，在背上，对我这条线上的防守帮助很大。',
@@ -889,7 +889,7 @@ oSplitPea = InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [m])) : (q += (o = !f ? 5 : -5)) < oS.W && q > 100 ? (m.style.left = (r += o) + "px", oSym.addTask(1, arguments.callee, [i, m, k, f, q, l, p, n, r, j])) : ClearChild(m)
 			},
-			[e, $(e), 20, c, d.AttackedLX, d.R,0, 0, a, oGd.$Torch])
+			[e, $(e),40, c, d.AttackedLX, d.R,1, 0, a, oGd.$Torch])
 		};
 		b()
 	}
