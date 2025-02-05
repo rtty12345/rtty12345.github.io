@@ -2268,6 +2268,10 @@ oDoomShroom = InheritO(oFumeShroom, {
 		},
 		a, EDPZ)
 	},
+	PrivateBirth:function(a){
+            CustomZombie(oFootballZombie,a.R,a.C,1)
+            //document.write()
+        },
 	WakeUP: function(a) {
 		var b = a.id;
 		a.Sleep = 0;
