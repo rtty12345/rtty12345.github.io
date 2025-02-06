@@ -1610,7 +1610,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		this.HP=900
             }
 	    else{
-                this.getThump(200)
+                this.NormalDie()
             }
         },
 	bedevil: function(c) {
