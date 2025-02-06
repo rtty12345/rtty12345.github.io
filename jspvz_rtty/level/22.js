@@ -1,6 +1,6 @@
-oS.Init({
+oS。Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom, oGraveBuster, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom, oLilyPad, oSquash],
-	ZName: [oZombie, oZombie2, oZombie3, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oConeheadZombie, oNewspaperZombie, oFootballZombie, oBucketheadZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oConeheadZombie, oNewspaperZombie2, oFootballZombie, oBucketheadZombie],
 	PicArr: function() {
 		var a = oThreepeater.prototype,
 			b = a.PicArr;
@@ -21,7 +21,8 @@ oS.Init({
 		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3])
 	},
 	StartGameMusic: "Kitanai Sekai"
-}, {
+},
+	{	
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 1, 1],
@@ -32,7 +33,7 @@ oS.Init({
 		[oConeheadZombie, 2, 1],
 		[oBucketheadZombie, 1, 1],
 		[oFootballZombie, 1, 1],
-		[oNewspaperZombie, 1, 1]
+		[oNewspaperZombie2, 1, 1]
 	],
 	FlagNum: 20,
 	FlagToSumNum: {
