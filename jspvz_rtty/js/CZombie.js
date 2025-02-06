@@ -1613,14 +1613,6 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
                 this.getThump(200)
             }
         },
-	getCrushed:function(){
-            if(this.OrnHP >= 1){
-                this.CrushDie
-            }
-	    else{
-                this.getThump(0)
-            }
-        },
 	bedevil: function(c) {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
