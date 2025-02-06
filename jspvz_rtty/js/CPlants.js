@@ -2414,7 +2414,7 @@ oTangleKelp = InheritO(CPlants, {
 			function(i, j) {
 				ClearChild($(i))
 			});
-			h.getThump(114514);
+			h.DisappearDie();
 			g.Die()
 		},
 		[a, b])
