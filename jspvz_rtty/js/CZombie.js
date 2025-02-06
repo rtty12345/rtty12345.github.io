@@ -2050,7 +2050,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	SunNum: 100,
+	SunNum: 300,
 	BreakPoint:1,
 	LostPaperSpeed:7,
 	LostPaperAtack:800,
