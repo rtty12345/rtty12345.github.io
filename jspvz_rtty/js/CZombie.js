@@ -1611,7 +1611,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		this.HP=900
             }
 	    else{
-                this.NormalDie(this)
+                this.getThump(200)
             }
         },
 	getCrushed:function(){
