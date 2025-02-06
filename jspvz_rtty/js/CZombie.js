@@ -2664,8 +2664,7 @@ oZomboni = function() {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
-			c.ClearChild($("dIceCar" + f));
-			c.Attack=1000;
+			c.Attack=3000;
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
