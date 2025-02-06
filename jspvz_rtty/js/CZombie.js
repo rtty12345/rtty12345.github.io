@@ -2176,7 +2176,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			}
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
-			k.Altitude=3;
+			k.Altitude=2;
 			k.Attack=800;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
