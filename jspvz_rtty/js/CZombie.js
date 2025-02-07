@@ -499,8 +499,8 @@ OrnNoneZombies = function() {
 		getThreepeater: function(e, b, c){
                 var num = random(1,100);
                 if(num <= 97){
-                    e.getSnowPea(e, b, c);
-                    oPeashooter.prototype.PicArr[4] = "images/Plants/PB-10.gif";
+                    e.getPea(e, b, c);
+                    oPeashooter.prototype.PicArr[4] = "images/Plants/PB00.gif";
                 }else{
                     e.getThump(3000,"DisappearDie");
                 }
