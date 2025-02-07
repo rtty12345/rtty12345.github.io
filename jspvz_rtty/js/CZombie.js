@@ -1412,15 +1412,6 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		10:"images/Zombies/Zombie/unlook.gif",
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	},
-	NormalDie: function() {
-			var c = this;
-			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
-			oSym.addTask(250, ClearChild, [c.Ele]);
-			c.HP = 0;
-		        c.CustomBirth(oConeheadZombie,this.R,this.C);
-			delete $Z[c.id];
-			c.PZ && oP.MonPrgs()
-		}
 }),
 oFootballZombie = InheritO(oConeheadZombie1,{
 	EName: "oFootballZombie",
