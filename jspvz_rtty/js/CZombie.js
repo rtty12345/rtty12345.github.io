@@ -1417,7 +1417,6 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
 			oSym.addTask(250, ClearChild, [c.Ele]);
 			c.HP = 0;
-		        c.CustomZombie(oFootballZombie,c.R,c.C);
 			delete $Z[c.id];
 			c.PZ && oP.MonPrgs()
 		}
