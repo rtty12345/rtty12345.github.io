@@ -1420,7 +1420,7 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		        c.CustomBirth(oConeheadZombie,this.R,this.C);
 			delete $Z[c.id];
 			c.PZ && oP.MonPrgs()
-		},
+		}
 }),
 oFootballZombie = InheritO(oConeheadZombie1,{
 	EName: "oFootballZombie",
