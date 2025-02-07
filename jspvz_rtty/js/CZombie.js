@@ -496,6 +496,15 @@ OrnNoneZombies = function() {
                 e.getFirePea1(e,b,c);
                 e.getSlow(e);
                 },
+		getThreepeater: function(e, b, c){
+                var num = random(1,100);
+                if(num <= 90){
+                    e.getSnowPea(e, b, c);
+                    oThreepeater.prototype.PicArr[4] = "images/Plants/PB-10.gif";
+                }else{
+                    e.getFreeze(e,d);
+                }
+            },
 		getFirePea1: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
 			g.Attack = 100;
