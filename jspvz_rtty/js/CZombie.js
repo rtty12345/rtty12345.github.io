@@ -500,7 +500,7 @@ OrnNoneZombies = function() {
                 var num = random(1,100);
                 if(num <= 97){
                     e.getSnowPea(e, b, c);
-                    oThreepeater.prototype.PicArr[4] = "images/Plants/PB-10.gif";
+                    oPeashooter.prototype.PicArr[4] = "images/Plants/PB-10.gif";
                 }else{
                     e.getThump(3000,"DisappearDie");
                 }
