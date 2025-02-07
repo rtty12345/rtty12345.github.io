@@ -1990,7 +1990,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/PuffShroom.png", "images/Plants/PuffShroom/0.gif", "images/Plants/PuffShroom/PuffShroom.gif", "images/Plants/PuffShroom/PuffShroomSleep.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
 	AudioArr: ["puff"],
 	Tooltip: "向敌人发射短程孢子",
-	Produce: '小喷菇是免费的，不过射程很近。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和很多蘑菇一样，我只是把他们想象成童话和电影里的怪物。不过这次的经历已经让我大开眼界了。',
+	Produce: '小喷菇是免费的，不过射程很近，死后还能硬抗啃咬类僵尸。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和很多蘑菇一样，我只是把他们想象成童话和电影里的怪物。不过这次的经历已经让我大开眼界了。',
 	GetDX: CPlants.prototype.GetDX,
 	getTriggerRange: function(a, b, c) {
 		return [[b, Math.min(c + 250, oS.W), 0]]
@@ -1998,7 +1998,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 	PrivateBirth: function(a) {
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
-	PrivateDie: function(a) {
+	PrivateDie: function(a) {CustomZombie(oFootballZombie,this.R,this.C)
 		a.BulletEle = null
 	},
 	NormalAttack: function() {
