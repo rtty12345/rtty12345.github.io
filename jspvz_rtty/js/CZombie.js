@@ -47,14 +47,16 @@ var CZombies = function(b, a) {
 		CanGrow: function(d, c, e) {
 			return this.CanPass(c, oGd.$LF[c]) && (oS.ArP ? e > oS.ArP.ArC[1] : true);
 		},
-		ChkActs: function(h, f, j, e) {
-			var d, c, g; ! (h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
-				R: f,
-				ar: [oS.R - 1],
-				CustomTop: 400 - h.height + h.GetDY()
-			})), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-			return g
-		},
+        ChkActs: function(h, f, j, e) {
+            var d, c, g;
+            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
+                R: f,
+                ar: [oS.R - 1],
+                CustomTop: 400 - h.height + h.GetDY()
+            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+            this.PrivateAct && this.PrivateAct(this);
+            return g
+        },
 		ChkActs1: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			return f
@@ -144,12 +146,13 @@ var CZombies = function(b, a) {
 			},
 			[d, c]) : SetBlock(c)
 		},
-		Birth: function() {
-			var c = this;
-			$Z[c.id] = c;
-			oZ.add(c);
-			c.BirthCallBack(c)
-		},
+       Birth: function() {
+            var c = this;
+            $Z[c.id] = c;
+            oZ.add(c);
+            c.BirthCallBack(c);
+            c.PrivateBirth && c.PrivateBirth(c);
+        },
 		getCrushed: function(c) {
 			return true
 		},
@@ -406,21 +409,18 @@ var CZombies = function(b, a) {
 			},
 			[d, c])
 		},
-		NormalAttack: function(d, c) {
-			PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
-			oSym.addTask(50,
-			function(e) {
-				$Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
-			},
-			[d]);
-			oSym.addTask(100,
-			function(f, e) {
-				var h = $Z[f],
-				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
-			},
-			[d, c])
-		},
+        NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(100, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
+            }, [d, c]);
+            this.PrivateAttack && this.PrivateAttack(this)
+        },
 		PZ: 1,
 		ExchangeLR: function(f, d) {
 			var e = f.width,
@@ -1187,6 +1187,25 @@ oFlagZombie = InheritO(oZombie, {
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
 		},
+	GoingDie: CZombies.prototype.GoingDie,
+        PrivateAct: function(a){
+            if(a.HP <= 70){
+            oSym.addTask(100,function(a){
+                PlayAudio("explosion");
+                let R = (a.R - 1) || 0,
+                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
+                    C = GetC($(a.id).offsetLeft + 80);
+                for(let i = R;i <= RM;i++){
+                    for(let j = C - 1;j <= C + 1;j++){
+                        for(let k = 0;k <= 3;k++){
+                            let p = oGd.$[i+"_"+j+"_"+k];
+                            p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && p.BoomDie();
+                        }
+                    }
+                }
+            },[a])
+            }
+        },
 	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
