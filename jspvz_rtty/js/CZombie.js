@@ -498,11 +498,11 @@ OrnNoneZombies = function() {
                 },
 		getThreepeater: function(e, b, c){
                 var num = random(1,100);
-                if(num <= 90){
+                if(num <= 97){
                     e.getSnowPea(e, b, c);
                     oThreepeater.prototype.PicArr[4] = "images/Plants/PB-10.gif";
                 }else{
-                    e.getFreeze(e,d);
+                    e.getThump(3000,"DisappearDie");
                 }
             },
 		getFirePea1: function(g, c, j) {
