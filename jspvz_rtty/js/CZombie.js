@@ -3535,7 +3535,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB00.gif">';
+            div.innerHTML = '<img src="images/Plants/PB01.gif">';
             EditEle(div,0,{
                 position:"absolute",
                 zIndex:"24",
@@ -3550,7 +3550,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
@@ -3565,12 +3565,6 @@ oBalloonZombie = InheritO(OrnIZombies, {
             !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
-        },
-        DisappearDie:function(a){
-            this.NormalDie();
-        },
-        CrushDie: function(){
-            this.NormalDie();
         },
         getExplosion:CZombies.prototype.getExplosion,
         getFirePea: function(c, a, b) {
