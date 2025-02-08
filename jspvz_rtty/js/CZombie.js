@@ -3542,6 +3542,13 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                 }
             }
         },
+	DisappearDie:function(a){
+            this.NormalDie()
+        },
+        CrushDie: function(){
+            this.NormalDie();
+        }
+    }, 
  {
         PicArr: {
             0: "images/Card/Zombies/BucketheadZombie.png",
