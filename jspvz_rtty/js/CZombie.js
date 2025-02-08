@@ -3511,7 +3511,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
         PicArr: (function() {
             var a = "images/Zombies/ScreenDoorZombie/",
                 b = "images/Zombies/Zombie/";
-            return ["images/Card/Zombies/ScreenDoorZombie.png", a + "0.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", b + "Zombie2.gif", b + "ZombieAttack.gif", b + "ZombieLostHead.gif", b + "ZombieLostHeadAttack.gif", b + "ZombieHead.gif" + $Random, b + "ZombieDie.gif" + $Random, b + "BoomDie.gif" + $Random, a + "1.gif"]
+            return ["images/Card/Zombies/ScreenDoorZombie.png", a + "0.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", b + "Zombie2.gif", b + "ZombieAttack.gif", b + "ZombieLostHead.gif", b + "ZombieLostHeadAttack.gif", b + "unlook.gif" + $Random, b + "ZombieDie.gif" + $Random, b + "BoomDie.gif" + $Random, a + "1.gif"]
         })(),
         CanPass: function(d, c) {
             return c;
