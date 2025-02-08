@@ -3496,6 +3496,68 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 }),
+oSquashZombie = InheritO(oConeheadZombie, {
+        EName: "oSquashZombie",
+        CName: "窝瓜僵尸",
+        Speed:4,
+        OrnHP: 1100,
+        Lvl: 2,
+        SunNum: 75,
+        GetSunNum: 0,
+        PlayNormalballAudio: function() {
+            PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
+        },
+        Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
+        CanPass: function(d, c) {
+            return c;
+        },
+        PrivateBirth:function(a){
+            let z = $(a.id);
+            z.SquashHeadId = "Squash" + Math.random();
+            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
+            z.appendChild(squash);
+        },
+        PrivateAct:function(a){
+            let z = $(a.id),
+                s = $(z.SquashHeadId);
+            for(let i = 3;i >= 0;i--){
+                let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
+                if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                    a.Speed = 0;
+                    EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
+                        left:"0px",
+                        top:"-50px"
+                    },0);
+                    oSym.addTask(50,function(p,s){
+                        try{
+                            PlayAudio("gargantuar_thump");
+                            p && p.Die();
+                            ClearChild(s);
+                        }catch(e){
+                            document.write(e);
+                        }
+                    },[p,s]);
+                    a.NormalDie();
+                    break;
+                }
+            }
+        },
+        DisappearDie:function(a){
+            this.NormalDie()
+        },
+        CrushDie: function(){
+            this.NormalDie();
+        }
+    }, {
+        PicArr: {
+            0: "images/Card/Zombies/BucketheadZombie.png",
+            1: "images/Zombies/BucketheadZombie/0.gif",
+            2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
+            3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
+            9: "images/Zombies/Zombie/Zombie2.gif",
+            11: "images/Zombies/BucketheadZombie/1.gif"
+        }
+    }),
     oPeaZombie = InheritO(oNewspaperZombie, {
         EName: "oPeaZombie",
         CName: "豌豆僵尸",
