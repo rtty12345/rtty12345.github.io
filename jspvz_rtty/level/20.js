@@ -73,7 +73,7 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 5, 1],
-		[oScreenDoorZombie, 1, 1],
+		[oPeaZombie, 1, 1],
 		[oFootballZombie, 1, 1],
 		[oDancingZombie, 1, 1]
 	],
