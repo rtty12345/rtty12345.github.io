@@ -1206,7 +1206,7 @@ oFlagZombie = InheritO(oZombie, {
             },[a])
             }
         },
-	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物+死后自爆</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
+	Produce: '疑似rtty版破阵王<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物+死后自爆</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	flatTire:function(){
@@ -1345,17 +1345,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-        PrivateAct: function(a){
-            if(!a.bool){
-                a.Speed = 6.4;
-                var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-                    p.Die();
-                    PlayAudio("bowlingimpact");
-		}
-            }
-        },　
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶',
 		ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
