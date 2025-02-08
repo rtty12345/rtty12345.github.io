@@ -3503,7 +3503,6 @@ oSquashZombie = InheritO(oConeheadZombie, {
         OrnHP: 1100,
         Lvl: 2,
         SunNum: 75,
-        GetSunNum: 0,
         PlayNormalballAudio: function() {
             PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
         },
@@ -3542,13 +3541,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 }
             }
         },
-        DisappearDie:function(a){
-            this.NormalDie()
-        },
-        CrushDie: function(){
-            this.NormalDie();
-        }
-    }, {
+ {
         PicArr: {
             0: "images/Card/Zombies/BucketheadZombie.png",
             1: "images/Zombies/BucketheadZombie/0.gif",
