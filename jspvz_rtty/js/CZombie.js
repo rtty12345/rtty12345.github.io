@@ -2826,6 +2826,15 @@ oZomboni = function() {
 			f.JudgeAttack(); (f.AttackedLX += (b = f.Speed)) > oS.W ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (f.ZX = f.AttackedRX += b, f.Ele.style.left = Math.ceil(f.X += b) + "px", e = 1);
 			return e
 		},
+	PrivateAct: function(a){
+            if(!a.Change){
+                a.Change = true;
+                oSym.addTask(150,function(a){
+                    a.ChangeR(a);
+                    a.Change = false;
+                },[a])
+            }
+        },
 		getPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
@@ -3132,7 +3141,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		b.FreeFreezeTime = b.FreeSetbodyTime = b.FreeSlowTime = 0;
 		b.AutoReduceHP(c)
 	}
-}),
+})，
 oImp = InheritO(OrnNoneZombies, {
 	EName: "oImp",
 	CName: "小鬼僵尸",
@@ -3186,7 +3195,7 @@ oImp = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/Imp/";
 		return ["images/Card/Zombies/Imp.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})()
-}),
+})，
 oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
