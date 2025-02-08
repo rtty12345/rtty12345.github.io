@@ -1,7 +1,7 @@
 // VaseKiller6
 oS.Init({
 	PName: [oCherryBomb, oSplitPea, oTallNut, oTorchwood, oSquash, oThreepeater],
-	ZName: [oZombie, oZombie2, oZombie3, oPoleVaultingZombie, oFootballZombie, oJackinTheBoxZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oPoleVaultingZombie, oFootballZombie, oJackinTheBoxZombie,oFlagZombie],
 	PicArr: ["images/interface/background2.jpg","images/interface/trophy.png","images/interface/PointerDown.gif","images/interface/Stripe.png"], 
 	backgroundImage: "images/interface/background2.jpg", 
 	DKind: 0, ShowScroll: false, ProduceSun: false, 
@@ -45,11 +45,12 @@ oS.Init({
 
 	VaseArP : {
 		GreenNum: 2, Left: 3, Right: 9, 
-		ZombieP: [0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 4, 5], 
+		ZombieP: [0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 6, 5], 
 		PlantP: [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5], 
 		SunP: [] 
 	}
-},0,{
+},0,
+	{
 	AutoSelectCard: function() { // 只选择樱桃炸弹
 		SelectCard(oCherryBomb.prototype.EName);
 	}
