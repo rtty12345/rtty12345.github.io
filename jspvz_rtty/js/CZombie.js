@@ -3606,4 +3606,4 @@ oBalloonZombie = InheritO(OrnIZombies, {
         getSlow: function(d, a, c, b, e) {
             (b != d.WalkDirection || e != -1) ? CZombies.prototype.getSlow(d, a, c) : d.PlayNormalballAudio()
         }
-    }),
+    });
