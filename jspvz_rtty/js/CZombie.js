@@ -3498,7 +3498,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 }),
     oPeaZombie = InheritO(oNewspaperZombie, {
         EName: "oPeaZombie",
-        CName: "豌豆铁门僵尸",
+        CName: "豌豆僵尸",
         OrnHP:10000,
         HP: 300,
         Lvl: 3,
@@ -3511,7 +3511,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
         PicArr: (function() {
             var a = "images/Zombies/ScreenDoorZombie/",
                 b = "images/Zombies/Zombie/";
-            return ["images/Card/Zombies/ScreenDoorZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", b + "Zombie2.gif", b + "ZombieAttack.gif", b + "ZombieLostHead.gif", b + "ZombieLostHeadAttack.gif", b + "ZombieHead.gif" + $Random, b + "ZombieDie.gif" + $Random, b + "BoomDie.gif" + $Random, a + "1.gif"]
+            return ["images/Card/Zombies/ScreenDoorZombie.png", a + "0.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", b + "Zombie2.gif", b + "ZombieAttack.gif", b + "ZombieLostHead.gif", b + "ZombieLostHeadAttack.gif", b + "ZombieHead.gif" + $Random, b + "ZombieDie.gif" + $Random, b + "BoomDie.gif" + $Random, a + "1.gif"]
         })(),
         CanPass: function(d, c) {
             return c;
@@ -3519,7 +3519,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
         PlayNormalballAudio: function() {
             PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
         },
-        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(300)</font><br>铁栅门韧性：<font color="#FF0000">高(1200)</font></p><div style="color:red">特点：发射豌豆</div>铁栅门僵尸在一次意外中改造出了这一个头，对于其他僵尸来说，这可算是高科技武器了。',
+        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(300)</font><br>铁栅门韧性：<font color="#FF0000">极高(10000)</font></p><div style="color:red">特点：发射豌豆</div>只是一个普普通通的小豌豆僵尸',
         GoingDie: CZombies.prototype.GoingDie,
         PrivateBirth: function(a){
             let z = $(a.id);
