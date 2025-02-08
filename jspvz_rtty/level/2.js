@@ -1,4 +1,4 @@
-oS.Init({
+oS。Init({
 	PName: [oPeashooter, oSunFlower],
 	ZName: [oZombie, oZombie2, oZombie3],
 	PicArr: function() {
@@ -33,7 +33,7 @@ oS.Init({
 			h += 16;
 			d += 16;
 			$("sod3row")
-				.style.width = e + "px";
+				。style.width = e + "px";
 			SetStyle($("SodRoll_1"), {
 				left: h + "px",
 				width: --b + "px",
@@ -126,8 +126,8 @@ oS.Init({
 	],
 	FlagNum: 6,
 	FlagToSumNum: {
-		a1: [3, 5],
-		a2: [1, 3, 7]
+		a1: [4, 6],
+		a2: [1,5,9]
 	},
 	FlagToMonitor: {
 		5: [ShowFinalWave, 0]
