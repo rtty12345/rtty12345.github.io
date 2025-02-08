@@ -3496,13 +3496,14 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 }),
-oSquashZombie = InheritO(oConeheadZombie, {
+oSquashZombie = InheritO(oConeheadZombie1, {
         EName: "oSquashZombie",
         CName: "窝瓜僵尸",
         Speed:4,
         OrnHP: 1100,
         Lvl: 2,
         SunNum: 75,
+	GetSunNum:0,
         PlayNormalballAudio: function() {
             PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
         },
