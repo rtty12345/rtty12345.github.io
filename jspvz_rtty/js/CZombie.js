@@ -3186,7 +3186,7 @@ oImp = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/Imp/";
 		return ["images/Card/Zombies/Imp.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})()
-})，
+}),
 oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
