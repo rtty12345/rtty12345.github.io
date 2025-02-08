@@ -1506,6 +1506,15 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/PoleVaultingZombie.png", a + "0.gif", a + "PoleVaultingZombie.gif", a + "PoleVaultingZombieAttack.gif", a + "PoleVaultingZombieLostHead.gif", a + "PoleVaultingZombieLostHeadAttack.gif", a + "PoleVaultingZombieHead.gif" + $Random, a + "PoleVaultingZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "PoleVaultingZombieWalk.gif", a + "PoleVaultingZombieLostHeadWalk.gif", a + "PoleVaultingZombieJump.gif", a + "PoleVaultingZombieJump2.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["polevault", "grassstep"],
+	PrivateAct: function(a){
+            if(!a.Change){
+                a.Change = true;
+                oSym.addTask(150,function(a){
+                    a.ChangeR(a);
+                    a.Change = false;
+                },[a])
+            }
+        },
 	Produce: '撑杆僵尸可以跳N格<p>韧性：<font color="#FF0000">中(600)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
         getShadow: function(a) {
             return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
@@ -2826,15 +2835,6 @@ oZomboni = function() {
 			f.JudgeAttack(); (f.AttackedLX += (b = f.Speed)) > oS.W ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (f.ZX = f.AttackedRX += b, f.Ele.style.left = Math.ceil(f.X += b) + "px", e = 1);
 			return e
 		},
-	PrivateAct: function(a){
-            if(!a.Change){
-                a.Change = true;
-                oSym.addTask(150,function(a){
-                    a.ChangeR(a);
-                    a.Change = false;
-                },[a])
-            }
-        },
 		getPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
@@ -3495,7 +3495,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		(this.Altitude == 1) && (this.getHit0(this, 13));
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
-});
+}),
     oPeaZombie = InheritO(oNewspaperZombie, {
         EName: "oPeaZombie",
         CName: "豌豆铁门僵尸",
