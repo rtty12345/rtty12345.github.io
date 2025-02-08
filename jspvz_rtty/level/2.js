@@ -1,4 +1,4 @@
-oS。Init({
+oS.Init({
 	PName: [oPeashooter, oSunFlower],
 	ZName: [oZombie, oZombie2, oZombie3],
 	PicArr: function() {
@@ -32,8 +32,7 @@ oS。Init({
 			e += 15;
 			h += 16;
 			d += 16;
-			$("sod3row")
-				。style.width = e + "px";
+			$("sod3row").style.width = e + "px";
 			SetStyle($("SodRoll_1"), {
 				left: h + "px",
 				width: --b + "px",
