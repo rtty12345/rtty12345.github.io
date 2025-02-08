@@ -1171,7 +1171,7 @@ oFlagZombie = InheritO(oZombie, {
 	CName: "旗帜僵尸",
 	OSpeed: 10,
 	Speed: 10,
-	SunNum: 75,
+	SunNum: 225,
 	Attack:500,
 	HP:400,
 	BreakPoint:1,
@@ -1206,7 +1206,7 @@ oFlagZombie = InheritO(oZombie, {
             },[a])
             }
         },
-	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
+	Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">低</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物+死后自爆</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	flatTire:function(){
