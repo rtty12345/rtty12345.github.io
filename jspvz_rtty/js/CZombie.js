@@ -2790,6 +2790,51 @@ oZomboni = function() {
 			return ["images/Card/Zombies/Zomboni.png", b + "0.gif", b + "1.gif", b + "2.gif", b + "3.gif", b + "4.gif", b + "5.gif" + $Random, b + "BoomDie.gif" + $Random, b + "ice.png", b + "ice_cap.png"]
 		})(),
 		AudioArr: ["zamboni", "explosion"],
+		       PrivateBirth: function(a){
+            let z = $(a.id);
+            z.PeaHead = "Pea" + Math.random();
+            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+            z.appendChild(pea);
+        },
+        PrivateAct: function(a){
+            if(!a.bool){
+            a.bool = 1;
+            oSym.addTask(75,function(a){
+            let z = $(a.id);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/PB01.gif">';
+            EditEle(div,0,{
+                position:"absolute",
+                zIndex:"24",
+                left:z.offsetLeft + "px",
+                top:z.offsetTop + 40 + "px"
+            },EDPZ,0)
+            oSym.addTask(1,function(z,d,a){
+                try{
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                let pea = $(d);
+                let C = GetC(z.offsetLeft + 40);
+                for(let i = 3;i >= 0;i--){
+                    for(let j = 1;j <= C;j++){
+                        let p = oGd.$[a.R+"_"+j+"_"+i];
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 30),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.HP <= 0) && p.Die();
+                    }
+                }
+                if($(d).offsetLeft <= 0){
+                    ClearChild($(d));
+                    $(d).isDie = true;
+                }
+                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
+                }catch(e){
+                }
+            },[z,d,a]);
+            !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
+            },[a]);
+            }
+        },
 		BirthCallBack: function(h) {
 			var g = h.delayT,
 			e = h.id,
