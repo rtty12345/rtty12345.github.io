@@ -1345,15 +1345,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	PrivateAct: function(a){
-            if(!a.Change){
-                a.Change = true;
-                oSym.addTask(200,function(a){
-                    a.ChangeR(a);
-                    a.Change = false;
-                },[a])
-            }
-        },
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶',
 		ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
@@ -1488,6 +1479,15 @@ oFootballZombie = InheritO(oConeheadZombie1,{
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
 	},
+	PrivateAct: function(a){
+            if(!a.Change){
+                a.Change = true;
+                oSym.addTask(200,function(a){
+                    a.ChangeR(a);
+                    a.Change = false;
+                },[a])
+            }
+        },
 	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
