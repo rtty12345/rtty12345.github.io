@@ -6,7 +6,7 @@ oS.Init({
 	backgroundImage: "images/interface/background2.jpg", 
 	DKind: 0, ShowScroll: false, ProduceSun: false, 
 	LevelName: "连锁反应", LvlEName: "VaseKiller4", 
-	CanSelectCard: 0, StartGameMusic: "Mountains", SunNum: 0, 
+	CanSelectCard: 0, StartGameMusic: "Mountains", SunNum: 150, 
 	RiddleAutoGrow: function() {
 		var P = oS.VaseArP, L = P.Left, R = P.Right, GNum = P.GreenNum, VaseList = [], GroundList = [];
 
