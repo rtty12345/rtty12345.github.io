@@ -955,7 +955,7 @@ oSunFlower = InheritO(CPlants, {
 				(e.HP -= b) < 1 && e.Die();
 				break;
 			default: // 如果是非自然原因死亡，直接把剩余价值压榨出来
-				if (e.HP > 0) AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), Math.floor(e.HP / 1.5 / 25) * 25, 0);
+				if (e.HP > 0) AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), Math.floor(e.HP / 1.5 / 25) * 40, 0);
 				e.Die();
 			}
 		}
@@ -1003,8 +1003,8 @@ oTwinSunflower = InheritO(oSunFlower, {
 		function(f, d, c, e) {
 			$P[f] && (a.ChangePosition($(f), 1), oSym.addTask(100,
 			function(k, h, g, j, i) {
-				AppearSun(Math.floor(h + Math.random() * 21), j, 25, 0),
-				AppearSun(Math.floor(g + Math.random() * 21), j, 25, 0),
+				AppearSun(Math.floor(h + Math.random() * 21), j, 45, 0),
+				AppearSun(Math.floor(g + Math.random() * 21), j,45,0),
 				oSym.addTask(100,
 				function(l) {
 					$P[l] && a.ChangePosition($(l), 0)
