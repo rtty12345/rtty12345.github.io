@@ -1567,7 +1567,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:5px;top:5px;",0);
+            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:-25px;top:5px;",0);
             z.appendChild(pea);
         },
         PrivateAct: function(a){
@@ -1709,7 +1709,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
-	Lvl: 2,
+	Lvl: 3,
 	HP:500,
 	Altitude:1,
 	LostPaperGif: 13,
@@ -2168,7 +2168,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:80,
-	Lvl: 2,
+	Lvl: 3,
 	HP:160,
 	Altitude:1,
 	LostPaperGif: 13,
