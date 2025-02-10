@@ -1145,7 +1145,7 @@ oZombie = InheritO(OrnNoneZombies,{
 	Produce: '韧性：<font color="#FF0000">低'
 }),
 oZombie2 = InheritO(oZombie, {
-	EName: "oZombie2"
+	EName: "oZombie2",
 	PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
