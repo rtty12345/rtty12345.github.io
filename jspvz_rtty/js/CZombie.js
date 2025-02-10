@@ -1149,7 +1149,7 @@ oZombie2 = InheritO(oZombie, {
 	PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/Cob.gif","position:absolute;width:194px;height:340px;transform:rotateY(180deg);left:45px;top:15px;",0);
+            let pea = NewImg(z.PeaHead,"images/Plants/Cob.gif","position:absolute;width:340px;height:194px;transform:rotateY(180deg);left:45px;top:15px;",0);
             z.appendChild(pea);
         },
         PrivateAct: function(a){
