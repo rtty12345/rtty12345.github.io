@@ -1155,7 +1155,7 @@ oZombie2 = InheritO(oZombie, {
         PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(2000,function(a){
+            oSym.addTask(1500,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
