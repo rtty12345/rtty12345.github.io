@@ -1391,51 +1391,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		PlayAudio("plastichit")
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶',
-		PrivateBirth: function(a){
-            let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
-            z.appendChild(pea);
-        },
-        PrivateAct: function(a){
-            if(!a.bool){
-            a.bool = 1;
-            oSym.addTask(75,function(a){
-            let z = $(a.id);
-            let div = $n("div");
-            let d = "Pea" + Math.random();
-            div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB01.gif">';
-            EditEle(div,0,{
-                position:"absolute",
-                zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
-            },EDPZ,0)
-            oSym.addTask(1,function(z,d,a){
-                try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
-                for(let i = 3;i >= 0;i--){
-                    for(let j = 1;j <= C;j++){
-                        let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
-                        p && (p.canEat) && (p.HP <= 0) && p.Die();
-                    }
-                }
-                if($(d).offsetLeft <= 0){
-                    ClearChild($(d));
-                    $(d).isDie = true;
-                }
-                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
-                }catch(e){
-                }
-            },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
-            },[a]);
-            }
-        },
 		ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
 			c.ChangeChkActsTo1(c, b, a);
@@ -1608,51 +1563,6 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	Produce: '撑杆僵尸可以跳N格<p>韧性：<font color="#FF0000">中(600)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
         getShadow: function(a) {
             return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
-        },
-	PrivateBirth: function(a){
-            let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:-15px;top:5px;",0);
-            z.appendChild(pea);
-        },
-        PrivateAct: function(a){
-            if(!a.bool){
-            a.bool = 1;
-            oSym.addTask(75,function(a){
-            let z = $(a.id);
-            let div = $n("div");
-            let d = "Pea" + Math.random();
-            div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB01.gif">';
-            EditEle(div,0,{
-                position:"absolute",
-                zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
-            },EDPZ,0)
-            oSym.addTask(1,function(z,d,a){
-                try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
-                for(let i = 3;i >= 0;i--){
-                    for(let j = 1;j <= C;j++){
-                        let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
-                        p && (p.canEat) && (p.HP <= 0) && p.Die();
-                    }
-                }
-                if($(d).offsetLeft <= 0){
-                    ClearChild($(d));
-                    $(d).isDie = true;
-                }
-                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
-                }catch(e){
-                }
-            },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
-            },[a]);
-            }
         },
         GoingDieHead: function(c, a, b) {
             oSym.addTask(200, ClearChild, [NewImg(0, a[b.HeadGif] + Math.random(), "left:" + b.X + "px;top:" + (b.pixelTop - 20) + "px;z-index:" + b.zIndex, EDPZ)])
