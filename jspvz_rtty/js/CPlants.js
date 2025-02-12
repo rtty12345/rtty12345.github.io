@@ -1998,7 +1998,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 	PrivateBirth: function(a) {
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
-	PrivateDie: function(a) {CustomZombie(oFootballZombie,this.R,this.C)
+	PrivateDie: function(a) {
 		a.BulletEle = null
 	},
 	NormalAttack: function() {
