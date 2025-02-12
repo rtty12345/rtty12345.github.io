@@ -1224,7 +1224,7 @@ oFlagZombie = InheritO(oZombie, {
 	AudioArr:["lawnmower"],
 	bedevil: function(c) {
 			c.ExchangeLR(c, 1);
-		        c.Attack=500,
+		        c.Attack=500;
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
 			c.WalkDirection = 1;
