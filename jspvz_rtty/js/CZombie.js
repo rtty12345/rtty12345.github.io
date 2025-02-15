@@ -1468,6 +1468,36 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 	SunNum: 125,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
+	CheckOrnHP: function(g, h, d, c, f, b, a) {
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
+			return 1
+		},
+		g.ChkActs1 = function() {
+			return 1
+		},
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=4,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(1,
+		function(m, l) {
+			var k = $Z[m];
+			if (!k) {
+				return
+			}
+			var j = CZombies.prototype,
+			i = k.OSpeed = k.LostOrnSpeed;
+			k.Altitude=1;
+			k.Attack=800;
+			k.ChkActs = j.ChkActs;
+			k.ChkActs1 = j.ChkActs1;
+			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
+			if (!k.beAttacked) {
+				return
+			}
+			PlayAudio("newspaper_rarrgh2");
+			k.EleBody.src = l;
+			k.JudgeAttack();
+			k.Attack=800
+		},
+		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
+	},
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
