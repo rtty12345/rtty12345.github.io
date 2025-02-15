@@ -1517,7 +1517,8 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
             },100)
                     !a.isDie && (a.HP > 60) && oSym.addTask(175,arguments.callee,[a]);
                 },[a]);
-            },
+            }
+	},
 	PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
