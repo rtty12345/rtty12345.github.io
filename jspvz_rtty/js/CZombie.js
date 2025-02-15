@@ -1219,6 +1219,7 @@ oFlagZombie = InheritO(oZombie, {
 	SunNum: 325,
 	Attack:500,
 	HP:400,
+	AKind:2,
 	BreakPoint:1,
 	beAttackedPointR: 101,
 	AudioArr:["lawnmower"],
