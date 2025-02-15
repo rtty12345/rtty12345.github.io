@@ -1468,13 +1468,7 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 	SunNum: 125,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
-	PrivateBirth: function(a){
-            let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:30px;",0);
-            z.appendChild(pea);
-        },
-	PlayNormalballAudio: function() {
+PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
 	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
