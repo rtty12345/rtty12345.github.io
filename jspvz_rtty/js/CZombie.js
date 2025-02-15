@@ -1458,6 +1458,9 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
+	CanPass: function(b, a) {
+		return a == 2
+	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
 oBucketheadZombie= InheritO(oConeheadZombie1,{
