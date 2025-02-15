@@ -1479,7 +1479,7 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=4,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(1,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.Altitude=4,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(1,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
