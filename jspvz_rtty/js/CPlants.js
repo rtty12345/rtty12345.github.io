@@ -538,7 +538,7 @@ oThreepeater = InheritO(oPeashooter, {
 		return [[b, Math.min(c + 150, oS.W), 0]]
 	},
 	getTriggerR: function(a) {
-		return [a > 2 ? a - 2 : 2, a < oS.R ? Number(a) + 1 : a]
+		return [a > 2 ? a - 2 : 3, a < oS.R ? Number(a) + 1 : a]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
@@ -603,7 +603,7 @@ NormalAttack: function(a) {
 		var c = $P[d];
 		c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,9])
+		[this.id,5])
 	}
 }),
 oThreepeater1= InheritO(oPeashooter, {
