@@ -538,7 +538,7 @@ oThreepeater = InheritO(oPeashooter, {
 		return [[b, Math.min(c + 150, oS.W), 0]]
 	},
 	getTriggerR: function(a) {
-		return [a > 2 ? a - 1 : 2, a < oS.R ? Number(a) + 2 : a]
+		return [a > 2 ? a - 2 : 1, a < oS.R ? Number(a) + 2 : a]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
