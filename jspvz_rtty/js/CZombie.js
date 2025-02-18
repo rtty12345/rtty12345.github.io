@@ -3235,8 +3235,8 @@ oImp = InheritO(OrnNoneZombies, {
 	DieGif: 3,
 	BoomDieGif: 4,
 	AttackGif: 2,
-	OSpeed: 100,
-	Speed: 100,
+	OSpeed: 50,
+	Speed: 50,
 	GetDX: function() {
 		return - 50
 	},
