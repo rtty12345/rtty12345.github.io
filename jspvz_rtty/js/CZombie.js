@@ -3237,6 +3237,19 @@ oImp = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 50,
 	Speed: 50,
+	PrivateAct: function(a){
+            if(!a.bool){
+                a.Speed = 50;
+                var C = GetC(a.X + 80);
+                var p = oGd.$[`${a.R}_${C}_1`];
+                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                    a.bool = 1;
+                    p.Die();
+                    PlayAudio("bowlingimpact");
+                    a.Attack = 150;
+                }
+            }
+        },
 	GetDX: function() {
 		return - 50
 	},
