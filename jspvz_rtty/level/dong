@@ -9,8 +9,8 @@ oS.Init({
     ProduceSun: false,
     CardKind: 1, 
     DKind: 0, 
-    LevelName:'三种僵尸', 
-    LvlEName: "ThreeZombies", 
+    LevelName:'测试', 
+    LvlEName: "ThreeZombie", 
     LoadMusic: "kunqu", 
     StartGameMusic: "kunqu", 
     ArP: { 
