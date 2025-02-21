@@ -1,4 +1,4 @@
-oS。Init({
+oS.Init({
 	PName: [oPeashooter],
 	ZName: [oZombie,oFootballZombie,oImp],
 	PicArr: function() {
