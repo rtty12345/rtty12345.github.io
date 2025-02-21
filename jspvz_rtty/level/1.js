@@ -99,7 +99,9 @@ oS.Init({
 },
 	{
 	AZ: [
-		[oZombie, 5, 1]
+		[oZombie, 5, 1],
+		[oFootballZombie, 3,1]
+		
 	],
 	FlagNum: 4,
 	FlagToSumNum: {
