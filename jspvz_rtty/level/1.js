@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter],
-	ZName: [oZombie],
+	ZName: [oZombie,oFootballZombie,oImp],
 	PicArr: function() {
 		var a = oSunFlower.prototype,
 			b = a.PicArr;
@@ -28,7 +28,7 @@ oS.Init({
 			g += 16;
 			d += 16;
 			$("sod1row")
-				.style.width = e + "px";
+				。style.width = e + "px";
 			SetStyle($("SodRoll"), {
 				left: g + "px",
 				width: --a + "px",
@@ -97,7 +97,8 @@ oS.Init({
 			})())
 		})(35, 122, 68, 117, 73, 71, 322)
 	}
-}, {
+},
+	{
 	AZ: [
 		[oZombie, 5, 1]
 	],
