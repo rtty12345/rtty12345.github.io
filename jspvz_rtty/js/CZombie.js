@@ -170,6 +170,7 @@ var CZombies = function(b, a) {
             }else if(this.OrnHP<Attack1 && this.OrnHP>1){
                 if(this.OrnHP+this.HP>Attack1){
                     this.OrnHP=0;
+		    this.getHit0(0);
                     this.HP-=(Attack2-this.OrnHP);
                 }else if(this.OrnHP+this.HP<=Attack1){
                     return this.DisappearDie(), 1
@@ -190,6 +191,7 @@ var CZombies = function(b, a) {
             }else if(this.OrnHP<Attack && this.OrnHP>1){
                 if(this.OrnHP+this.HP>Attack){
                     this.OrnHP=0;
+		    this.getHit0(0);
                     this.HP-=(Attack-this.OrnHP);
                 }else if(this.OrnHP+this.HP<=Attack){
                     this[howDie](this);
@@ -209,7 +211,7 @@ var CZombies = function(b, a) {
 		})(this.id);
 	},
         getbedevil: function(Attack,howDie,callback) {
-            Attack = Attack == undefined?1800:Attack;
+            Attack = Attack == undefined?114514:Attack;
             howDie = howDie == undefined?"bedevil":howDie;
             if(this.OrnHP>=Attack){
                 this.OrnHP-=Attack;
@@ -222,6 +224,7 @@ var CZombies = function(b, a) {
             }else if(this.OrnHP<Attack && this.OrnHP>1){
                 if(this.OrnHP+this.HP>Attack){
                     this.OrnHP=0;
+		    this.getHit0(0);
                     this.HP-=(Attack-this.OrnHP);
                 }else if(this.OrnHP+this.HP<=Attack){
                     this[howDie](this);
@@ -1391,9 +1394,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	CanPass: function(b, a) {
-		return a == 2
-	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶',
 		ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
@@ -1759,10 +1759,11 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	getExplosion: function(){
             if(this.OrnHP >= 1){
                 this.OrnHP=0,
-		this.HP=900
+		this.HP=900,
+		this.getHit0(0)
             }
 	    else{
-                this.NormalDie()
+                this.DisappearDie()
             }
         },
 	bedevil: function(c) {
