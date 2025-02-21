@@ -103,7 +103,7 @@ oS.Init({
 	],
 	FlagNum: 4,
 	FlagToSumNum: {
-		a1: [2,9],
+		a1: [2,3],
 		a2: [1, 2,9]
 	},
 	FlagToMonitor: {
