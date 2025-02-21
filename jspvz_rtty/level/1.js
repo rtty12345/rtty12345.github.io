@@ -1,4 +1,4 @@
-oS.Init({
+oS。Init({
 	PName: [oPeashooter],
 	ZName: [oZombie,oFootballZombie,oImp],
 	PicArr: function() {
@@ -104,8 +104,8 @@ oS.Init({
 	],
 	FlagNum: 4,
 	FlagToSumNum: {
-		a1: [2, 3],
-		a2: [1, 2, 3]
+		a1: [2,9],
+		a2: [1, 2,9]
 	},
 	FlagToMonitor: {
 		3: [ShowFinalWave, 0]
