@@ -1054,6 +1054,10 @@ oPumpkinHead = InheritO(CPlants, {
 		case d.HP < 2667 : d.HurtStatus < 1 && (d.HurtStatus = 1, a.childNodes[1].src = "images/Plants/PumpkinHead/pumpkin_damage1.gif", $(f + "_2").src = "images/Plants/PumpkinHead/Pumpkin_back.gif")
 		}
 	},
+	PrivateBirth:function(a){
+            CustomZombie(oFootballZombie,a.R,a.C,1)
+            //document.write()
+        },
 	InitTrigger: function() {},
 	BirthStyle: function(c, d, b, a) {
 		b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.gif";
