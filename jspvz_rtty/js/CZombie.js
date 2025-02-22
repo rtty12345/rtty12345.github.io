@@ -1449,52 +1449,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		g.ChkSpeed(g);
 		return f
 	},
-	BirthCallBack: function(h) {
-			var g = h.delayT,
-			e = h.id,
-			c = h.Ele = $(e),
-			d = h.R,
-			f,
-			b = oGd.$Ice;
-			h.EleShadow = c.firstChild;
-			h.EleBody = c.childNodes[1]; ! b[d] ? (f = NewEle("dIceCar" + d, "div", "position:absolute;z-index:1;left:145px;top:" + (GetY(d) - 65) + "px;width:800px;height:72px", 0, EDPZ), NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", f), NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", f), b[d] = [1, 11, h.AttackedLX]) : ++b[d][0];
-			g ? oSym.addTask(g,
-			function(j, i) {
-				var k = $Z[j];
-				k && (k.FreeSetbodyTime = 0, SetBlock(i), PlayAudio("zamboni"))
-			},
-			[e, c]) : (SetBlock(c), PlayAudio("zamboni"))
-		},
-		ChkActs: function(e, j, q, k) {
-			var b, r, m, g, n = oGd.$Ice[j], d, h, f, c, l = $("dIceCar" + j);
-
-			if (l == null) { // 对没有冰道的情况下特判
-				l = NewEle("dIceCar" + j, "div", "position:absolute;z-index:1;left:145px;top:" + (GetY(e.R) - 65) + "px;width:800px;height:72px", 0, EDPZ); // 生成新的冰道
-				NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", l);
-				NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", l);
-				n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
-			},
-			JudgeIce: function() {
-			var d = this, b = d.R, e = $("dIceCar" + b), c = oGd.$Ice[b];
-
-			if (d.PointZombie) return; // 如果冰车已经进入家门，则不产冰
-
-			e && e.childNodes[1] && SetBlock(e.childNodes[1]); (--c[0]) <= 0 && oSym.addTask(3000,
-			function(k, h) {
-				var j = oGd.$Ice[h],
-				g,
-				f = oGd.$Crater;
-				if (j && j[0] <= 0 && k) {
-					ClearChild(k);
-					g = j[1];
-					while (g < 11) {
-						delete f[h + "_" + g++];
-						delete oGd.$Ice[h]
-					}
-				}
-			},
-			[e, b])
-		},
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
