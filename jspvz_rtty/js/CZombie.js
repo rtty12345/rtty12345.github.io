@@ -171,7 +171,6 @@ var CZombies = function(b, a) {
                 if(this.OrnHP+this.HP>Attack1){
                     this.OrnHP=0;
                     this.HP-=(Attack2-this.OrnHP);
-		    this.getHit0(0);
                 }else if(this.OrnHP+this.HP<=Attack1){
                     return this.DisappearDie(), 1
                 }
