@@ -1778,8 +1778,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	getExplosion: function(){
             if(this.OrnHP >= 1){
                 this.OrnHP=0,
-		this.HP=900,
-		this.getHit0(0)
+		this.HP=900
             }
 	    else{
                 this.DisappearDie()
