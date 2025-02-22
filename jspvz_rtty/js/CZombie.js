@@ -3725,7 +3725,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
             11: "images/Zombies/BucketheadZombie/1.gif"
         }
     }),
-    oPeaZombie = InheritO(oNewspaperZombie, {
+    oPeaZombie= InheritO(oNewspaperZombie1, {
         EName: "oPeaZombie",
         CName: "豌豆僵尸",
         OrnHP:10000,
