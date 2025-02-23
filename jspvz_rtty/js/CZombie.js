@@ -1230,6 +1230,7 @@ oFlagZombie = InheritO(oZombie, {
 		        c.Attack=500;
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
+		        c.Speed=3;
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
