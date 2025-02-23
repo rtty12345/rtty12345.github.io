@@ -2388,7 +2388,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			var d = $Z[c];
 			$P[b].getHurt(d, 2, d.Attack)
 		},
-		JudgeAttack: function() {
+		JudgeAttack1: function() {
 			var f = this,
 			c = f.ZX,
 			d = f.R + "_",
