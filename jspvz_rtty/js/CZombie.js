@@ -2370,6 +2370,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			k.Altitude=2;
 			k.Attack=800;
 			k.NormalAttack=k.NormalAttack1;
+			k.JudgeAttack=k.JudgeAttack1;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
@@ -2386,7 +2387,15 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			NormalAttack1: function(c, b) {
 			var d = $Z[c];
 			$P[b].getHurt(d, 2, d.Attack)
-		}
+		},
+		JudgeAttack: function() {
+			var f = this,
+			c = f.ZX,
+			d = f.R + "_",
+			e = GetC(c),
+			g = oGd.$,
+			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+		},
 }),
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
