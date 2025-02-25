@@ -2231,9 +2231,9 @@ getSlowPea:function(c, a, b) {
 oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
-	OrnHP:80,
+	OrnHP:580,
 	Lvl: 3,
-	HP:160,
+	HP:1500,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2243,14 +2243,14 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	beAttackedPointR: 130,
 	SunNum: 300,
 	BreakPoint:1,
-	LostPaperSpeed:7,
+	LostPaperSpeed:10,
 	LostPaperAtack:800,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">低（160）</font><br>封印韧性：<font color="#FF0000">低（80）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后8倍</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报发愣时不无敌，狂暴后无敌</p>仅在冒险模式第三大关出现',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（580）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物</p>仅在冒险模式第三大关出现',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -2273,6 +2273,15 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
 		a.AutoReduceHP(c)
 	},
+	getExplosion: function(){
+            if(this.OrnHP >= 1){
+                this.OrnHP=0,
+		this.HP=3000
+            }
+	    else{
+                this.DisappearDie()
+            }
+        },
 	getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
 		if (!e.beAttacked) {
@@ -2359,7 +2368,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(200,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getPea,g.Altitude=4,g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(200,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -2367,7 +2376,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			}
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
-			k.Altitude=2;
+			k.Altitude=1;
 			k.Attack=800;
 			k.NormalAttack=k.NormalAttack1;
 			k.JudgeAttack=k.JudgeAttack1;
@@ -2396,6 +2405,27 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
 		},
+	
+			AttackZombie: function(d, c) {
+			oSym.addTask(10,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,100,0), h.JudgeAttackH())
+			},
+			[d, c])
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(10,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 100, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c],
+		}
 }),
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
