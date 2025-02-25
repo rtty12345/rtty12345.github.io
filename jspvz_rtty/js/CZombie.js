@@ -2424,7 +2424,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 100, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c],
-		},
+		}
 }),
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
