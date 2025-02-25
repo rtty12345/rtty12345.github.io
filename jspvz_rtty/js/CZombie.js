@@ -1255,7 +1255,7 @@ oFlagZombie = InheritO(oZombie, {
             },[a])
             }
         },
-	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（400）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
+	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（400）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	flatTire:function(){
@@ -1266,7 +1266,7 @@ oFlagZombie = InheritO(oZombie, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 10000, 0), h.JudgeAttackH())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.CrushDie(g, 10000, 0), h.JudgeAttackH())
 			},
 			[d, c])
 		},
@@ -1277,7 +1277,7 @@ oFlagZombie = InheritO(oZombie, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10000, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
