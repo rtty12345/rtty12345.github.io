@@ -1266,7 +1266,7 @@ oFlagZombie = InheritO(oZombie, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.CrushDie(g, 10000, 0), h.JudgeAttackH())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 10000, 0), h.JudgeAttackH())
 			},
 			[d, c])
 		},
@@ -1277,7 +1277,7 @@ oFlagZombie = InheritO(oZombie, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10000, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
