@@ -2378,8 +2378,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
 			k.Attack=800;
-			k.NormalAttack=k.NormalAttack1;
-			k.JudgeAttack=k.JudgeAttack1;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
