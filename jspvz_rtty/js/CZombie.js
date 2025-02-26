@@ -2368,7 +2368,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getPea,g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,g.Altitude=3,g.NormalAttack=g.NormalAttack1,g.JudgeAttack=g.JudgeAttack1,oSym.addTask(200,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getPea,g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,g.Altitude=3,g.Attack=1000000,oSym.addTask(200,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -2378,6 +2378,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
 			k.Attack=800;
+			k.NormalAttack=k.NormalAttack1;
+			k.JudgeAttack=k.JudgeAttack1;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
