@@ -1208,6 +1208,7 @@ oZombie3 = InheritO(oZombie, {
 	NormalAttack:function(){},
 	JudgeLR:function(){},
 	JudgeSR:function(){},
+},
 {
 	PicArr: {
 		2 : "images/Zombies/Zombie/Zombie3.gif",
