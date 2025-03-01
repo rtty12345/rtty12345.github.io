@@ -1201,8 +1201,13 @@ oZombie2 = InheritO(oZombie, {
 	}
 }),
 oZombie3 = InheritO(oZombie, {
-	EName: "oZombie3"
-},
+	EName: "oZombie3",
+	Speed:5,
+	HP:400,
+	JudgeAttack:function(){},
+	NormalAttack:function(){},
+	JudgeLR:function(){},
+	JudgeSR:function(){},
 {
 	PicArr: {
 		2 : "images/Zombies/Zombie/Zombie3.gif",
@@ -2544,7 +2549,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.getPea) && oSym.addTask(1,arguments.callee,[a])
+            !a.isDie && (a.getPea) && oSym.addTask(75,arguments.callee,[a])
             },[a]);
             }
         },
