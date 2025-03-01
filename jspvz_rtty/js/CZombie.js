@@ -1218,7 +1218,7 @@ oZombie3 = InheritO(oZombie, {
 oFlagZombie = InheritO(oZombie, {
 	PicArr: (function() {
 		var a = "images/Zombies/FlagZombie/";
-		return ["images/Card/Zombies/FlagZombie.png", a + "FlagZombie.gif", a + "FlagZombie.gif",a + "FlagZombie.gif", a + "FlagZombieLostHead.gif", a + "FlagZombieLostHeadAttack.gif", "images/Zombies/Zombie/unlook.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random, "images/Zombies/Zombie/BoomDie.gif" + $Random, a + "1.gif"]
+		return ["images/Card/Zombies/FlagZombie.png", a + "FlagZombie.gif", a + "FlagZombie.gif",a + "FlagZombie.gif", a + "FlagZombieLostHead.gif", a + "FlagZombieLostHeadAttack.gif", "images/Zombies/Zombie/unlook.gif" + $Random, "images/Zombies/Zombie/Die.gif" + $Random, "images/Zombies/Zombie/BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
 	EName: "oFlagZombie",
 	CName: "处决者旗帜",
@@ -1261,7 +1261,7 @@ oFlagZombie = InheritO(oZombie, {
             },[a])
             }
         },
-	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（400）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
+	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（400）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	flatTire:function(){
