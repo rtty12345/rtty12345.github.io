@@ -2469,7 +2469,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	getSnowPea: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(75,function(a){
+            oSym.addTask(1,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -2511,7 +2511,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	getPea: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(75,function(a){
+            oSym.addTask(1,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
