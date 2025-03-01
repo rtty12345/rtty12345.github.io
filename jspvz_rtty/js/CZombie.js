@@ -2495,7 +2495,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1800),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat"),(p.HP -=20),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
@@ -2507,7 +2507,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.getSnowPea) && oSym.addTask(1,arguments.callee,[a])
+            !a.isDie && (a.getSnowPea) && oSym.addTask(75,arguments.callee,[a])
             },[a]);
             }
         },
@@ -2538,7 +2538,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1800),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat"),(p.HP -=20),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
