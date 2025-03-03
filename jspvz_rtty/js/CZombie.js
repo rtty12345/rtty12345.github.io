@@ -191,7 +191,6 @@ var CZombies = function(b, a) {
                 if(this.OrnHP+this.HP>Attack){
                     this.OrnHP=0;
                     this.HP-=(Attack-this.OrnHP);
-		    this.getHit0(0);
                 }else if(this.OrnHP+this.HP<=Attack){
                     this[howDie](this);
                 }
@@ -223,8 +222,7 @@ var CZombies = function(b, a) {
             }else if(this.OrnHP<Attack && this.OrnHP>1){
                 if(this.OrnHP+this.HP>Attack){
                     this.OrnHP=0;
-                    this.HP-=(Attack-this.OrnHP);
-                     this.getHit0(0);			
+                    this.HP-=(Attack-this.OrnHP);	
                 }else if(this.OrnHP+this.HP<=Attack){
                     this[howDie](this);
                 }
