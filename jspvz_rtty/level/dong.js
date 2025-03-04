@@ -1,6 +1,6 @@
 oS.Init({
     PName: [oPotatoMine,oSpikeweed,oStarfruit,oTallNut,oSunFlower,oCactus,oGloomShroom,oFumeShroom,oChomper,oSnowPea], // 植物名称数组
-    ZName: [oNewspaperZombie1,oPoleVaultingZombie], // 僵尸名称数组
+    ZName: [oNewspaperZombie,oPoleVaultingZombie], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
