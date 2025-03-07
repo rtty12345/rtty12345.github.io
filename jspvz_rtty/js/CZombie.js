@@ -2237,7 +2237,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	CName: "你亲爱的精英二爷",
 	OrnHP:500,
 	Lvl: 3,
-	HP:1500,
+	HP:1800,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2254,7 +2254,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -2401,7 +2401,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,g.Altitude=3,g.Attack=1000000,oSym.addTask(300,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,g.Altitude=3,g.Attack=1000000,oSym.addTask(200,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
