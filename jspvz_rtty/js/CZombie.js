@@ -1285,6 +1285,14 @@ oFlagZombie = InheritO(oZombie, {
 			},
 			[d, c])
 		},
+			GoingDie: function(d) {
+			var c = this,
+			e = c.id;
+			c.EleBody.src = d;
+			c.GoingDieHead(e, c.PicArr, c);
+			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
+			c.AutoReduceHP(e)
+		},
 	JudgeAttack: function() {
 			var f = this,
 			c = f.ZX,
@@ -2328,6 +2336,14 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		},
 		[b])
 	},
+	GoingDie: function(d) {
+			var c = this,
+			e = c.id;
+			c.EleBody.src = d;
+			c.GoingDieHead(e, c.PicArr, c);
+			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
+			c.AutoReduceHP(e)
+		},
 	AttackZombie: function(d, c) {
 			oSym.addTask(10,
 			function(f, e) {
