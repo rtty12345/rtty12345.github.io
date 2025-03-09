@@ -1151,7 +1151,7 @@ oPotatoMine = InheritO(CPlants, {
 	},
 	PicArr: ["images/Card/Plants/PotatoMine.png", "images/Plants/PotatoMine/0.gif", "images/Plants/PotatoMine/PotatoMine.gif", "images/Plants/PotatoMine/PotatoMineNotReady.gif", "images/Plants/PotatoMine/PotatoMine_mashed.gif", "images/Plants/PotatoMine/ExplosionSpudow.gif"],
 	Tooltip: "敌人接触后爆炸，血量极高<br>需要时间安放",
-	Produce: '土豆雷具有强大的威力，但是他们需要点时间来武装自己。你应把他们种在僵尸前进的路上，当他们一被接触就会发生爆炸。<p>伤害：<font color="FF0000">大(1000)</font><br>范围：<font color="#FF0000">一个小区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，需要一定准备时间才能起作用。</font></p>一些人说土豆雷很懒，因为他总是把所有事情留到最后。土豆雷才没空理他们，他正忙着考虑他的投资战略呢。',
+	Produce: '土豆雷具有强大的威力，但是他们需要点时间来武装自己。你应把他们种在僵尸前进的路上，当他们一被接触就会发生爆炸。<p>伤害：<font color="FF0000">大(1200)</font><br>范围：<font color="#FF0000">一个小区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，需要一定准备时间才能起作用。</font></p>一些人说土豆雷很懒，因为他总是把所有事情留到最后。土豆雷才没空理他们，他正忙着考虑他的投资战略呢。',
 	Status: 0,
 	AudioArr: ["potato_mine"],
 	canTrigger: 0,
@@ -1193,7 +1193,7 @@ oPotatoMine = InheritO(CPlants, {
 		c = oZ.getArZ(j, h, e),
 		f = c.length,
 		a;
-		while (f--) { (a = c[f]).Altitude < 2 && a.getExplosion(1000)
+		while (f--) { (a = c[f]).Altitude < 2 && a.getExplosion(1200)
 		}
 		g.Die(1);
 		PlayAudio("potato_mine");
