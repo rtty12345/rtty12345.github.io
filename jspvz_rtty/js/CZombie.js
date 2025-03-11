@@ -1694,7 +1694,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
             }, [d, b, a, c, e])
         }
     }),
-  oPoloVaultingZombie1= InheritO(oPoleVaultingZombie, {
+  oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
     EName: "oZombiejump",
     CName: "跳跳僵尸",
     HP: 500,
