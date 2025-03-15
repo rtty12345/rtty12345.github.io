@@ -1200,8 +1200,8 @@ oZombie2 = InheritO(oZombie, {
 }),
 oZombie3 = InheritO(oZombie, {
 	EName: "oZombie3",
-	Speed:5,
-	HP:Math.round(Math.random()*1000+500)
+	Speed:Math.round(Math.random()*5+2),
+	HP:Math.round(Math.random()*700+500)
 },
 {
 	PicArr: {
