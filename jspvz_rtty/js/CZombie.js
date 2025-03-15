@@ -4271,7 +4271,6 @@ oSquashZombie = InheritO(oConeheadZombie1, {
         OrnHP: 2200,
         Lvl: 2,
         SunNum: 75,
-	GetSunNum:0,
         PlayNormalballAudio: function() {
             PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
         },
