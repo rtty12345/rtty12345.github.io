@@ -4266,16 +4266,16 @@ oBalloonZombie = InheritO(OrnIZombies, {
 }),
 oSquashZombie = InheritO(oConeheadZombie1, {
         EName: "oSquashZombie",
-        CName: "窝瓜僵尸",
-        Speed:4,
-        OrnHP: 1100,
+        CName: "精英铁桶窝瓜僵尸",
+        Speed:5,
+        OrnHP: 2200,
         Lvl: 2,
         SunNum: 75,
 	GetSunNum:0,
         PlayNormalballAudio: function() {
             PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
         },
-        Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
+        Produce: '能一次性压扁你的植物，压扁植物后不会死，防具血量更高<p>韧性：<font color="#FF0000">高（2200+270）</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
         CanPass: function(d, c) {
             return c;
 	},
