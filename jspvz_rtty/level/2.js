@@ -112,7 +112,7 @@ oS.Init({
 						}
 					});
 					BeginCool();
-					AutoProduceSun(25)
+					AutoProduceSun(40)
 				})
 			})())
 		})(65, 132, 68, 127, 73, 71, 211, 431)
