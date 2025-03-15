@@ -4308,6 +4308,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                     },[p,s]);
                 }
 	    }
+	}
 },
  {
         PicArr: {
