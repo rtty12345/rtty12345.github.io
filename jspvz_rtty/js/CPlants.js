@@ -439,12 +439,12 @@ oPeashooter = InheritO(CPlants, {
 	width: 71,
 	height: 71,
 	beAttackedPointR: 51,
-	SunNum: 75,
+	SunNum:150,
 	BKind: 0,
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	PicArr: ["images/Card/Plants/Peashooter.png", "images/Plants/Peashooter/0.gif", "images/Plants/Peashooter/Peashooter.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	Tooltip: "向敌人射出豌豆",
-	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（30～100）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
+	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（10～100）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
 	PrivateBirth: function(a) {
 		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
@@ -468,7 +468,7 @@ oPeashooter = InheritO(CPlants, {
 		function(f, j, h, c, n, i, m, k, o, g) {
 			var l, e = GetC(n),
 			d = oZ["getZ" + c](n, i);
-			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h = 40, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
+			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =random()*200+15, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
@@ -479,7 +479,7 @@ oPeashooter = InheritO(CPlants, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),Math.random()*100+30,0,a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),Math.random()*100+10,0,a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oSnowPea = InheritO(oPeashooter, {
@@ -1224,8 +1224,8 @@ oTorchwood = InheritO(CPlants, {
 	SunNum: 175,
 	PicArr: ["images/Card/Plants/Torchwood.png", "images/Plants/Torchwood/0.gif", "images/Plants/Torchwood/Torchwood.gif", "images/Plants/PB00.gif", "images/Plants/PB01.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/Torchwood/SputteringFire.gif"],
 	AudioArr: ["firepea", "ignite", "ignite2"],
-	Tooltip: "通过火炬树桩的豌豆将变为火球",
-	Produce: '火炬树桩可以把穿过他的豌豆变成火球，可以造成两倍伤害。<p>特点：<font color="#FF0000">让穿过他的火球造成两倍伤害。火球也会对附近僵尸造成溅射伤害</font></p>每个人都喜欢并敬重火炬树桩。他们喜欢他的诚实和坚贞的友谊，以及增强豌豆伤害的能力。但他也有自己的秘密：他不识字！',
+	Tooltip: "通过火炬树桩的豌豆将变为随机伤害火球",
+	Produce: '火炬树桩可以把穿过他的豌豆变成火球，可以造成更高的随机伤害。<p>特点：<font color="#FF0000">让穿过他的火球造成随机伤害。火球也会对附近僵尸造成溅射伤害</font></p>每个人都喜欢并敬重火炬树桩。他们喜欢他的诚实和坚贞的友谊，以及增强豌豆伤害的能力。但他也有自己的秘密：他不识字！',
 	PrivateBirth: function(c) {
 		var a = c.R,
 		b = c.C;
