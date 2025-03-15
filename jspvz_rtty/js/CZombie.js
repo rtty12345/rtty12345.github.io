@@ -4291,7 +4291,6 @@ oSquashZombie = InheritO(oConeheadZombie1, {
             for(let i = 3;i >= 0;i--){
                 let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
                 if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-                    a.Speed = 0;
                     EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
                         left:"0px",
                         top:"-50px"
@@ -4307,14 +4306,8 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                     },[p,s]);
                 }
             }
-        },
-	DisappearDie:function(a){
-            this.NormalDie()
-        },
-        CrushDie: function(){
-            this.NormalDie();
         }
-    }, 
+}),
  {
         PicArr: {
             0: "images/Card/Zombies/BucketheadZombie.png",
