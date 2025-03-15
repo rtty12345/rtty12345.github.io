@@ -4282,7 +4282,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
 	PrivateBirth:function(a){
             let z = $(a.id);
             z.SquashHeadId = "Squash" + Math.random();
-            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
+            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:80px;top:-300px;",0);
             z.appendChild(squash);
         },
         PrivateAct:function(a){
@@ -4299,10 +4299,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                         try{
                             PlayAudio("gargantuar_thump");
                             p && p.Die();
-		            EditImg(s,0,"images/Plants/Squash/Squash.gif",{
-                        left:"40px",
-                        top:"-150px"
-                    },0);
+			    ClearChild(s);
                         }catch(e){
                             document.write(e);
                         }
