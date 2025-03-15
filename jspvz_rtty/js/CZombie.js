@@ -4304,6 +4304,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                             document.write(e);
                         }
                     },[p,s]);
+		break;
                 }
 	    }
 	}
