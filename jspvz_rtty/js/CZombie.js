@@ -4278,8 +4278,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
         Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
         CanPass: function(d, c) {
             return c;
-        },
-        PrivateBirth:function(a){
+        }，        PrivateBirth:function(a){
             let z = $(a.id);
             z.SquashHeadId = "Squash" + Math.random();
             let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
@@ -4299,14 +4298,16 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                         try{
                             PlayAudio("gargantuar_thump");
                             p && p.Die();
-                            ClearChild(s);
+		            EditImg(s,0,"images/Plants/Squash/Squash.gif",{
+                        left:"40px",
+                        top:"-150px"
+                    },0);
                         }catch(e){
                             document.write(e);
                         }
                     },[p,s]);
                 }
-            }
-        }
+	    }
 },
  {
         PicArr: {
