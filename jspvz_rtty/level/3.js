@@ -28,14 +28,14 @@ oS.Init({
 		PrepareGrowPlants(function() {
 			oP.Monitor();
 			BeginCool();
-			AutoProduceSun(25);
+			AutoProduceSun(40);
 			oSym.addTask(1250, function() {
 				oP.AddZombiesFlag();
 				SetVisible($("dFlagMeterContent"))
 			}, [])
 		})
 	}
-}, {
+},{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 3, 1],
