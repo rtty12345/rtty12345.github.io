@@ -4290,7 +4290,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
             for(let i = 3;i >= 0;i--){
                 let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
                 if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		a.squash=1;
+		a.Attack=100;
                     EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
                         left:"0px",
                         top:"-50px"
