@@ -4286,6 +4286,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
         },
         PrivateAct:function(a){
 	    if(!a=squash){
+	    a.squash=1; 
             let z = $(a.id),
                 s = $(z.SquashHeadId);
             for(let i = 3;i >= 0;i--){
