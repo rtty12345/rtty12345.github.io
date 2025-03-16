@@ -4273,6 +4273,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                 }
             }
 	}
+},
  {
         PicArr: {
             0: "images/Card/Zombies/BucketheadZombie.png",
