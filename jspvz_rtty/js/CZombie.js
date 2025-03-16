@@ -497,13 +497,14 @@ OrnNoneZombies = function() {
                 e.getSlow(e);
                 },
 		getThreepeater: function(e, b, c){
-                var num = random(1,100);
-                if(num <= 97){
+                var num =Math.random()100+1;
+                if(num <= 92){
                     e.getPea(e, b, c);
                     oPeashooter.prototype.PicArr[4] = "images/Plants/PB00.gif";
+                }else if(num<=97){
+                    e.getThump(1000,"DisappearDie");
                 }else{
-                    e.getThump(3000,"DisappearDie");
-                }
+		    e.getbedevil(114514,"bedevil")
             },
 		getFirePea1: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
