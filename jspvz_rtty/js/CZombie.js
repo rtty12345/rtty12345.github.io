@@ -4260,6 +4260,12 @@ oSquashZombie = InheritO(oConeheadZombie1, {
         CanPass: function(d, c) {
             return c;
 	},
+	PrivateBirth:function(a){
+            let z = $(a.id);
+            z.SquashHeadId = "Squash" + Math.random();
+            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
+            z.appendChild(squash);
+        },
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	PrivateAct: function(a){
             if(!a.bool){
@@ -4271,6 +4277,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                     p.BoomDie();
                     PlayAudio("gargantuar_thump");
 		    a.Attack=100;
+		    a.ClearChild(squash);
                 }
             }
 	}
