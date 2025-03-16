@@ -4268,7 +4268,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
                     a.bool = 1;
-                    p.Die;
+                    p.BoomDie();
                     PlayAudio("gargantuar_thump");
 		    a.Attack=100;
                 }
