@@ -4261,8 +4261,6 @@ oSquashZombie = InheritO(oConeheadZombie1, {
             return c;
 	},
 	getSnowPea:OrnNoneZombies.prototype.getPea,
-	getFirePea:OrnNoneZombies.prototype.getPea,
-	getSlowPea:OrnNoneZombies.prototype.getPea,
 	PrivateAct: function(a){
             if(!a.bool){
                 a.Speed = 6.4;
