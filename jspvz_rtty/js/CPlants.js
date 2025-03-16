@@ -924,6 +924,10 @@ oSunFlower = InheritO(CPlants, {
 			top: 0
 		})
 	},
+	BoomDie:function(e){
+        e.AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), Math.floor(e.HP / 1.5 / 25) * 40, 0); 
+	e.Die;
+	},
 	PrivateBirth: function(a) {
 		oS.ProduceSun ? oSym.addTask(500,
 		function(d, c, b) {
