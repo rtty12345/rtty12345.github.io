@@ -4277,7 +4277,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
                     p.BoomDie();
                     PlayAudio("gargantuar_thump");
 		    a.Attack=100;
-		    a.ClearChild(squash);
+		    z.ClearChild(squash);
                 }
             }
 	}
