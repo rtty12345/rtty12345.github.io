@@ -1,4 +1,4 @@
-oS。Init({
+oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut],
 	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie,oNewspaperZombie],
 	PicArr: ["images/interface/background1unsodded2.jpg", "images/interface/background1.jpg"],
@@ -61,7 +61,7 @@ oS。Init({
 			})())
 		})(283, 122, 68, 117, 73, 71, 131, 511)
 	}
-}，{
+},{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
