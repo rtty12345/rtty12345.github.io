@@ -496,16 +496,6 @@ OrnNoneZombies = function() {
                 e.getFirePea1(e,b,c);
                 e.getSlow(e);
                 },
-		getThreepeater: function(e, b, c){
-                var num =Math.random()100+1;
-                if(num <= 92){
-                    e.getPea(e, b, c);
-                    oPeashooter.prototype.PicArr[4] = "images/Plants/PB00.gif";
-                }else if(num<=97){
-                    e.getThump(1000,"DisappearDie");
-                }else{
-		    e.getbedevil(114514,"bedevil")
-            },
 		getFirePea1: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
 			g.Attack = 100;
@@ -1261,7 +1251,6 @@ oFlagZombie = InheritO(oZombie, {
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	flatTire:function(){
 	this.getExplosion(20)
-	this.CustomZombie[oNewspaperZombie,this.R,this.C]
 	},
 			AttackZombie: function(d, c) {
 			oSym.addTask(1,
