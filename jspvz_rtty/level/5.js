@@ -49,7 +49,7 @@ oS.Init({
 							oS.InitLawnMower();
 							PrepareGrowPlants(function() {
 								BeginCool();
-								AutoProduceSun(25);
+								AutoProduceSun(50);
 								oSym.addTask(2000, function() {
 									oP.AddZombiesFlag();
 									SetVisible($("dFlagMeterContent"))
@@ -89,7 +89,7 @@ oS.Init({
 		CustomPlants(0, 3, 8);
 		CustomPlants(0, 4, 7)
 	}
-}, {
+},{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
@@ -102,7 +102,7 @@ oS.Init({
 		a2: [1, 3, 5, 15]
 	},
 	FlagToMonitor: {
-		9: [ShowFinalWave, 0]
+		9: [ShowFinalWave,0]
 	},
 	FlagToEnd: function() {
 		NewImg("imgSF", "images/Card/Plants/PotatoMine.png", "left:587px;top:270px;clip:rect(auto,auto,60px,auto)", EDAll, {
