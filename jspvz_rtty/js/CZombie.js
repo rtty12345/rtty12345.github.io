@@ -1260,6 +1260,7 @@ oFlagZombie = InheritO(oZombie, {
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	flatTire:function(){
 	this.getExplosion(20)
+	this.CustomZombie[oNewspaperZombie,this.R,this.C]
 	},
 			AttackZombie: function(d, c) {
 			oSym.addTask(1,
