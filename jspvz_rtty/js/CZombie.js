@@ -3904,20 +3904,7 @@ oImp = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 32,
 	Speed: 32,
-	PrivateAct: function(a){
-            if(!a.bool){
-                a.Speed = 32;
-                var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-                    a.bool = 1;
-                    p.Die();
-                    PlayAudio("bowlingimpact");
-                    a.Attack = 100;
-                }
-            }
-        },
-	GetDX: function() {
+        GetDX: function() {
 		return - 50
 	},
 	GetDY: function() {
@@ -3978,7 +3965,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 3.6,
 	Speed: 3.6,
-	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸，无视植物</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
 	PicArr: (function() {
 		var a = "images/Zombies/JackinTheBoxZombie/";
@@ -4072,6 +4059,10 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		},
 		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b))
 	},
+	JudgeAttack:function(){},
+	NormalAttack:function(){},
+	JudgeSR:function(){},
+	JudgeLR:function(){},
 	NormalDie: function() {
 		var a = this;
 		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
@@ -4275,31 +4266,19 @@ oSquashZombie = InheritO(oConeheadZombie1, {
             let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:80px;top:-50px;",0);
             z.appendChild(squash);
         },
-        PrivateAct:function(a){
-            let z = $(a.id),
-                s = $(z.SquashHeadId);
-            for(let i = 3;i >= 0;i--){
-                let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
-                if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		a.Attack=100;
-                    EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
-                        left:"0px",
-                        top:"-50px"
-                    },0);
-                    oSym.addTask(50,function(p,s){
-                        try{
-                            PlayAudio("gargantuar_thump");
-                            p && p.Die();
-			    ClearChild(s);
-                        }catch(e){
-                            document.write(e);
-                        }
-		    },[p,s]);
-		break;
+	PrivateAct: function(a){
+            if(!a.bool){
+                a.Speed = 6.4;
+                var C = GetC(a.X + 80);
+                var p = oGd.$[`${a.R}_${C}_1`];
+                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                    a.bool = 1;
+                    p.Die();
+                    PlayAudio("gargantuar_thump");
+                    a.ClearChild(squash)
                 }
-	    }
+            }
 	}
-},
  {
         PicArr: {
             0: "images/Card/Zombies/BucketheadZombie.png",
