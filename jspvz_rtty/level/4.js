@@ -85,15 +85,12 @@ oS.Init({
 				width: "152px",
 				height: "68px",
 				cursor: "default"
-			}))
-			。onclick = null;
-			$("iNewPlantCard")
-				。src = "images/interface/Shovel.png";
+			})).onclick = null;
+			$("iNewPlantCard").src = "images/interface/Shovel.png";
 			innerText($("dNewPlantTitle"), "你获得了铲子！");
 			innerText($("dNewPlantName"), "铲子");
 			innerText($("dNewPlantTooltip"), "你可以使用铲子铲除掉草坪上的植物");
-			$("btnNextLevel")
-				。onclick = function() {
+			$("btnNextLevel").onclick = function() {
 					SelectModal(5)
 				};
 			SetVisible($("dNewPlant"))
