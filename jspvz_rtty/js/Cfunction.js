@@ -1874,6 +1874,8 @@ PrepareGrowPlants = function(a) {
 },
 CustomPlants = function(b, a, c) { (new ArCard[b].PName).Birth(GetX(c), GetY(a), a, c, [])
 },
+CustomZombies= function(b, a, c) { (new ArCard[b].ZName).Birth(GetX(c), GetY(a), a, c, [])
+},
 CustomSpecial = function(c, b, d, a) {(new c).Birth(GetX(d), GetY(b), b, d, [], a)
 },
 CheckAutoSun = function(a) {
