@@ -4,7 +4,7 @@ oS.Init({
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
-    SunNum: 200, // 初始阳光数量
+    SunNum: 9900, // 初始阳光数量
     BrainsNum: 5, // 初始大脑数量
     ProduceSun: false, // 是否产生阳光
     CardKind: 1, // 卡片种类
@@ -18,9 +18,19 @@ oS.Init({
         ArR: [1,5], // ArR数组
         Auto: 1, // 是否自动
         P: [
-		[0, 5, 1],//植物，列，行
-		[1,5,9],
-		[9,1,1]        
+		[0, 1,5],//植物，列，行
+		[1,9,5],
+		[9,1,1],
+		[3,3,5],
+		[3,2,5],
+		[3,4,5],
+		[3,5,5],
+		[3,6,5],
+		[3,7,5],
+		[3,8,5],
+		[5,1,2],
+		[5,2,2],
+		[10,2,2]
 	] // P数组
     },
     // 自动增长谜题
