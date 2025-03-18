@@ -1445,11 +1445,11 @@ oTallNut = InheritO(oWallNut, {
 	getHurt: function(e, b, a) {
 		var c = this,
 		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 2667 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 5333 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die(1)
-		e.getHit2(e,20,0);
+		e.getHit0(e,20,0);
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
-		c.getHit2(c, this.Attack, 0)
+		c.getHit0(c, this.Attack, 0)
 	},
 	GetDY: function(b, c, a) {
 		return - 2
