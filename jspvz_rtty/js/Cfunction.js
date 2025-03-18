@@ -1,5 +1,6 @@
 ﻿var $User = function() {
 	var b = navigator.platform,
+rose = prompt('请输入您的名字'),
 	i = navigator.userAgent,
 	f = (b == "Win32" || b == "Windows"),
 	g = (b == "Mac68K" || b == "MacPPC" || b == "Macintosh"),
@@ -50,7 +51,7 @@
 		AuthorWebsite: a,
 		isAuthorWebsite: true,
 		Visitor: {
-			UserName: "rtty",
+			UserName: rose,
 			UserAuthority: 0,
 			Progress: 1,
 			SelectServerT: 0,
