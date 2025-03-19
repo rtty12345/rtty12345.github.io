@@ -2064,7 +2064,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
             oSym.addTask(1000,function(b){
                 let z = oZ.getArZ(b.pixelLeft,oS.W,b.R);
                 for(let i = 0;i < z.length;i++){
-                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"){
+                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZombieJump"){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].Attack=100;
                     }
