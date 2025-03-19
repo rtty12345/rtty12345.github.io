@@ -2072,7 +2072,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
                 (c.HP > 1) && oSym.addTask(1,arguments.callee,[c])
             },[c]);
             }
-            }catch(e){document.write(e)},
+            }catch(e){document.write(e)}
 		var b = c.AttackedLX,
 		a = b - 46;
 		c.BulletClass = NewO({
