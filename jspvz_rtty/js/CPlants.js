@@ -2058,6 +2058,21 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		e.PZ && Math.abs(e.ZX - b.MX) < 121 && e.beAttacked ? (b.ArZ.push(e.id), !b.Cry && (b.Cry = 1, $(a).childNodes[1].src = "images/Plants/ScaredyShroom/ScaredyShroomCry.gif", b.CryCheck(a))) : (e.R == b.R && !b.Cry && !b.Attacking && e.Altitude > 0 && e.Altitude < 3 && b.NormalAttack())
 	},
 	PrivateBirth: function(c) {
+            try{
+            if(!c.num){
+            b.num = 1;
+            oSym.addTask(1000,function(b){
+                let z = oZ.getArZ(b.pixelLeft,oS.W,b.R);
+                for(let i = 0;i < z.length;i++){
+                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"){
+                        z[i].NormalAttack=CZombies.prototype.NormalAttack;
+			z[i].Attack=100;
+                    }
+                }
+                (c.HP > 1) && oSym.addTask(1,arguments.callee,[c])
+            },[c]);
+            }
+            }catch(e){document.write(e)},
 		var b = c.AttackedLX,
 		a = b - 46;
 		c.BulletClass = NewO({
