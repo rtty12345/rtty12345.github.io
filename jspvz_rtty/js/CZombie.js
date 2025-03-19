@@ -2455,12 +2455,48 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
+		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
+		var e = this;
+		if (!e.beAttacked) {
+			k && e.DisappearDie();
+			return
+		}
+		var b = e.id,
+		h = e.HP,
+		d = e.PicArr,
+		f = e.isAttacking;
+		switch (true) {
+		case(h -= g) < 1 : e.HP =0;
+			e.NormalDie();
+			return;
+		case h < 1 : e.HP = h;
+			e.GoingDie(d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]);
+			return
+		}
+		e.HP = h;
+		switch (m) {
+		case - 1 : e.getSlow(e, b, 1000);
+			break;
+		case 1:
+			e.getFireball(e, b, a);
+			break;
+		default:
+			!i && j == -1 && e.PlayNormalballAudio()
+		}
+		SetAlpha(e.EleBody,400, 0.5);
+		oSym.addTask(10,
+		function(q) {
+			var n = $Z[q];
+			n && SetAlpha(n.EleBody,800,1)
+		},
+		[b])
+	},
 	AttackZombie: function(d, c) {
 			oSym.addTask(10,
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,100,0), h.JudgeAttackH())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,200,0), h.JudgeAttackH())
 			},
 			[d, c])
 		},
@@ -2471,7 +2507,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 100, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
