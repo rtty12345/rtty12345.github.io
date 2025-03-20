@@ -2392,7 +2392,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	CName: "你亲爱的精英二爷",
 	OrnHP:500,
 	Lvl: 4,
-	HP:1800,
+	HP:Infinity,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2404,6 +2404,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	BreakPoint:1,
 	LostPaperSpeed:10,
 	LostPaperAtack:800,
+	LostPaperHP:1800,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
@@ -2429,7 +2430,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
             howDie = howDie == undefined?"ExplosionDie":howDie;
             if(this.OrnHP>=Attack){
                 this.OrnHP-=Attack;
-		this.HP=3000;
+		this.LostPaperHP=3000;
             }else if(this.OrnHP<1){
                 if(this.HP>Attack){
                     this.HP-=Attack;
@@ -2439,10 +2440,10 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
             }else if(this.OrnHP<Attack && this.OrnHP>1){
                 if(this.OrnHP+this.HP>Attack){
                     this.OrnHP=0;
-                    this.HP=3000;
+                    this.LostPaperHP=3000;
                 }else if(this.OrnHP+this.HP<=Attack){
 		    this.OrnHP=0;
-                    this.HP=3000; 
+                    this.LostPaperHP=3000; 
                 }
             }
             callback && callback();
@@ -2572,6 +2573,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			}
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
+			i = k.HP= k.LostPaperHP;
 			k.Altitude=1;
 			k.Attack=800;
 			k.beAttacked=1;
