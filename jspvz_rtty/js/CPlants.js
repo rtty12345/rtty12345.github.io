@@ -2060,16 +2060,20 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	PrivateBirth: function(c) {
             try{
             if(!c.num){
-            b.num = 1;
-            oSym.addTask(1000,function(b){
-                let z = oZ.getArZ(b.pixelLeft,oS.W,b.R);
+            c.num = 1;
+            oSym.addTask(1,function(c){
+                let z = oZ.getArZ(c.pixelLeft,oS.W,c.R);
                 for(let i = 0;i < z.length;i++){
-                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZombieJump"){
+                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZombieJump"|| z[i].EName == "oDolphinRidderZombie"){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
+			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
+			z[i].JudgeLR=CZombies.prototype.JudgeLR;
+			z[i].JudgeSR=CZombies.prototype.JudgeSR;
+			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
                     }
                 }
-                (c.HP > 1) && oSym.addTask(1,arguments.callee,[c])
+                (c.HP > 1) && oSym.addTask(100,arguments.callee,[c])
             },[c]);
             }
             }catch(e){document.write(e)}
