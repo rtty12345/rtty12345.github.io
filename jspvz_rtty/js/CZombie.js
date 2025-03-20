@@ -1212,7 +1212,6 @@ oFlagZombie = InheritO(oZombie, {
 	SunNum: 325,
 	Attack:500,
 	HP:400,
-	AKind:2,
 	BreakPoint:1,
 	beAttackedPointR: 101,
 	AudioArr:["lawnmower"],
@@ -1227,7 +1226,6 @@ oFlagZombie = InheritO(oZombie, {
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
 		},
-	GoingDie: CZombies.prototype.GoingDie,
         PrivateAct: function(a){
             if(a.HP <= 70){
             oSym.addTask(100,function(a){
