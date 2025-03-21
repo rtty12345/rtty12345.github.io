@@ -2652,7 +2652,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
             callback && callback();
         },
         PrivateBirth: function(a){
-            a.PrivateAct = Math.round(Math.Random()*1+0)? a.PrivateAct1 : a.PrivateAct2;
+            a.PrivateAct = Math.round(Math.random()*1+0)? a.PrivateAct1 : a.PrivateAct2;
         },
         PrivateAct1: function(a){
             if(!a.bool){
