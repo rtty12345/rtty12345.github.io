@@ -2043,8 +2043,8 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	ArZ: [],
 	Attacking: 0,
 	PicArr: ["images/Card/Plants/ScaredyShroom.png", "images/Plants/ScaredyShroom/0.gif", "images/Plants/ScaredyShroom/ScaredyShroom.gif", "images/Plants/ScaredyShroom/ScaredyShroomSleep.gif", "images/Plants/ScaredyShroom/ScaredyShroomCry.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
-	Tooltip: "远程射手, 但敌人靠近时会蜷缩不动",
-	Produce: '胆小菇是一种远程射手，敌人接近后会躲起来。<p>伤害：<font color="#FF0000">普通</font><br>特点：<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“走开！我不想见任何人。除非……除非你是马戏团的人。”',
+	Tooltip: "远程射手, 但敌人靠近时会蜷缩不动，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力",
+	Produce: '胆小菇是一种远程射手，敌人接近后会躲起来。<p>伤害：<font color="#FF0000">普通</font><br>特点：<font color="#FF0000">敌人接近后就停止攻击，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“走开！我不想见任何人。除非……除非你是马戏团的人。”',
 	GetDX: CPlants.prototype.GetDX,
 	getTriggerRange: CPlants.prototype.getTriggerRange,
 	getTriggerR: function(c) {
@@ -2064,7 +2064,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
             oSym.addTask(1,function(c){
                 let z = oZ.getArZ(c.pixelLeft,oS.W,c.R);
                 for(let i = 0;i < z.length;i++){
-                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZombieJump"|| z[i].EName == "oDolphinRidderZombie"){
+                    if(z[i].EName == "oBucketheadZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oPoleVaultingZombie1"|| z[i].EName == "oDolphinRidderZombie"|| z[i].EName == "oZomboni"){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
