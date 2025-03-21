@@ -249,7 +249,7 @@ oBrains = InheritO(CPlants, {
 		a.PrivateDie = oS.BrainsNum ? (a.DieStep = Math.floor(150 / oS.BrainsNum),
 		function(d) {
 			var c, b;
-			AppearSun(Math.floor((GetX(d.C) - 40) + Math.random() * 41), GetY(d.R), 50, 0); (b = --oS.BrainsNum) ? (c = b * d.DieStep, $("imgFlagHead").style.left = (c - 11) + "px", $("imgFlagMeterFull").style.clip = "rect(0,157px,21px," + c + "px)") : ($("imgFlagHead").style.left = "-1px", $("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)", oP.FlagToEnd())
+			AppearSun(Math.floor((GetX(d.C) - 40) + Math.random() * 41), GetY(d.R), 80, 0); (b = --oS.BrainsNum) ? (c = b * d.DieStep, $("imgFlagHead").style.left = (c - 11) + "px", $("imgFlagMeterFull").style.clip = "rect(0,157px,21px," + c + "px)") : ($("imgFlagHead").style.left = "-1px", $("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)", oP.FlagToEnd())
 		}) : function(b) {
 			GameOver()
 		}
