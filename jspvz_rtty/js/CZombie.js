@@ -2563,7 +2563,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random()， g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea,g.getHit0=g.getHit1=g.getHit2=g.getHit3=e.getHit,g.Altitude=3,g.Attack=Infinity,g.AKind=2,oSym.addTask(300,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea,g.getHit0=g.getHit1=g.getHit2=g.getHit3=e.getHit,g.Altitude=3,g.Attack=Infinity,g.AKind=2,oSym.addTask(300,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
