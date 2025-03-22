@@ -3482,7 +3482,7 @@ oZomboni = function() {
                             let p = oGd.$[i+"_"+j+"_"+k];
 			    p && $(p.id) && ($(p.id).style.colortempreature= 0);  
                             p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock"))  && (p.NormalAttack=function(){});
-			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock"))  && (p.getHurt=CPlants.prototype.getHurt);
+			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit"))  && (p.getHurt=CPlants.prototype.getHurt);
                         }
                     }
                 }
