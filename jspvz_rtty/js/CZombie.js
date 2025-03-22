@@ -3482,6 +3482,7 @@ oZomboni = function() {
                             let p = oGd.$[i+"_"+j+"_"+k];
 			    p && $(p.id) && ($(p.id).style.opacity = 0.5);  
                             p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && (p.NormalAttack=function(){});
+			    p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && (p.getHurt=CPlants.prototype.getHurt);
                         }
                     }
                 }
