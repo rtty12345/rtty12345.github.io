@@ -59,6 +59,7 @@ var CZombies = function(b, a) {
         },
 		ChkActs1: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
+			this.bedevilAct&&this.bedevilAct(this);
 			return f
 		},
 		GetDX: function() {
@@ -1181,7 +1182,8 @@ oZombie2 = InheritO(oZombie, {
             !a.isDie && (a.HP > 60) && oSym.addTask(1000,arguments.callee,[a])
             },[a]);
             }
-        }
+        },
+	bedevilAct:(oPeashooter.prototype.NormalAttack)
 },
 {
 	PicArr: {
@@ -1693,7 +1695,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         }
     }),
   oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
-    EName: "oZombiejump",
+    EName: "oPoleVaultingZombie1",
     CName: "跳跳僵尸",
     HP: 500,
     width: 348,
@@ -2104,7 +2106,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	}
 }),
   oNewspaperZombie1= InheritO(OrnIIZombies, {
-    EName: "oNewspaperZombie",
+    EName: "oNewspaperZombie1",
     CName: "读报僵尸",
     OrnHP: 180,
     HP: 800,
