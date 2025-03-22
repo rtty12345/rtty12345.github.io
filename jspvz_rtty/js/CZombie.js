@@ -1185,6 +1185,7 @@ oZombie2 = InheritO(oZombie, {
             }
         },
 	bedevilAct:function(){},
+},
 {
 	PicArr: {
 		2 : "images/Zombies/Zombie/Zombie2.gif",
