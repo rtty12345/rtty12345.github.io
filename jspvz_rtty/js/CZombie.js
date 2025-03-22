@@ -2950,7 +2950,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	getSputtering: function() {},
 	getSlow: function(d, a, c, b, e) { (b != d.WalkDirection || e != -1) ? CZombies.prototype.getSlow(d, a, c) : d.PlayNormalballAudio()
 	}
-}),
+})，
 oAquaticZombie = InheritO(OrnNoneZombies, {
 	StandGif: 4,
 	AttackGif: 5,
@@ -3481,8 +3481,8 @@ oZomboni = function() {
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
 			    p && $(p.id) && ($(p.id).style.opacity = 0.5);  
-                            p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && (p.NormalAttack=function(){});
-			    p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains)&& (p.EName != oSunFlower))  && (p.getHurt=CPlants.prototype.getHurt);
+                            p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains)&& (p.EName != oSpikeweed)&& (p.EName != oSnowPea)&& (p.EName != oTorchwood)&& (p.EName != oSpikerock))  && (p.NormalAttack=function(){});
+			    p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains)&& (p.EName != oSunflower))  && (p.getHurt=CPlants.prototype.getHurt);
                         }
                     }
                 }
