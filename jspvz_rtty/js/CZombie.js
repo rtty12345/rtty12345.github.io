@@ -1493,7 +1493,7 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 			var b, r, m, g, n = oGd.$Ice[j], d, h, f, c, l = $("dIceCar" + j);
 
 			if (l == null) { // 对没有冰道的情况下特判
-				l = NewEle("dIceCar" + j, "div", "position:absolute;z-index:1;left:145px;top:" + (GetY(e.R) -25) + "px;width:800px;height:72px", 0, EDPZ); // 生成新的冰道
+				l = NewEle("dIceCar" + j, "div", "position:absolute;z-index:1;left:5px;top:" + (GetY(e.R) -65) + "px;width:800px;height:72px", 0, EDPZ); // 生成新的冰道
 				NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", l);
 				NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", l);
 				n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
