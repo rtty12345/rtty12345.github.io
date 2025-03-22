@@ -2071,6 +2071,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
+			z[i].AKind=0;
                     }
                 }
                 (c.HP > 1) && oSym.addTask(100,arguments.callee,[c])
