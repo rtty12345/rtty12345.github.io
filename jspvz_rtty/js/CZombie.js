@@ -2950,7 +2950,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	getSputtering: function() {},
 	getSlow: function(d, a, c, b, e) { (b != d.WalkDirection || e != -1) ? CZombies.prototype.getSlow(d, a, c) : d.PlayNormalballAudio()
 	}
-})，
+}),
 oAquaticZombie = InheritO(OrnNoneZombies, {
 	StandGif: 4,
 	AttackGif: 5,
