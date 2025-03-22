@@ -2068,7 +2068,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
-			z[i].PrivateAct=function(){};
+			z[i].PrivateAct=z[i].PrivateAct1=z[i].PrivateAct2=function(){};
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
