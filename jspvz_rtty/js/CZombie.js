@@ -1489,36 +1489,49 @@ oBucketheadZombie= InheritO(oConeheadZombie1,{
 	SunNum: 125,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
-	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
-			return 1
-		},
-		g.ChkActs1 = function() {
-			return 1
-		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.Altitude=4,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(1,
-		function(m, l) {
-			var k = $Z[m];
-			if (!k) {
-				return
+	ChkActs: function(e, j, q, k) {
+			var b, r, m, g, n = oGd.$Ice[j], d, h, f, c, l = $("dIceCar" + j);
+
+			if (l == null) { // 对没有冰道的情况下特判
+				l = NewEle("dIceCar" + j, "div", "position:absolute;z-index:1;left:145px;top:" + (GetY(e.R) - 65) + "px;width:800px;height:72px", 0, EDPZ); // 生成新的冰道
+				NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", l);
+				NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", l);
+				n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
 			}
-			var j = CZombies.prototype,
-			i = k.OSpeed = k.LostOrnSpeed;
-			k.Altitude=1;
-			k.Attack=800;
-			k.ChkActs = j.ChkActs;
-			k.ChkActs1 = j.ChkActs1;
-			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
-			if (!k.beAttacked) {
-				return
-			}
-			PlayAudio("newspaper_rarrgh2");
-			k.EleBody.src = l;
-			k.JudgeAttack();
-			k.Attack=800
+
+			e.JudgeAttack(); (r = e.AttackedRX -= (b = e.Speed)) < -50 ? (q.splice(k, 1), e.DisappearDie(), m = 0) : (r < 100 && !e.PointZombie && (e.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), e.ChangeR({
+				R: j,
+				ar: [oS.R - 1],
+				CustomTop: 400 - e.height + e.GetDY()
+			})), e.ZX = e.AttackedLX -= b, e.Ele.style.left = Math.floor(e.X -= b) + "px", m = 1);
+			d = e.X;
+			h = d + 250;
+			f = d + 100;
+			c = GetC(h);
+			c > -1 && c < n[1] && (oGd.$Crater[j + "_" + c] = 1, n[1] = c);
+			h > 120 && h < n[2] && (n[2] = h, l.firstChild.style.clip = "rect(0,auto,auto," + f + "px)", l.childNodes[1].style.left = Math.max(0, f) + "px");
+			GetC(e.AttackedLX) > 5 && (e.OSpeed = (e.Speed+= 0.01));
+			return m
 		},
-		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
-	},
+	JudgeIce: function() {
+                var d = this,
+                    b = d.R,
+                    e = $("dIceCar" + b),
+                    c = oGd.$Ice[b];
+                e && e.childNodes[1] && SetBlock(e.childNodes[1]);
+                (--c[0]) <= 0 && oSym.addTask(3000, function(k, h) {
+                    var j = oGd.$Ice[h],
+                        g, f = oGd.$Crater;
+                    if (j && j[0] <= 0 && k) {
+                        ClearChild(k);
+                        g = j[1];
+                        while (g < 11) {
+                            delete f[h + "_" + g++];
+                            delete oGd.$Ice[h]
+                        }
+                    }
+                }, [e, b])
+            },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
@@ -2870,8 +2883,6 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 			k.Attack=400;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
-			k.PrivateAct=k.PrivateAct1;
-			k.PrivateBirth=k.PrivateBirth1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
 			if (!k.beAttacked) {
 				return
