@@ -443,6 +443,7 @@ var CZombies = function(b, a) {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
+			c.PrivateAct=function(){};
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
@@ -1183,8 +1184,7 @@ oZombie2 = InheritO(oZombie, {
             },[a]);
             }
         },
-	bedevilAct:(oPeashooter.prototype.NormalAttack)
-},
+	bedevilAct:function(){},
 {
 	PicArr: {
 		2 : "images/Zombies/Zombie/Zombie2.gif",
