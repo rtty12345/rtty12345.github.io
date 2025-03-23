@@ -1961,10 +1961,10 @@ oGloomShroom = InheritO(oFumeShroom, {
 		e, h, a, j = k.id,
 		d = $(j),
 		l = j + "_Bullet";
-		for (g = k.MinR; g <= f; g++) 
+		for (g = k.MinR; g <= f; g++){
 			e = oZ.getArZ(c, b, g);
 			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHit1(a, 80)&&a.getSlow(a)) {}
-		},
+		}
 		oSym.addTask(100,
 		function(i) {
 			PlayAudio(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]); --i && oSym.addTask(100, arguments.callee, [i])
