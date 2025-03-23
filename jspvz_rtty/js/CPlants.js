@@ -1857,7 +1857,8 @@ oFumeShroom = InheritO(CPlants, {
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
-		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 20)
+		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 20);
+		g.getSlow(g);
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
@@ -1924,7 +1925,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/GloomShroom.png", "images/Plants/GloomShroom/0.gif", "images/Plants/GloomShroom/GloomShroom.gif", "images/Plants/GloomShroom/GloomShroomSleep.gif", "images/Plants/GloomShroom/GloomShroomAttack.gif", "images/Plants/GloomShroom/GloomShroomBullet.gif"],
 	AudioArr: ["kernelpult", "kernelpult2"],
 	Tooltip: "向3*3范围喷射减速孢子<br>(需要大喷菇)",
-	Produce: '伪娘终结者，向3x3范围喷射穿透减速孢子<p><font color="#FF0000">必须种植在大喷菇上</font></p>起初人们一直非议他，后来曾哥用自己独特的绵羊音横扫了宇宙拆迁办，全世界都拜倒在他的脚下。“听说有个节目叫‘快男’？”曾哥说，“没有我在他们真应该感到羞愧。”他于是决定明年去看看。',
+	Produce: '伪娘终结者，向3x3范围喷射穿透孢子<p><font color="#FF0000">必须种植在大喷菇上</font></p>起初人们一直非议他，后来曾哥用自己独特的绵羊音横扫了宇宙拆迁办，全世界都拜倒在他的脚下。“听说有个节目叫‘快男’？”曾哥说，“没有我在他们真应该感到羞愧。”他于是决定明年去看看。',
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oFumeShroom"
@@ -1963,7 +1964,8 @@ oGloomShroom = InheritO(oFumeShroom, {
 		l = j + "_Bullet";
 		for (g = k.MinR; g <= f; g++){
 			e = oZ.getArZ(c, b, g);
-			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHit1(a, 80)&&a.getSlow(a)) {}
+			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHit1(a, 120);
+			){}
 		}
 		oSym.addTask(100,
 		function(i) {
