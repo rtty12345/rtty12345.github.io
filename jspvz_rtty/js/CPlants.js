@@ -1606,6 +1606,7 @@ oSpikeweed = InheritO(CPlants, {
 			break;
 		case 1:
 			d.getHit2(d, 20, 0);
+			!Math.round(Math.random()*45+0)&& d.bedevil(d);
 			c.Die();
 			break;
 		default:
