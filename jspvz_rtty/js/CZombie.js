@@ -2927,14 +2927,12 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		c.getHit0(c, a, b)
 	},
 	getFirePeaSputtering: function() {},
-	getSnowPea:function(){
-        },
+	getSnowPea:function(){},
 	getSlowPea:function(c, a, b) {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit0(c, a, b)
 	},
-	getPea: function(){
-        },
+	getPea: function(){},
 	getHit0: function(c,a,b) {
 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10,
 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
@@ -3480,7 +3478,7 @@ oZomboni = function() {
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
-			    p && $(p.id) && ($(p.id).style.colortempreature= 0);  
+			    p && $(p.id) && ($(p.id).style.opacity= 0.3);  
                             p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock"))  && (p.NormalAttack=function(){});
 			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit"))  && (p.getHurt=CPlants.prototype.getHurt);
                         }
