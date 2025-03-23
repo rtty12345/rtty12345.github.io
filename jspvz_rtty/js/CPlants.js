@@ -1667,7 +1667,7 @@ oSpikerock = InheritO(oSpikeweed, {
 			break;
 		case 1:
 			f.getHit2(f, 45, 0);
-			!random(0,30) && f.bedevil(f)
+			!Math.round(Math.random()*45+0)&& f.bedevil(f)
 		}
 		switch (true) {
 		case((d = e.HP -= b) < 1) : e.Die();
@@ -1964,7 +1964,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 		l = j + "_Bullet";
 		for (g = k.MinR; g <= f; g++){
 			e = oZ.getArZ(c, b, g);
-			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHit1(a, 120);
+			for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHit1(a, 120)
 			){}
 		}
 		oSym.addTask(100,
