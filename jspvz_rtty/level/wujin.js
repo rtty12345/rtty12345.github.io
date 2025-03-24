@@ -1,3 +1,78 @@
+let ea=oS.Init({
+	PicArr: function() {
+		var b = $User.Browser.IE6 ? 8 : 32
+		  , a = "images/interface/";
+		return [ShadowPNG, a + "Sun.gif", a + "LogoWord.jpg", a + "ZombieHand.png", a + "OptionsMenuback" + b + ".png", a + "OptionsBackButton" + b + ".png", a + "Sunflower_trophy" + b + ".png", a + "Surface.jpg", a + "Help.png", a + "SelectorScreenStartAdventur.png", a + "SelectorScreen_WoodSign3_" + b + ".png", a + "SelectorScreen_WoodSign2_" + b + ".png", a + "SelectorScreen_WoodSign1_" + b + ".png", a + "SelectorScreenAdventure_" + b + ".png", a + "SelectorScreenSurvival_" + b + ".png", a + "SelectorScreen_Almanac_" + b + ".png", a + "SelectorScreenChallenges.png", a + "Logo.jpg", a + "LawnCleaner.png", a + "ZombiesWon.png", a + "LargeWave.gif", a + "FinalWave.gif", a + "PrepareGrowPlants.png", a + "PointerUP.gif", a + "PointerDown.gif", a + "Shovel.png", a + "SunBack.png", a + "ShovelBack.png", a + "GrowSoil.gif", a + "GrowSpray.gif", a + "SeedChooser_Background.png", a + "Button.png", a + "LoadBar.png", a + "Almanac_IndexBack.jpg", a + "Almanac_IndexButton.png", a + "Almanac_CloseButton.png", a + "Almanac_PlantBack.jpg", a + "Almanac_PlantCard.png", a + "Almanac_ZombieBack.jpg", a + "Almanac_ZombieCard.png", a + "ZombiesWon.png", a + "AwardScreen_Back.jpg", a + "trophy.png", a + "splash.png", a + "dialog_header.png", a + "dialog_topleft.png", a + "dialog_topmiddle.png", a + "dialog_topright.png", a + "dialog_centerleft.png", a + "dialog_centerright.png", a + "dialog_bottomleft.png", a + "dialog_bottommiddle.png", a + "dialog_bottomright.png", a + "brain.png", a + "AjaxLoader.gif", a + "SelectorScreenStartAdventur.png", a + "Almanac_IndexBack.png", a + "bengji.gif", a + "SelectorScreen_Shadow_Adventure.png", a + "SelectorScreen_Shadow_Survival.png", a + "SelectorScreen_Shadow_Challenge.png", a + "background3_2.gif", "images/Zombies/NewspaperZombie/1.gif"]
+	}(),
+	LevelName: "游戏初始界面",
+	LevelEName: 0,
+	ShowScroll: 1,
+	LoadMusic: "Faster",
+	StartGameMusic: "Faster",
+	AudioArr: ["losemusic", "winmusic", "groan2", "scream", "awooga", "plantsgarden", "groan1", "groan3", "groan4", "groan5", "groan6", "scream", "siren", "readysetplant", "hugewave", "finalwave", "plant1", "plant2", "plant_water", "seedlift", "points", "buttonclick", "gravebutton", "pause", "shovel", "bleep", "chomp", "chompsoft", "tap"],
+	backgroundImage: "images/interface/Logo.jpg",
+	LoadAccess: function(a) {
+		EBody = document.body;
+		EElement = document.documentElement;
+		EDAll.scrollLeft = 0;
+		EDAll.innerHTML += WordUTF8;
+		NewAudio({
+			source: "evillaugh"
+		});
+		/*(function() {
+			var b = $("JSProcess")
+			  , c = $("dProcess2");
+			b ? ($User.Browser.IE ? b.onreadystatechange = function() {
+				b.readyState == "loaded" && ClearChild(b)
+			}
+			: b.onload = function() {
+				ClearChild(b)
+			}
+			,
+			b.onerror = function() {
+				ClearChild(this)
+			}
+			,
+			b.src = "http://" + $User.AuthorWebsite + "/js/Process.js?" + Math.random()) : $("sTime").innerHTML = oS.Version
+		})();*/
+		$("dServer") && SetBlock($("dServer"));
+
+		let TitleStart = true, Ele = $("dBalloonZombie");
+		let f1 = () => {
+			if (TitleStart != true) return;
+			oEf.Animate(Ele, { top: "34px" }, 2, "linear", f2);
+		}, f2 = () => {
+			if (TitleStart != true) return;
+			oEf.Animate(Ele, { top: "-19px" }, 1, "linear", f1);
+		};
+
+		oGT.On("Exit-Level", () => (TitleStart = false), true);
+		f2();
+
+/*
+		(function() {
+			//游戏初始页面的气球僵尸上下浮动
+			var animUp = function(y) {
+				$('dBalloonZombie') && ($('dBalloonZombie').style.top = (y -= 2.75) + 'px');
+				oSym.addTask(5, function(y) {
+					(y < -19 ? animDown : animUp)(y)
+				}, [y]);
+			}
+			  , animDown = function(y) {
+				$('dBalloonZombie') && ($('dBalloonZombie').style.top = (y += 1.1) + 'px');
+				oSym.addTask(4, function(y) {
+					(y > 34 ? animUp : animDown)(y)
+				}, [y]);
+			};
+			animUp(35);
+		}
+		)();
+*/
+
+	}
+});
+
+
 let b = prompt("请输入特定的数字进入特定的无尽关卡");
 if  (b === "1"){
 oS.Init({
@@ -915,77 +990,77 @@ GrowPlant: function (l, d, c, e, b) { // 推荐换成如下种植函数，可以
     },
 })} else if (b === "红色") {
     alert("背景颜色已改变");
-    document.body.style.backgroundColor = "red";
+    document.body.style.backgroundColor = "red";ea;
 } else if (b === "绿色") {
     alert("颜色已改变");
-    document.body.style.backgroundColor = "green";
+    document.body.style.backgroundColor = "green";ea;
 } else if (b === "蓝色"){
     alert("背景颜色已改变");
-    document.body.style.backgroundColor = "blue";
+    document.body.style.backgroundColor = "blue";ea;
 } else if (b === "粉色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"pink";
+"pink";ea;
 } else if (b === "紫色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"purple";
+"purple";ea;
 } else if (b === "黑色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"black";
+"black";ea;
 } else if (b === "白色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"white";
+"white";ea;
 } else if (b === "橙色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"orange";
+"orange";ea;
 } else if (b === "棕色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"brown";
+"brown";ea;
 } else if (b === "黄色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"yellow";
+"yellow";ea;
 } else if (b === "金色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"gold";
+"gold";ea;
 } else if (b === "灰色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"grey";
+"grey";ea;
 } else if (b === "青色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"cyan";
+"cyan";ea;
 } else if (b === "洋红色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"magenta";
+"magenta";ea;
 } else if (b === "紫罗兰色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"violet";
+"violet";ea;
 } else if (b === "靛蓝色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"indigo";
+"indigo";ea;
 } else if (b === "青绿色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"turquoise";
+"turquoise";ea;
 } else if (b === "栗色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"maroon";
+"maroon";ea;
 } else if (b === "米色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"beige";
+"beige";ea;
 } else if (b === "海军蓝"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
@@ -993,88 +1068,88 @@ GrowPlant: function (l, d, c, e, b) { // 推荐换成如下种植函数，可以
 } else if (b === "水鸭色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"teal";
+"teal";ea;
 } else if (b === "薰衣草色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"lavender";
+"lavender";ea;
 } else if (b === "银色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"silver";
+"silver";ea;
 } else if (b === "橄榄色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"olive";
+"olive";ea;
 } else if (b === "珊瑚色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"coral";
+"coral";ea;
 } else if (b === "鲑鱼色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"salmon";
+"salmon";ea;
 } else if (b === "深红色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"crimson";
+"crimson";ea;
 } else if (b === "天蓝色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"azure";
+"azure";ea;
 } else if (b === "亮绿色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"lightgreen";
+"lightgreen";ea;
 } else if (b === "亮黄色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"lightyellow";
+"lightyellow";ea;
 }  else if (b === "亮蓝色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"lightblue";
+"lightblue";ea;
 } else if (b === "亮粉色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"lightpink";
+"lightpink";ea;
 } else if (b === "亮灰色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"lightgrey";
+"lightgrey";ea;
 } else if (b === "暗绿色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"darkgreen";
+"darkgreen";ea;
 } else if (b === "暗蓝色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"darkblue";
+"darkblue";ea;
 } else if (b === "暗红色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"darkred";
+"darkred";ea;
 } else if (b === "暗灰色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"darkgrey";
+"darkgrey";ea;
 } else if (b === "暗橙色"){
     alert("背景颜色已改变");
     document.body.style.backgroundColor =
-"darkorange";
+"darkorange";ea;
 } else if (b === "666"){
 for (var x=0;x<=9999;x++){
 alert("恭喜你触发隐藏“彩蛋”，您一共需要点击9999次，您已点击" + x + "次");
  }
 } else if (b === "114514"){
 for (var x=0;x<=2;){
-alert("恭喜你触发死循环");
+alert("恭喜你触发死循环");ea;
  }
 } else if (b == "Hello World"){
-    alert("Hello World!");
+    alert("Hello World!");ea;
 } else if (b === "rtty"){
-alert("你好");
+alert("你好");ea;
 }
 else {
-    alert("您输入的关卡不存在");
+    alert("您输入的关卡不存在");ea;
  }
