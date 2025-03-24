@@ -1,75 +1,128 @@
 let ea=oS.Init({
-	PicArr: function() {
-		var b = $User.Browser.IE6 ? 8 : 32
-		  , a = "images/interface/";
-		return [ShadowPNG, a + "Sun.gif", a + "LogoWord.jpg", a + "ZombieHand.png", a + "OptionsMenuback" + b + ".png", a + "OptionsBackButton" + b + ".png", a + "Sunflower_trophy" + b + ".png", a + "Surface.jpg", a + "Help.png", a + "SelectorScreenStartAdventur.png", a + "SelectorScreen_WoodSign3_" + b + ".png", a + "SelectorScreen_WoodSign2_" + b + ".png", a + "SelectorScreen_WoodSign1_" + b + ".png", a + "SelectorScreenAdventure_" + b + ".png", a + "SelectorScreenSurvival_" + b + ".png", a + "SelectorScreen_Almanac_" + b + ".png", a + "SelectorScreenChallenges.png", a + "Logo.jpg", a + "LawnCleaner.png", a + "ZombiesWon.png", a + "LargeWave.gif", a + "FinalWave.gif", a + "PrepareGrowPlants.png", a + "PointerUP.gif", a + "PointerDown.gif", a + "Shovel.png", a + "SunBack.png", a + "ShovelBack.png", a + "GrowSoil.gif", a + "GrowSpray.gif", a + "SeedChooser_Background.png", a + "Button.png", a + "LoadBar.png", a + "Almanac_IndexBack.jpg", a + "Almanac_IndexButton.png", a + "Almanac_CloseButton.png", a + "Almanac_PlantBack.jpg", a + "Almanac_PlantCard.png", a + "Almanac_ZombieBack.jpg", a + "Almanac_ZombieCard.png", a + "ZombiesWon.png", a + "AwardScreen_Back.jpg", a + "trophy.png", a + "splash.png", a + "dialog_header.png", a + "dialog_topleft.png", a + "dialog_topmiddle.png", a + "dialog_topright.png", a + "dialog_centerleft.png", a + "dialog_centerright.png", a + "dialog_bottomleft.png", a + "dialog_bottommiddle.png", a + "dialog_bottomright.png", a + "brain.png", a + "AjaxLoader.gif", a + "SelectorScreenStartAdventur.png", a + "Almanac_IndexBack.png", a + "bengji.gif", a + "SelectorScreen_Shadow_Adventure.png", a + "SelectorScreen_Shadow_Survival.png", a + "SelectorScreen_Shadow_Challenge.png", a + "background3_2.gif", "images/Zombies/NewspaperZombie/1.gif"]
-	}(),
-	LevelName: "游戏初始界面",
-	LevelEName: 0,
-	ShowScroll: 1,
-	LoadMusic: "Faster",
-	StartGameMusic: "Faster",
-	AudioArr: ["losemusic", "winmusic", "groan2", "scream", "awooga", "plantsgarden", "groan1", "groan3", "groan4", "groan5", "groan6", "scream", "siren", "readysetplant", "hugewave", "finalwave", "plant1", "plant2", "plant_water", "seedlift", "points", "buttonclick", "gravebutton", "pause", "shovel", "bleep", "chomp", "chompsoft", "tap"],
-	backgroundImage: "images/interface/Logo.jpg",
-	LoadAccess: function(a) {
-		EBody = document.body;
-		EElement = document.documentElement;
-		EDAll.scrollLeft = 0;
-		EDAll.innerHTML += WordUTF8;
-		NewAudio({
-			source: "evillaugh"
-		});
-		/*(function() {
-			var b = $("JSProcess")
-			  , c = $("dProcess2");
-			b ? ($User.Browser.IE ? b.onreadystatechange = function() {
-				b.readyState == "loaded" && ClearChild(b)
-			}
-			: b.onload = function() {
-				ClearChild(b)
-			}
-			,
-			b.onerror = function() {
-				ClearChild(this)
-			}
-			,
-			b.src = "http://" + $User.AuthorWebsite + "/js/Process.js?" + Math.random()) : $("sTime").innerHTML = oS.Version
-		})();*/
-		$("dServer") && SetBlock($("dServer"));
+        PName: [oPeashooter],
+        ZName: [oZombie,oFootballZombie,oImp],
+        PicArr: function() {
+                var a = oSunFlower.prototype,
+                        b = a.PicArr;
+                return ["images/interface/SodRollCap.png", "images/interface/SodRoll.png", "images/interface/sod1row.png", "images/interface/background1unsodded.jpg", b[a.CardGif], b[a.NormalGif]]
+        }(),
+        SunNum: 175,
+        backgroundImage: "images/interface/background1unsodded.jpg",
+        LF: [0, 0, 0, 1, 0, 0],
+        CanSelectCard: 0,
+        LevelName: "关卡 1-1",
+        LvlEName: 1,
+        AudioArr: ["dirt_rise"],
+        InitLawnMower: function() {
+                CustomSpecial(oLawnCleaner, 3, -1)
+        },
+        StartGame: function() {
+                StopMusic();
+                PlayMusic(oS.LoadMusic = oS.StartGameMusic);
+                NewEle("sod1row", "div", "position:absolute;left:132px;top:280px;height:117px;width:0;z-index:1;background:url(images/interface/sod1row.png);over-flow:hidden", 0, EDPZ);
+                NewImg("SodRoll", "images/interface/SodRoll.png", "left:112px;top:244px;z-index:1", EDPZ);
+                NewImg("SodRollCap", "images/interface/SodRollCap.png", "left:17px;top:322px;z-index:1", EDPZ);
+                PlayAudio("dirt_rise", true);
+                (function(e, g, a, d, c, f, b) {
+                        e += 15;
+                        g += 16;
+                        d += 16;
+                        $("sod1row").style.width = e + "px";
+                        SetStyle($("SodRoll"), {
+                                left: g + "px",
+                                width: --a + "px",
+                                height: "141px"
+                        });
+                        SetStyle($("SodRollCap"), {
+                                left: d + "px",
+                                width: --c + "px",
+                                height: --f + "px",
+                                top: ++b + "px"
+                        });
+                        e < 755 ? oSym.addTask(3, arguments.callee, [e, g, a, d, c, f, b]) : (StopAudio("dirt_rise", true), ClearChild($("SodRoll"), $("SodRollCap")), (function() {
+                                NewEle("DivTeach", "div", 0, 0, EDAll);
+                                oS.InitLawnMower();
+                                oP.Monitor({
+                                        ar: [0],
+                                        f: function(k) {
+                                                var l = oS.C + 1,
+                                                        i = oS.Chose;
+                                                switch (k) {
+                                                        case 0:
+                                                                innerText($("DivTeach"), "点击卡片选择豌豆射手！");
+                                                                NewImg("PointerUD", "images/interface/PointerUP.gif", "top:60px;left:50px", EDAll);
+                                                                oSym.addTask(10, arguments.callee, [++k]);
+                                                                break;
+                                                        case 1:
+                                                                i > 0 && (innerText($("DivTeach"), "点击草地种下豌豆射手，最好种在靠左边！"), EditImg($("PointerUD"), "", "images/interface/PointerDown.gif", {
+                                                                        left: "170px",
+                                                                        top: "270px"
+                                                                }), ++k);
+                                                                oSym.addTask(10, arguments.callee, [k]);
+                                                                break;
+                                                        case 2:
+                                                                var h = oGd.$;
+                                                                while (--l) {
+                                                                        if (h["3_" + l + "_1"]) {
+                                                                                SetHidden($("PointerUD"));
+                                                                                innerText($("DivTeach"), "你拥有了第一个植物，点击收集掉落的阳光！");
+                                                                                AutoProduceSun(25);
+                                                                                oSym.addTask(10, arguments.callee, [++k]);
+                                                                                return
+                                                                        }
+                                                                }!i && (ClearChild($("PointerUD")), k = 0);
+                                                                oSym.addTask(10, arguments.callee, [k]);
+                                                                break;
+                                                        case 3:
+                                                                oS.SunNum > 99 && (innerText($("DivTeach"), "你拥有了足够的阳光来种植另一个豌豆射手！"), EditImg($("PointerUD"), "", "images/interface/PointerUP.gif", {
+                                                                        left: "50px",
+                                                                        top: "60px",
+                                                                        visibility: "visible"
+                                                                }), ++k);
+                                                                oSym.addTask(10, arguments.callee, [k]);
+                                                                break;
+                                                        default:
+                                                                var j = 0,
+                                                                        h = oGd.$;
+                                                                while (--l) {
+                                                                        h["3_" + l + "_1"] && (++j)
+                                                                }
+                                                                j > 0 ? (SetHidden($("PointerUD")), innerText($("DivTeach"), "别让僵尸靠近你的房子！"), oP.AddZombiesFlag(), oSym.addTask(500, SetNone, [$("DivTeach")])) : oSym.addTask(10, arguments.callee, [4])
+                                                }
+                                        }
+                                });
+                                BeginCool();
+                                SetVisible($("dFlagMeter"), $("dTop"))
+                        })())
+                })(35, 122, 68, 117, 73, 71, 322)
+        }
+},
+        {
+        AZ: [
+                [oZombie, 5, 1],
+                [oFootballZombie, 3,1]
 
-		let TitleStart = true, Ele = $("dBalloonZombie");
-		let f1 = () => {
-			if (TitleStart != true) return;
-			oEf.Animate(Ele, { top: "34px" }, 2, "linear", f2);
-		}, f2 = () => {
-			if (TitleStart != true) return;
-			oEf.Animate(Ele, { top: "-19px" }, 1, "linear", f1);
-		};
-
-		oGT.On("Exit-Level", () => (TitleStart = false), true);
-		f2();
-
-/*
-		(function() {
-			//游戏初始页面的气球僵尸上下浮动
-			var animUp = function(y) {
-				$('dBalloonZombie') && ($('dBalloonZombie').style.top = (y -= 2.75) + 'px');
-				oSym.addTask(5, function(y) {
-					(y < -19 ? animDown : animUp)(y)
-				}, [y]);
-			}
-			  , animDown = function(y) {
-				$('dBalloonZombie') && ($('dBalloonZombie').style.top = (y += 1.1) + 'px');
-				oSym.addTask(4, function(y) {
-					(y > 34 ? animUp : animDown)(y)
-				}, [y]);
-			};
-			animUp(35);
-		}
-		)();
-*/
-
-	}
+        ],
+        FlagNum: 4,
+        FlagToSumNum: {
+                a1: [2,3],
+                a2: [1, 2,9]
+        },
+        FlagToMonitor: {
+                3: [ShowFinalWave, 0]
+        },
+        FlagToEnd: function() {
+                NewImg("imgSF", "images/Card/Plants/SunFlower.png", "left:667px;top:330px;clip:rect(auto,auto,60px,auto)", EDAll, {
+                        onclick: function() {
+                                GetNewCard(this, oSunFlower, 2)
+                        }
+                });
+                EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
+                        left: "676px",
+                        top: "295px",
+                        visibility: "visible"
+                })
+        }
 });
 
 
