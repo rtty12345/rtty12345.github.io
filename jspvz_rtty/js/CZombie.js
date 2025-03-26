@@ -1247,6 +1247,24 @@ oFlagZombie = InheritO(oZombie, {
             },[a])
             }
         },
+	bedevilAct: function(a){
+            if(a.HP <= 70){
+            oSym.addTask(100,function(a){
+                PlayAudio("explosion");
+                let R = (a.R - 1) || 0,
+                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
+                    C = GetC($(a.id).offsetLeft + 80);
+                for(let i = R;i <= RM;i++){
+                    for(let j = C - 1;j <= C + 1;j++){
+                        for(let k = 0;k <= 3;k++){
+                            let p = oZ.getArZ(c.pixelLeft,oS.W,c.R);;
+                            p && $(p.id) && p.ExplosionDie();
+                        }
+                    }
+                }
+            },[a])
+            }
+        },oZ.getArZ(c.pixelLeft,oS.W,c.R);
 	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（400）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
