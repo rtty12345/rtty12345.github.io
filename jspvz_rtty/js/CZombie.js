@@ -1257,7 +1257,7 @@ oFlagZombie = InheritO(oZombie, {
                 for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
-                            let p = oZ.getArZ(c.pixelLeft,oS.W,a.R);;
+                            let p = oZ.getArZ(a.pixelLeft,oS.W,a.R);;
                             p && $(p.id) && p.ExplosionDie();
                         }
                     }
