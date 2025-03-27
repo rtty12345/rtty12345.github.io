@@ -610,7 +610,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		a.ChangeChkActsTo1(a, a.id, a.EleBody);
 		oP.MonPrgs()
 	},
-	PrivateAct1:function(a) {
+	PrivateAct:function(a) {
             if(oS.BoomDancer && !a.num){
                 a.num = 1;
                 oSym.addTask(150,function(a){
@@ -621,17 +621,13 @@ oBackupDancer = InheritO(OrnNoneZombies, {
                     for(let i = 1;i <= oS.C;i++){
                         for(let j = 0;j <= 3;j++){
                             let p = oGd.$[a.R+"_"+i+"_"+j];
-                            p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && p.Die();
+                            p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.HP-=100);
+			    p && &(p.id)&& (p.HP <= 0) && p.Die();
                         }
                     }
                     oSym.addTask(135,ClearChild,[$(d)]);
-                    a.DisappearDie(a)
                 },[a])
             }
-        },
-	PrivateAct2:function(){},
-	PrivateBirth: function(a){
-            a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
         },
 	getSlow: function(f, d, e) {
 		var b = oSym.Now + e,
