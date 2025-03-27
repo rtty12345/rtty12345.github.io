@@ -722,7 +722,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 			CustomTop: 400 - g.height + g.GetDY()
 		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
 		g.ChkSpeed(g);
-		this.PrivateAct&&this.PrivateAct(this);
+		this.PrivateAct(this);
 		return f
 	},
 	ChkSpeed: function(b) {
