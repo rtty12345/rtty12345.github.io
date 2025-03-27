@@ -631,7 +631,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
         },
 	PrivateAct2:function(){},
 	PrivateBirth: function(a){
-            a.PrivateAct = random(0,1) ? a.PrivateAct1 : a.PrivateAct2;
+            a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
         },
 	getSlow: function(f, d, e) {
 		var b = oSym.Now + e,
