@@ -2641,7 +2641,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 	CName: "你亲爱的二形态精英二爷",
 	OrnHP: 200,
 	Lvl: 4,
-	HP:800,
+	HP:500,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2685,8 +2685,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
             }
             callback && callback();
         },
-        PrivateAct:function(){},
-        PrivateAct1: function(a){
+        PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(125,function(a){
@@ -2709,7 +2708,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1800),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=300),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
@@ -2851,7 +2850,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=4,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(3000,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=4,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(300,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -2860,8 +2859,6 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
-			k.Attack=400;
-			k.PrivateAct=k.PrivateAct1;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
