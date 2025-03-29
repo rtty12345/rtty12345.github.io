@@ -1124,10 +1124,10 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		[c, a])
 	}
 }),
-oDancingZombie1= InheritO(OrnNoneZombies, {
+oDancingZombie1 = InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie1",
 	CName: "舞王僵尸",
-	HP:800,
+	HP:3000,
 	BreakPoint: 1,
 	Lvl: 3,
 	StandGif: 9,
@@ -1171,7 +1171,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 		b = d + "spotlight2" + c + ".png" + $Random;
 		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
 	})(),
-	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（800）</font><br>特点：<font color="#FF0000">召唤路障僵尸</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1500）</font><br>特点：<font color="#FF0000">召唤路障僵尸</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
 	getSnowPea: function() {
 		this.PlaySlowballAudio();
 	},
