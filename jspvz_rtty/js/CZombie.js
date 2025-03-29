@@ -4290,11 +4290,14 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	})(),
 	PrivateAct:function(a){
 		if(a.HP<=170){
-			a.OpenBox(a);
+	        function(c) {
+			var b = $Z[c];
+			b && b.beAttacked && b.OpenBox(c)
+			},[a]
 		}
 	},
 	RandomOpenBox: function(a) {
-		oSym.addTask(Math.floor(Math.random() * 100) > 50? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
+		oSym.addTask(Math.floor(Math.random() * 100) > 5? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
 		function(c) {
 			var b = $Z[c];
 			b && b.beAttacked && b.OpenBox(c)
@@ -4613,7 +4616,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
     oPeaZombie= InheritO(oNewspaperZombie1, {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
-        OrnHP:4000,
+        OrnHP:2000,
         HP: 300,
         Lvl: 3,
         SunNum: 175,
@@ -4644,7 +4647,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
         PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(125,function(a){
+            oSym.addTask(700,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
