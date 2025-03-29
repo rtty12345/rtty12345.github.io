@@ -669,7 +669,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 			h && (h.FreeSetbodyTime = 0, SetBlock(f))
 		},
 		[c, b])
-		e.CheckBoomFire(e);
 	},
 	ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
@@ -706,43 +705,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		g.ChkSpeed(g);
 		return f
 	},
-CheckBoomFire: function (f) {
-      oSym.addTask(
-        100,
-        function (f) {
-          // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-
-          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
-          oSym.addTask(100, arguments.callee, [f]);
-        },
-        [f]
-      );
-    },
-    BoomFire: function (y) {
-      PlayAudio("jalapeno");
-      fireid = "fire_" + Math.random();
-      NewImg(
-        fireid,
-        "images/Plants/Jalapeno/JalapenoAttack.gif",
-        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
-        EDAll
-      );
-      oSym.addTask(
-        135,
-        (id) => {
-          ClearChild($(id));
-        },
-        [fireid]
-      );
-      for (let i = 1; i <= oS.C; i++) {
-        for (let j = 0; j < 4; j++) {
-          let g = oGd.$[y + "_" + i + "_" + j];
-          g && g.BoomDie();
-        }
-      }
-      this.HP=1000;
-    },
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
