@@ -4293,7 +4293,8 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	        function(c) {
 			var b = $Z[c];
 			b && b.beAttacked && b.OpenBox(c)
-			},[a]
+			},
+			[a];
 		}
 	},
 	RandomOpenBox: function(a) {
