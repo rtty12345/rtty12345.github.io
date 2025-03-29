@@ -2854,13 +2854,12 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		a.EleBody.src = b;
 		oSym.addTask(200, ClearChild, [NewImg(0, a.PicArr[a.HeadGif] + Math.random(), "left:" + a.AttackedLX + "px;top:" + (a.pixelTop - 20) + "px;z-index:" + a.zIndex, EDPZ)]);
 		a.beAttacked = 0;
-		a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
+		a.FreeFreezeTime =a.FreeSetbodyTime = a.FreeSlowTime = 0;
 		a.AutoReduceHP(c)
 	},
 	PrivateAct:function(a){
 	     if(a.HP<=900){
-		a.FreeSlowTime=0;
-		a.FreeFreezeTime=0;
+		a.FreeSlowTime=a.FreeFreezeTime=0;
 		a.getSlow=function(){};
 		a.getFreeze=function(){};
 	     }
@@ -3004,7 +3003,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea,g.getHit0=g.getHit1=g.getHit2=g.getHit3=e.getHit,g.Altitude=3,oSym.addTask(300,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea,g.getHit0=g.getHit1=g.getHit2=g.getHit3=e.getHit,g.Altitude=3,g.Attack=Infinity,oSym.addTask(300,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3026,7 +3025,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			}
 			PlayAudio("newspaper_rarrgh");
 			k.EleBody.src = l;
-			k.JudgeAttack1();
+			k.JudgeAttack();
 			k.Attack=800
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
