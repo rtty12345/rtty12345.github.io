@@ -23,10 +23,10 @@ oS.Init({
 	UserDefinedFlagFunc: function(b) {
 		var a = oP.FlagZombies;
 		a > 3 && AppearTombstones(3, 9, 1);
-		oP.FlagNum == a && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie])
+		oP.FlagNum == a && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie1, oBucketheadZombie])
 	},
 	StartGameMusic: "Ultimate battle"
-}, {
+}， {
 	AZ: [
 		[oZombie, 2, 1],
 		[oZombie2, 2, 1],
