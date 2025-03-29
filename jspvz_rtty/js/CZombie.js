@@ -3551,14 +3551,14 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	SunNum: 75,
 	width: 143,
 	height: 200,
-	HP:200000,
+	HP:400,
 	beAttackedPointL: 40,
 	beAttackedPointR: 100,
 	OSpeed: 5,
 	Speed:5,
 	Altitude: 1,
 	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池中间下水，潜泳以避免遭到攻击<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
-	JumpTime: 100,
+	JumpTime: 25,
 	getShadow: function(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	},
@@ -3574,7 +3574,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	Jump: function(a) {
 		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(160,
 		function(c, b) {
-			$Z[c] && b.beAttacked && (b.WalkStatus = 1, b.Altitude = 0, b.OSpeed = b.Speed = 7, b.HP=400,b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
+			$Z[c] && b.beAttacked && (b.WalkStatus = 1, b.Altitude = 0, b.OSpeed = b.Speed = 5, b.HP=400,b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
 		},
 		[a.id, a]), a.ChkActs = function() {
 			return 1
@@ -3594,7 +3594,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	},
 	CheckBoomFire: function (f) {
       oSym.addTask(
-        100,
+        3000,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1;
