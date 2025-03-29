@@ -3569,6 +3569,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	AudioArr: ["zombie_entering_water"],
 	BirthCallBack: function(a) {
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
+		this.CheckBoomFire(this);
 	},
 	Jump: function(a) {
 		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(160,
@@ -3591,6 +3592,42 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.AttackedLX > GetX(0) ? (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px")) : (d.beAttacked && (d.WalkStatus = 0, d.Altitude = 1, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3)));
 		return 1
 	},
+	CheckBoomFire: function (f) {
+      oSym.addTask(
+        100,
+        function (f) {
+          // 生成1到100之间的随机整数
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
+          oSym.addTask(100, arguments.callee, [f]);
+        },
+        [f]
+      );
+    },
+    BoomFire: function (y) {
+      PlayAudio("jalapeno");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+      for (let i = 1; i <= oS.C; i++) {
+        for (let j = 0; j < 4; j++) {
+          let g = oGd.$[y + "_" + i + "_" + j];
+          g && g.BoomDie();
+        }
+      }
+    },
 	JudgeAttack: function() {
 		var e = this,
 		b = e.ZX,
