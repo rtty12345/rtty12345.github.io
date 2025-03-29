@@ -590,6 +590,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	Speed: 5,
 	HP:400,
 	Lvl: 1,
+	CanSelect: 0,
 	StandGif: 9,
 	width: 126,
 	height: 152,
@@ -1804,6 +1805,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	Lvl: 2,
 	SunNum: 75,
 	StandGif: 11,
+	CanSelect: 0,
 	PicArr: (function() {
 		var b = "images/Zombies/ConeheadZombie/",
 		a = "images/Zombies/Zombie/";
