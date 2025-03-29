@@ -61,7 +61,7 @@ oS.Init({
 				},
 				ar: []
 			}, function(a) {
-				oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie])
+				oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie1, oBucketheadZombie,oNewspaperZombie])
 			});
 			oP.AddZombiesFlag();
 			SetVisible($("dFlagMeterContent"))
