@@ -20,10 +20,11 @@ oS.Init({
 		ar: [6, 9, 7]
 	},
 	UserDefinedFlagFunc: function(a) {
-		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie])
+		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie1, oBucketheadZombie,oFootballZombie])
 	},
 	StartGameMusic: "Ultimate battle"
-}, {
+},
+	{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
