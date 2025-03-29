@@ -4646,7 +4646,7 @@ oSquashZombie = InheritO(oConeheadZombie1, {
 	PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/Peashooter/Peashooter.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+            let pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
             z.appendChild(pea);
         },
         PrivateAct: function(a){
