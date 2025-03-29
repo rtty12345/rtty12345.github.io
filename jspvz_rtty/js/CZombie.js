@@ -4288,15 +4288,6 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/JackinTheBoxZombie/";
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
-	PrivateAct:function(a){
-		if(a.HP<=170){
-	        function(c) {
-			var b = $Z[c];
-			b && b.beAttacked && b.OpenBox(c)
-			},
-			[a];
-		}
-	},
 	RandomOpenBox: function(a) {
 		oSym.addTask(Math.floor(Math.random() * 100) > 5? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
 		function(c) {
