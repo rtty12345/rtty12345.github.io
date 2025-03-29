@@ -590,7 +590,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	Speed: 5,
 	HP:400,
 	Lvl: 1,
-	CanSelect: 0,
 	StandGif: 9,
 	width: 126,
 	height: 152,
