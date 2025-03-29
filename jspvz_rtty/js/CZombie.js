@@ -669,7 +669,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 			h && (h.FreeSetbodyTime = 0, SetBlock(f))
 		},
 		[c, b])
-		f.CheckBoomFire(f);
+		e.CheckBoomFire(e);
 	},
 	ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
@@ -1803,8 +1803,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	OrnHP: 500,
 	Lvl: 2,
 	SunNum: 75,
-	StandGif: 11,
-	CanSelect: 0,
+	StandGif: 1,
 	PicArr: (function() {
 		var b = "images/Zombies/ConeheadZombie/",
 		a = "images/Zombies/Zombie/";
