@@ -1657,6 +1657,9 @@ oFlagZombie = InheritO(oZombie, {
 	BreakPoint:1,
 	beAttackedPointR: 101,
 	AudioArr:["lawnmower"],
+	CanPass: function(d, c) {
+		return c
+	},
 	bedevil: function(c) {
 			c.ExchangeLR(c, 1);
 		        c.Attack=500;
@@ -2405,6 +2408,9 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
+	CanPass: function(d, c) {
+		return c
+	},
 	getExplosion: function(){
             if(this.OrnHP >= 1){
                 this.OrnHP=0;
@@ -2884,6 +2890,9 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
+	CanPass: function(d, c) {
+		return c
+	},
 	bedevil: function() {},
 	getbedevil: function() {},
 	GoingDie: function(b) {
@@ -3106,6 +3115,9 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（800）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后4倍</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
+	},
+	CanPass: function(d, c) {
+		return c
 	},
         getExplosion: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
@@ -3562,6 +3574,9 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	getShadow: function(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	},
+	CanPass: function(d, c) {
+		return c
+	},
 	PicArr: (function() {
 		var a = "images/Zombies/SnorkelZombie/";
 		return ["images/Card/Zombies/SnorkelZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Risk.gif" + $Random, a + "Sink.gif" + $Random]
@@ -3594,13 +3609,13 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	},
 	CheckBoomFire: function (f) {
       oSym.addTask(
-        3000,
+        2500,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1;
 
           $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
-          oSym.addTask(100, arguments.callee, [f]);
+          oSym.addTask(1000, arguments.callee, [f]);
         },
         [f]
       );
@@ -4166,6 +4181,9 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		PlayAudio("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
 	},
+	CanPass: function(d, c) {
+		return c
+	},
 	Jump: function(a) {
 		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(240,
 		function(d, b) {
@@ -4510,8 +4528,8 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		if (!this.BreakBall) this.BreakBall = true, oGd.$Balloon[this.R] |= 0, --oGd.$Balloon[this.R];
 	},
 	CanPass: function(d, c) {
-		return c && c != 2
-		},
+		return c
+	},
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 10) + "px;top:" + (a.height - 32) + "px"
 	},
