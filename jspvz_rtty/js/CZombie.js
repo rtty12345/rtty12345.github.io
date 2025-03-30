@@ -1148,7 +1148,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 oDancingZombie1= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie1",
 	CName: "舞王僵尸",
-	HP:750,
+	HP:3000,
 	BreakPoint: 1,
 	Lvl: 3,
 	StandGif: 9,
@@ -1457,7 +1457,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 		b = c.id;
 		c.AttackZombie = a.AttackZombie;
 		c.NormalAttack = a.NormalAttack;
-		c.OSpeed = 3.5; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 3.5);
+		c.OSpeed = 15; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 15);
 		c.getSnowPea = OrnNoneZombies.prototype.getSnowPea;
 		c.getFreeze = CZombies.prototype.getFreeze;
 		oSym.addTask(20,
@@ -1926,7 +1926,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
-oBucketheadZombie= InheritO(oConeheadZombie1,{
+oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
 	OrnHP: 1000,
@@ -1996,7 +1996,7 @@ PlayNormalballAudio: function() {
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	},
 }),
-oFootballZombie = InheritO(oConeheadZombie1,{
+oFootballZombie = InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
 	OrnHP: 2000,
@@ -4640,7 +4640,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 }),
-oSquashZombie = InheritO(oConeheadZombie1, {
+oSquashZombie = InheritO(oConeheadZombie, {
         EName: "oSquashZombie",
         CName: "精英铁桶窝瓜僵尸",
         Speed:5,
