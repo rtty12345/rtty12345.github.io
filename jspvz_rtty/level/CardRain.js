@@ -44,8 +44,8 @@ var AppearCard = function (h, f, e, a, t) { // x, y, 植物id, 移动卡槽类�
 */
 
 oS.Init({
-	PName: [oLilyPad, oLilyPad, oLilyPad, oPeashooter, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oFumeShroom, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom, oSquash, oThreepeater, oTangleKelp, oJalapeno, oSpikeweed, oTorchwood, oTallNut, oSeaShroom, oPlantern, oCactus, oBlover, oSplitPea, oStarfruit, oPumpkinHead, oGarlic],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oBucketheadZombie, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oJackinTheBoxZombie, oNewspaperZombie, oScreenDoorZombie, oFootballZombie, oZomboni, oDancingZombie, oBackupDancer],
+	PName: [oLilyPad, oLilyPad, oLilyPad, oPeashooter, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oFumeShroom, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom,oSquash,oThreepeater,oTangleKelp,oJalapeno,oSpikeweedo,Torchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oGarlic,oGatlingPea],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oBucketheadZombie, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oJackinTheBoxZombie, oNewspaperZombie, oScreenDoorZombie, oFootballZombie, oZomboni, oDancingZombie, oConeheadZombie1],
 	PicArr: ["images/interface/background4.jpg","images/interface/trophy.png","images/interface/PointerDown.gif"],
 	backgroundImage: "images/interface/background4.jpg",
 	LF: [0, 1, 1, 2, 2, 1, 1],
