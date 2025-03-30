@@ -1145,8 +1145,8 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 		[c, a])
 	}
 }),
-oDancingZombie = InheritO(OrnNoneZombies, {
-	EName: "oDancingZombie",
+oDancingZombie1= InheritO(OrnNoneZombies, {
+	EName: "oDancingZombie1",
 	CName: "舞王僵尸",
 	HP:750,
 	BreakPoint: 1,
