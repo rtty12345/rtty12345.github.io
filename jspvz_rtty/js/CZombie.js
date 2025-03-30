@@ -718,7 +718,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
                         for(let j = 0;j <= 3;j++){
                             let p = oGd.$[a.R+"_"+i+"_"+j];
                             p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.HP-=75);
-			    p && (p.HP <= 0) && p.Die();
+			    p &&$(p.id)&& (p.HP <= 0) && p.Die();
                         }
                     }
                     oSym.addTask(135,ClearChild,[$(d)]);
