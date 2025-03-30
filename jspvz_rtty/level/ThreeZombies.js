@@ -1,11 +1,11 @@
 // 初始化游戏设置
 oS.Init({
     PName: [oSunFlower,oGloomShroom,oPumpkinHead,oGatlingPea,oSquash,oCactus,oTallNut,oGraveBuster,oDoomShroom], // 植物名称数组
-    ZName: [oImp,oPoleVaultingZombie,oDancingZombie], // 僵尸名称数组
+    ZName: [oImp,oPoleVaultingZombie,oDancingZombie,oNewspaperZombie2,oConeheadZombie1], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
-    SunNum: 400, // 初始阳光数量
+    SunNum: 600, // 初始阳光数量
     BrainsNum: 5, // 初始大脑数量
     ProduceSun: false, // 是否产生阳光
     CardKind: 1, // 卡片种类
