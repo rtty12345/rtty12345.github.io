@@ -741,7 +741,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		}
 	}
 }),
-oDancingZombie = InheritO(OrnNoneZombies, {
+oDancingZombie= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
 	HP:1500,
@@ -1104,7 +1104,7 @@ oDancingZombie = InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie1).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(150,
 					function() {
@@ -1508,7 +1508,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie1).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(150,
 					function() {
@@ -1783,7 +1783,7 @@ OrnIZombies = function() {
 		getHit3: a
 	})
 } (),
-oConeheadZombie= InheritO(OrnIZombies, {
+oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
 	OrnHP: 500,
@@ -1908,7 +1908,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		}
 	}
 }),
-oConeheadZombie1= InheritO(OrnIZombies, {
+oConeheadZombie= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
 	OrnHP: 500,
