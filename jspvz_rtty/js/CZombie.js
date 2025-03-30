@@ -590,6 +590,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	Speed: 5,
 	HP:400,
 	Lvl: 1,
+	CanSelect:0,
 	StandGif: 9,
 	width: 126,
 	height: 152,
@@ -703,8 +704,28 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 			CustomTop: 400 - g.height + g.GetDY()
 		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
 		g.ChkSpeed(g);
+		this.PrivateAct(this);
 		return f
 	},
+	PrivateAct:function(a) {
+            if(oS.BoomDancer && !a.num){
+                a.num = 1;
+                oSym.addTask(150,function(a){
+                    let d = "fire" + Math.random(),
+                        top = (GetY(a.R) - 120);
+                    PlayAudio("jalapeno");
+                    NewImg(d,"images/Plants/Jalapeno/JalapenoAttack.gif","position:absolute;width:755px;height:131px;left:120px;top:"+top+"px",EDPZ,0)
+                    for(let i = 1;i <= oS.C;i++){
+                        for(let j = 0;j <= 3;j++){
+                            let p = oGd.$[a.R+"_"+i+"_"+j];
+                            p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.HP-=75);
+			    p && (p.HP <= 0) && p.Die();
+                        }
+                    }
+                    oSym.addTask(135,ClearChild,[$(d)]);
+                },[a])
+            }
+        },
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
