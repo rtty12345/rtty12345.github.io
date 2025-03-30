@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oFumeShroom, oHypnoShroom, oGraveBuster, oDoomShroom, oScaredyShroom, oPuffShroom,oGloomShroom],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oPeaZombie, oFootballZombie, oBackupDancer, oBucketheadZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oPeaZombie, oFootballZombie, oConeheadZombie1, oBucketheadZombie],
 	PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Tombstones.png", "images/interface/Tombstone_mounds.png"],
 	backgroundImage: "images/interface/background2.jpg",
 	CanSelectCard: 0,
@@ -61,7 +61,7 @@ oS.Init({
 				},
 				ar: []
 			}, function(a) {
-				oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie1, oBucketheadZombie,oNewspaperZombie])
+				oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie,oNewspaperZombie])
 			});
 			oP.AddZombiesFlag();
 			SetVisible($("dFlagMeterContent"))
