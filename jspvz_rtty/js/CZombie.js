@@ -722,6 +722,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
                         }
                     }
                     oSym.addTask(135,ClearChild,[$(d)]);
+		    a.ExplosionDie(a)
                 },[a])
             }
         },
