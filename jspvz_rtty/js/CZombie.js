@@ -3102,6 +3102,15 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 	CanPass: function(d, c) {
 		return c
 	},
+	ChkActs: function(h, f, j, e) {
+            var d, c, g;
+            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
+                R: f,
+                ar: [oS.R - 1],
+                CustomTop: 400 - h.height + h.GetDY()
+            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+            return g
+        },
         getExplosion: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"ExplosionDie":howDie;
@@ -3128,7 +3137,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
         PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(425,function(a){
+            oSym.addTask(125,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
