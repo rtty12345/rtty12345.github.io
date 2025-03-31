@@ -3076,7 +3076,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 oNewspaperZombie3= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie3",
 	CName: "你亲爱的二形态精英二爷",
-	OrnHP: 20,
+	OrnHP: 200,
 	Lvl: 4,
 	HP:1000,
 	Altitude:1,
