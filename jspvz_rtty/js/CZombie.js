@@ -4191,7 +4191,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	},
 	PrivateAct: function(){
             let a = this;
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 60)+"_1"];
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft -50)+"_1"];
                 p && p.canEat && p.Die();
         },
 	ChkActsL1: function(d, c, e, b) {
