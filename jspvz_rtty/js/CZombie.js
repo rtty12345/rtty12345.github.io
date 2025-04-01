@@ -4191,7 +4191,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	},
 	PrivateAct: function(){
             let a = this;
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 30)+"_1"];
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 60)+"_1"];
                 p && p.canEat && p.Die();
         },
 	ChkActsL1: function(d, c, e, b) {
@@ -4249,7 +4249,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		f.haveDolphin = 1;
 		PlayAudio("dolphin_before_jumping");
 		f.getFreeze = function() {
-			f.getSnow(f, 20, 0)
+			f.getSnowPea(f, 20, 0)
 		};
 		oSym.addTask(50,
 		function(m, j, i, l, q) {
@@ -4265,9 +4265,9 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				h.WalkGif0 = 11;
 				h.NormalGif = h.WalkGif1 = 10;
 				h.LostHeadGif = h.DieGif = 12;
+				h.ChkActsL2=h.ChkActsL20;
 				h.NormalAttack = (s = CZombies.prototype).NormalAttack;
 				h.getCrushed = s.getCrushed;
-				h.ChkActsL2=h.ChkActsL20;
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2
