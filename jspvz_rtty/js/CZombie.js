@@ -4188,6 +4188,11 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 			return 1
 		})
 	},
+	PrivateAct: function(){
+            let a = this;
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 30)+"_1"];
+                p && p.canEat && p.Die();
+        },
 	ChkActsL1: function(d, c, e, b) {
 		if (d.JumpTime <= 0) {
 			d.Jump(d);
@@ -4259,6 +4264,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				h.WalkGif0 = 11;
 				h.NormalGif = h.WalkGif1 = 10;
 				h.LostHeadGif = h.DieGif = 12;
+				h.ChkActs=h.ChkActs3;
 				h.NormalAttack = (s = CZombies.prototype).NormalAttack;
 				h.getCrushed = s.getCrushed;
 				h.getFreeze = s.getFreeze;
@@ -4279,6 +4285,15 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		},
 		[d, b, a, c, e])
 	},
+	ChkActs3: function(h, f, j, e) {
+            var d, c, g;
+            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
+                R: f,
+                ar: [oS.R - 1],
+                CustomTop: 400 - h.height + h.GetDY()
+            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+            return g
+        },
 	GoingDie: function() {
 		var b = this,
 		c = b.id,
