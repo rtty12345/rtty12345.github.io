@@ -3428,6 +3428,7 @@ oAquaticZombie = InheritO(OrnNoneZombies, {
 	ChkActsL2: function(d, c, e, b) {
 		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px"));
 		d.AttackedLX < GetX(0) && (d.WalkStatus = 0, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3);
+		this.PrivateAct && this.PrivateAct(this)
 		return 1
 	},
 	ChkActsL3: CZombies.prototype.ChkActs,
@@ -4264,9 +4265,9 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				h.WalkGif0 = 11;
 				h.NormalGif = h.WalkGif1 = 10;
 				h.LostHeadGif = h.DieGif = 12;
-				h.ChkActs=h.ChkActs3;
 				h.NormalAttack = (s = CZombies.prototype).NormalAttack;
 				h.getCrushed = s.getCrushed;
+				h.ChkActsL2=h.ChkActsL20;
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2
@@ -4284,6 +4285,11 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 			[m, q])))
 		},
 		[d, b, a, c, e])
+	},
+	ChkActsL20: function(d, c, e, b) {
+		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px"));
+		d.AttackedLX < GetX(0) && (d.WalkStatus = 0, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3);
+		return 1
 	},
 	ChkActs3: function(h, f, j, e) {
             var d, c, g;
