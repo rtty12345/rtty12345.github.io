@@ -2852,7 +2852,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	CName: "你亲爱的精英二爷",
 	OrnHP:500,
 	Lvl: 4,
-	HP:1800,
+	HP:1500,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2869,7 +2869,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -3636,6 +3636,12 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
         }
       }
     },
+getbedevil:function(){
+	this.DisappearDie()
+},
+bedevil:function(){
+	this.DisappearDie()
+},
 	JudgeAttack: function() {
 		var e = this,
 		b = e.ZX,
@@ -3684,7 +3690,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		function(g, e, d, f) {
 			$Z[e] && g.beAttacked && ((f = $Z[d]) && f.beAttacked ? (g.EleBody.src = g.PicArr[g.AttackGif], g.Altitude = 1, oSym.addTask(10,
 			function(k, i, j, h) {
-				$Z[i] && k.beAttacked && !k.FreeFreezeTime && !k.FreeSetbodyTime && ($Z[h] && j.beAttacked ? (j.getHit0(j, 10, 0), oSym.addTask(10, arguments.callee, [k, i, j, h])) : (k.EleBody.src = k.PicArr[10] + Math.random(), k.Altitude = 0, oSym.addTask(70,
+				$Z[i] && k.beAttacked && !k.FreeFreezeTime && !k.FreeSetbodyTime && ($Z[h] && j.beAttacked ? (j.bedevil1(j, 15, 0), oSym.addTask(10, arguments.callee, [k, i, j, h])) : (k.EleBody.src = k.PicArr[10] + Math.random(), k.Altitude = 0, oSym.addTask(70,
 				function(l, m) {
 					$Z[l] && m.beAttacked && (m.isAttacking = 0, m.EleBody.src = m.PicArr[m.NormalGif])
 				},
@@ -4189,11 +4195,6 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 			return 1
 		})
 	},
-	PrivateAct: function(){
-            let a = this;
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft -50)+"_1"];
-                p && p.canEat && p.Die();
-        },
 	ChkActsL1: function(d, c, e, b) {
 		if (d.JumpTime <= 0) {
 			d.Jump(d);
