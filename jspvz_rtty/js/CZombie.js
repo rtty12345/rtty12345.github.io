@@ -439,14 +439,22 @@ var CZombies = function(b, a) {
 		}: function(e, c, d) {
 			c.className = d ? "fliph": ""
 		},
-		bedevil: function(c) {
-			c.ExchangeLR(c, 1);
+		bedevil1: function(c) {
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
 			c.PrivateAct=c.PrivateAct1=c.PrivateAct2=function(){};
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
+			oP.MonPrgs()
+		},
+		bedevil1: function(c) {
+			c.ExchangeLR(c, 1);
+			c.JudgeAttack = c.JudgeAttack;
+			c.PZ = 1;
+			c.WalkDirection = 0;
+			c.ZX = c.AttackedLX;
+			c.ChkActs = c.ChkActs;
 			oP.MonPrgs()
 		},
         SetAlpha: $User.Browser.IE ? function(f, d, e, c) {
