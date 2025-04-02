@@ -443,21 +443,10 @@ var CZombies = function(b, a) {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
-			c.style.opacity=0.5;
 			c.PrivateAct=c.PrivateAct1=c.PrivateAct2=function(){};
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
-			oP.MonPrgs()
-		},
-		bedevil1: function(c) {
-			c.ExchangeLR(c, 1);
-			c.style.opacity=1;
-			c.JudgeAttack = c.JudgeAttack;
-			c.PZ = 1;
-			c.WalkDirection = 0;
-			c.ZX = c.AttackedLX;
-			c.ChkActs = c.ChkActs;
 			oP.MonPrgs()
 		},
         SetAlpha: $User.Browser.IE ? function(f, d, e, c) {
@@ -2983,7 +2972,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		},
 		AttackZombie2: function(e, d, c) {
 			e.isAttacking = 1;
-			e.EleBody.src = e.PicArr[e.AttackGif];
+			e.EleBody.src = e.PicArr[e.DieGif];
 			oSym.addTask(10,
 			function(g, f) {
 				var i = $Z[g],
@@ -3044,7 +3033,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea,g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea,g.getHit0=g.getHit1=g.getHit2=g.getHit3=e.getHit,g.Altitude=3,g.Attack=Infinity,oSym.addTask(300,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea=g.getHit0=g.getExplosion=g.getThump=g.ExplosionDie=g.DisappearDie=g.getRaven=g.getCrushed=g.CrushDie=g.NormalDie=g.getHit1=g.getHit2=g.getHit3=function(){},g.Attack=Infinity,oSym.addTask(600,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3053,6 +3042,18 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
+			k.getPea=j.getPea;
+			k.getSnowPea=j.getSnowPea;
+			k.getSlowPea=j.getSlowPea;
+			k.getRaven=j.getRaven;
+			k.getThump=j.getThump;
+			k.getHit1=k.getHit2=k.getHit3=k.getHit0=j.getHit;
+			k.getCrushed=j.getCrushed;
+			k.getExplosion=j.getExplosion;
+			k.NormalDie=j.NormalDie;
+			k.CrushDie=j.CrushDie;
+			k.DisappearDie=j.DissappearDie;
+			k.ExplosionDie=j.ExplosionDie;
 			k.Attack=800;
 			k.NormalAttack=k.NormalAttack1;
 			k.JudgeAttack=k.JudgeAttack1;
