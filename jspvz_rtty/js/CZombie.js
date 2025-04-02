@@ -439,9 +439,10 @@ var CZombies = function(b, a) {
 		}: function(e, c, d) {
 			c.className = d ? "fliph": ""
 		},
-		bedevil1: function(c) {
+		bedevil: function(c) {
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
+			c.opacity=0.5;
 			c.PrivateAct=c.PrivateAct1=c.PrivateAct2=function(){};
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
