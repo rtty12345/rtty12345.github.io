@@ -440,6 +440,7 @@ var CZombies = function(b, a) {
 			c.className = d ? "fliph": ""
 		},
 		bedevil: function(c) {
+			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
 			c.opacity=0.5;
@@ -451,6 +452,7 @@ var CZombies = function(b, a) {
 		},
 		bedevil1: function(c) {
 			c.ExchangeLR(c, 1);
+			c.opacity=1;
 			c.JudgeAttack = c.JudgeAttack;
 			c.PZ = 1;
 			c.WalkDirection = 0;
