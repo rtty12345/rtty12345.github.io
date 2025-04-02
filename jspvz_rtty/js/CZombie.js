@@ -443,7 +443,7 @@ var CZombies = function(b, a) {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
-			c.opacity=0.5;
+			c.style.opacity=0.5;
 			c.PrivateAct=c.PrivateAct1=c.PrivateAct2=function(){};
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
@@ -452,7 +452,7 @@ var CZombies = function(b, a) {
 		},
 		bedevil1: function(c) {
 			c.ExchangeLR(c, 1);
-			c.opacity=1;
+			c.style.opacity=1;
 			c.JudgeAttack = c.JudgeAttack;
 			c.PZ = 1;
 			c.WalkDirection = 0;
