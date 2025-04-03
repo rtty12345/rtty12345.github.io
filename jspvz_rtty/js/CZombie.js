@@ -2887,13 +2887,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		a.FreeFreezeTime =a.FreeSetbodyTime = a.FreeSlowTime = 0;
 		a.AutoReduceHP(c)
 	},
-	PrivateAct:function(a){
-	     if(a.HP<=900){
-		a.FreeSlowTime=a.FreeFreezeTime=0;
-		a.getSlow=function(){};
-		a.getFreeze=function(){};
-	     }
-	},
         getExplosion: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"ExplosionDie":howDie;
@@ -3033,7 +3026,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=function(){},g.Attack=Infinity,oSym.addTask(600,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=function(){},g.Attack=Infinity,oSym.addTask(600,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3043,8 +3036,10 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
 			k.getPea=e.getPea;
+			k.getSlow=j.getSlow;
 			k.getSnowPea=e.getSnowPea;
 			k.getSlowPea=e.getSlowPea;
+			k.getFirePea=e.getFirePea;
 			k.getRaven=j.getRaven;
 			k.getThump=j.getThump;
 			k.getHit1=k.getHit2=k.getHit3=k.getHit0=e.getHit;
