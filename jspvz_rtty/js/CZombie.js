@@ -1935,6 +1935,9 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	SunNum: 125,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
+        PrivateAttack:function(){
+            this.HP += 80;
+    }, 
 	PrivateAct: function(a){
             if(a.OrnHP<= 0){
 		a.Speed=8;
