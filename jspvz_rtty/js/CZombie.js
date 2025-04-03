@@ -3033,7 +3033,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea=g.getHit0=g.getExplosion=g.getThump=g.ExplosionDie=g.DisappearDie=g.getRaven=g.getCrushed=g.CrushDie=g.NormalDie=g.getHit1=g.getHit2=g.getHit3=function(){},g.Attack=Infinity,oSym.addTask(600,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=function(){},g.Attack=Infinity,oSym.addTask(600,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3042,18 +3042,13 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
-			k.getPea=j.getPea;
-			k.getSnowPea=j.getSnowPea;
-			k.getSlowPea=j.getSlowPea;
+			k.getPea=e.getPea;
+			k.getSnowPea=e.getSnowPea;
+			k.getSlowPea=e.getSlowPea;
 			k.getRaven=j.getRaven;
 			k.getThump=j.getThump;
-			k.getHit1=k.getHit2=k.getHit3=k.getHit0=j.getHit;
-			k.getCrushed=j.getCrushed;
+			k.getHit1=k.getHit2=k.getHit3=k.getHit0=e.getHit;
 			k.getExplosion=j.getExplosion;
-			k.NormalDie=j.NormalDie;
-			k.CrushDie=j.CrushDie;
-			k.DisappearDie=j.DissappearDie;
-			k.ExplosionDie=j.ExplosionDie;
 			k.Attack=800;
 			k.NormalAttack=k.NormalAttack1;
 			k.JudgeAttack=k.JudgeAttack1;
