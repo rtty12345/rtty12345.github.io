@@ -1938,7 +1938,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	PrivateAct: function(a){
             if(a.OrnHP<= 0){
 		a.Speed=8;
-		a.PlayAudio("newspaper_rarrgh2");
+		PlayAudio("newspaper_rarrgh2");
                 }
         },
 PlayNormalballAudio: function() {
