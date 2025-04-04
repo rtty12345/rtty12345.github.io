@@ -282,7 +282,7 @@ oStarfruit = InheritO(CPlants, {
 		d = 0.5 * (g + f); ! j && (j = this.ArFlyTime = {},
 		h = this.ArHitX = {});
 		switch (true) {
-		case e < a: j[e] = [(i = b - GetY(e)) / 5, i / 3];
+		case e < a: j[e] = [(i = b + GetY(e)) / 5, i / 3];
 			h[e] = [d, d + i / 3 * 4];
 			return [[100, c, 0]];
 		case e == a: return ([[100, g + 25, 4]]);
@@ -529,7 +529,7 @@ oThreepeater = InheritO(oPeashooter, {
 	height: 80,
 	BKind:0,
 	beAttackedPointR: 53,
-	SunNum: 450,
+	SunNum: 350,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
