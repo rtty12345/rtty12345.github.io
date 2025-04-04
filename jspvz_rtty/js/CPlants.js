@@ -314,7 +314,7 @@ oStarfruit = InheritO(CPlants, {
 		while (q < s.length) {
 			h = a * s[q] * f * 0.1;
 			e = Math.floor(t - h);
-			g = Math.floor(b + h);
+			g = Math.floor(b - h);
 			p = r[0];
 			n = r[1];
 			if (e + 20 < p && g - 20 > p || e < n && g > n) {
@@ -331,7 +331,7 @@ oStarfruit = InheritO(CPlants, {
 		var c = d.pixelLeft + 58,
 		b = c - 20,
 		a = d.pixelTop + 30;
-		d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
+		d.BulletEle = NewImg(0, "images/Plants/PB00.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
 	},
 	PrivateDie: function(a) {
 		a.BulletEle = null
@@ -2636,7 +2636,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e, 40, d), ClearChild(i)) : (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e, 1, d), oSym.addTask(1, arguments.callee,[i])) : (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
@@ -2696,7 +2696,7 @@ oBlover = InheritO(CPlants, {
 		var id = this.id, z, oBalloon;
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
-		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getdispelled(); //把气球吹跑
+		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(); //把气球吹跑
 
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
