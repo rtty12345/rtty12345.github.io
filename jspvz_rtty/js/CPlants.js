@@ -705,7 +705,7 @@ oRepeater = InheritO(oPeashooter, {
 			var c = $P[d];
 			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,Math.random()*4+2])
+		[this.id,Math.round(Math.random()*3+2)])
 	}	
 }),
 oPeashooter1= InheritO(CPlants, {
