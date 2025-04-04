@@ -2636,7 +2636,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? e.getPea(e, 1, d), oSym.addTask(5, arguments.callee,[g, i, d, k, h, l]) : (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e, 1, d), oSym.addTask(1, arguments.callee,[g, i, d, k, h, l]),i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
