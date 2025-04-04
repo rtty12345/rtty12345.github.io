@@ -175,10 +175,10 @@ oGraveBuster = InheritO(CPlants, {
 	},
 	InitTrigger: function() {},
 	Tooltip: "把它种在墓碑上用来吞噬墓碑",
-	Produce: '墓地苔用来吃掉墓碑。<p>使用方法：<font color="#FF0000">单次使用，只对墓碑生效。</font><br>特点：<font color="#FF0000">吞噬墓碑。</font></p>尽管墓地苔的外表十分吓人，但他想要所有人都知道，其实他喜欢小猫咪，而且利用业余时间，在一家僵尸康复中心做志愿者。“我只是在做正确的事情，”他说。',
+	Produce: '墓地苔用来吃掉墓碑。<p>使用方法：<font color="#FF0000">单次使用，只对墓碑生效。</font><br>特点：<font color="#FF0000">吞噬墓碑，吞噬完后掉落50阳光</font></p>尽管墓地苔的外表十分吓人，但他想要所有人都知道，其实他喜欢小猫咪，而且利用业余时间，在一家僵尸康复中心做志愿者。“我只是在做正确的事情，”他说。',
 	PrivateBirth: function(a) {
 		PlayAudio("gravebusterchomp");
-		oSym.addTask(420,
+		oSym.addTask(120,
 		function(b) {
 			var e = $P[b],
 			c,
@@ -282,7 +282,7 @@ oStarfruit = InheritO(CPlants, {
 		d = 0.5 * (g + f); ! j && (j = this.ArFlyTime = {},
 		h = this.ArHitX = {});
 		switch (true) {
-		case e < a: j[e] = [(i = b + GetY(e)) / 5, i / 3];
+		case e < a: j[e] = [(i = b - GetY(e)) / 5, i / 3];
 			h[e] = [d, d + i / 3 * 4];
 			return [[100, c, 0]];
 		case e == a: return ([[100, g + 25, 4]]);
@@ -314,7 +314,7 @@ oStarfruit = InheritO(CPlants, {
 		while (q < s.length) {
 			h = a * s[q] * f * 0.1;
 			e = Math.floor(t - h);
-			g = Math.floor(b - h);
+			g = Math.floor(b + h);
 			p = r[0];
 			n = r[1];
 			if (e + 20 < p && g - 20 > p || e < n && g > n) {
