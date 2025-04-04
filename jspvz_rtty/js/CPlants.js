@@ -701,12 +701,12 @@ oRepeater = InheritO(oPeashooter, {
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
-		function(c) {
-			var b = $P[c];
-			b && b.NormalAttack1()
+		function(d, b) {
+			var c = $P[d];
+			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,3])
-	}
+		[this.id,Math.round(Math.random()*4+2)])
+	}	
 }),
 oPeashooter1= InheritO(CPlants, {
 	EName: "oPeashooter",
