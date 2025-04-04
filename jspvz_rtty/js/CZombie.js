@@ -3188,6 +3188,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 		        c.PrivateAct=function(){},
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
+		        c.LostPaperSpeed=0;
 			c.ChkActs = c.ChkActs1;
 		        c.Attack=800;
 			oP.MonPrgs()
@@ -3312,7 +3313,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
 	CName: "铁门僵尸",
-	OrnHP: 10000,
+	OrnHP: 4000,
 	Lvl: 3,
 	HP:300,
 	oSpeed:1.6,
@@ -3530,6 +3531,8 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
+	PrivateAct:oBucketheadZombie.prototype.PrivateAct,
+	PrivateAttack:oBucketheadZombie.prototype.PrivateAttack,
 	AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 	PicArr: (function() {
 		var b = "images/Zombies/DuckyTubeZombie3/",
@@ -3541,7 +3544,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oSnorkelZombie",
 	CName: "潜水僵尸",
 	Lvl: 2,
-	SunNum: 75,
+	SunNum: 150,
 	width: 143,
 	height: 200,
 	HP:400,
@@ -4134,7 +4137,7 @@ oZomboni = function() {
 oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	EName: "oDolphinRiderZombie",
 	CName: "海豚骑士僵尸",
-	HP: 400,
+	HP: 700,
 	Lvl: 2,
 	BreakPoint: 167,
 	width: 282,
