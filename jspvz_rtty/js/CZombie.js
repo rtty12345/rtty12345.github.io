@@ -1936,12 +1936,11 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	LostOrnSpeed:15,
 	LostOrnGif:9,
         PrivateAttack:function(){
-            this.HP += 80;
+            this.HP += 60;
     }, 
 	PrivateAct: function(a){
             if(a.OrnHP<= 0){
 		a.Speed=8;
-		PlayAudio("newspaper_rarrgh2");
                 }
         },
 PlayNormalballAudio: function() {
@@ -2008,6 +2007,26 @@ oFootballZombie = InheritO(oConeheadZombie,{
                 },[a])
             }
         },
+	AttackZombie: function(d, c) {
+			oSym.addTask(10,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,20,0), h.JudgeAttackH())
+			},
+			[d, c])
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(10,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h, 20, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c])
+		},
 	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
@@ -2925,7 +2944,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,200,0), h.JudgeAttackH())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit2(g,200,0), h.JudgeAttackH())
 			},
 			[d, c])
 		},
@@ -2936,7 +2955,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit2(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
