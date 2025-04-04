@@ -2412,6 +2412,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
+		        c.LostPaperSpeed=0;
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
