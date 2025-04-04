@@ -519,7 +519,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),50,0, a.AttackedLX, a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),30,0,a.AttackedLX,a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -685,7 +685,7 @@ oRepeater = InheritO(oPeashooter, {
 	height: 71,
 	BKind:-1,
 	beAttackedPointR: 53,
-	SunNum: 100,
+	SunNum: 240,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次三条线发射两颗寒冰豌豆",
@@ -789,12 +789,13 @@ oGatlingPea = InheritO(oPeashooter, {
 		return c && c.EName == "oRepeater"
 	},
 	NormalAttack1:oPeashooter1.prototype.NormalAttack,
+	NormalAttack2:oPeashooter.prototype.NormalAttack,
 	NormalAttack: function(a) {
-		this.NormalAttack1();
+		this.Math.round(Math.random()*1+0)? this.NormalAttack1 : this.NormalAttack2;
 		oSym.addTask(15,
 		function(d, b) {
 			var c = $P[d];
-			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
+			c && c.NormalAttack1(); --b && oSym.addTask(10, arguments.callee, [d, b])
 		},
 		[this.id,7])
 	}	
