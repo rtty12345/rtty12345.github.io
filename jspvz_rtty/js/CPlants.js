@@ -786,7 +786,7 @@ oGatlingPea= InheritO(oPeashooter, {
 	Produce: '加特林可以一次发射八颗真正的火豌豆，30秒后成长为霰弹枪射手<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	PrivateBirth: function(c) {
 		var b = c.AttackedLX,
-		a = b - 40;
+		a = b - 60;
 		c.BulletClass = NewO({
 			X: b,
 			R: c.R,
@@ -798,7 +798,7 @@ oGatlingPea= InheritO(oPeashooter, {
 			F: oGd.MB1
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
-                !a.isDie&&oSym.addTask(4000,function(e){
+                !c.isDie&&oSym.addTask(4000,function(e){
                    e.Die1();
 		PlayAudio("newspaper_rarrgh2"); 
                 },[this]);
@@ -826,7 +826,7 @@ oGatlingPea= InheritO(oPeashooter, {
 		delete oGd.$[b.R + "_" + b.C + "_" + b.PKind];
 		$P.length -= 1; ! a && ClearChild($(c));
 		CustomSpecial(oGatlingPea1,c.R,c.C);
-	}
+	},
 	PrivateDie:function(a){
 	     a.isDie = true;	     
         }
