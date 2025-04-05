@@ -844,9 +844,9 @@ oGatlingPea1= InheritO(CPlants, {
 	},
 	NormalAttack1: function() {
 		var g = this,
-		f = g.pixelLeft + 58,
+		f = g.pixelLeft + 30,
 		d = f - 20,
-		b = g.pixelTop + 30,
+		b = g.pixelTop + 10,
 		c = g.R,
 		e = f + 30,
 		a = function(j, i, h) {
