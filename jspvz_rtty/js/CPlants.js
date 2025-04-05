@@ -772,8 +772,8 @@ oPeashooter1= InheritO(CPlants, {
 		[b, $(b),40,0, a.AttackedLX, a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
-oGatlingPea1= InheritO(oPeashooter, {
-	EName: "oGatlingPea1",
+oGatlingPea= InheritO(oPeashooter, {
+	EName: "oGatlingPea",
 	CName:"机枪射手",
 	width: 88,
 	height: 84,
@@ -816,11 +816,11 @@ oGatlingPea1= InheritO(oPeashooter, {
 			var c = $P[d];
 			c && c.NormalAttack1(); --b && oSym.addTask(10, arguments.callee, [d, b])
 		},
-		[this.id,7])
+		[this.id,Math.round(Math.random()*2+3)])
 	}	
 }),
 oGatlingPea1= InheritO(CPlants, {
-	EName: "oGatlingPea",
+	EName: "oGatlingPea1",
 	CName:"散射机枪射手",
 	width: 88,
 	height: 84,
