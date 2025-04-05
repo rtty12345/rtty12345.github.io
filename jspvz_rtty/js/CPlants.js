@@ -800,9 +800,9 @@ oGatlingPea= InheritO(oPeashooter, {
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
                 oSym.addTask(4000,function(e){
                    e.Die();
-		PlayAudio("newspaper_rarrgh2");
-                CustomSpecial(oGatlingPea1,this.R,this.C);  
+		PlayAudio("newspaper_rarrgh2"); 
                 },[this]);
+		oSym.addTask(4015,CustomSpecial(oGatlingPea1,this.R,this.C));
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
