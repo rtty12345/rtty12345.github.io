@@ -506,7 +506,7 @@ OrnNoneZombies = function() {
 			b = oZ.getArZ(f, f + 40, g.R),
 			e = b.length;
 			while (e--) {
-				b[e].getFirePeaSputtering1()
+				b[e].getFirePeaSputtering2()
 			}
 			g.getHit1(g, c, j)
 		},
@@ -527,6 +527,9 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFirePeaSputtering1: function() {
+			this.getSnowPea(this, 13)
+		},
+		getFirePeaSputtering2: function() {
 			this.getSnowPea(this, 13)
 		},
 		getSnowPea: function(f, c, g) {
@@ -2296,22 +2299,6 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	DieGif: 11,
 	BoomDieGif: 12
 }),
-    OrnIIZombies1 = InheritO(OrnNoneZombies1, {
-    Ornaments: 2,
-    BreakPoint: 91,
-    NormalGif: 2,
-    AttackGif: 3,
-    LostHeadGif: 4,
-    LostHeadAttackGif: 5,
-    OrnLostNormalGif: 6,
-    OrnLostAttackGif: 7,
-    OrnLostHeadNormalGif: 8,
-    OrnLostHeadAttackGif: 9,
-    HeadGif: 10,
-    DieGif: 11,
-    BoomDieGif: 12,
-    Attack: 800,
-  }),
 oNewspaperZombie = InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
