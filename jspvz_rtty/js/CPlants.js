@@ -798,11 +798,10 @@ oGatlingPea= InheritO(oPeashooter, {
 			F: oGd.MB1
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
-                oSym.addTask(4000,function(e){
-                   e.Die();
+                !a.isDie&&oSym.addTask(4000,function(e){
+                   e.Die1();
 		PlayAudio("newspaper_rarrgh2"); 
                 },[this]);
-		oSym.addTask(4015,CustomSpecial(oGatlingPea1,this.R,this.C));
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
@@ -818,7 +817,18 @@ oGatlingPea= InheritO(oPeashooter, {
 		},
 		[this.id,Math.round(Math.random()*2+3)])
 	},
-	PrivateDie:function(){
+	Die1: function(a) {
+		var b = this,
+		c = b.id;
+		b.oTrigger && oT.delP(b);
+		b.HP = 0;
+		delete $P[c];
+		delete oGd.$[b.R + "_" + b.C + "_" + b.PKind];
+		$P.length -= 1; ! a && ClearChild($(c));
+		CustomSpecial(oGatlingPea1,c.R,c.C);
+	}
+	PrivateDie:function(a){
+	     a.isDie = true;	     
         }
 }),
 oGatlingPea1= InheritO(CPlants, {
