@@ -797,7 +797,11 @@ oGatlingPea1= InheritO(oPeashooter, {
 			pixelLeft: a,
 			F: oGd.MB1
 		});
-		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2))
+		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
+                oSym.addTask(4000,function(){
+                   this.Die();
+                   CustomSpecial[oGatlingPea1,this.R,this.C]
+                },[this]);
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
