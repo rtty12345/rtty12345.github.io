@@ -834,9 +834,9 @@ oGatlingPea1= InheritO(CPlants, {
 		return [1, oS.R]
 	},
 	PrivateBirth: function(d) {
-		var c = d.pixelLeft + 58,
+		var c = d.pixelLeft + 38,
 		b = c - 20,
-		a = d.pixelTop + 30;
+		a = d.pixelTop + 10;
 		d.BulletEle = NewImg(0, "images/Plants/PB10.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
 	},
 	PrivateDie: function(a) {
@@ -850,7 +850,7 @@ oGatlingPea1= InheritO(CPlants, {
 		c = g.R,
 		e = f + 30,
 		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,50,i),ClearChild(h), false) : true)
+			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,30,i),ClearChild(h), false) : true)
 		}; (function(h) {
 			oSym.addTask(15,
 			function(j) {
