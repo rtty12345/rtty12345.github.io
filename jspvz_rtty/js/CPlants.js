@@ -876,7 +876,25 @@ oGatlingPea= InheritO(CPlants, {
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
 				j(oZ.getZ0(n, l), 7, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 2) + "px",
+					left: (m += 6) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random());(function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 7, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
@@ -894,7 +912,25 @@ oGatlingPea= InheritO(CPlants, {
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
 				j(oZ.getZ0(n, l), 1, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 2) + "px",
+					left: (m += 6) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("StarB" + Math.random());(function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 1, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
