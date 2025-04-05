@@ -825,7 +825,7 @@ oGatlingPea= InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/GatlingPea.png","images/Plants/GatlingPea/0.gif","images/Plants/GatlingPea/GatlingPea.gif","images/Plants/PB10.gif","images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次散射4~6颗减速的火豌豆<br>(需要双发射手)",
-	Produce: '加特林可以一次散射4~6颗简述火豌豆<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000">4~6倍<br>只能种在双发射手上</font></p>当散射机枪射手宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
+	Produce: '加特林可以一次散射4~6颗减速火豌豆<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000">4~6倍<br>只能种在双发射手上</font></p>当散射机枪射手宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
