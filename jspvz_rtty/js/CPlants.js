@@ -772,8 +772,8 @@ oPeashooter1= InheritO(CPlants, {
 		[b, $(b),40,0, a.AttackedLX, a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
-oGatlingPea = InheritO(oPeashooter, {
-	EName: "oGatlingPea",
+oGatlingPea1= InheritO(oPeashooter, {
+	EName: "oGatlingPea1",
 	CName:"机枪射手",
 	width: 88,
 	height: 84,
@@ -814,18 +814,18 @@ oGatlingPea = InheritO(oPeashooter, {
 		[this.id,7])
 	}	
 }),
-oGatlingPea1= InheritO(CPlants, {
-	EName: "oGatlingPea1",
-	CName:"机枪射手",
+oGatlingPea= InheritO(CPlants, {
+	EName: "oGatlingPea",
+	CName:"散射机枪射手",
 	width: 88,
 	height: 84,
 	beAttackedPointR: 68,
-	SunNum: 700,
+	SunNum: 600,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png","images/Plants/GatlingPea/0.gif","images/Plants/GatlingPea/GatlingPea.gif","images/Plants/PB10.gif","images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次散射六颗真正的火豌豆<br>(需要双发射手)",
-	Produce: '加特林可以一次散射六颗真正的火豌豆<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000">六倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
+	Tooltip: "一次散射4~6颗减速的火豌豆<br>(需要双发射手)",
+	Produce: '加特林可以一次散射4~6颗简述火豌豆<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000">4~6倍<br>只能种在双发射手上</font></p>当散射机枪射手宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
@@ -844,7 +844,7 @@ oGatlingPea1= InheritO(CPlants, {
 	},
 	NormalAttack1: function() {
 		var g = this,
-		f = g.pixelLeft + 30,
+		f = g.pixelLeft + 58,
 		d = f - 20,
 		b = g.pixelTop + 10,
 		c = g.R,
