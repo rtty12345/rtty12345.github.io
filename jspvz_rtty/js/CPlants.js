@@ -818,7 +818,7 @@ oGatlingPea1= InheritO(oPeashooter, {
 		[this.id,7])
 	}	
 }),
-oGatlingPea= InheritO(CPlants, {
+oGatlingPea1= InheritO(CPlants, {
 	EName: "oGatlingPea",
 	CName:"散射机枪射手",
 	width: 88,
