@@ -825,7 +825,7 @@ oGatlingPea= InheritO(oPeashooter, {
 		delete $P[c];
 		delete oGd.$[b.R + "_" + b.C + "_" + b.PKind];
 		$P.length -= 1; ! a && ClearChild($(c));
-		CustomSpecial(oGatlingPea1,c.R,c.C);
+		CustomSpecial(oGatlingPea1,this.R,this.C);
 	},
 	PrivateDie:function(a){
 	     a.isDie = true;	     
