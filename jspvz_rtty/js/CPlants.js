@@ -820,7 +820,7 @@ oGatlingPea1= InheritO(CPlants, {
 	width: 88,
 	height: 84,
 	beAttackedPointR: 68,
-	SunNum: 500,
+	SunNum: 700,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png","images/Plants/GatlingPea/0.gif","images/Plants/GatlingPea/GatlingPea.gif","images/Plants/PB10.gif","images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
@@ -850,7 +850,7 @@ oGatlingPea1= InheritO(CPlants, {
 		c = g.R,
 		e = f + 30,
 		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getSlowPea(j,50,i),ClearChild(h), false) : true)
+			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,50,i),ClearChild(h), false) : true)
 		}; (function(h) {
 			oSym.addTask(15,
 			function(j) {
