@@ -834,7 +834,7 @@ oGatlingPea1= InheritO(CPlants, {
 		return [1, oS.R]
 	},
 	PrivateBirth: function(d) {
-		var c = d.pixelLeft + 28,
+		var c = d.pixelLeft + 30,
 		b = c - 20,
 		a = d.pixelTop +10;
 		d.BulletEle = NewImg(0, "images/Plants/PB10.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
