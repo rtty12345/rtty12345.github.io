@@ -2854,8 +2854,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:500,
-	Lvl: 4,
-	HP:2000,
+	Lvl: 6,
+	HP:1800,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2863,7 +2863,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	SunNum: 350,
+	SunNum: 250,
 	BreakPoint:1,
 	LostPaperSpeed:10,
 	LostPaperAtack:800,
@@ -2872,7 +2872,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（2000）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -4397,7 +4397,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
 	SunNum: 150,
-	HP: 600,
+	HP: 1000,
 	BreakPoint: 100,
 	Lvl: 3,
 	Status: 1,
@@ -4423,7 +4423,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
 	RandomOpenBox: function(a) {
-		oSym.addTask(Math.floor(Math.random() * 100) > 5? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
+		oSym.addTask(Math.floor(Math.random() * 100) > 10? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
 		function(c) {
 			var b = $Z[c];
 			b && b.beAttacked && b.OpenBox(c)
@@ -4459,10 +4459,10 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 				var e = $Z[f],
 				d;
 				e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src = e.PicArr[8] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
-					var q = Math.max(1, k - 1.5),
-					o = Math.min(oS.R, k + 1.5),
-					n = Math.max(1, g - 1.5),
-					h = Math.min(oS.C, g + 1.5),
+					var q = Math.max(1, k - 1),
+					o = Math.min(oS.R, k + 1),
+					n = Math.max(1, g - 1),
+					h = Math.min(oS。C, g + 1),
 					r = oGd.$,
 					l,
 					j = "",
