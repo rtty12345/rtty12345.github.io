@@ -4878,7 +4878,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   DieGif: 9,
   UpGif: 10,
   DownGif: 11,
-  BoomDieGif: 12,
+  BoomDieGif: 8,
   LostHeadGif: 5,
   LostHeadAttackGif: 5,
 
@@ -4956,7 +4956,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       a + "Walk3.gif",
       a + "Attack1.gif",
       a + "Attack2.gif",
-      a+"images/Zombies/Zombie/unlook.gif" + $Random,
+      "images/Zombies/Zombie/unlook.gif" + $Random,
       a + "Die.gif" + $Random,
       a + "Up.gif" + $Random,
       a + "Down.gif" + $Random,
@@ -5042,7 +5042,7 @@ this.PrivateAct&&this.PrivateAct(this);
     return e;
   },
   CanDig: {
-    oPotatoMine,oPumpkinHead,oChomper: true
+    oPotatoMine,oPumpkinHead,oChomper,oBrains: true
   },
   JudgeAttack_Dig: function() {
     var g = this,
