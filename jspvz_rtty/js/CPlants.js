@@ -779,7 +779,7 @@ oGatlingPea= InheritO(oPeashooter, {
 	height: 84,
 	beAttackedPointR: 68,
 	SunNum: 600,
-	CanEat:0,
+	canEat:0,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
