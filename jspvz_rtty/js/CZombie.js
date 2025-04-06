@@ -3081,7 +3081,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			e = GetC(c),
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-		},
+		}
 }),
 oNewspaperZombie3= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie3",
@@ -4946,9 +4946,9 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       })();
   },
   PicArr: (function() {
-    var a = "images/Zombies/Diggerzombie/";
+    var a = "images/Zombies/DiggerZombie/";
     return [
-      "images/Card/Zombies/DiggerZombie.png",
+      "images/Card/Zombies/Diggerzombie.png",
       a + "0.gif",
       a + "DiggerZombie.gif",
       a + "Walk1.gif",
