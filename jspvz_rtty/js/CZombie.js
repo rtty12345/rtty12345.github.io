@@ -4860,7 +4860,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   GetDTop: 20,
   beAttackedPointL: 65,
   beAttackedPointR: 90,
-  OrnHP: 100,
+  OrnHP: 500,
   OSpeed: 15,
   Speed: 15,
   Altitude: 0, // 挖矿
@@ -4878,7 +4878,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   DieGif: 9,
   UpGif: 10,
   DownGif: 11,
-  BoomDieGif: 8,
+  BoomDieGif: 12,
   LostHeadGif: 5,
   LostHeadAttackGif: 5,
 
@@ -5042,7 +5042,7 @@ this.PrivateAct&&this.PrivateAct(this);
     return e;
   },
   CanDig: {
-    oPotatoMine: true
+    oPotatoMine,oPumpkinHead,oChomper: true
   },
   JudgeAttack_Dig: function() {
     var g = this,
