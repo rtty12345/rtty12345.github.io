@@ -804,7 +804,7 @@ oGatlingPea= InheritO(oPeashooter, {
 	getHurt:function(){},
 	BoomDie:function(){},
 	Die:function(){},
-	NormalAttack1:oPeashooter1.prototype.NormalAttack,
+	NormalAttack1:oSnowPea1.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
