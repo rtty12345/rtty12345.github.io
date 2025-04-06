@@ -799,14 +799,10 @@ oGatlingPea= InheritO(oPeashooter, {
 			F: oGd.MB1
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
-                oSym.addTask(1000,function(a){
-		var num = Math.round(Math.random()*99+1);
-		if(num<=95){
-		 oSym.addTask(1000, arguments.callee,[a]);
-		}else{
-		a.Die1();
-		     }
-		}[this])
+                !c.isDie&&oSym.addTask(3000,function(e){
+                    e.Die1();
+ 		PlayAudio("newspaper_rarrgh2"); 
+                 },[this]);
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
