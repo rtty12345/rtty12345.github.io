@@ -804,10 +804,9 @@ oGatlingPea= InheritO(oPeashooter, {
 		if(num<=95){
 		 oSym.addTask(1000, arguments.callee);
 		}else{
-		a.Die();
-		CustomSpecial(oCherryBomb,this.R,this.C);
+		a.Die1();
 		     }
-		}
+		}[this])
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
