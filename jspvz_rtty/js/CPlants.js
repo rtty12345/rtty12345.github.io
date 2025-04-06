@@ -762,7 +762,7 @@ oPeashooter1= InheritO(CPlants, {
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
-				1 : "getSlowPea"
+				1 : "getFirePea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
 				width: "52px",
