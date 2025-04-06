@@ -802,7 +802,7 @@ oGatlingPea= InheritO(oPeashooter, {
                 oSym.addTask(1000,function(a){
 		var num = Math.round(Math.random()*99+1);
 		if(num<=95){
-		 oSym.addTask(1000, arguments.callee);
+		 oSym.addTask(1000, arguments.callee,[a]);
 		}else{
 		a.Die1();
 		     }
