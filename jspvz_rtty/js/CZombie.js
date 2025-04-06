@@ -4462,7 +4462,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 					var q = Math.max(1, k - 1),
 					o = Math.min(oS.R, k + 1),
 					n = Math.max(1, g - 1),
-					h = Math.min(oS。C, g + 1),
+					h = Math.min(oS.C,g + 1),
 					r = oGd.$,
 					l,
 					j = "",
