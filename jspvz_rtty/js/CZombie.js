@@ -1994,6 +1994,66 @@ oFootballZombie = InheritO(oConeheadZombie,{
 		},
 	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
+oFootballZombie1= InheritO(oConeheadZombie,{
+	EName: "oFootballZombie",
+	CName: "黑橄榄球僵尸",
+	OrnHP: 5000,
+	HP:1000,
+	Lvl: 8,
+	SunNum: 400,
+	StandGif: 11,
+	width: 154,
+	height: 160,
+	OSpeed: 4,
+	Speed: 4,
+	beAttackedPointL: 40,
+	beAttackedPointR: 134,
+	PlayNormalballAudio: function() {
+		PlayAudio("plastichit")
+	},
+	getSnowPea:OrnNoneZombies.prototype.getPea,
+	getFirePea:OrnNoneZombies.prototype.getPea,
+	getSlowPea:OrnNoneZombies.prototype.getPea,
+	getSlowPea1:OrnNoneZombies.prototype.getPea,
+	bedevil: function(c) {
+		c.ExchangeLR(c, 1);
+		c.JudgeAttack = c.JudgeAttackH;
+		c.PZ = 0;
+		c.WalkDirection = 1;
+	        c.ZX = c.AttackedRX;
+		c.ChkActs = c.ChkActs1;
+		c.Attack=150;
+		oP.MonPrgs()
+		},
+	PicArr: (function() {
+		var a = "images/Zombies/FootballZombie/";
+		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
+	})(),
+	getShadow: function(a) {
+		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
+	},
+	AttackZombie: function(d, c) {
+			oSym.addTask(10,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,40,0), h.JudgeAttackH())
+			},
+			[d, c])
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(10,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c])
+		},
+	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+}),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
