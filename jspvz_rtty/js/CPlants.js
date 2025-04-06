@@ -778,11 +778,12 @@ oGatlingPea= InheritO(oPeashooter, {
 	width: 88,
 	height: 84,
 	beAttackedPointR: 68,
-	SunNum: 500,
+	SunNum: 600,
+	CanEat:0,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次发射4~6颗真正的火豌豆<br>(需要双发射手)，30秒后成长为霰弹枪射手",
+	Tooltip: "一次发射4~6颗真正的火豌豆<br>(需要双发射手)，30秒后成长为霰弹枪射手，若中途死亡则可以在30秒后复活成为霰弹枪射手",
 	Produce: '加特林可以一次发射八颗真正的火豌豆，30秒后成长为霰弹枪射手<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	PrivateBirth: function(c) {
 		var b = c.AttackedLX,
@@ -798,10 +799,15 @@ oGatlingPea= InheritO(oPeashooter, {
 			F: oGd.MB1
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
-                !c.isDie&&oSym.addTask(4000,function(e){
-                   e.Die1();
-		PlayAudio("newspaper_rarrgh2"); 
-                },[this]);
+                oSym.addTask(1000,function(a){
+		var num = Math.round(Math.random()*99+1);
+		if(num<=95){
+		 oSym.addTask(1000, arguments.callee);
+		}else{
+		a.Die();
+		CustomSpecial(oCherryBomb,this.R,this.C);
+		     }
+		}
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
@@ -828,7 +834,7 @@ oGatlingPea= InheritO(oPeashooter, {
 		CustomSpecial(oGatlingPea1,this.R,this.C);
 	},
 	PrivateDie:function(c){
-	     c.isDie = true;	     
+	     c.isDie = true;
         }
 }),
 oGatlingPea1= InheritO(CPlants, {
