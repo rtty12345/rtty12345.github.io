@@ -4956,7 +4956,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       a + "Walk3.gif",
       a + "Attack1.gif",
       a + "Attack2.gif",
-      "images/Plants/Peashooter/NonePeashooter.gif" + $Random,
+      a+"images/Zombies/Zombie/unlook.gif" + $Random,
       a + "Die.gif" + $Random,
       a + "Up.gif" + $Random,
       a + "Down.gif" + $Random,
