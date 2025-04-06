@@ -758,7 +758,7 @@ oPeashooter1= InheritO(CPlants, {
 		function(f, j, h, c, n, i, m, k, o, g) {
 			var l, e = GetC(n),
 			d = oZ["getZ" + c](n, i);
-			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h = 80, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
+			m <1 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h = 80, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
@@ -769,7 +769,7 @@ oPeashooter1= InheritO(CPlants, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),30,0, a.AttackedLX, a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),30,0, a.AttackedLX, a.R,-1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oGatlingPea= InheritO(oPeashooter, {
@@ -784,8 +784,8 @@ oGatlingPea= InheritO(oPeashooter, {
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次发射四颗真正的火豌豆<br>(需要双发射手)，40秒后成长为霰弹枪射手，不会受到任何形式伤害",
-	Produce: '加特林可以一次发射四颗真正的火豌豆，40秒后成长为霰弹枪射手，不会受到任何形式的伤害<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
+	Tooltip: "一次发射四颗真正的冰豌豆<br>(需要双发射手)，40秒后成长为霰弹枪射手，不会受到任何形式伤害",
+	Produce: '加特林可以一次发射四颗冰豌豆，40秒后成长为霰弹枪射手，不会受到任何形式的伤害<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	PrivateBirth: function(c) {
 		var b = c.AttackedLX,
 		a = b - 60;
