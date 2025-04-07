@@ -2520,7 +2520,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		},
 		[b.id]))
 	},
-        NormalAttack: function(d, c) {
+        NormalAttack1: function(d, c) {
             PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
             oSym.addTask(50, function(e) {
                 $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
