@@ -2520,6 +2520,18 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		},
 		[b.id]))
 	},
+        NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(10, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
+            }, [d, c]);
+            this.PrivateAttack && this.PrivateAttack(this)
+        }, 
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
 			return 1
@@ -2536,7 +2548,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
-			k.Attack=800;
+			k.NormalAttack=k.NormalAttack1;
 			k.ChkActs = j.ChkActs;
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
@@ -2546,7 +2558,6 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			PlayAudio("newspaper_rarrgh2");
 			k.EleBody.src = l;
 			k.JudgeAttack();
-			k.Attack=800
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
@@ -3082,7 +3093,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
 		}
-}),
+})，
 oNewspaperZombie3= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie3",
 	CName: "你亲爱的二形态精英二爷",
