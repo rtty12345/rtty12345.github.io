@@ -3093,7 +3093,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
 		}
-})，
+}),
 oNewspaperZombie3= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie3",
 	CName: "你亲爱的二形态精英二爷",
@@ -4864,7 +4864,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   CName: "矿工僵尸",
   Lvl: 4,
   SunNum: 125,
-  HP: 500,
+  HP: 1000,
   BreakPoint: 70,
   width: 167,
   height: 170,
@@ -5015,7 +5015,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
               // 行走
               (b.EleBody.src =
                 b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
-              (b.OSpeed = b.Speed = 1.6),
+              (b.OSpeed = b.Speed = 4),
               (b.ChkActs =
                 OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
             },
