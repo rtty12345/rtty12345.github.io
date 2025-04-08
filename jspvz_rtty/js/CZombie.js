@@ -4837,13 +4837,13 @@ oSquashZombie = InheritO(oConeheadZombie, {
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                $(d).style.left = $(d).offsetLeft + 5 + "px";
                 let pea = $(d);
                 let C = GetC(z.offsetLeft + 40);
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let z = oZ.getArZ(0,oS.W,a.R);
-                        p && $(z.id).beAttackPointL+ $(z.id).beAttackPointL>= $(d).offsetLeft && ($(z.id).beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth) && PlayAudio("splat1"),z[i].getSlowPea(30),$(d) && ClearChild($(d))
+                        z &&(z.PZ=0)&& $(z.id).beAttackPointL+ $(z.id).beAttackPointL>= $(d).offsetLeft && ($(z.id).beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth) && PlayAudio("splat1"),z[i].getSlowPea(30),$(d) && ClearChild($(d))
                     }
                 }
                 if($(d).offsetLeft <= 0){
@@ -4854,7 +4854,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) &&  (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
