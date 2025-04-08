@@ -1565,7 +1565,7 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(1000,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && (a.PZ=1)&&oSym.addTask(1000,arguments.callee,[a])
             },[a]);
             }
         },
@@ -2539,7 +2539,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=4,g.getFirePea = e.getPea, g.getSnowPea = e.getPea,g.getSlowPea = e.getPea,g.getSlowPea1= e.getPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(300,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.Altitude=4,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea = e.getSlowPea,g.getSlowPea1= e.getSlowPea1, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit, oSym.addTask(300,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3190,7 +3190,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) &&  (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
@@ -4816,7 +4816,45 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) &&  (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
+            },[a]);
+            }
+        },
+	bedevilAct: function(a){
+            if(!a.bool){
+            a.bool = 1;
+            oSym.addTask(125,function(a){
+            let z = $(a.id);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/PB-10.gif">';
+            EditEle(div,0,{
+                position:"absolute",
+                zIndex:"24",
+                left:z.offsetLeft + "px",
+                top:z.offsetTop + 40 + "px"
+            },EDPZ,0)
+            oSym.addTask(1,function(z,d,a){
+                try{
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                let pea = $(d);
+                let C = GetC(z.offsetLeft + 40);
+                for(let i = 3;i >= 0;i--){
+                    for(let j = 1;j <= C;j++){
+                        let z = oZ.getArZ(0,oS.W,a.R);
+                        p && $(z.id).beAttackPointL+ $(z.id).beAttackPointL>= $(d).offsetLeft && ($(z.id).beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth) && PlayAudio("splat1"),z[i].getSlowPea(30),$(d) && ClearChild($(d))
+                    }
+                }
+                if($(d).offsetLeft <= 0){
+                    ClearChild($(d));
+                    $(d).isDie = true;
+                }
+                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
+                }catch(e){
+                }
+            },[z,d,a]);
+            !a.isDie && (a.HP > 60) &&  (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
