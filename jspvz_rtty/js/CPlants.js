@@ -890,7 +890,7 @@ oGatlingPea1= InheritO(CPlants, {
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
 				j(oZ.getZ0(n, l), 7, i) && ((n += 6) > 900 || (k -= 6) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m +=Math.random()*2+1)  + "px",
+					left: (m +=Math.random()*2+4)  + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
@@ -908,7 +908,7 @@ oGatlingPea1= InheritO(CPlants, {
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
 				j(oZ.getZ0(n, l), 7, i) && ((n += 4) > 900 || (k -= 4) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
+					left: (m += 6) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
@@ -926,7 +926,7 @@ oGatlingPea1= InheritO(CPlants, {
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
 				j(oZ.getZ0(n, l), 1, i) && ((n += 6) > 900 || (k += 6) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m +=Math.random()*2+1) + "px",
+					left: (m +=Math.random()*2+4) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
@@ -944,7 +944,7 @@ oGatlingPea1= InheritO(CPlants, {
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
 				j(oZ.getZ0(n, l), 1, i) && ((n += 4) > 900 || (k += 4) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
+					left: (m += 6) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
