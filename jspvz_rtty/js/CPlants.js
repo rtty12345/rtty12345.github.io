@@ -925,7 +925,7 @@ oGatlingPea1= InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 1, i) && ((n += 2) > 900 || (k += 1) > 600 ? ClearChild(i) : (SetStyle(i, {
+				j(oZ.getZ0(n, l), 1, i) && ((n += 6) > 900 || (k += 1) > 600 ? ClearChild(i) : (SetStyle(i, {
 					left: (m +=6) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
