@@ -3375,7 +3375,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
-         PrivateAct:function(a){
+         PrivateAttack:function(a){
             oSym.addTask(1,function(a){
                 let c = GetC($(a.id).offsetLeft + 40);
                 let R = a.R - 1 || 1,RM = (a.R + 1 <= oS.R ? a.R + 1 : oS.R);
