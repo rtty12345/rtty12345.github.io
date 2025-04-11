@@ -3369,15 +3369,31 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低(300)</font><br>铁门韧性：<font color="#FF0000">极高（10000）</font><br>弱点：大喷菇和磁力菇</p>made in China!',
+	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低(300)</font><br>铁门韧性：<font color="#FF0000">极高（4000）</font><br>弱点：大喷菇和磁力菇</p>made in China!',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
+         PrivateAttack:function(a){
+            oSym.addTask(1,function(a){
+                let c = GetC($(a.id).offsetLeft + 40);
+                let R = a.R - 1 || 1,RM = (a.R + 1 <= oS.R ? a.R + 1 : oS.R);
+                for(let i = R;i <= RM;i++){
+                    if(i != a.R){
+                        let p = oGd.$[i+"_"+c+"_1"];
+                        p && p.canEat && (p.HP -= a.Attack);
+                        p && p.canEat && (p.HP <= 0) && p.Die()
+                    }
+                }
+            },[a])
+        }, 
 	getFirePeaSputtering: function() {},
 	getFirePeaSputtering1: function() {},
-	getSnowPea:function(){},
+	getSnowPea: function(c, a, b) {
+            PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+            c.getHit0(c, a, b)
+        },
 	getSlowPea:function(c, a, b) {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit0(c, a, b)
@@ -3386,7 +3402,10 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit1(c, a, b)
 	},
-	getPea: function(){},
+	getPea: function(c, a, b) {
+            PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+            c.getHit0(c, a, b)
+        },
 	getHit0: function(c,a,b) {
 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10,
 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
