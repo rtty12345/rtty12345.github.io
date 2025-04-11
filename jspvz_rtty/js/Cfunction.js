@@ -1875,8 +1875,21 @@ PrepareGrowPlants = function(a) {
 },
 CustomPlants = function(b, a, c) { (new ArCard[b].PName).Birth(GetX(c), GetY(a), a, c, [])
 },
-CustomZombies= function(b, a, c) { (new ArCard[b].ZName).Birth(GetX(c), GetY(a), a, c, [])
-},
+ CustomZombies= function(h, e, b, z){
+        asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+            EDPZ.appendChild(n);
+            m.Birth();
+            z && m.bedevil(m);
+            //document.write()
+        }, a)
+    }, 
+ CustomZombie = function(h, e, b, z){
+        asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+            EDPZ.appendChild(n);
+            m.Birth();
+            //document.write()
+        }, a)
+    }, 
 CustomSpecial = function(c, b, d, a) {(new c).Birth(GetX(d), GetY(b), b, d, [], a)
 },
 CheckAutoSun = function(a) {
