@@ -2854,7 +2854,6 @@ oBlover = InheritO(CPlants, {
 	AudioArr:['blover'],
 	InitTrigger: function() {},
 	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
-		CustomZombies(oConeheadZombie,a.R,a.C,1);
 		oSym.addTask(50, function(id) {
 			PlayAudio('blover'), $P[id].Dispel();
 		},[o.id]);
