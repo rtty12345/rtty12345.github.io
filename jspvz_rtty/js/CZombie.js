@@ -3382,7 +3382,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 for(let i = R;i <= RM;i++){
                     if(i != a.R){
                         let p = oGd.$[i+"_"+c+"_1"];
-                        p && p.canEat && (p.getHurt($Z[a],0,100));
+                        p && p.canEat && (p.HP-=300);
                         p && p.canEat && (p.HP <= 0) && p.Die()
                     }
                 }
@@ -4749,10 +4749,9 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 var C = GetC(a.X + 80);
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-                    a.bool = 1;
-		    new oNewspaperZombie.CustomBirth(this.R, this.C, 0, "auto");
-                    p.BoomDie();
+		   	p.BoomDie();
                     PlayAudio("gargantuar_thump");
+		    oSym.addTask(300,a.bool=1);
 		    a.Attack=100;
                 }
             }
