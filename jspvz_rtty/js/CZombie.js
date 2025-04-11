@@ -5023,6 +5023,13 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
         (a.Altitude = 4),
         SetVisible(a.EleShadow),
         (a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
+       	Value = new Value(), ++oP.NumZombies; // 创建僵尸对象 增加僵尸数量
+
+				// 生成僵尸
+				asyncInnerHTML(Value.CustomBirth(this.R, this.C, 0, "auto"), function(n, m) {
+					EDPZ.appendChild(n), m.Birth();
+				},this);
+				break;
         (a.OSpeed = a.Speed = 0)),
       (a.ChkActs = function() {
         return 1;
