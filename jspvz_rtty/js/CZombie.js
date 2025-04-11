@@ -3382,7 +3382,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 for(let i = R;i <= RM;i++){
                     if(i != a.R){
                         let p = oGd.$[i+"_"+c+"_1"];
-                        p && p.canEat && (p.HP -= 1);
+                        p && p.canEat && (p.getHurt($Z[a],0,100));
                         p && p.canEat && (p.HP <= 0) && p.Die()
                     }
                 }
