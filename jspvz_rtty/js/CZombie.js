@@ -4751,7 +4751,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
                     PlayAudio("gargantuar_thump");
-		    oSym.addTask(300,a.bool=1);
+		    oSym.addTask(300,a.bool=1,[a]);
 		    a.Attack=100;
                 }
             }
