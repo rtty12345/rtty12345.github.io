@@ -2378,7 +2378,8 @@ oSunShroom = InheritO(oFumeShroom, {
 	GetDY: CPlants.prototype.GetDY,
 	InitTrigger: function() {},
 	PrivateDie: function(a) {},
-	PrivateBirth: function() {},
+	PrivateBirth: function() {
+	},
 	BirthStyle: function(c, d, b, a) {
 		oS.DKind ? (c.canTrigger = 0, c.Sleep = 1, b.childNodes[1].src = "images/Plants/SunShroom/SunShroomSleep.gif") : (oSym.addTask(600,
 		function(h, g, f) {
@@ -2662,8 +2663,8 @@ oCactus = InheritO(CPlants, {
 	PicArr: (function() {
 		return ["images/Card/Plants/Cactus.png", "images/Plants/Cactus/0.gif", "images/Plants/Cactus/Cactus.gif", "images/Plants/Cactus/Cactus2.gif", "images/Plants/Cactus/Attack.gif", "images/Plants/Cactus/Attack2.gif", "images/Plants/Cactus/Elongation.gif", "images/Plants/Cactus/Shorten.gif", "images/Plants/Cactus/Projectile" + ($User.Browser.IE6 ? 8 : 32) + ".png"]
 	})(),
-	Tooltip: "能发射刺穿气球的子弹",
-	Produce: '仙人掌发射的穿刺弹可以用来打击地面和空中目标<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐藏藏着颗温柔的心，充满着爱和善良。她只是想拥抱别人，和被别人拥抱。大多数人都做不到这点，但是仙人掌她并不介意。她盯着一只铠甲鼠好一阵子了，这次好像真的可以抱抱了。',
+	Tooltip: "能发射刺穿气球的子弹，地面发射的子弹会附着在僵尸身上造成伤害，直到僵尸走出子弹判定范围",
+	Produce: '仙人掌发射的穿刺弹可以用来打击地面和空中目标，地面发射的子弹会附着在僵尸身上造成伤害，直到僵尸走出子弹判定范围<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐藏藏着颗温柔的心，充满着爱和善良。她只是想拥抱别人，和被别人拥抱。大多数人都做不到这点，但是仙人掌她并不介意。她盯着一只铠甲鼠好一阵子了，这次好像真的可以抱抱了。',
 	getShadow: function(a) {
 		return "left:3px;top:132px"
 	},
@@ -2801,7 +2802,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e,15,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
@@ -2853,6 +2854,7 @@ oBlover = InheritO(CPlants, {
 	AudioArr:['blover'],
 	InitTrigger: function() {},
 	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
+		CustomZombie(oConeheadZombie,a.R,a.C,1);
 		oSym.addTask(50, function(id) {
 			PlayAudio('blover'), $P[id].Dispel();
 		},[o.id]);
