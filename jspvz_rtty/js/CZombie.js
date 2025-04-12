@@ -1895,8 +1895,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	CName: "铁桶僵尸",
 	OrnHP: 1200,
 	HP:500,
-	Lvl: 4,
-	SunNum: 200,
+	Lvl: 5,
+	SunNum: 250,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
 	AttackZombie: function(d, c) {
@@ -1989,7 +1989,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(600,function(a){a.bool=1},[a]);
 		    a.Attack=100;
-		    a.Speed=3;
+		    a.Speed=1.6;
                 }
             }
 	},
@@ -2238,6 +2238,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
     EName: "oPoleVaultingZombie1",
     CName: "跳跳僵尸",
     HP: 500,
+    Lvl:3,
     width: 348,
     height: 218,
     OSpeed: 3.2,
@@ -2449,7 +2450,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
-	Lvl: 3,
+	Lvl: 4,
 	HP:500,
 	Altitude:1,
 	LostPaperGif: 13,
@@ -3673,12 +3674,15 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	CName: "铁桶鸭子救生圈僵尸",
 	OrnHP: 1000,
 	HP:300,
-	Lvl: 3,
+	Lvl: 6,
 	SunNum: 125,
 	PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
+	PrivateBirth:oBucketheadZombie.prototype.PrivateBirth,
 	PrivateAct:oBucketheadZombie.prototype.PrivateAct,
+	PrivateAct1:oBucketheadZombie.prototype.PrivateAct1,
+	PrivateAct2:oBucketheadZombie.prototype.PrivateAct2,
 	PrivateAttack:oBucketheadZombie.prototype.PrivateAttack,
 	AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 	PicArr: (function() {
