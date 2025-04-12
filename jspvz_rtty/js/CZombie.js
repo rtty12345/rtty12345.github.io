@@ -1895,7 +1895,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	CName: "铁桶僵尸",
 	OrnHP: 1200,
 	HP:500,
-	Lvl: 3,
+	Lvl: 4,
 	SunNum: 200,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
@@ -1937,6 +1937,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	PrivateAct1: function(a){
             if(a.OrnHP<= 0){
 		a.Speed=8;
+		a.Attack=200;
                 }
         },
 	PrivateAct2: function(a){
