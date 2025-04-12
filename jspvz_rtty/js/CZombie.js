@@ -1886,10 +1886,24 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		return ["images/Card/Zombies/ConeheadZombie.png", b + "0.gif", b + "ConeheadZombie.gif", b + "ConeheadZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Zombie.gif", a + "ZombieAttack.gif", b + "1.gif"]
 	})(),
 	AudioArr: ["plastichit"],
+	PrivateAct:function(a){
+            if(!a.bool){
+                a.Speed =a.oSpeed=5;
+                var C = GetC(a.X + 80);
+                var p = oGd.$[`${a.R}_${C}_1`];
+                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+		   	p.BoomDie();
+                    PlayAudio("gargantuar_thump");
+		    oSym.addTask(400,function(a){a.bool=1},[a]);
+		    a.Attack=100;
+		    a.Speed=a.oSpeed=1.6;
+                }
+            }
+	},
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
+	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>特性：冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约4秒解除此形态<font color="#FF0000"></font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
 oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
@@ -1897,7 +1911,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	OrnHP: 1200,
 	HP:500,
 	Lvl: 5,
-	SunNum: 250,
+	SunNum: 200,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
 	AttackZombie: function(d, c) {
@@ -1933,14 +1947,15 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             this.PrivateAttack && this.PrivateAttack(this)
         },
 	PrivateAttack:function(){
-	 if(this.PrivateAct=this.PrivateAct1){
             this.HP += 60;
-	 }
     }, 
         PrivateBirth: function(a){
-            a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
+            let z = $(a.id);
+            z.PeaHead = "Pea" + Math.random();
+            let pea = NewImg(z.PeaHead,"images/Plants/Repeater/Repeater.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+            z.appendChild(pea);
         },
-       PrivateAct1: function(a){
+       PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(125,function(a){
@@ -1982,24 +1997,10 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 		a.Speed=8;
                 }
         },
-	PrivateAct2:function(a){
-            if(!a.bool){
-                a.Speed = 5;
-                var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		   	p.BoomDie();
-                    PlayAudio("gargantuar_thump");
-		    oSym.addTask(600,function(a){a.bool=1},[a]);
-		    a.Attack=100;
-		    a.Speed=1.6;
-                }
-            }
-	},
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">两种形态，第一种失去铁桶后狂暴，发射豌豆，第二种为冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约6秒解除此形态，两种形态都是双倍伤害</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">失去铁桶后狂暴，发射豌豆，双倍伤害</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
 	PicArr: {
