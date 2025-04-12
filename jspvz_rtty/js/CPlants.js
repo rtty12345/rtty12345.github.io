@@ -2217,7 +2217,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
-			z[i].Stone_of_Sinan_Up(this);
+			z[i].Stone_of_Sinan_Up();
 			PlayAudio("polevault");
                     }
                 }
