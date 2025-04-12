@@ -1893,24 +1893,76 @@ oConeheadZombie= InheritO(OrnIZombies, {
 oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
-	OrnHP: 1000,
-	HP:400,
+	OrnHP: 1200,
+	HP:500,
 	Lvl: 3,
-	SunNum: 125,
+	SunNum: 200,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
-        PrivateAttack:function(){
+	PrivateBirth: function(a){
+            a.PrivateAct =Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
+	},
+	AttackZombie: function(d, c) {
+			oSym.addTask(10,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 20, 0), h.JudgeAttackH())
+			},
+			[d, c])
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(10,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 20, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c])
+		},
+	NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(50, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
+            }, [d, c]);
+            this.PrivateAttack && this.PrivateAttack(this)
+        },
+        PrivateAttack:function(a){
+	if(!a.PrivateAct=a.PrivateAct2){
             this.HP += 60;
+		}
     }, 
-	PrivateAct: function(a){
+	PrivateAct1: function(a){
             if(a.OrnHP<= 0){
 		a.Speed=8;
                 }
         },
+	PrivateAct2: function(a){
+	     let z = $(a.id),
+            if(!a.bool){
+                a.Speed = 5;
+                var C = GetC(a.X + 80);
+                var p = oGd.$[`${a.R}_${C}_1`];
+                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+		   	p.BoomDie();
+                    PlayAudio("gargantuar_thump");
+		    oSym.addTask(600,function(a){a.bool=1},[a]);
+		    a.Attack=100;
+		    a.Speed=1.6;
+                }
+            }
+	},
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">两种形态，第一种失去铁桶后狂暴，啃咬时每秒+60血，第二种为冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约6秒解除此形态，两种形态都是双倍伤害</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
 	PicArr: {
@@ -1925,7 +1977,7 @@ PlayNormalballAudio: function() {
 		11 : "images/Zombies/BucketheadZombie/1.gif"
 	},
 }),
-oFootballZombie = InheritO(oConeheadZombie,{
+oFootballZombie= InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
 	OrnHP: 2000,
