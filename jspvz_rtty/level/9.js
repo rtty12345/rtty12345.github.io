@@ -1,5 +1,5 @@
 oS.Init({
-	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater],
+	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater,oCactus],
 	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oPoleVaultingZombie, oBucketheadZombie],
 	PicArr: ["images/interface/background1.jpg", "images/interface/ZombieNoteSmall.png", "images/interface/ZombieNote1.png"],
 	backgroundImage: "images/interface/background1.jpg",
@@ -11,7 +11,9 @@ oS.Init({
 		20: $("imgFlag2"),
 		30: $("imgFlag1")
 	}
-}, {
+},
+{
+
 	AZ: [
 		[oZombie, 2, 1],
 		[oZombie2, 2, 1],
@@ -22,7 +24,7 @@ oS.Init({
 	],
 	FlagNum: 30,
 	FlagToSumNum: {
-		a1: [3, 5, 9, 10, 13, 15, 19, 20, 23, 25, 29],
+		a1: [6, 10, 18, 20, 26,30,38,40,46,60,78],
 		a2: [1, 2, 3, 10, 4, 6, 8, 20, 10, 12, 15, 30]
 	},
 	FlagToMonitor: {
