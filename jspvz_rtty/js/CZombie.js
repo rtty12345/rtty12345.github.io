@@ -1934,11 +1934,55 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
-	PrivateAct1: function(){
-            if(this.OrnHP<= 0){
-		this.Speed=8;
-		this.Attack=200
+        PrivateAct: function(){
+            let a = this;
+            if(!a.bool){
+                a.bool = 1;
+                oSym.addTask(175,function(a){
+                    let i = 0,max = 3;
+                    var timer = setInterval(function(){
+                i++;
+                let z = $(a.id);
+                let div = $n("div");
+                let d = "Pea" + Math.random();
+                div.id = d;
+                div.innerHTML = '<img src="images/Plants/PB01.gif">';
+                EditEle(div,0,{
+                    position:"absolute",
+                    zIndex:"24",
+                    left:z.offsetLeft + "px",
+                    top:z.offsetTop + 40 + "px"
+                },EDPZ,0);
+                oSym.addTask(1,function(z,d,a){
+                try{
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                let pea = $(d);
+                let C = GetC(z.offsetLeft + 40);
+                for(let i = 3;i >= 0;i--){
+                    for(let j = 1;j <= C;j++){
+                        let p = oGd.$[a.R+"_"+j+"_"+i];
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&&p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.HP <= 0) && p.Die();
+                    }
                 }
+                if($(d).offsetLeft <= 0){
+                    ClearChild($(d));
+                    $(d).isDie = true;
+                }
+                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
+                }catch(e){
+                }
+            },[z,d,a]);
+                (i > max) && clearInterval(timer);
+            },100)
+                    !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a]);
+                },[a]);
+            }
+            if(a.OrnHP <= 0){
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 50)+"_1"];
+                p && p.canEat && p.Die();
+		a.Speed=8;
+            }
         },
 	PrivateAct2: function(a){
 	     let z = $(a.id),
@@ -1958,7 +2002,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">两种形态，第一种失去铁桶后狂暴，啃咬时每秒+60血，第二种为冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约6秒解除此形态，两种形态都是双倍伤害</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">两种形态，第一种失去铁桶后狂暴，发射豌豆，第二种为冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约6秒解除此形态，两种形态都是双倍伤害</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
 	PicArr: {
