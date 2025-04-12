@@ -410,6 +410,7 @@ var CZombies = function(b, a) {
 			},
 			[d, c])
 		},
+		Stone_of_Sinan_Up:function(){},
         NormalAttack: function(d, c) {
             PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
             oSym.addTask(50, function(e) {
