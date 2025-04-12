@@ -1935,7 +1935,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             this.PrivateAttack && this.PrivateAttack(this)
         },
 	PrivateAttack:function(a){
-	if(!a.PrivateAct=a.PrivateAct2){
+	if(a.PrivateAct=a.PrivateAct1){
             this.HP += 50;
         }
     },
