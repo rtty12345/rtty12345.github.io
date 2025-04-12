@@ -1977,7 +1977,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             },100)
                     !a.isDie && (a.HP > 90) && oSym.addTask(125,arguments.callee,[a]);
                 },[a]);
-            },
+            }
         if(a.OrnHP<= 0){
 		a.Speed=8;
                 }
