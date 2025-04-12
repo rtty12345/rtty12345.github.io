@@ -1935,7 +1935,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             this.HP += 60;
     }, 
         PrivateBirth: function(a){
-            a.PrivateAct = Math.round(math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
+            a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
         },
        PrivateAct1: function(a){
             if(!a.bool){
