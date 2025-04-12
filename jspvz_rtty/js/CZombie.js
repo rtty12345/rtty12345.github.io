@@ -1976,6 +1976,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 		a.Speed=8;
                 }
         },
+	PrivateAct2:oSquashZombie.prototype.PrivateAct,
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
