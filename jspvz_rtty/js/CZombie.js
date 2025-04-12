@@ -1534,7 +1534,7 @@ oZombie2 = InheritO(oZombie, {
         PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(1500,function(a){
+            oSym.addTask(2000,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -1566,7 +1566,7 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && (a.PZ=1)&&oSym.addTask(1000,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && (a.PZ=1)&&oSym.addTask(1500,arguments.callee,[a])
             },[a]);
             }
         },
