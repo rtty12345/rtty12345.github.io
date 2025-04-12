@@ -1969,7 +1969,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(55,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && oSym.addTask(30,arguments.callee,[a])
             },[a]);
             }
         if(a.OrnHP<= 0){
