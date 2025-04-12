@@ -1934,10 +1934,16 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
+	PrivateAttack:function(a){
+	if(!a.PrivateAct=a.PrivateAct2){
+            this.HP += 50;
+        }
+    },
 	PrivateAct1: function(a){
+	    var a =this;
             if(a.OrnHP<= 0){
 		a.Speed=8;
-		a.Attack=200;
+		a.Attack=200
                 }
         },
 	PrivateAct2: function(a){
