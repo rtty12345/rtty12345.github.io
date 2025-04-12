@@ -1934,26 +1934,22 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	PrivateAttack:function(){
             this.HP += 60;
     }, 
-	PrivateAct: function(){
-	let a = this;
+       PrivateAct: function(a){
             if(!a.bool){
-                a.bool = 1;
-                oSym.addTask(175,function(a){
-                    let i = 0,max = 3;
-                    var timer = setInterval(function(){
-                i++;
-                let z = $(a.id);
-                let div = $n("div");
-                let d = "Pea" + Math.random();
-                div.id = d;
-                div.innerHTML = '<img src="images/Plants/PB00.gif">';
-                EditEle(div,0,{
-                    position:"absolute",
-                    zIndex:"24",
-                    left:z.offsetLeft + "px",
-                    top:z.offsetTop + 40 + "px"
-                },EDPZ,0);
-                oSym.addTask(1,function(z,d,a){
+            a.bool = 1;
+            oSym.addTask(125,function(a){
+            let z = $(a.id);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/PB00.gif">';
+            EditEle(div,0,{
+                position:"absolute",
+                zIndex:"24",
+                left:z.offsetLeft + "px",
+                top:z.offsetTop + 40 + "px"
+            },EDPZ,0)
+            oSym.addTask(1,function(z,d,a){
                 try{
                 $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
@@ -1973,10 +1969,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 }catch(e){
                 }
             },[z,d,a]);
-                (i > max) && clearInterval(timer);
-            },100)
-                    !a.isDie && (a.HP > 90) && oSym.addTask(125,arguments.callee,[a]);
-                },[a]);
+            !a.isDie && (a.HP > 60) && oSym.addTask(55,arguments.callee,[a])
+            },[a]);
             }
         if(a.OrnHP<= 0){
 		a.Speed=8;
