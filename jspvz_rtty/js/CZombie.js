@@ -1899,9 +1899,6 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	SunNum: 200,
 	LostOrnSpeed:15,
 	LostOrnGif:9,
-	PrivateBirth: function(a){
-            a.PrivateAct =Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
-	},
 	AttackZombie: function(d, c) {
 			oSym.addTask(10,
 			function(f, e) {
@@ -1934,71 +1931,14 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
-        PrivateAct: function(){
-            let a = this;
-            if(!a.bool){
-                a.bool = 1;
-                oSym.addTask(175,function(a){
-                    let i = 0,max = 3;
-                    var timer = setInterval(function(){
-                i++;
-                let z = $(a.id);
-                let div = $n("div");
-                let d = "Pea" + Math.random();
-                div.id = d;
-                div.innerHTML = '<img src="images/Plants/PB01.gif">';
-                EditEle(div,0,{
-                    position:"absolute",
-                    zIndex:"24",
-                    left:z.offsetLeft + "px",
-                    top:z.offsetTop + 40 + "px"
-                },EDPZ,0);
-                oSym.addTask(1,function(z,d,a){
-                try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
-                for(let i = 3;i >= 0;i--){
-                    for(let j = 1;j <= C;j++){
-                        let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&&p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
-                        p && (p.canEat) && (p.HP <= 0) && p.Die();
-                    }
-                }
-                if($(d).offsetLeft <= 0){
-                    ClearChild($(d));
-                    $(d).isDie = true;
-                }
-                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
-                }catch(e){
-                }
-            },[z,d,a]);
-                (i > max) && clearInterval(timer);
-            },100)
-                    !a.isDie && (a.HP > 60) && oSym.addTask(125,arguments.callee,[a]);
-                },[a]);
-            }
-            if(a.OrnHP <= 0){
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 50)+"_1"];
-                p && p.canEat && p.Die();
+	PrivateAttack:function(){
+            this.HP += 60;
+    }, 
+	PrivateAct: function(a){
+            if(a.OrnHP<= 0){
 		a.Speed=8;
-            }
-        },
-	PrivateAct2: function(a){
-	     let z = $(a.id),
-            if(!a.bool){
-                a.Speed = 5;
-                var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		   	p.BoomDie();
-                    PlayAudio("gargantuar_thump");
-		    oSym.addTask(600,function(a){a.bool=1},[a]);
-		    a.Attack=100;
-		    a.Speed=1.6;
                 }
-            }
-	},
+        },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
