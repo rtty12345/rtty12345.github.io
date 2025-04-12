@@ -1970,8 +1970,8 @@ PlayNormalballAudio: function() {
 		5:"images/Zombies/Zombie/unlook.gif",
 		9 : "images/Zombies/Zombie/Zombie2.gif",
 		10:"images/Zombies/Zombie/unlook.gif",
-		11 : "images/Zombies/BucketheadZombie/1.gif"
-	}
+		11 : "images/Zombies/BucketheadZombie/1.gif",
+	},
 }),
 oFootballZombie= InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
