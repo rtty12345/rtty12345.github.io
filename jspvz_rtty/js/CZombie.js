@@ -1932,7 +1932,9 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             this.PrivateAttack && this.PrivateAttack(this)
         },
 	PrivateAttack:function(){
+	 if(this.PrivateAct=this.PrivateAct1){
             this.HP += 60;
+	 }
     }, 
         PrivateBirth: function(a){
             a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
