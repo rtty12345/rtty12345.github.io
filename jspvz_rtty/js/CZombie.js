@@ -1878,7 +1878,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	CName: "路障伴舞僵尸",
 	OrnHP: 500,
 	Lvl: 2,
-	SunNum: 75,
+	SunNum: 125,
 	StandGif: 11,
 	PicArr: (function() {
 		var b = "images/Zombies/ConeheadZombie/",
@@ -1894,9 +1894,11 @@ oConeheadZombie= InheritO(OrnIZombies, {
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
                     PlayAudio("gargantuar_thump");
-		    oSym.addTask(400,function(a){a.bool=1},[a]);
-		    a.Attack=100;
+		    oSym.addTask(400,function(a){
+		    a.bool=1;
 		    a.Speed=a.oSpeed=1.6;
+		    },[a]);
+		    a.Attack=100; 
                 }
             }
 	},
