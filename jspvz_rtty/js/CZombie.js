@@ -4925,10 +4925,10 @@ oSquashZombie = InheritO(oConeheadZombie, {
             EditEle(div,0,{
                 position:"absolute",
                 zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
+                left:p.offsetLeft + "px",
+                top:p.offsetTop + 40 + "px"
             },EDPZ,0)
-            oSym.addTask(1,function(z,d,a){
+            oSym.addTask(1,function(p,d,a){
                 try{
                 $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
