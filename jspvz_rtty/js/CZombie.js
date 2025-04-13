@@ -4883,14 +4883,14 @@ oSquashZombie = InheritO(oConeheadZombie, {
             div.innerHTML = '<img src="images/Plants/PB-10.gif">';
             EditEle(div,0,{
                 position:"absolute",
-		transform:"rotateY(180deg)",
+		transform:"rotateY(20deg)",
                 zIndex:"24",
                 left:z.offsetLeft + "px",
                 top:z.offsetTop + 40 + "px"
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                $(d).style.left = $(d).offsetLeft + 5 + "px";
                 let pea = $(d);
                 let C = GetC(z.offsetLeft + 40);
                 for(let i = 3;i >= 0;i--){
@@ -4909,7 +4909,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && a.bedevil&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) &&a.bedevil&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
