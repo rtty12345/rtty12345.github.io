@@ -1566,7 +1566,7 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && !a.bedevil&&oSym.addTask(1500,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&&oSym.addTask(1500,arguments.callee,[a])
             },[a]);
             }
         },
@@ -1971,7 +1971,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && !a.bedevil&&(a.HP > 60) && oSym.addTask(30,arguments.callee,[a])
+            !a.isDie &&(a.HP > 60) && oSym.addTask(30,arguments.callee,[a])
             },[a]);
             }
         if(a.OrnHP<= 0){
@@ -3262,7 +3262,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) &&!a.bedevil&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
@@ -4883,6 +4883,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             div.innerHTML = '<img src="images/Plants/PB-10.gif">';
             EditEle(div,0,{
                 position:"absolute",
+		transform:"rotateY(180deg)",
                 zIndex:"24",
                 left:z.offsetLeft + "px",
                 top:z.offsetTop + 40 + "px"
@@ -4908,7 +4909,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && !a.bedevil&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && a.bedevil&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
