@@ -2209,12 +2209,13 @@ oScaredyShroom = InheritO(oFumeShroom, {
             oSym.addTask(1,function(c){
                 let z = oZ.getArZ(c.pixelLeft,oS.W,c.R);
                 for(let i = 0;i < z.length;i++){
-                    if(z[i].EName == "oSquashZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie1"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZomboni"|| z[i].EName == "oPeaZombie"|| z[i].EName == "oFootballZombie"|| z[i].EName == "oDiggerZombie"){
+                    if(z[i].EName == "oSquashZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie1"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZomboni"|| z[i].EName == "oPeaZombie"|| z[i].EName == "oFootballZombie"|| z[i].EName == "oDiggerZombie"|| z[i].EName == "oConeheadZombie"|| z[i].EName == "oBucketheadZombie"){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
 			z[i].PrivateAct=z[i].PrivateAct1=z[i].PrivateAct2=function(){};
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
+			z[i].PrivateAttack=function(){},
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
 			z[i].Stone_of_Sinan_Up();
