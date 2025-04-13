@@ -3541,7 +3541,7 @@ oAquaticZombie = InheritO(OrnNoneZombies, {
 	},
 	ChkActsL1: function(f, e, g, d) {
 		var c, a, b = f.id; ! (f.FreeFreezeTime || f.FreeSetbodyTime) && (f.AttackedRX -= (c = f.Speed), LX = f.ZX = f.AttackedLX -= c, f.Ele.style.left = Math.floor(f.X -= c) + "px");
-		f.AttackedLX < GetX(9) && (PlayAudio("zombie_entering_water"), f.WalkStatus = 1, f.EleBody.src = f.PicArr[f.NormalGif = f.WalkGif1], SetHidden(f.EleShadow), NewEle(a = b + "_splash", "div", "position:absolute;background:url(images/interface/splash.png);left:61px;top:" + (f.height - 88) + "px;width:97px;height:88px;over-flow:hidden", 0, f.Ele), f.ChkActs = f.ChkActsL2, ImgSpriter(a, b, [["0 0", 9, 1], ["-97px 0", 9, 2], ["-194px 0", 9, 3], ["-291px 0", 9, 4], ["-388px 0", 9, 5], ["-485px 0", 9, 6], ["-582px 0", 9, 7], ["-679px 0", 9, -1]], 0,
+		f.AttackedLX < GetX(9) && (PlayAudio("zombie_entering_water"), f.WalkStatus = 1, f.EleBody.src = f.PicArr[f.NormalGif = f.WalkGif1], SetHidden(f.EleShadow), NewEle(a = b + "_splash", "div", "position:absolute;background:url(images/interface/splash.png);left:61px;top:" + (f.height - 88) + "px;width:97px;height:88px;over-flow:hidden", 0, f.Ele), f.ChkActs = f.ChkActsL2, ImgSpriter(a, b, [["0 0", 9, 1], ["-97px 0", 9, 2], ["-194px 0", 9, 3], ["-291px 0", 9, 4], ["-388px 0", 9, 5], ["-485px 0", 9, 6], ["-582px 0"， 9, 7], ["-679px 0", 9, -1]], 0,
 		function(h, i) {
 			ClearChild($(h))
 		}));
@@ -4890,7 +4890,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
-                $(d).style.left = $(d).offsetLeft + 5 + "px";
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
                 let C = GetC(z.offsetLeft + 40);
                 for(let i = 3;i >= 0;i--){
