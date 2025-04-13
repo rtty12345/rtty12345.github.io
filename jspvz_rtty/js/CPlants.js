@@ -502,7 +502,7 @@ oSnowPea = InheritO(oPeashooter, {
 	CName: "寒冰射手",
 	SunNum: 225,
 	BKind: 1,
-	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
 	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果",
 	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果。<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
