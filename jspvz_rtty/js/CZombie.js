@@ -4872,7 +4872,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             let pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
             z.appendChild(pea);
         },
-        PrivateAct: function(a){
+        bedevilAct: function(a){
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(700,function(a){
@@ -4913,7 +4913,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             },[a]);
             }
         },
-	bedevilAct: function(a){
+      PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(125,function(a){
@@ -4930,13 +4930,13 @@ oSquashZombie = InheritO(oConeheadZombie, {
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
-                $(d).style.left = $(d).offsetLeft + 5 + "px";
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
                 let C = GetC(p.offsetLeft + 40);
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let z = oZ.getArZ(0,oS.W,a.R);
-                        z &&!z.bedevil&& z[i].beAttackPointL+ z[i].beAttackPointL>= $(d).offsetLeft && z[i].beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i].getSlowPea(30),$(d) && ClearChild($(d))
+                        z &&z.bedevil&& z[i].beAttackPointL+ z[i].beAttackPointL>= $(d).offsetLeft && z[i].beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i].getSlowPea(30),$(d) && ClearChild($(d))
                     }
                 }
                 if($(d).offsetLeft <= 0){
