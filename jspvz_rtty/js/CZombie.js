@@ -4872,7 +4872,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             let pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
             z.appendChild(pea);
         },
-        bedevilAct: function(a){
+        PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(700,function(a){
@@ -4913,7 +4913,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             },[a]);
             }
         },
-      PrivateAct: function(a){
+      bedevilAct: function(a){
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(125,function(a){
