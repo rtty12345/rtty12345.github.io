@@ -1566,7 +1566,7 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && (a.PZ=1)&&oSym.addTask(1500,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && !a.bedevil&&oSym.addTask(1500,arguments.callee,[a])
             },[a]);
             }
         },
@@ -1578,7 +1578,7 @@ oZombie2 = InheritO(oZombie, {
 		9 : "images/Zombies/Zombie/2.gif"
 	}
 }),
-oZombie3 = InheritO(oZombie, {
+oZombie3= InheritO(oZombie, {
 	EName: "oZombie3",
 	Speed:Math.random()*2+2,
 	HP:Math.random()*300+400
@@ -1630,24 +1630,6 @@ oFlagZombie = InheritO(oZombie, {
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
                             p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && p.BoomDie();
-                        }
-                    }
-                }
-            },[a])
-            }
-        },
-	bedevilAct: function(a){
-            if(a.HP <= 70){
-            oSym.addTask(100,function(a){
-                PlayAudio("explosion");
-                let R = (a.R - 1) || 0,
-                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC($(a.id).offsetLeft + 80);
-                for(let i = R;i <= RM;i++){
-                    for(let j = C - 1;j <= C + 1;j++){
-                        for(let k = 0;k <= 3;k++){
-                            let p = oZ.getArZ(a.pixelLeft,oS.W,a.R);;
-                            p && $(p.id) && p.ExplosionDie();
                         }
                     }
                 }
@@ -1947,10 +1929,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
-        },
-	PrivateAttack:function(){
-            this.HP += 60;
-    }, 
+	},
         PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
@@ -1992,7 +1971,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) && oSym.addTask(30,arguments.callee,[a])
+            !a.isDie && !a.bedevil&&(a.HP > 60) && oSym.addTask(30,arguments.callee,[a])
             },[a]);
             }
         if(a.OrnHP<= 0){
@@ -3283,7 +3262,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) &&  (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) &&!a.bedevil&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
@@ -4929,7 +4908,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) &&  (a.PZ=1)&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) && !a.bedevil&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
