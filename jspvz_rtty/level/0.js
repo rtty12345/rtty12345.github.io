@@ -49,7 +49,7 @@ oS.Init({
 		oGT.On("Exit-Level", () => (TitleStart = false), true);
 		f2();
 
-
+/*
 		(function() {
 			//游戏初始页面的气球僵尸上下浮动
 			var animUp = function(y) {
@@ -67,5 +67,6 @@ oS.Init({
 			animUp(35);
 		}
 		)();
+  */
 	}
 });
