@@ -1043,6 +1043,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b.TurnLeft(b)
 	},
 	Summon: function(d, c) {
+		AppearTombstones(6, 9,5);
 		d.LostHeadGif = 16;
 		var a = d.EleBody,
 		b = d.ChkActs;
