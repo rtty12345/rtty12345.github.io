@@ -1,4 +1,4 @@
-oS。Init({
+oS.Init({
 	PicArr: function() {
 		var b = $User.Browser.IE6 ? 8 : 32
 		  ， a = "images/interface/";
@@ -58,7 +58,7 @@ oS。Init({
 					(y < -19 ? animDown : animUp)(y)
 				}, [y]);
 			}
-			  , animDown = function(y) {
+			  ， animDown = function(y) {
 				$('dBalloonZombie') && ($('dBalloonZombie').style.top = (y += 1.1) + 'px');
 				oSym.addTask(4, function(y) {
 					(y > 34 ? animUp : animDown)(y)
