@@ -3152,7 +3152,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			k.JudgeAttack();
 			k.Attack=800
 		},
-		oP.SetTimeoutTomZombie([oNewspaperZombie]);																																						    
+		oP.SetTimeoutTomZombie([oNewspaperZombie])																																				    
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	},
 			NormalAttack1: function(c, b) {
