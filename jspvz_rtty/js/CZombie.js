@@ -3005,6 +3005,40 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
+			NormalDie: function() {
+			var c = this;
+			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
+			oSym.addTask(250, ClearChild, [c.Ele]);
+			c.HP = 0;
+			delete $Z[c.id];
+                        oP.SetTimeoutTomZombie([oNewspaperZombie]);
+			c.PZ && oP.MonPrgs()
+		},
+		ExplosionDie: function() {
+			var c = this;
+			c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
+			oSym.addTask(300, ClearChild, [c.Ele]);
+			c.HP = 0;
+			delete $Z[c.id];
+			oP.SetTimeoutTomZombie([oNewspaperZombie]);
+			c.PZ && oP.MonPrgs()
+		},
+		DisappearDie: function() {
+			ClearChild(this.Ele);
+			this.HP = 0;
+			delete $Z[this.id];
+			oP.SetTimeoutTomZombie([oNewspaperZombie]);
+			this.PZ && oP.MonPrgs()
+		},
+		CrushDie: function() {
+			var c = this;
+			c.GoingDieHead(c.id, c.PicArr, c);
+			ClearChild(c.Ele);
+			c.HP = 0;
+			delete $Z[c.id];
+			oP.SetTimeoutTomZombie([oNewspaperZombie]);
+			c.PZ && oP.MonPrgs()
+		},
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
 		if (!e.beAttacked) {
@@ -3111,7 +3145,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
  		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
  	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		oP.SetTimeoutTomZombie([oNewspaperZombie]);
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
 			return 1
 		},
