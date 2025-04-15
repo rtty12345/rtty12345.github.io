@@ -3111,6 +3111,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
  		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
  	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
+		oP.SetTimeoutTomZombie([oNewspaperZombie]);
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
 			return 1
 		},
@@ -3152,7 +3153,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			k.JudgeAttack();
 			k.Attack=800
 		},
-		oP.SetTimeoutTomZombie([oNewspaperZombie])																																				    
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	},
 			NormalAttack1: function(c, b) {
