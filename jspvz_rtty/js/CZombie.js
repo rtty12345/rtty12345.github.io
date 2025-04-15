@@ -1043,7 +1043,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b.TurnLeft(b)
 	},
 	Summon: function(d, c) {
-		AppearTombstones(5, 9,2);
+		AppearTombstones(5, 9,Math.round(Math.random()*1+1));
 		d.LostHeadGif = 16;
 		var a = d.EleBody,
 		b = d.ChkActs;
@@ -3004,40 +3004,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			c.GoingDieHead(e, c.PicArr, c);
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
-		},
-			NormalDie: function() {
-			var c = this;
-			oP.SetTimeoutTomZombie([oNewspaperZombie]);	
-			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
-			oSym.addTask(250, ClearChild, [c.Ele]);
-			c.HP = 0;
-			delete $Z[c.id];
-			c.PZ && oP.MonPrgs()
-		},
-		ExplosionDie: function() {
-			var c = this;
-			oP.SetTimeoutTomZombie([oNewspaperZombie]);
-			c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
-			oSym.addTask(300, ClearChild, [c.Ele]);
-			c.HP = 0;
-			delete $Z[c.id];
-			c.PZ && oP.MonPrgs()
-		},
-		DisappearDie: function() {
-			oP.SetTimeoutTomZombie([oNewspaperZombie]);
-			ClearChild(this.Ele);
-			this.HP = 0;
-			delete $Z[this.id];
-			this.PZ && oP.MonPrgs()
-		},
-		CrushDie: function() {
-			var c = this;
-			oP.SetTimeoutTomZombie([oNewspaperZombie]);
-			c.GoingDieHead(c.id, c.PicArr, c);
-			ClearChild(c.Ele);
-			c.HP = 0;
-			delete $Z[c.id];
-			c.PZ && oP.MonPrgs()
 		},
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
