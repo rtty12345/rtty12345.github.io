@@ -2963,6 +2963,15 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	CanPass: function(d, c) {
 		return c
 	},
+	ChkActs: function(h, f, j, e) {
+            var d, c, g;
+            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
+                R: f,
+                ar: [oS.R - 1],
+                CustomTop: 400 - h.height + h.GetDY()
+            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+            return g
+        },
 	bedevil: function() {},
 	getbedevil: function() {},
 	GoingDie: function(b) {
@@ -3005,6 +3014,12 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
+	PrivateAct:function(a){
+            if(!a.bool){
+		oP.SetTimeoutTomZombie([oNewspaperZombie]);
+		a.bool=1;
+		    }
+	},
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
 		if (!e.beAttacked) {
