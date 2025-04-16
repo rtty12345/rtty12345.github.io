@@ -3016,7 +3016,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		},
 	PrivateAct:function(a){
             if(!a.bool){
-	        for (let i = 0; i <= 2; i++) {
+	        for (let i = 0; i <= 1; i++) {
                 oP.SetTimeoutTomZombie([oNewspaperZombie]);
 		a.bool=1;
               }
