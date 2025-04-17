@@ -3022,6 +3022,14 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
               }
 	}
 	},
+	Birth: function() {
+            var c = this;
+            $Z[c.id] = c;
+            oZ.add(c);
+            c.BirthCallBack(c);
+	    AppearTombstones(8,9,1);
+            c.PrivateBirth && c.PrivateBirth(c);
+        },
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
 		if (!e.beAttacked) {
