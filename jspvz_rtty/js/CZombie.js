@@ -2937,9 +2937,9 @@ getSlowPea1:function(c, a, b) {
 oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
-	OrnHP:500,
+	OrnHP:600,
 	Lvl: 6,
-	HP:1800,
+	HP:1500,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2956,7 +2956,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（500）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸</p>仅在冒险模式第三大关出现',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -3016,7 +3016,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		},
 	PrivateAct:function(a){
             if(!a.bool){
-	        for (let i = 0; i <= 1; i++) {
+	        for (let i = 0; i <= 0; i++) {
                 oP.SetTimeoutTomZombie([oNewspaperZombie]);
 		a.bool=1;
               }
