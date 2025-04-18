@@ -1945,7 +1945,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
                 a[i].Die();
-                b && b.HP && oSym.addTask(1000,arguments.callee,[b]);
+                b && b.HP && oSym.addTask(500,arguments.callee,[b]);
             },[b]))
         },
 PlayNormalballAudio: function() {
