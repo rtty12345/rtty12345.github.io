@@ -1931,53 +1931,22 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
-        PrivateBirth: function(a){
-            let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/Repeater/Repeater.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
-            z.appendChild(pea);
-        },
-       PrivateAct: function(a){
-            if(!a.bool){
-            a.bool = 1;
-            oSym.addTask(125,function(a){
-            let z = $(a.id);
-            let div = $n("div");
-            let d = "Pea" + Math.random();
-            div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB00.gif">';
-            EditEle(div,0,{
-                position:"absolute",
-                zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
-            },EDPZ,0)
-            oSym.addTask(1,function(z,d,a){
-                try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
-                for(let i = 3;i >= 0;i--){
-                    for(let j = 1;j <= C;j++){
-                        let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno"  && p.EName != "oLilyPad"&& p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
-                        p && (p.canEat) && (p.HP <= 0) && p.Die();
+        PrivateAct:function(b){
+            !b.num && (b.num = 1,oSym.addTask(1000,function(b){
+                let a = [],
+                    d = "boom" + Math.random();
+                for(let i in oGd.$){
+                    let p = oGd.$[i];
+                    if(p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains"){
+                        a.push(oGd.$[i]);
                     }
                 }
-                if($(d).offsetLeft <= 0){
-                    ClearChild($(d));
-                    $(d).isDie = true;
-                }
-                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
-                }catch(e){
-                }
-            },[z,d,a]);
-            !a.isDie &&(a.HP > 60) && oSym.addTask(30,arguments.callee,[a])
-            },[a]);
-            }
-        if(a.OrnHP<= 0){
-		a.Speed=8;
-                }
+                let i = Math.round(Math.random()*0+a.length-1);
+                let l = GetX(a[i].C) - 80,
+                    t = GetY(a[i].R) - 80;
+                a[i].Die();
+                b && b.HP && oSym.addTask(1000,arguments.callee,[b]);
+            },[b]))
         },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
