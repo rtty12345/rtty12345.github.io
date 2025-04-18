@@ -847,26 +847,6 @@ oGatlingPea1= InheritO(CPlants, {
 	getTriggerR: function(a) {
 		return [1, oS.R]
 	},
-	getTriggerRange: function(e, g, f) {
-		var a = this.R,
-		b = GetY(a),
-		c = oS.W,
-		j = this.ArFlyTime,
-		h = this.ArHitX,
-		i,
-		d = 0.5 * (g + f); ! j && (j = this.ArFlyTime = {},
-		h = this.ArHitX = {});
-		switch (true) {
-		case e < a: j[e] = [(i = b - GetY(e)) / 5, i / 3];
-			h[e] = [d, d + i / 3 * 4];
-			return [[100, c, 0]];
-		case e == a: return ([[100, g + 25, 4]]);
-		default:
-			j[e] = [(i = GetY(e) - b) / 5, i / 3];
-			h[e] = [d, d + i / 3 * 4];
-			return [[100, c, 0]]
-		}
-	},
 	PrivateBirth: function(d) {
 		var c = d.pixelLeft + 38,
 		b = c - 15,
