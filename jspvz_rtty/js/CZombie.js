@@ -1945,13 +1945,13 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
                 a[i].Die();
-                b && b.HP && oSym.addTask(500,arguments.callee,[b]);
+                b && b.HP && oSym.addTask(700,arguments.callee,[b]);
             },[b]))
         },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">失去铁桶后狂暴，发射豌豆，双倍伤害</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">使某些植物不明不白的死去</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
 	PicArr: {
@@ -2098,7 +2098,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
-	HP: 600,
+	HP: 1000,
 	width:348,
 	height: 218,
 	OSpeed: 5,
@@ -2406,7 +2406,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
 	Lvl: 4,
-	HP:500,
+	HP:400,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -2423,7 +2423,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（500）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后8倍</font><br>速度：正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为900（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（400）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后8倍</font><br>速度：正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为900（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -2907,7 +2907,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
-	Lvl: 6,
+	Lvl: 10,
 	HP:1500,
 	Altitude:1,
 	LostPaperGif: 13,
@@ -3040,7 +3040,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit2(g,200,0), h.JudgeAttackH())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,200,0), h.JudgeAttackH())
 			},
 			[d, c])
 		},
@@ -3051,7 +3051,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit2(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
