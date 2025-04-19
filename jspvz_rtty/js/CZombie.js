@@ -1937,7 +1937,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             this.PrivateAttack && this.PrivateAttack(this)
 	},
         PrivateAct1:function(b){
-            !b.num && (b.num = 1,oSym.addTask(1000,function(b){
+            !b.num && (b.num = 1,oSym.addTask(2500,function(b){
                 let a = [],
                     d = "boom" + Math.random();
                 for(let i in oGd.$){
@@ -1950,7 +1950,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
                 a[i].Die();
-                b && b.HP && oSym.addTask(700,arguments.callee,[b]);
+                b && b.HP && oSym.addTask(1500,arguments.callee,[b]);
             },[b]))
         },
 PlayNormalballAudio: function() {
@@ -2125,7 +2125,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/PoleVaultingZombie.png", a + "0.gif", a + "PoleVaultingZombie.gif", a + "PoleVaultingZombieAttack.gif", a + "PoleVaultingZombieLostHead.gif", a + "PoleVaultingZombieLostHeadAttack.gif", a + "PoleVaultingZombieHead.gif" + $Random, a + "PoleVaultingZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "PoleVaultingZombieWalk.gif", a + "PoleVaultingZombieLostHeadWalk.gif", a + "PoleVaultingZombieJump.gif", a + "PoleVaultingZombieJump2.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["polevault", "grassstep"],
-	Produce: '撑杆僵尸可以跳N格<p>韧性：<font color="#FF0000">中(600)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+	Produce: '撑杆僵尸可以跳N格<p>韧性：<font color="#FF0000">中(1000)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
         getShadow: function(a) {
             return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
         },
@@ -3653,7 +3653,9 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	getHit1: OrnIZombies.prototype.getHit1,
 	getHit2: OrnIZombies.prototype.getHit2,
 	getHit3: OrnIZombies.prototype.getHit3,
-	PrivateAct:oConeheadZombie.prototype.PrivateAct,
+	PrivateAct1:oConeheadZombie.prototype.PrivateAct1,
+	PrivateAct2:oConeheadZombie.prototype.PrivateAct2,
+	PrivateBirth:oConeheadZombie.prototype.PrivateBirth,
 }),
 oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	EName: "oDuckyTubeZombie3",
@@ -3666,7 +3668,8 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
 	PrivateBirth:oBucketheadZombie.prototype.PrivateBirth,
-	PrivateAct:oBucketheadZombie.prototype.PrivateAct,
+	PrivateAct1:oBucketheadZombie.prototype.PrivateAct1,
+	PrivateAct2:oBucketheadZombie.prototype.PrivateAct2,
 	PrivateAttack:oBucketheadZombie.prototype.PrivateAttack,
 	AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 	PicArr: (function() {
@@ -4077,6 +4080,12 @@ oZomboni = function() {
 			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
                             p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
 			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGatlingPea")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
+			if(a.isDie){
+				oSym.addTask(3000,p&&($(p.id))&&($(p.id).style.opacity=1),
+				p&&($(p.id))&&(p.NormalAttack=$(p.id).prototype.NormalAttack),
+				p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGatlingPea")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=$(p.id).prototype.getHurt),
+				[a])
+			}
                         }
                     }
                 }
@@ -4165,6 +4174,7 @@ oZomboni = function() {
 			b.EleBody.src = b.PicArr[b.DieGif] + Math.random();
 			oSym.addTask(70, ClearChild, [b.Ele]);
 			b.HP = 0;
+			this.isDie = 1;
 			delete $Z[b.id];
 			b.JudgeIce();
 			b.PZ && oP.MonPrgs()
@@ -4173,6 +4183,7 @@ oZomboni = function() {
 			var b = this;
 			ClearChild(b.Ele);
 			b.HP = 0;
+			this.isDie = 1;
 			delete $Z[b.id];
 			b.JudgeIce();
 			b.PZ && oP.MonPrgs()
@@ -4182,6 +4193,7 @@ oZomboni = function() {
 			b.EleBody.src = b.PicArr[b.BoomDieGif] + Math.random();
 			oSym.addTask(300, ClearChild, [b.Ele]);
 			b.HP = 0;
+			this.isDie = 1;
 			delete $Z[b.id];
 			b.JudgeIce();
 			b.PZ && oP.MonPrgs()
