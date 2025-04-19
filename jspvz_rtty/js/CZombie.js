@@ -4080,12 +4080,10 @@ oZomboni = function() {
 			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
                             p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
 			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGatlingPea")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
-			if(a.isDie){
-				oSym.addTask(3000,p&&($(p.id))&&($(p.id).style.opacity=1),
+			a.isDie&&oSym.addTask(3000,p&&($(p.id))&&($(p.id).style.opacity=1),
 				p&&($(p.id))&&(p.NormalAttack=$(p.id).prototype.NormalAttack),
 				p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGatlingPea")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=$(p.id).prototype.getHurt),
 				[a])
-			}
                         }
                     }
                 }
@@ -4170,30 +4168,30 @@ oZomboni = function() {
 		},
 		NormalDie: function() {
 			var b = this;
+			this.isDie = 1;
 			PlayAudio("explosion");
 			b.EleBody.src = b.PicArr[b.DieGif] + Math.random();
 			oSym.addTask(70, ClearChild, [b.Ele]);
 			b.HP = 0;
-			this.isDie = 1;
 			delete $Z[b.id];
 			b.JudgeIce();
 			b.PZ && oP.MonPrgs()
 		},
 		DisappearDie: function() {
+			this.isDie = 1;
 			var b = this;
 			ClearChild(b.Ele);
 			b.HP = 0;
-			this.isDie = 1;
 			delete $Z[b.id];
 			b.JudgeIce();
 			b.PZ && oP.MonPrgs()
 		},
 		ExplosionDie: function() {
+			this.isDie = 1;
 			var b = this;
 			b.EleBody.src = b.PicArr[b.BoomDieGif] + Math.random();
 			oSym.addTask(300, ClearChild, [b.Ele]);
 			b.HP = 0;
-			this.isDie = 1;
 			delete $Z[b.id];
 			b.JudgeIce();
 			b.PZ && oP.MonPrgs()
