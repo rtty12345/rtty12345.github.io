@@ -812,7 +812,7 @@ oGatlingPea= InheritO(oPeashooter, {
 	BoomDie:function(){
 		var b =this,
 		c = b.id;
-		c.opacity=0.1;
+		b.opacity=0.1;
 		b.canEat=0;
 		b.HP=0;
 		b.NormalAttack=function(){};
