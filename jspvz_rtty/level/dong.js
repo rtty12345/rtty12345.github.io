@@ -1,37 +1,62 @@
 oS.Init({
-    PName: [oPotatoMine,oSpikeweed,oStarfruit,oTallNut,oSunFlower,oPeashooter,oGloomShroom,oFumeShroom,oSnowPea,oGatlingPea1,oTorchwood], // 植物名称数组
-    ZName: [oNewspaperZombie,oNewspaperZombie2,oDancingZombie,oConeheadZombie1], // 僵尸名称数组
+    PName: [oGloomShroom,oSunFlower,oGarlic,oPumpkinHead,oRepeater,oSpikeweed,oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,oSpikerock,oSpiltPea,oSquash], // 植物名称数组
+    ZName: [oZomboni,oNewspaperZombie2], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
-    SunNum: 9900, // 初始阳光数量
+    SunNum:3000, // 初始阳光数量
     BrainsNum: 5, // 初始大脑数量
     ProduceSun: false, // 是否产生阳光
     CardKind: 1, // 卡片种类
     DKind: 0, // D种类
-    LevelName:'五列小阵', // 关卡名称
+    LevelName:'test', // 关卡名称
     LvlEName: "ImZombie", // 关卡E名称
     LoadMusic: "Mountains", // 加载音乐
     StartGameMusic: "Mountains", // 开始游戏音乐
     ArP: { // ArP对象
-        ArC: [1,8], // ArC数组
-        ArR: [1,5], // ArR数组
+        ArC: [1, 0], // ArC数组
+        ArR: [1, 5], // ArR数组
         Auto: 1, // 是否自动
         P: [
-		[0, 1,5],//植物，列，行
-		[1,9,5],
-		[9,1,3],
-		[9,4,1],
-		[3,3,5],
-		[3,2,5],
-		[3,4,5],
-		[3,5,5],
-		[3,6,5],
-		[3,7,5],
-		[3,8,5],
-		[5,1,2],
-		[5,2,2],
-		[10,3,2]
+		[10, 1, 1],//植物，列，行
+                [10, 2, 1],
+		[10, 3, 1],
+		[10,4, 1],
+		[10, 5, 1],
+		[10, 6, 1],
+		[4, 7, 1],
+		[3, 7, 1],
+		[7, 8, 1],
+		[11, 9, 1],
+		[12, 1, 2],
+		[12, 2, 2],
+		[12, 3, 2],
+		[12, 4, 2],
+		[12, 5, 2],
+		[12, 6, 2],
+		[12, 7, 2],
+		[12, 8, 2],
+		[10, 2, 3],
+         	[12, 9, 2],
+		[10, 3, 3],
+		[9, 4, 3],
+		[7, 5, 3],
+		[5, 6, 3],
+                [0 ,7, 3],
+		[11, 9, 3],
+		[10, 1, 4],
+		[1, 2, 4],
+		[1, 3, 4],
+		[1, 4, 4],
+		[1, 5, 4],
+		[3, 1, 5],
+                [4, 1, 5],
+		[3, 2, 5],
+		[3, 3, 5],
+		[3, 4, 5],
+		[3, 5, 5],
+		[3, 6, 5],
+                [3,7, 5]
 	] // P数组
     },
     // 自动增长谜题
