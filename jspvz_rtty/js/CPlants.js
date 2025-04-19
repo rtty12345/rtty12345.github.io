@@ -809,7 +809,6 @@ oGatlingPea= InheritO(oPeashooter, {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
 	},
-	getHurt:function(){},
 	BoomDie:function(){
 		var b =this,
 		c = b.id;
