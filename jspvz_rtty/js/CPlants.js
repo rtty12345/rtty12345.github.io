@@ -779,9 +779,8 @@ oGatlingPea= InheritO(oPeashooter, {
 	height: 84,
 	beAttackedPointR: 68,
 	SunNum: 600,
-	HP:Infinity,
-	canEat:0,
-	BKind:-1,
+	HP:1000,
+	canEat:1,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
@@ -811,8 +810,20 @@ oGatlingPea= InheritO(oPeashooter, {
 		return c && c.EName == "oRepeater"
 	},
 	getHurt:function(){},
-	BoomDie:function(){},
-	Die:function(){},
+	BoomDie:function(){
+		var b =this;
+		b.opacity=0.1;
+		b.canEat=0;
+		b.HP=0;
+		b.NormalAttack=function(){};
+	},
+	Die:function(){
+		var b =this;
+		b.opacity=0.1;
+		b.canEat=0;
+		b.HP=0;
+		b.NormalAttack=function(){};
+	},
 	NormalAttack1:oPeashooter1.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
