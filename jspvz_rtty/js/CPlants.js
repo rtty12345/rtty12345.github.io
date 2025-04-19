@@ -723,15 +723,24 @@ oRepeater = InheritO(oPeashooter, {
 		[this.id,Math.round(Math.random()*2+1)])
 	}	
 }),
-oSnowPea1= InheritO(oPeashooter, {
-	EName: "oSnowPea",
-	CName: "寒冰射手",
-	SunNum: 225,
-	BKind: 1,
-	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
-	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
-	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果",
-	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果。<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
+oPeashooter1= InheritO(CPlants, {
+	EName: "oPeashooter1",
+	CName: "豌豆射手",
+	width: 71,
+	height: 71,
+	beAttackedPointR: 51,
+	SunNum:150,
+	BKind: 0,
+	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
+	PicArr: ["images/Card/Plants/Peashooter.png", "images/Plants/Peashooter/0.gif", "images/Plants/Peashooter/Peashooter.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
+	Tooltip: "向敌人射出豌豆",
+	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（10～100）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
+	PrivateBirth: function(a) {
+		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
+	},
+	PrivateDie: function(a) {
+		a.BulletEle = null
+	},
 	NormalAttack: function() {
 		var a = this,
 		b = "PB" + Math.random();
@@ -749,18 +758,18 @@ oSnowPea1= InheritO(oPeashooter, {
 		function(f, j, h, c, n, i, m, k, o, g) {
 			var l, e = GetC(n),
 			d = oZ["getZ" + c](n, i);
-			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 100), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
+			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =50, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
-				0 : "getSnowPea",
-				1 : "getSnowPea"
+				0 : "getPea",
+				1 : "getFirePea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
 				width: "52px",
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),20,0,a.AttackedLX,a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),20,0,a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oGatlingPea= InheritO(oPeashooter, {
@@ -774,10 +783,10 @@ oGatlingPea= InheritO(oPeashooter, {
 	canEat:0,
 	BKind:-1,
 	coolTime: 50,
-	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次发射四颗真正的冰豌豆<br>(需要双发射手)，120秒后成长为霰弹枪射手，期间不会受到任何形式伤害",
-	Produce: '加特林可以一次发射四颗冰豌豆，120秒后成长为霰弹枪射手，期间不会受到任何形式的伤害<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
+	Tooltip: "一次发射4~6颗豌豆<br>(需要双发射手)，120秒后成长为霰弹枪射手，期间不会受到任何形式伤害",
+	Produce: '加特林可以一次发射4~6颗豌豆，120秒后成长为霰弹枪射手，期间不会受到任何形式的伤害<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	PrivateBirth: function(c) {
 		var b = c.AttackedLX,
 		a = b - 60;
@@ -804,7 +813,7 @@ oGatlingPea= InheritO(oPeashooter, {
 	getHurt:function(){},
 	BoomDie:function(){},
 	Die:function(){},
-	NormalAttack1:oSnowPea1.prototype.NormalAttack,
+	NormalAttack1:oPeashooter1.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(15,
@@ -812,7 +821,7 @@ oGatlingPea= InheritO(oPeashooter, {
 			var c = $P[d];
 			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,3])
+		[this.id,Math.round(Math.random()*2+3)])
 	},
 	Die1: function(a) {
 		var b = this,
