@@ -1893,7 +1893,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>特性：冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约4秒解除此形态<font color="#FF0000"></font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
+	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>特性：有概率冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约4秒解除此形态<font color="#FF0000"></font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
 oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
@@ -1936,7 +1936,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
-        PrivateAct:function(b){
+        PrivateAct1:function(b){
             !b.num && (b.num = 1,oSym.addTask(1000,function(b){
                 let a = [],
                     d = "boom" + Math.random();
