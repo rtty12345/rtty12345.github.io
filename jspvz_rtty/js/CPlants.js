@@ -1819,7 +1819,9 @@ oSpikerock = InheritO(oSpikeweed, {
 			break;
 		case 1:
 			f.getHit2(f, 45, 0);
-			!Math.round(Math.random()*45+0)&& f.getbedevil(114514);
+			if(Math.round(Math.random()*50+0)=50){
+				f.getbedevil(114514);
+			}
 		}
 		switch (true) {
 		case((d = e.HP -= b) < 1) : e.Die();
