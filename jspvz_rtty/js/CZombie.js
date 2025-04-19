@@ -1582,7 +1582,8 @@ oZombie2 = InheritO(oZombie, {
 oZombie3= InheritO(oZombie, {
 	EName: "oZombie3",
 	Speed:Math.random()*2+2,
-	HP:Math.random()*300+400
+	HP:Math.random()*300+400,
+	Lvl:2
 },
 {
 	PicArr: {
@@ -1860,7 +1861,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
 	OrnHP: 500,
-	Lvl: 3,
+	Lvl: 5,
 	SunNum: 125,
 	StandGif: 11,
 	PicArr: (function() {
@@ -1869,7 +1870,11 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		return ["images/Card/Zombies/ConeheadZombie.png", b + "0.gif", b + "ConeheadZombie.gif", b + "ConeheadZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Zombie.gif", a + "ZombieAttack.gif", b + "1.gif"]
 	})(),
 	AudioArr: ["plastichit"],
-	PrivateAct:function(a){
+	PrivateBirth: function(a){
+            a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
+        },
+	PrivateAct2:function(){},
+	PrivateAct1:function(a){
             if(!a.bool){
                 a.Speed =a.oSpeed=5;
                 var C = GetC(a.X + 80);
