@@ -1873,7 +1873,22 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	PrivateBirth: function(a){
             a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
         },
-	PrivateAct2:function(){},
+	PrivateAct2: function(a){
+            oSym.addTask(500,function(a){
+                PlayAudio("explosion");
+                let R = (a.R - 1) || 0,
+                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
+                    C = GetC($(a.id).offsetLeft + 80);
+		for(let i = R;i <= RM;i++){
+                    for(let j = C - 1;j <= C + 1;j++){
+                        for(let k = 0;k <= 3;k++){
+			let z = oZ.getArZ(0,oS.W,a.R);
+                           z[i].HP+=z[i].HP*0.2;
+                        }
+                    }
+                }
+            },[a])
+        },
 	PrivateAct1:function(a){
             if(!a.bool){
                 a.Speed =a.oSpeed=5;
