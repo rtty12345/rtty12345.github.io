@@ -1954,6 +1954,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             },[b]))
         },
 	 PrivateAct2:function(a){
+		 if(!a.hp){
+                 a.hp=true;
             oSym.addTask(500,function(a){
                 PlayAudio("grassstep");
                 let R = (a.R - 1) || 0,
@@ -1963,12 +1965,13 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 		for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
-                           z[i].HP+=z[i].HP*0.2;
+                           z[i,j,k].HP+=z[i].HP*0.2;
+			a.hp=false;
                         }
                     }
                 }
-	    !a.isDie && (a.HP > 80) && oSym.addTask(500,arguments.callee,[a]);
             },[a])
+		 }
         },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
