@@ -1959,10 +1959,10 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let R = (a.R - 1) || 0,
                     RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
                     C = GetC($(a.id).offsetLeft + 80);
+		    z = oZ.getArZ(0,oS.W,a.R);
 		for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
-			let z = oZ.getArZ(0,oS.W,a.R);
                            z[i].HP+=z[i].HP*0.2;
                         }
                     }
