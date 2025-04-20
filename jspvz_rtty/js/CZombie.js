@@ -1965,7 +1965,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 		for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
-                           z[i,j,k].HP+=z[i].HP*0.2;
+                           z[i,j,k].HP+=z[i,j,k].HP*0.2;
 			a.hp=false;
                         }
                     }
