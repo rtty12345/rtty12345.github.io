@@ -184,7 +184,7 @@ var CZombies = function(b, a) {
                 this.OrnHP-=Attack;
             }else if(this.OrnHP<1){
                 if(this.HP>Attack){
-                    this.HP-=Attack;
+                    this.HP-Attack;
                 }else if(this.HP<=Attack){
                     this[howDie](this);
                 }
@@ -2457,7 +2457,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	},
 	getExplosion: function(){
             if(this.OrnHP >= 1){
-                this.OrnHP=0;
+                this.getHit1(this,200)
 		this.HP=900;
 	    }
 	    else{
