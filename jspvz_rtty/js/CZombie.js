@@ -667,29 +667,46 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 			CustomTop: 400 - g.height + g.GetDY()
 		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
 		g.ChkSpeed(g);
-		this.PrivateAct(this)
+		this.CheckBoomFire(this);
 		return f
 	},
-	PrivateAct:function(a) {
-            if(oS.BoomDancer && !a.num){
-                a.num = 1;
-                oSym.addTask(150,function(a){
-                    let d = "fire" + Math.random(),
-                        top = (GetY(a.R) - 120);
-                    PlayAudio("jalapeno");
-                    NewImg(d,"images/Plants/Jalapeno/JalapenoAttack.gif","position:absolute;width:755px;height:131px;left:120px;top:"+top+"px",EDPZ,0)
-                    for(let i = 1;i <= oS.C;i++){
-                        for(let j = 0;j <= 3;j++){
-                            let p = oGd.$[a.R+"_"+i+"_"+j];
-                            p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.HP-=75);
-			    p &&$(p.id)&& (p.HP <= 0) && p.Die();
-                        }
-                    }
-                    oSym.addTask(135,ClearChild,[$(d)]);
-		    a.ExplosionDie(a)
-                },[a])
-            }
+CheckBoomFire: function (f) {
+      oSym.addTask(
+        1,
+        function (f) {
+          // 生成1到100之间的随机整数
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+          $Z[f.id] && randomNumber <= 100&& f.BoomFire(f.R);
+         oSym.addTask(100, arguments.callee, [f]);
         },
+        [f]
+      );
+    },
+    BoomFire: function (y) {
+      PlayAudio("jalapeno");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+      for (let i = 1; i <= oS.C; i++) {
+        for (let j = 0; j < 4; j++) {
+          let g = oGd.$[y + "_" + i + "_" + j];
+          g && g.BoomDie();
+        }
+      }
+      this.DisappearDie();
+    },
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
@@ -1422,7 +1439,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 		b = c.id;
 		c.AttackZombie = a.AttackZombie;
 		c.NormalAttack = a.NormalAttack;
-		c.OSpeed = 15; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 15);
+		c.OSpeed = 3.5; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 3.5);
 		c.getSnowPea = OrnNoneZombies.prototype.getSnowPea;
 		c.getFreeze = CZombies.prototype.getFreeze;
 		oSym.addTask(20,
@@ -1473,7 +1490,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie1).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new Math.round(Math.random()*1+0) ? oConeheadZombie1 : oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(150,
 					function() {
