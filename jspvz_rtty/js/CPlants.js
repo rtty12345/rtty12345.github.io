@@ -1448,8 +1448,11 @@ oWallNut = InheritO(CPlants, {
 	HurtStatus: 0,
 	getHurt: function(e, b, a) {
 		var c = this,
-		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= a) < 1 ? CustomSpecial(oHugeNutBowling,this.R,this.C): c.HP < 1334 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/WallNut/Wallnut_cracked2.gif") : c.HP < 2667 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/WallNut/Wallnut_cracked1.gif") : c.Die()
-	}
+		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= a) < 1 ? c.Die(): c.HP < 1334 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/WallNut/Wallnut_cracked2.gif") : c.HP < 2667 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/WallNut/Wallnut_cracked1.gif") : c.Die()
+	},
+	PrivateDie:function(){
+            CustomSpecial(oHugeNutBowing,this.R,this.C);
+        }
 }),
 oNutBowling = InheritO(CPlants, {
 	EName: "oNutBowling",
