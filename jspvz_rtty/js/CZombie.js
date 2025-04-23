@@ -1130,7 +1130,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 oDancingZombie1= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie1",
 	CName: "舞王僵尸",
-	HP:3000,
+	HP:1000,
 	BreakPoint: 1,
 	Lvl: 3,
 	StandGif: 9,
@@ -1490,7 +1490,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] =Math.round(Math.random()*1+0) ? new oConeheadZombie1 : new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(150,
 					function() {
