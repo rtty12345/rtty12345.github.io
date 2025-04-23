@@ -702,7 +702,8 @@ CheckBoomFire: function (f) {
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
-          g && g.BoomDie();
+          g && (g.HP-=100);
+	  g &&(g.HP<=0) &&g.Die(); 
         }
       }
       this.DisappearDie();
@@ -1134,7 +1135,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 	BreakPoint: 1,
 	Lvl: 3,
 	StandGif: 9,
-	SunNum: 400,
+	SunNum: 600,
 	beAttackedPointL: 40,
 	beAttackedPointR: 85,
 	width: 184,
