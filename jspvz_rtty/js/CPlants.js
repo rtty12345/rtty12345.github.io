@@ -2204,7 +2204,6 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	beAttackedPointR: 37,
 	SunNum: 175,
 	HP:1300,
-	Sleep:0,
 	Cry: 0,
 	ArZ: [],
 	Attacking: 0,
@@ -2224,6 +2223,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		e.PZ && Math.abs(e.ZX - b.MX) < 121 && e.beAttacked ? (b.ArZ.push(e.id), !b.Cry && (b.Cry = 1, $(a).childNodes[1].src = "images/Plants/ScaredyShroom/ScaredyShroomCry.gif", b.CryCheck(a))) : (e.R == b.R && !b.Cry && !b.Attacking && e.Altitude > 0 && e.Altitude < 3 && b.NormalAttack())
 	},
 	PrivateBirth: function(c) {
+	  CustomSpecial(oCoffeeBean,this.R,this.C)  
             try{
             if(!c.num){
             c.num = 1;
@@ -2826,7 +2826,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l]),oSym.addTask(700, ClearChild(i),[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
