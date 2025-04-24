@@ -1451,7 +1451,7 @@ oWallNut = InheritO(CPlants, {
 		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= a) < 1 ? c.Die(): c.HP < 1334 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/WallNut/Wallnut_cracked2.gif") : c.HP < 2667 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/WallNut/Wallnut_cracked1.gif") : c.Die()
 	},
 	PrivateDie:function(){
-            CustomSpecial(oHugeNutBowing,this.R,this.C);
+            CustomSpecial(oHugeNutBowling,this.R,this.C);
         }
 }),
 oNutBowling = InheritO(CPlants, {
@@ -1635,7 +1635,7 @@ oTallNut = InheritO(oWallNut, {
             var c = this,
                 d = $(c.id).childNodes[1];
             !(b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 2667 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 5333 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
-            e.getHit1(e,20,0);
+            e.getHit1(e,30,0);
         }
 }),
 oCherryBomb = InheritO(CPlants, {
@@ -1692,9 +1692,6 @@ oCherryBomb = InheritO(CPlants, {
         }
 }),
 
-
-		
-	 
 oJalapeno = InheritO(oCherryBomb, {
 	EName: "oJalapeno",
 	CName: "火爆辣椒",
@@ -1772,7 +1769,6 @@ oSpikeweed = InheritO(CPlants, {
 			break;
 		case 1:
 			d.getHit2(d, 20, 0);
-			!Math.round(Math.random()*45+0)&& d.bedevil(d);
 			c.Die();
 			break;
 		default:
@@ -1787,7 +1783,7 @@ oSpikeweed = InheritO(CPlants, {
 		return - 2
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[this.pixelLeft - 80, this.pixelRight + 80, 0]]
+		return [[this.pixelLeft - 160, this.pixelRight + 160, 0]]
 	},
 	TriggerCheck: function(i, h) {
 		var c = i.id,
@@ -1833,10 +1829,7 @@ oSpikerock = InheritO(oSpikeweed, {
 			f.flatTire();
 			break;
 		case 1:
-			f.getHit2(f, 45, 0);
-			if(Math.round(Math.random()*50+0)=50){
-				f.getbedevil(114514);
-			}
+			f.getHit2(f, 45, 0)
 		}
 		switch (true) {
 		case((d = e.HP -= b) < 1) : e.Die();
@@ -1893,7 +1886,7 @@ oSquash = InheritO(CPlants, {
 		b != 3 ? c.NormalAttack(c, d.id, d.ZX + d.Speed * 4 * (!d.WalkDirection ? -1 : 1) - 50) : (c.HP -= a) < 1 && c.Die()
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[b - 50, c + 80, 0]]
+		return [[b - 100, c + 160, 0]]
 	},
 	TriggerCheck: function(h, g, e) {
 		var c = h.ZX,
@@ -1947,7 +1940,7 @@ oChomper = InheritO(CPlants, {
 		return "top:" + (a.height - 22) + "px"
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[this.pixelLeft, c + 80, 0]]
+		return [[this.pixelLeft, c + 120, 0]]
 	},
 	TriggerCheck: function(a) {
 		this.AttackCheck2(a) && (this.canTrigger = 0, this.NormalAttack(this.id, a.id))
@@ -2009,7 +2002,7 @@ oFumeShroom = InheritO(CPlants, {
 	},
 	PrivateBirth: function(b) {
 		var a = b.id;
-		NewEle(a + "_Bullet", "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:" + b.AttackedRX + "px;top:" + (b.pixelTop + 5) + "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (b.zIndex + 1), 0, EDPZ)
+		NewEle(a + "_Bullet", "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:" + b.AttackedRX + "px;top:" + (b.pixelTop + 5) + "px;background:url(images/Plants/PB-10.gif);z-index:" + (b.zIndex + 1), 0, EDPZ)
 	},
 	PrivateDie: function(a) {
 		ClearChild($(a.id + "_Bullet"))
@@ -2026,7 +2019,7 @@ oFumeShroom = InheritO(CPlants, {
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
-		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 20);
+		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 40);
 		g.getSlow(g);
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
@@ -2114,8 +2107,8 @@ oGloomShroom = InheritO(oFumeShroom, {
 	},
 	getTriggerRange: function(c, d, e) {
 		var f = GetX(this.C),
-		b = this.MinX = f - 120,
-		a = this.MaxX = f + 120;
+		b = this.MinX = f - 200,
+		a = this.MaxX = f + 200;
 		return [[b, a, 0]]
 	},
 	getTriggerR: function(c) {
@@ -2163,12 +2156,13 @@ oPuffShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/PuffShroom.png", "images/Plants/PuffShroom/0.gif", "images/Plants/PuffShroom/PuffShroom.gif", "images/Plants/PuffShroom/PuffShroomSleep.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
 	AudioArr: ["puff"],
 	Tooltip: "向敌人发射短程孢子",
-	Produce: '小喷菇是免费的，不过射程很近，死后还能硬抗啃咬类僵尸。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和很多蘑菇一样，我只是把他们想象成童话和电影里的怪物。不过这次的经历已经让我大开眼界了。',
+	Produce: '小喷菇是免费的，不过射程很近<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和很多蘑菇一样，我只是把他们想象成童话和电影里的怪物。不过这次的经历已经让我大开眼界了。',
 	GetDX: CPlants.prototype.GetDX,
 	getTriggerRange: function(a, b, c) {
 		return [[b, Math.min(c + 250, oS.W), 0]]
 	},
 	PrivateBirth: function(a) {
+		this.WakeUp();
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
 	PrivateDie: function(a) {
@@ -2183,7 +2177,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 			id: c
 		},
 		0, EDPZ);
-		oSym.addTask(15,
+		oSym.addTask(10,
 		function(e) {
 			var d = $(e);
 			d && SetVisible(d)
@@ -2210,6 +2204,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	beAttackedPointR: 37,
 	SunNum: 175,
 	HP:1300,
+	Sleep:0,
 	Cry: 0,
 	ArZ: [],
 	Attacking: 0,
@@ -2279,7 +2274,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		function(k, e, f, g, h) {
 			var j = GetC(f),
 			i = oZ.getZ0(f, g);
-			i && i.Altitude == 1 ? (i.getPea(i, 20, 0), (SetStyle(e, {
+			i && i.Altitude == 1 ? (Math.round(Math.random()*1+0)?i.getPea(i,30,0):i.getSnowPea(i, 20, 0), (SetStyle(e, {
 				left: h + 38 + "px",
 				width: "52px",
 				height: "46px"
@@ -2324,7 +2319,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	height: 78,
 	beAttackedPointL: 10,
 	beAttackedPointR: 61,
-	SunNum: 75,
+	SunNum: 45,
 	coolTime: 30,
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
@@ -2624,10 +2619,10 @@ oSeaShroom = InheritO(oPuffShroom, {
 	height: 99,
 	beAttackedPointL: 10,
 	beAttackedPointR: 40,
-	coolTime: 30,
+	coolTime: 10,
 	BookHandBack: 3,
 	getTriggerRange: function(a, b, c) {
-		return [[b, Math.min(c + 250, oS.W), 0]]
+		return [[b, Math.min(c + 500, oS.W), 0]]
 	},
 	PicArr: ["images/Card/Plants/SeaShroom.png", "images/Plants/SeaShroom/0.gif", "images/Plants/SeaShroom/SeaShroom.gif", "images/Plants/SeaShroom/SeaShroomSleep.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
 	CanGrow: function(c, b, d) {
@@ -2662,7 +2657,7 @@ oPlantern = InheritO(CPlants, {
 		b = c.C;
 		oGd.$Plantern[a + "_" + b] = c.id;
 		NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
-		oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
 	},
 	InitTrigger: function() {},
 	PrivateDie: function(c) {
@@ -2831,7 +2826,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l]),oSym.addTask(700, ClearChild(i),[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
@@ -2895,7 +2890,7 @@ oBlover = InheritO(CPlants, {
 
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
-			oSym.addTask(2400 + 150, oGd.MoveFogLeft, []); // 24s后恢复
+			oSym.addTask(3600 + 150, oGd.MoveFogLeft, []); // 24s后恢复
 		}
 		
 		oSym.addTask(150, function(id) {
