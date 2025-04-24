@@ -1636,6 +1636,8 @@ oTallNut = InheritO(oWallNut, {
                 d = $(c.id).childNodes[1];
             !(b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 2667 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 5333 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
             e.getHit1(e,30,0);
+        },
+	PrivateDie:function(){
         }
 }),
 oCherryBomb = InheritO(CPlants, {
@@ -2107,8 +2109,8 @@ oGloomShroom = InheritO(oFumeShroom, {
 	},
 	getTriggerRange: function(c, d, e) {
 		var f = GetX(this.C),
-		b = this.MinX = f - 200,
-		a = this.MaxX = f + 200;
+		b = this.MinX = f - 150,
+		a = this.MaxX = f + 150;
 		return [[b, a, 0]]
 	},
 	getTriggerR: function(c) {
