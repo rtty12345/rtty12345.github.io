@@ -2004,7 +2004,7 @@ oFumeShroom = InheritO(CPlants, {
 	},
 	PrivateBirth: function(b) {
 		var a = b.id;
-		NewEle(a + "_Bullet", "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:" + b.AttackedRX + "px;top:" + (b.pixelTop + 5) + "px;background:url(images/Plants/PB-10.gif);z-index:" + (b.zIndex + 1), 0, EDPZ)
+		NewEle(a + "_Bullet", "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:" + b.AttackedRX + "px;top:" + (b.pixelTop + 5) + "px;background:url(images/Plants/FumeShroom/Fume.gif);z-index:" + (b.zIndex + 1), 0, EDPZ)
 	},
 	PrivateDie: function(a) {
 		ClearChild($(a.id + "_Bullet"))
@@ -2164,7 +2164,6 @@ oPuffShroom = InheritO(oFumeShroom, {
 		return [[b, Math.min(c + 250, oS.W), 0]]
 	},
 	PrivateBirth: function(a) {
-		this.WakeUp();
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
 	PrivateDie: function(a) {
