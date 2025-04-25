@@ -4586,13 +4586,11 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/JackinTheBoxZombie/";
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
-	RandomOpenBox: function(a) {
-		if(a.HP<=200){
-		function(c) {
+	RandomOpenBox: function(c) {
+			if(c.HP<=200){
 			var b = $Z[c];
 			b && b.beAttacked && b.OpenBox(c)
 		   }
-		}
 	},
 	OpenBox: function(b) {
 		var a = $Z[b];
