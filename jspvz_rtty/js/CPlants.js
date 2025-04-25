@@ -3075,7 +3075,15 @@ oFlowerVase = InheritO(CPlants, {
 					if (m.EName == "oJackinTheBoxZombie" && self.AutoJoker) m.OpenBox(m.id); // 如果是小丑僵尸，直接引爆爆炸
 				}, Value);
 				break;
+			case "bedevilZombie": // 生成僵尸
+				Value = new Value(), ++oP.NumZombies; // 创建僵尸对象 增加僵尸数量
 
+				// 生成僵尸
+				asyncInnerHTML(Value.CustomBirth(self.R, self.C, 0, "auto"), function(n, m) {
+					EDPZ.appendChild(n), m.Birth();m.bedevil(m);
+					if (m.EName == "oJackinTheBoxZombie" && self.AutoJoker) m.OpenBox(m.id); // 如果是小丑僵尸，直接引爆爆炸
+				}, Value);
+				break;
 			case "SunNum": // 生成阳光
 				if (Value > 500) AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, Value - 500, 0), Value = 500; // 大于五百的阳光直接生成一个大的
 				while (Value > 25) AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, 25, 0), Value -= 25; // 500 以内的，一个一个生成
