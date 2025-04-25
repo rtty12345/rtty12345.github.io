@@ -134,21 +134,6 @@ var CZombies = function(b, a) {
 			g.zIndex = k; (g.delayT = d) && (g.FreeSetbodyTime = oSym.Now);
 			return g.getHTML(e, g.X, h, k, "none", m || 0, g.GetDTop, g.PicArr[g.NormalGif])
 		},
-		 CustomZombies:function(h, e, b, z){
-        asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
-            EDPZ.appendChild(n);
-            m.Birth();
-            z && m.bedevil(m);
-            //document.write()
-        }, a)
-    }, 
- CustomZombie:function(h, e, b, z){
-        asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
-            EDPZ.appendChild(n);
-            m.Birth();
-            //document.write()
-        }, a)
-    }, 
 		BirthCallBack: function(f) {
 			var e = f.delayT,
 			d = f.id,
@@ -2965,7 +2950,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
-	Lvl: 10,
+	Lvl: 8,
 	HP:1500,
 	Altitude:1,
 	LostPaperGif: 13,
@@ -3241,7 +3226,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（800）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后4倍</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（1000）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后4倍</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -3283,7 +3268,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
         PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
-            oSym.addTask(125,function(a){
+            oSym.addTask(75,function(a){
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -4339,7 +4324,6 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	EName: "oDolphinRiderZombie",
 	CName: "海豚骑士僵尸",
 	HP: 700,
-	Lvl: 2,
 	BreakPoint: 167,
 	width: 282,
 	height: 210,
@@ -4887,7 +4871,6 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
-			CustomZombie(oNewspaperZombie3,this.R,this.C,0);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(600,function(a){a.bool=1},[a]);
 		    a.Attack=100;
