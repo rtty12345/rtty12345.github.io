@@ -4887,7 +4887,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
-			CustomZombie(oNewspaperZombie3,this.R,this.C);
+			CustomZombie(oNewspaperZombie3,this.R,this.C,0);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(600,function(a){a.bool=1},[a]);
 		    a.Attack=100;
