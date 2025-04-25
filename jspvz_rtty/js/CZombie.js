@@ -147,6 +147,21 @@ var CZombies = function(b, a) {
 			},
 			[d, c]) : SetBlock(c)
 		},
+		CustomZombies:function(h, e, b, z){
+         asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+             EDPZ.appendChild(n);
+             m.Birth();
+             z && m.bedevil(m);
+             //document.write()
+         }, a)
+     }, 
+  CustomZombie:function(h, e, b, z){
+         asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+             EDPZ.appendChild(n);
+             m.Birth();
+             //document.write()
+         }, a)
+     }, 
        Birth: function() {
             var c = this;
             $Z[c.id] = c;
@@ -4871,6 +4886,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
+			CustomZombie(oNewspaperZombie,this.R,this.C,0);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(600,function(a){a.bool=1},[a]);
 		    a.Attack=100;
