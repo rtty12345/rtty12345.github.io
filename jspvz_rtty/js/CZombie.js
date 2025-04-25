@@ -134,6 +134,21 @@ var CZombies = function(b, a) {
 			g.zIndex = k; (g.delayT = d) && (g.FreeSetbodyTime = oSym.Now);
 			return g.getHTML(e, g.X, h, k, "none", m || 0, g.GetDTop, g.PicArr[g.NormalGif])
 		},
+		 CustomZombies:function(h, e, b, z){
+        asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+            EDPZ.appendChild(n);
+            m.Birth();
+            z && m.bedevil(m);
+            //document.write()
+        }, a)
+    }, 
+ CustomZombie:function(h, e, b, z){
+        asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+            EDPZ.appendChild(n);
+            m.Birth();
+            //document.write()
+        }, a)
+    }, 
 		BirthCallBack: function(f) {
 			var e = f.delayT,
 			d = f.id,
@@ -4573,12 +4588,12 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
 	RandomOpenBox: function(a) {
-		oSym.addTask(Math.floor(Math.random() * 100) > 10? Math.floor(1400 + Math.random() * 500) : Math.floor(300 + Math.random() * 200),
+		if(a.HP<=200){
 		function(c) {
 			var b = $Z[c];
 			b && b.beAttacked && b.OpenBox(c)
-		},
-		[a])
+		   }
+		}
 	},
 	OpenBox: function(b) {
 		var a = $Z[b];
