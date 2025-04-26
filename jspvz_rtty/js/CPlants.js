@@ -177,7 +177,7 @@ oGraveBuster = InheritO(CPlants, {
 	Tooltip: "把它种在墓碑上用来吞噬墓碑",
 	Produce: '墓地苔用来吃掉墓碑。<p>使用方法：<font color="#FF0000">单次使用，只对墓碑生效。</font><br>特点：<font color="#FF0000">吞噬墓碑，吞噬完后掉落50阳光</font></p>尽管墓地苔的外表十分吓人，但他想要所有人都知道，其实他喜欢小猫咪，而且利用业余时间，在一家僵尸康复中心做志愿者。“我只是在做正确的事情，”他说。',
 	PrivateBirth: function(a) {
-		oSym.addTask(2000,CustomSpecial(oGraveBuster,this.R,this.C),[a])
+		oSym.addTask(2000,CustomSpecial,[oGraveBuster,this.R,this.C]);
 		PlayAudio("gravebusterchomp");
 		oSym.addTask(120,
 		function(b) {
