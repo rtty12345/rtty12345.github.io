@@ -3,13 +3,13 @@
         关卡植物: 5大喷菇 3南瓜头 3魅惑菇 4土豆地雷 8向日葵 4三线射手 3机枪射手 3仙人掌 10荷叶
 */
 oS.Init({
-        PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oLilyPad,oRepeater,oJalapeno,oGarlic],
-        ZName: [oZombie,oBucketheadZombie,oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oPoleVaultingZombie, oBalloonZombie,oFlagZombie,oSnorkelZombie,oDolphinRiderZombie],
+        PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oPeashooter,oRepeater,oJalapeno,oGarlic],
+        ZName: [oZombie2,oBucketheadZombie,oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oFootballZombie, oNewspaperZombie3,oFlagZombie,oSnorkelZombie,oDolphinRiderZombie],
         PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
         backgroundImage: "images/interface/background4.jpg",
         Coord: 2, DKind: 0, LF: [0, 1, 1, 2, 2, 1, 1],
         ShowScroll: false, ProduceSun: false,
-        SunNum: 350, BrainsNum: 6, CardKind: 1,
+        SunNum:400, BrainsNum: 6, CardKind: 1,
         LevelName: "泳池奇遇",
         LvlEName: "ImZombiePool1",
         LoadMusic: "Mountains", StartGameMusic: "Mountains",
