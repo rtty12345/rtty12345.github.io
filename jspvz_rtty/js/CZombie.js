@@ -2310,6 +2310,13 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         ),
       ]);
     },
+    PrivateAct: function(){
+            let a = this;
+            if(a.OrnHP <= 0){
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 50)+"_1"];
+                p && p.canEat && p.Die();
+            }
+        },
     JudgeAttack: function () {
       var g = this,
         b = g.ZX,
@@ -4886,7 +4893,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
-			CustomZombie(oNewspaperZombie,this.R,this.C,0);
+			CustomZombie(oNewspaperZombie3,this.R,this.C,1);
                     PlayAudio("gargantuar_thump");
 		    a.bool=1;
 		    a.Attack=100;
