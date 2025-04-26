@@ -51,7 +51,7 @@ oS.Init({
 	LF: [0, 1, 1, 2, 2, 1, 1],
 	Coord: 2, DKind: 0, CanSelectCard: 0,
 	LevelName: "种子雨", LvlEName: "CardRain",
-	HaveFog: 4, StartGameMusic: "Loonboon",
+	HaveFog: 2, StartGameMusic: "Loonboon",
 	LargeWaveFlag: {
 		10: $("imgFlag4"),
 		20: $("imgFlag3"),
@@ -75,7 +75,7 @@ oS.Init({
 			oSym.addTask(1500, function() { oP.AddZombiesFlag(), SetVisible($("dFlagMeterContent")); }, []);
 			(function(){
 				var a = dRand(GetX(0), GetX(oS.C)), b = dRand(GetY(1), GetY(oS.R - 1)), d = oS.PName[dRand(1, oS.PName.length) - 1];
-				AppearCard(a, b, d, 1, 1000), oSym.addTask(dRand(500, 900), arguments.callee, []);
+				AppearCard(a, b, d, 1, 800), oSym.addTask(dRand(400,700), arguments.callee, []);
 			})();
 		});
 	}
