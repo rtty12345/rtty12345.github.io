@@ -4884,6 +4884,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             return c;
 	},
 	getSnowPea:OrnNoneZombies.prototype.getPea,
+	PrivateBirth:function(){},
 	PrivateAct: function(a){
 	     let z = $(a.id),
              s = $(z.SquashHeadId);
