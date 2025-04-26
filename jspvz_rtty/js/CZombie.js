@@ -1982,27 +1982,17 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let i = Math.round(Math.random()*0+a.length-1);
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
-                a[i].Die();
+                a[i].HP-1000;
                 b && b.HP && oSym.addTask(1500,arguments.callee,[b]);
             },[b]))
         },
 	 PrivateAct2:function(a){
 		 if(!a.hp){
                  a.hp=true;
-            oSym.addTask(500,function(a){
+            oSym.addTask(600,function(a){
                 PlayAudio("grassstep");
-                let R = (a.R - 1) || 0,
-                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC($(a.id).offsetLeft + 80);
-		    z = oZ.getArZ(0,oS.W,a.R);
-		for(let i = R;i <= RM;i++){
-                    for(let j = C - 1;j <= C + 1;j++){
-                        for(let k = 0;k <= 3;k++){
-                           z[i,j,k].HP+=z[i,j,k].HP*0.2;
+		   a.HP+200;
 			a.hp=false;
-                        }
-                    }
-                }
             },[a])
 		 }
         },
