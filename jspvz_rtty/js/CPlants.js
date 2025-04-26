@@ -2004,7 +2004,7 @@ oFumeShroom = InheritO(CPlants, {
 	},
 	PrivateBirth: function(b) {
 		var a = b.id;
-		NewEle(a + "_Bullet", "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:" + b.AttackedRX + "px;top:" + (b.pixelTop + 5) + "px;background:url(images/Plants/FumeShroom/Fume.gif);z-index:" + (b.zIndex + 1), 0, EDPZ)
+		NewEle(a + "_Bullet", "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:" + b.AttackedRX + "px;top:" + (b.pixelTop + 5) + "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (b.zIndex + 1), 0, EDPZ)
 	},
 	PrivateDie: function(a) {
 		ClearChild($(a.id + "_Bullet"))
@@ -2022,7 +2022,7 @@ oFumeShroom = InheritO(CPlants, {
 		b = $(c),
 		a = c + "_Bullet";
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 40);
-		g.getSlow(g);
+		Math.round(Math.random()*100)>10?g.getFreeze(e,b,20):g.getSlow(g);
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
