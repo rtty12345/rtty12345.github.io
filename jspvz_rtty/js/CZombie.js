@@ -4886,7 +4886,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
 		   	p.BoomDie();
 			CustomZombie(oNewspaperZombie,this.R,this.C,0);
                     PlayAudio("gargantuar_thump");
-		    oSym.addTask(600,function(a){a.bool=1},[a]);
+		    a.bool=1;
 		    a.Attack=100;
                 }
             }
