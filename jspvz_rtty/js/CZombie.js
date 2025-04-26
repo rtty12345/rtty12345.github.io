@@ -4874,7 +4874,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
         CName: "精英铁桶窝瓜僵尸",
         Speed:5,
         OrnHP: 2200,
-        Lvl: 2,
+        Lvl: 4,
         SunNum: 175,
         PlayNormalballAudio: function() {
             PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
@@ -4894,7 +4894,6 @@ oSquashZombie = InheritO(oConeheadZombie, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
-			CustomZombie(oNewspaperZombie3,this.R,this.C,0);
                     PlayAudio("gargantuar_thump");
 		    a.bool=1;
 		    a.Attack=100;
