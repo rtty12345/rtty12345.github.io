@@ -1988,7 +1988,7 @@ oFumeShroom = InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/FumeShroom.png", "images/Plants/FumeShroom/0.gif", "images/Plants/FumeShroom/FumeShroom.gif", "images/Plants/FumeShroom/FumeShroomSleep.gif", "images/Plants/FumeShroom/FumeShroomAttack.gif", "images/Plants/FumeShroom/FumeShroomBullet.gif"],
 	AudioArr: ["fume"],
 	Tooltip: "喷射一整行可以穿过门板的气液",
-	Produce: '大喷菇喷出的一整行臭气可以穿透铁丝网门。<p>伤害：<font color="#FF0000">普通，可穿透铁丝网门</font><br>范围：<font color="#FF0000">整行臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房生产酵母孢，”大喷菇说。“然后小喷菇，上帝保佑它，告诉了我这个喷杀僵尸的机会。现在我真觉得自己完全不同了。”',
+	Produce: '大喷菇喷出的一整行臭气可以穿透铁丝网门,有概率冻结僵尸<p>伤害：<font color="#FF0000">普通，可穿透铁丝网门，有概率冻结僵尸</font><br>范围：<font color="#FF0000">整行臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房生产酵母孢，”大喷菇说。“然后小喷菇，上帝保佑它，告诉了我这个喷杀僵尸的机会。现在我真觉得自己完全不同了。”',
 	GetDY: function(b, c, a) {
 		return a[0] ? -18 : -10
 	},
@@ -2021,10 +2021,10 @@ oFumeShroom = InheritO(CPlants, {
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
-		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 40);
+		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
 		var t;
 		for(t in $Z)
-		Math.round(Math.random()*100)>10?g.getSlow(g):g.getFreeze(g,t);
+		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze(g,t);
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
