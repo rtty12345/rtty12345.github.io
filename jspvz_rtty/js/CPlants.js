@@ -2028,7 +2028,8 @@ oFumeShroom = InheritO(CPlants, {
 		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze(g,t),oSym.addTask(40,
 				function(s) {
 					ClearChild(s)
-				}
+				},
+				[this])
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
