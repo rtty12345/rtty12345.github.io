@@ -2023,8 +2023,9 @@ oFumeShroom = InheritO(CPlants, {
 		b = $(c),
 		a = c + "_Bullet";
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
- 		for(e in $Z)
- 		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze($Z[e],e),
+		var t;
+ 		for(t in $Z)
+ 		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze(g,e),
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
