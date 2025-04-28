@@ -2011,24 +2011,19 @@ oFumeShroom = InheritO(CPlants, {
 		ClearChild($(a.id + "_Bullet"))
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[b, Math.min(c + 800, oS.W), 0]]
+		return [[b, Math.min(c + 720, oS.W), 0]]
 	},
 	NormalAttack: function() {
 		PlayAudio("fume");
 		var f = this,
-		d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX +800, oS.W), f.R),
+		d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX +720, oS.W), f.R),
 		e = d.length,
 		g,
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
-		var t= "Snow_" + Math.random();
-		for(t in $Z)
-		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze(g,t),
-				function(s) {
-					ClearChild(s)
-				}
+		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze(g,e)
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
