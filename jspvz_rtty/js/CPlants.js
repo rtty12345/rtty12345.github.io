@@ -2026,7 +2026,8 @@ oFumeShroom = InheritO(CPlants, {
 		var t= "Snow_" + Math.random();
  		for(t in $Z)
  		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze(g,t)
-			    }	
+			     function(s){ClearChild(s)}
+			    }
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
