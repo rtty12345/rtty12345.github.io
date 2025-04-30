@@ -531,8 +531,7 @@ OrnNoneZombies = function() {
                 e.getSlow(e);
                 },
 		getFirePea2: function(g, c, j) {
-			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
-			g.Attack = 100;
+			g.PlayFireballAudio(); 
 			var f = g.AttackedLX,
 			h = g.AttackedRX,
 			b = oZ.getArZ(f, f + 40, g.R),
@@ -543,12 +542,14 @@ OrnNoneZombies = function() {
 			g.getHit1(g, c, j)
 		},
 		getSlowPea: function(e,b,c){
+		var d;
+                for (d in $Z) {
                 e.getFirePea1(e,b,c);
-                e.getSlow(e);
+                Math.round(Math.random()*100)>7?e.getSlow(e):e.getFreeze(e, d , 20);
+		}
                 },
 		getFirePea1: function(g, c, j) {
-			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
-			g.Attack = 100;
+			g.PlayFireballAudio(); 
 			var f = g.AttackedLX,
 			h = g.AttackedRX,
 			b = oZ.getArZ(f, f + 40, g.R),
