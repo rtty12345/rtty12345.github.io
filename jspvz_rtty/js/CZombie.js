@@ -758,7 +758,7 @@ CheckBoomFire: function (f) {
 oDancingZombie= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
-	HP:1500,
+	HP:1200,
 	BreakPoint: 1,
 	Lvl: 3,
 	StandGif: 9,
@@ -802,7 +802,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b = d + "spotlight2" + c + ".png" + $Random;
 		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
 	})(),
-	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1500）</font><br>特点：<font color="#FF0000">召唤无特殊技能的路障僵尸，同时在场地右侧召唤墓碑</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1200）</font><br>特点：<font color="#FF0000">召唤无特殊技能的路障僵尸，同时在场地右侧召唤墓碑</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
 	getSnowPea: function() {
 		this.PlaySlowballAudio();
 	},
@@ -1999,7 +1999,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let i = Math.round(Math.random()*0+a.length-1);
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
-                a[i].HP-1000;
+                a[i].HP-=1000;
                 b && b.HP && oSym.addTask(1500,arguments.callee,[b]);
             },[b]))
         },
@@ -2975,7 +2975,22 @@ getSlowPea1:function(c, a, b) {
           ));
     },
   }),
-oNewspaperZombie2= InheritO(OrnIIZombies, {
+OrnIIZombies1= InheritO(OrnNoneZombies, {
+	Ornaments: 1,
+	BreakPoint: 91,
+	NormalGif: 2,
+	AttackGif: 3,
+	LostHeadGif: 4,
+	LostHeadAttackGif: 5,
+	OrnLostNormalGif: 6,
+	OrnLostAttackGif: 7,
+	OrnLostHeadNormalGif: 8,
+	OrnLostHeadAttackGif: 9,
+	HeadGif: 10,
+	DieGif: 11,
+	BoomDieGif: 12
+}),	
+oNewspaperZombie2= InheritO(OrnIIZombies1, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
@@ -3141,7 +3156,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	},
 	getFirePea: function(f,b,e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
-		f.Attack = 800;
+		f.Attack = 100;
 		var d = f.AttackedLX,
 		g = f.AttackedRX,
 		a = oZ.getArZ(d, d + 40, f.R),
@@ -3153,29 +3168,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		},
 		[f.id]))
 	},
-	getHit0: function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
- 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
- 		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
- 	},
-        getHit1: function(b, a) {
-            (b.HP -= a) < b.BreakPoint ? (b.GoingDie(b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]), b.getFirePea = OrnNoneZombies.prototype.getFirePea, b.getSnowPea = OrnNoneZombies.prototype.getSnowPea, b.getHit = b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function() {}) : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0), b.SetAlpha(b, b.EleBody, 50, 0.5), oSym.addTask(10, function(d, c) {
-                (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1)
-            }, [b.id]))
-        },
- 	getHit2: function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
- 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
- 		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
- 	},
- 	getHit3: function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
- 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
- 		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
- 	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
 			return 1
