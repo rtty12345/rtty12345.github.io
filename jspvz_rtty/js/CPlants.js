@@ -690,7 +690,7 @@ oThreepeater1= InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
 			},
-			[d, $(d), 20, 0, c.AttackedLX, a, -1, 0, c.AttackedLX - 40, oGd.$Torch])
+			[d, $(d), 20, 0, c.AttackedLX,a,Math.round(Math.random()*2-1), 0, c.AttackedLX - 40, oGd.$Torch])
 		}
 	}
 }),
@@ -2023,13 +2023,7 @@ oFumeShroom = InheritO(CPlants, {
 		b = $(c),
 		a = c + "_Bullet";
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
-		var t= "Snow_" + Math.random();
- 		for(t in $Z)
- 		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze1(g,t),
-			     function(s){
-				     ClearChild(s)
-			     }
-			    }
+ 		g.getSlow(g)}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
