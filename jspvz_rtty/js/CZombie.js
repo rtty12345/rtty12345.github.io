@@ -2990,7 +2990,7 @@ OrnIIZombies1= InheritO(OrnNoneZombies, {
 	DieGif: 11,
 	BoomDieGif: 12
 }),	
-oNewspaperZombie2= InheritO(OrnIIZombies1, {
+oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
@@ -3128,25 +3128,18 @@ oNewspaperZombie2= InheritO(OrnIIZombies1, {
  		},
  		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
  	},
-	getHit1:function(c, a, b) {
+        getHit1: function(b, a) {
+            (b.HP -= a) < b.BreakPoint ? (b.GoingDie(b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]), b.getFirePea = OrnNoneZombies.prototype.getFirePea, b.getSnowPea = OrnNoneZombies.prototype.getSnowPea, b.getHit = b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function() {}) : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0), b.SetAlpha(b, b.EleBody, 50, 0.5), oSym.addTask(10, function(d, c) {
+                (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1)
+            }, [b.id]))
+        },
+ 	getHit2: function(c, a, b) {
  		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
  		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
  		},
  		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
  	},
-	getHit:function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
- 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
- 		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
- 	},
-	getHit2:function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
- 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
- 		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
- 	},
-	getHit3:function(c, a, b) {
+ 	getHit3: function(c, a, b) {
  		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
  		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
  		},
