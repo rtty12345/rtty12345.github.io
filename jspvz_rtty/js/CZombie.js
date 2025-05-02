@@ -4935,7 +4935,8 @@ oSquashZombie = InheritO(oConeheadZombie, {
 	if(!a.bool){
            let z = $(a.id),
                s = $(z.SquashHeadId);
-                var p = oGd.$[`${a.R}_${GetC(a.X + 80)}_1`];
+		var C = GetC(a.X + 80);
+                var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
                     a.Speed = 0;
                     EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
@@ -4947,11 +4948,11 @@ oSquashZombie = InheritO(oConeheadZombie, {
                             PlayAudio("gargantuar_thump");
                             p && p.Die();
                             ClearChild(s);
+			    a.BoomFire(a.R);
                         }catch(e){
                             document.write(e);
                         }
                     },[p,s]);
-		    a.BoomFire(a.R);
                     a.bool=1;
 		}
             }
