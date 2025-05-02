@@ -3788,7 +3788,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	AudioArr: ["zombie_entering_water"],
 	BirthCallBack: function(a) {
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
-		this.CheckBoomFire(this);
+		Math.round(Math.random()*100)>25?this.CheckBoomFire(this):this.CheckBoomFire1(this);
 	},
 	Jump: function(a) {
 		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(160,
@@ -3820,6 +3820,19 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 
           $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
           oSym.addTask(1000, arguments.callee, [f]);
+        },
+        [f]
+      );
+    },
+CheckBoomFire1: function (f) {
+      oSym.addTask(
+        4000,
+        function (f) {
+          // 生成1到100之间的随机整数
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R)&&f.BoomFire(f.R-1)&&f.BoomFire(f.R+1);
+          oSym.addTask(1500, arguments.callee, [f]);
         },
         [f]
       );
