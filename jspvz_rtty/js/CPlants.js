@@ -813,7 +813,6 @@ oGatlingPea= InheritO(oPeashooter, {
 	BoomDie:function(){
 		var b =this,
 		c = b.id;
-		b.style.opacity=0.1;
 		b.canEat=0;
 		b.HP=0;
 		b.NormalAttack=function(){};
@@ -821,7 +820,6 @@ oGatlingPea= InheritO(oPeashooter, {
 	Die:function(){
 		var b =this,
 		c = b.id;
-		b.style.opacity=0.1;
 		b.canEat=0;
 		b.HP=0;
 		b.NormalAttack=function(){};
@@ -1495,7 +1493,7 @@ oNutBowling = InheritO(CPlants, {
 					A.getHit0(A, Math.min(A.OrnHP, 900), 0);
 					break;
 				default:
-					z.side ? A.Normaldie() : A.CheckOrnHP(A, u, A.OrnHP, 400, A.PicArr, 0, 0, 0)
+					z.side ? A.NormalDie() : A.CheckOrnHP(A, u, A.OrnHP, 400, A.PicArr, 0, 0, 0)
 				}
 				z.CanAttack = 0;
 				switch (a) {
@@ -1829,10 +1827,10 @@ oSpikerock = InheritO(oSpikeweed, {
 		d, a = $(e.id).childNodes[1];
 		switch (c) {
 		case 2:
-			f.flatTire();
+			f.bedevil(f);
 			break;
 		case 1:
-			f.getHit2(f, 45, 0)
+			Math.round(Math.random()*100)>3?f.getHit2(f, 45, 0):f.bedevil(f);
 		}
 		switch (true) {
 		case((d = e.HP -= b) < 1) : e.Die();
