@@ -1939,10 +1939,10 @@ oConeheadZombie= InheritO(OrnIZombies, {
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
-			ClearChild(s);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(400,function(a){
 		    a.bool=1;
+		    ClearChild(s);
 		    a.Speed=a.oSpeed=1.6;
 		    },[a]);
 		    a.Attack=100; 
