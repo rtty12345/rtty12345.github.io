@@ -4893,45 +4893,76 @@ oBalloonZombie = InheritO(OrnIZombies, {
 }),
 oSquashZombie = InheritO(oConeheadZombie, {
         EName: "oSquashZombie",
-        CName: "精英铁桶窝瓜僵尸",
-        Speed:5,
-        OrnHP: 2200,
-        Lvl: 4,
-        SunNum: 175,
-        PlayNormalballAudio: function() {
-            PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
-        },
-        Produce: '能一次性压扁你的植物，压扁植物后不会死，防具血量更高<p>韧性：<font color="#FF0000">高（2200+270）</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
+        CName: "窝瓜僵尸",
+        Speed:3.2,
+        OrnHP: 500,
+        Lvl: 6,
+        SunNum: 75,
+        GetSunNum: 0,
+        Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
         CanPass: function(d, c) {
             return c;
-	},
-	getSnowPea:OrnNoneZombies.prototype.getPea,
-	PrivateBirth:function(){},
-	PrivateAct: function(a){
-	     let z = $(a.id),
-             s = $(z.SquashHeadId);
-            if(!a.bool){
-                a.Speed = 5;
-                var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		   	p.BoomDie();
-                    PlayAudio("gargantuar_thump");
-		    CustomZombie(oFootballZombie,a.R,a.C,1);
-		    a.bool=1;
-		    a.Attack=100;
+        },
+        PrivateBirth:function(a){
+            let z = $(a.id);
+            z.SquashHeadId = "Squash" + Math.random();
+            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
+            z.appendChild(squash);
+        },
+        PrivateAct:function(a){
+            let z = $(a.id),
+                s = $(z.SquashHeadId);
+            for(let i = 3;i >= 0;i--){
+                let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
+                if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                    a.Speed = 0;
+                    EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
+                        left:"0px",
+                        top:"-50px"
+                    },0);
+                    oSym.addTask(50,function(p,s){
+                        try{
+                            PlayAudio("gargantuar_thump");
+                            p && p.Die();
+                            ClearChild(s);
+                        }catch(e){
+                            document.write(e);
+                        }
+                    },[p,s]);
+		    a.BoomFire(a.R);
+                    break;
                 }
             }
-	}
-},
- {
-        PicArr: {
-            0: "images/Card/Zombies/BucketheadZombie.png",
-            1: "images/Zombies/BucketheadZombie/0.gif",
-            2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
-            3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
-            9: "images/Zombies/Zombie/Zombie2.gif",
-            11: "images/Zombies/BucketheadZombie/1.gif"
+        },
+BoomFire: function (y) {
+      PlayAudio("jalapeno");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+      for (let i = 1; i <= oS.C; i++) {
+        for (let j = 0; j < 4; j++) {
+          let g = oGd.$[y + "_" + i + "_" + j];
+          g && g.BoomDie();
+        }
+      }
+      this.DisappearDie();
+    },
+        DisappearDie:function(a){
+            this.NormalDie()
+        },
+        CrushDie: function(){
+            this.NormalDie();
         }
     }),
     oPeaZombie= InheritO(oNewspaperZombie1, {
