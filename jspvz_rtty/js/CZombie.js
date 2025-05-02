@@ -4919,7 +4919,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
         Speed:3.2,
         OrnHP: 500,
         Lvl: 6,
-        SunNum: 75,
+        SunNum: 175,
         GetSunNum: 0,
         Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
         CanPass: function(d, c) {
@@ -4978,7 +4978,7 @@ BoomFire: function (y) {
           g && g.BoomDie();
         }
       }
-      this.DisappearDie();
+      this.NormalDie();
     },
         CrushDie: function(){
             this.NormalDie();
