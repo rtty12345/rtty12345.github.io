@@ -4932,8 +4932,8 @@ oSquashZombie = InheritO(oConeheadZombie, {
             z.appendChild(squash);
         },
         PrivateAct:function(a){
-           var z = $(a.id),
-              var s = $(z.SquashHeadId),
+           let z = $(a.id),
+               s = $(z.SquashHeadId);
                 var p = oGd.$[`${a.R}_${GetC(a.X + 80)}_1`];
                 if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
                     a.Speed = 0;
