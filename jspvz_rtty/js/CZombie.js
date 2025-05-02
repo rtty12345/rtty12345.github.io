@@ -1921,16 +1921,25 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	})(),
 	AudioArr: ["plastichit"],
 	PrivateBirth: function(a){
-            a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
+	    let z = $(a.id);
+	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
+	    if(a.PrivateAct=a.PrivateAct1){
+            z.SquashHeadId = "Squash" + Math.random();
+            let squash = NewImg(z.SquashHeadId,"images/Plants/WallNut/WallNutRoll.gif","position:absolute;left:40px;top:-150px;",0);
+            z.appendChild(squash);
+	    }
         },
 	PrivateAct2:function(){},
 	PrivateAct1:function(a){
+	        let z = $(a.id),
+                s = $(z.SquashHeadId);
             if(!a.bool){
                 a.Speed =a.oSpeed=5;
                 var C = GetC(a.X + 80);
                 var p = oGd.$[`${a.R}_${C}_1`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.BoomDie();
+			ClearChild(s);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(400,function(a){
 		    a.bool=1;
