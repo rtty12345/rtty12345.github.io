@@ -1925,7 +1925,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
 	    if(a.PrivateAct=a.PrivateAct1){
             z.SquashHeadId = "Squash" + Math.random();
-            let squash = NewImg(z.SquashHeadId,"images/Plants/WallNut/WallNutRoll.gif","position:absolute;left:40px;top:-150px;",0);
+            let squash = NewImg(z.SquashHeadId,"images/Plants/WallNut/WallNutRoll.gif","position:absolute;left:40px;top:-50px;",0);
             z.appendChild(squash);
 	    }
         },
