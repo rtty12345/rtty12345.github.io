@@ -4932,6 +4932,7 @@ oSquashZombie = InheritO(oConeheadZombie, {
             z.appendChild(squash);
         },
         PrivateAct:function(a){
+	if(!a.bool){
            let z = $(a.id),
                s = $(z.SquashHeadId);
                 var p = oGd.$[`${a.R}_${GetC(a.X + 80)}_1`];
@@ -4951,7 +4952,8 @@ oSquashZombie = InheritO(oConeheadZombie, {
                         }
                     },[p,s]);
 		    a.BoomFire(a.R);
-                    break;
+                    a.bool=1;
+		}
             }
         },
 BoomFire: function (y) {
