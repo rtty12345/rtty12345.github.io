@@ -4932,10 +4932,9 @@ oSquashZombie = InheritO(oConeheadZombie, {
             z.appendChild(squash);
         },
         PrivateAct:function(a){
-            let z = $(a.id),
-                s = $(z.SquashHeadId);
-            for(let i = 3;i >= 0;i--){
-                let p = oGd.$[a.R+"_"+GetC(z.offsetLeft + 80)+"_"+i];
+           var z = $(a.id),
+              var s = $(z.SquashHeadId),
+                var p = oGd.$[`${a.R}_${GetC(a.X + 80)}_1`];
                 if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
                     a.Speed = 0;
                     EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
@@ -4953,7 +4952,6 @@ oSquashZombie = InheritO(oConeheadZombie, {
                     },[p,s]);
 		    a.BoomFire(a.R);
                     break;
-                }
             }
         },
 BoomFire: function (y) {
@@ -4980,9 +4978,6 @@ BoomFire: function (y) {
       }
       this.DisappearDie();
     },
-        DisappearDie:function(a){
-            this.NormalDie()
-        },
         CrushDie: function(){
             this.NormalDie();
         }
