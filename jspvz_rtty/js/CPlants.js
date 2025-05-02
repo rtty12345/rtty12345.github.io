@@ -1822,6 +1822,10 @@ oSpikerock = InheritO(oSpikeweed, {
 	GetDY: function(b, c, a) {
 		return 0
 	},
+	NormalAttack: function(b, a) {
+		var c = $Z[b];
+		Math.round(Math.random()*100)>3?c.getHit2(c, this.Attack, 0):c.bedevil(c)
+	},
 	getHurt: function(f, c, b) {
 		var e = this,
 		d, a = $(e.id).childNodes[1];
