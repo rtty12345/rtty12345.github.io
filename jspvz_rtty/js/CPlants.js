@@ -1765,11 +1765,11 @@ oSpikeweed = InheritO(CPlants, {
 		var c = this;
 		switch (b) {
 		case 2:
-			d.flatTire();
+			d.getDispelled(d);
 			c.Die();
 			break;
 		case 1:
-			d.getHit2(d, 20, 0);
+			Math.round(Math.random()*100)>5?d.getHit2(d, 45, 0):d.getDispelled(d);
 			c.Die();
 			break;
 		default:
@@ -1778,7 +1778,7 @@ oSpikeweed = InheritO(CPlants, {
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
-		c.getHit2(c, this.Attack, 0)
+		Math.round(Math.random()*100)>3?c.getHit2(c, this.Attack, 0):c.getDispelled(c)
 	},
 	GetDY: function(b, c, a) {
 		return - 2
