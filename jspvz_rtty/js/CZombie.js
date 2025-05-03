@@ -310,22 +310,6 @@ var CZombies = function(b, a) {
 			},
 			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
 		},
-		getFreeze1: function(d, c) {
-			d.beAttacked && d.getHit0(d, 30, 0);
-			d.Speed = .4;
-			oSym.addTask(800,
-			function(g, f, e) {
-				ClearChild(e);
-				var h = $Z[g];
-				h && h.FreeFreezeTime == f && (h.FreeFreezeTime = 0, h.Attack = 50, !h.FreeSetbodyTime && (h.Speed = 0.5 * h.OSpeed, h.isAttacking && h.JudgeAttack()), oSym.addTask(1500,
-				function(j, i) {
-					var k = $Z[j];
-					k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.Attack = 100, !k.FreeSetbodyTime && (k.Speed = k.OSpeed))
-				},
-				[g, h.FreeSlowTime = oSym.Now + 1500]))
-			},
-			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
-		},
 		NormalDie: function() {
 			var c = this;
 			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
@@ -522,6 +506,23 @@ OrnNoneZombies = function() {
 				b[e].getFirePeaSputtering()
 			}
 			g.getHit0(g, c, j)
+		},
+		getFreeze1: function(d, c) {
+			d.beAttacked && d.getHit0(d, 30, 0);
+			d.Speed = .4;
+			oSym.addTask(800,
+			function(g, f, e) {
+				ClearChild(e);
+				var h = $Z[g];
+				h && h.FreeFreezeTime == f && (h.FreeFreezeTime = 0, h.Attack = 50, !h.FreeSetbodyTime && (h.Speed = 0.5 * h.OSpeed, h.isAttacking && h.JudgeAttack()), oSym.addTask(1500,
+				function(j, i) {
+					var k = $Z[j];
+					k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.Attack = 100, !k.FreeSetbodyTime && (k.Speed = k.OSpeed))
+				},
+				[g, h.FreeSlowTime = oSym.Now + 1500]))
+			},
+			oSym.addTask(1700,function(){this.getFirePea(this,0)},[this]),
+			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
 		},
 		getFirePeaSputtering: function() {
 			this.getHit0(this, 13)
