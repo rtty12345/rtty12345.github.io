@@ -214,7 +214,7 @@ var CZombies = function(b, a) {
             callback && callback();
         },
 		getDispelled: function() {
-		if (this.Altitude != 3 || this.AttackedRX < GetX(0)) {return;};
+		if (this.Altitude != 1 || this.AttackedRX < GetX(0)) {return;};
 		this.ChkActs = function() {return 1};
 		(function(id) {
 			var o = $Z[id]; if (!o) return;
