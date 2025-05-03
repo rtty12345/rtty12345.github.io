@@ -521,7 +521,10 @@ OrnNoneZombies = function() {
 				},
 				[g, h.FreeSlowTime = oSym.Now + 1500]))
 			},
-			oSym.addTask(1700,function(t){t.getFirePea(t,0)},[t]),
+			oSym.addTask(1700,
+				     function(){
+					     h.getFirePea(h,0)
+				     },[h]),
 			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
 		},
 		getFirePeaSputtering: function() {
