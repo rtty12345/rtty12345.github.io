@@ -1,7 +1,7 @@
 // VaseKiller6
 oS.Init({
 	PName: [oCherryBomb, oSplitPea, oTallNut, oTorchwood, oSquash, oThreepeater],
-	ZName: [oZombie, oZombie2, oZombie3, oPoleVaultingZombie, oFootballZombie, oJackinTheBoxZombie,oFlagZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oPoleVaultingZombie, oFootballZombie, oJackinTheBoxZombie,oFlagZombie,oPeaZombie],
 	PicArr: ["images/interface/background2.jpg","images/interface/trophy.png","images/interface/PointerDown.gif","images/interface/Stripe.png"], 
 	backgroundImage: "images/interface/background2.jpg", 
 	DKind: 0, ShowScroll: false, ProduceSun: false, 
@@ -14,6 +14,7 @@ oS.Init({
 		for (var O in P.ZombieP) VaseList.push({ "Type": "Zombie", "Value": oS.ZName[P.ZombieP[O]] });
 		for (var O in P.PlantP) VaseList.push({ "Type": "Plants", "Value": oS.PName[P.PlantP[O]] });
 		for (var O in P.SunP) VaseList.push({ "Type": "SunNum", "Value": P.SunP[O] });
+		for (var O in P.ZombieH) VaseList.push({ "Type": "bedevilZombie", "Value": oS.ZName[P.ZombieH[O]] });
 
 		// 生成格子列表
 		for (; L <= R; ++L) for (var Q = 1; Q <= oS.R; ++Q) GroundList.push([Q, L]);
@@ -45,8 +46,9 @@ oS.Init({
 
 	VaseArP : {
 		GreenNum: 2, Left: 3, Right: 9, 
-		ZombieP: [0, 0, 0, 1, 1, 2, 2, 3, 3, 5, 3,4,4,6,5], 
+		ZombieP: [0, 0, 0, 1, 1, 2, 2, 3, 3, 5, 4,4,6,5], 
 		PlantP: [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5], 
+		ZombieH:[7],
 		SunP: [] 
 	}
 },0,
