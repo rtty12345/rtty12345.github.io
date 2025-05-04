@@ -1,5 +1,5 @@
 oS.Init({
-    PName: [oGloomShroom,oSunFlower,oGarlic,oPumpkinHead,oRepeater,oSpikeweed,oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,oSpikerock,oSplitPea,oSquash], // 植物名称数组
+    PName: [oGloomShroom,oSunFlower,oGarlic,oPumpkinHead,oRepeater,oSpikeweed,oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,oSpikerock,oSplitPea,oSquash,oSnowPea], // 植物名称数组
     ZName: [oZomboni,oNewspaperZombie2,oNewspaperZombie,oPoleVaultingZombie1,oBucketheadZombie], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
@@ -46,7 +46,7 @@ oS.Init({
 		[12, 8, 3],
                 [0 ,7, 3],
 		[11, 9, 3],
-		[10, 1, 4],
+		[13, 1, 4],
 		[1, 2, 4],
 		[1, 3, 4],
 		[1, 4, 4],
