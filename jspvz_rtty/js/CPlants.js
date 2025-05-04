@@ -630,7 +630,7 @@ oThreepeater1= InheritO(oPeashooter, {
 	Bkind:-1,
 	beAttackedPointR: 53,
 	SunNum: 325,
-	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出三行的豌豆",
 	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
@@ -679,7 +679,7 @@ oThreepeater1= InheritO(oPeashooter, {
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
 				f = oZ["getZ" + e](p, k);
-				o<1 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
 					"-1":"getPea",
 					0 : "getPea",
@@ -704,12 +704,8 @@ oRepeater = InheritO(oPeashooter, {
 	SunNum: 240,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次三条线发射两颗寒冰豌豆",
-	Produce: '双发射手可以一次三线发射两颗寒冰豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
-	CanGrow: function(b, a, d) {
-		var c = b[1];
-		return c && c.EName == "oSnowPea"
-	},
+	Tooltip: "一次三条线发射豌豆",
+	Produce: '双发射手可以一次三线发射豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
 	getTriggerR:oThreepeater1.prototype.getTriggerR,
         PrivateBirth:oThreepeater1.prototype.PrivateBirth,
         PrivateDie:oThreepeater1.prototype.PrivateDie,
