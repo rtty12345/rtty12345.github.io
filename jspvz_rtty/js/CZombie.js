@@ -508,9 +508,9 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFreeze1: function(d, c) {
-			d.beAttacked && d.getHit0(d, 30, 0);
+			d.beAttacked && d.getHit0(d, 10, 0);
 			d.Speed = 0;
-			oSym.addTask(800,
+			oSym.addTask(300,
 			function(g, f, e) {
 				ClearChild(e);
 				var h = $Z[g];
@@ -521,8 +521,8 @@ OrnNoneZombies = function() {
 				},
 				[g, h.FreeSlowTime = oSym.Now + 1500]))
 			},
-			oSym.addTask(1000,function(d){d.getFirePea(d,0)},[d]),
-			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
+			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)]),
+			oSym.addTask(800,function(d){d.getFirePea(d,0)},[d])
 		},
 		getFirePeaSputtering: function() {
 			this.getHit0(this, 13)
