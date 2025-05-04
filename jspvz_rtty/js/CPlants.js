@@ -1183,13 +1183,12 @@ oTwinSunflower = InheritO(oSunFlower, {
 		})
 	},
 	PrivateBirth: function(a) {
-		oS.ProduceSun?
-		oSym.addTask(500,
 		var b = GetX(a.C);
+		oSym.addTask(500,
 		function(f, d, c, e) {
 			$P[f] && (a.ChangePosition($(f), 1), oSym.addTask(100,
 			function(k, h, g, j, i) {
-				AppearSun(Math.floor(h + Math.random() * 21), j, 45, 0),
+				AppearSun(Math.floor(h + Math.random() * 21), j, 60, 0),
 				AppearSun(Math.floor(g + Math.random() * 21), j,45,0),
 				oSym.addTask(100,
 				function(l) {
@@ -1200,37 +1199,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 			},
 			[f, d, c, e, arguments.callee]))
 		},
-		[a.id, b - 40, b - 20, GetY(a.R)]):a.getHurt = function(f, c, b) {
-			var e = this;
-			switch (c) {
-			case 0:
-				var d = (e.HP -= b); ! (d % 100) && (AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R),60,0), oSym.addTask(50,
-				function(h, g) {
-					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
-				},
-				[e.C, e.R]), d < 1 ? e.Die() : oSym.addTask(50,
-				function(h, g) {
-					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
-				},
-				[e.C, e.R]));
-				break;
-			case 3:
-				var d = (e.HP -= b); ! (d % 100) && (AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R),60,0), oSym.addTask(50,
-				function(h, g) {
-					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
-				},
-				[e.C, e.R]), d < 1 ? e.Die() : oSym.addTask(50,
-				function(h, g) {
-					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
-				},
-				[e.C, e.R]));
-				break;
-			default: // 如果是非自然原因死亡，直接把剩余价值压榨出来
-				if (e.HP > 0) AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), Math.floor(e.HP / 1.5 / 25) * 40, 0);
-				e.Die();
-			}
-		}
-	}
+		[a.id, b - 40, b - 20, GetY(a.R)])
 }),
 oPumpkinHead = InheritO(CPlants, {
 	EName: "oPumpkinHead",
