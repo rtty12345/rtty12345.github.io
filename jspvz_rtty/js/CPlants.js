@@ -535,7 +535,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),30,0,a.AttackedLX,a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),25,0,a.AttackedLX,a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -551,7 +551,7 @@ oThreepeater = InheritO(oPeashooter, {
 	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
 	Produce: '三线射手可以在三条线上同时大量射出豌豆，攻击距离短<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerRange: function(a, b, c) {
-		return [[b, Math.min(c + 150, oS.W), 0]]
+		return [[b, Math.min(c +300, oS.W), 0]]
 	},
 	getTriggerR: function(a) {
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
@@ -681,9 +681,9 @@ oThreepeater1= InheritO(oPeashooter, {
 				f = oZ["getZ" + e](p, k);
 				o<1 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
-					"-1":"getSnowPea",
+					"-1":"getPea",
 					0 : "getPea",
-					1 : "getFirePea"
+					1 : "getSlowPea"
 				} [o]](f, j, e), (SetStyle(l, {
 					left: q + 28 + "px",
 					width: "52px",
@@ -702,7 +702,7 @@ oRepeater = InheritO(oPeashooter, {
 	BKind:-1,
 	beAttackedPointR: 53,
 	SunNum: 240,
-	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次三条线发射两颗寒冰豌豆",
 	Produce: '双发射手可以一次三线发射两颗寒冰豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
@@ -1183,6 +1183,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 		})
 	},
 	PrivateBirth: function(a) {
+		oS.ProduceSun?
 		var b = GetX(a.C);
 		oSym.addTask(500,
 		function(f, d, c, e) {
@@ -1199,7 +1200,36 @@ oTwinSunflower = InheritO(oSunFlower, {
 			},
 			[f, d, c, e, arguments.callee]))
 		},
-		[a.id, b - 40, b - 20, GetY(a.R)])
+		[a.id, b - 40, b - 20, GetY(a.R)]):a.getHurt = function(f, c, b) {
+			var e = this;
+			switch (c) {
+			case 0:
+				var d = (e.HP -= b); ! (d % 100) && (AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R),60,0), oSym.addTask(50,
+				function(h, g) {
+					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
+				},
+				[e.C, e.R]), d < 1 ? e.Die() : oSym.addTask(50,
+				function(h, g) {
+					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
+				},
+				[e.C, e.R]));
+				break;
+			case 3:
+				var d = (e.HP -= b); ! (d % 100) && (AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R),60,0), oSym.addTask(50,
+				function(h, g) {
+					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
+				},
+				[e.C, e.R]), d < 1 ? e.Die() : oSym.addTask(50,
+				function(h, g) {
+					AppearSun(Math.floor(GetX(h) - 40 + Math.random() * 41), GetY(g),60,0)
+				},
+				[e.C, e.R]));
+				break;
+			default: // 如果是非自然原因死亡，直接把剩余价值压榨出来
+				if (e.HP > 0) AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), Math.floor(e.HP / 1.5 / 25) * 40, 0);
+				e.Die();
+			}
+		}
 	}
 }),
 oPumpkinHead = InheritO(CPlants, {
@@ -1876,6 +1906,7 @@ oSquash = InheritO(CPlants, {
 	CName: "窝瓜",
 	width: 100,
 	height: 226,
+	HP:1000,
 	beAttackedPointR: 67,
 	SunNum: 50,
 	coolTime: 30,
@@ -2233,16 +2264,14 @@ oScaredyShroom = InheritO(oFumeShroom, {
             oSym.addTask(1,function(c){
                 let z = oZ.getArZ(c.pixelLeft,oS.W,c.R);
                 for(let i = 0;i < z.length;i++){
-                    if(z[i].EName == "oSquashZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie1"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZomboni"|| z[i].EName == "oPeaZombie"|| z[i].EName == "oFootballZombie"|| z[i].EName == "oDiggerZombie"|| z[i].EName == "oConeheadZombie"|| z[i].EName == "oBucketheadZombie"){
+                    if(z[i].EName == "oSquashZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie1"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZomboni"|| z[i].EName == "oPeaZombie"|| z[i].EName == "oFootballZombie"|| z[i].EName == "oDiggerZombie"|| z[i].EName == "oConeheadZombie"|| z[i].EName == "oSnorkelZombie"){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
-			z[i].PrivateAct=z[i].PrivateAct1=z[i].PrivateAct2=function(){};
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
-			z[i].PrivateAttack=function(){},
+			z[i].PrivateAttack=function(){};
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
-			z[i].Stone_of_Sinan_Up();
 			PlayAudio("polevault");
                     }
                 }
@@ -2829,7 +2858,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(30, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
