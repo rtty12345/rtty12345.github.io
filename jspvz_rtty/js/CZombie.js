@@ -510,6 +510,7 @@ OrnNoneZombies = function() {
 		getFreeze1: function(d, c) {
 			d.beAttacked && d.getHit0(d, 10, 0);
 			d.Speed = 0;
+			d.isAttacking=0;
 			oSym.addTask(400,
 			function(g, f, e) {
 				ClearChild(e);
