@@ -2033,16 +2033,13 @@ PlayNormalballAudio: function() {
 	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">使某些植物不明不白的死去</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
-	PicArr: {
-		0 : "images/Card/Zombies/BucketheadZombie.png",
-		1 : "images/Zombies/BucketheadZombie/0.gif",
-		2 : "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
-		3 : "images/Zombies/Zombie/unlook.gif",
-		4:"images/Zombies/Zombie/unlook.gif",
-		5:"images/Zombies/Zombie/unlook.gif",
-		9 : "images/Zombies/Zombie/Zombie2.gif",
-		10:"images/Zombies/Zombie/unlook.gif",
-		11 : "images/Zombies/BucketheadZombie/1.gif",
+	PicArr: {            
+	    0: "images/Card/Zombies/BucketheadZombie.png",
+            1: "images/Zombies/BucketheadZombie/0.gif",
+            2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
+            3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
+            9: "images/Zombies/Zombie/Zombie2.gif",
+            11: "images/Zombies/BucketheadZombie/1.gif"
 	},
 }),
 oFootballZombie= InheritO(oConeheadZombie,{
@@ -2082,6 +2079,9 @@ oFootballZombie= InheritO(oConeheadZombie,{
 	})(),
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
+	},
+	PrivateBirth: function(a){
+	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
 	},
         PrivateAct1: function(a){
             if(!a.Change){
@@ -2344,7 +2344,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
     PrivateAct: function(){
             let a = this;
             if(a.OrnHP <= 0){
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft + 20)+"_1"];
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft-50)+"_1"];
                 p && p.canEat && p.Die();
             }
         },
