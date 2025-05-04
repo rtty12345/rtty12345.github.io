@@ -1184,8 +1184,8 @@ oTwinSunflower = InheritO(oSunFlower, {
 	},
 	PrivateBirth: function(a) {
 		oS.ProduceSun?
-		var b = GetX(a.C);
 		oSym.addTask(500,
+		var b = GetX(a.C);
 		function(f, d, c, e) {
 			$P[f] && (a.ChangePosition($(f), 1), oSym.addTask(100,
 			function(k, h, g, j, i) {
