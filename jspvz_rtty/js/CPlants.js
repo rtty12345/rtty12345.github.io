@@ -683,7 +683,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				f && f.Altitude == 1 ? (f[{
 					"-1":"getPea",
 					0 : "getPea",
-					1 : "getSlowPea"
+					1 : "getSlowPea1"
 				} [o]](f, j, e), (SetStyle(l, {
 					left: q + 28 + "px",
 					width: "52px",
