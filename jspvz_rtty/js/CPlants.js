@@ -1200,6 +1200,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 			[f, d, c, e, arguments.callee]))
 		},
 		[a.id, b - 40, b - 20, GetY(a.R)])
+	},
 }),
 oPumpkinHead = InheritO(CPlants, {
 	EName: "oPumpkinHead",
