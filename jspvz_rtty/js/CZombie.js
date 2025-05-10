@@ -5379,7 +5379,57 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       [a.id, a]
     );
   },
-	OpenBox: function(a) {
+    OpenBox: function (y) {
+      var e = $Z[y];
+      PlayAudio("explosion");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Zombies/JackinTheBoxZombie/Boom.gif",
+        "width:306px;height:300px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+	e &&e.PZ ? ((function(k, g) {
+		var q = Math.max(1, k - 1),
+		o= Math.min(oS.R, k + 1),
+		n = Math.max(1, g - 1),
+		h = Math.min(oS.C,g + 1),
+		r = oGd.$,
+		l,
+		j = "",
+		m;
+		do {
+		g = n;
+		do {
+		j = q + "_" + g + "_";
+		for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
+					}
+				} while ( g ++< h )
+			} while ( q ++< o )
+		})(e.R, GetC(e.ZX))) : (function(j, l) {
+			var m = j - 120,
+			o = j + 120,
+			h = Math.max(1, l - 1),
+			g = Math.min(oS.R, l + 1),
+			n,
+			k;
+			do {
+				k = (n = oZ.getArZ(m, o, h)).length;
+				while (k--) {
+				n[k].ExplosionDie()
+				}
+			} while ( h ++< g )
+		})(e.ZX, e.R), e.ExplosionDie();
+	    this.DisappearDie()
+},
+	OpenBox1: function(a) {
 			oSym.addTask(90,
 			function(f) {
 				var e = $Z[f],
