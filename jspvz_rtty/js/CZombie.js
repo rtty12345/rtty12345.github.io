@@ -4421,7 +4421,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DolphinRiderZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Jump2.gif" + $Random, a + "Walk3.gif", a + "Walk4.gif", a + "Die2.gif" + $Random, a + "Jump3.gif" + $Random]
 	})(),
 	AudioArr: ["dolphin_before_jumping", "dolphin_appears", "zombie_entering_water"],
-	Produce: '海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#FF0000">中(400)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
+	Produce: '海豚骑士僵尸善于利用你水池防御的弱点，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤）<p>韧性：<font color="#FF0000">中(700)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
@@ -5358,7 +5358,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   },
 	OpenBox: function(b) {
 		var a = $Z[b];
-		a.EleBody.src = a.PicArr[7];
 		a.ChkActs = a.ChkActs1 = function() {
 			return 1
 		};
