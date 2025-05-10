@@ -5371,7 +5371,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
               (b.OSpeed = b.Speed = 4),
               (b.ChkActs =
                 OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
-	(b&&b.OpenBox(d))
             },
             [c, b]
           );
@@ -5379,98 +5378,9 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       [a.id, a]
     );
   },
-    OpenBox: function (y) {
-      var e = $Z[y];
-      PlayAudio("explosion");
-      fireid = "fire_" + Math.random();
-      NewImg(
-        fireid,
-        "images/Zombies/JackinTheBoxZombie/Boom.gif",
-        "width:306px;height:300px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
-        EDAll
-      );
-      oSym.addTask(
-        135,
-        (id) => {
-          ClearChild($(id));
-        },
-        [fireid]
-      );
-	e &&e.PZ ? ((function(k, g) {
-		var q = Math.max(1, k - 1),
-		o= Math.min(oS.R, k + 1),
-		n = Math.max(1, g - 1),
-		h = Math.min(oS.C,g + 1),
-		r = oGd.$,
-		l,
-		j = "",
-		m;
-		do {
-		g = n;
-		do {
-		j = q + "_" + g + "_";
-		for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
-					}
-				} while ( g ++< h )
-			} while ( q ++< o )
-		})(e.R, GetC(e.ZX))) : (function(j, l) {
-			var m = j - 120,
-			o = j + 120,
-			h = Math.max(1, l - 1),
-			g = Math.min(oS.R, l + 1),
-			n,
-			k;
-			do {
-				k = (n = oZ.getArZ(m, o, h)).length;
-				while (k--) {
-				n[k].ExplosionDie()
-				}
-			} while ( h ++< g )
-		})(e.ZX, e.R), e.ExplosionDie();
-	    this.DisappearDie()
-},
-	OpenBox1: function(a) {
-			oSym.addTask(90,
-			function(f) {
-				var e = $Z[f],
-				d;
-				e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"),PlayAudio("explosion"), d.src = e.PicArr[12] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
-					var q = Math.max(1, k - 1),
-					o = Math.min(oS.R, k + 1),
-					n = Math.max(1, g - 1),
-					h = Math.min(oS.C,g + 1),
-					r = oGd.$,
-					l,
-					j = "",
-					m;
-					do {
-						g = n;
-						do {
-							j = q + "_" + g + "_";
-							for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
-							}
-						} while ( g ++< h )
-					} while ( q ++< o )
-				})(e.R, GetC(e.ZX))) : (function(j, l) {
-					var m = j - 120,
-					o = j + 120,
-					h = Math.max(1, l - 1),
-					g = Math.min(oS.R, l + 1),
-					n,
-					k;
-					do {
-						k = (n = oZ.getArZ(m, o, h)).length;
-						while (k--) {
-							n[k].ExplosionDie()
-						}
-					} while ( h ++< g )
-				})(e.ZX, e.R), e.ExplosionDie())
-			},
-			[a])
-	},
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
-    if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f, 1), 1;
+    if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f, 0), 1;
 
     var b, a, e;
     !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
