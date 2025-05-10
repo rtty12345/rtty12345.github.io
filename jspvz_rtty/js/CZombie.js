@@ -4421,7 +4421,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DolphinRiderZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Jump2.gif" + $Random, a + "Walk3.gif", a + "Walk4.gif", a + "Die2.gif" + $Random, a + "Jump3.gif" + $Random]
 	})(),
 	AudioArr: ["dolphin_before_jumping", "dolphin_appears", "zombie_entering_water"],
-	Produce: '海豚骑士僵尸善于利用你水池防御的弱点，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤）<p>韧性：<font color="#FF0000">中(700)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
+	Produce: '海豚骑士僵尸善于利用你水池防御的弱点<p>韧性：<font color="#FF0000">中(700)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
@@ -5357,25 +5357,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     );
   },
 	OpenBox: function(b) {
-		var a = $Z[b];
-		a.ChkActs = a.ChkActs1 = function() {
-			return 1
-		};
-		a.JudgeAttack = function() {
-			var g = this,
-			d = g.ZX,
-			e = g.R + "_",
-			f = GetC(d),
-			h = oGd.$,
-			c; (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) ? (!g.isAttacking && (g.isAttacking = 1, g.EleBody.src = g.PicArr[g.AttackGif]), g.NormalAttack(c[0], c[1])) : g.isAttacking && (g.isAttacking = 0)
-		};
-		a.JudgeAttackH = function() {
-			var e = this,
-			d = oZ.getZ0(e.ZX, e.R),
-			f = e.id,
-			c;
-			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
-		};
+		b.beAttacked=b.isAttacking=0;
 		oSym.addTask(50,
 		function(c) {
 			$Z[c] && (a.Status = 0,PlayAudio("jack_surprise"), oSym.addTask(90,
