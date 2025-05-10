@@ -2346,7 +2346,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
     PrivateAct: function(){
             let a = this;
             if(a.OrnHP <= 0){
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+150)+"_1"];
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+175)+"_1"];
                 p && p.canEat && p.Die();
             }
         },
@@ -4661,162 +4661,6 @@ oImp = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/Imp.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})()
 }),
-oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
-	EName: "oJackinTheBoxZombie",
-	CName: "小丑僵尸",
-	SunNum: 150,
-	HP: 1000,
-	BreakPoint: 100,
-	Lvl: 3,
-	Status: 1,
-	BookHandPosition: "30% 70%",
-	width: 196,
-	height: 181,
-	beAttackedPointL: 120,
-	beAttackedPointR: 170,
-	StandGif: 5,
-	NormalGif: 6,
-	DieGif: 3,
-	BoomDieGif: 4,
-	HeadGif: 11,
-	LostHeadGif: 9,
-	LostHeadAttackGif: 10,
-	AttackGif: 2,
-	OSpeed: 3.6,
-	Speed: 3.6,
-	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸，无视植物</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
-	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
-	PicArr: (function() {
-		var a = "images/Zombies/JackinTheBoxZombie/";
-		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
-	})(),
-	RandomOpenBox: function(a) {
-            oSym.addTask(Math.floor(Math.random() * 100) > 4 ? Math.floor(1000 + Math.random() * 800) : Math.floor(450+ Math.random() * 301),
-		function(c) {
-			var b = $Z[c];
-			b && b.beAttacked && b.OpenBox(c)
-		},
-			 [a])
-	},
-	OpenBox: function(b) {
-		var a = $Z[b];
-		a.EleBody.src = a.PicArr[7];
-		a.ChkActs = a.ChkActs1 = function() {
-			return 1
-		};
-		a.JudgeAttack = function() {
-			var g = this,
-			d = g.ZX,
-			e = g.R + "_",
-			f = GetC(d),
-			h = oGd.$,
-			c; (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) ? (!g.isAttacking && (g.isAttacking = 1, g.EleBody.src = g.PicArr[g.AttackGif]), g.NormalAttack(c[0], c[1])) : g.isAttacking && (g.isAttacking = 0)
-		};
-		a.JudgeAttackH = function() {
-			var e = this,
-			d = oZ.getZ0(e.ZX, e.R),
-			f = e.id,
-			c;
-			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
-		};
-		a.getPea = a.getSnowPea = a.getSlowPea =a.getSlowPea1 =  a.getFirePeaSputtering = a.getFirePea = a.getHit = a.getHit0 = a.getHit1 = a.getHit2 = a.getHit3 = a.ChangeR = a.bedevil = function() {};
-		oSym.addTask(50,
-		function(c) {
-			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox && StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(90,
-			function(f) {
-				var e = $Z[f],
-				d;
-				e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src = e.PicArr[8] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
-					var q = Math.max(1, k - 1),
-					o = Math.min(oS.R, k + 1),
-					n = Math.max(1, g - 1),
-					h = Math.min(oS.C,g + 1),
-					r = oGd.$,
-					l,
-					j = "",
-					m;
-					do {
-						g = n;
-						do {
-							j = q + "_" + g + "_";
-							for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
-							}
-						} while ( g ++< h )
-					} while ( q ++< o )
-				})(e.R, GetC(e.ZX))) : (function(j, l) {
-					var m = j - 120,
-					o = j + 120,
-					h = Math.max(1, l - 1),
-					g = Math.min(oS.R, l + 1),
-					n,
-					k;
-					do {
-						k = (n = oZ.getArZ(m, o, h)).length;
-						while (k--) {
-							n[k].ExplosionDie()
-						}
-					} while ( h ++< g )
-				})(e.ZX, e.R), e.ExplosionDie())
-			},
-			[c]))
-		},
-		[b])
-	},
-	getShadow: function(a) {
-		return "left:" + (a.beAttackedPointL - 8) + "px;top:" + (a.height - 32) + "px"
-	},
-	BirthCallBack: function(d) {
-		var c = d.delayT,
-		b = d.id,
-		a = d.Ele = $(b);
-		d.EleShadow = a.firstChild;
-		d.EleBody = a.childNodes[1];
-		c ? oSym.addTask(c,
-		function(f, e) {
-			var g = $Z[f];
-			g && (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e), g.RandomOpenBox(f))
-		},
-		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b))
-	},
-	JudgeAttack:function(){},
-	NormalAttack:function(){},
-	JudgeSR:function(){},
-	JudgeLR:function(){},
-	NormalDie: function() {
-		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-		a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
-		oSym.addTask(250, ClearChild, [a.Ele]);
-		a.HP = 0;
-		delete $Z[a.id];
-		a.PZ && oP.MonPrgs()
-	},
-	ExplosionDie: function() {
-		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-		a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
-		oSym.addTask(300, ClearChild, [a.Ele]);
-		a.HP = 0;
-		delete $Z[a.id];
-		a.PZ && oP.MonPrgs()
-	},
-	DisappearDie: function() {
-		this.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-		ClearChild(this.Ele);
-		this.HP = 0;
-		delete $Z[this.id];
-		this.PZ && oP.MonPrgs()
-	},
-	CrushDie: function() {
-		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-		a.GoingDieHead(a.id, a.PicArr, a);
-		ClearChild(a.Ele);
-		a.HP = 0;
-		delete $Z[a.id];
-		a.PZ && oP.MonPrgs()
-	}
-}),
 oBalloonZombie = InheritO(OrnIZombies, {
 	EName: "oBalloonZombie",
 	CName: "气球僵尸",
@@ -5187,6 +5031,162 @@ BoomFire: function (y) {
             (b != d.WalkDirection || e != -1) ? CZombies.prototype.getSlow(d, a, c) : d.PlayNormalballAudio()
         }
     }),
+oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
+	EName: "oJackinTheBoxZombie",
+	CName: "小丑僵尸",
+	SunNum: 150,
+	HP: 1000,
+	BreakPoint: 100,
+	Lvl: 3,
+	Status: 1,
+	BookHandPosition: "30% 70%",
+	width: 196,
+	height: 181,
+	beAttackedPointL: 120,
+	beAttackedPointR: 170,
+	StandGif: 5,
+	NormalGif: 6,
+	DieGif: 3,
+	BoomDieGif: 4,
+	HeadGif: 11,
+	LostHeadGif: 9,
+	LostHeadAttackGif: 10,
+	AttackGif: 2,
+	OSpeed: 3.6,
+	Speed: 3.6,
+	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸，无视植物</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
+	PicArr: (function() {
+		var a = "images/Zombies/JackinTheBoxZombie/";
+		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
+	})(),
+	RandomOpenBox: function(a) {
+            oSym.addTask(Math.floor(Math.random() * 100) > 4 ? Math.floor(1000 + Math.random() * 800) : Math.floor(450+ Math.random() * 301),
+		function(c) {
+			var b = $Z[c];
+			b && b.beAttacked && b.OpenBox(c)
+		},
+			 [a])
+	},
+	OpenBox: function(b) {
+		var a = $Z[b];
+		a.EleBody.src = a.PicArr[7];
+		a.ChkActs = a.ChkActs1 = function() {
+			return 1
+		};
+		a.JudgeAttack = function() {
+			var g = this,
+			d = g.ZX,
+			e = g.R + "_",
+			f = GetC(d),
+			h = oGd.$,
+			c; (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) ? (!g.isAttacking && (g.isAttacking = 1, g.EleBody.src = g.PicArr[g.AttackGif]), g.NormalAttack(c[0], c[1])) : g.isAttacking && (g.isAttacking = 0)
+		};
+		a.JudgeAttackH = function() {
+			var e = this,
+			d = oZ.getZ0(e.ZX, e.R),
+			f = e.id,
+			c;
+			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
+		};
+		a.getPea = a.getSnowPea = a.getSlowPea =a.getSlowPea1 =  a.getFirePeaSputtering = a.getFirePea = a.getHit = a.getHit0 = a.getHit1 = a.getHit2 = a.getHit3 = a.ChangeR = a.bedevil = function() {};
+		oSym.addTask(50,
+		function(c) {
+			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox && StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(90,
+			function(f) {
+				var e = $Z[f],
+				d;
+				e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src = e.PicArr[8] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+					var q = Math.max(1, k - 1),
+					o = Math.min(oS.R, k + 1),
+					n = Math.max(1, g - 1),
+					h = Math.min(oS.C,g + 1),
+					r = oGd.$,
+					l,
+					j = "",
+					m;
+					do {
+						g = n;
+						do {
+							j = q + "_" + g + "_";
+							for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
+							}
+						} while ( g ++< h )
+					} while ( q ++< o )
+				})(e.R, GetC(e.ZX))) : (function(j, l) {
+					var m = j - 120,
+					o = j + 120,
+					h = Math.max(1, l - 1),
+					g = Math.min(oS.R, l + 1),
+					n,
+					k;
+					do {
+						k = (n = oZ.getArZ(m, o, h)).length;
+						while (k--) {
+							n[k].ExplosionDie()
+						}
+					} while ( h ++< g )
+				})(e.ZX, e.R), e.ExplosionDie())
+			},
+			[c]))
+		},
+		[b])
+	},
+	getShadow: function(a) {
+		return "left:" + (a.beAttackedPointL - 8) + "px;top:" + (a.height - 32) + "px"
+	},
+	BirthCallBack: function(d) {
+		var c = d.delayT,
+		b = d.id,
+		a = d.Ele = $(b);
+		d.EleShadow = a.firstChild;
+		d.EleBody = a.childNodes[1];
+		c ? oSym.addTask(c,
+		function(f, e) {
+			var g = $Z[f];
+			g && (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e), g.RandomOpenBox(f))
+		},
+		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b))
+	},
+	JudgeAttack:function(){},
+	NormalAttack:function(){},
+	JudgeSR:function(){},
+	JudgeLR:function(){},
+	NormalDie: function() {
+		var a = this;
+		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+		oSym.addTask(250, ClearChild, [a.Ele]);
+		a.HP = 0;
+		delete $Z[a.id];
+		a.PZ && oP.MonPrgs()
+	},
+	ExplosionDie: function() {
+		var a = this;
+		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
+		oSym.addTask(300, ClearChild, [a.Ele]);
+		a.HP = 0;
+		delete $Z[a.id];
+		a.PZ && oP.MonPrgs()
+	},
+	DisappearDie: function() {
+		this.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		ClearChild(this.Ele);
+		this.HP = 0;
+		delete $Z[this.id];
+		this.PZ && oP.MonPrgs()
+	},
+	CrushDie: function() {
+		var a = this;
+		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.GoingDieHead(a.id, a.PicArr, a);
+		ClearChild(a.Ele);
+		a.HP = 0;
+		delete $Z[a.id];
+		a.PZ && oP.MonPrgs()
+	}
+}),
 oDiggerZombie = InheritO(OrnNoneZombies, {
   EName: "oDiggerZombie",
   CName: "矿工僵尸",
@@ -5356,8 +5356,8 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       [a.id, a]
     );
   },
-	OpenBox: function() {
-		oSym.addTask(90,
+	OpenBox: function(c) {
+			$Z[c] &&(oSym.addTask(90,
 			function(f) {
 				var e = $Z[f],
 				d;
@@ -5393,7 +5393,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 					} while ( h ++< g )
 				})(e.ZX, e.R), e.ExplosionDie())
 			},
-			[f])
+			[c]))
 	},
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
