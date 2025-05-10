@@ -2346,7 +2346,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
     PrivateAct: function(){
             let a = this;
             if(a.OrnHP <= 0){
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+100)+"_1"];
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+150)+"_1"];
                 p && p.canEat && p.Die();
             }
         },
