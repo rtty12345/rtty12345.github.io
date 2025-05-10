@@ -5348,7 +5348,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
               (b.OSpeed = b.Speed = 4),
               (b.ChkActs =
                 OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
-	(b&&b.WD&&b.beAttacked&&b.OpenBox(d))
+	(b&&b.OpenBox(d))
             },
             [c, b]
           );
