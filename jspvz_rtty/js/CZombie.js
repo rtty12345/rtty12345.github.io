@@ -4517,7 +4517,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2
-				oP.SetTimeoutZombie([oDolphinRiderZombie, oDolphinRiderZombie], 0);
+				oP.SetTimeoutZombie([oDolphinRiderZombie1, oDolphinRiderZombie1], 0);
                                 oP.NumZombies += 2;
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
@@ -4553,6 +4553,59 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		b.FreeFreezeTime = b.FreeSetbodyTime = b.FreeSlowTime = 0;
 		b.AutoReduceHP(c)
 	}
+}),
+oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
+	EName: "oDolphinRiderZombie1",
+	CName: "海豚骑士僵尸",
+	HP: 700,
+	NormalAttack: function(d, b, g) {
+		var f = $Z[d],
+		a = f.Ele,
+		c = f.EleShadow,
+		e = f.EleBody;
+		e.src = f.PicArr[9] + Math.random();
+		SetHidden(c);
+		f.isAttacking = 1;
+		f.Altitude = 2;
+		f.haveDolphin = 0;
+		PlayAudio("dolphin_before_jumping");
+		f.getFreeze = function() {
+			f.getSnowPea(f, 20, 0)
+		};
+		oSym.addTask(50,
+		function(m, j, i, l, q) {
+			var h = $Z[m],
+			k,
+			r,
+			s,
+			n = function() {
+				q.src = h.PicArr[10];
+				h.isAttacking = 0;
+				h.Altitude = 1;
+				h.OSpeed = h.Speed = 3.6;
+				h.WalkGif0 = 11;
+				h.NormalGif = h.WalkGif1 = 10;
+				h.LostHeadGif = h.DieGif = 12;
+				h.NormalAttack = (s = CZombies.prototype).NormalAttack;
+				h.getCrushed = s.getCrushed;
+				h.getFreeze = s.getFreeze;
+				h.getRaven = s.getRaven;
+				h.AttackZombie2 = s.AttackZombie2
+			};
+			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
+				left: h.X + "px"
+			}), h.EleShadow.style.left = "45px", n()) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - (h.beAttackedPointR = 100)) + (h.beAttackedPointL = 45), SetStyle(i, {
+				left: h.X + "px"
+			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(), oSym.addTask(170,
+			function(t, w) {
+				var v = $Z[t],
+				u;
+				v && n()
+			},
+			[m, q])))
+		},
+		[d, b, a, c, e])
+	},
 }),
 oImp = InheritO(OrnNoneZombies, {
 	EName: "oImp",
