@@ -5132,6 +5132,29 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		},
 		[b])
 	},
+    BoomFire: function (y) {
+      PlayAudio("jalapeno");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+      for (let i = 1; i <= oS.C; i++) {
+        for (let j = 0; j < 4; j++) {
+          let g = oGd.$[y + "_" + i + "_" + j];
+          g && g.BoomDie();
+        }
+      }
+    },
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 8) + "px;top:" + (a.height - 32) + "px"
 	},
@@ -5356,8 +5379,8 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       [a.id, a]
     );
   },
-	OpenBox: function(c) {
-			$Z[c] &&(oSym.addTask(90,
+	OpenBox: function(a) {
+			oSym.addTask(90,
 			function(f) {
 				var e = $Z[f],
 				d;
@@ -5393,7 +5416,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 					} while ( h ++< g )
 				})(e.ZX, e.R), e.ExplosionDie())
 			},
-			[c]))
+			[a])
 	},
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
