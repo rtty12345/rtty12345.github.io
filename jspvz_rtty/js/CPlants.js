@@ -635,7 +635,7 @@ oThreepeater1= InheritO(oPeashooter, {
 	Tooltip: "一次射出三行的豌豆",
 	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
 	getTriggerR: function(a) {
-		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
+		return [a > 3 ? a - 2 : 1, a < oS.R ? Number(a) + 1 : a]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
