@@ -5393,7 +5393,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 					} while ( h ++< g )
 				})(e.ZX, e.R), e.ExplosionDie())
 			},
-			[c])
+			[f])
 	},
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
