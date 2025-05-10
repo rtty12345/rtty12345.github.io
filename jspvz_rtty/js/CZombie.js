@@ -5360,7 +5360,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		var a=$Z[b];
 		oSym.addTask(50,
 		function(c) {
-			$Z[c] && (a.Status = 0,a.beAttacked=a.isAttacking=0;PlayAudio("jack_surprise"), oSym.addTask(90,
+			$Z[c] && (a.Status = 0,b.beAttacked=b.isAttacking=0;PlayAudio("jack_surprise"), oSym.addTask(90,
 			function(f) {
 				var e = $Z[f],
 				d;
