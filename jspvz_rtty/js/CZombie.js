@@ -4820,8 +4820,8 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 oBalloonZombie = InheritO(OrnIZombies, {
 	EName: "oBalloonZombie",
 	CName: "气球僵尸",
-	OrnHP:20,
-	HP:400,
+	OrnHP:160,
+	HP:500,
 	SunNum: 125,
 	width: 207,
 	height: 197,
@@ -4861,7 +4861,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	ChkActs: function(f, d, g, c) {
 		var b, a, e;
-		if(f.Altitude == 3 && f.AttackedRX < GetX(1)) { // 气球掉落
+		if(f.Altitude == 3 && f.AttackedRX < GetX(1)&&f.OrnHP<=0) { // 气球掉落
 			f.Drop(); return 1;
 		}
 		! (f.FreeFreezeTime || f.FreeSetbodyTime) ? ((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
@@ -5133,7 +5133,7 @@ BoomFire: function (y) {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let z = oZ.getArZ(0,oS.W,a.R);
-                        z &&z.bedevil&& z[i].beAttackPointL+ z[i,j,z].beAttackPointL>= $(d).offsetLeft && z[i,j,z].beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i,j,z].getSlowPea(30),$(d) && ClearChild($(d))
+                        z &&z.PZ&& z[i,j].beAttackPointL+ z[i,j].beAttackPointL>= $(d).offsetLeft && z[i,j].beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i,j].getSlowPea(30),$(d) && ClearChild($(d))
                     }
                 }
                 if($(d).offsetLeft <= 0){
@@ -5192,7 +5192,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   CName: "矿工僵尸",
   Lvl: 4,
   SunNum: 125,
-  HP: 1000,
+  HP: 300,
   BreakPoint: 70,
   width: 167,
   height: 170,
@@ -5268,6 +5268,69 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
         }
       })();
   },
+	OpenBox: function(b) {
+		var a = $Z[b];
+		a.EleBody.src = a.PicArr[7];
+		a.ChkActs = a.ChkActs1 = function() {
+			return 1
+		};
+		a.JudgeAttack = function() {
+			var g = this,
+			d = g.ZX,
+			e = g.R + "_",
+			f = GetC(d),
+			h = oGd.$,
+			c; (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) ? (!g.isAttacking && (g.isAttacking = 1, g.EleBody.src = g.PicArr[g.AttackGif]), g.NormalAttack(c[0], c[1])) : g.isAttacking && (g.isAttacking = 0)
+		};
+		a.JudgeAttackH = function() {
+			var e = this,
+			d = oZ.getZ0(e.ZX, e.R),
+			f = e.id,
+			c;
+			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
+		};
+		oSym.addTask(50,
+		function(c) {
+			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox&&PlayAudio("jack_surprise"), oSym.addTask(90,
+			function(f) {
+				var e = $Z[f],
+				d;
+				e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"),PlayAudio("explosion"), d.src = e.PicArr[12] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+					var q = Math.max(1, k - 1),
+					o = Math.min(oS.R, k + 1),
+					n = Math.max(1, g - 1),
+					h = Math.min(oS.C,g + 1),
+					r = oGd.$,
+					l,
+					j = "",
+					m;
+					do {
+						g = n;
+						do {
+							j = q + "_" + g + "_";
+							for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
+							}
+						} while ( g ++< h )
+					} while ( q ++< o )
+				})(e.R, GetC(e.ZX))) : (function(j, l) {
+					var m = j - 120,
+					o = j + 120,
+					h = Math.max(1, l - 1),
+					g = Math.min(oS.R, l + 1),
+					n,
+					k;
+					do {
+						k = (n = oZ.getArZ(m, o, h)).length;
+						while (k--) {
+							n[k].ExplosionDie()
+						}
+					} while ( h ++< g )
+				})(e.ZX, e.R), e.ExplosionDie())
+			},
+			[c]))
+		},
+		[b])
+	},
   JudgeSR: function(f, d, e, c, g) {
     return e > 9 ?
       false :
@@ -5300,6 +5363,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       a + "Up.gif" + $Random,
       a + "Down.gif" + $Random,
       a + "BoomDie.gif" + $Random,
+ "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random
     ];
   })(),
   AudioArr: ["zombie_entering_water"],
@@ -5320,6 +5384,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     oSym.addTask(
       100,
       function(c, b) {
+	var d=$Z[c];
         WD
           ?
           ((b.AttackGif = b.AttackGif_Up0),
@@ -5377,7 +5442,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
         (e = 1)) :
       (e = 1)) :
     (e = 1);
-this.PrivateAct&&this.PrivateAct(this);
     return e;
   },
   CanDig: {
