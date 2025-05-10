@@ -5215,7 +5215,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   CName: "矿工僵尸",
   Lvl: 4,
   SunNum: 125,
-  HP: 300,
+  HP: 800,
   BreakPoint: 70,
   width: 167,
   height: 170,
@@ -5363,7 +5363,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
         $Z[c] &&
           b.beAttacked &&
           oSym.addTask(
-            WD ? 400 : 0,
+            400,
             function(c, b) {
               // 行走
               (b.EleBody.src =
@@ -5380,7 +5380,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   },
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
-    if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f, 0), 1;
+    if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f,Math.round(Math.random()*100)>10?1:0), 1;
 
     var b, a, e;
     !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
