@@ -5303,7 +5303,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
  "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random
     ];
   })(),
-  AudioArr: ["zombie_entering_water"],
+  AudioArr: ["zombie_entering_water","jack_surprise","explosion"],
   Go_Up: function(a, WD) {
     // WD: 方向，1右0左
     a.isUp = 1; //a.Ifgc=0;
