@@ -5214,7 +5214,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   EName: "oDiggerZombie",
   CName: "矿工僵尸",
   Lvl: 4,
-  SunNum: 125,
+  SunNum: 150,
   HP: 800,
   BreakPoint: 70,
   width: 167,
@@ -5405,7 +5405,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     return e;
   },
   CanDig: {
-    oPotatoMine,oPumpkinHead,oChomper,oBrains: true
+    oPotatoMine,oPumpkinHead,oChomper: true
   },
   JudgeAttack_Dig: function() {
     var g = this,
