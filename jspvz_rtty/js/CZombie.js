@@ -1569,6 +1569,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 oZombie = InheritO(OrnNoneZombies,{
 	EName: "oZombie",
 	CName: "领带僵尸",
+	HP:400,
 	StandGif: 9,
 	PicArr: (function() {
 		var a = "images/Zombies/Zombie/";
@@ -1578,6 +1579,7 @@ oZombie = InheritO(OrnNoneZombies,{
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2",
+	HP:300,
 	PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
@@ -4510,12 +4512,13 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				h.WalkGif0 = 11;
 				h.NormalGif = h.WalkGif1 = 10;
 				h.LostHeadGif = h.DieGif = 12;
-				h.ChkActsL2=h.ChkActsL20;
 				h.NormalAttack = (s = CZombies.prototype).NormalAttack;
 				h.getCrushed = s.getCrushed;
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2
+				oP.SetTimeoutZombie([oDolphinRiderZombie, oDolphinRiderZombie], 0);
+                                oP.NumZombies += 2;
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
 				left: h.X + "px"
@@ -4530,11 +4533,6 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 			[m, q])))
 		},
 		[d, b, a, c, e])
-	},
-	ChkActsL20: function(d, c, e, b) {
-		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px"));
-		d.AttackedLX < GetX(0) && (d.WalkStatus = 0, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3);
-		return 1
 	},
 	ChkActs3: function(h, f, j, e) {
             var d, c, g;
