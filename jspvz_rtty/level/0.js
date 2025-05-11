@@ -18,7 +18,7 @@ oS.Init({
 		NewAudio({
 			source: "evillaugh"
 		});
-		/*(function() {
+		(function() {
 			var b = $("JSProcess")
 			  , c = $("dProcess2");
 			b ? ($User.Browser.IE ? b.onreadystatechange = function() {
@@ -26,14 +26,12 @@ oS.Init({
 			}
 			: b.onload = function() {
 				ClearChild(b)
-			}
-			,
+			},
 			b.onerror = function() {
 				ClearChild(this)
-			}
-			,
+			},
 			b.src = "http://" + $User.AuthorWebsite + "/js/Process.js?" + Math.random()) : $("sTime").innerHTML = oS.Version
-		})();*/
+		})();
 		$("dServer") && SetBlock($("dServer"));
 
 		let TitleStart = true, Ele = $("1717251538528057c14ff6b76633537ce4508eb4cd82ddba71a14.jpg");
@@ -47,8 +45,6 @@ oS.Init({
 
 		oGT.On("Exit-Level", () => (TitleStart = false), true);
 		f2();
-
-/*
 		(function() {
 			//游戏初始页面的气球僵尸上下浮动
 			var animUp = function(y) {
@@ -56,8 +52,8 @@ oS.Init({
 				oSym.addTask(5, function(y) {
 					(y < -19 ? animDown : animUp)(y)
 				}, [y]);
-			}
-			  ， animDown = function(y) {
+			},
+			  animDown = function(y) {
 				$('dBalloonZombie') && ($('dBalloonZombie').style.top = (y += 1.1) + 'px');
 				oSym.addTask(4, function(y) {
 					(y > 34 ? animUp : animDown)(y)
@@ -66,6 +62,5 @@ oS.Init({
 			animUp(35);
 		}
 		)();
-  */
 	}
 });
