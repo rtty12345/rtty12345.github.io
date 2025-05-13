@@ -459,11 +459,17 @@ var CZombies = function(b, a) {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
-			c.PrivateAct=c.PrivateAct1=c.PrivateAct2=function(){};
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
+		},
+		bedevil1: function(c) {
+			c.JudgeAttack = c.JudgeAttack;
+			c.PZ = 1;
+			c.WalkDirection = 0;
+			c.ZX = c.AttackedLX;
+			c.ChkActs = c.ChkActs;
 		},
         SetAlpha: $User.Browser.IE ? function(f, d, e, c) {
             d.style.filter = (f.CSS_alpha = "alpha(opacity=" + e + ")") + f.CSS_fliph
@@ -2015,7 +2021,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let i = Math.round(Math.random()*0+a.length-1);
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
-                a[i].HP-=1000;
+                a[i].Die();
                 b && b.HP && oSym.addTask(1500,arguments.callee,[b]);
             },[b]))
         },
@@ -2124,7 +2130,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
 			},
 			[d, c])
 		},
-	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆，有些会给自己加速，有些会换行<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
 oFootballZombie1= InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
@@ -3577,12 +3583,44 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
             c.getHit0(c, a, b)
         },
-	getHit0: function(c,a,b) {
-		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10,
-		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
-		},
-		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
-	},
+	getHit0: function(a){
+            if(!a.bool){
+            a.bool = 1;
+            oSym.addTask(125,function(a){
+            let z = $(a.id);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/PB00.gif">';
+            EditEle(div,0,{
+                position:"absolute",
+                zIndex:"24",
+                left:z.offsetLeft + "px",
+                top:z.offsetTop + 40 + "px"
+            },EDPZ,0)
+            oSym.addTask(1,function(z,d,a){
+                try{
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                let pea = $(d);
+                let C = GetC(z.offsetLeft + 40);
+                for(let i = 3;i >= 0;i--){
+                    for(let j = 1;j <= C;j++){
+                        let p = oGd.$[a.R+"_"+j+"_"+i];
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oSunFlower"&& p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.HP <= 0) && p.Die();
+                    }
+                }
+                if($(d).offsetLeft <= 0){
+                    ClearChild($(d));
+                    $(d).isDie = true;
+                }
+                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
+                }catch(e){
+                }
+            },[z,d,a]);
+            },[a]);
+            }
+        },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]], g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getPea = e.getPea, g.getFirePea = e.getFirePea, g.getFirePeaSputtering = e.getFirePeaSputtering, g.getSnowPea = e.getSnowPea,g.getSlowPea=e.getSlowPea,g.getSlowPea1=e.getSlowPea1,g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio,g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
 	},
