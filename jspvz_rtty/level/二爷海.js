@@ -18,7 +18,7 @@ oS.Init({
 },
 {
     AZ: [
-    [oNewspaperZombie2,1,1,[1]]
+    [oNewspaperZombie,1,1,[1]]
     ], 
     FlagNum: 20,
     FlagToSumNum: {
