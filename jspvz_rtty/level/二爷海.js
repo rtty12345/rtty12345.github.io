@@ -1,5 +1,5 @@
 oS.Init({
-    PName: ShengPlantList,
+    PName: [oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster,oHypnoShroom,oScaredyShroom,oIceShroom,oDoomShroom,oLilyPad,oSquash,oThreepeater,oTangleKelp,oJalapeno,oTorchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oCoffeeBean,oGarlic,oGatlingPea,oGloomShroom,oTwinSunflower],
     ZName: [oNewspaperZombie],
     PicArr: ["images/interface/background1.jpg"], 
     backgroundImage: "images/interface/background1.jpg",
