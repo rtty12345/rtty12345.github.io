@@ -3513,7 +3513,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(300,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -4754,7 +4754,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	ChkActs: function(f, d, g, c) {
 		var b, a, e;
-		if(f.Altitude == 3 && f.AttackedRX < GetX(1)&&f.OrnHP<=0) { // 气球掉落
+		if(f.Altitude == 3 && f.AttackedRX < GetX(1)) { // 气球掉落
 			f.Drop(); return 1;
 		}
 		! (f.FreeFreezeTime || f.FreeSetbodyTime) ? ((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
@@ -5026,7 +5026,7 @@ BoomFire: function (y) {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let z = oZ.getArZ(0,oS.W,a.R);
-                        z &&z.PZ&& z[i,j].beAttackPointL+ z[i,j].beAttackPointL>= $(d).offsetLeft && z[i,j].beAttackPointL>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i,j].getSlowPea(30),$(d) && ClearChild($(d))
+                        z &&z.PZ&& z[i,j].offsetLeft+ z[i,j].offsetLeft>= $(d).offsetLeft && z[i,j].offsetLeft>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i,j].getSlowPea(30),$(d) && ClearChild($(d))
                     }
                 }
                 if($(d).offsetLeft <= 0){
@@ -5429,7 +5429,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   },
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
-    if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f,Math.round(Math.random()*100)>10?1:0), 1;
+    if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 10) return f.Go_Up(f,Math.round(Math.random()*100)>10?1:0), 1;
 
     var b, a, e;
     !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
