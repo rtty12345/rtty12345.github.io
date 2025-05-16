@@ -1963,7 +1963,6 @@ oConeheadZombie= InheritO(OrnIZombies, {
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(400,function(a){
 		    a.bool=1;
-		    ClearChild(s);
 		    a.Speed=a.oSpeed=1.6;
 		    },[a]);
 		    a.Attack=100; 
@@ -2067,7 +2066,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
 	OrnHP: 2000,
 	HP:400,
 	Lvl: 3,
-	SunNum: 200,
+	SunNum: 250,
 	StandGif: 11,
 	width: 154,
 	height: 160,
