@@ -852,6 +852,7 @@ oGatlingPea1= InheritO(CPlants, {
 	beAttackedPointR: 68,
 	SunNum: 700,
 	coolTime: 100,
+	HP:1000,
 	PicArr: ["images/Card/Plants/GatlingPea.png","images/Plants/GatlingPea/0.gif","images/Plants/GatlingPea/GatlingPea.gif","images/Plants/PB10.gif","images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次散射4~6颗减速的火豌豆<br>(需要双发射手)",
@@ -1149,15 +1150,11 @@ oTwinSunflower = InheritO(oSunFlower, {
 	width: 83,
 	height: 84,
 	beAttackedPointR: 63,
-	SunNum: 150,
+	SunNum: 175,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/TwinSunflower.png", "images/Plants/TwinSunflower/0.gif", "images/Plants/TwinSunflower/TwinSunflower1.gif", "images/Plants/TwinSunflower/TwinSunflower.gif"],
 	Tooltip: "一次提供两倍于向日葵的阳光量<br>(需要向日葵)",
 	Produce: '双子向日葵的阳光产量是普通向日葵的两倍。<p>阳光产量：<font color="#FF0000">双倍<br>只能种在普通向日葵上</font></p>这是一个疯狂的夜晚，禁忌的科学技术，让双子向日葵来到了这个世界。电闪雷鸣，狂风怒吼，都在表示着这个世界对他的拒绝。但是一切都无济于事，双子向日葵他却仍然活着！',
-	CanGrow: function(b, a, d) {
-		var c = b[1];
-		return c && c.EName == "oSunFlower"
-	},
 	BirthStyle: function(c, e, b, a) {
 		var d = b.childNodes[1];
 		d.src = "images/Plants/TwinSunflower/TwinSunflower.gif";
@@ -1185,7 +1182,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 			$P[f] && (a.ChangePosition($(f), 1), oSym.addTask(100,
 			function(k, h, g, j, i) {
 				AppearSun(Math.floor(h + Math.random() * 21), j, 60, 0),
-				AppearSun(Math.floor(g + Math.random() * 21), j,45,0),
+				AppearSun(Math.floor(g + Math.random() * 21), j,80,0),
 				oSym.addTask(100,
 				function(l) {
 					$P[l] && a.ChangePosition($(l), 0)
@@ -1301,7 +1298,7 @@ oPotatoMine = InheritO(CPlants, {
 	CName: "土豆雷",
 	width: 75,
 	height: 55,
-	HP:20000,
+	HP:100000,
 	beAttackedPointR: 55,
 	SunNum: 25,
 	coolTime: 30,
@@ -1848,7 +1845,7 @@ oGarlic = InheritO(CPlants, {
 	height: 59,
 	beAttackedPointR: 40,
 	SunNum: 50,
-	HP: 400,
+	HP: 1000,
 	PicArr: ["images/Card/Plants/Garlic.png", "images/Plants/Garlic/0.gif", "images/Plants/Garlic/Garlic.gif", "images/Plants/Garlic/Garlic_body2.gif", "images/Plants/Garlic/Garlic_body3.gif"],
 	Tooltip: "将僵尸赶到其它的横行",
 	Produce: '大蒜可以让僵尸改变前进的路线。<p>范围：<font color="#FF0000">近距离接触</font><br>特点：<font color="#FF0000">改变僵尸的前进路线</font></p>路线转向，这不仅仅是大蒜的专业，更是他的热情所在。他在布鲁塞尔大学里，获得了转向学的博士学位。他能把路线向量和反击阵列，讲上一整天。他甚至会把家里的东西，推到街上去。不知道为啥，他老婆还可以忍受这些。',
@@ -2662,7 +2659,7 @@ oPlantern = InheritO(CPlants, {
 		var a = c.R,
 		b = c.C;
 		delete oGd.$Plantern[a + "_" + b];
-		oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 1), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
 	},
 	GetDY: function(b, c, a) {
 		return a[0] ? 70 : 74
