@@ -10,7 +10,7 @@ oS.Init({
     CanSelectCard: 1, 
     LevelName: "二爷海",  
     LvlEName: 11451,  
-    SunNum: 100,
+    SunNum: 500,
     LargeWaveFlag: {
         10 : $("imgFlag3"),
         20 : $("imgFlag1")
@@ -23,7 +23,7 @@ oS.Init({
     FlagNum: 20,
     FlagToSumNum: {
         a1: [1,5,7,10,15,20],
-        a2: [50,80,140,180,250,300,500]
+        a2: [100,160,240,360,500,800,1200]
     },
     FlagToMonitor: {
         9 : [ShowLargeWave, 0],
