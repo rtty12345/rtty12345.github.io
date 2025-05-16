@@ -1658,8 +1658,8 @@ oFlagZombie = InheritO(oZombie, {
 	})(),
 	EName: "oFlagZombie",
 	CName: "处决者旗帜",
-	OSpeed: 10,
-	Speed: 10,
+	OSpeed: 8,
+	Speed: 8,
 	SunNum: 275,
 	Attack:500,
 	HP:500,
@@ -1921,7 +1921,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
 	OrnHP: 500,
-	Lvl: 5,
+	Lvl: 3,
 	SunNum: 125,
 	StandGif: 11,
 	PicArr: (function() {
@@ -1932,17 +1932,28 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	AudioArr: ["plastichit"],
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
-	    if(a.PrivateAct=a.PrivateAct1){
-	    let z = $(a.id);
-            z.SquashHeadId = "Squash" + Math.random();
-            let squash = NewImg(z.SquashHeadId,"images/Plants/WallNut/WallNutRoll.gif","position:absolute;left:40px;top:20px;",0);
-            z.appendChild(squash);
-	    }
         },
-	PrivateAct2:function(){},
+	 PrivateAct2:function(a){
+		 if(!a.hp){
+                 a.hp=true;
+            oSym.addTask(600,function(a){
+                PlayAudio("grassstep");
+                let R = (a.R - 1) || 0,
+                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
+                    C = GetC($(a.id).offsetLeft + 80);
+                for(let i = R;i <= RM;i++){
+                    for(let j = C - 1;j <= C + 1;j++){
+                        for(let k = 0;k <= 3;k++){
+			let z = oZ.getArZ(0,oS.W,a.R);
+			z[i,j,k].HP*1.2;
+			a.hp=false;
+                        }
+                    }
+                }
+	    },[a])
+		 }
+        },
 	PrivateAct1:function(a){
-	        let z = $(a.id),
-                s = $(z.SquashHeadId);
             if(!a.bool){
                 a.Speed =a.oSpeed=5;
                 var C = GetC(a.X + 80);
@@ -2009,7 +2020,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
 	},
         PrivateAct1:function(b){
-            !b.num && (b.num = 1,oSym.addTask(2500,function(b){
+            !b.num && (b.num = true,oSym.addTask(2500,function(b){
                 let a = [],
                     d = "boom" + Math.random();
                 for(let i in oGd.$){
@@ -2022,7 +2033,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
                 a[i].Die();
-                b && b.HP && oSym.addTask(1500,arguments.callee,[b]);
+                b && b.HP && oSym.addTask(1500,b.num=false,[b]);
             },[b]))
         },
 	 PrivateAct2:function(a){
@@ -2030,7 +2041,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                  a.hp=true;
             oSym.addTask(600,function(a){
                 PlayAudio("grassstep");
-		   a.HP+=200;
+		   a.OrnHP+=200;
 			a.hp=false;
             },[a])
 		 }
@@ -2106,6 +2117,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
             oSym.addTask(600,function(a){
                 PlayAudio("grassstep");
 		   a.Speed+=2;
+		   a.Attack+=50;
 			a.hp=false;
             },[a])
 		 }
