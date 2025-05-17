@@ -1945,7 +1945,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
 			let z = oZ.getArZ(0,oS.W,a.R);
-			z[i,j,k].HP*1.2;
+			z[i,j,k].HP+=200;
 			a.hp=false;
                         }
                     }
@@ -2032,7 +2032,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                 let l = GetX(a[i].C) - 80,
                     t = GetY(a[i].R) - 80;
                 a[i].Die();
-                b && b.HP && oSym.addTask(1500,b.num=false,[b]);
+                b && b.HP && oSym.addTask(1500,function(b){b.num=false},[b]);
             },[b]))
         },
 	 PrivateAct2:function(a){
@@ -2363,7 +2363,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
     PrivateAct: function(){
             let a = this;
             if(a.OrnHP <= 0){
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+175)+"_1"];
+                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+160)+"_1"];
                 p && p.canEat && p.Die();
             }
         },
