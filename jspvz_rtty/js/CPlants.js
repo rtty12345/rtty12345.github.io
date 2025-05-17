@@ -2328,7 +2328,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 			(c.HP -= a) < 1 && c.Die(1);
 			break;
 		case 0:
-			!c.Sleep && d.bedevil(d);
+			!c.Sleep && d.bedevil(d),e.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
 			c.Die();
 			break;
 		default:
