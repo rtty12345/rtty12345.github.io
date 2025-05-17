@@ -1914,7 +1914,7 @@ oSquash = InheritO(CPlants, {
 			var g = oZ.getArZ(l, l + 100, j),
 			h = g.length,
 			k;
-			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.getbedevil(114514)
+			while (h--) { (k = g[h]).Altitude > -1 && k.PZ && k.Altitude < 3 && k.getbedevil(114514),k.EleBody.style.filter += " hue-rotate(180deg) saturate(2)"
 			}
 			oSym.addTask(185, ClearChild, [f])
 		},
@@ -2328,7 +2328,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 			(c.HP -= a) < 1 && c.Die(1);
 			break;
 		case 0:
-			!c.Sleep && d.bedevil(d),e.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
+			!c.Sleep && d.bedevil(d),d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
 			c.Die();
 			break;
 		default:
