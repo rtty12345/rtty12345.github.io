@@ -3592,7 +3592,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             }, [c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
         },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = oNewspaperZombie2.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 1, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
+		var e = oNewspaperZombie3.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 1, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
 			g.LostHeadGif = 8,
 			g.LostHeadAttackGif = 9,
 			g.getPea = e.getPea,
