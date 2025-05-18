@@ -3595,7 +3595,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		var e = oNewspaperZombie2.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 1, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
 			g.LostHeadGif = 8,
 			g.LostHeadAttackGif = 9,
-			g.getPea = e.getPea，
+			g.getPea = e.getPea,
 			g.NormalAttack = e.NormalAttack,
 			g.getFirePea = e.getFirePea,
 			g.getFirePeaSputtering = e.getFirePeaSputtering,
