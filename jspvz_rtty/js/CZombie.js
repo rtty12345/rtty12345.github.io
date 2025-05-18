@@ -4715,7 +4715,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	CName: "气球僵尸",
 	OrnHP:160,
 	HP:500,
-	SunNum: 125,
+	SunNum: 250,
 	width: 207,
 	height: 197,
 	beAttackedPointL: 30,
@@ -4791,7 +4791,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 			if (c) {
 				c.BoomDieGif = 11;
 				c.Altitude = 1;
-				c.OSpeed = c.Speed = 1.6;
+				c.OSpeed = c.Speed = 6.4;
 				c.getFreeze = OrnIZombies.prototype.getFreeze;
 				c.EleBody.src = "images/Zombies/BalloonZombie/Walk.gif";
 				c.NormalAttack=OrnIZombies.prototype.NormalAttack;
