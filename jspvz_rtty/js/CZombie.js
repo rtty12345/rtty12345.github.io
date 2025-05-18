@@ -148,7 +148,6 @@ var CZombies = function(b, a) {
 			[d, c]) : SetBlock(c)
 		},
 		CustomZombies:function(h, e, b, z){
-			++oP.NumZombies;
          asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
              EDPZ.appendChild(n);
              m.Birth();
@@ -158,6 +157,7 @@ var CZombies = function(b, a) {
 a)
      }, 
   CustomZombie:function(h, e, b, z){
+	  var h=this;
          asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
              EDPZ.appendChild(n);
              m.Birth();
