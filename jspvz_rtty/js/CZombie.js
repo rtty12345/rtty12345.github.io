@@ -3575,7 +3575,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             oSym.addTask(10, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,2,400),(CustomSpecial(oPuffShroom,h.R,h.C+1)),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,2,400),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
