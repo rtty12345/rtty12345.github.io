@@ -158,7 +158,7 @@ a)
      }, 
   CustomZombie:function(h, e, b, z){
 	  var h=this;
-         asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
+         asyncInnerHTML((a = new h).CustomBirth(e, b, 1,"auto"), function(n, m) {
              EDPZ.appendChild(n);
              m.Birth();
              //document.write()
