@@ -153,14 +153,16 @@ var CZombies = function(b, a) {
              m.Birth();
              z && m.bedevil(m);
              //document.write()
-         }, a)
+         }, 
+		return a)
      }, 
   CustomZombie:function(h, e, b, z){
          asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
              EDPZ.appendChild(n);
              m.Birth();
              //document.write()
-         }, a)
+         }, 
+	return a)
      }, 
        Birth: function() {
             var c = this;
@@ -3538,7 +3540,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
 	CName: "铲子铁门僵尸",
-	OrnHP: 3000,
+	OrnHP: 2200,
 	Lvl: 3,
 	HP:300,
 	oSpeed:1.6,
@@ -3571,7 +3573,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             oSym.addTask(10, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.Die(),g.prototype.Birth(GetX(this.C+1),GetY(this.R),this.R,this.C+1,[]),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.Die(),CustomZombie(oZombie2,this.R,this.C-1,1),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
