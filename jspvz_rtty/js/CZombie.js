@@ -3542,11 +3542,11 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
 	CName: "铲子铁门僵尸",
-	OrnHP: 2200,
+	OrnHP: 1100,
 	Lvl: 3,
-	HP:300,
-	oSpeed:1.6,
-	Speed:1.6,
+	HP:400,
+	oSpeed:3.2,
+	Speed:3.2,
 	SunNum: 150,
 	StandGif: 13,
 	width: 166,
@@ -3575,7 +3575,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             oSym.addTask(10, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.Die(),CustomZombie(oZombie2,h.R,h.C,1),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,2,400),CustomSpecial(oPuffShroom,h.R,h.C),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
@@ -3597,10 +3597,13 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
             c.getHit0(c, a, b)
         },
-	getHit0: function(){
+        getHit0: function(c, a, b) {
+            b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+                (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
+            }, [c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
         },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]], g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getPea = e.getPea, g.getFirePea = e.getFirePea, g.getFirePeaSputtering = e.getFirePeaSputtering, g.getSnowPea = e.getSnowPea,g.getSlowPea=e.getSlowPea,g.getSlowPea1=e.getSlowPea1,g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio,g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],g.LostHeadGif = 8,g.LostHeadAttackGif = 9,g.getPea = e.getPea,g.NormalAttack = e.NormalAttack,g.getFirePea = e.getFirePea,g.getFirePeaSputtering = e.getFirePeaSputtering,g.getSnowPea = e.getSnowPea,g.getSlowPea=e.getSlowPea,g.getSlowPea1=e.getSlowPea1,g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio,g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
 	},
 	getFireball: function(c, a, b) {
 		b != c.WalkDirection ? (c.FreeSlowTime = 0, c.Attack = 100, c.Speed != c.OSpeed ? (c.PlayNormalballAudio(), c.Speed = c.OSpeed) : c.PlayFireballAudio()) : c.PlayNormalballAudio()
