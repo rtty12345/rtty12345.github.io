@@ -4757,13 +4757,26 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		if(f.Altitude == 3 && f.AttackedRX < GetX(1)) { // 气球掉落
 			f.Drop(); return 1;
 		}
-		! (f.FreeFreezeTime || f.FreeSetbodyTime) ? ((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
+		!(f.FreeFreezeTime || f.FreeSetbodyTime) ?(f.beAttacked && !f.isAttacking && f.JudgeAttack(),!f.isAttacking ?((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
 			R: d,
 			ar: [oS.R - 1],
 			CustomTop: 400 - f.height + f.GetDY()
-		})), f.ZX = f.AttackedLX -= b, f.Ele.style.left = Math.floor(f.X -= b) + "px", e = 1)) : e = 1;
+		})), f.ZX = f.AttackedLX -= b, f.Ele.style.left = Math.floor(f.X -= b) + "px", e = 1)) :e=1): e = 1;
 		return e
 	},
+	NormalAttack: function(c, b) {
+    var d = $Z[c];
+    $P[b].getHurt(d, 2, d.Attack)
+  },
+  JudgeAttack: function() {
+    var f = this,
+      c = f.ZX,
+      d = f.R + "_",
+      e = GetC(c),
+      g = oGd.$,
+      b;
+    (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+  },
 	Drop: function() {
 		var a = this;
 		PlayAudio("balloon_pop");
@@ -4781,6 +4794,8 @@ oBalloonZombie = InheritO(OrnIZombies, {
 				c.OSpeed = c.Speed = 1.6;
 				c.getFreeze = OrnIZombies.prototype.getFreeze;
 				c.EleBody.src = "images/Zombies/BalloonZombie/Walk.gif";
+				c.NormalAttack=OrnIZombies.prototype.NormalAttack;
+				c.JudgeAttack=OrnIZombies.prototype.JudgeAttack;
 				c.ChkActs = OrnIZombies.prototype.ChkActs;
 				c.ExplosionDie = function() {
 					var d = this;
@@ -5003,43 +5018,7 @@ BoomFire: function (y) {
             },[a]);
             }
         },
-      bedevilAct: function(a){
-            if(!a.bool){
-            a.bool = 1;
-            oSym.addTask(125,function(a){
-            let p = $(a.id);
-            let div = $n("div");
-            let d = "Pea" + Math.random();
-            div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB-10.gif">';
-            EditEle(div,0,{
-                position:"absolute",
-                zIndex:"24",
-                left:p.offsetLeft + "px",
-                top:p.offsetTop + 40 + "px"
-            },EDPZ,0)
-            oSym.addTask(1,function(p,d,a){
-                try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(p.offsetLeft + 40);
-                for(let i = 3;i >= 0;i--){
-                    for(let j = 1;j <= C;j++){
-                        let z = oZ.getArZ(0,oS.W,a.R);
-                        z &&z.PZ&& z[i,j].offsetLeft+ z[i,j].offsetLeft>= $(d).offsetLeft && z[i,j].offsetLeft>= $(d).offsetLeft + $(d).offsetWidth && PlayAudio("splat1"),z[i,j].getSlowPea(30),$(d) && ClearChild($(d))
-                    }
-                }
-                if($(d).offsetLeft <= 0){
-                    ClearChild($(d));
-                    $(d).isDie = true;
-                }
-                !($(d).isDie) && oSym.addTask(1,arguments.callee,[p,d,a])
-                }catch(e){
-                }
-            },[p,d,a]);
-            !a.isDie && (a.HP > 60) && a.bedevil&&oSym.addTask(125,arguments.callee,[a])
-            },[a]);
-            }
+      bedevilAct: function(){
         },
         getExplosion:CZombies.prototype.getExplosion,
         getFirePea: function(c, a, b) {
