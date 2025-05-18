@@ -3537,8 +3537,8 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 }),
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
-	CName: "铁门僵尸",
-	OrnHP: 4000,
+	CName: "铲子铁门僵尸",
+	OrnHP: 3000,
 	Lvl: 3,
 	HP:300,
 	oSpeed:1.6,
@@ -3563,19 +3563,18 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b)
 	},
-         PrivateAttack:function(a){
-            oSym.addTask(1,function(a){
-                let c = GetC($(a.id).offsetLeft + 40);
-                let R = a.R - 1 || 1,RM = (a.R + 1 <= oS.R ? a.R + 1 : oS.R);
-                for(let i = R;i <= RM;i++){
-                    if(i != a.R){
-                        let p = oGd.$[i+"_"+c+"_1"];
-                        p && p.canEat && (p.HP-=300);
-                        p && p.canEat && (p.HP <= 0) && p.Die()
-                    }
-                }
-            },[a])
-        }, 
+        NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(10, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.Die(),CustomSpecial(g,this.R,this.C+1),h.JudgeAttack())
+            }, [d, c]);
+            this.PrivateAttack && this.PrivateAttack(this)
+        },
 	getFirePeaSputtering: function() {},
 	getFirePeaSputtering1: function() {},
 	getSnowPea: function(c, a, b) {
@@ -3594,43 +3593,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
             c.getHit0(c, a, b)
         },
-	getHit0: function(a){
-            if(!a.bool){
-            a.bool = 1;
-            oSym.addTask(125,function(a){
-            let z = $(a.id);
-            let div = $n("div");
-            let d = "Pea" + Math.random();
-            div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB00.gif">';
-            EditEle(div,0,{
-                position:"absolute",
-                zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
-            },EDPZ,0)
-            oSym.addTask(1,function(z,d,a){
-                try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
-                for(let i = 3;i >= 0;i--){
-                    for(let j = 1;j <= C;j++){
-                        let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oSunFlower"&& p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
-                        p && (p.canEat) && (p.HP <= 0) && p.Die();
-                    }
-                }
-                if($(d).offsetLeft <= 0){
-                    ClearChild($(d));
-                    $(d).isDie = true;
-                }
-                !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
-                }catch(e){
-                }
-            },[z,d,a]);
-            },[a]);
-            }
+	getHit0: function(){
         },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]], g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getPea = e.getPea, g.getFirePea = e.getFirePea, g.getFirePeaSputtering = e.getFirePeaSputtering, g.getSnowPea = e.getSnowPea,g.getSlowPea=e.getSlowPea,g.getSlowPea1=e.getSlowPea1,g.PlayNormalballAudio = e.PlayNormalballAudio, g.PlayFireballAudio = e.PlayFireballAudio, g.PlaySlowballAudio = e.PlaySlowballAudio,g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit)
@@ -5160,29 +5123,6 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		},
 		[b])
 	},
-    BoomFire: function (y) {
-      PlayAudio("jalapeno");
-      fireid = "fire_" + Math.random();
-      NewImg(
-        fireid,
-        "images/Plants/Jalapeno/JalapenoAttack.gif",
-        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
-        EDAll
-      );
-      oSym.addTask(
-        135,
-        (id) => {
-          ClearChild($(id));
-        },
-        [fireid]
-      );
-      for (let i = 1; i <= oS.C; i++) {
-        for (let j = 0; j < 4; j++) {
-          let g = oGd.$[y + "_" + i + "_" + j];
-          g && g.BoomDie();
-        }
-      }
-    },
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 8) + "px;top:" + (a.height - 32) + "px"
 	},
