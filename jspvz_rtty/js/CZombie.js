@@ -163,7 +163,7 @@ a)
              m.Birth();
              //document.write()
          }, 
-a),
+a);
 return a;
      }, 
        Birth: function() {
