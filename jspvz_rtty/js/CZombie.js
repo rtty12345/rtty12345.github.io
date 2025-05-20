@@ -1646,7 +1646,7 @@ oZombie2 = InheritO(oZombie, {
 oZombie3= InheritO(oZombie, {
 	EName: "oZombie3",
 	Speed:Math.random()*2+2,
-	HP:Math.random()*300+400,
+	HP:Math.random()*300+600,
 	Lvl:2
 },
 {
@@ -1937,25 +1937,18 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
         },
-	 PrivateAct2:function(a){
-		 if(!a.hp){
-                 a.hp=true;
-            oSym.addTask(600,function(a){
-                PlayAudio("grassstep");
-                let R = (a.R - 1) || 0,
-                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC($(a.id).offsetLeft + 80);
-                for(let i = R;i <= RM;i++){
-                    for(let j = C - 1;j <= C + 1;j++){
-                        for(let k = 0;k <= 3;k++){
-			let z = oZ.getArZ(0,oS.W,a.R);
-			z[i,j,k].HP+=200;
-			a.hp=false;
-                        }
+        PrivateAct2:function(a){
+            if(!this.bool){
+                this.bool = 1;
+                oSym.addTask(50,function(a){
+                    if(+ESSunNum.innerHTML > 0 && !oS.CardKind && oS.StaticCard){
+                        ESSunNum.innerHTML = +ESSunNum.innerHTML - 1;
+                        a.GetSunNum += 1;
                     }
-                }
-	    },[a])
-		 }
+                    !oS.CardKind && oS.StaticCard && a.HP >= 1 && oSym.addTask(30,arguments.callee,[a]);
+                    !oS.CardKind && oS.StaticCard && a.HP < 1 && AppearSun($(a.id).offsetLeft + 40,$(a.id).offsetTop + 80,Math.round(a.GetSunNum / 2),0)
+                },[a])
+            }
         },
 	PrivateAct1:function(a){
             if(!a.bool){
