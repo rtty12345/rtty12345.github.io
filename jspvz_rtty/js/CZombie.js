@@ -849,7 +849,7 @@ oBackupDancer1= InheritO(oBackupDancer, {
                 do {
                   j = q + "_" + g + "_";
                   for (l = 0; l < 4; l++) {
-                    (m = r[j + l]).BoomDie();
+                    (m = r[j + l])&&m.BoomDie();
                   }
                 } while (g++ < h)
               } while (q++ < o)
