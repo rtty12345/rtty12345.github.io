@@ -767,7 +767,7 @@ CheckBoomFire: function (f) {
 		}
 	}
 }),
-oBackupDancer1= Inherito(oBackupDancer, {
+oBackupDancer1= InheritO(oBackupDancer, {
   EName: "oBackupDancer",
   CName: "伴舞僵尸",
   OSpeed: 3.5,
