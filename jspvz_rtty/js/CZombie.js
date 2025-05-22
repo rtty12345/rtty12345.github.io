@@ -767,6 +767,231 @@ CheckBoomFire: function (f) {
 		}
 	}
 }),
+oBackupDancer1= InheritO(OrnNoneZombies, {
+  EName: "oBackupDancer",
+  CName: "伴舞僵尸",
+  OSpeed: 3.5,
+  Speed: 3.5,
+  Lvl: 1,
+  StandGif: 9,
+  CanSelect: 0,
+  width: 126,
+  height: 152,
+  beAttackedPointL: 50,
+  beAttackedPointR: 95,
+  Speed: 3.5,
+  OSpeed: 3.5,
+  PicArr: (function() {
+    var a = "images/Zombies/BackupDancer/";
+    return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
+  })(),
+  bedevil: function(a) {
+    a.ExchangeLR(a, 1);
+    a.JudgeAttack = a.JudgeAttackH;
+    a.PZ = 0;
+    a.WalkDirection = 1;
+    a.ZX = a.AttackedRX;
+    a.ChkActs = a.ChkActs1;
+    a.Speed = 3.5;
+    a.ChangeChkActsTo1(a, a.id, a.EleBody);
+    oP.MonPrgs()
+  },
+  getSlow: function(f, d, e) {
+    var b = oSym.Now + e,
+      c = f.FreeSlowTime,
+      a = 0;
+    switch (true) {
+      case !c:
+        f.PlaySlowballAudio();
+        f.Attack = 50;
+        f.FreeSlowTime = b;
+        a = 1;
+        break;
+      case c < b:
+        f.PlayNormalballAudio();
+        f.FreeSlowTime = b;
+        a = 1
+    }
+    a && oSym.addTask(e,
+      function(h, g) {
+        var i = $Z[h];
+        i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+      },
+      [d, b])
+  },
+  getFreeze: function(b, a) {
+    b.beAttacked && b.getHit0(b, 20, 0);
+    oSym.addTask(400,
+      function(e, d, c) {
+        ClearChild(c);
+        var f = $Z[e];
+        f && f.FreeFreezeTime == d && (f.FreeFreezeTime = 0, f.Attack = 50, !f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(), oSym.addTask(1500,
+          function(h, g) {
+            var i = $Z[h];
+            i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+          },
+          [e, f.FreeSlowTime = oSym.Now + 1500]))
+      },
+      [a, b.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", b.getShadow(b), b.Ele)])
+  },
+  CustomBirth: function(g, d, a, b, j) {
+    var e = this,
+      c = GetY(g) + e.GetDY(),
+      f = c - e.height,
+      i = e.beAttackedPointL,
+      h = e.beAttackedPointR;
+    e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
+    e.R = g;
+    (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
+    return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
+  },
+  Produce: '当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#FF0000">低</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
+  BirthCallBack: function(e) {
+    var d = e.delayT,
+      c = e.id,
+      b = e.Ele = $(c),
+      a = e.EleBody = b.childNodes[1];
+    e.EleShadow = b.firstChild;
+    oSym.addTask(d,
+      function(g, f) {
+        var h = $Z[g];
+        h && (h.FreeSetbodyTime = 0, SetBlock(f))
+      },
+      [c, b])
+  },
+  ChangeChkActsTo0: function(c, b, a) {
+    if (!c.PZ) {
+      c.ChangeChkActsTo1(c, b, a);
+      return
+    }
+    c.LostHeadGif = 10;
+    c.NormalGif = 9;
+    !c.isAttacking && (a.src = c.PicArr[9]);
+    c.Speed = c.DZStep = 0;
+    oSym.addTask(200,
+      function(e, d) {
+        var f = $Z[e];
+        f && f.beAttacked && f.ChangeChkActsTo1(f, e, d)
+      },
+      [b, a])
+  },
+  ChangeChkActsTo1: function(c, b, a) {
+    c.LostHeadGif = 4;
+    c.NormalGif = 2;
+    c.DZStep = 1;
+    !c.isAttacking && (a.src = c.PicArr[2]);
+    c.PZ && oSym.addTask(220,
+      function(e, d) {
+        var f = $Z[e];
+        f && f.beAttacked && f.ChangeChkActsTo0(f, e, d)
+      },
+      [b, a])
+  },
+  ChkActs: function(g, d, h, c) {
+    var e, b, a, f;
+    !(g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+      R: d,
+      ar: [oS.R - 1],
+      CustomTop: 400 - g.height + g.GetDY()
+    })), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
+    g.ChkSpeed(g);
+    g.RandomOpenBox(g.id);
+    return f
+  },
+
+  RandomOpenBox: function(a) {
+    oSym.addTask(0,
+      function(c) {
+        var b = $Z[c];
+        b && b.beAttacked && b.OpenBox(c)
+      },
+      [a])
+  },
+
+  OpenBox: function(b) {
+    var a = $Z[b];
+    a.EleBody.src = a.PicArr[7];
+    a.ChkActs = a.ChkActs1 = function() {
+      return 1
+    };
+    a.JudgeAttack = function() {
+      var g = this,
+        d = g.ZX,
+        e = g.R + "_",
+        f = GetC(d),
+        h = oGd.$,
+        c;
+      (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) ? (!g.isAttacking && (g.isAttacking = 1, g.EleBody.src = g.PicArr[g.AttackGif]), g.NormalAttack(c[0], c[1])) : g.isAttacking && (g.isAttacking = 0)
+    };
+    a.JudgeAttackH = function() {
+      var e = this,
+        d = oZ.getZ0(e.ZX, e.R),
+        f = e.id,
+        c;
+      d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
+    };
+    a.getPea = a.getSnowPea = a.getFirePeaSputtering = a.getFirePea = a.getHit = a.getHit0 = a.getHit1 = a.getHit2 = a.getHit3 = a.ChangeR = a.bedevil = function() {};
+    oSym.addTask(0,
+      function(c) {
+        $Z[c] && (a.Status = 0, StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(0,
+          function(f) {
+            var e = $Z[f],
+              d;
+            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src = e.PicArr[12] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+              var q = Math.max(1, k - 1),
+                o = Math.min(oS.R, k + 1),
+                n = Math.max(1, g - 1),
+                h = Math.min(oS.C, g + 1),
+                r = oGd.$,
+                l,
+                j = "",
+                m;
+              do {
+                g = n;
+                do {
+                  j = q + "_" + g + "_";
+                  for (l = 0; l < 4; l++) {
+                    (m = r[j + l]) && m.getHurt(e,0,100)
+                  }
+                } while (g++ < h)
+              } while (q++ < o)
+            })(e.R, GetC(e.ZX))) : (function(j, l) {
+              var m = j - 120,
+                o = j + 120,
+                h = Math.max(1, l - 1),
+                g = Math.min(oS.R, l + 1),
+                n,
+                k;
+              do {
+                k = (n = oZ.getArZ(m, o, h)).length;
+                while (k--) {
+                  n[k].ExplosionDie()
+                }
+              } while (h++ < g)
+            })(e.ZX, e.R), e.DisappearDie())
+          },
+          [c]))
+      },
+      [b])
+  },
+
+  ChkSpeed: function(b) {
+    if (!b.DZStep) {
+      return
+    }
+    var a = b.Speed;
+    switch (true) {
+      case (b.FreeFreezeTime || b.FreeSetbodyTime) == 1:
+        a && (b.Speed = 0);
+        break;
+      case b.FreeSlowTime > 0:
+        a != 1.75 && (b.Speed = 1.75);
+        break;
+      default:
+        a != 3.5 && (b.Speed = 3.5)
+    }
+  }
+}),
 oDancingZombie= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
 	CName: "舞王僵尸",
@@ -1535,7 +1760,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] =Math.round(Math.random()*1+0) ? new oConeheadZombie1 : new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] =Math.round(Math.random()*1+0) ? new oBackupDancer1 : new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(150,
 					function() {
