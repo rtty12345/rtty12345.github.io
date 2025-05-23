@@ -890,7 +890,7 @@ flatTire:function(){},
     a.getPea = a.getSnowPea = a.getFirePeaSputtering = a.getFirePea = a.getHit = a.getHit0 = a.getHit1 = a.getHit2 = a.getHit3 = a.ChangeR = a.bedevil = function() {};
     oSym.addTask(0,
       function(c) {
-        $Z[c] && (a.Status = 0, StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(0,
+        $Z[c] && (a.Status =0,PlayAudio("jack_surprise"), oSym.addTask(0,
           function(f) {
             var e = $Z[f],
               d;
