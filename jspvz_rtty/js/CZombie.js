@@ -618,6 +618,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		a.ChangeChkActsTo1(a, a.id, a.EleBody);
 		oP.MonPrgs()
 	},
+	flatTire:function(){},
 	getSlow: function(f, d, e) {
 		var b = oSym.Now + e,
 		c = f.FreeSlowTime,
@@ -728,6 +729,7 @@ CheckBoomFire: function (f) {
       );
     },
     BoomFire: function (y) {
+      var s=$Z[y];
       PlayAudio("jalapeno");
       fireid = "fire_" + Math.random();
       NewImg(
@@ -746,8 +748,7 @@ CheckBoomFire: function (f) {
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
-          g && (g.HP-=100);
-	  g &&(g.HP<=0) &&g.Die(); 
+          g && g.getHurt(s,0,100)
         }
       }
       this.DisappearDie();
@@ -854,6 +855,7 @@ oBackupDancer1= InheritO(OrnNoneZombies, {
     g.RandomOpenBox(g.id);
     return f
   },
+flatTire:function(){},
   RandomOpenBox: function(a) {
     oSym.addTask(0,
       function(c) {
