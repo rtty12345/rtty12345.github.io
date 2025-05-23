@@ -607,16 +607,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/BackupDancer/";
 		return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random]
 	})(),
-	bedevil: function(a) {
-		a.ExchangeLR(a, 1);
-		a.JudgeAttack = a.JudgeAttackH;
-		a.PZ = 0;
-		a.WalkDirection = 1;
-		a.ZX = a.AttackedRX;
-		a.ChkActs = a.ChkActs1;
-		a.Speed = 10;
-		a.ChangeChkActsTo1(a, a.id, a.EleBody);
-		oP.MonPrgs()
+	bedevil: function() {
 	},
 	flatTire:function(){},
 	getSlow: function(f, d, e) {
