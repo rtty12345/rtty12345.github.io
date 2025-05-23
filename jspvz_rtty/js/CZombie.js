@@ -739,7 +739,7 @@ CheckBoomFire: function (f) {
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
-	  if(g.EName!="oHypnoShroom"){
+	  if(g.EName!="oHypnoShroom"&& g.EName!="oGarlic"){
           g && g.getHurt(s,0,100)
 	  }else{
 	g&&g.Die()
