@@ -157,7 +157,7 @@ var CZombies = function(b, a) {
 a)
      }, 
   CustomZombie:function(h, e, b, z){
-	  var h=this;
+	  ++oP.NumZombies,
          asyncInnerHTML((a = new h).CustomBirth(e, b, 1,"auto"), function(n, m) {
              EDPZ.appendChild(n);
              m.Birth();
@@ -2215,29 +2215,14 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             oSym.addTask(50, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack),CustomZombie(oZombie2,this.R,this.C,1),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
 	},
-        PrivateAct1:function(b){
-            !b.num && (b.num = true,oSym.addTask(2500,function(b){
-                let a = [],
-                    d = "boom" + Math.random();
-                for(let i in oGd.$){
-                    let p = oGd.$[i];
-                    if(p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains"){
-                        a.push(oGd.$[i]);
-                    }
-                }
-                let i = Math.round(Math.random()*0+a.length-1);
-                let l = GetX(a[i].C) - 80,
-                    t = GetY(a[i].R) - 80;
-                a[i].Die();
-                b && b.HP && oSym.addTask(1500,function(b){b.num=false},[b]);
-            },[b]))
+        PrivateAct1:function(){
         },
 	 PrivateAct2:function(a){
 		 if(!a.hp){
