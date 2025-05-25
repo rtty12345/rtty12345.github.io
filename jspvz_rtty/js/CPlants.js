@@ -332,7 +332,7 @@ oStarfruit = InheritO(CPlants, {
 		var c = d.pixelLeft + 58,
 		b = c - 20,
 		a = d.pixelTop + 30;
-		d.BulletEle = NewImg(0, "images/Plants/PB00.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
+		d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
 	},
 	PrivateDie: function(a) {
 		a.BulletEle = null
