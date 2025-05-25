@@ -501,7 +501,7 @@ oPeashooter = InheritO(CPlants, {
 oSnowPea = InheritO(oPeashooter, {
 	EName: "oSnowPea",
 	CName: "寒冰射手",
-	SunNum: 225,
+	SunNum: 325,
 	BKind: 1,
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
@@ -2021,7 +2021,7 @@ oFumeShroom = InheritO(CPlants, {
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
 		var t;
 		for (t in $Z){
- 		Math.round(Math.random()*100)>7?g.getSlow(g):g.getFreeze1(g, t)}}
+ 		Math.round(Math.random()*100)>10?g.getSlow(g):g.getFreeze1(g, t)}}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
