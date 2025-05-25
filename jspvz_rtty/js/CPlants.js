@@ -501,7 +501,7 @@ oPeashooter = InheritO(CPlants, {
 oSnowPea = InheritO(oPeashooter, {
 	EName: "oSnowPea",
 	CName: "寒冰射手",
-	SunNum: 325,
+	SunNum: 275,
 	BKind: 1,
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
@@ -535,7 +535,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),25,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>5?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>10?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
