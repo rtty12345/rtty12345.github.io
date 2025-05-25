@@ -2152,8 +2152,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
                         ESSunNum.innerHTML = +ESSunNum.innerHTML + 1;
                         a.GetSunNum += 1;
                     }
-                    oS.StaticCard && a.HP >= 1 && oSym.addTask(30,arguments.callee,[a]);
-                    !oS.CardKind&&oS.StaticCard && a.HP < 1 && AppearSun($(a.id).offsetLeft + 40,$(a.id).offsetTop + 80,Math.round(a.GetSunNum / 2),0)
+                    oS.StaticCard && a.HP >= 1 && oSym.addTask(50,arguments.callee,[a]);
                 },[a])
             }
         },
