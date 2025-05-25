@@ -505,8 +505,8 @@ oSnowPea = InheritO(oPeashooter, {
 	BKind: 1,
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
-	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果",
-	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果。<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
+	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果，有概率冻结",
+	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果，有概率冻结<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
 	NormalAttack: function() {
 		var a = this,
 		b = "PB" + Math.random();
@@ -526,7 +526,7 @@ oSnowPea = InheritO(oPeashooter, {
 			d = oZ["getZ" + c](n, i);
 			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 100), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
-				"-1": "getSnowPea",
+				"-1": "getSlowPea1",
 				0 : "getSlowPea",
 				1 : "getSlowPea"
 			} [m]](d, h, c), (SetStyle(j, {
@@ -535,7 +535,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>10?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>20?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -891,7 +891,7 @@ oGatlingPea1= InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m += 5) < 100 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ1(m, k), 4, i) && ((m += 5) < 200 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
