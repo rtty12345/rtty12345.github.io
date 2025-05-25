@@ -24,7 +24,7 @@ oS.Init({
 		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie,oBucketheadZombie,oNewspaperZombie,oNewspaperZombie2])
 	},
 	StartGameMusic: "Ultimate battle"
-},
+}，
 {
 	AZ: [
 		[oZombie, 2, 1],
@@ -32,6 +32,7 @@ oS.Init({
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
 		[oNewspaperZombie, 1, 1, [1]],
+		[oNewspaperZombie3, 1, 1, [1]],
 		[oBucketheadZombie, 1, 1]
 	],
 	FlagNum: 20,
