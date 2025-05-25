@@ -526,7 +526,7 @@ oSnowPea = InheritO(oPeashooter, {
 			d = oZ["getZ" + c](n, i);
 			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 100), k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
-				"-1": "getSlowPea",
+				"-1": "getSnowPea",
 				0 : "getSlowPea",
 				1 : "getSlowPea"
 			} [m]](d, h, c), (SetStyle(j, {
@@ -535,7 +535,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),25,0,a.AttackedLX,a.R,1,0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),25,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>5?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -679,9 +679,9 @@ oThreepeater1= InheritO(oPeashooter, {
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
 				f = oZ["getZ" + e](p, k);
-				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				o==y&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
-					"-1":"getPea",
+					"-1":"getSnowPea",
 					0 : "getPea",
 					1 : "getSlowPea1"
 				} [o]](f, j, e), (SetStyle(l, {
@@ -690,7 +690,7 @@ oThreepeater1= InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
 			},
-			[d, $(d), 20, 0, c.AttackedLX,a,Math.round(Math.random()*2-1), 0, c.AttackedLX - 40, oGd.$Torch])
+			[d, $(d), 20, 0, c.AttackedLX,a,(y=Math.round(Math.random()*2-1)), 0, c.AttackedLX - 40, oGd.$Torch])
 		}
 	}
 }),
