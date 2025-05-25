@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oNewspaperZombie, oBucketheadZombie,oNewspaperZombie2],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oNewspaperZombie, oBucketheadZombie,oNewspaperZombie3],
 	PicArr: function() {
 		var a = oFumeShroom.prototype,
 			b = a.PicArr;
@@ -21,7 +21,7 @@ oS.Init({
 		ar: [7, 9, 4]
 	},
 	UserDefinedFlagFunc: function(a) {
-		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie,oBucketheadZombie,oNewspaperZombie,oNewspaperZombie2])
+		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie,oBucketheadZombie,oNewspaperZombie,oNewspaperZombie3])
 	},
 	StartGameMusic: "Ultimate battle"
 },
