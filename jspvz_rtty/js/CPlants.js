@@ -1978,7 +1978,7 @@ oFumeShroom = InheritO(CPlants, {
 	width: 100,
 	height: 88,
 	beAttackedPointR: 80,
-	SunNum: 125,
+	SunNum: 325,
 	BookHandBack: 2,
 	SleepGif: 3,
 	night: true,
