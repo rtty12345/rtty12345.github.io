@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oScreenDoorZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oScreenDoorZombie,oPeaZombie],
 	PicArr: function() {
 		var a = oGraveBuster.prototype,
 			b = a.PicArr;
@@ -30,12 +30,13 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
-		[oScreenDoorZombie, 1, 1]
+		[oScreenDoorZombie, 1, 1],
+		[oPeaZombie, 1, 1]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
 		a1: [4, 7, 13],
-		a2: [1, 3, 5, 15]
+		a2: [2, 6, 10,30]
 	},
 	FlagToMonitor: {
 		9: [ShowFinalWave, 0]
