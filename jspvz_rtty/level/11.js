@@ -129,7 +129,8 @@ oS.Init({
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
-		[oNewspaperZombie, 2, 1, [1]]
+		[oNewspaperZombie, 2, 1, [1]],
+		[oNewspaperZombie3, 2, 1, [1]]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
