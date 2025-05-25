@@ -535,7 +535,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>20?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>15?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
