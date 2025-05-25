@@ -557,7 +557,7 @@ OrnNoneZombies = function() {
 		var d;
                 for (d in $Z) {
                 e.getFirePea1(e,b,c);
-                Math.round(Math.random()*100)>7?e.getSlow(e):e.getFreeze1(e, d , 20);
+                Math.round(Math.random()*100)>3?e.getSlow(e):e.getFreeze1(e, d);
 		}
                 },
 		getFirePea1: function(g, c, j) {
