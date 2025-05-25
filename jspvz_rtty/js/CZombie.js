@@ -556,7 +556,7 @@ OrnNoneZombies = function() {
 		getSlowPea: function(e,b,c){
 		var d;
                 for (d in $Z) {
-                e.getFirePea1(e,b,c);
+		PlayAudio("frozen");
                 e.getFreeze1(e, d);
 		}
                 },
