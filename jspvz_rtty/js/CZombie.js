@@ -2214,7 +2214,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             oSym.addTask(50, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, 2, h.Attack),CustomZombie(oConeheadZombie1,h.R,h.C,1),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, 2, h.Attack),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
@@ -2226,9 +2226,9 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	 PrivateAct2:function(a){
 		 if(!a.hp){
                  a.hp=true;
-            oSym.addTask(600,function(a){
+            oSym.addTask(500,function(a){
                 PlayAudio("grassstep");
-		   a.OrnHP+=200;
+		   a.HP+=200;
 			a.hp=false;
             },[a])
 		 }
