@@ -1,11 +1,11 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom, oGraveBuster, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom,oGloomShroom],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oScreenDoorZombie, oConeheadZombie1,oBucketheadZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oScreenDoorZombie, oConeheadZombie1,oBucketheadZombie,oFootballZombie,oBackupDancer,oBackupDancer1,oDancingZombie1],
 	PicArr: ["images/interface/background2.jpg", "images/interface/Tombstones.png", "images/interface/Tombstone_mounds.png", "images/interface/ZombieNoteSmall.png", "images/interface/ZombieNote2.png"],
 	backgroundImage: "images/interface/background2.jpg",
 	CanSelectCard: 1,
 	DKind: 0,
-	SunNum: 50,
+	SunNum: 500,
 	LevelName: "关卡 2-9",
 	LvlEName: 19,
 	LargeWaveFlag: {
@@ -28,12 +28,14 @@ oS.Init({
 		[oZombie3, 1, 1],
 		[oConeheadZombie, 3, 1],
 		[oScreenDoorZombie, 1, 1],
+		[oFootballZombie, 1, 1],
+		[oDancingZombie1, 1, 1],
 		[oDancingZombie, 1, 1]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
 		a1: [3, 5, 9, 10, 13, 15, 19],
-		a2: [1, 2, 3, 50, 4, 5, 6, 65]
+		a2: [3, 6, 9, 150, 12, 20, 50, 180]
 	},
 	FlagToMonitor: {
 		9: [ShowLargeWave, 0],
