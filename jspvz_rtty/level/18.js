@@ -9,7 +9,7 @@ oS.Init({
 	backgroundImage: "images/interface/background2.jpg",
 	CanSelectCard: 1,
 	DKind: 0,
-	SunNum: 50,
+	SunNum: 350,
 	LevelName: "关卡 2-8",
 	LvlEName: 18,
 	LargeWaveFlag: {
