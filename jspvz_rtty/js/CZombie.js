@@ -3220,7 +3220,7 @@ OrnIIZombies1= InheritO(OrnNoneZombies, {
 	HeadGif: 10,
 	DieGif: 11,
 	BoomDieGif: 12
-}),	
+}),
 oNewspaperZombie2= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
@@ -5311,12 +5311,12 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})(e.ZX, e.R), e.ChkActs=(t=CZombies.prototype).ChkActs,
+				})(e.ZX, e.R), e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
 				 e.ChkActs1=t.ChkActs1,
 				e.JudgeAttackH=t.JudgeAttackH,
-				e.JudgeAttack=t.JudgeAttack,
+				e.JudgeAttack=(e.PZ?t.JudgeAttack:t.JudgeAttackH),
 				e.Status=1,
-				e.HP=1000
+				e.HP=1000)
 			},
 			[c]))
 		},
