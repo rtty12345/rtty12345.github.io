@@ -2152,7 +2152,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
                         ESSunNum.innerHTML = +ESSunNum.innerHTML + 1;
                         a.GetSunNum += 1;
                     }
-                    oS.StaticCard && a.HP >= 1 && oSym.addTask(50,arguments.callee,[a]);
+                    oS.StaticCard && a.HP >= 1 && oSym.addTask(100,arguments.callee,[a]);
                 },[a])
             }
         },
@@ -5257,7 +5257,6 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	},
 	OpenBox: function(b) {
 		var a = $Z[b];
-		a.EleBody.src = a.PicArr[7];
 		a.ChkActs = a.ChkActs1 = function() {
 			return 1
 		};
@@ -5276,7 +5275,6 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 			c;
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		};
-		a.getPea = a.getSnowPea = a.getSlowPea =a.getSlowPea1 =  a.getFirePeaSputtering = a.getFirePea = a.getHit = a.getHit0 = a.getHit1 = a.getHit2 = a.getHit3 = a.ChangeR = a.bedevil = function() {};
 		oSym.addTask(50,
 		function(c) {
 			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox && StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(90,
@@ -5313,7 +5311,12 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})(e.ZX, e.R), e.ExplosionDie())
+				})(e.ZX, e.R), e.ChkActs=(t=CZombies.prototype).ChkActs,
+				 e.ChkActs1=t.ChkActs1,
+				e.JudgeAttackH=t.JudgeAttackH,
+				e.JudgeAttack=t.JudgeAttack,
+				e.Status=1,
+				e.HP=1000
 			},
 			[c]))
 		},
