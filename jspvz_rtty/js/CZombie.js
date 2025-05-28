@@ -5222,7 +5222,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	EName: "oJackinTheBoxZombie",
 	CName: "小丑僵尸",
 	SunNum: 150,
-	HP: 1000,
+	HP: 800,
 	BreakPoint: 100,
 	Lvl: 3,
 	Status: 1,
@@ -5275,9 +5275,9 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 			c;
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		};
-		oSym.addTask(50,
+		oSym.addTask(0,
 		function(c) {
-			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox && StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(90,
+			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox && StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(0,
 			function(f) {
 				var e = $Z[f],
 				d;
@@ -5334,14 +5334,22 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		c ? oSym.addTask(c,
 		function(f, e) {
 			var g = $Z[f];
-			g && (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e), g.RandomOpenBox(f))
+			g && (PlayAudio("jackinthebox"， true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e))
 		},
-		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b))
+		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a))
 	},
-	JudgeAttack:function(){},
-	NormalAttack:function(){},
-	JudgeSR:function(){},
-	JudgeLR:function(){},
+        NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(100, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
+            }, [d, c]);
+            this.OpenBox&& this.OpenBox(this.id)
+        },	
 	NormalDie: function() {
 		var a = this;
 		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
