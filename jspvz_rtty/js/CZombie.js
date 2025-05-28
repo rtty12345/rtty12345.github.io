@@ -5277,7 +5277,8 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		};
 		oSym.addTask(0,
 		function(c) {
-			$Z[c] && (a.Status = 0, !--oGd.$JackinTheBox && StopAudio("jackinthebox"), PlayAudio("jack_surprise"), oSym.addTask(0,
+			$Z[c] && (a.Status = 0,
+				  PlayAudio("jack_surprise"), oSym.addTask(0,
 			function(f) {
 				var e = $Z[f],
 				d;
@@ -5334,7 +5335,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		c ? oSym.addTask(c,
 		function(f, e) {
 			var g = $Z[f];
-			g && (PlayAudio("jackinthebox"， true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e))
+			g && (PlayAudio("jackinthebox",true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e))
 		},
 		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a))
 	},
