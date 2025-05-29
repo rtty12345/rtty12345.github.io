@@ -5255,6 +5255,28 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		},
 			 [a])
 	},
+			AttackZombie: function(d, c) {
+			oSym.addTask(10,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 10, 0), h.JudgeAttackH())
+			},
+			[d, c]);
+			this.OpenBox&& this.OpenBox(this.id)
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(10,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c]);
+			this.OpenBox&& this.OpenBox(this.id)
+		},
 	OpenBox: function(b) {
 		var a = $Z[b];
 		a.ChkActs = a.ChkActs1 = function() {
@@ -5344,7 +5366,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
             oSym.addTask(50, function(e) {
                 $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
             }, [d]);
-            oSym.addTask(100, function(f, e) {
+            oSym.addTask(1, function(f, e) {
                 var h = $Z[f],
                     g;
                 h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
