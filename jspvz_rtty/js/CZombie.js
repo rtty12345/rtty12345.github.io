@@ -2222,20 +2222,6 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
 	},
         PrivateAct1:function(j, l) {
-		if(!j.hp){
-			j.hp=true;
-			oSym.addTask(625,function(j,l){
-			var m = j - 120,
-					o = j + 120,
-					h = Math.max(1, l - 1),
-					g = Math.min(oS.R, l + 1),
-					n,
-					k;
-					k = (n = oZ.getArZ(m, o, h)).length;
-							n[k].HP*=1.2
-					},[j]);
-			j.hp=false
-						}
 			},
 	 PrivateAct2:function(a){
 		 if(!a.hp){
