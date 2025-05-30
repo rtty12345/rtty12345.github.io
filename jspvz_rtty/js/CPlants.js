@@ -2316,7 +2316,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	height: 78,
 	beAttackedPointL: 10,
 	beAttackedPointR: 61,
-	SunNum: 45,
+	SunNum: 175,
 	coolTime: 30,
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
@@ -2331,8 +2331,6 @@ oHypnoShroom = InheritO(oFumeShroom, {
 			break;
 		case 0:
 			!c.Sleep && d.bedevil(d),d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
-			c.Die();
-			break;
 		default:
 			c.Die()
 		}
@@ -2823,7 +2821,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e,10,d),i.style.left = (l += j) + "px",oSym.addTask(10, arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25,arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
