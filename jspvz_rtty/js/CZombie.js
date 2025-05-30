@@ -2231,12 +2231,9 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 					g = Math.min(oS.R, l + 1),
 					n,
 					k;
-					do {
-						k = (n = oZ.getArZ(m, o, h)).length;
-						while (k--) {
+					k = (n = oZ.getArZ(m, o, h)).length;
 							n[k].HP*=1.2
-						}
-					}},[j]);
+					},[j]);
 			j.hp=false
 						}
 			},
