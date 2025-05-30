@@ -82,7 +82,7 @@ var CZombies = function(b, a) {
 			n = d.EleBody,
 			i = oGd.$LF,
 			c; ! g.length && (d.CanPass(q, i[q]) && (g[++m] = q), d.CanPass(q += 2, i[q]) && (g[++m] = q));
-			g.length ? (l = !d.WalkDirection ? -5 : 5, d.ZX += l, d.AttackedLX += l, d.AttackedRX += l, d.X += l, q = g[Math.floor(Math.random() * g.length)], SetStyle(f, {
+			g.length ? (l = !d.WalkDirection ? -5 : 20, d.ZX += l, d.AttackedLX += l, d.AttackedRX += l, d.X += l, q = g[Math.floor(Math.random() * g.length)], SetStyle(f, {
 				left: d.X + "px",
 				top: (d.pixelTop = j == undefined ? GetY(q) - d.height + d.GetDY() : j) + "px",
 				zIndex: d.zIndex = 3 * q + 1
