@@ -2822,7 +2822,7 @@ oCactus = InheritO(CPlants, {
 		c = "CB" + Math.random(),
 		a = b.id;
 		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
-		oSym.addTask(75,
+		oSym.addTask(275,
 		function(e) {
 			var d = $(e);
 			d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif")
@@ -2839,7 +2839,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (Math.round(Math.random()*100)>2?e.getPea(e,10,d):e.getrPea(e,20,d),oSym.addTask(25,arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (Math.round(Math.random()*100)>4?e.getPea(e,10,d):e.getrPea(e,20,d),oSym.addTask(25,arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
