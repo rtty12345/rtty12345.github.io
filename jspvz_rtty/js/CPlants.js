@@ -2154,7 +2154,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
 	PrivateDie: function(a) {
-		a.NormalAttack1();
+		a.NormalAttack2();
 		a.BulletEle = null
 	},
 	NormalAttack: function() {
@@ -2184,16 +2184,6 @@ oPuffShroom = InheritO(oFumeShroom, {
 		},
 		[c, $(c), a, b.R, a - 46])
 	},
-		NormalAttack1: function(a) {
-		this.NormalAttack2();
-		oSym.addTask(5,
-		function(d, b) {
-			var c = $P[d];
-			c && c.NormalAttack2();
-			oSym.addTask(5, arguments.callee, [d, b])
-		},
-		[this.id,9])
-	},
 		NormalAttack2: function() {
 		PlayAudio("puff");
 		var b = this,
@@ -2213,7 +2203,8 @@ oPuffShroom = InheritO(oFumeShroom, {
 		function(j, d, e, f, g) {
 			var i = GetC(e),
 			h = oZ.getZ0(e, f);
-			h && h.Altitude == 1 ? (h.getrPea(h, 20, 0), (SetStyle(d, {
+			h && h.Altitude == 1 ? (h.getPea(h, 80, 0), 
+			getr(h,160),(SetStyle(d, {
 				left: g + 38 + "px",
 				width: "52px",
 				height: "46px"
