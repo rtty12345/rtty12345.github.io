@@ -298,6 +298,15 @@ return a;
 			},
 			[f, d])
 		},
+		getr:function(e){
+		e.ZX +=20,
+			e.AttackedLX += 20, 
+			e.AttackedRX += 20, 
+			e.X += 20, 
+			SetStyle(e.Ele, {
+            left: e.X + "px"
+          })
+		},
 		getFreeze: function(d, c) {
 			d.beAttacked && d.getHit0(d, 20, 0);
 			d.Speed = 0;
