@@ -177,7 +177,6 @@ oGraveBuster = InheritO(CPlants, {
 	Tooltip: "把它种在墓碑上用来吞噬墓碑",
 	Produce: '墓地苔用来吃掉墓碑。<p>使用方法：<font color="#FF0000">单次使用，只对墓碑生效。</font><br>特点：<font color="#FF0000">吞噬墓碑，吞噬完后掉落50阳光</font></p>尽管墓地苔的外表十分吓人，但他想要所有人都知道，其实他喜欢小猫咪，而且利用业余时间，在一家僵尸康复中心做志愿者。“我只是在做正确的事情，”他说。',
 	PrivateBirth: function(a) {
-		oSym.addTask(2000,CustomSpecial,[oGraveBuster,this.R,this.C]);
 		PlayAudio("gravebusterchomp");
 		oSym.addTask(120,
 		function(b) {
@@ -540,7 +539,7 @@ oSnowPea = InheritO(oPeashooter, {
 }),
 oThreepeater = InheritO(oPeashooter, {
 	EName: "oThreepeater",
-	CName: "三线射手",
+	CName: "四线射手",
 	width: 73,
 	height: 80,
 	BKind:0,
@@ -797,28 +796,14 @@ oGatlingPea= InheritO(oPeashooter, {
 			F: oGd.MB1
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
-                !c.isDie&&oSym.addTask(12000,function(e){
-                    e.Die1();
+                !c.isDie&&oSym.addTask(8000,function(e){
+                    e&&!e.isDie&&e.Die1();
  		PlayAudio("newspaper_rarrgh2"); 
                  },[this]);
 	},
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oRepeater"
-	},
-	BoomDie:function(){
-		var b =this,
-		c = b.id;
-		b.canEat=0;
-		b.HP=0;
-		b.NormalAttack=function(){};
-	},
-	Die:function(){
-		var b =this,
-		c = b.id;
-		b.canEat=0;
-		b.HP=0;
-		b.NormalAttack=function(){};
 	},
 	NormalAttack1:oPeashooter1.prototype.NormalAttack,
 	NormalAttack: function(a) {
@@ -882,7 +867,8 @@ oGatlingPea1= InheritO(CPlants, {
 		e = f + 15,
 		a = function(j, i, h) {
 			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,30,i),ClearChild(h), false) : true)
-		}; (function(h) {
+		}; 
+		(function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -897,7 +883,8 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
+		})("StarB" + Math.random());
+		(function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -915,7 +902,8 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());(function(h) {
+		})("StarB" + Math.random());
+		(function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -933,7 +921,8 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
+		})("StarB" + Math.random());
+		(function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -951,7 +940,8 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());(function(h) {
+		})("StarB" + Math.random());
+		(function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -2643,7 +2633,7 @@ oPlantern = InheritO(CPlants, {
 	beAttackedPointR: 145,
 	coolTime: 30,
 	BookHandBack: 2,
-	SunNum: 25,
+	SunNum: 50,
 	PicArr: ["images/Card/Plants/Plantern.png", "images/Plants/Plantern/0.gif", "images/Plants/Plantern/Plantern.gif", "images/Plants/Plantern/light.gif"],
 	Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾",
 	Produce: '灯笼草，能照亮一片区域，让你看清战场迷雾<p>范围：<font color="#FF0000">一片圆形区域</font><br>特点：<font color="#FF0000">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物吃的是光，挤出的是氧气。灯笼草吃的是黑暗，挤出的却是光。对于他如何能产生光这件事，灯笼草持谨慎态度。“我不会说这是‘巫术’，我也不会使用‘黑暗力量’，我只是……我想我说得够多的了。”',
@@ -2869,7 +2859,7 @@ oBlover = InheritO(CPlants, {
 	SunNum: 100,
 	PicArr: ["images/Card/Plants/Blover.png", "images/Plants/Blover/0.gif", "images/Plants/Blover/Blover.gif"],
 	Tooltip: "能吹走所有气球和迷雾",
-	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散,给全场无二类防具僵尸造成一定减速伤害<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
 	AudioArr:['blover'],
 	InitTrigger: function() {},
 	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
@@ -2882,7 +2872,7 @@ oBlover = InheritO(CPlants, {
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
 		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(); //把气球吹跑
-
+                oBalloon.getSnowPea(100);
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
 			oSym.addTask(3600 + 150, oGd.MoveFogLeft, []); // 24s后恢复
