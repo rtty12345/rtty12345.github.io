@@ -2154,6 +2154,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
 	PrivateDie: function(a) {
+		a.NormalAttack1();
 		a.BulletEle = null
 	},
 	NormalAttack: function() {
@@ -2176,6 +2177,42 @@ oPuffShroom = InheritO(oFumeShroom, {
 			var i = GetC(e),
 			h = oZ.getZ0(e, f);
 			h && h.Altitude == 1 ? (h.getPea(h, 20, 0), (SetStyle(d, {
+				left: g + 38 + "px",
+				width: "52px",
+				height: "46px"
+			})).src = "images/Plants/ShroomBulletHit.gif", oSym.addTask(10, ClearChild, [d])) : (e += 5) < oS.W ? (d.style.left = (g += 5) + "px", oSym.addTask(1, arguments.callee, [j, d, e, f, g])) : ClearChild(d)
+		},
+		[c, $(c), a, b.R, a - 46])
+	},
+		NormalAttack1: function(a) {
+		this.NormalAttack2();
+		oSym.addTask(5,
+		function(d, b) {
+			var c = $P[d];
+			c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
+		},
+		[this.id,9)
+	},
+		NormalAttack2: function() {
+		PlayAudio("puff");
+		var b = this,
+		c = "PSB" + Math.random(),
+		a = b.AttackedLX;
+		EditEle(b.BulletEle.cloneNode(false), {
+			id: c
+		},
+		0, EDPZ);
+		oSym.addTask(10,
+		function(e) {
+			var d = $(e);
+			d && SetVisible(d)
+		},
+		[c]);
+		oSym.addTask(1,
+		function(j, d, e, f, g) {
+			var i = GetC(e),
+			h = oZ.getZ0(e, f);
+			h && h.Altitude == 1 ? (h.getrPea(h, 20, 0), (SetStyle(d, {
 				left: g + 38 + "px",
 				width: "52px",
 				height: "46px"
@@ -2591,7 +2628,7 @@ oTangleKelp = InheritO(CPlants, {
 				ClearChild($(i))
 			});
 			h.DisappearDie();
-			g.Die()
+			Math.round(Math.random()*100)>10?g.Die():CustomSpecial(oTangleKelp,g.R,g.C)
 		},
 		[a, b])
 	}
@@ -2793,14 +2830,14 @@ oCactus = InheritO(CPlants, {
 		c = "CB" + Math.random(),
 		a = b.id;
 		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
-		oSym.addTask(5,
+		oSym.addTask(75,
 		function(e) {
 			var d = $(e);
 			d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif")
 		},
 		[a]);
 		NewImg(c, b.PicArr[8], "left:" + (b.AttackedRX + 25) + "px;top:" + (b.pixelTop + 103) + "px;visibility:hidden;z-index:" + (b.zIndex + 2), EDPZ);
-		oSym.addTask(5,
+		oSym.addTask(35,
 		function(e) {
 			var d = $(e);
 			d && SetVisible(d)
@@ -2810,7 +2847,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1 ? (e.getPea(e,10,d),oSym.addTask(25,arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1 ? (Math.round(Math.random()*100)>2?e.getPea(e,10,d):e.getrPea(e,20,d),oSym.addTask(25,arguments.callee,[g, i, d, k, h, l])): (k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
