@@ -2191,7 +2191,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 			var c = $P[d];
 			c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
 		},
-		[this.id,9)
+		[this.id,9])
 	},
 		NormalAttack2: function() {
 		PlayAudio("puff");
