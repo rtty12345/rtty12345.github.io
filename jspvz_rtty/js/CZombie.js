@@ -298,11 +298,11 @@ return a;
 			},
 			[f, d])
 		},
-		getr:function(e){
-		e.ZX +=20,
-			e.AttackedLX += 20, 
-			e.AttackedRX += 20, 
-			e.X += 20, 
+		getr:function(e,l){
+		e.ZX +=l,
+			e.AttackedLX += l, 
+			e.AttackedRX += l, 
+			e.X += l, 
 			SetStyle(e.Ele, {
             left: e.X + "px"
           })
@@ -553,7 +553,7 @@ OrnNoneZombies = function() {
                 },
 		getrPea:function(e,b,c){
 			e.getPea(e,b,c);
-			e.getr(e)
+			e.getr(e,20)
 		},
 		getFirePea2: function(g, c, j) {
 			g.PlayFireballAudio(); 
