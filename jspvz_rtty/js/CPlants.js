@@ -2189,7 +2189,8 @@ oPuffShroom = InheritO(oFumeShroom, {
 		oSym.addTask(5,
 		function(d, b) {
 			var c = $P[d];
-			c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
+			c && c.NormalAttack2();
+			oSym.addTask(5, arguments.callee, [d, b])
 		},
 		[this.id,9])
 	},
