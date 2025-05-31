@@ -4798,7 +4798,8 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 				h.getCrushed = s.getCrushed;
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
-				h.AttackZombie2 = s.AttackZombie2
+				h.AttackZombie2 = s.AttackZombie2;
+				for(z in $Z) left= $Z[z];
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
 				left: h.X + "px"
