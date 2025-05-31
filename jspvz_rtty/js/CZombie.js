@@ -551,6 +551,10 @@ OrnNoneZombies = function() {
                 e.getFirePea2(e,b,c);
                 e.getSlow(e);
                 },
+		getrPea:function(e,b,c){
+			e.getPea(e,b,c);
+			e.getr(e)
+		},
 		getFirePea2: function(g, c, j) {
 			g.PlayFireballAudio(); 
 			var f = g.AttackedLX,
