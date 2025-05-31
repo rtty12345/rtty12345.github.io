@@ -2871,7 +2871,7 @@ oBlover = InheritO(CPlants, {
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
 		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(); //把气球吹跑
-                oBalloon.getSnowPea(100);
+                oBalloon&&oBalloon.getSnowPea(100);
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
 			oSym.addTask(3600 + 150, oGd.MoveFogLeft, []); // 24s后恢复
