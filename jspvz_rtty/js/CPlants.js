@@ -2204,7 +2204,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 			var i = GetC(e),
 			h = oZ.getZ0(e, f);
 			h && h.Altitude == 1 ? (h.getPea(h, 80, 0), 
-			getr(h,160),(SetStyle(d, {
+			h.getr(h,160),(SetStyle(d, {
 				left: g + 38 + "px",
 				width: "52px",
 				height: "46px"
