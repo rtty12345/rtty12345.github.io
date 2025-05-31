@@ -867,8 +867,7 @@ oGatlingPea1= InheritO(CPlants, {
 		e = f + 15,
 		a = function(j, i, h) {
 			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,30,i),ClearChild(h), false) : true)
-		}; 
-		(function(h) {
+		}; (function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -877,7 +876,7 @@ oGatlingPea1= InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m += 5) < 200 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ1(m, k), 4, i) && ((m += 5) <250 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
