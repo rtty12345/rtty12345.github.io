@@ -2350,7 +2350,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
          }, 
 a);
 return a;
-b.HP&&oSym.addTask(3000,arguments.callee,[b]);
+b.HP!=0&&oSym.addTask(3000,arguments.callee,[b]);
      }, 
 	getHurt: function(d, b, a) {
 		var c = this;
