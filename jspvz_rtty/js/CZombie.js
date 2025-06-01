@@ -156,7 +156,7 @@ var CZombies = function(b, a) {
          }, 
 a)
      }, 
-  CustomZombie:function(h, e, b, z){
+  CustomZombie:function(h, e, b){
 	  ++oP.NumZombies,
          asyncInnerHTML((a = new h).CustomBirth(e, b, 1,"auto"), function(n, m) {
              EDPZ.appendChild(n);
