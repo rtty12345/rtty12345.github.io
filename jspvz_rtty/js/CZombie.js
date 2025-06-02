@@ -478,6 +478,14 @@ return a;
 			c.ChkActs = c.ChkActs1;
 			oP.MonPrgs()
 		},
+		reNormal: function(c) {
+			c.ExchangeLR(c, 0);
+			c.JudgeAttack = c.JudgeAttack;
+			c.PZ = 1;
+			c.WalkDirection = 0;
+			c.ZX = c.AttackedLX;
+			c.ChkActs = c.ChkActs;
+		},
 		bedevil1: function(c) {
 			c.JudgeAttack = c.JudgeAttack;
 			c.PZ = 1;
@@ -2228,7 +2236,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             oSym.addTask(50, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, 2, h.Attack),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, 2, h.Attack),CustomZombie(oZombie3,g.R,g.C),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
@@ -2339,7 +2347,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h, 20, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h,20,0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -2355,8 +2363,8 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 	StandGif: 11,
 	width: 154,
 	height: 160,
-	OSpeed: 4,
-	Speed: 4,
+	OSpeed: 2,
+	Speed: 2,
 	beAttackedPointL: 40,
 	beAttackedPointR: 134,
 	PlayNormalballAudio: function() {
@@ -2366,15 +2374,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 	getFirePea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea1:OrnNoneZombies.prototype.getPea,
-	bedevil: function(c) {
-		c.ExchangeLR(c, 1);
-		c.JudgeAttack = c.JudgeAttackH;
-		c.PZ = 0;
-		c.WalkDirection = 1;
-	        c.ZX = c.AttackedRX;
-		c.ChkActs = c.ChkActs1;
-		c.Attack=150;
-		oP.MonPrgs()
+	bedevil: function() {
 		},
 	PicArr: (function() {
 		var a = "images/Zombies/FootballZombie/";
@@ -2399,10 +2399,22 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.reNormal(h), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
+	NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(300, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, 2, h.Attack),CustomZombie(oFootballZombie,g.R,g.C),h.JudgeAttack())
+            }, [d, c]);
+            this.PrivateAttack && this.PrivateAttack(this)
+	},
 	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
