@@ -480,7 +480,7 @@ return a;
 		},
 		reNormal: function(c) {
 			c.ExchangeLR(c, 0);
-			c.JudgeAttack = c.JudgeAttack;
+			c.JudgeAttack = CZombies.prototype.JudgeAttack;
 			c.PZ = 1;
 			c.WalkDirection = 0;
 			c.ZX = c.AttackedLX;
@@ -1971,6 +1971,22 @@ oFlagZombie = InheritO(oZombie, {
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
 		},
+		JudgeAttack1: function() {
+			var f = this,
+			c = f.ZX,
+			d = f.R + "_",
+			e = GetC(c),
+			g = oGd.$,
+			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+		},
+		reNormal: function(c) {
+			c.ExchangeLR(c, 0);
+			c.JudgeAttack = c.JudgeAttack1;
+			c.PZ = 1;
+			c.WalkDirection = 0;
+			c.ZX = c.AttackedLX;
+			c.ChkActs = c.ChkActs;
+		},
 		JudgeLR: function(e, c, d, b, f) {
 			return d > 10 || d < 1 ? false: function() {
 				c += --d + "_";
@@ -3408,6 +3424,14 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit1(c, a, b)
 	},
+	reNormal: function(c) {
+			c.ExchangeLR(c, 0);
+			c.JudgeAttack = (!c.OrnHP?c.JudgeAttack1:CZombies.prototype.JudgeAttack);
+			c.PZ = 1;
+			c.WalkDirection = 0;
+			c.ZX = c.AttackedLX;
+			c.ChkActs = c.ChkActs;
+		},
 	getFirePea: function(f,b,e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
 		f.Attack = 100;
