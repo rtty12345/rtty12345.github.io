@@ -2427,7 +2427,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
             oSym.addTask(300, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]).HP>0&&CustomZombie(oZombie3,g.R,g.C),g.getHurt(h,2,h.Attack),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,20,0),g&&g!==underfined&&CustomZombie(oFootballZombie,g.R,g.C),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
