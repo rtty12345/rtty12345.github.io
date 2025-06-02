@@ -2415,7 +2415,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked &&f.WalkDirection&&!i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.reNormal(h),oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked &&!i.FreeFreezeTime && !i.FreeSetbodyTime && (h = $Z[f])&&(h.reNormal(h),i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif])
 			},
 			[d, c])
 		},
@@ -2427,7 +2427,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
             oSym.addTask(300, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,20,0),g&&g!==underfined&&CustomZombie(oFootballZombie,g.R,g.C),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime&&((g = $P[e])&&g.getHurt(h, 2,h.Attack),g&&g!==undefined&&CustomZombie(oFootballZombie,g.R,g.C),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
