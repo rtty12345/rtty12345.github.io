@@ -484,7 +484,7 @@ return a;
 			c.PZ = 1;
 			c.WalkDirection = 0;
 			c.ZX = c.AttackedLX;
-			c.ChkActs = c.ChkActs;
+			c.ChkActs = CZombies.prototype.ChkActs;
 		},
 		bedevil1: function(c) {
 			c.JudgeAttack = c.JudgeAttack;
@@ -1985,7 +1985,7 @@ oFlagZombie = InheritO(oZombie, {
 			c.PZ = 1;
 			c.WalkDirection = 0;
 			c.ZX = c.AttackedLX;
-			c.ChkActs = c.ChkActs;
+			c.ChkActs = CZombies.prototype.ChkActs;
 		},
 		JudgeLR: function(e, c, d, b, f) {
 			return d > 10 || d < 1 ? false: function() {
@@ -2415,7 +2415,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.reNormal(h), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.reNormal(h)) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -3430,7 +3430,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			c.PZ = 1;
 			c.WalkDirection = 0;
 			c.ZX = c.AttackedLX;
-			c.ChkActs = c.ChkActs;
+			c.ChkActs = CZombies.prototype.ChkActs;
 		},
 	getFirePea: function(f,b,e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
