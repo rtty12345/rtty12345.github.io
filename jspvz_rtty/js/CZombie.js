@@ -2352,7 +2352,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,20,0), g&&g!==undefined&&CustomZombie(oFootballZombie,g.R,g.C),h.JudgeAttack())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,20,0),h.JudgeAttack())
 			},
 			[d, c])
 		},
@@ -2415,7 +2415,7 @@ oFootballZombie1= InheritO(oConeheadZombie,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked &&i.WalkDirection&&!i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.reNormal(h)) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked &&g.WalkDirection&&!i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.reNormal(h),oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
