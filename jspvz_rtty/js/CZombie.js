@@ -4618,7 +4618,6 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return 0
 	},
 	GetDTop: 0,
-	Altitude: 2,
 	haveDolphin: 1,
 	JumpTime: 45,
 	beAttackedPointL: 110,
