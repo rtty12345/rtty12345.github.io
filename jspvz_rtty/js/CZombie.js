@@ -307,6 +307,7 @@ return a;
             left: e.X + "px"
           })
 		},
+		flatTire:function(){},
 		getFreeze: function(d, c) {
 			d.beAttacked && d.getHit0(d, 20, 0);
 			d.Speed = 0;
@@ -2561,13 +2562,6 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         ),
       ]);
     },
-    PrivateAct: function(){
-            let a = this;
-            if(a.OrnHP <= 0){
-                let p = oGd.$[a.R+"_"+GetC($(a.id).offsetLeft+160)+"_1"];
-                p && p.canEat && p.Die();
-            }
-        },
     JudgeAttack: function () {
       var g = this,
         b = g.ZX,
@@ -2680,6 +2674,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                 SetStyle(i, {
                   left: h.X + "px",
                 }),
+		 (k.getHurt(h,2,1000)),
                 (n.src =
                   "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
                   $Random +
