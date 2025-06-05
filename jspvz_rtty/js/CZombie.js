@@ -1857,7 +1857,7 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60)&&oSym.addTask(1500,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&& && (a.PZ)&&oSym.addTask(1500,arguments.callee,[a])
             },[a]);
             }
         },
@@ -3599,7 +3599,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60)&&oSym.addTask(75,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&& (a.PZ)&&oSym.addTask(75,arguments.callee,[a])
             },[a]);
             }
         },
@@ -5208,7 +5208,7 @@ BoomFire: function (y) {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60) &&a.bedevil&&oSym.addTask(125,arguments.callee,[a])
+            !a.isDie && (a.HP > 60) &&(a.PZ)&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             }
         },
