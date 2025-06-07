@@ -7,6 +7,7 @@
 	StaticGif: 1,
 	NormalGif: 2,
 	BookHandBack: 0,
+	 highwork:0,
 	canEat: 1,
 	zIndex: 0,
 	AudioArr: [],
@@ -64,15 +65,6 @@
 	getShadow: function(a) {
 		return "left:" + (a.width * 0.5 - 48) + "px;top:" + (a.height - 22) + "px"
 	},
-         CZ:function(a,e,b){
-         asyncInnerHTML(a.CustomBirth(e,b,0,"auto"), function(n, m) {
-             EDPZ.appendChild(n);
-             m.Birth();
-             m.bedevil(m);
-             //document.write()
-	 },a);
-return a;
-     }, 
 	BirthStyle: function(c, d, b, a) {
 		EditEle(b, {
 			id: d
@@ -102,7 +94,7 @@ return a;
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		this.NormalAttack(b);
-		oSym.addTask(140,
+		oSym.addTask(b。highwork?40:140,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.AttackCheck1(f, h)
 		},
@@ -2019,7 +2011,7 @@ oFumeShroom = InheritO(CPlants, {
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
 		var t;
 		for (t in $Z){
- 		Math.round(Math.random()*100)>5?g.getSlow(g):g.getFreeze1(g, t)}}
+ 		Math.round(Math.random()*100)>2?g.getSlow(g):g.getFreeze1(g, t)}}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
@@ -2050,9 +2042,6 @@ oCoffeeBean = InheritO(CPlants, {
 	GetDY: function() {
 		return - 30
 	},
-	CanGrow: function(a, b) {
-		return (b = a[1]) && b.Sleep && !a[3]
-	},
 	BirthStyle: function(c, d, b, a) {
 		b.childNodes[1].src = this.PicArr[3] + Math.random();
 		EditEle(b, {
@@ -2069,6 +2058,11 @@ oCoffeeBean = InheritO(CPlants, {
 			var d = oGd.$[c],
 			b;
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
+			d&&d.highwork=1;
+			oSym.addTask(1000,function(c){
+			var d = oGd.$[c];
+			d&&d.highwork=0
+			},[c]);
 			a.Die()
 		},
 		[a.R + "_" + a.C + "_1"])
@@ -2212,7 +2206,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 		function(j, d, e, f, g) {
 			var i = GetC(e),
 			h = oZ.getZ0(e, f);
-			h && h.Altitude == 1 ? (h.getPea(h, 80, 0), 
+			h && h.Altitude == 1 ? (h.getPea(h, 100, 0), 
 			h.getr(h,160),(SetStyle(d, {
 				left: g + 38 + "px",
 				width: "52px",
@@ -2351,7 +2345,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战。<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
-CustomZombies(Math.round(Math.random()*100)>20 ? new oFootballZombie:Math.round(Math.random()*100)>25 ? new oNewspaperZombie: new oNewspaperZombie3,b.R,b.C);
+CustomZombies(Math.round(Math.random()*100)>20 ? new oFootballZombie:Math.round(Math.random()*100)>25 ? new oNewspaperZombie: new oNewspaperZombie3,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(4000,arguments.callee,[b]);
 	},
 	getHurt: function(d, b, a) {
