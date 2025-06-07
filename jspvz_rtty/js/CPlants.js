@@ -2058,10 +2058,10 @@ oCoffeeBean = InheritO(CPlants, {
 			var d = oGd.$[c],
 			b;
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
-			d&&d.highwork=1;
+			d.highwork=1;
 			oSym.addTask(1000,function(c){
 			var d = oGd.$[c];
-			d&&d.highwork=0
+			d.highwork=0
 			},[c]);
 			a.Die()
 		},
