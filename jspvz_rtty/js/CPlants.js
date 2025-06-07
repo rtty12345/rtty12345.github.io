@@ -2351,12 +2351,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战。<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
-         asyncInnerHTML((a=Math.round(Math.random()*100)>20 ? new oFootballZombie:Math.round(Math.random()*100)>25 ? new oNewspaperZombie: new oNewspaperZombie3).CustomBirth(b.R,b.C,0,"auto"), function(n, m) {
-             EDPZ.appendChild(n);
-             m.Birth();
-             m.bedevil(m);
-             //document.write()
-	 },a);
+CustomZombies(Math.round(Math.random()*100)>20 ? new oFootballZombie:Math.round(Math.random()*100)>25 ? new oNewspaperZombie: new oNewspaperZombie3,b.R,b.C);
 	b.HP >= 1&& oSym.addTask(4000,arguments.callee,[b]);
 	},
 	getHurt: function(d, b, a) {
