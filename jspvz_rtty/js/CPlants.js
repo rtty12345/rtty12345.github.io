@@ -94,7 +94,7 @@
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		this.NormalAttack(b);
-		oSym.addTask(b。highwork?40:140,
+		oSym.addTask(b.highwork?40:140,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.AttackCheck1(f, h)
 		},
@@ -2722,7 +2722,7 @@ oCactus = InheritO(CPlants, {
 		var a = this.id;
 		this.NormalAttack(b);
 		this.ES();
-		this.Status == 0 && oSym.addTask(140,
+		this.Status == 0 && oSym.addTask(280,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.ES() && g.AttackCheck1(f, h)
 		},
