@@ -181,7 +181,7 @@ oS = {
 		this.SunNum = d;
 		this.BrainsNum = d;
 		this.HaveFog = 0;
-		this.MaxSunNum = 9990;
+		this.MaxSunNum = 114514;
 		for (c in e) {
 			this.SelfVariables.push(c);
 			this[c] = e[c]
@@ -192,7 +192,7 @@ oS = {
 		},
 		document.body)); ! this.PicArr && (this.PicArr = []); ! this.PName && (this.PName = []); ! this.ZName && (this.ZName = []); ! this.backgroundImage && (this.backgroundImage = "images/interface/background1.jpg"); ! this.LF && (this.LF = [0, 1, 1, 1, 1, 1]); ! this.ZF && (this.ZF = this.LF); ! this.LargeWaveFlag && (this.LargeWaveFlag = {}); ! this.StartGameMusic && (this.StartGameMusic = "UraniwaNi");
 		this.ArCard = this.CardKind == d ? e.PName: e.ZName;
-		this.SunNum == d && (this.SunNum = 50);
+		this.SunNum == d && (this.SunNum =200);
 		this.CanSelectCard == d && (this.CanSelectCard = 1);
 		this.DKind == d && (this.DKind = 1);
 		this.StaticCard == d && (this.StaticCard = 1);
