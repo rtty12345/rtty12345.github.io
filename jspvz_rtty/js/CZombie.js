@@ -1250,10 +1250,6 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		[b, a])
 	},
 	ChkBackupDancer: function(h, g, f) {
-		if (!h.PZ) {
-			h.ChangeChkActsTo1(h, g, f);
-			return
-		}
 		var b = h.ArDZ,
 		d = 4,
 		j = 1,
@@ -1379,6 +1375,20 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 							var j = C.length,
 							E;
 							while (j--) { (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
+							}
+						},
+						[A, z]));
+						B && B.beAttacked&& B.PZ&&(oP.AppearUP(y, z, i), 
+						oSym.addTask(80,
+						function(D, C) {
+							var E = $Z[D];
+							if (E && E.beAttacked) {
+								return
+							}
+							var j = C.length,
+							E;
+							while (j--) { (E = C[j]).ChangeChkActsTo1(E,E.id, E.EleBody),
+							E.bedevil(E)
 							}
 						},
 						[A, z]))
@@ -1785,7 +1795,7 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 							while (j--) { (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
 							}
 						},
-						[A, z]))
+						[A, z]));
 					},
 					[t, u, w, o]);
 					oSym.addTask(100,
@@ -1857,7 +1867,7 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60)&& && (a.PZ)&&oSym.addTask(1500,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&&(a.PZ)&&oSym.addTask(1500,arguments.callee,[a])
             },[a]);
             }
         },
