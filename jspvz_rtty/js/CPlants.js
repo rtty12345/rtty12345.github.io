@@ -682,7 +682,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				o==y&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
 					"-1":"getSnowPea",
-					0 : "getPea",
+					0 : "gethPea",
 					1 : "getSlowPea1"
 				} [o]](f, j, e), (SetStyle(l, {
 					left: q + 28 + "px",
