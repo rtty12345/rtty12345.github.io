@@ -519,6 +519,7 @@ OrnNoneZombies = function() {
 		getHit1: a,
 		getHit2: a,
 		getHit3: a,
+		getHit4:a,
 		getPea: function(e, b, c) {
 			e.PlayNormalballAudio();
 			e.getHit0(e, b, c)
@@ -3278,7 +3279,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，地刺先扎报纸，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -3385,22 +3386,29 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
  		},
  		[c.id])
  	},
-        getHit1: function(b, a) {
-            (b.HP -= a) < b.BreakPoint ? (b.GoingDie(b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]), b.getFirePea = OrnNoneZombies.prototype.getFirePea, b.getSnowPea = OrnNoneZombies.prototype.getSnowPea, b.getHit = b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function() {}) : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0), b.SetAlpha(b, b.EleBody, 50, 0.5), oSym.addTask(10, function(d, c) {
-                (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1)
-            }, [b.id]))
-        },
- 	getHit2: function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
+	getHit1: function(c, a, b) {
+ 		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
  		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
  		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
+ 		[c.id])
  	},
- 	getHit3: function(c, a, b) {
- 		b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
+	getHit2: function(c, a, b) {
+ 		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
  		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
  		},
- 		[c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getFirePea = OrnNoneZombies.prototype.getFirePea, c.getSnowPea = OrnNoneZombies.prototype.getSnowPea, c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
+ 		[c.id])
+ 	},
+	getHit3: function(c, a, b) {
+ 		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
+ 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
+ 		},
+ 		[c.id])
+ 	},
+	getHit4: function(c, a, b) {
+ 		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
+ 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
+ 		},
+ 		[c.id])
  	},
 	AttackZombie: function(d, c) {
 			oSym.addTask(10,
