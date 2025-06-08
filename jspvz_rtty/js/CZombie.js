@@ -524,6 +524,10 @@ OrnNoneZombies = function() {
 			e.PlayNormalballAudio();
 			e.getHit0(e, b, c)
 		},
+		gethPea: function(e, b, c) {
+			e.PlayNormalballAudio();
+			e.getHit4(e, b, c)
+		},
 		getFirePea: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
 			g.Attack = 100;
