@@ -2036,6 +2036,7 @@ oCoffeeBean = InheritO(CPlants, {
 	Tooltip: "唤醒在白天里睡觉的蘑菇类植物",
 	Produce: '咖啡豆，可以唤醒睡眠中的蘑菇们。<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">可以种在其他植物上，用来唤醒蘑菇们</font></p>咖啡豆：“嘿，伙计们！嘿，怎么回事？是谁？嘿！你瞧见那个东西没？什么东西？哇！是狮子！”嗯，咖啡豆确定，这样可以让自己很兴奋。',
 	InitTrigger: function() {},
+	CanGrow:function(a,b){return a[1] || a[0] || a[2]},
 	GetDBottom: function() {
 		return 49
 	},
@@ -2722,7 +2723,7 @@ oCactus = InheritO(CPlants, {
 		var a = this.id;
 		this.NormalAttack(b);
 		this.ES();
-		this.Status == 0 && oSym.addTask(280,
+		this.Status == 0 && oSym.addTask(200,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.ES() && g.AttackCheck1(f, h)
 		},
