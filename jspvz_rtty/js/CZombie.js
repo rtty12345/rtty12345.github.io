@@ -1907,7 +1907,7 @@ oZombie2 = InheritO(oZombie, {
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("splat1"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0) {
+          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -3699,7 +3699,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0) {
+          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -3861,10 +3861,10 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 }),
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
-	CName: "铲子铁门僵尸",
-	OrnHP: 1100,
+	CName: "铁门僵尸",
+	OrnHP: 800,
 	Lvl: 3,
-	HP:400,
+	HP:800,
 	oSpeed:3.2,
 	Speed:3.2,
 	SunNum: 150,
@@ -4114,6 +4114,7 @@ oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	PrivateAct1:oBucketheadZombie.prototype.PrivateAct1,
 	PrivateAct2:oBucketheadZombie.prototype.PrivateAct2,
 	PrivateAttack:oBucketheadZombie.prototype.PrivateAttack,
+	NormalAttack:oBucketheadZombie.prototype.NormalAttack,
 	AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 	PicArr: (function() {
 		var b = "images/Zombies/DuckyTubeZombie3/",
@@ -5346,7 +5347,7 @@ BoomFire: function (y) {
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 30, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0) {
+          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
