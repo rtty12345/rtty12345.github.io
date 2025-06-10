@@ -1890,7 +1890,7 @@ oZombie2 = InheritO(oZombie, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-        div.innerHTML = '<img src="images/Plants/PB-10.gif">';
+        div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
           transform: "rotateY(20deg)",
@@ -3678,7 +3678,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-        div.innerHTML = '<img src="images/Plants/PB-10.gif">';
+        div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
           transform: "rotateY(20deg)",
