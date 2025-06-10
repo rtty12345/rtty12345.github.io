@@ -11,10 +11,10 @@ oS.Init({
 		var P = oS.VaseArP, L = P.Left, R = P.Right, GNum = P.GreenNum, VaseList = [], GroundList = [];
 
 		// 生成罐子列表
+		for (var O in P.ZombieH) VaseList.push({ "Type": "bedevilZombie", "Value": oS.ZName[P.ZombieH[O]] });
 		for (var O in P.ZombieP) VaseList.push({ "Type": "Zombie", "Value": oS.ZName[P.ZombieP[O]] });
 		for (var O in P.PlantP) VaseList.push({ "Type": "Plants", "Value": oS.PName[P.PlantP[O]] });
 		for (var O in P.SunP) VaseList.push({ "Type": "SunNum", "Value": P.SunP[O] });
-		for (var O in P.ZombieH) VaseList.push({ "Type": "bedevilZombie", "Value": oS.ZName[P.ZombieH[O]] });
 
 		// 生成格子列表
 		for (; L <= R; ++L) for (var Q = 1; Q <= oS.R; ++Q) GroundList.push([Q, L]);
@@ -46,12 +46,13 @@ oS.Init({
 
 	VaseArP : {
 		GreenNum: 2, Left: 3, Right: 9, 
+		ZombieH:[7],
 		ZombieP: [0, 0, 0, 1, 1, 2, 2, 3, 3, 5, 4,4,6,5], 
 		PlantP: [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5], 
-		ZombieH:[7],
 		SunP: [] 
 	}
-},0,
+},
+	0,
 	{
 	AutoSelectCard: function() { // 只选择樱桃炸弹
 		SelectCard(oCherryBomb.prototype.EName);
