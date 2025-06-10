@@ -1864,7 +1864,7 @@ oZombie2 = InheritO(oZombie, {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+	let Z= oZ.getArHZ($(d).offsetLeft-50,z.offsetLeft+60,a.R);
           let i = Z.length;
           while (i--) {
             Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
@@ -3652,7 +3652,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+	let Z= oZ.getArHZ($(d).offsetLeft -50, z.offsetLeft +60,a.R);
           let i = Z.length;
           while (i--) {
             Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
@@ -5299,7 +5299,7 @@ BoomFire: function (y) {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+	let Z= oZ.getArHZ($(d).offsetLeft - 50, z.offsetLeft +60, a.R);
           let i = Z.length;
           while (i--) {
             Z&& (!Z[i].PZ) && (PlayAudio("splat1"), (Z[i].getHit0(Z[i],50,0),(Z[i].getSlow(Z[i])),($(d) && ClearChild($(d)))));
@@ -5317,15 +5317,15 @@ BoomFire: function (y) {
             }
         },
   bedevilAct: function(a) {
-    if (!a.bool) {
+    if (!a.e) {
       a.Speed = 1;
-      a.bool = 1;
+      a.e = 1;
       oSym.addTask(100, function(a) {
         let z = $(a.id);
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-        div.innerHTML = '<img src="images/Plants/PB00.gif">';
+        div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
           transform: "rotateY(20deg)",
@@ -5337,17 +5337,17 @@ BoomFire: function (y) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(z.offsetLeft + 40);
-          let p = oZ.getArZ(z.offsetLeft-60, $(d).offsetLef+50, a.R);
+          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].PZ) && (PlayAudio("splat1"), (p[i].getHit0(p[i], 50, 0), (p[i].getSlow(p[i])),($(d) && ClearChild($(d)))));
+            p && (p[i].PZ) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 30, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
-        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(125, arguments.callee, [a])
+        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
       }, [a]);
     }
   },
