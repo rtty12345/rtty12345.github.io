@@ -1056,6 +1056,19 @@ oZ = {
 		}
 		return f
 	},
+	getArHZ: function(e, d, b) {
+		var g = 0,
+		l = this.$[b],
+		f = [],
+		k = 0,
+		c,
+		h = l.length,
+		j;
+		while (g < h && (j = (c = l[g++]).AttackedRX) < d) {
+			!c.PZ && c.HP && (j > e || c.AttackedLX > e) && (f[k++] = c)
+		}
+		return f
+	},
 	getRangeLeftZ: function(e, d, b) {
 		if (b < 1 || b > oS.R) {
 			return
