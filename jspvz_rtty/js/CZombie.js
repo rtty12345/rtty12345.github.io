@@ -3728,10 +3728,8 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
-		        c.PrivateAct=function(){},
 			c.WalkDirection = 1;
 			c.ZX = c.AttackedRX;
-		        c.LostPaperSpeed=0;
 			c.ChkActs = c.ChkActs1;
 		        c.Attack=800;
 			oP.MonPrgs()
