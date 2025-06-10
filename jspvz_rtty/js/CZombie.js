@@ -3652,7 +3652,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+	let Z= oZ.getArHZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = Z.length;
           while (i--) {
             Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
@@ -3690,7 +3690,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(z.offsetLeft + 40);
-          let p = oZ.getArHZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
