@@ -1905,7 +1905,7 @@ oZombie2 = InheritO(oZombie, {
           let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].PZ) && (PlayAudio("splat1"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+            p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
             ClearChild($(d));
@@ -5330,7 +5330,7 @@ BoomFire: function (y) {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-        div.innerHTML = '<img src="images/Plants/PB31.gif">';
+        div.innerHTML = '<img src="images/Plants/PB-10.gif">';
         EditEle(div, 0, {
           position: "absolute",
           transform: "rotateY(20deg)",
