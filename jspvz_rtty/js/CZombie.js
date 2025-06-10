@@ -504,7 +504,7 @@ OrnNoneZombies = function() {
 	var a = function(c, b) {
 		if ((c.HP -= b) < c.BreakPoint) {
 			c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]);
-			c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {};
+			c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 =c.getHit4= function() {};
 			return
 		}
 		c.SetAlpha(c, c.EleBody, 50, 0.5);
@@ -2035,7 +2035,7 @@ OrnIZombies = function() {
 	var a = function(f, b) {
 		var d = f.OrnHP,
 		c = f.HP,
-		e = OrnNoneZombies.prototype; (d = f.OrnHP -= b) < 1 && (f.HP += d, f.Ornaments = 0, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit);
+		e = OrnNoneZombies.prototype; (d = f.OrnHP -= b) < 1 && (f.HP += d, f.Ornaments = 0, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 =f.getHit4= e.getHit);
 		f.SetAlpha(f, f.EleBody, 50, 0.5);
 		oSym.addTask(10,
 		function(h, g) { (g = $Z[h]) && g.SetAlpha(g, g.EleBody, 100, 1)
@@ -3475,7 +3475,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea= g.getSlowPea1=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=function(){},g.Attack=Infinity,oSym.addTask(600,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea= g.getSlowPea1=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=g.getHit4=function(){},g.Attack=Infinity,oSym.addTask(600,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3492,7 +3492,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			k.getFirePea=e.getFirePea;
 			k.getRaven=j.getRaven;
 			k.getThump=j.getThump;
-			k.getHit1=k.getHit2=k.getHit3=k.getHit0=e.getHit;
+			k.getHit1=k.getHit2=k.getHit3=k.getHit0=k.getHit4=e.getHit;
 			k.getExplosion=j.getExplosion;
 			k.Attack=800;
 			k.NormalAttack=k.NormalAttack1;
