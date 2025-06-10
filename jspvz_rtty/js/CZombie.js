@@ -1876,7 +1876,85 @@ oZombie2 = InheritO(oZombie, {
             },[a]);
             }
         },
-	bedevilAct:function(){},
+	PrivateAct: function(a) {
+    if (!a.bool) {
+      a.bool = 1;
+      oSym.addTask(700, function(a) {
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "Pea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB-10.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: z.offsetLeft + "px",
+          top: z.offsetTop + 40 + "px"
+        }, EDPZ, 0)
+        oSym.addTask(1, function(z, d, a) {
+          try {
+            $(d).style.left = $(d).offsetLeft - 5 + "px";
+            let pea = $(d);
+            let C = GetC(z.offsetLeft + 40);
+            for (let i = 3; i >= 0; i--) {
+              for (let j = 1; j <= C; j++) {
+                let p = oGd.$[a.R + "_" + j + "_" + i];
+                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower" && p.EName != "oSquash" && p.EName != "oIceShroom" && p.EName != "oSnowPea" && p.EName != "oTorchwood" && p.EName != "oGatlingPea" && p.EName != "oGatlingPea1" && p.EName != "oLilyPad") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), (p.NormalAttack = function() {}), ($(p.id).style.opacity = 0.5), ($(d) && ClearChild($(d))));
+                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower" && p.EName != "oIceShroom" && p.EName != "oLilyPad") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
+                p && (p.canEat) && (p.HP <= 0) && p.Die();
+              }
+            }
+	let Z= oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let i = Z.length;
+          while (i--) {
+            Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
+          }
+            if ($(d).offsetLeft <= 0) {
+              ClearChild($(d));
+              $(d).isDie = true;
+            }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+          } catch (e) {}
+        }, [z, d, a]);
+        !a.isDie && (a.HP > 60) && (a.PZ) && oSym.addTask(125, arguments.callee, [a])
+      }, [a]);
+    }
+  },
+  bedevilAct: function(a) {
+    if (!a.e) {
+      a.Speed = 1;
+      a.e = 1;
+      oSym.addTask(2000, function(a) {
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "Pea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB-10.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: z.offsetLeft + "px",
+          top: z.offsetTop + 40 + "px"
+        }, EDPZ, 0)
+        oSym.addTask(1, function(z, d, a) {
+          $(d).style.left = $(d).offsetLeft + 5 + "px";
+          let pea = $(d);
+          let C = GetC(z.offsetLeft + 40);
+          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let i = p.length;
+          while (i--) {
+            p && (p[i].PZ) && (PlayAudio("splat1"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+          }
+          if ($(d).offsetLeft <= 0) {
+            ClearChild($(d));
+            $(d).isDie = true;
+          }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+        }, [z, d, a]);
+        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(1500, arguments.callee, [a])
+      }, [a]);
+    }
+  }
 },
 {
 	PicArr: {
@@ -3613,6 +3691,11 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
+	let Z= oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let i = Z.length;
+          while (i--) {
+            Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
+          }
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
                     $(d).isDie = true;
@@ -3625,6 +3708,41 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
             },[a]);
             }
         },
+  bedevilAct: function(a) {
+    if (!a.e) {
+      a.Speed = 1;
+      a.e = 1;
+      oSym.addTask(100, function(a) {
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "Pea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB-10.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: z.offsetLeft + "px",
+          top: z.offsetTop + 40 + "px"
+        }, EDPZ, 0)
+        oSym.addTask(1, function(z, d, a) {
+          $(d).style.left = $(d).offsetLeft + 5 + "px";
+          let pea = $(d);
+          let C = GetC(z.offsetLeft + 40);
+          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let i = p.length;
+          while (i--) {
+            p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+          }
+          if ($(d).offsetLeft <= 0) {
+            ClearChild($(d));
+            $(d).isDie = true;
+          }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+        }, [z, d, a]);
+        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
+      }, [a]);
+    }
+  },
               AttackZombie: function(d, c) {
 			oSym.addTask(10,
 			function(f, e) {
@@ -5222,6 +5340,11 @@ BoomFire: function (y) {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
+	let Z= oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let i = Z.length;
+          while (i--) {
+            Z&& (!Z[i].PZ) && (PlayAudio("splat1"), (Z[i].getHit0(Z[i],50,0),(Z[i].getSlow(Z[i])),($(d) && ClearChild($(d)))));
+          }
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
                     $(d).isDie = true;
@@ -5234,8 +5357,41 @@ BoomFire: function (y) {
             },[a]);
             }
         },
-      bedevilAct: function(){
-        },
+  bedevilAct: function(a) {
+    if (!a.bool) {
+      a.Speed = 1;
+      a.bool = 1;
+      oSym.addTask(100, function(a) {
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "Pea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB00.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: z.offsetLeft + "px",
+          top: z.offsetTop + 40 + "px"
+        }, EDPZ, 0)
+        oSym.addTask(1, function(z, d, a) {
+          $(d).style.left = $(d).offsetLeft + 5 + "px";
+          let pea = $(d);
+          let C = GetC(z.offsetLeft + 40);
+          let p = oZ.getArZ(z.offsetLeft-60, $(d).offsetLef+50, a.R);
+          let i = p.length;
+          while (i--) {
+            p && (p[i].PZ) && (PlayAudio("splat1"), (p[i].getHit0(p[i], 50, 0), (p[i].getSlow(p[i])),($(d) && ClearChild($(d)))));
+          }
+          if ($(d).offsetLeft <= 0) {
+            ClearChild($(d));
+            $(d).isDie = true;
+          }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+        }, [z, d, a]);
+        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(125, arguments.callee, [a])
+      }, [a]);
+    }
+  },
         getExplosion:CZombies.prototype.getExplosion,
         getFirePea: function(c, a, b) {
             PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
