@@ -1889,19 +1889,23 @@ PrepareGrowPlants = function(a) {
 CustomPlants = function(b, a, c) { (new ArCard[b].PName).Birth(GetX(c), GetY(a), a, c, [])
 },
  CustomZombies= function(a, e, b, z){
+	 ++oP.NumZombies;
         asyncInnerHTML(a.CustomBirth(e, b, 0, "auto"), function(n, m) {
             EDPZ.appendChild(n);
             m.Birth();
             z && m.bedevil(m);
             //document.write()
-        }, a)
+        }, a);
+	 return a;
     }, 
  CustomZombie = function(h, e, b, z){
+	 ++oP.NumZombies;
         asyncInnerHTML((a = new h).CustomBirth(e, b, 0, "auto"), function(n, m) {
             EDPZ.appendChild(n);
             m.Birth();
             //document.write()
-        }, a)
+        }, a);
+	 return a;
     }, 
 CustomSpecial = function(c, b, d, a) {(new c).Birth(GetX(d), GetY(b), b, d, [], a)
 },
