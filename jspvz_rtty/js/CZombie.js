@@ -4188,12 +4188,12 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
     },
 CheckBoomFire1: function (f) {
       oSym.addTask(
-        4000,
+        3000,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1,
-	         R = (a.R - 1) || 0,
-                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R;
+	         R = (f.R - 1) || 0,
+                    RM = f.R + 1 <= oS.R ? f.R + 1 : oS.R;
 	for(let i = R;i <= RM;i++){
           $Z[f.id] && randomNumber <= 100 && f.BoomFire(i);
           oSym.addTask(1500, arguments.callee, [f]);
