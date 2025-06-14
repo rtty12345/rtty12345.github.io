@@ -2222,7 +2222,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	CName: "路障伴舞僵尸",
 	OrnHP: 500,
 	Lvl: 3,
-	SunNum: 275,
+	SunNum: 175,
 	StandGif: 11,
 	PicArr: (function() {
 		var b = "images/Zombies/ConeheadZombie/",
@@ -2240,11 +2240,12 @@ oConeheadZombie= InheritO(OrnIZombies, {
                     if(+ESSunNum.innerHTML > 0 && !oS.CardKind && oS.StaticCard){
                         ESSunNum.innerHTML = +ESSunNum.innerHTML - 1;
                         a.GetSunNum += 1;
-                    }else if(+ESSunNum.innerHTML > 0 && oS.CardKind && oS.StaticCard){
-                        ESSunNum.innerHTML = +ESSunNum.innerHTML + 1;
+                    }else if(oS.CardKind && oS.StaticCard){
+                        AppearSun($(a.id).offsetLeft + 40,$(a.id).offsetTop + 80,25);
                         a.GetSunNum += 1;
                     }
-                    oS.StaticCard && a.HP >= 1 && oSym.addTask(100,arguments.callee,[a]);
+                    !oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(100,arguments.callee,[a]);
+		oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
                 },[a])
             }
         },
