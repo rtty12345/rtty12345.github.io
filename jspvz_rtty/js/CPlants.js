@@ -1173,7 +1173,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 			function(k, h, g, j, i) {
 				AppearSun(Math.floor(h + Math.random() * 21), j, 60, 0),
 				AppearSun(Math.floor(g + Math.random() * 21), j,80,0),
-				CustomZombies(new oConeheadZombie,this.R,this.C),
+				CustomZombies(new oConeheadZombie,a.R,a.C,1),
 				oSym.addTask(100,
 				function(l) {
 					$P[l] && a.ChangePosition($(l), 0)
