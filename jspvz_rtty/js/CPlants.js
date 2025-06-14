@@ -877,7 +877,7 @@ oGatlingPea1= InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m += 5) <250 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ1(m, k), 4, i) && ((m += 5) <50 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
@@ -1173,6 +1173,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 			function(k, h, g, j, i) {
 				AppearSun(Math.floor(h + Math.random() * 21), j, 60, 0),
 				AppearSun(Math.floor(g + Math.random() * 21), j,80,0),
+				CustomZombies(new oConeheadZombie,k.R,k.C),
 				oSym.addTask(100,
 				function(l) {
 					$P[l] && a.ChangePosition($(l), 0)
@@ -2632,7 +2633,7 @@ oTangleKelp = InheritO(CPlants, {
 				ClearChild($(i))
 			});
 			h.DisappearDie();
-			Math.round(Math.random()*100)>10?g.Die():CustomSpecial(oTangleKelp,g.R,g.C)
+			Math.round(Math.random()*100)>20?g.Die():CustomSpecial(oTangleKelp,g.R,g.C)
 		},
 		[a, b])
 	}
@@ -2672,6 +2673,7 @@ oPlantern = InheritO(CPlants, {
 	beAttackedPointL: 105,
 	beAttackedPointR: 145,
 	coolTime: 30,
+	canEat:0,
 	BookHandBack: 2,
 	SunNum: 50,
 	PicArr: ["images/Card/Plants/Plantern.png", "images/Plants/Plantern/0.gif", "images/Plants/Plantern/Plantern.gif", "images/Plants/Plantern/light.gif"],
