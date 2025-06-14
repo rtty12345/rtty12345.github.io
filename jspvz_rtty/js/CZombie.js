@@ -2314,7 +2314,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*1+0) ? a.PrivateAct1 : a.PrivateAct2;
 	},
-        PrivateAct1:function(j, l) {
+        PrivateAct1:function() {
 			},
 	 PrivateAct2:function(a){
 		 if(!a.hp){
@@ -4180,7 +4180,6 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1;
-
           $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
           oSym.addTask(1000, arguments.callee, [f]);
         },
@@ -4192,10 +4191,13 @@ CheckBoomFire1: function (f) {
         4000,
         function (f) {
           // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-
-          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R)&&f.BoomFire(f.R-1)&&f.BoomFire(f.R+1);
+        let randomNumber = Math.floor(Math.random() * 100) + 1,
+	         R = (a.R - 1) || 0,
+                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R;
+	for(let i = R;i <= RM;i++){
+          $Z[f.id] && randomNumber <= 100 && f.BoomFire(i);
           oSym.addTask(1500, arguments.callee, [f]);
+	}
         },
         [f]
       );
@@ -4778,7 +4780,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(240,
 		function(d, b) {
 			var c;
-			$Z[d] && b.beAttacked && (b.WalkStatus = 1, b.Altitude = 2, b.OSpeed = b.Speed = 10.8, SetStyle(b.Ele, {
+			$Z[d] && b.beAttacked && (b.WalkStatus = 1, b.OSpeed = b.Speed = 10.8, SetStyle(b.Ele, {
 				left: (c = b.X -= 140) + "px"
 			}), b.AttackedLX = c + (b.beAttackedPointL = 185), b.AttackedRX = c + (b.beAttackedPointR = 265), b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
 		},
