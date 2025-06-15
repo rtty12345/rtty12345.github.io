@@ -1905,7 +1905,7 @@ oZombie2 = InheritO(oZombie, {
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
+          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -3811,7 +3811,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
+          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -5461,7 +5461,7 @@ BoomFire: function (y) {
           while (i--) {
             p && (p[i].PZ) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 30, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= oS.W) {
+          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
