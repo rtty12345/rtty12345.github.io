@@ -655,7 +655,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				pixelLeft: d,
 				F: oGd.MB1
 			}));
-			f.BulletEle.push(NewImg(0, "images/Plants/PB-10.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
 		}
 	},
 	PrivateDie: function(a) {
@@ -679,7 +679,7 @@ oThreepeater1= InheritO(oPeashooter, {
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
 				f = oZ["getZ" + e](p, k);
-				o==y&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
+				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
 					"-1":"getSnowPea",
 					0 : "gethPea",
@@ -2836,7 +2836,7 @@ oCactus = InheritO(CPlants, {
 		c = "CB" + Math.random(),
 		a = b.id;
 		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
-		oSym.addTask(275,
+		oSym.addTask(150,
 		function(e) {
 			var d = $(e);
 			d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif")
