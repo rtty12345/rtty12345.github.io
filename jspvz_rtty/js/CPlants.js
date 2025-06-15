@@ -2006,13 +2006,15 @@ oFumeShroom = InheritO(CPlants, {
 		d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX +720, oS.W), f.R),
 		e = d.length,
 		g,
+		P=$P[f],
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
 		var t;
+		if(P){
 		for (t in $Z){
- 		Math.round(Math.random()*100)>2?g.getSlow(g):g.getFreeze1(g, t)}}
+ 		Math.round(Math.random()*100)>2?g.getSlow(g):g.getFreeze1(g, t)}}}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
