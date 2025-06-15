@@ -1331,7 +1331,6 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b.TurnLeft(b)
 	},
 	Summon: function(d, c) {
-		AppearTombstones(7, 9,Math.round(Math.random()*1+1));
 		d.LostHeadGif = 16;
 		var a = d.EleBody,
 		b = d.ChkActs;
@@ -2192,6 +2191,107 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 		},
 		[b, a])
 	},
+	  NormalDie: function() {
+    var c = this,
+      R = (c.R - 1 || 1),
+      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
+      C = GetC($(c.id).offsetLeft + 80);
+    c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
+    oSym.addTask(250, ClearChild, [c.Ele]);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
+    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+      for (let l = R; l <= RM; l++) {
+        if (i == C || l == c.R) {
+
+          oP.NumZombies += 2,
+
+            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
+                EDPZ.appendChild(n);
+                m.Birth();
+              },
+              a);
+        }
+      }
+    }
+    return a;
+  },
+  ExplosionDie: function() {
+    var c = this,
+      R = (c.R - 1 || 1),
+      C = GetC($(c.id).offsetLeft + 80),
+      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R);
+    c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
+    oSym.addTask(300, ClearChild, [c.Ele]);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
+    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+      for (let l = R; l <= RM; l++) {
+        if (i == C || l == c.R) {
+          oP.NumZombies += 2,
+            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
+                EDPZ.appendChild(n);
+                m.Birth();
+              },
+              a);
+        }
+      }
+    }
+    return a;
+  },
+  DisappearDie: function() {
+    var c = this,
+      R = (c.R - 1 || 1),
+      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
+      C = GetC($(c.id).offsetLeft + 80);
+    ClearChild(this.Ele);
+    this.HP = 0;
+    delete $Z[this.id];
+    this.PZ && oP.MonPrgs();
+    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+      for (let l = R; l <= RM; l++) {
+        if (i == C || l == c.R) {
+          oP.NumZombies += 2,
+            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
+              function(n, m) {
+                EDPZ.appendChild(n);
+                m.Birth();
+              },
+              a);
+        }
+      }
+    }
+    return a;
+  },
+  CrushDie: function() {
+    var c = this;
+    let R = (c.R - 1 || 1),
+      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
+      C = GetC($(c.id).offsetLeft + 80);
+    c.GoingDieHead(c.id, c.PicArr, c);
+    ClearChild(c.Ele);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
+    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+      for (let l = R; l <= RM; l++) {
+        if (i == C || l == c.R) {
+
+          oP.NumZombies += 2,
+
+            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
+              function(n, m) {
+                EDPZ.appendChild(n);
+                m.Birth();
+              },
+              a);
+        }
+      }
+    }
+    return a;
+  },
 	ChkActs: function(g, d, h, c) {
 		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
 			R: d,
