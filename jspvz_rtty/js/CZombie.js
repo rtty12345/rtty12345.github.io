@@ -309,9 +309,9 @@ return a;
 		},
 		flatTire:function(){},
 		getFreeze: function(d, c) {
-			d.beAttacked && d.getHit0(d, 20, 0);
+			d.beAttacked && d.getHit0(d, 1000, 0);
 			d.Speed = 0;
-			oSym.addTask(400,
+			oSym.addTask(1500,
 			function(g, f, e) {
 				ClearChild(e);
 				var h = $Z[g];
@@ -322,7 +322,7 @@ return a;
 				},
 				[g, h.FreeSlowTime = oSym.Now + 1500]))
 			},
-			[c, d.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
+			[c, d.FreeFreezeTime = oSym.Now + 1500, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", d.getShadow(d), d.Ele)])
 		},
 		NormalDie: function() {
 			var c = this;
@@ -541,7 +541,7 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFreeze1: function(d, c) {
-			d.beAttacked && d.getHit0(d, 5, 0);
+			d.beAttacked && d.getHit0(d, 50, 0);
 			d.Speed = 0;
 			d.isAttacking=0;
 			oSym.addTask(400,
@@ -551,7 +551,7 @@ OrnNoneZombies = function() {
 				h && h.FreeFreezeTime == f && (h.FreeFreezeTime = 0, h.Attack = 50, !h.FreeSetbodyTime && (h.Speed = 0.5 * h.OSpeed, h.isAttacking && h.JudgeAttack()), oSym.addTask(1500,
 				function(j, i) {
 					var k = $Z[j];
-					k && k.FreeSlowTime == i && (k.getFirePea(k,0),k.FreeSlowTime = 0, k.Attack = 100, !k.FreeSetbodyTime && (k.Speed = k.OSpeed))
+					k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.Attack = 100, !k.FreeSetbodyTime && (k.Speed = k.OSpeed))
 				},
 				[g, h.FreeSlowTime = oSym.Now + 1500]))
 			},
