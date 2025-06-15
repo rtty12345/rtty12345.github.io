@@ -1865,7 +1865,7 @@ oZombie2 = InheritO(oZombie, {
 	let Z= oZ.getArHZ($(d).offsetLeft-50,z.offsetLeft+60,a.R);
           let i = Z.length;
           while (i--) {
-            Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
+            Z&& (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
           }
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
@@ -1903,7 +1903,7 @@ oZombie2 = InheritO(oZombie, {
           let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+            p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
@@ -3771,7 +3771,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 	let Z= oZ.getArHZ($(d).offsetLeft -50, z.offsetLeft +60,a.R);
           let i = Z.length;
           while (i--) {
-            Z&& (!Z[i].PZ) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
+            Z&&  (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
           }
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
@@ -3809,7 +3809,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].PZ) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+            p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
@@ -5421,7 +5421,7 @@ BoomFire: function (y) {
 	let Z= oZ.getArHZ($(d).offsetLeft - 50, z.offsetLeft +60, a.R);
           let i = Z.length;
           while (i--) {
-            Z&& (!Z[i].PZ) && (PlayAudio("splat1"), (Z[i].getHit0(Z[i],50,0),(Z[i].getSlow(Z[i])),($(d) && ClearChild($(d)))));
+            Z&&(Z[i].Altitude==1)&& (PlayAudio("splat1"), (Z[i].getHit0(Z[i],50,0),(Z[i].getSlow(Z[i])),($(d) && ClearChild($(d)))));
           }
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
@@ -5459,7 +5459,7 @@ BoomFire: function (y) {
           let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].PZ) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 30, 0),($(d) && ClearChild($(d)))));
+            p &&  (p[i].Altitude==1) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 30, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
