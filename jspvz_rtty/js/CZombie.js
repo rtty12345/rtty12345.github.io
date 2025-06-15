@@ -2201,7 +2201,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     c.HP = 0;
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
-    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1,1); i++) {
       for (let l = R; l <= RM; l++) {
         if (i == C || l == c.R) {
 
@@ -2227,7 +2227,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     c.HP = 0;
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
-    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
         if (i == C || l == c.R) {
           oP.NumZombies += 2,
@@ -2250,7 +2250,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     this.HP = 0;
     delete $Z[this.id];
     this.PZ && oP.MonPrgs();
-    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
         if (i == C || l == c.R) {
           oP.NumZombies += 2,
@@ -2275,7 +2275,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     c.HP = 0;
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
-    for (let i = Math.max(C - 1, 2); i <= Math.max(C + 1, 2); i++) {
+    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
         if (i == C || l == c.R) {
 
