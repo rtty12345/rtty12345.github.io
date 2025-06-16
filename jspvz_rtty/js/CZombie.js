@@ -5362,7 +5362,7 @@ BoomFire: function (y) {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
         OrnHP:2000,
-        HP: 300,
+        HP: 400,
         Lvl: 3,
         SunNum: 175,
         StandGif: 13,
@@ -5459,7 +5459,7 @@ BoomFire: function (y) {
           let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p &&  (p[i].Altitude==1) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 30, 0),($(d) && ClearChild($(d)))));
+            p &&  (p[i].Altitude==1) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 20, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
@@ -5493,9 +5493,9 @@ BoomFire: function (y) {
             c.getHit1(c, a, b)
         },
         getHit0: function(c, a, b) {
-            b == c.WalkDirection ? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
-            }, [c.id])) : (c.HP -= a) < c.BreakPoint && (c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]), c.getHit = c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function() {})
+            }, [c.id])) 
         },
         CheckOrnHP: function(g, h, d, c, f, b, a) {
             var e = OrnNoneZombies.prototype;
