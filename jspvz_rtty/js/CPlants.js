@@ -2345,13 +2345,14 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
-	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，也可以召唤僵尸<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
+	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤魅惑玉米普通僵尸(35%)/普通二爷(25%)/机枪铁门(20%)/普通橄榄(10%)/寒冰射手铁门(7%)/玉米炮二爷(3%)<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
 CustomZombies(Math.round(Math.random()*100)>65 ? new oZombie2
-	      :Math.round(Math.random()*65)>40 ? new oPeaZombie
-	      :Math.round(Math.random()*40)>20 ? new oNewspaperZombie
-	      :Math.round(Math.random()*20)>15 ? new oFootballZombie
+	      :Math.round(Math.random()*65)>40 ? new oNewspaperZombie
+	      :Math.round(Math.random()*40)>20 ? new oScreenDoorZombie
+	      :Math.round(Math.random()*20)>10 ? new oFootballZombie
+	      :Math.round(Math.random()*10)>3 ? new oPeaZombie
 	      :new oNewspaperZombie3,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(4000,arguments.callee,[b]);
 	},
