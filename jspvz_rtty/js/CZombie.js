@@ -2949,7 +2949,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) &&  (h.OrnHP!=0?g.getHit0(g,10,0): g.getHit0(g,100,0)),h.JudgeAttack())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) &&  (h.OrnHP?g.getHit0(g,10,0): g.getHit0(g,100,0)),h.JudgeAttack())
 			},
 			[d, c])
 		},
