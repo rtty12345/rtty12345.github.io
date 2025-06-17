@@ -2013,7 +2013,7 @@ oFumeShroom = InheritO(CPlants, {
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
 		var t;
 		for (t in $Z){
- 		Math.round(Math.random()*100)>2?g.getSlow(g):g.getFreeze1(g, t)}}
+ 		Math.round(Math.random()*100)>2?g.getSlow(g):g.getr(g,20)}}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
@@ -2855,7 +2855,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1&&(Math.round(Math.random()*100)>4?e.getPea(e,2,d):e.getrPea(e,20,d)),(k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1&&(Math.round(Math.random()*100)>5?e.getPea(e,2,d):e.getrPea(e,20,d)),(k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
