@@ -4106,7 +4106,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 while (i--) {
                   Z && (Z[i].Altitude == 1) && (PlayAudio("splat1"), (Z[i].getHit0(Z[i], 20, 0)), ($(d) && ClearChild($(d))));
                 }
-                if ($(d).offsetLeft <= 0) {
+                if ($(d).offsetLeft <= 0 ||$(d).offsetLeft>=900) {
                   ClearChild($(d));
                   $(d).isDie = true;
                 };
