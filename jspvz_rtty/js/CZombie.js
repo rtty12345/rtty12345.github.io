@@ -2455,7 +2455,7 @@ PlayNormalballAudio: function() {
 oFootballZombie= InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
-	OrnHP: 2000,
+	OrnHP: 2500,
 	HP:400,
 	Lvl: 3,
 	SunNum: 250,
@@ -2533,7 +2533,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
 			},
 			[d, c])
 		},
-	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆，有些会给自己加速，有些会换行<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+	Produce: '橄榄球僵尸免疫减速，有些会给自己加速，有些会换行<p>韧性：<font color="#FF0000">极高(2500+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
 oFootballZombie1= InheritO(oConeheadZombie,{
 	EName: "oFootballZombie1",
@@ -2949,7 +2949,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,100,0), h.JudgeAttack())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) &&  (h.OrnHP!=0?g.getHit0(g,10,0): g.getHit0(g,100,0)),h.JudgeAttack())
 			},
 			[d, c])
 		},
@@ -2960,7 +2960,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 100, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((h.OrnHP!=0?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
