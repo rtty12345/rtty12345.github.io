@@ -766,7 +766,7 @@ CheckBoomFire: function (f) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
 	  if(g&&g.EName!="oHypnoShroom"&& g.EName!="oGarlic"&&g.getHurt!=function(){}&&g.EName!="oPotatoMine"&&g.EName!="oSquash"){
-          g && g.getHurt(s,0,50)
+          g && g.getHurt(this,0,50)
 	  }else	if(g&&g.getHurt!=function(){}){
 	g&&g.Die()
 	  }
