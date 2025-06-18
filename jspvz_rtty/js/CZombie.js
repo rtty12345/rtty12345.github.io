@@ -746,7 +746,7 @@ CheckBoomFire: function (f) {
       );
     },
     BoomFire: function (y) {
-      var s=$Z[y];
+      var s=$Z[this];
       PlayAudio("jalapeno");
       fireid = "fire_" + Math.random();
       NewImg(
