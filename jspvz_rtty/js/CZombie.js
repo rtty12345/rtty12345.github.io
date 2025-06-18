@@ -2911,7 +2911,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
 	Lvl: 4,
-	HP:400,
+	HP:500,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -3799,14 +3799,14 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           position: "absolute",
           transform: "rotateY(20deg)",
           zIndex: "24",
-          left: z.offsetLeft + "px",
-          top: z.offsetTop + 40 + "px"
+          left: a.ZX + "px",
+          top: a.pixelTop + 40 + "px"
         }, EDPZ, 0)
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let C = GetC(z.offsetLeft + 40);
-          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let C = GetC(a.ZX+ 40);
+          let p = oZ.getArZ(a.ZX -10, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
             p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
@@ -4053,6 +4053,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
                     p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom" &&
                       p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
+		p&& (p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
                 }
@@ -4135,7 +4136,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 			g.PlayFireballAudio = e.PlayFireballAudio, 
 			g.PlaySlowballAudio = e.PlaySlowballAudio,
 			g.getHit=e.getHit0,
-			g.OrnHP=300,
+			g.OrnHP=150,
 			g.AKind=2,
 			g.CheckOrnHP=e.CheckOrnHP)
 	},
