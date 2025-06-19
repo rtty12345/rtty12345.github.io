@@ -2231,6 +2231,12 @@ ShowLevel = function() {
 	SetNone($("dOptionsMenu"));
 	SetBlock($("dAdvSmallContainer"))
 },
+hard = function() {
+PlayAudio("gravebutton");
+CZombies.prototype.Attack+=100;
+CZombies.prototype.oSpeed+=2;
+CZombies.prototype.Speed+=2;
+},
 HiddenLevel = function() {
 	PlayAudio("tap");
 	SetNone($("dOptionsMenuback"), $("dAdvSmallContainer"));
