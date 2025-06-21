@@ -868,7 +868,7 @@ oGatlingPea1= InheritO(CPlants, {
 		e = f + 15,
 		a = function(j, i, h) {
 			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,30,i),(SetStyle(h, {
-				left:g.AttackedLX - 40+ 28 + "px",
+				left:j.ZX-12 + "px",
 				width: "52px",
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]),false) : true)
