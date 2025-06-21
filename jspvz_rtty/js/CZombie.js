@@ -1891,7 +1891,6 @@ oZombie2 = InheritO(oZombie, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-	let $(d).isDie = false;
         div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
@@ -3756,7 +3755,6 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
             oSym.addTask(75,function(a){
             let z = $(a.id);
             let div = $n("div");
-	    $(d).isDie = false;
             let d = "Pea" + Math.random();
             div.id = d;
             div.innerHTML = '<img src="images/Plants/PB31.gif">';
@@ -3804,7 +3802,6 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-	$(d).isDie=false;
         div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
@@ -4033,7 +4030,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [c.id]))
         },
-	  PrivateAct: function() {
+PrivateAct: function() {
     let a = this;
     if (!a.bool) {
       a.bool = 1;
@@ -4043,10 +4040,10 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
         var timer = setInterval(function() {
             i++;
             let z = $(a.id);
+	    
             let div = $n("div");
             let d = "Pea" + Math.random();
-            div.id = d;
-	    let $(d).isDie=false;
+	div.id=d;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
               position: "absolute",
@@ -4101,7 +4098,6 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
-	   let $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
               position: "absolute",
@@ -5506,7 +5502,6 @@ BoomFire: function (y) {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
-	    $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB-10.gif">';
             EditEle(div,0,{
                 position:"absolute",
@@ -5554,7 +5549,6 @@ BoomFire: function (y) {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-	$(d).isDie=false;
         div.innerHTML = '<img src="images/Plants/PB-10.gif">';
         EditEle(div, 0, {
           position: "absolute",
