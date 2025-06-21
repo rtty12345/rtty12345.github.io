@@ -1842,7 +1842,7 @@ oZombie2 = InheritO(oZombie, {
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(2000,function(a){
-	if(!$Z[a]){return}
+	if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -1888,7 +1888,7 @@ oZombie2 = InheritO(oZombie, {
       a.Speed = 1;
       a.e = 1;
       oSym.addTask(2000, function(a) {
-	if(!$Z[a]){return}
+	if(!$Z[a.id]){return}
         let z = $(a.id);
         let div = $n("div");
         let d = "Pea" + Math.random();
@@ -3755,7 +3755,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(75,function(a){
-	    if(!$Z[a]){return}
+	    if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -3801,7 +3801,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
       a.Speed = 1;
       a.e = 1;
       oSym.addTask(100, function(a) {
-	if(!$Z[a]){return}
+	if(!$Z[a.id]){return}
         let z = $(a.id);
         let div = $n("div");
         let d = "Pea" + Math.random();
@@ -4043,9 +4043,8 @@ PrivateAct: function() {
           max = 3;
         var timer = setInterval(function() {
             i++;
-	    if(!$Z[a]){return}
-            let z = $(a.id);
-	    
+	if(!$Z[a.id]){return}
+            let z = $(a.id);	    
             let div = $n("div");
             let d = "Pea" + Math.random();
 	div.id=d;
@@ -4099,7 +4098,7 @@ PrivateAct: function() {
           max = 3;
         var timer = setInterval(function() {
             i++;
-	    if(!$Z[a]){return}
+	if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -5504,7 +5503,7 @@ BoomFire: function (y) {
             if(!a.bool){
             a.bool = 1;
             oSym.addTask(700,function(a){
-	if(!$Z[a]){return}
+	if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -5552,7 +5551,7 @@ BoomFire: function (y) {
       a.Speed = 1;
       a.e = 1;
       oSym.addTask(100, function(a) {
-	if(!$Z[a]){return}
+	if(!$Z[a.id]){return}
         let z = $(a.id);
         let div = $n("div");
         let d = "Pea" + Math.random();
