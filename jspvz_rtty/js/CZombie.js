@@ -3493,6 +3493,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	a.getSlow=a.getFreeze=function(){};
 	a.FreeSlowTime=a.FreeFreezeTime=0;
 	a.Speed=a.LostPaperSpeed;
+	    }
 	},
 	Birth: function() {
             var c = this;
