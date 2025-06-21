@@ -1846,7 +1846,6 @@ oZombie2 = InheritO(oZombie, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
-	    $(d).isDie = false;
             div.innerHTML = '<img src="images/Plants/PB31.gif">';
             EditEle(div,0,{
                 position:"absolute",
@@ -1892,7 +1891,7 @@ oZombie2 = InheritO(oZombie, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
-	$(d).isDie = false;
+	let $(d).isDie = false;
         div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
@@ -4047,7 +4046,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
-	    $(d).isDie=false;
+	    let $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
               position: "absolute",
@@ -4102,7 +4101,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
-	    $(d).isDie=false;
+	   let $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
               position: "absolute",
