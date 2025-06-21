@@ -871,7 +871,7 @@ oGatlingPea1= InheritO(CPlants, {
 				left:g.AttackedLX - 40+ 28 + "px",
 				width: "52px",
 				height: "46px"
-			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h])),false) : true)
+			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]),false) : true)
 		}; (function(h) {
 			oSym.addTask(15,
 			function(j) {
