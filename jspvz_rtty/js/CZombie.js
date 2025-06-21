@@ -1846,26 +1846,27 @@ oZombie2 = InheritO(oZombie, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
+	    $(d).isDie = false;
             div.innerHTML = '<img src="images/Plants/PB31.gif">';
             EditEle(div,0,{
                 position:"absolute",
                 zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
+                left:a.ZX + "px",
+                top:a.pixelTop + 40 + "px"
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
                 $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
+                let C = GetC(a.ZX+ 40);
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth>= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ($(d).offsetLeft-50,z.offsetLeft+60,a.R);
+	let Z= oZ.getArHZ($(d).offsetLeft-50,a.ZX+60,a.R);
           let i = Z.length;
           while (i--) {
             Z&& (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
@@ -1891,19 +1892,20 @@ oZombie2 = InheritO(oZombie, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
+	$(d).isDie = false;
         div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
           transform: "rotateY(20deg)",
           zIndex: "24",
-          left: z.offsetLeft + "px",
-          top: z.offsetTop + 40 + "px"
+          left: a.ZX + "px",
+          top: a.pixelTop + 40 + "px"
         }, EDPZ, 0)
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let C = GetC(z.offsetLeft + 40);
-          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let C = GetC(a.ZX + 40);
+          let p = oZ.getArZ(a.ZX- 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
             p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
@@ -3755,28 +3757,29 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
             oSym.addTask(75,function(a){
             let z = $(a.id);
             let div = $n("div");
+	    $(d).isDie = false;
             let d = "Pea" + Math.random();
             div.id = d;
             div.innerHTML = '<img src="images/Plants/PB31.gif">';
             EditEle(div,0,{
                 position:"absolute",
                 zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
+                left:a.ZX + "px",
+                top:a.pixelTop + 40 + "px"
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
                 $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
+                let C = GetC(a.ZX + 40);
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom"&& p.EName != "oGatlingPea" && p.EName != "oLilyPad" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom"&& p.EName != "oGatlingPea" && p.EName != "oLilyPad" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ($(d).offsetLeft -50, z.offsetLeft +60,a.R);
+	let Z= oZ.getArHZ($(d).offsetLeft -50,a.ZX +60,a.R);
           let i = Z.length;
           while (i--) {
             Z&&  (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
@@ -3802,6 +3805,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
+	$(d).isDie=false;
         div.innerHTML = '<img src="images/Plants/PB31.gif">';
         EditEle(div, 0, {
           position: "absolute",
@@ -3814,7 +3818,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(a.ZX+ 40);
-          let p = oZ.getArZ(a.ZX -10, $(d).offsetLeft + 50, a.R);
+          let p = oZ.getArZ(a.ZX-10, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
             p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
@@ -4043,6 +4047,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
+	    $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
               position: "absolute",
@@ -4059,8 +4064,8 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                   for (let j = 1; j <= C; j++) {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
                     p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom" &&
-                      p.EName != "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
-		p&& (p.EName== "oSunFlower") && (($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
+                      p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
+		p&& (p.EName== "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
                 }
@@ -4097,6 +4102,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
+	    $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
               position: "absolute",
@@ -4108,7 +4114,6 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
               try {
                 $(d).style.left = $(d).offsetLeft + 5 + "px";
                 let pea = $(d);
-                let C = GetC(a.ZX + 40);
                 let Z = oZ.getArZ(a.ZX-40, $(d).offsetLeft+50, a.R);
                 let i = Z.length;
                 while (i--) {
@@ -5502,28 +5507,29 @@ BoomFire: function (y) {
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
+	    $(d).isDie=false;
             div.innerHTML = '<img src="images/Plants/PB-10.gif">';
             EditEle(div,0,{
                 position:"absolute",
 		transform:"rotateY(20deg)",
                 zIndex:"24",
-                left:z.offsetLeft + "px",
-                top:z.offsetTop + 40 + "px"
+                left:a.ZX + "px",
+                top:a.pixelTop + 40 + "px"
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
                 $(d).style.left = $(d).offsetLeft - 5 + "px";
                 let pea = $(d);
-                let C = GetC(z.offsetLeft + 40);
+                let C = GetC(a.ZX + 40);
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& p.EName != "oTorchwood"&&p.EName!="oGatlingPea"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&(($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
-			p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"&&p.EName!="oLilyPad") &&(($(p.id).offsetLeft + $(p.id).offsetWidth >= $(d).offsetLeft) && ($(p.id).offsetLeft >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& p.EName != "oTorchwood"&&p.EName!="oGatlingPea"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 50),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
+			p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"&&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ($(d).offsetLeft - 50, z.offsetLeft +60, a.R);
+	let Z= oZ.getArHZ($(d).offsetLeft - 50,a.ZX +60, a.R);
           let i = Z.length;
           while (i--) {
             Z&&(Z[i].Altitude==1)&& (PlayAudio("splat1"), (Z[i].getHit0(Z[i],50,0),(Z[i].getSlow(Z[i])),($(d) && ClearChild($(d)))));
@@ -5549,19 +5555,19 @@ BoomFire: function (y) {
         let div = $n("div");
         let d = "Pea" + Math.random();
         div.id = d;
+	$(d).isDie=false;
         div.innerHTML = '<img src="images/Plants/PB-10.gif">';
         EditEle(div, 0, {
           position: "absolute",
           transform: "rotateY(20deg)",
           zIndex: "24",
-          left: z.offsetLeft + "px",
-          top: z.offsetTop + 40 + "px"
+          left: a.ZX+ "px",
+          top: a.pixelTop + 40 + "px"
         }, EDPZ, 0)
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let C = GetC(z.offsetLeft + 40);
-          let p = oZ.getArZ(z.offsetLeft - 60, $(d).offsetLeft + 50, a.R);
+          let p = oZ.getArZ(a.ZX - 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
             p &&  (p[i].Altitude==1) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 20, 0),($(d) && ClearChild($(d)))));
