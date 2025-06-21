@@ -1861,14 +1861,14 @@ oZombie2 = InheritO(oZombie, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth>= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
+                       a&&(a.beAttacked)&&p && (p.canEat) && (p。EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth>= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
 	let Z= oZ.getArHZ($(d).offsetLeft-50,a.ZX+60,a.R);
           let i = Z.length;
           while (i--) {
-            Z&& (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
+            a&&(a.beAttacked)&&Z&& (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
           }
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
@@ -1906,7 +1906,7 @@ oZombie2 = InheritO(oZombie, {
           let p = oZ.getArZ(a.ZX- 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+            a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
             ClearChild($(d));
