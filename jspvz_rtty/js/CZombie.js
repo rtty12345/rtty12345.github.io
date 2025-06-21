@@ -4108,7 +4108,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 let Z = oZ.getArZ(a.ZX-40, $(d).offsetLeft+50, a.R);
                 let i = Z.length;
                 while (i--) {
-                  Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i]， 20， 0))， ($(d) && ClearChild($(d))));
+                  Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i],20,0)),($(d) && ClearChild($(d))));
                 }
                 if ($(d).offsetLeft <= 0 ||$(d).offsetLeft>=900) {
                   ClearChild($(d));
