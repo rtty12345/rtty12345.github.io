@@ -170,13 +170,13 @@ return a;
      }, 
        Birth: function() {
             var c = this;
-	c&&c.hard&&(c.Speed+=1,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=1);
+	c&&c.hard&&(c.Speed+=1.6,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=1);
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
             c.PrivateBirth && c.PrivateBirth(c);
         },
-		getCrushed: function(c) {
+	getCrushed: function(c) {
 			return true
 		},
         getRaven: function(a, Attack1, Attack2) {
