@@ -3980,9 +3980,9 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	OrnHP: 800,
 	Lvl: 3,
 	HP:400,
-	oSpeed:3.2,
-	Speed:3.2,
-	SunNum: 150,
+	oSpeed:1.6,
+	Speed:1.6,
+	SunNum: 175,
 	StandGif: 13,
 	width: 166,
 	height: 144,
@@ -4018,8 +4018,8 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 		c.getHit1(c, a, b)
 	},
 	getPea: function(c, a, b) {
-            PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
-            c.getHit0(c, a, b)
+            PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+            Math.round(Math.random()*100)>1?c.getHit0(c, a, b):(c.PZ?CustomZombies(new oImp,c.R,GetC(c.ZX-1),1):CustomZombie(oImp,c.R,GetC(c.ZX+1)))
         },
         getHit0: function(c, a, b) {
 (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
@@ -4063,7 +4063,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 let Z = oZ.getArHZ($(d).offsetLeft, a.ZX + 60, a.R);
                 let i = Z.length;
                 while (i--) {
-                  Z && (Z[i].Altitude == 1) && (PlayAudio("splat1"), (Z[i].getHit0(Z[i], 20, 0)), ($(d) && ClearChild($(d))));
+                  Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i], 20, 0)), ($(d) && ClearChild($(d))));
                 }
                 if ($(d).offsetLeft <= 0) {
                   ClearChild($(d));
@@ -4108,7 +4108,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
                 let Z = oZ.getArZ(a.ZX-40, $(d).offsetLeft+50, a.R);
                 let i = Z.length;
                 while (i--) {
-                  Z && (Z[i].Altitude == 1) && (PlayAudio("splat1"), (Z[i].getHit0(Z[i], 20, 0)), ($(d) && ClearChild($(d))));
+                  Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i]， 20， 0))， ($(d) && ClearChild($(d))));
                 }
                 if ($(d).offsetLeft <= 0 ||$(d).offsetLeft>=900) {
                   ClearChild($(d));
@@ -4139,7 +4139,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 			g.PlayFireballAudio = e.PlayFireballAudio, 
 			g.PlaySlowballAudio = e.PlaySlowballAudio,
 			g.getHit=e.getHit0,
-			g.OrnHP=150,
+			g.OrnHP=100,
 			g.AKind=2,
 			g.CheckOrnHP=e.CheckOrnHP)
 	},
@@ -4368,7 +4368,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	Jump: function(a) {
 		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(160,
 		function(c, b) {
-			$Z[c] && b.beAttacked && (b.WalkStatus = 1, b.Altitude = 0, b.OSpeed = b.Speed = 5, b.HP=400,b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
+			$Z[c] && b.beAttacked && (b.WalkStatus = 1, b.Altitude = 0, b.OSpeed = b.Speed = 2, b.HP=500,b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
 		},
 		[a.id, a]), a.ChkActs = function() {
 			return 1
@@ -4714,8 +4714,8 @@ oZomboni = function() {
 		GetDY: function() {
 			return 0
 		},
-		OSpeed: 2,
-		Speed: 2,
+		OSpeed: 2.5,
+		Speed: 2.5,
 		AKind: 2,
 		Attack: 50,
 		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高（1500）</font><br>特点：<font color="#FF0000">碾压植物，留下条冰道，越到后面速度越快,冻结植物</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
@@ -4789,7 +4789,7 @@ oZomboni = function() {
 		},
 		getPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
-			c.getHit0(c, b)
+			Math.round(Math.random()*100)>1?c.getHit0(c, b):(c.PZ?CustomZombies(new oImp,c.R,GetC(c.ZX-1),1):CustomZombie(oImp,c.R,GetC(c.ZX+1)))
 		},
 		getSlowPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
@@ -4989,14 +4989,14 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return c
 	},
 	Jump: function(a) {
-		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(240,
+		a.beAttacked && (PlayAudio("zombie_entering_water"),SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(240,
 		function(d, b) {
 			var c;
 			$Z[d] && b.beAttacked && (b.WalkStatus = 1, b.OSpeed = b.Speed = 10.8, SetStyle(b.Ele, {
 				left: (c = b.X -= 140) + "px"
 			}), b.AttackedLX = c + (b.beAttackedPointL = 185), b.AttackedRX = c + (b.beAttackedPointR = 265), b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
 		},
-		[a.id, a]), a.ChkActs = function() {
+		[a.id, a]),a.ChkActs = function() {
 			return 1
 		})
 	},
@@ -5233,8 +5233,8 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	height: 197,
 	beAttackedPointL: 30,
 	beAttackedPointR: 85,
-	OSpeed: 3.2,
-	Speed: 3.2,
+	OSpeed: 5,
+	Speed:5,
 	Altitude: 3,
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 3,
