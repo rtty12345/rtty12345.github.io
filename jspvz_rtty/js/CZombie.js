@@ -7,6 +7,7 @@ var CZombies = function(b, a) {
 		CardGif: 0,
 		StaticGif: 1,
 		StandGif: 2,
+		hard:0,
 		BookHandBack: 0,
 		AudioArr: [],
 		CanSelect: 1,
@@ -17,6 +18,7 @@ var CZombies = function(b, a) {
 		LostHeadAttackGif: 5,
 		HeadGif: 6,
 		DieGif: 7,
+		LostPaperSpeed:1.6,
 		BoomDieGif: 8,
 		width: 166,
 		height: 144,
@@ -168,6 +170,7 @@ return a;
      }, 
        Birth: function() {
             var c = this;
+	c&&c.hard&&(c.Speed+=1,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=1);
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
@@ -3497,6 +3500,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	},
 	Birth: function() {
             var c = this;
+	    c&&c.hard&&(c.Speed+=1,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=1);
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
@@ -5462,7 +5466,7 @@ BoomFire: function (y) {
     oPeaZombie= InheritO(oNewspaperZombie1, {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
-        OrnHP:3000,
+        OrnHP:2000,
         HP: 900,
         Lvl: 3,
         SunNum: 175,
