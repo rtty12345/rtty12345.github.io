@@ -2234,8 +2234,14 @@ ShowLevel = function() {
 hard = function() {
 PlayAudio("gravebutton");
 CZombies.prototype.Attack+=100;
-CZombies.prototype.oSpeed+=2;
-CZombies.prototype.Speed+=2;
+CZombies.prototype.oSpeed+=1;
+CZombies.prototype.Speed+=1;
+},
+easy= function() {
+PlayAudio("gravebutton");
+CZombies.prototype.Attack-=100;
+CZombies.prototype.oSpeed-=1;
+CZombies.prototype.Speed-=1;
 },
 HiddenLevel = function() {
 	PlayAudio("tap");
