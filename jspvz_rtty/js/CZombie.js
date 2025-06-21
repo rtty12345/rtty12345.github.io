@@ -2432,8 +2432,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                  a.hp=true;
             oSym.addTask(1000,function(a){
                 PlayAudio("grassstep");
-		   a.HP+=200;
-			a.hp=false;
+		a.HP+=200;
+		a.hp=false;
             },[a])
 		 }
         },
@@ -3489,7 +3489,10 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
                 oP.SetTimeoutTomZombie([oNewspaperZombie]);
 		a.bool=1;
               }
-	}
+	}else if(a.HP<=800){
+	a.getSlow=a.getFreeze=function(){};
+	a.FreeSlowTime=a.FreeFreezeTime=0;
+	a.Speed=a.LostPaperSpeed;
 	},
 	Birth: function() {
             var c = this;
