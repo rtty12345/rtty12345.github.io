@@ -522,7 +522,7 @@ OrnNoneZombies = function() {
 		getHit4:a,
 		getPea: function(e, b, c) {
 			e.PlayNormalballAudio();
-			e.getHit0(e, b, c)
+			Math.round(Math.random()*100)>2?e.getHit0(e, b, c):CustomZombies(new oImp,e.R,GetC(e.ZX-1),1)
 		},
 		gethPea: function(e, b, c) {
 			e.PlayNormalballAudio();
