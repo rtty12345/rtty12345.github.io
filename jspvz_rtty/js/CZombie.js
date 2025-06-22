@@ -1974,7 +1974,7 @@ oFlagZombie = InheritO(oZombie, {
                 PlayAudio("explosion");
                 let R = (a.R - 1) || 0,
                     RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC($(a.id).offsetLeft + 80);
+                    C = GetC(a.ZX + 80);
                 for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
@@ -2346,7 +2346,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
                         ESSunNum.innerHTML = +ESSunNum.innerHTML - 1;
                         a.GetSunNum += 1;
                     }else if(oS.CardKind && oS.StaticCard){
-                        AppearSun($(a.id).offsetLeft + 40,$(a.id).offsetTop + 80,40);
+                        AppearSun(a.ZX + 40,a.pixelTop + 80,40);
                         a.GetSunNum += 1;
                     }
                     !oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(100,arguments.callee,[a]);
@@ -2359,7 +2359,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
                 this.be= 1;
 		  oSym.addTask(50,function(a){  
               if(!oS.CardKind && oS.StaticCard){
-                        AppearSun($(a.id).offsetLeft + 40,$(a.id).offsetTop + 80,40);
+                        AppearSun(a.ZX+ 40,a.pixelTop + 80,40);
                         a.GetSunNum += 1;
                     }
 		!oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
