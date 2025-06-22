@@ -169,8 +169,12 @@ a);
 return a;
      }, 
        Birth: function() {
-            var c = this;
-	c&&c.hard==1&&(Math.round(Math.random()*100)>66?c.HP*=1.2:Math.round(Math.random()*66)>33?(c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2):c.Attack+=100);
+            var num=Math.round(Math.random()*100);
+		c = this;
+	
+	   c&&c.hard==1&&(if(num>=66){c.HP*=1.2
+	    }else if(num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
+	    }else{c.Attack+=100});
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
