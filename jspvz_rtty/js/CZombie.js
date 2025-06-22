@@ -170,7 +170,7 @@ return a;
      }, 
        Birth: function() {
             var c = this;
-	c&&c.hard==1&&(c.Speed+=1.6,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=2);
+	c&&c.hard==1&&(Math.round(Math.random()*100)>66?c.HP*=1.2:Math.round(Math.random()*66)>33?(c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2):c.Attack+=100);
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
