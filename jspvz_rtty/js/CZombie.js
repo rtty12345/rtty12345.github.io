@@ -4120,7 +4120,7 @@ PrivateAct: function() {
                 while (i--) {
                   Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i],20,0)),($(d) && ClearChild($(d))));
                 }
-                if ($(d)。offsetLeft>=900) {
+                if ($(d).offsetLeft>=900) {
                   ClearChild($(d));
                   $(d).isDie = true;
                 };
