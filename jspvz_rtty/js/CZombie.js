@@ -769,7 +769,7 @@ CheckBoomFire: function (f) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
 	  if(g&&g.EName!="oHypnoShroom"&& g.EName!="oGarlic"&&g.getHurt!=function(){}&&g.EName!="oPotatoMine"&&g.EName!="oSquash"){
-          g && g.getHurt(this,0,50)
+          g && g.getHurt(this,0,100)
 	  }else	if(g&&g.getHurt!=function(){}){
 	g&&g.Die()
 	  }
@@ -798,6 +798,7 @@ oBackupDancer1= InheritO(OrnNoneZombies, {
   OSpeed: 3.5,
   Speed: 3.5,
   Lvl: 1,
+HP:1000,
   StandGif: 9,
   CanSelect: 0,
   width: 126,
