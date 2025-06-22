@@ -4962,7 +4962,7 @@ oZomboni = function() {
 oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	EName: "oDolphinRiderZombie",
 	CName: "海豚骑士僵尸",
-	HP: 500,
+	HP: 800,
 	BreakPoint: 167,
 	width: 282,
 	height: 210,
@@ -5537,7 +5537,7 @@ BoomFire: function (y) {
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
                     $(d).isDie = true;
-                }
+                };
                 !($(d).isDie) && oSym.addTask(1,arguments.callee,[z,d,a])
                 }catch(e){
                 }
@@ -5550,7 +5550,7 @@ BoomFire: function (y) {
     if (!a.e) {
       a.Speed = 1;
       a.e = 1;
-      oSym.addTask(100, function(a) {
+      oSym.addTask(200, function(a) {
 	if(!$Z[a.id]){return}
         let z = $(a.id);
         let div = $n("div");
@@ -5567,17 +5567,18 @@ BoomFire: function (y) {
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let p = oZ.getArZ(a.ZX - 60, $(d).offsetLeft + 50, a.R);
+          let p = oZ.getArZ(a.ZX - 10, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p &&  (p[i].Altitude==1) && (PlayAudio("splat1"),(p[i].getSlow(p[i])),(p[i].getHit0(p[i], 20, 0),($(d) && ClearChild($(d)))));
+            p &&  (p[i].Altitude==1) && ((p[i].getSlowPea(p[i], 20, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
+          if ($(d).offsetLeft <= 0||$(d).offsetLeft>=900) {
             ClearChild($(d));
             $(d).isDie = true;
-          }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+          };
+	!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
-        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
+        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(575, arguments.callee, [a])
       }, [a]);
     }
   },
