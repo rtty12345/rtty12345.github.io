@@ -1911,7 +1911,7 @@ oZombie2 = InheritO(oZombie, {
           while (i--) {
             a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
+          if ($(d).offsetLeft >= 900) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -3824,7 +3824,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           while (i--) {
             p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0 ||$(d).offsetLeft >= 900) {
+          if ($(d).offsetLeft >= 900) {
             ClearChild($(d));
             $(d).isDie = true;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -4120,7 +4120,7 @@ PrivateAct: function() {
                 while (i--) {
                   Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i],20,0)),($(d) && ClearChild($(d))));
                 }
-                if ($(d).offsetLeft <= 0 ||$(d).offsetLeft>=900) {
+                if ($(d)。offsetLeft>=900) {
                   ClearChild($(d));
                   $(d).isDie = true;
                 };
@@ -5573,7 +5573,7 @@ BoomFire: function (y) {
           while (i--) {
             p &&  (p[i].Altitude==1) && ((p[i].getSlowPea(p[i], 20, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft <= 0||$(d).offsetLeft>=900) {
+          if ($(d).offsetLeft>=900) {
             ClearChild($(d));
             $(d).isDie = true;
           };
