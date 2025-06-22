@@ -170,7 +170,7 @@ return a;
      }, 
        Birth: function() {
             var c = this;
-	c&&c.hard&&(c.Speed+=1.6,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=1);
+	c&&c.hard==1&&(c.Speed+=1.6,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=2);
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
