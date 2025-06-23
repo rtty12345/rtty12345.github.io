@@ -171,9 +171,9 @@ return a;
        Birth: function() {
             var num=Math.round(Math.random()*100);
 		c = this;
-	   if(c&&c.hard&&num>=66){c.HP*=1.2
+	   if(c&&c.hard&&num>=66){c.HP*=1.35
 	    }else if(c&&c.hard&&num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
-	    }else{c.Attack+=100};
+	    }else if(c&&c.hard&&num<33){c.Attack+=100};
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
@@ -2969,7 +2969,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((h.OrnHP!=0?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((g.OrnHP!=0?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
