@@ -171,10 +171,9 @@ return a;
        Birth: function() {
             var num=Math.round(Math.random()*100);
 		c = this;
-	
-	   c&&c.hard==1&&(if(num>=66){c.HP*=1.2
-	    }else if(num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
-	    }else{c.Attack+=100});
+	   if(c&&c.hard&&num>=66){c.HP*=1.2
+	    }else if(c&&c.hard&&num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
+	    }else{c.Attack+=100};
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
