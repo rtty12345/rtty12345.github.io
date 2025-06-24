@@ -2344,7 +2344,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	height: 78,
 	beAttackedPointL: 10,
 	beAttackedPointR: 61,
-	SunNum: 150,
+	SunNum:225,
 	coolTime: 30,
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
