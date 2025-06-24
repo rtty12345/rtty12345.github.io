@@ -94,7 +94,7 @@
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		this.NormalAttack(b);
-		oSym.addTask(b.highwork?40:140,
+		oSym.addTask(this.highwork?40:140,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.AttackCheck1(f, h)
 		},
@@ -601,7 +601,7 @@ oThreepeater = InheritO(oPeashooter, {
 				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
-					0 : "getPea",
+					0 : "getZPea",
 					1 : "getFirePea"
 				} [o]](f, j, e), (SetStyle(l, {
 					left: q + 28 + "px",
@@ -681,7 +681,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				f = oZ["getZ" + e](p, k);
 				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
-					"-1":"getSnowPea",
+					"-1":"getZPea",
 					0 : "gethPea",
 					1 : "getSlowPea1"
 				} [o]](f, j, e), (SetStyle(l, {
@@ -758,7 +758,7 @@ oPeashooter1= InheritO(CPlants, {
 			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =50, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
-				0 : "getPea",
+				0 : "getZPea",
 				1 : "getFirePea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
@@ -1757,7 +1757,7 @@ oSpikeweed = InheritO(CPlants, {
 			c.Die();
 			break;
 		case 1:
-			Math.round(Math.random()*100)>5?d.getHit2(d, 45, 0):d.getDispelled(d);
+			Math.round(Math.random()*100)>1?d.getHit2(d, 45, 0):d.getDispelled(d);
 			c.Die();
 			break;
 		default:
@@ -2065,10 +2065,10 @@ oCoffeeBean = InheritO(CPlants, {
 			var d = oGd.$[c],
 			b;
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
-			c&&(c.highwork=1);
+			d&&(d.highwork=1);
 			oSym.addTask(1000,function(c){
 			var d = oGd.$[c];
-			c&&(c.highwork=0)
+			d&&(d.highwork=0)
 			},[c]);
 			a.Die()
 		},
