@@ -94,7 +94,7 @@
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		this.NormalAttack(b);
-		oSym.addTask(this.highwork?40:140,
+		oSym.addTask(this.highwork?70:140,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.AttackCheck1(f, h)
 		},
