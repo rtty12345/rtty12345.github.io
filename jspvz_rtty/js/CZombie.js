@@ -3430,7 +3430,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
 	Lvl: 8,
-	HP:1500,
+	HP:1600,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -3447,7 +3447,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1500）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1600）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -5085,7 +5085,6 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				q.src = h.PicArr[10];
 				h.isAttacking = 0;
 				h.Altitude = 1;
-				h.OSpeed = h.Speed = 3.6;
 				h.WalkGif0 = 11;
 				h.NormalGif = h.WalkGif1 = 10;
 				h.LostHeadGif = h.DieGif = 12;
@@ -5101,7 +5100,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				left: h.X + "px"
 			}), h.EleShadow.style.left = "45px", n()) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - (h.beAttackedPointR = 100)) + (h.beAttackedPointL = 45), SetStyle(i, {
 				left: h.X + "px"
-			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(),k.getHurt(h,2,1000),
+			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(),
 			oSym.addTask(170,
 			function(t, w) {
 				var v = $Z[t],
@@ -5189,7 +5188,7 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 oImp = InheritO(OrnNoneZombies, {
 	EName: "oImp",
 	CName: "小鬼僵尸",
-	HP: 70,
+	HP: 200,
 	BreakPoint: 23,
 	beAttackedPointL: 30,
 	beAttackedPointR: 60,
@@ -5200,8 +5199,8 @@ oImp = InheritO(OrnNoneZombies, {
 	DieGif: 3,
 	BoomDieGif: 4,
 	AttackGif: 2,
-	OSpeed: 32,
-	Speed: 32,
+	OSpeed: 3.2,
+	Speed: 3.2,
         GetDX: function() {
 		return - 50
 	},
@@ -5210,6 +5209,11 @@ oImp = InheritO(OrnNoneZombies, {
 	},
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 32) + "px"
+	},
+	PrivateBirth:function(a){
+		oSym.addTask(500,function(a){
+		a&&($Z[a.id])&&(a.ZX>=200)&&a.ZX-=300, a.AttackedLX-=300, a.AttackedRX-=300,a.X-=300,SetStyle(a.Ele,{left:a.X+"px"});
+		},[a])
 	},
 	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系。</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
 	GoingDie: function() {
