@@ -6022,7 +6022,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
             if (oGd.$[a.R + "_" + i + "_" + l]) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
-              m && (m.EName != "oSunFlower") ? m.HP -= 50 : m && m.getHurt(this, 0, 50),
+              m&&(m.HP -= 50),
                 m && (m.HP <= 0) && m.Die()
             }
           }
