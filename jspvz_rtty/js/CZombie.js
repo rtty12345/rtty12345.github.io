@@ -1055,7 +1055,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b = d + "spotlight2" + c + ".png" + $Random;
 		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
 	})(),
-	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1200）</font><br>特点：<font color="#FF0000">召唤无特殊技能的路障僵尸，同时在场地右侧召唤墓碑</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1200）</font><br>特点：<font color="#FF0000">召唤路障僵尸</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
 	getSnowPea: function() {
 		this.PlaySlowballAudio();
 	},
@@ -2453,7 +2453,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">使某些植物不明不白的死去</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1200+500)</font><br>特点：<font color="#FF0000">对植物伤害高，植物死后召唤速度快的普僵</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
 	PicArr: {            
@@ -2941,7 +2941,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（400）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后8倍</font><br>速度：正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为900（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（500）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后8倍</font><br>速度：正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为900（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -3716,7 +3716,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（1000）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后4倍</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（1000）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">同普僵</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次)</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
 		return "left:75px;top:" + (a.height - 25) + "px"
 	},
@@ -3993,7 +3993,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	EName: "oScreenDoorZombie",
 	CName: "铁门僵尸",
-	OrnHP: 800,
+	OrnHP: 1100,
 	Lvl: 3,
 	HP:400,
 	oSpeed:1.6,
@@ -4013,7 +4013,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低(300)</font><br>铁门韧性：<font color="#FF0000">极高（4000）</font><br>弱点：大喷菇和磁力菇</p>made in China!',
+	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低(300)</font><br>铁门韧性：<font color="#FF0000">高（1100）</font><br>弱点：大喷菇和磁力菇</p>能发射豌豆',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
@@ -4333,7 +4333,7 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	EName: "oDuckyTubeZombie3",
 	CName: "铁桶鸭子救生圈僵尸",
-	OrnHP: 1000,
+	OrnHP: 1200,
 	HP:300,
 	Lvl: 6,
 	SunNum: 125,
@@ -4365,7 +4365,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	OSpeed: 5,
 	Speed:5,
 	Altitude: 1,
-	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池中间下水，潜泳以避免遭到攻击<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
+	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池潜泳以避免遭到攻击，一段时间后，释放辣椒爆炸，本行或者上中下三行<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
 	JumpTime: 25,
 	getShadow: function(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
@@ -4997,7 +4997,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DolphinRiderZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Jump2.gif" + $Random, a + "Walk3.gif", a + "Walk4.gif", a + "Die2.gif" + $Random, a + "Jump3.gif" + $Random]
 	})(),
 	AudioArr: ["dolphin_before_jumping", "dolphin_appears", "zombie_entering_water"],
-	Produce: '海豚骑士僵尸善于利用你水池防御的弱点<p>韧性：<font color="#FF0000">中(500)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤，但跳跃时会使全场僵尸前进一格）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
+	Produce: '海豚骑士僵尸善于利用你水池防御的弱点<p>韧性：<font color="#FF0000">中(800)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤，但跳跃时会使全场僵尸前进一格）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
@@ -5135,7 +5135,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 	EName: "oDolphinRiderZombie1",
 	CName: "海豚骑士僵尸",
-	HP: 700,
+	HP: 800,
 	NormalAttack: function(d, b, g) {
 		var f = $Z[d],
 		a = f.Ele,
@@ -5271,7 +5271,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		var a = "images/Zombies/BalloonZombie/";
 		return ["images/Card/Zombies/Balloonzombie.png", a + "0.gif", a + "1.gif", a + "Attack.gif", a + "Walk2.gif", a + "Attack2.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Boom.gif", a + "Walk.gif", a + "Drop.gif", a + "Boom2.gif"]
 	})(),
-	Produce: '气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">飞行</font><br>弱点：<font color="#FF0000">仙人掌和三叶草</font></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
+	Produce: '气球僵尸漂浮在空中，躲过大多数攻击，有气球时碾压植物<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">飞行</font><br>弱点：<font color="#FF0000">仙人掌和三叶草</font></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
 	BirthCallBack: function(e) {
 		var d = e.delayT, c = e.id, a = e.Ele = $(c), f = oGd.$Balloon, b = e.R;
 		e.EleShadow = a.firstChild;
