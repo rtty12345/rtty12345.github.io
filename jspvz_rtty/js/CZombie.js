@@ -6041,7 +6041,7 @@ bedevilAct: function(a) {
               let m = oZ.getArZ(a.ZX,a.ZX+200,a.R),
               l=m.length,
 	      t=m[l];
-	while(m--){
+	while(l--){
 	t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit0(t,50,0)
 	}
             }
