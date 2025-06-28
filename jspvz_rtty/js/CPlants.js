@@ -2696,7 +2696,7 @@ oPlantern = InheritO(CPlants, {
 		for (let l=b-1;l<=b+1;l++){
 		for (let e=0;e<=3;e++){
 			let highplant=oGd.$[i+"_"+l+"_"+e];
-			!highplant.highwork&&(highplant.highwork=1);
+			highplant&&(highplant.highwork=1);
 		}
 		}
 	}
@@ -2711,7 +2711,7 @@ oPlantern = InheritO(CPlants, {
 		for (let l=b-1;l<=b+1;l++){
 		for (let e=0;e<=3;e++){
 			let highplant=oGd.$[i+"_"+l+"_"+e];
-			highplant.highwork&&(highplant.highwork=0);
+			highplant&&(highplant.highwork=0);
 		}
 		}
 	}
