@@ -3,7 +3,7 @@
         关卡植物: 5大喷菇 3南瓜头 3魅惑菇 4土豆地雷 8向日葵 4三线射手 3机枪射手 3仙人掌 10荷叶
 */
 oS.Init({
-        PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oPeashooter,oRepeater,oJalapeno,oGarlic],
+        PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oPeashooter,oRepeater,oJalapeno,oGarlic,oPlantern],
         ZName: [oZombie2,oBucketheadZombie,oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oBalloonZombie, oNewspaperZombie3,oFlagZombie,oSnorkelZombie,oDolphinRiderZombie],
         PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
         backgroundImage: "images/interface/background4.jpg",
@@ -16,7 +16,7 @@ oS.Init({
         ArP: {
                 ArC: [1, 5], ArR: [1, 6], Auto: 1,
                 P: {
-                        Arr: [0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2,2,4,4,4,4,4,5,6,10,9,8,7,7,8], 
+                        Arr: [0, 0, 0, 0, 0, 11, 11, 10, 2, 2, 2,2,4,5,5,4,4,5,6,10,9,8,7,7,8], 
                         Arr1: [3, 3, 3, 3], Arr2: [1, 1, 1]
                 }
         },
