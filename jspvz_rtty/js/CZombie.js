@@ -6013,6 +6013,50 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     (e = 1);
     return e;
   },
+ PrivateAct: function(a) {
+    if (!a.bool) {
+      a.bool = 1;
+      oSym.addTask(100, function(a) {
+        for (let i = GetC(a.ZX); i <= GetC(a.ZX)+2; i++) {
+          for (l = 0; l < 4; l++) {
+            if (oGd.$[a.R + "_" + i + "_" + l]) {
+              PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
+              let m = oGd.$[a.R + "_" + i + "_" + l];
+              m && (m.EName != "oSunFlower") ? m.HP -= 50 : m && m.getHurt(this, 0, 50),
+                m && (m.HP <= 0) && m.Die()
+            }
+          }
+        };
+        a.HP >= 1 && a.beAttacked && oSym.addTask(100, arguments.callee, [a]);
+      }, [a]);
+    }
+  },
+bedevilAct: function(a) {
+    if (!a.b) {
+      a.b= 1;
+      oSym.addTask(100, function(a) {
+        for (let i = GetC(a.ZX); i <= GetC(a.ZX)+2; i++) {
+          for (l = 0; l < 4; l++) {
+            if (oZ.getArZ(a.ZX,a.ZX+200,a.R)) {
+              PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
+              let m = oZ.getArZ(a.ZX,a.ZX+200,a.R),
+              l=m.length,
+	      t=m[l];
+	while(m--){
+	t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit0(t,50,0)
+	}
+            }
+          }
+        };
+        a.HP >= 1 && a.beAttacked && oSym.addTask(100, arguments.callee, [a]);
+      }, [a]);
+    }
+  },
+ChkActs1: function(g, e, h, d) {
+			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
+			g&&(g.PZ)?this.PrivateAct&&this.PrivateAct(this):this.bedevilAct&&this.bedevilAct(this);
+			return f
+},
   CanDig: {
     oPotatoMine,oPumpkinHead,oChomper: true
   },
