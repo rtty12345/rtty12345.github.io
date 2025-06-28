@@ -5978,8 +5978,8 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
               (b.EleBody.src =
                 b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
               (b.OSpeed = b.Speed = 4),
-              (b.ChkActs =
-                OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
+              (b.ChkActs =WD ?b.ChkActs1:
+                OrnNoneZombies.prototype.ChkActs);
             },
             [c, b]
           );
@@ -6050,7 +6050,7 @@ bedevilAct: function(a) {
       }, [a]);
     }
   },
-ChkActs1: function(g, e, h, d) {
+ChkActs3: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			g&&(g.PZ)?this.PrivateAct&&this.PrivateAct(this):this.bedevilAct&&this.bedevilAct(this);
 			return f
