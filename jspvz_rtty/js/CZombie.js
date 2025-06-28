@@ -5916,6 +5916,16 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
         }
       })();
   },
+bedevil: function(c) {
+	c.Go_Up(c,1);
+			c.ExchangeLR(c, 1);
+			c.JudgeAttack = c.JudgeAttackH;
+			c.PZ = 0;
+			c.WalkDirection = 1;
+			c.ZX = c.AttackedRX;
+			c.ChkActs = c.ChkActs1;
+			oP.MonPrgs()
+		},
   PicArr: (function() {
     var a = "images/Zombies/DiggerZombie/";
     return [
