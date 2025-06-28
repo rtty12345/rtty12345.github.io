@@ -6037,7 +6037,6 @@ bedevilAct: function(a) {
       oSym.addTask(100, function(a) {
         for (let i = GetC(a.ZX); i <= GetC(a.ZX)+2; i++) {
           for (l = 0; l < 4; l++) {
-            if (oZ.getArZ(a.ZX,a.ZX+200,a.R)) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oZ.getArZ(a.ZX,a.ZX+200,a.R),
               l=m.length,
@@ -6046,7 +6045,6 @@ bedevilAct: function(a) {
 	t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit0(t,50,0)
 	}
             }
-          }
         };
         a.HP >= 1 && a.beAttacked && oSym.addTask(100, arguments.callee, [a]);
       }, [a]);
