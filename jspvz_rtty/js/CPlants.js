@@ -632,8 +632,8 @@ oThreepeater1= InheritO(oPeashooter, {
 	SunNum: 325,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次射出三行的豌豆",
-	Produce: '三线射手可以在三条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
+	Tooltip: "一次射出四行的豌豆",
+	Produce: '四线射手可以在四条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">四线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
 	getTriggerR: function(a) {
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
 	},
@@ -705,7 +705,7 @@ oRepeater = InheritO(oPeashooter, {
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次三条线发射豌豆",
-	Produce: '双发射手可以一次三线发射豌豆<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
+	Produce: '双发射手可以一次三线发射豌豆，豌豆有概率无视所有防具，伤害僵尸的本体<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
 	getTriggerR:oThreepeater1.prototype.getTriggerR,
         PrivateBirth:oThreepeater1.prototype.PrivateBirth,
         PrivateDie:oThreepeater1.prototype.PrivateDie,
@@ -1148,7 +1148,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/TwinSunflower.png", "images/Plants/TwinSunflower/0.gif", "images/Plants/TwinSunflower/TwinSunflower1.gif", "images/Plants/TwinSunflower/TwinSunflower.gif"],
 	Tooltip: "一次提供两倍于向日葵的阳光量<br>(需要向日葵)",
-	Produce: '双子向日葵的阳光产量是普通向日葵的两倍。<p>阳光产量：<font color="#FF0000">双倍<br>只能种在普通向日葵上</font></p>这是一个疯狂的夜晚，禁忌的科学技术，让双子向日葵来到了这个世界。电闪雷鸣，狂风怒吼，都在表示着这个世界对他的拒绝。但是一切都无济于事，双子向日葵他却仍然活着！',
+	Produce: '双子向日葵的阳光产量是普通向日葵的两倍，产阳光时召唤魅惑路障<p>阳光产量：<font color="#FF0000">双倍<br>只能种在普通向日葵上</font></p>这是一个疯狂的夜晚，禁忌的科学技术，让双子向日葵来到了这个世界。电闪雷鸣，狂风怒吼，都在表示着这个世界对他的拒绝。但是一切都无济于事，双子向日葵他却仍然活着！',
 	BirthStyle: function(c, e, b, a) {
 		var d = b.childNodes[1];
 		d.src = "images/Plants/TwinSunflower/TwinSunflower.gif";
@@ -1395,6 +1395,7 @@ oTorchwood = InheritO(CPlants, {
 	height: 83,
 	beAttackedPointR: 53,
 	SunNum: 175,
+	HP:600,
 	PicArr: ["images/Card/Plants/Torchwood.png", "images/Plants/Torchwood/0.gif", "images/Plants/Torchwood/Torchwood.gif", "images/Plants/PB00.gif", "images/Plants/PB01.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/Torchwood/SputteringFire.gif"],
 	AudioArr: ["firepea", "ignite", "ignite2"],
 	Tooltip: "通过火炬树桩的豌豆将变为随机伤害火球",
@@ -1743,7 +1744,7 @@ oSpikeweed = InheritO(CPlants, {
 	Attack: 30,
 	ArZ: {},
 	Tooltip: "扎破轮胎, 也能伤害走在上面的僵尸",
-	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
+	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害，有概率将僵尸击飞<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
@@ -1802,7 +1803,7 @@ oSpikerock = InheritO(oSpikeweed, {
 	PicArr: ["images/Card/Plants/Spikerock.png", "images/Plants/Spikerock/0.gif", "images/Plants/Spikerock/Spikerock.gif", "images/Plants/Spikerock/2.gif", "images/Plants/Spikerock/3.gif"],
 	Attack:45,
 	Tooltip: "能扎破多个轮胎, 并伤害经过上面的僵尸<br>(需要地刺)",
-	Produce: '地刺王可以扎破多个轮胎，并对踩到他的僵尸造成伤害。<p><font color="#FF0000">必须种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，也认识了很多有趣的人。这些都真的拓展了他的视野——他从来不知道，他们建造了这么大的博物馆，有这么多的画作。这对他来说太惊奇了。',
+	Produce: '地刺王可以扎破多个轮胎，并对踩到他的僵尸造成伤害，有概率魅惑僵尸<p><font color="#FF0000">必须种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，也认识了很多有趣的人。这些都真的拓展了他的视野——他从来不知道，他们建造了这么大的博物馆，有这么多的画作。这对他来说太惊奇了。',
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oSpikeweed"
@@ -1980,7 +1981,7 @@ oFumeShroom = InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/FumeShroom.png", "images/Plants/FumeShroom/0.gif", "images/Plants/FumeShroom/FumeShroom.gif", "images/Plants/FumeShroom/FumeShroomSleep.gif", "images/Plants/FumeShroom/FumeShroomAttack.gif", "images/Plants/FumeShroom/FumeShroomBullet.gif"],
 	AudioArr: ["fume"],
 	Tooltip: "喷射一整行可以穿过门板的气液",
-	Produce: '大喷菇喷出的一整行臭气可以穿透铁丝网门,有概率冻结僵尸<p>伤害：<font color="#FF0000">普通，可穿透铁丝网门，有概率冻结僵尸</font><br>范围：<font color="#FF0000">整行臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房生产酵母孢，”大喷菇说。“然后小喷菇，上帝保佑它，告诉了我这个喷杀僵尸的机会。现在我真觉得自己完全不同了。”',
+	Produce: '大喷菇喷出的一整行臭气可以穿透铁丝网门,有概率击退僵尸<p>伤害：<font color="#FF0000">普通，可穿透铁丝网门，有概率冻结僵尸</font><br>范围：<font color="#FF0000">整行臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房生产酵母孢，”大喷菇说。“然后小喷菇，上帝保佑它，告诉了我这个喷杀僵尸的机会。现在我真觉得自己完全不同了。”',
 	GetDY: function(b, c, a) {
 		return a[0] ? -18 : -10
 	},
@@ -2086,7 +2087,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/GloomShroom.png", "images/Plants/GloomShroom/0.gif", "images/Plants/GloomShroom/GloomShroom.gif", "images/Plants/GloomShroom/GloomShroomSleep.gif", "images/Plants/GloomShroom/GloomShroomAttack.gif", "images/Plants/GloomShroom/GloomShroomBullet.gif"],
 	AudioArr: ["kernelpult", "kernelpult2"],
 	Tooltip: "向3*3范围喷射减速孢子<br>(需要大喷菇)",
-	Produce: '伪娘终结者，向3x3范围喷射穿透孢子<p><font color="#FF0000">必须种植在大喷菇上</font></p>起初人们一直非议他，后来曾哥用自己独特的绵羊音横扫了宇宙拆迁办，全世界都拜倒在他的脚下。“听说有个节目叫‘快男’？”曾哥说，“没有我在他们真应该感到羞愧。”他于是决定明年去看看。',
+	Produce: '伪娘终结者，向3x3范围喷射穿透孢子，每次攻击有轻微击退<p><font color="#FF0000">必须种植在大喷菇上</font></p>起初人们一直非议他，后来曾哥用自己独特的绵羊音横扫了宇宙拆迁办，全世界都拜倒在他的脚下。“听说有个节目叫‘快男’？”曾哥说，“没有我在他们真应该感到羞愧。”他于是决定明年去看看。',
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oFumeShroom"
@@ -2155,7 +2156,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/PuffShroom.png", "images/Plants/PuffShroom/0.gif", "images/Plants/PuffShroom/PuffShroom.gif", "images/Plants/PuffShroom/PuffShroomSleep.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
 	AudioArr: ["puff"],
 	Tooltip: "向敌人发射短程孢子",
-	Produce: '小喷菇是免费的，不过射程很近<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和很多蘑菇一样，我只是把他们想象成童话和电影里的怪物。不过这次的经历已经让我大开眼界了。',
+	Produce: '小喷菇是免费的，不过射程很近，死后发射一枚100伤害的子弹，并击退僵尸两格<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和很多蘑菇一样，我只是把他们想象成童话和电影里的怪物。不过这次的经历已经让我大开眼界了。',
 	GetDX: CPlants.prototype.GetDX,
 	getTriggerRange: function(a, b, c) {
 		return [[b, Math.min(c + 250, oS.W), 0]]
@@ -2384,7 +2385,7 @@ oIceShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/IceShroom.png", "images/Plants/IceShroom/0.gif", "images/Plants/IceShroom/IceShroom.gif", "images/Plants/IceShroom/IceShroomSleep.gif", "images/Plants/IceShroom/Snow.gif", "images/Plants/IceShroom/icetrap.gif"],
 	AudioArr: ["frozen", "wakeup"],
 	Tooltip: "暂时使画面里的所有敌人停止行动",
-	Produce: '寒冰菇，能短暂的冻结屏幕上所有僵尸。<p>伤害：<font color="#FF0000">非常低，冻结僵尸</font><br>范围：<font color="#FF0000">屏幕上的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效<br>白天睡觉</font></p>寒冰菇皱着眉头，倒不是因为它不高兴或不满意，只是因为，它儿时因受创伤而遗留下了面瘫。',
+	Produce: '寒冰菇，能短暂的冻结屏幕上所有僵尸。<p>伤害：<font color="#FF0000">高（1000），冻结僵尸</font><br>范围：<font color="#FF0000">屏幕上的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效<br>白天睡觉</font></p>寒冰菇皱着眉头，倒不是因为它不高兴或不满意，只是因为，它儿时因受创伤而遗留下了面瘫。',
 	GetDX: CPlants.prototype.GetDX,
 	GetDY: CPlants.prototype.GetDY,
 	InitTrigger: function() {},
@@ -2587,7 +2588,7 @@ oTangleKelp = InheritO(CPlants, {
 	NormalGif: 1,
 	PicArr: ["images/Card/Plants/TangleKlep.png", "images/Plants/TangleKlep/0.gif", "images/Plants/TangleKlep/Float.gif", "images/Plants/TangleKlep/Grab.png", "images/interface/splash.png"],
 	Tooltip: "可以将114514血以下僵尸拉入水底的水生植物",
-	Produce: '缠绕水草是一种可以把接近他的僵尸拉进水中的水生植物。<p>伤害：<font color="#FF0000">极高（114514）</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>特点：<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就藏在水面下，没人会看到我。”他的朋友告诉他，他们可以清楚地看到他。不过，缠绕水草似乎不想改变自己的看法。',
+	Produce: '缠绕水草是一种可以把接近他的僵尸拉进水中的水生植物，有概率再生<p>伤害：<font color="#FF0000">极高（114514）</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>特点：<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就藏在水面下，没人会看到我。”他的朋友告诉他，他们可以清楚地看到他。不过，缠绕水草似乎不想改变自己的看法。',
 	CanGrow: function(c, b, d) {
 		var a = b + "_" + d,ArP=oS.ArP;
 	if(ArP){
@@ -2691,6 +2692,14 @@ oPlantern = InheritO(CPlants, {
 		oGd.$Plantern[a + "_" + b] = c.id;
 		NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
 		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+	for (let i = ((a - 1) || 0); i <= (a+ 1 <= oS.R ? a+ 1 : oS.R); i++) {
+		for (let l=b-1;l<=b+1;l++){
+		for (let e=0;e<=3;e++){
+			let highplant=oGd.$[i+"_"+l+"_"+e];
+			!highplant.highwork&&(highplant.highwork=1);
+		}
+		}
+	}
 	},
 	InitTrigger: function() {},
 	PrivateDie: function(c) {
@@ -2698,6 +2707,14 @@ oPlantern = InheritO(CPlants, {
 		b = c.C;
 		delete oGd.$Plantern[a + "_" + b];
 		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 1), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+			for (let i = ((a - 1) || 0); i <= (a+ 1 <= oS.R ? a+ 1 : oS.R); i++) {
+		for (let l=b-1;l<=b+1;l++){
+		for (let e=0;e<=3;e++){
+			let highplant=oGd.$[i+"_"+l+"_"+e];
+			highplant.highwork&&(highplant.highwork=0);
+		}
+		}
+	}
 	},
 	GetDY: function(b, c, a) {
 		return a[0] ? 70 : 74
@@ -2720,8 +2737,8 @@ oCactus = InheritO(CPlants, {
 	PicArr: (function() {
 		return ["images/Card/Plants/Cactus.png", "images/Plants/Cactus/0.gif", "images/Plants/Cactus/Cactus.gif", "images/Plants/Cactus/Cactus2.gif", "images/Plants/Cactus/Attack.gif", "images/Plants/Cactus/Attack2.gif", "images/Plants/Cactus/Elongation.gif", "images/Plants/Cactus/Shorten.gif", "images/Plants/Cactus/Projectile" + ($User.Browser.IE6 ? 8 : 32) + ".png"]
 	})(),
-	Tooltip: "能发射刺穿气球的子弹，地面发射的子弹会附着在僵尸身上造成伤害，直到僵尸走出子弹判定范围",
-	Produce: '仙人掌发射的穿刺弹可以用来打击地面和空中目标，地面发射的子弹会附着在僵尸身上造成伤害，直到僵尸走出子弹判定范围<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐藏藏着颗温柔的心，充满着爱和善良。她只是想拥抱别人，和被别人拥抱。大多数人都做不到这点，但是仙人掌她并不介意。她盯着一只铠甲鼠好一阵子了，这次好像真的可以抱抱了。',
+	Tooltip: "能发射刺穿气球的子弹，完全穿透",
+	Produce: '仙人掌发射的穿刺弹可以用来打击地面和空中目标，完全穿透<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐藏藏着颗温柔的心，充满着爱和善良。她只是想拥抱别人，和被别人拥抱。大多数人都做不到这点，但是仙人掌她并不介意。她盯着一只铠甲鼠好一阵子了，这次好像真的可以抱抱了。',
 	getShadow: function(a) {
 		return "left:3px;top:132px"
 	},
@@ -2907,7 +2924,7 @@ oBlover = InheritO(CPlants, {
 	SunNum: 100,
 	PicArr: ["images/Card/Plants/Blover.png", "images/Plants/Blover/0.gif", "images/Plants/Blover/Blover.gif"],
 	Tooltip: "能吹走所有气球和迷雾",
-	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散,给全场无二类防具僵尸造成一定减速伤害<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散,造成减速<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
 	AudioArr:['blover'],
 	InitTrigger: function() {},
 	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
