@@ -2,7 +2,7 @@
         关卡设计者: 寒冰投手
         关卡植物: 5大喷菇 3南瓜头 3魅惑菇 4土豆地雷 8向日葵 4三线射手 3机枪射手 3仙人掌 10荷叶
 */
-oS。Init({
+oS.Init({
         PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oPeashooter,oRepeater,oJalapeno,oGarlic,oPlantern],
         ZName: [oZombie2,oBucketheadZombie,oDuckyTubeZombie2, oDuckyTubeZombie3, oScreenDoorZombie, oBalloonZombie, oNewspaperZombie3,oFlagZombie,oSnorkelZombie,oDolphinRiderZombie],
         PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
