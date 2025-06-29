@@ -5188,7 +5188,7 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 oImp = InheritO(OrnNoneZombies, {
 	EName: "oImp",
 	CName: "小鬼僵尸",
-	HP: 200,
+	HP: 300,
 	BreakPoint: 23,
 	beAttackedPointL: 30,
 	beAttackedPointR: 60,
@@ -5990,8 +5990,8 @@ bedevil: function(c) {
               // 行走
               (b.EleBody.src =
                 b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
-              (b.OSpeed = b.Speed = 4),
-              (b.ChkActs =WD ?b.ChkActs1:
+              (b.OSpeed = b.Speed = 1.6),
+              (b.ChkActs =WD?b.ChkActs1:
                 OrnNoneZombies.prototype.ChkActs);
             },
             [c, b]
