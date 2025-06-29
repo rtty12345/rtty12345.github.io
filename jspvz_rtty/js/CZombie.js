@@ -3110,7 +3110,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
-})，
+}),
   oNewspaperZombie1= InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie1",
     CName: "读报僵尸",
