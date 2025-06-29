@@ -57,9 +57,6 @@
 		e.pixelTop = g;
 		e.pixelBottom = g + e.GetDBottom();
 		e.opacity = 1;
-	let A= (e.R - 1) ||(e.R)||(e.R+1);
-		let B= (e.C - 1) ||(e.C)||(e.C+1);
-e&&oGd.$Plantern[A+"_"+B]&&(e.highwork=1);
 		e.InitTrigger(e, b, e.R = h, e.C = a, e.AttackedLX = k + e.beAttackedPointL, e.AttackedRX = k + e.beAttackedPointR);
 		$P[b] = e;
 		$P.length += 1;
@@ -2702,6 +2699,11 @@ oPlantern = InheritO(CPlants, {
 		oGd.$Plantern[a + "_" + b] = c.id;
 		NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
 		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+		this.excited&&this.excited(this);
+	},
+	excited:function(c){
+		var a = c.R,
+		b = c.C;
 	for (let i = ((a - 1) || 0); i <= (a+ 1 <= oS.R ? a+ 1 : oS.R); i++) {
 		for (let l=b-1;l<=b+1;l++){
 		for (let e=0;e<=3;e++){
@@ -2709,9 +2711,10 @@ oPlantern = InheritO(CPlants, {
 			if(c.HP>=1&&highplant&&!highplant.highwork){
 			highplant&&(highplant.highwork=1);
 			};
+			highplant&&!highplant.highwork&&(c.HP>=1)&&oSym.addTask(1000,arguments.callee,[c])
 		}
-	}
-	}
+	     }
+	   }	
 	},
 	InitTrigger: function() {},
 	PrivateDie: function(c) {
