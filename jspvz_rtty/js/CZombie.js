@@ -3110,7 +3110,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
-}),
+})，
   oNewspaperZombie1= InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie1",
     CName: "读报僵尸",
@@ -6035,7 +6035,8 @@ bedevil: function(c) {
             if (oGd.$[a.R + "_" + i + "_" + l]) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
-              m&&(m.HP -= 100),
+              m&&(m.HP -= 100);
+	m.SetAlpha(m,$(m.id),50,0.5);
                 m && (m.HP <= 0) && m.Die()
             }
           }
