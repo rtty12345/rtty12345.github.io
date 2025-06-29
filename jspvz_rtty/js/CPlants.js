@@ -57,6 +57,11 @@
 		e.pixelTop = g;
 		e.pixelBottom = g + e.GetDBottom();
 		e.opacity = 1;
+	for (let A= ((e.R - 1) || 0); A<= (e.R+ 1 <= oS.R ? e.R+ 1 : oS.R); A++) {
+		for (let B=e.C-1;B<=e.C+1;B++){
+oGd.$Plantern[A+"_"+B]&&(e.highwork=1);
+	        }
+	}
 		e.InitTrigger(e, b, e.R = h, e.C = a, e.AttackedLX = k + e.beAttackedPointL, e.AttackedRX = k + e.beAttackedPointR);
 		$P[b] = e;
 		$P.length += 1;
@@ -78,7 +83,7 @@
 		},
 		a, EDPZ)
 	},
-	PrivateBirth: function(a) {},
+	PrivateBirth: function(a){},
 	getTriggerRange: function(a, b, c) {
 		return [[b, oS.W, 0]]
 	},
@@ -2706,7 +2711,6 @@ oPlantern = InheritO(CPlants, {
 			if(c.HP>=1&&highplant&&!highplant.highwork){
 			highplant&&(highplant.highwork=1);
 			};
-		highplant&&(!highplant.highwork)&&(c.HP>=1)&&oSym.addTask(100,arguments.callee,[c]);
 		}
 	}
 	}
