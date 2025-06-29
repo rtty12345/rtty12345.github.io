@@ -3048,7 +3048,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 		},
 		[f.id]))
 	},
-	getHit0: function(c, a, b) {
+	getHit0: function(c, a) {
 		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
 		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
 		},
@@ -6036,7 +6036,12 @@ bedevil: function(c) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
               m&&(m.HP -= 100);
-	m.SetAlpha(m,$(m.id),200,2);
+	      let s= oZ.getArHZ(a.ZX,a.ZX+200,a.R),
+              g=s.length;
+	while(g--){
+	(t=s[g])&&t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit0(t,100,0)
+        };
+	m.SetAlpha(m,$(m.id),50,0.5);
 	oSym.addTask(10, function(m) {
                 m.SetAlpha(m,$(m.id), 100, 1)
             }, [m]);
