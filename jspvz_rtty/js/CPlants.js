@@ -16,6 +16,8 @@
 	canTrigger: 1,
 	Stature: 0,
 	Sleep: 0,
+	CSS_fliph: "",
+	CSS_alpha: "",
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
