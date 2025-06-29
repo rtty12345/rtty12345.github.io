@@ -6036,9 +6036,9 @@ bedevil: function(c) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
               m&&(m.HP -= 100);
-	m.SetAlpha(m,$(m.id),50,2);
+	m.SetAlpha(m,$(m.id),200,2);
 	oSym.addTask(10, function(m) {
-                m&& m.SetAlpha(m,$(m.id), 100, 1)
+                m.SetAlpha(m,$(m.id), 100, 1)
             }, [m]);
                 m && (m.HP <= 0) && m.Die()
             }
