@@ -2699,7 +2699,7 @@ oPlantern = InheritO(CPlants, {
 		oGd.$Plantern[a + "_" + b] = c.id;
 		NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
 		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
-		c.HP>=1&&oSym.addTask(2000,c.HP>=1&&CustomSpecial,[oPlantern,a,b]);
+		c.HP>=1&&oSym.addTask(2000,function(f){f.HP>=1&&CustomSpecial(oPlantern,a,b)},[c]);
 		this.excited&&this.excited(this);
 	},
 	excited:function(c){
