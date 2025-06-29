@@ -6040,7 +6040,7 @@ bedevil: function(c) {
             }
           }
         };
-        a.HP >= 1 && a.beAttacked && oSym.addTask(200, arguments.callee, [a]);
+        (a.PZ)&&a.HP >= 1 && a.beAttacked && oSym.addTask(200, arguments.callee, [a]);
       }, [a]);
     }
   },
@@ -6049,17 +6049,15 @@ bedevilAct: function(a) {
       a.b= 1;
       oSym.addTask(100, function(a) {
         for (let i = GetC(a.ZX); i <= GetC(a.ZX)+2; i++) {
-          for (l = 0; l < 4; l++) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oZ.getArZ(a.ZX,a.ZX+200,a.R),
               l=m.length,
 	      t=m[l];
 	while(l--){
-	t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit0(t,50,0)
+	t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit0(t,100,0)
 	}
-            }
         };
-        a.HP >= 1 && a.beAttacked && oSym.addTask(100, arguments.callee, [a]);
+        (!a.PZ)&&a.HP >= 1 && a.beAttacked && oSym.addTask(200, arguments.callee, [a]);
       }, [a]);
     }
   },
