@@ -2710,8 +2710,7 @@ oPlantern = InheritO(CPlants, {
 			let highplant=oGd.$[i+"_"+l+"_"+e];
 			if(c.HP>=1&&highplant&&!highplant.highwork){
 			highplant&&(highplant.highwork=1);
-			};
-			(c.HP>=1)&&oSym.addTask(1000,arguments.callee,[c])
+			}
 		}
 	     }
 	   }	
