@@ -34,6 +34,11 @@
 	GetDBottom: function() {
 		return this.height
 	},
+	SetAlpha: $User.Browser.IE ? function(f, d, e, c) {
+            d.style.filter=(f.CSS_alpha = "alpha(opacity=" + e + ")") + f.CSS_fliph
+        } : function(f, d, e, c) {
+            d.style.opacity = c
+        },
 	Birth: function(d, c, h, a, m, n) {
 		var e = this,
 		k = d + e.GetDX(),
