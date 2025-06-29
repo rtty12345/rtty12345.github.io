@@ -2707,7 +2707,7 @@ oPlantern = InheritO(CPlants, {
 	for (let i = ((a - 1) || 0); i <= (a+ 1 <= oS.R ? a+ 1 : oS.R); i++) {
 		for (let l=b-1;l<=b+1;l++){
 		for (let e=0;e<=3;e++){
-			PlayAudio("newspaper_rarrgh")
+			PlayAudio("newspaper_rarrgh");
 			let highplant=oGd.$[i+"_"+l+"_"+e];
 			if(c.HP>=1&&highplant&&!highplant.highwork){
 			highplant&&(highplant.highwork=1);
