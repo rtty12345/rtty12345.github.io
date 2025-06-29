@@ -57,8 +57,8 @@
 		e.pixelTop = g;
 		e.pixelBottom = g + e.GetDBottom();
 		e.opacity = 1;
-	let A= (e.R - 1) ||A=(e.R)||A=(e.R+1);
-		let B= (e.C - 1) ||B=(e.C)||B=(e.C+1);
+	let A= (e.R - 1) ||(e.R)||(e.R+1);
+		let B= (e.C - 1) ||(e.C)||(e.C+1);
 e&&oGd.$Plantern[A+"_"+B]&&(e.highwork=1);
 		e.InitTrigger(e, b, e.R = h, e.C = a, e.AttackedLX = k + e.beAttackedPointL, e.AttackedRX = k + e.beAttackedPointR);
 		$P[b] = e;
