@@ -2684,8 +2684,8 @@ oPlantern = InheritO(CPlants, {
 	BookHandBack: 2,
 	SunNum: 50,
 	PicArr: ["images/Card/Plants/Plantern.png", "images/Plants/Plantern/0.gif", "images/Plants/Plantern/Plantern.gif", "images/Plants/Plantern/light.gif"],
-	Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾",
-	Produce: '灯笼草，能照亮一片区域，让你看清战场迷雾<p>范围：<font color="#FF0000">一片圆形区域</font><br>特点：<font color="#FF0000">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物吃的是光，挤出的是氧气。灯笼草吃的是黑暗，挤出的却是光。对于他如何能产生光这件事，灯笼草持谨慎态度。“我不会说这是‘巫术’，我也不会使用‘黑暗力量’，我只是……我想我说得够多的了。”',
+	Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾，也可以为周围植物增加攻速",
+	Produce: '灯笼草，能照亮一片区域，让你看清战场迷雾，也可以为周围植物增加攻速<p>范围：<font color="#FF0000">一片圆形区域</font><br>特点：<font color="#FF0000">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物吃的是光，挤出的是氧气。灯笼草吃的是黑暗，挤出的却是光。对于他如何能产生光这件事，灯笼草持谨慎态度。“我不会说这是‘巫术’，我也不会使用‘黑暗力量’，我只是……我想我说得够多的了。”',
 	PrivateBirth: function(c) {
 		var a = c.R,
 		b = c.C;
@@ -2696,7 +2696,10 @@ oPlantern = InheritO(CPlants, {
 		for (let l=b-1;l<=b+1;l++){
 		for (let e=0;e<=3;e++){
 			let highplant=oGd.$[i+"_"+l+"_"+e];
+			if(c.HP>=1&&highplant&&!highplant.highwork){
 			highplant&&(highplant.highwork=1);
+			};
+		c.HP>=1&&oSym.addTask(100,arguments.callee,[c]);
 		}
 		}
 	}
