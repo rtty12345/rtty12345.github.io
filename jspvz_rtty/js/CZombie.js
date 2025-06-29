@@ -5921,7 +5921,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       })();
   },
 bedevil: function(c) {
-	c.Go_Up(c,1);
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
 			c.PZ = 0;
@@ -6030,18 +6029,18 @@ bedevil: function(c) {
  PrivateAct: function(a) {
     if (!a.bool) {
       a.bool = 1;
-      oSym.addTask(100, function(a) {
+      oSym.addTask(200, function(a) {
         for (let i = GetC(a.ZX); i <= GetC(a.ZX)+2; i++) {
           for (l = 0; l < 4; l++) {
             if (oGd.$[a.R + "_" + i + "_" + l]) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
-              m&&(m.HP -= 50),
+              m&&(m.HP -= 100),
                 m && (m.HP <= 0) && m.Die()
             }
           }
         };
-        a.HP >= 1 && a.beAttacked && oSym.addTask(100, arguments.callee, [a]);
+        a.HP >= 1 && a.beAttacked && oSym.addTask(200, arguments.callee, [a]);
       }, [a]);
     }
   },
@@ -6070,7 +6069,7 @@ ChkActs1: function(g, e, h, d) {
 			return f
 },
   CanDig: {
-    oPotatoMine,oPumpkinHead,oChomper: true
+    oPotatoMine,oChomper: true
   },
   JudgeAttack_Dig: function() {
     var g = this,
