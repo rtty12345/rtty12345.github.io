@@ -4835,7 +4835,7 @@ oZomboni = function() {
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
 			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
-                            p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.canTrigger=0);
+                            p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
 			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGatlingPea")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
                         }
                     }
@@ -5604,9 +5604,12 @@ BoomFire: function (y) {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& p.EName != "oTorchwood"&&p.EName!="oGatlingPea"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 50),(p.canTrigger=0),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
-			p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"&&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
-                        p && (p.canEat) && (p.HP <= 0) && p.Die();
+                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
+				    p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& 
+				    p.EName != "oTorchwood"&&p.EName!="oGatlingPea"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 50),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
+		p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"
+				    &&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+                p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
 	let Z= oZ.getArHZ($(d).offsetLeft - 50,a.ZX +60, a.R);
@@ -6103,7 +6106,7 @@ bedevil: function(c) {
             if (oGd.$[a.R + "_" + i + "_" + l]) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
-              m&&(m.HP -= 100),(m.canTrigger=1);
+              m&&(m.HP -= 100);
 	      let s= oZ.getArHZ(a.ZX,a.ZX+200,a.R),
               g=s.length;
 	while(g--){
