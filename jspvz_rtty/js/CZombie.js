@@ -186,7 +186,7 @@ return a;
 			e = GetC(c),
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-	}}else if(c&&c.hard==2&&num<=25){c.ChkActs=function(h, f, j, e) {
+	}}else if(c&&c.hard==2&&num<=25){c&&(c.ChkActs==CZombies.prototype.ChkActs)&&c.ChkActs=function(h, f, j, e) {
             var d, c, g;
             !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
                 R: f,
@@ -210,7 +210,7 @@ return a;
                         function(f) {
                             var e = $Z[f],
                                 d;
-                            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src ="images/Zombies/JackintheBoxZombie/Boom.gif"+ Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+                            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src ="images/Zombies/JackinTheBoxZombie/Boom.gif"+ Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
                                 var q = Math.max(1, k - 1),
                                     o = Math.min(oS.R, k + 1),
                                     n = Math.max(1, g - 1),
