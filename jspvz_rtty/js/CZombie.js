@@ -171,13 +171,71 @@ return a;
        Birth: function() {
             var num=Math.round(Math.random()*100);
 		c = this;
-	   if(c&&c.hard&&num>=66){c.HP*=1.35
-	    }else if(c&&c.hard&&num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
-	    }else if(c&&c.hard&&num<33){c.Attack+=100};
+	   if(c&&c.hard==1&&num>=66){c.HP*=1.35;c.OrnHP*=1.35
+	    }else if(c&&c.hard==1&&num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
+	    }else if(c&&c.hard==1&&num<33){c.Attack+=100};
+	if(c&&c.hard==2&&num>=75){c.HP*=2;c.OrnHP*=2;
+	 }else if(c&&c.hard==2&&num>=50){c.Speed*=2;c.getSlow=function(){};
+	}else if(c&&c.hard==2&&num>=25){c.NormalAttack=function(c,b){
+			var d = $Z[c];
+			$P[b].getHurt(d, 2, d.Attack)
+	};c.JudgeAttack=function() {
+			var f = this,
+			c = f.ZX,
+			d = f.R + "_",
+			e = GetC(c),
+			g = oGd.$,
+			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+	}}else if(c&&c.hard==2&&num<=25){c&&(c.HP<=70)&&c.OpenBox(c.id)};
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
             c.PrivateBirth && c.PrivateBirth(c);
+        },
+	OpenBox: function(b) {
+            var a = $Z[b];
+            oSym.addTask(0,
+                function(c) {
+                    $Z[c] && (a.Status =0,oSym.addTask(0,
+                        function(f) {
+                            var e = $Z[f],
+                                d;
+                            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src ="images/Zombies/JackintheBoxZombie/Boom.gif"+ Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+                                var q = Math.max(1, k - 1),
+                                    o = Math.min(oS.R, k + 1),
+                                    n = Math.max(1, g - 1),
+                                    h = Math.min(oS.C, g + 1),
+                                    r = oGd.$,
+                                    l,
+                                    j = "",
+                                    m;
+                                do {
+                                    g = n;
+                                    do {
+                                        j = q + "_" + g + "_";
+                                        for (l = 0; l < 4; l++) {
+                                            (m = r[j + l]) && m.BoomDie()
+                                        }
+                                    } while (g++ < h)
+                                } while (q++ < o)
+                            })(e.R, GetC(e.ZX))) : (function(j, l) {
+                                var m = j - 120,
+                                    o = j + 120,
+                                    h = Math.max(1, l - 1),
+                                    g = Math.min(oS.R, l + 1),
+                                    n,
+                                    k;
+                                do {
+                                    k = (n = oZ.getArZ(m, o, h)).length;
+                                    while (k--) {
+                                        n[k].ExplosionDie()
+                                    }
+                                } while (h++ < g)
+                            })(e.ZX, e.R), e.DisappearDie())
+                        },
+                        [c]))
+                },
+                [b])
         },
 	getCrushed: function(c) {
 			return true
