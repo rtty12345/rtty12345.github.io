@@ -2182,6 +2182,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         OSpeed: 7.2,
         Speed:7.2,
 	HP:1500,
+	SunNum:200,
 	OrnHP:1500,
         beAttackedPointR: 101,
 	Attack:400,
