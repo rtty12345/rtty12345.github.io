@@ -2148,7 +2148,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			var d = $Z[c];
 			$P[b].getHurt(d, 2, d.Attack)
 		}
-}):InheritO(OrnIZombie, {
+}):InheritO(OrnIZombies, {
         PicArr: (function() {
             var a ="images/Zombies/FlagZombie/",
 		b= "images/Zombies/Zombie/";
