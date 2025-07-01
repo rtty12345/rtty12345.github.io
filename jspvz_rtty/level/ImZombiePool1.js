@@ -9,7 +9,7 @@ oS.Init({
         backgroundImage: "images/interface/background4.jpg",
         Coord: 2, DKind: 0, LF: [0, 1, 1, 2, 2, 1, 1],
         ShowScroll: false, ProduceSun: false,
-        SunNum:400, BrainsNum: 6, CardKind: 1,
+        SunNum:600, BrainsNum: 6, CardKind: 1,
         LevelName: "泳池奇遇",
         LvlEName: "ImZombiePool1",
         LoadMusic: "Mountains", StartGameMusic: "Mountains",
