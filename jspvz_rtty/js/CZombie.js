@@ -2014,6 +2014,29 @@ oZombie3= InheritO(oZombie, {
 		9 : "images/Zombies/Zombie/3.gif"
 	}
 }),
+
+OrnIZombies = function() {
+	var a = function(f, b) {
+		var d = f.OrnHP,
+		c = f.HP,
+		e = OrnNoneZombies.prototype; (d = f.OrnHP -= b) < 1 && (f.HP += d, f.Ornaments = 0, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 =f.getHit4= e.getHit);
+		f.SetAlpha(f, f.EleBody, 50, 0.5);
+		oSym.addTask(10,
+		function(h, g) { (g = $Z[h]) && g.SetAlpha(g, g.EleBody, 100, 1)
+		},
+		[f.id])
+	};
+	return InheritO(OrnNoneZombies, {
+		Ornaments: 1,
+		OrnLostNormalGif: 9,
+		OrnLostAttackGif: 10,
+		getHit: a,
+		getHit0: a,
+		getHit1: a,
+		getHit2: a,
+		getHit3: a
+	})
+} (),
 oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	PicArr: (function() {
 		var a = "images/Zombies/FlagZombie/";
@@ -2178,35 +2201,13 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	while(z--){
 	if(a[z].EName!="oFlagZombie"){
 	a[z].getr(a[z],-5)
-	}
+	    }
 	}
             this.PrivateAct && this.PrivateAct(this);
             return g
         },	
         Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">高（1500+1500）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
     }),
-OrnIZombies = function() {
-	var a = function(f, b) {
-		var d = f.OrnHP,
-		c = f.HP,
-		e = OrnNoneZombies.prototype; (d = f.OrnHP -= b) < 1 && (f.HP += d, f.Ornaments = 0, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 =f.getHit4= e.getHit);
-		f.SetAlpha(f, f.EleBody, 50, 0.5);
-		oSym.addTask(10,
-		function(h, g) { (g = $Z[h]) && g.SetAlpha(g, g.EleBody, 100, 1)
-		},
-		[f.id])
-	};
-	return InheritO(OrnNoneZombies, {
-		Ornaments: 1,
-		OrnLostNormalGif: 9,
-		OrnLostAttackGif: 10,
-		getHit: a,
-		getHit0: a,
-		getHit1: a,
-		getHit2: a,
-		getHit3: a
-	})
-} (),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
