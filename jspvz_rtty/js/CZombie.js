@@ -2178,18 +2178,18 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
             return ["images/Card/Zombies/FlagZombie.png", a + "0.gif", a + "Walk.gif",a + "Attack.gif", a + "FlagZombieLostHead.gif",a+ "FlagZombieLostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random,"images/Zombies/Zombie/ZombieDie.gif" + $Random,"images/Zombies/Zombie/BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif",a + "01.gif"]
         })(),
         EName: "oFlagZombie",
-        CName: "橄榄旗帜僵尸",
+        CName: "推进者旗帜",
         OSpeed: 7.2,
         Speed:7.2,
 	HP:1500,
-	SunNum:200,
+	SunNum:250,
 	OrnHP:1500,
         beAttackedPointR: 101,
-	Attack:400,
 	AudioArr:["plastichit"],
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
+	CanPass:function(d,c){return c},
         ChkActs: function(h, f, j, e) {
             var d, c, g;
             !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
@@ -2206,8 +2206,40 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	}
             this.PrivateAct && this.PrivateAct(this);
             return g
-        },	
-        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">高（1500+1500）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
+	},
+			AttackZombie: function(d, c) {
+			oSym.addTask(10,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 40, 0), h.JudgeAttack())
+			},
+			[d, c])
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(10,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c])
+		},
+        NormalAttack: function(d, c) {
+            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+            oSym.addTask(50, function(e) {
+                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+            }, [d]);
+            oSym.addTask(25, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
+            }, [d, c]);
+            this.PrivateAttack && this.PrivateAttack(this)
+        },
+        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（1500（头盔）+1500）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
     }),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
