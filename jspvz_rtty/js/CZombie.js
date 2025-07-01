@@ -2014,7 +2014,7 @@ oZombie3= InheritO(oZombie, {
 		9 : "images/Zombies/Zombie/3.gif"
 	}
 }),
-oFlagZombie =Math.round(Math.random()*2?InheritO(oZombie, {
+oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	PicArr: (function() {
 		var a = "images/Zombies/FlagZombie/";
 		return ["images/Card/Zombies/FlagZombie.png", a + "FlagZombie.gif", a + "FlagZombie.gif",a + "FlagZombieAttack.gif", a + "FlagZombieLostHead.gif", a + "FlagZombieLostHeadAttack.gif", "images/Zombies/Zombie/unlook.gif" + $Random, "images/Zombies/Zombie/ZombieDie.gif" + $Random, "images/Zombies/Zombie/BoomDie.gif" + $Random, a + "1.gif"]
@@ -2162,6 +2162,10 @@ oFlagZombie =Math.round(Math.random()*2?InheritO(oZombie, {
 	OrnHP:1500,
         beAttackedPointR: 101,
 	Attack:400,
+	AudioArr:["plastichit"],
+	PlayNormalballAudio: function() {
+		PlayAudio("plastichit")
+	},
         ChkActs: function(h, f, j, e) {
             var d, c, g;
             !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
@@ -2180,7 +2184,7 @@ oFlagZombie =Math.round(Math.random()*2?InheritO(oZombie, {
             return g
         },	
         Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#FF0000">高（1500+1500）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
-    })),
+    }),
 OrnIZombies = function() {
 	var a = function(f, b) {
 		var d = f.OrnHP,
