@@ -888,7 +888,7 @@ oGatlingPea1= InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m += 5) <50 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ0(m, k), 4, i) && ((m += 5) <50 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
@@ -1033,7 +1033,7 @@ oSplitPea = InheritO(oPeashooter, {
 	},
 	CheckLoop: function(a, b) {
 		this.NormalAttack(b);
-		oSym.addTask(140,
+		oSym.addTask(this.highwork?70:140,
 		function(c, e, g) {
 			var f; (f = $P[c]) && f.AttackCheck1(e, g)
 		},
@@ -1227,7 +1227,7 @@ oPumpkinHead = InheritO(CPlants, {
 		switch (true) {
 		case c && c < 3 : d.Die();
 			break;
-		case (d.HP -= b) < 1 : d.Die();
+		case (d.HP -= b) < 1 : d.Die()&&e.getHit0(e,1000,0);
 			break;
 		case d.HP < 1334 : d.HurtStatus < 2 && (d.HurtStatus = 2, a.childNodes[1].src = "images/Plants/PumpkinHead/Pumpkin_damage2.gif");
 			break;
@@ -1411,7 +1411,7 @@ oTorchwood = InheritO(CPlants, {
 		var a = c.R,
 		b = c.C;
 		oGd.$Torch[a + "_" + b] = c.id;
-		oS.HaveFog && oGd.GatherFog(a, b, 1, 1, 0)
+		oS.HaveFog && oGd.GatherFog(a, b, 1, 1, 0);
 	},
 	InitTrigger: function() {},
 	PrivateDie: function(c) {
@@ -2767,7 +2767,7 @@ oCactus = InheritO(CPlants, {
 		var a = this.id;
 		this.NormalAttack(b);
 		this.ES();
-		this.Status == 0 && oSym.addTask(200,
+		this.Status == 0 && oSym.addTask(this.highwork?100:200,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.ES() && g.AttackCheck1(f, h)
 		},
@@ -2777,7 +2777,7 @@ oCactus = InheritO(CPlants, {
 		var a = this.id;
 		this.NormalAttack(b);
 		this.ES();
-		this.Status && oSym.addTask(140,
+		this.Status && oSym.addTask(this.highwork?40:140,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.ES() && g.AttackCheck12(f, h)
 		},
