@@ -514,7 +514,16 @@ oSnowPea = InheritO(oPeashooter, {
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
 	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果，有概率冻结",
 	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果，有概率冻结<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
-	NormalAttack: Math.round(Math.random()*100)>2?function() {
+	CheckLoop: function(b, c) {
+		var a = this.id;
+		Math.round(Math.random()*100)>2?this.NormalAttack(b):this.NormalAttack1(b);
+		oSym.addTask(this.highwork?70:140,
+		function(e, f, h) {
+			var g; (g = $P[e]) && g.AttackCheck1(f, h)
+		},
+		[a, b, c])
+	},
+	NormalAttack: function() {
 		var a = this,
 		b = "PB" + Math.random();
 		EditEle(a.BulletEle.cloneNode(false), {
@@ -543,22 +552,23 @@ oSnowPea = InheritO(oPeashooter, {
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
 		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>15?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
-	}:function(a) {
-	this.NormalAttack1();
+	},
+	NormalAttack1:function(a) {
+	this.NormalAttack2();
 	oSym.addTask(10,
 	function(d, b) {
 		var c = $P[d];
-		c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
+		c && c.NormalAttack2(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
 		[this.id,4])
 	},
-	NormalAttack1: function() {
+	NormalAttack2: function() {
 		var g = this,
-		f = g.pixelLeft + 58,
-		d = f - 20,
-		b = g.pixelTop + 30,
+		f = g.pixelLeft-20,
+		d = f-30,
+		b = g.pixelTop,
 		c = g.R,
-		e = f + 30,
+		e = f,
 		a = function(j, i, h) {
 			return (j && j.Altitude == 1 ? (j.getSlowPea(j,20,i),ClearChild(h), false) : true)
 		}; (function(h) {
@@ -570,7 +580,7 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ0(m, k), 4, i) && ((m += 5) >900 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ0(m, k), 0, i) && ((m += 5) >900 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
@@ -585,7 +595,7 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 7, i) && ((n += 3) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+				j(oZ.getZ0(n, l), 0, i) && ((n += 3) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
 					left: (m += 3) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
@@ -603,7 +613,7 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 1, i) && ((n += 3) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+				j(oZ.getZ0(n, l), 0, i) && ((n += 3) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
 					left: (m += 3) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
