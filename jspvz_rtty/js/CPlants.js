@@ -508,12 +508,12 @@ oPeashooter = InheritO(CPlants, {
 oSnowPea = InheritO(oPeashooter, {
 	EName: "oSnowPea",
 	CName: "寒冰射手",
-	SunNum: 275,
+	SunNum: 225,
 	BKind: 1,
-	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
+	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
-	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果，有概率冻结",
-	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果，有概率冻结<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
+	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果，有概率冻结，2%概率散射一堆冻结豌豆",
+	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果，有概率冻结，2%概率散射一些冻结豌豆，对不免疫冻结的僵尸造成超高伤害<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		Math.round(Math.random()*100)>2?this.NormalAttack(b):this.NormalAttack1(b);
@@ -570,7 +570,11 @@ oSnowPea = InheritO(oPeashooter, {
 		c = g.R,
 		e = f,
 		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getSlowPea(j,20,i),ClearChild(h), false) : true)
+			return (j && j.Altitude == 1 ? (j.getSlowPea(j,20,i),ClearChild(h),(SetStyle(h, {
+				left:j.ZX-12 + "px",
+				width: "52px",
+				height: "46px"
+			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]), false) : true)
 		}; (function(h) {
 			oSym.addTask(15,
 			function(j) {
