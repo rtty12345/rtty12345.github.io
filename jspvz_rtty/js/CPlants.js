@@ -570,7 +570,7 @@ oSnowPea = InheritO(oPeashooter, {
 		c = g.R,
 		e = f,
 		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getSlowPea(j,20,i),ClearChild(h),(SetStyle(h, {
+			return (j && j.Altitude == 1 ? (j.getSlowPea(j,20,i),(SetStyle(h,{
 				left:j.ZX-12 + "px",
 				width: "52px",
 				height: "46px"
@@ -636,7 +636,7 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 5) > 900 || (k -= 4) < -15 ? ClearChild(i) : (SetStyle(i, {
+				j(oZ.getZ0(n, l), 0, i) && ((n += 5) > 900 || (k -= 1) < -15 ? ClearChild(i) : (SetStyle(i, {
 					left: (m += 5) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
@@ -654,7 +654,7 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 5) > 900 || (k += 4) > 600 ? ClearChild(i) : (SetStyle(i, {
+				j(oZ.getZ0(n, l), 0, i) && ((n += 5) > 900 || (k += 1) > 600 ? ClearChild(i) : (SetStyle(i, {
 					left: (m += 5) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
