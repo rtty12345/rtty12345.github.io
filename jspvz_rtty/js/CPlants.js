@@ -564,7 +564,7 @@ oSnowPea = InheritO(oPeashooter, {
 	},
 	NormalAttack2: function() {
 		var g = this,
-		f = g.pixelLeft-20,
+		f = g.pixelLeft-5,
 		d = f-30,
 		b = g.pixelTop,
 		c = g.R,
@@ -586,7 +586,7 @@ oSnowPea = InheritO(oPeashooter, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
+		})("PStarB" + Math.random()); (function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -600,11 +600,11 @@ oSnowPea = InheritO(oPeashooter, {
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
-			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+			[f, c, d, b+30, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
+		})("PStarB" + Math.random()); (function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -618,11 +618,11 @@ oSnowPea = InheritO(oPeashooter, {
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
-			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
+			[f, c, d, b-30, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());
+		})("PStarB" + Math.random());
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
