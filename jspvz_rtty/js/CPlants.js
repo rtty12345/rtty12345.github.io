@@ -555,12 +555,12 @@ oSnowPea = InheritO(oPeashooter, {
 	},
 	NormalAttack1:function(a) {
 	this.NormalAttack2();
-	oSym.addTask(10,
+	oSym.addTask(5,
 	function(d, b) {
 		var c = $P[d];
-		c && c.NormalAttack2(); --b && oSym.addTask(15, arguments.callee, [d, b])
+		c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
 		},
-		[this.id,4])
+		[this.id,9])
 	},
 	NormalAttack2: function() {
 		var g = this,
@@ -1307,7 +1307,8 @@ oPumpkinHead = InheritO(CPlants, {
 		switch (true) {
 		case c && c < 3 : d.Die();
 			break;
-		case (d.HP -= b) < 1 : d.Die()&&e.getHit0(e,1000,0);
+		case (d.HP -= b) < 1 : d.Die();
+			e.getHit0(e,1000,0);
 			break;
 		case d.HP < 1334 : d.HurtStatus < 2 && (d.HurtStatus = 2, a.childNodes[1].src = "images/Plants/PumpkinHead/Pumpkin_damage2.gif");
 			break;
@@ -1333,7 +1334,7 @@ oFlowerPot = InheritO(CPlants, {
 	width: 72,
 	height: 68,
 	beAttackedPointR: 52,
-	SunNum: 25,
+	SunNum:0,
 	BookHandBack: 5,
 	PicArr: ["images/Card/Plants/FlowerPot.png", "images/Plants/FlowerPot/0.gif", "images/Plants/FlowerPot/FlowerPot.gif"],
 	PKind: 0,
@@ -1359,6 +1360,7 @@ oLilyPad = InheritO(oFlowerPot, {
 	CName: "睡莲",
 	width: 79,
 	height: 58,
+	SunNum:0,
 	beAttackedPointR: 59,
 	PicArr: ["images/Card/Plants/LilyPad.png", "images/Plants/LilyPad/0.gif", "images/Plants/LilyPad/LilyPad.gif"],
 	getShadow: function(a) {
