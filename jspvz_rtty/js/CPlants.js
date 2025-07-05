@@ -595,8 +595,8 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 3) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 3) + "px",
+				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
@@ -613,8 +613,8 @@ oSnowPea = InheritO(oPeashooter, {
 			[h]);
 			oSym.addTask(1,
 			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 3) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 3) + "px",
+				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
@@ -974,7 +974,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());
+		})("GStarB" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -993,7 +993,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());
+		})("GStarB" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1012,7 +1012,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());
+		})("GStarB" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1031,7 +1031,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random());
+		})("GStarB" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1050,7 +1050,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("StarB" + Math.random())
+		})("GStarB" + Math.random())
 	},
 	NormalAttack: function(a) {
 		this.NormalAttack1();
