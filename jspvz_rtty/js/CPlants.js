@@ -604,7 +604,7 @@ oSnowPea = InheritO(oPeashooter, {
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
-			[f, c, d, b+30, EditEle(g.BulletEle.cloneNode(false), {
+			[f, c, d, b+15,EditEle(g.BulletEle.cloneNode(false), {
 				id: h
 			},
 			0, EDPZ), a])
@@ -622,7 +622,7 @@ oSnowPea = InheritO(oPeashooter, {
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
-			[f, c, d, b-30, EditEle(g.BulletEle.cloneNode(false), {
+			[f, c, d, b-15, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
 			},
 			0, EDPZ), a])
