@@ -210,7 +210,7 @@ return a;
                         function(f) {
                             var e = $Z[f],
                                 d;
-                            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src ="images/Zombies/JackinTheBoxZombie/Boom.gif"+ Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+                            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"),EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
                                 var q = Math.max(1, k - 1),
                                     o = Math.min(oS.R, k + 1),
                                     n = Math.max(1, g - 1),
