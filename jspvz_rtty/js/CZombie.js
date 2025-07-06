@@ -68,7 +68,7 @@ try{
                     left:h.ZX + "px",
                     top:h.pixelTop + 40 + "px"
                 },EDPZ,0);
-if($(d).offsetleft!=h.ZX||h.HP=0){
+if(($(d).offsetLeft)!=h.ZX||h.HP=0){
 	ClearChild($(d))
 }
   }
