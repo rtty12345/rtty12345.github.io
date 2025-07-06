@@ -65,8 +65,6 @@ try{
   C.innerHTML = B;
   B += '<div style="position:relative;width:' + h.pixelTop + ' px; height:' + h.ZX + 'px;font-size:12px;margin-top:1px;margin-left:auto;margin-right:auto;color:#000"><div class="hp">血量：' + (h.OrnHP + h.HP) + "</div></div>";}
 catch{};
-  return g
-}
             return g
         },
 		ChkActs1: function(g, e, h, d) {
