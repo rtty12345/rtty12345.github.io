@@ -57,6 +57,16 @@ var CZombies = function(b, a) {
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
             this.PrivateAct && this.PrivateAct(this);
+try{
+  let C = $n("HP");
+  let A = "HP" + Math.random();
+  let B = "";
+  C.id = A;
+  C.innerHTML = B;
+  B += '<div style="position:relative;width:' + h.pixelTop + ' px; height:' + h.ZX + 'px;font-size:12px;margin-top:1px;margin-left:auto;margin-right:auto;color:#000"><div class="hp">血量：' + (h.OrnHP + h.HP) + "</div></div>";}
+catch{};
+  return g
+}
             return g
         },
 		ChkActs1: function(g, e, h, d) {
