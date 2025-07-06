@@ -58,10 +58,16 @@ var CZombies = function(b, a) {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
             this.PrivateAct && this.PrivateAct(this);
 try{
-let C = $("HP");
-  let A = "hp" + Math.random();
-  C.id = A;
-  C.innerHTML='血量:' + (h.OrnHP + h.HP)
+         let div = $n("div");
+                let d = "Pea" + Math.random();
+                div.id = d;
+                div.innerHTML = '<img src="images/interface/FlagMeterFull.png">';
+                EditEle(div,0,{
+                    position:"absolute",
+                    zIndex:"24",
+                    left:h.ZX + "px",
+                    top:h.pixelTop + 40 + "px"
+                },EDPZ,0);
   }
 catch{};
             return g
