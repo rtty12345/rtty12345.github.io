@@ -62,8 +62,8 @@ try{
   let A = "HP" + Math.random();
   let B = "";
   C.id = A;
-  C.innerHTML = B;
-  B += '<div class="hp" style="position:relative;width:' + h.pixelTop + 'px; height:'+ h.ZX + 'px;font-size:12px;margin-top:1px;margin-left:auto;margin-right:auto;color:#000">血量：' + (h.OrnHP + h.HP)}
+  B += '<div class="hp" style="position:relative;width:' + h.pixelTop + 'px; height:'+ h.ZX + 'px;font-size:12px;margin-top:1px;margin-left:auto;margin-right:auto;color:#000">血量：' + (h.OrnHP + h.HP);
+  C.innerHTML = B;};
 catch{};
             return g
         },
