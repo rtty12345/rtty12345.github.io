@@ -3638,7 +3638,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
             if(!a.bool){
 	        for (let i = 0; i <= 0; i++) {
                 oP.SetTimeoutTomZombie([oNewspaperZombie]);
-		try{oP.SetTimeoutWaterZombie(7,9,2,[oNewspaperZombie])}catch(){}
+		try{oP.SetTimeoutWaterZombie(7,9,2,[oNewspaperZombie])}catch(){};
 		a.bool=1;
               }
 	}else if(a.HP<=800){
