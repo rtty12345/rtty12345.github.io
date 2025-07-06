@@ -554,11 +554,17 @@ oSnowPea = InheritO(oPeashooter, {
 		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>15?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	},
 	NormalAttack1:function(a) {
+	if(this.highwork==2){
+	this.NormalAttack();
+	return;	
+	}
 	this.NormalAttack2();
 	oSym.addTask(5,
 	function(d, b) {
 		var c = $P[d];
 		c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
+		c&&c.highwork=2;
+		oSym.addTask(1000,function(c){c&&c.highwork=0},[c])
 		},
 		[this.id,9])
 	},
