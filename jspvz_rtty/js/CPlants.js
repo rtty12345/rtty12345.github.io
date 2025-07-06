@@ -570,7 +570,7 @@ oSnowPea = InheritO(oPeashooter, {
 		c = g.R,
 		e = f,
 		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getSlowPea(j,20,i),(SetStyle(h,{
+			return (j && j.Altitude == 1 ? (j.getSlowPea(j,60,i),(SetStyle(h,{
 				left:j.ZX-12 + "px",
 				width: "52px",
 				height: "46px"
