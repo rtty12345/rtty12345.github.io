@@ -58,10 +58,10 @@ var CZombies = function(b, a) {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
             this.PrivateAct && this.PrivateAct(this);
 try{
-  let C = $n("HP");
-  let A = "HP" + Math.random();
+let C = $n("HP");
+  let A = "hp" + Math.random();
   C.id = A;
-  C.innerHTML = '<div class="hp"血量：' + (h.OrnHP + h.HP)+'</div>';
+  C.innerHTML='<div class="hp";style="margin-left:auto;margin-right:auto;width:'+h.pixelTop+'px;height:'+h.ZX+'px;text-align:left;font-size:13px;line-height:16px”>血量:' + (h.OrnHP + h.HP) + '</div>'
   }
 catch{};
             return g
