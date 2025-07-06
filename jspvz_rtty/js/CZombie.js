@@ -172,7 +172,7 @@ return a;
             var num=Math.round(Math.random()*100);
 		c = this;
 	   if(c&&c.hard==1&&num>=66){c.HP*=1.35;c.OrnHP*=1.35
-	    }else if(c&&c.hard==1&&num>=33){c.Speed+=1.6,c.oSpeed+=1,c.LostPaperSpeed+=2
+	    }else if(c&&c.hard==1&&num>=33){c.Speed*=1.35,c.oSpeed*=1.35,c.LostPaperSpeed+=3
 	    }else if(c&&c.hard==1&&num<33){c.Attack+=100};
 	if(c&&c.hard==2&&num>=75){c.HP*=2;c.OrnHP*=2;
 	 }else if(c&&c.hard==2&&num>=50){c.Speed*=2;c.getSlow=function(){};
