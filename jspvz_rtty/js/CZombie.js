@@ -2046,7 +2046,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	CName: "处决者旗帜",
 	OSpeed: 8,
 	Speed: 8,
-	SunNum: 275,
+	SunNum: 300,
 	Attack:500,
 	HP:500,
 	BreakPoint:1,
@@ -2072,7 +2072,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
                 PlayAudio("explosion");
                 let R = (a.R - 1) || 0,
                     RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC(a.ZX + 80);
+                    C = GetC(a.ZX);
                 for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
@@ -2182,7 +2182,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         OSpeed: 7.2,
         Speed:7.2,
 	HP:1500,
-	SunNum:250,
+	SunNum:225,
 	OrnHP:1500,
         beAttackedPointR: 101,
 	AudioArr:["plastichit"],
@@ -2609,7 +2609,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
 	OrnHP: 2500,
 	HP:400,
 	Lvl: 3,
-	SunNum: 250,
+	SunNum: 200,
 	StandGif: 11,
 	width: 154,
 	height: 160,
@@ -2768,7 +2768,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return 2
 	},
 	Lvl: 2,
-	SunNum: 100,
+	SunNum: 125,
 	BookHandPosition: "-30px 70%",
 	PicArr: (function() {
 		var a = "images/Zombies/PoleVaultingZombie/";
@@ -3070,7 +3070,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	SunNum: 100,
+	SunNum: 125,
 	BreakPoint:1,
 	LostPaperSpeed: 32,
 	LostPaperAtack:800,
@@ -3576,7 +3576,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
-	SunNum: 350,
+	SunNum: 325,
 	BreakPoint:1,
 	LostPaperSpeed:10,
 	LostPaperAtack:800,
@@ -3646,14 +3646,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	a.Speed=a.LostPaperSpeed;
 	    }
 	},
-	Birth: function() {
-            var c = this;
-	    c&&c.hard&&(c.Speed+=1,c.oSpeed+=1,c.Attack+=100,c.LostPaperSpeed+=1);
-            $Z[c.id] = c;
-            oZ.add(c);
-            c.BirthCallBack(c);
-	    AppearTombstones(8,9,1);
-            c.PrivateBirth && c.PrivateBirth(c);
+	PrivateBirth: function() {
+	    AppearTombstones(8,9,2);
         },
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
@@ -4446,7 +4440,7 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	CName: "路障鸭子救生圈僵尸",
 	OrnHP: 500,
 	Lvl: 2,
-	SunNum: 150,
+	SunNum: 125,
 	CanDisplay: 0,
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 10,
@@ -5326,7 +5320,7 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 oImp = InheritO(OrnNoneZombies, {
 	EName: "oImp",
 	CName: "小鬼僵尸",
-	HP: 300,
+	HP: 200,
 	BreakPoint: 23,
 	beAttackedPointL: 30,
 	beAttackedPointR: 60,
@@ -5353,7 +5347,7 @@ oImp = InheritO(OrnNoneZombies, {
 		a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});
 		},[a])
 	},
-	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系。</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
+	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系，隔一段时间会瞬移一段距离</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
 	GoingDie: function() {
 		var b = this,
 		c = b.id,
@@ -5622,7 +5616,7 @@ BoomFire: function (y) {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
         OrnHP:2000,
-        HP: 900,
+        HP: 800,
         Lvl: 3,
         SunNum: 200,
         StandGif: 13,
@@ -5968,7 +5962,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   EName: "oDiggerZombie",
   CName: "矿工僵尸",
   Lvl: 4,
-  SunNum: 175,
+  SunNum: 200,
   HP: 800,
   BreakPoint: 70,
   width: 167,
