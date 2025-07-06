@@ -3648,7 +3648,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	    }
 	},
 	PrivateBirth: function() {
-	    try{AppearTombstones(8,9,(Math.round(Math.random()*1+1)))}catch(){}
+	    try{AppearTombstones(8,9,1)}catch(){}
         },
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
