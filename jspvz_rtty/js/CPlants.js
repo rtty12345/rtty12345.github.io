@@ -563,8 +563,8 @@ oSnowPea = InheritO(oPeashooter, {
 	function(d, b) {
 		var c = $P[d];
 		c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
-		c&&c.highwork=2;
-		oSym.addTask(700,function(c){c&&c.highwork=0},[c])
+		c&&(c.highwork=2);
+		oSym.addTask(700,function(c){c&&(c.highwork=0)},[c])
 		},
 		[this.id,9])
 	},
