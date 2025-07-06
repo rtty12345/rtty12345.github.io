@@ -61,7 +61,7 @@ try{
 let C = $n("HP");
   let A = "hp" + Math.random();
   C.id = A;
-  C.innerHTML='<div class="hp";style="margin-left:auto;margin-right:auto;width:'+h.pixelTop+'px;height:'+h.ZX+'px;text-align:left;font-size:13px;line-height:16px”>血量:' + (h.OrnHP + h.HP) + '</div>'
+  C.innerHTML='<div class="hp";style="color:#000;position:relative;margin-left:auto;margin-right:auto;width:'+h.pixelTop+'px;height:'+h.ZX+'px;text-align:left;font-size:13px;line-height:16px”>血量:' + (h.OrnHP + h.HP) + '</div>'
   }
 catch{};
             return g
