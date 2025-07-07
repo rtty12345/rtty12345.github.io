@@ -59,9 +59,11 @@ var CZombies = function(b, a) {
 	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
 	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll),
+		let A= "hp" + Math.random();
+		dHP.id=A;
 		a =(h.OrnHP+h.HP);
-		b.innerHTML ='<div>'+a+"</div>"
-		$(dHP.id).style.left = $(dHP.id).offsetLeft-h.Speed+"px";
+		b.innerHTML ='<div>'+a+"</div>";		
+		$(A).style.left = $(A).offsetLeft-h.Speed+"px";
 		h.HP<h.BreakPoint&&ClearChild($(dHP.id))
 	}
             this.PrivateAct && this.PrivateAct(this);
