@@ -60,7 +60,7 @@ var CZombies = function(b, a) {
 	if(h.HPlook){
 	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll),
 		a =(h.OrnHP+h.HP);
-		b.innerHTML ='<span>'+a+"</span>"
+		b.innerHTML ='<div>'+a+"</div>"
 	}
             return g
         },
@@ -405,6 +405,7 @@ return a;
 		},
 		NormalDie: function() {
 			var c = this;
+			try{ClearChild($("dHP"))}catch{};
 			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
 			oSym.addTask(250, ClearChild, [c.Ele]);
 			c.HP = 0;
