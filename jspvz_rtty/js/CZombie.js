@@ -66,7 +66,7 @@ var CZombies = function(b, a) {
 	oSym.addTask(1,function(A,h){
 		try{
 		$(A).style.left=h.ZX+"px";
-		if(h.HP<=h.BreakPoint||!$Z[h.id]){
+		if(!h.PZ||h.HP<=h.BreakPoint||!$Z[h.id]){
 			ClearChild($(A));
 		}
 	oSym.addTask(1,arguments.callee,[A,h])
