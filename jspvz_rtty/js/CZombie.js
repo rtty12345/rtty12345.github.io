@@ -62,9 +62,16 @@ var CZombies = function(b, a) {
 		let A= "hp" + Math.random();
 		dHP.id=A;
 		let a =(h.OrnHP+h.HP);
-		b.innerHTML ='<div>'+a+"</div>";		
-		$(A).style.left = $(A).offsetLeft-h.Speed+"px";
-		h.HP<h.BreakPoint&&ClearChild($(dHP.id))
+		b.innerHTML ='<div>'+a+"</div>";
+	oSym.addTask(1,function(A,h){
+		try{
+		$(A).style.left=h.ZX+"px";
+		if(h.HP<=h.BreakPoint||!$Z[h.id]){
+			ClearChild($(A));
+		}
+	oSym.addTask(1,arguments.callee,[A,h])
+	}catch{}
+	   },[A,h]);
 	}
             this.PrivateAct && this.PrivateAct(this);
             return g
