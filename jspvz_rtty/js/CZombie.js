@@ -57,22 +57,6 @@ var CZombies = function(b, a) {
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
             this.PrivateAct && this.PrivateAct(this);
-try{
-         let div = $n("div");
-                let d = "Pea" + Math.random();
-                div.id = d;
-                div.innerHTML = '<img src="images/interface/FlagMeterFull.png">';
-                EditEle(div,0,{
-                    position:"absolute",
-                    zIndex:"24",
-                    left:h.ZX + "px",
-                    top:h.pixelTop + 40 + "px"
-                },EDPZ,0);
-if($(d).offsetLeft>h.ZX||h.HP<h.BreakPoint){
-	ClearChild($(d))
-}
-  }
-catch{};
             return g
         },
 		ChkActs1: function(g, e, h, d) {
