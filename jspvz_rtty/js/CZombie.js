@@ -64,13 +64,11 @@ var CZombies = function(b, a) {
 		let a =(h.OrnHP+h.HP);
 		b.innerHTML ='<div>'+a+"</div>";
 	oSym.addTask(1,function(A,h){
-		try{
 		$(A).style.left=h.ZX+"px";
 		if(!h.PZ||h.HP<=h.BreakPoint||!$Z[h.id]){
 			ClearChild($(A));
 		}
 	oSym.addTask(1,arguments.callee,[A,h])
-	}catch{}
 },[A,h]);
 	}
             this.PrivateAct && this.PrivateAct(this);
