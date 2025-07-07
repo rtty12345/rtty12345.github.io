@@ -56,7 +56,7 @@ var CZombies = function(b, a) {
                 ar: [oS.R - 1],
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-	if(h.HPlook&&h.bHP){
+	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
 	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll),
 		a =(h.OrnHP+h.HP);
