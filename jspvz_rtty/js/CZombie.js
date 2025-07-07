@@ -58,10 +58,10 @@ var CZombies = function(b, a) {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll),
+	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll);
 		let A= "hp" + Math.random();
 		dHP.id=A;
-		a =(h.OrnHP+h.HP);
+		let a =(h.OrnHP+h.HP);
 		b.innerHTML ='<div>'+a+"</div>";		
 		$(A).style.left = $(A).offsetLeft-h.Speed+"px";
 		h.HP<h.BreakPoint&&ClearChild($(dHP.id))
