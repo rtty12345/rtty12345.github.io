@@ -414,6 +414,7 @@ return a;
 		},
 		ExplosionDie: function() {
 			var c = this;
+			try{ClearChild($("dHP"))}catch{};
 			c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
 			oSym.addTask(300, ClearChild, [c.Ele]);
 			c.HP = 0;
@@ -421,6 +422,7 @@ return a;
 			c.PZ && oP.MonPrgs()
 		},
 		DisappearDie: function() {
+			try{ClearChild($("dHP"))}catch{};
 			ClearChild(this.Ele);
 			this.HP = 0;
 			delete $Z[this.id];
@@ -428,6 +430,7 @@ return a;
 		},
 		CrushDie: function() {
 			var c = this;
+			try{ClearChild($("dHP"))}catch{};
 			c.GoingDieHead(c.id, c.PicArr, c);
 			ClearChild(c.Ele);
 			c.HP = 0;
