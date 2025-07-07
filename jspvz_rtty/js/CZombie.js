@@ -60,7 +60,7 @@ var CZombies = function(b, a) {
 	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+c.pixelTop+"px;left:"+c.ZX+"px;width:100%;font-size:12px", "", EDAll),
 		a =(c.OrnHP+c.HP);
 		b.innerHTML ='<div>'+a+"</div>"
-		$(d).style.left = $(d).offsetLeft - 5 + "px";
+		$(d).style.left = $(d).offsetLeft-h.Speed+"px";
 	}
             this.PrivateAct && this.PrivateAct(this);
             return g
