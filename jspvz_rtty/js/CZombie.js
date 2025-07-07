@@ -56,6 +56,12 @@ var CZombies = function(b, a) {
                 ar: [oS.R - 1],
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+	if(c.HPlook){
+	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+c.pixelTop+"px;left:"+c.ZX+"px;width:100%;font-size:12px", "", EDAll),
+		a =(c.OrnHP+c.HP);
+		b.innerHTML ='<div>'+a+"</div>"
+		$(d).style.left = $(d).offsetLeft - 5 + "px";
+	}
             this.PrivateAct && this.PrivateAct(this);
             return g
         },
@@ -200,11 +206,6 @@ return a;
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
-	if(c.HPlook){
-	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+c.pixelTop+"px;left:"+c.ZX+"px;width:100%;font-size:12px", "", EDAll),
-		a =(c.OrnHP+c.HP);
-		b.innerHTML ='<div>'+a+"</div>"
-	}
             c.PrivateBirth && c.PrivateBirth(c);
         },
 	OpenBox: function(b) {
