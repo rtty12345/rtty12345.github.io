@@ -58,7 +58,7 @@ var CZombies = function(b, a) {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"-40px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll);
+	var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll);
 		let A= "hp" + Math.random();
 		dHP.id=A;
 		let a =(h.OrnHP+h.HP);
@@ -71,7 +71,7 @@ var CZombies = function(b, a) {
 		}
 	oSym.addTask(1,arguments.callee,[A,h])
 	}catch{}
-	   },[A,h]);
+},[A,h]);
 	}
             this.PrivateAct && this.PrivateAct(this);
             return g
