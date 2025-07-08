@@ -58,18 +58,20 @@ var CZombies = function(b, a) {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-		var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:"+h.pixelTop+"px;left:"+h.ZX+"px;width:100%;font-size:12px", "", EDAll);
-		var A= "hp" + Math.random();
-		dHP.id=A;
-		var a =(h.OrnHP+h.HP);
-		b.innerHTML ='<div>'+a+"</div>";
-	oSym.addTask(1,function(A,h){
-		$(A).style.left=h.ZX+"px";
-		if(!h.PZ||h.HP<=h.BreakPoint||!$Z[h.id]){
-			ClearChild($(A));
-		}
-	oSym.addTask(1,arguments.callee,[A,h])
-},[A,h]);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 60) + "px;left:" + (h.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP > h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX - 50) + "px";
+        b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
 	}
             this.PrivateAct && this.PrivateAct(this);
             return g
@@ -4187,8 +4189,16 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	},
 	getPea: function(c, a, b) {
             PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
-            Math.round(Math.random()*100)>1?c.getHit0(c, a, b):(c.PZ?CustomZombies(new oImp,c.R,GetC(c.ZX-1),1):CustomZombie(oImp,c.R,GetC(c.ZX+1)))
+            c.getHit0(c, a, b)
         },
+		getZPea: function(e, b, c) {
+			PlayAudio(["shieldhit"， "shieldhit2"][Math.floor(Math.random() * 2)]);
+			Math.round(Math.random()*1000)>5?e.getHit0(e, b, c):(e.PZ?CustomZombies(new oImp,e.R,GetC(e.ZX-1),1):CustomZombie(oImp,e.R,GetC(e.ZX+1)))
+		},
+		gethPea: function(e, b, c) {
+			PlayAudio(["shieldhit"， "shieldhit2"][Math.floor(Math.random() * 2)]);
+			e.getHit4(e, b, c)
+		},
         getHit0: function(c, a, b) {
 (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
@@ -4958,7 +4968,15 @@ oZomboni = function() {
 		},
 		getPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
-			Math.round(Math.random()*100)>1?c.getHit0(c, b):(c.PZ?CustomZombies(new oImp,c.R,GetC(c.ZX-1),1):CustomZombie(oImp,c.R,GetC(c.ZX+1)))
+			c.getHit0(c, b)
+		},
+		gethPea: function(c, b) {
+			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			c.getHit0(c, b)
+		},
+		getZPea: function(c, b) {
+			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			c.getHit0(c, b)
 		},
 		getSlowPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
