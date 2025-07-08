@@ -2275,6 +2275,7 @@ if(h.HPlook&&!h.bHP){
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
+}
             this.PrivateAct && this.PrivateAct(this);
             return g
 	},
