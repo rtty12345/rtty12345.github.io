@@ -3685,7 +3685,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
         b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
-    }, [C, h, b]);
+    }, [C, h, b])
+		}
             return g
         },
 	bedevil: function() {},
@@ -3966,6 +3967,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
+		}
             return g
         },
 	ChkActs1: function(g, e, h, d) {
@@ -5056,6 +5058,7 @@ oZomboni = function() {
       }
       oSym.addTask(5, arguments.callee, [C, e, E])
     }, [C, e, E]);
+				}
 			this.PrivateAct && this.PrivateAct(this);
 			return m
 		},
@@ -5580,6 +5583,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
       }
       oSym.addTask(5, arguments.callee, [C, f, E])
     }, [C, f, E]);
+	}
 		return e
 	},
 	NormalAttack: function(c, b) {
