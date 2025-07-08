@@ -1307,6 +1307,23 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 			CustomTop: 400 - g.height + g.GetDY()
 		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
 		g.ChkSpeed(g);
+		if(g.HPlook&&!g.bHP){
+	g.bHP=1;
+    var E= NewEle("daHP", "div", "position:absolute;color:#fff;top:" + (g.pixelTop + 60) + "px;left:" + (g.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "shp" + Math.random();
+    daHP.id = A;
+    var C = $(A);
+    E.innerHTML = '<div>' + (g.OrnHP + g.HP) + "</div>";
+    oSym.addTask(1, function(C, g, E) {
+      ClearChild(C);
+      if (g.HP > g.BreakPoint && $Z[g.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (g.ZX - 50) + "px";
+        E.innerHTML = '<div>' + (g.OrnHP + g.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, g, E])
+    }, [C, g, E]);
+	}
 		return f
 	},
 	ChkSpeed: function(g) {
@@ -1721,6 +1738,23 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 			CustomTop: 400 - g.height + g.GetDY()
 		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
 		g.ChkSpeed(g);
+	if(g.HPlook&&!g.bHP){
+	g.bHP=1;
+    var E= NewEle("daHP", "div", "position:absolute;color:#fff;top:" + (g.pixelTop + 60) + "px;left:" + (g.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "shp" + Math.random();
+    daHP.id = A;
+    var C = $(A);
+    E.innerHTML = '<div>' + (g.OrnHP + g.HP) + "</div>";
+    oSym.addTask(1, function(C, g, E) {
+      ClearChild(C);
+      if (g.HP > g.BreakPoint && $Z[g.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (g.ZX - 50) + "px";
+        E.innerHTML = '<div>' + (g.OrnHP + g.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, g, E])
+    }, [C, g, E]);
+	}
 		return f
 	},
 	ChkSpeed: function(g) {
@@ -2225,6 +2259,22 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	a[z].getr(a[z],-5)
 	    }
 	}
+if(h.HPlook&&!h.bHP){
+	h.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 60) + "px;left:" + (h.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP > h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX - 50) + "px";
+        b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
             this.PrivateAct && this.PrivateAct(this);
             return g
 	},
@@ -3620,6 +3670,22 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
                 ar: [oS.R - 1],
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+		if(h.HPlook&&!h.bHP){
+	h.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 60) + "px;left:" + (h.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP > h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX - 50) + "px";
+        b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
             return g
         },
 	bedevil: function() {},
@@ -3884,6 +3950,22 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
                 ar: [oS.R - 1],
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+		if(h.HPlook&&!h.bHP){
+	h.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 60) + "px;left:" + (h.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP > h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX - 50) + "px";
+        b.innerHTML = '<div>' + (h.OrnHP + h.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
             return g
         },
 	ChkActs1: function(g, e, h, d) {
@@ -4958,6 +5040,22 @@ oZomboni = function() {
 			c > -1 && c < n[1] && (oGd.$Crater[j + "_" + c] = 1, n[1] = c);
 			h > 120 && h < n[2] && (n[2] = h, l.firstChild.style.clip = "rect(0,auto,auto," + f + "px)", l.childNodes[1].style.left = Math.max(0, f) + "px");
 			GetC(e.AttackedLX) > 5 && (e.OSpeed = (e.Speed+= 0.01));
+				if(e.HPlook&&!e.bHP){
+	e.bHP=1;
+    var E= NewEle("edHP", "div", "position:absolute;color:#fff;top:" + (e.pixelTop + 60) + "px;left:" + (e.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "zohp" + Math.random();
+    edHP.id = A;
+    var C = $(A);
+    E.innerHTML = '<div>' +  e.HP + "</div>";
+    oSym.addTask(1, function(C, e, E) {
+      ClearChild(C);
+      if (e.HP >= e.BreakPoint && $Z[e.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (e.ZX - 50) + "px";
+        E.innerHTML = '<div>' + e.HP+ "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, e, E])
+    }, [C, e, E]);
 			this.PrivateAct && this.PrivateAct(this);
 			return m
 		},
@@ -5466,6 +5564,22 @@ oBalloonZombie = InheritO(OrnIZombies, {
 			ar: [oS.R - 1],
 			CustomTop: 400 - f.height + f.GetDY()
 		})), f.ZX = f.AttackedLX -= b, f.Ele.style.left = Math.floor(f.X -= b) + "px", e = 1)) :e=1): e = 1;
+	if(f.HPlook&&!f.bHP){
+	f.bHP=1;
+    var E = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (f.pixelTop + 60) + "px;left:" + (f.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    E.innerHTML = '<div>' + (f.OrnHP + f.HP) + "</div>";
+    oSym.addTask(1, function(C, f, E) {
+      ClearChild(C);
+      if (f.HP > f.BreakPoint && $Z[f.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (f.ZX - 50) + "px";
+        E.innerHTML = '<div>' + (f.OrnHP + f.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, f, E])
+    }, [C, f, E]);
 		return e
 	},
 	NormalAttack: function(c, b) {
@@ -6008,7 +6122,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   GetDTop: 20,
   beAttackedPointL: 65,
   beAttackedPointR: 90,
-  OrnHP: 500,
+  OrnHP: 0,
   OSpeed: 15,
   Speed: 15,
   Altitude: 0, // 挖矿
