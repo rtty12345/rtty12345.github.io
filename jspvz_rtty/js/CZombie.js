@@ -4192,11 +4192,11 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
             c.getHit0(c, a, b)
         },
 		getZPea: function(e, b, c) {
-			PlayAudio(["shieldhit"， "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlayAudio(["shieldhit","shieldhit2"][Math.floor(Math.random() * 2)]);
 			Math.round(Math.random()*1000)>5?e.getHit0(e, b, c):(e.PZ?CustomZombies(new oImp,e.R,GetC(e.ZX-1),1):CustomZombie(oImp,e.R,GetC(e.ZX+1)))
 		},
 		gethPea: function(e, b, c) {
-			PlayAudio(["shieldhit"， "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlayAudio(["shieldhit","shieldhit2"][Math.floor(Math.random() * 2)]);
 			e.getHit4(e, b, c)
 		},
         getHit0: function(c, a, b) {
