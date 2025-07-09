@@ -248,7 +248,7 @@ return a;
                                         n[k].ExplosionDie()
                                     }
                                 } while (h++ < g)
-                            })(e.ZX-120, e.R))
+                            })((e.ZX-120), e.R))
                         },
                         [c]))
                 },
