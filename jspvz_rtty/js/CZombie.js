@@ -203,7 +203,7 @@ return a;
 			e = GetC(c),
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-	}}else if(c&&c.hard==2&&num<=25){c&&(c.OpenBox(c.id))}
+	}};
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
