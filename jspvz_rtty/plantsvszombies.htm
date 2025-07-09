@@ -8,7 +8,30 @@
 <base id="baseURL"></base>
 <link rel="shortcut icon" href="favicon.ico">
 <link type=text/css rel=stylesheet href="g.css">
+<script>
+function zl(){
+let N = prompt("请输入颜色名称，如“红色”");
 
+if (N === "hardpro") {
+    alert("僵尸似乎更强了");
+    CZombies.prototype.hard=2
+} else if (N === "HPlook") {
+    alert("僵尸血量显示");
+    CZombies.prototype.HPlook=1
+} else if (N === "HPlooknone"){
+    alert("僵尸隐藏了自己血量");
+    CZombies.prototype.HPlook=0
+} else if (N === "highplant"){
+    alert("植物更兴奋了");
+CPlants.prototype.highwork=1
+} else if (N === "normalplant"){
+    alert("植物正常了");
+    CPlants.prototype.highwork=0
+}else {
+    alert("没有任何用");
+ }
+}
+</script>
 <script src="js/Cfunction.js"></script>
 <script src="js/CPlants.js"></script>
 <script src="js/CZombie.js"></script>
