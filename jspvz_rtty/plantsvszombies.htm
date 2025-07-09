@@ -10,7 +10,7 @@
 <link type=text/css rel=stylesheet href="g.css">
 <script>
 function zl(){
-let N = prompt("请输入颜色名称，如“红色”");
+let N = prompt("输入指令");
 
 if (N === "hardpro") {
     alert("僵尸似乎更强了");
@@ -27,6 +27,9 @@ CPlants.prototype.highwork=1
 } else if (N === "normalplant"){
     alert("植物正常了");
     CPlants.prototype.highwork=0
+} else if (N === "bedevil"){
+    alert("心控就绪！");
+   for (t in $Z)($Z[t].bedevil!=function(){})?$Z[t].bedevil($Z[t]):$Z[t].DisappearDie()
 }else {
     alert("没有任何用");
  }
@@ -598,7 +601,6 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 <div class="Announcement">
 	<div class="d1">
 		<button type="button" onclick="zl()">指令行&nbsp;&nbsp;</button>
-		<div class="bshare-custom icon-medium-plus"><a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=16c48152-78f6-44e2-bbc7-bcaabd464bba&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 	</div>
 	<div class="d1" style="width:270px;line-height:30px">
 		<marquee onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="2">感谢游玩本改版，原作者是囧姨，特别感谢星云的帮助。想玩原版请自己点击：<a href="http://jspvz.com/plantsvszombies.htm">国内服</a>或者<a href="http://lonelystar.org/plantsvszombies.htm">国际服</a>其他改版：<a href="https://tedu666.github.io/tedu666/Jspvz_LAS/index.html">las版</a>，<a href="https://cutexingyun.github.io/Jspvz_xingyun/plantsvszombies.htm">xingyun版</a></marquee>
