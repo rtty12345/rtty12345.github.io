@@ -203,17 +203,7 @@ return a;
 			e = GetC(c),
 			g = oGd.$,
 			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-	}}else if(c&&c.hard==2&&num<=25){c&&(c.ChkActs=CZombies.prototype.ChkActs)&&(c.ChkActs=function(h, f, j, e) {
-            var d, c, g;
-            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
-                R: f,
-                ar: [oS.R - 1],
-                CustomTop: 400 - h.height + h.GetDY()
-            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-	    h&&(h.HP<=120)&&h.OpenBox(h.id);
-            this.PrivateAct && this.PrivateAct(this);
-            return g
-        })};
+	}}else if(c&&c.hard==2&&num<=25){c&&(c.OpenBox(c.id))
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
@@ -223,7 +213,7 @@ return a;
             var a = $Z[b];
             oSym.addTask(0,
                 function(c) {
-                    $Z[c] && (a.Status =0,oSym.addTask(0,
+                    $Z[c] && (oSym.addTask(0,
                         function(f) {
                             var e = $Z[f],
                                 d;
@@ -258,7 +248,7 @@ return a;
                                         n[k].ExplosionDie()
                                     }
                                 } while (h++ < g)
-                            })(e.ZX, e.R), e.DisappearDie())
+                            })(e.ZX, e.R)
                         },
                         [c]))
                 },
