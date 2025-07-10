@@ -1,7 +1,7 @@
 var CZombies = function(b, a) {
 	return (a = function() {}).prototype = {
 		name: "Zombies",
-		HP: 270,
+		HP: 400,
 		Lvl: 1,
 		NormalGif: 2,
 		CardGif: 0,
