@@ -5905,7 +5905,7 @@ BoomFire: function (y) {
             let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-              ((t = A[w]).A)&& t.shootPea(t)
+              (t = A[w])&& t.shootPea(t)
             }
           }
         };
@@ -5968,7 +5968,7 @@ oSym.addTask(1, function(a) {
             let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-              ((t = A[w]).eW)&& t.shootbedevilPea(t)
+              (t = A[w])&& t.shootbedevilPea(t)
             }
           }
         };
