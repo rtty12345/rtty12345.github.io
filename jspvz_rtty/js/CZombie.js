@@ -166,7 +166,7 @@ shootPea:function(a){
 shootbedevilPea:function(a) {
     if (!a.eW) {
       a.Speed = 1;
-      a.ew= 1;
+      a.eW= 1;
       oSym.addTask(75, function(a) {
         if (!$Z[a.id]) {
           return
