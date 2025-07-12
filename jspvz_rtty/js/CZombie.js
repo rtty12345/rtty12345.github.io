@@ -111,6 +111,96 @@ var CZombies = function(b, a) {
 		getShadow: function(c) {
 			return "left:" + (c.beAttackedPointL - 10) + "px;top:" + (c.height - 22) + "px"
 		},
+shootPea:function(a){
+	if(!a.A){
+	a.A=1;
+	oSym.addTask(75, function(a) {
+        if (!$Z[a.id]) {
+          return
+        }
+	if(!a.PZ){
+	a&&a.shootbedevilPea(a);
+	return;
+	}
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "Pea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB01.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: a.ZX + "px",
+          top: a.pixelTop + 40 + "px"
+        }, EDPZ, 0)
+        oSym.addTask(1, function(z, d, a) {
+          try {
+            $(d).style.left = $(d).offsetLeft - 5 + "px";
+            let pea = $(d);
+            let C = GetC(a.ZX + 40);
+            for (let i = 3; i >= 0; i--) {
+              for (let j = 1; j <= C; j++) {
+                let p = oGd.$[a.R + "_" + j + "_" + i];
+                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" &&
+                  p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
+                p && (p.canEat) && (p.HP <= 0) && p.Die();
+              }
+            }
+	let p = oZ.getArHZ($(d).offsetLeft + 50,a.ZX - 10, a.R);
+          let i = p.length;
+          while (i--) {
+            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), ($(d) && ClearChild($(d)))));
+          }
+            if ($(d).offsetLeft <= 0) {
+              ClearChild($(d));
+              $(d).isDie = true;
+            };
+            !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+          } catch (e) {}
+        }, [z, d, a]);
+        a.HP > 60&&(a.PZ)&&oSym.addTask(125, arguments.callee, [a])
+      }, [a]);
+    }
+  },
+shootbedevilPea:function(a) {
+    if (!a.e) {
+      a.Speed = 1;
+      a.e = 1;
+      oSym.addTask(75, function(a) {
+        if (!$Z[a.id]) {
+          return
+        }
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "Pea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB00.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: a.ZX + "px",
+          top: a.pixelTop + 40 + "px"
+        }, EDPZ, 0)
+        oSym.addTask(1, function(z, d, a) {
+          $(d).style.left = $(d).offsetLeft + 5 + "px";
+          let pea = $(d);
+          let p = oZ.getArZ(a.ZX - 10, $(d).offsetLeft + 50, a.R);
+          let i = p.length;
+          while (i--) {
+            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), ($(d) && ClearChild($(d)))));
+          }
+          if ($(d).offsetLeft >= 900) {
+            ClearChild($(d));
+            $(d).isDie = true;
+          };
+          !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+        }, [z, d, a]);
+        a.HP > 60&& (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
+      }, [a]);
+    }
+  },
 		Init: function(g, i, e, d) {
 			var c = 0,
 			h = this,
@@ -5810,6 +5900,18 @@ BoomFire: function (y) {
         PrivateAct: function(a){
             if(!a.bool){
             a.bool = 1;
+	oSym.addTask(1, function(a) {
+        for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+          if (a.EName == "oPeaZombie" && ($Z[a.id])) {
+            let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
+              w = A.length;
+            while (w--) {
+              (t = A[w]).shootPea&& t.shootPea(t)
+            }
+          }
+        };
+        oSym.addTask(100, arguments.callee, [a])
+      }, [a]);
             oSym.addTask(700,function(a){
 	if(!$Z[a.id]){return}
             let z = $(a.id);
@@ -5861,6 +5963,18 @@ BoomFire: function (y) {
     if (!a.e) {
       a.Speed = 1;
       a.e = 1;
+oSym.addTask(1, function(a) {
+        for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+          if (a.EName == "oPeaZombie" && ($Z[a.id])) {
+            let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
+              w = A.length;
+            while (w--) {
+              (t = A[w]).shootbedevilPea&& t.shootbedevilPea(t)
+            }
+          }
+        };
+        oSym.addTask(100, arguments.callee, [a])
+      }, [a]);
       oSym.addTask(200, function(a) {
 	if(!$Z[a.id]){return}
         let z = $(a.id);
