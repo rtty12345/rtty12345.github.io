@@ -164,9 +164,9 @@ shootPea:function(a){
     }
   },
 shootbedevilPea:function(a) {
-    if (!a.e) {
+    if (!a.eW) {
       a.Speed = 1;
-      a.e = 1;
+      a.ew= 1;
       oSym.addTask(75, function(a) {
         if (!$Z[a.id]) {
           return
