@@ -5968,7 +5968,7 @@ oSym.addTask(1, function(a) {
             let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-              (t = A[w]).shootbedevilPea&& t.shootbedevilPea(t)
+              ((t = A[w]).ew)&& t.shootbedevilPea(t)
             }
           }
         };
