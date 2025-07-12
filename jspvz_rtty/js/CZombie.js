@@ -5905,7 +5905,7 @@ BoomFire: function (y) {
             let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-              (t = A[w]).shootPea&& t.shootPea(t)
+              ((t = A[w]).A)&& t.shootPea(t)
             }
           }
         };
