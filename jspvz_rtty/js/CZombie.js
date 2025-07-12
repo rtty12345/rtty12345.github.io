@@ -191,11 +191,10 @@ shootbedevilPea:function(a) {
           while (i--) {
             p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), ($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft >= 900) {
+          if ($(d).offsetLeft >900) {
             ClearChild($(d));
-            $(d).isDie = true;
           };
-          !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+	oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
         a.HP > 60&& (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
       }, [a]);
