@@ -5888,7 +5888,7 @@ BoomFire: function (y) {
         PlayNormalballAudio: function() {
             PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
         },
-        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(300)</font><br>铁栅门韧性：<font color="#FF0000">极高(10000)</font></p><div style="color:red">特点：发射豌豆</div>只是一个普普通通的小豌豆僵尸',
+        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(800)</font><br>铁栅门韧性：<font color="#FF0000">高(2000)</font></p><div style="color:red">特点：发射寒冰豌豆，同时使3×3的僵尸额外发射一颗普通豌豆</div>只是一个普普通通的小豌豆僵尸',
         GoingDie: CZombies.prototype.GoingDie,
 	PrivateBirth: function(a){
             let z = $(a.id);
