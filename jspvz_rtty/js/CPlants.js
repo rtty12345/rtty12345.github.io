@@ -1355,7 +1355,6 @@ oPumpkinHead = InheritO(CPlants, {
 		case c && c < 3 : d.Die();
 			break;
 		case (d.HP -= b) < 1 : d.Die();
-			e.getHit0(e,1000,0);
 			break;
 		case d.HP < 1334 : d.HurtStatus < 2 && (d.HurtStatus = 2, a.childNodes[1].src = "images/Plants/PumpkinHead/Pumpkin_damage2.gif");
 			break;
