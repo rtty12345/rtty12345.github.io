@@ -1384,7 +1384,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
             }
           }
 	};
-	oSym.addTask(1000,function(a,s){
+	oSym.addTask(100,function(a,s){
                 a.HP < 2000 && (PlayAudio("scream"),a.HP += 500);
 		if(a.HP<1000){
 		s.onclick=function(){}
