@@ -1378,6 +1378,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 	let A = oZ.getArZ((a.AttackedLX-120),(a.AttackedRX + 120), i),
               w = A.length;
             while (w--) {
+	PlayAudio("shovel");
               (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
 	a&&a.getHurt(a,0,500)
             }
@@ -1394,6 +1395,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
               w = A.length;
             while (w--) {
               (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
+		PlayAudio("shovel");
 	a&&a.getHurt(a,0,500)
             }
           }
