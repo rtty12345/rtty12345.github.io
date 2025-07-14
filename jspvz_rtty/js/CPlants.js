@@ -1993,7 +1993,7 @@ oGarlic = InheritO(CPlants, {
 		var c = this,
 		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= 20) < 1 ? c.Die(): (e.ChangeR({
 			R: c.R
-		}),e.getr(e,80),c.HP < 134 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/Garlic/Garlic_body3.gif") : c.HP < 267 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/Garlic/Garlic_body2.gif")) : c.Die()
+		}),e.getr(e,80),c.HP < 134 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/Garlic/Garlic_body3.gif") : c.HP < 267 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/Garlic/Garlic_body2.gif")) : c.Die(),e.getr(e,80)
 	}
 }),
 oSquash = InheritO(CPlants, {
@@ -2202,11 +2202,6 @@ oCoffeeBean = InheritO(CPlants, {
 			var d = oGd.$[c],
 			b;
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
-			d&&(d.highwork=1);
-			oSym.addTask(1000,function(c){
-			var d = oGd.$[c];
-			d&&(d.highwork=0)
-			},[c]);
 			a.Die()
 		},
 		[a.R + "_" + a.C + "_1"])
