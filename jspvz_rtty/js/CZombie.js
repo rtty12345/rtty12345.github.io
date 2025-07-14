@@ -337,7 +337,7 @@ return a;
                                         n[k].ExplosionDie()
                                     }
                                 } while (h++ < g)
-                            })((e.ZX-120), e.R))
+                            })(e.ZX,e.R))
                         },
                         [c]))
                 },
@@ -2201,20 +2201,9 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			oP.MonPrgs()
 		},
         PrivateAct: function(a){
-            if(a.HP <= 70){
+            if(a.HP <= a.BreakPoint){
             oSym.addTask(100,function(a){
-                PlayAudio("explosion");
-                let R = (a.R - 1) || 0,
-                    RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC(a.ZX);
-                for(let i = R;i <= RM;i++){
-                    for(let j = C - 1;j <= C + 1;j++){
-                        for(let k = 0;k <= 3;k++){
-                            let p = oGd.$[i+"_"+j+"_"+k];
-                            p && ((p.EName != oLawnCleaner) && (p.EName != oPoolCleaner) && (p.EName != oBrains))  && p.BoomDie();
-                        }
-                    }
-                }
+		a.OpenBox(a.id)
             },[a])
             }
         },
@@ -2683,9 +2672,10 @@ oConeheadZombie= InheritO(OrnIZombies, {
             if(!a.bool){
                 a.Speed =a.oSpeed=5;
                 var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
+for (i=0;i<4;i++){
+                var p = oGd.$[`${a.R}_${C}_${i}`];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		   	p.BoomDie();
+		   	p.Die();
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(400,function(a){
 		    a.bool=1;
@@ -2694,6 +2684,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 		    a.Attack=100; 
                 }
             }
+	    }
 	},
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
@@ -2750,11 +2741,15 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 		 if(!a.hp){
                  a.hp=true;
             oSym.addTask(1000,function(a){
-                PlayAudio("grassstep");
-		a.HP+=200;
-		a.hp=false;
+        for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+	let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
+              w = A.length;
+            while (w--) {
+         (t=A[w]).HP*=1.2;
+            }
+	}
             },[a])
-		 }
+	}
         },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
