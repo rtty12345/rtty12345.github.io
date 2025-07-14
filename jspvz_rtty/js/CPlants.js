@@ -1991,9 +1991,9 @@ oGarlic = InheritO(CPlants, {
 	HurtStatus: 0,
 	getHurt: function(e, b, a) {
 		var c = this,
-		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= 20) < 1 ? c.Die() : (e.ChangeR({
+		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= 20) < 1 ? c.Die(): (e.ChangeR({
 			R: c.R
-		}), c.HP < 134 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/Garlic/Garlic_body3.gif") : c.HP < 267 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/Garlic/Garlic_body2.gif")) : c.Die()
+		}),e.getr(e,80),c.HP < 134 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/Garlic/Garlic_body3.gif") : c.HP < 267 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/Garlic/Garlic_body2.gif")) : c.Die()
 	}
 }),
 oSquash = InheritO(CPlants, {
