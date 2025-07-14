@@ -1375,7 +1375,7 @@ oPumpkinHead = InheritO(CPlants, {
 s.onclick=function(){
 if(a.HP<1000){return}
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-	let A = oZ.getArZ(a.AttackedLX-120,a.AttackedRX + 120, i),
+	let A = oZ.getArZ((a.AttackedLX-120),(a.AttackedRX + 120), i),
               w = A.length;
             while (w--) {
               (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
@@ -1388,6 +1388,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 		if(a.HP<1000){
 		s.onclick=function(){}
 		}else{s.onclick=function(){
+	if(a.HP<1000){return}
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
 	let A = oZ.getArZ((a.AttackedLX- 120),(a.AttackedRX + 120), i),
               w = A.length;
