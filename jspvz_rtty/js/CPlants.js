@@ -1376,11 +1376,11 @@ oPumpkinHead = InheritO(CPlants, {
 s.onclick=function(a){
 if(a.HP<1000){return}
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-	let A = oZ.getArZ(a.AttackedLX- 120, a.AttackedLX + 120, i),
+	let A = oZ.getArZ((a.AttackedLX-120),(a.AttackedRX + 120), i),
               w = A.length;
             while (w--) {
-              (t = A[w])&&(t.getHit0(t,500,0));
-	a.getHurt(a,0,500)
+              (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
+	a&&a.getHurt(a,0,500)
             }
           }
 	};
@@ -1390,11 +1390,11 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 		s.onclick=function(){}
 		}else{s.onclick=function(a){
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-	let A = oZ.getArZ(a.AttackedLX- 120, a.AttackedLX + 120, i),
+	let A = oZ.getArZ((a.AttackedLX- 120),(a.AttackedRX + 120), i),
               w = A.length;
             while (w--) {
-              (t = A[w])&&(t.getHit0(t,500,0));
-	a.getHurt(a,0,500)
+              (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
+	a&&a.getHurt(a,0,500)
             }
           }
 	}}
