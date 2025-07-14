@@ -1372,8 +1372,8 @@ oPumpkinHead = InheritO(CPlants, {
 		NewImg(d + "_2", "images/Plants/PumpkinHead/PumpkinHead2.gif", "left:" + c.pixelLeft + "px;top:" + c.pixelTop + "px;z-index:" + (c.zIndex - 2), EDPZ)
 	},
 	PrivateBirth: function(a){
-	var s=$(a.id);
-(s.onclick=function(a){
+	let s=$(a.id);
+s.onclick=function(a){
 if(a.HP<1000){return}
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
 	let A = oZ.getArZ(a.AttackedLX- 120, a.AttackedLX + 120, i),
@@ -1383,7 +1383,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 	a.getHurt(a,0,500)
             }
           }
-	})
+	};
 	oSym.addTask(1000,function(a,s){
                 a.HP < 2000 && (PlayAudio("scream"),a.HP += 500);
 		if(a.HP<1000){
@@ -1399,7 +1399,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
           }
 	}}
                 !a.isDie && oSym.addTask(1000,arguments.callee,[a,s]);
-	},[a])
+	},[a,s])
         },
 	PrivateDie: function(a) {
 		ClearChild($(a.id + "_2"));
