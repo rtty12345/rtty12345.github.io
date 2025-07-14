@@ -1373,9 +1373,9 @@ oPumpkinHead = InheritO(CPlants, {
 	PrivateBirth: function(a){
 	let s=$(a.id);
 s.onclick=function(){
-if(a.HP<1000){return};
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
 	let A = oZ.getArZ((a.AttackedLX-120),(a.AttackedRX + 120), i),
+		t,
               w = A.length;
             while (w--) {
 	PlayAudio("shovel");
@@ -1391,6 +1391,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 		}else{s.onclick=function(){
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
 	let A = oZ.getArZ((a.AttackedLX- 120),(a.AttackedRX + 120), i),
+		t,
               w = A.length;
             while (w--) {
               (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
