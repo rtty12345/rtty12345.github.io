@@ -1404,7 +1404,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 	PrivateDie: function(a) {
 		ClearChild($(a.id + "_2"));
 		a.isDie = true;
-		ClearChild($("oAttack_" + c.id))
+		ClearChild($("oAttack_" + a.id))
 	}
 }),
 oFlowerPot = InheritO(CPlants, {
