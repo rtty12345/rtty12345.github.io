@@ -1325,89 +1325,110 @@ oTwinSunflower = InheritO(oSunFlower, {
 	},
 }),
 oPumpkinHead = InheritO(CPlants, {
-	EName: "oPumpkinHead",
-	CName: "南瓜头",
-	width: 97,
-	height: 67,
-	beAttackedPointL: 15,
-	beAttackedPointR: 82,
-	SunNum: 250,
-	PKind: 2,
-	HP: 5000,
-	coolTime: 45,
-	zIndex: 1,
-	PicArr: ["images/Card/Plants/PumpkinHead.png", "images/Plants/PumpkinHead/0.gif", "images/Plants/PumpkinHead/PumpkinHead.gif","images/Plants/PumpkinHead/PumpkinHead1.gif","images/Plants/PumpkinHead/PumpkinHead2.gif","images/Plants/PumpkinHead/pumpkin_damage1.gif","images/Plants/PumpkinHead/Pumpkin_damage2.gif","images/Plants/PumpkinHead/Pumpkin_back.gif"],
-	Tooltip: "能保护种在里面的植物",
-	Produce: '南瓜头，可以用他的外壳保护其他植物。<p>韧性：<font color="#FF0000">高</font><br>特点：<font color="#FF0000">可以种在其他植物上</font></p>南瓜头最近都没收到，关于他表哥刃菲尔德的消息。很明显，刃菲尔德是个大明星，是一种……叫什么运动来着……的体育明星？佩格跳跳球大师？南瓜头反正搞不懂是什么运动，他只想做好他自己的工作。',
-	CanGrow: function(c, b, d) {
-		var a = b + "_" + d;
-		return c[2] ? 1 : oGd.$LF[b] == 1 ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a]) : c[0]
-	},
-	GetDY: function(b, c, a) {
-		return a[0] ? -12 : -5
-	},
-	HurtStatus: 0,
-	getHurt: function(e, c, b) {
-		var d = this,
-		f = d.id,
-		a = $(f);
-		switch (true) {
-		case c && c < 3 : d.Die();
-			break;
-		case (d.HP -= b) < 1 : d.Die();
-			break;
-		case d.HP < 1334 : d.HurtStatus < 2 && (d.HurtStatus = 2, a.childNodes[1].src = "images/Plants/PumpkinHead/Pumpkin_damage2.gif");
-			break;
-		case d.HP < 2667 : d.HurtStatus < 1 && (d.HurtStatus = 1, a.childNodes[1].src = "images/Plants/PumpkinHead/pumpkin_damage1.gif", $(f + "_2").src = "images/Plants/PumpkinHead/Pumpkin_back.gif")
-		}
-	},
-	InitTrigger: function() {},
-	BirthStyle: function(c, d, b, a) {
-		b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.gif";
-		EditEle(b, {
-			id: d
-		},
-		a, EDPZ);
-		NewImg(d + "_2", "images/Plants/PumpkinHead/PumpkinHead2.gif", "left:" + c.pixelLeft + "px;top:" + c.pixelTop + "px;z-index:" + (c.zIndex - 2), EDPZ)
-	},
-	PrivateBirth: function(a){
-let s=NewEle(
+  EName: "oPumpkinHead",
+  CName: "南瓜头",
+  width: 97,
+  height: 67,
+  beAttackedPointL: 15,
+  beAttackedPointR: 82,
+  SunNum: 125,
+  PKind: 2,
+  HP: 5000,
+  coolTime: 45,
+  zIndex: 1,
+  PicArr: ["images/Card/Plants/PumpkinHead.png", "images/Plants/PumpkinHead/0.gif", "images/Plants/PumpkinHead/PumpkinHead.gif", "images/Plants/PumpkinHead/PumpkinHead1.gif", "images/Plants/PumpkinHead/PumpkinHead2.gif", "images/Plants/PumpkinHead/pumpkin_damage1.gif", "images/Plants/PumpkinHead/Pumpkin_damage2.gif", "images/Plants/PumpkinHead/Pumpkin_back.gif"],
+  Tooltip: "能保护种在里面的植物",
+  Produce: '南瓜头，可以用他的外壳保护其他植物。<p>韧性：<font color="#FF0000">高</font><br>特点：<font color="#FF0000">可以种在其他植物上</font></p>南瓜头最近都没收到，关于他表哥刃菲尔德的消息。很明显，刃菲尔德是个大明星，是一种……叫什么运动来着……的体育明星？佩格跳跳球大师？南瓜头反正搞不懂是什么运动，他只想做好他自己的工作。',
+  CanGrow: function(c, b, d) {
+    var a = b + "_" + d;
+    return c[2] ? 1 : oGd.$LF[b] == 1 ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a]) : c[0]
+  },
+  GetDY: function(b, c, a) {
+    return a[0] ? -12 : -5
+  },
+  HurtStatus: 0,
+  getHurt: function(e, c, b) {
+    var d = this,
+      f = d.id,
+      a = $(f);
+    switch (true) {
+      case c && c < 3:
+        d.Die();
+        break;
+      case (d.HP -= b) < 1:
+        d.Die();
+        break;
+      case d.HP < 1334:
+        d.HurtStatus < 2 && (d.HurtStatus = 2, a.childNodes[1].src = "images/Plants/PumpkinHead/Pumpkin_damage2.gif");
+        break;
+      case d.HP < 2667:
+        d.HurtStatus < 1 && (d.HurtStatus = 1, a.childNodes[1].src = "images/Plants/PumpkinHead/pumpkin_damage1.gif", $(f + "2").src = "images/Plants/PumpkinHead/Pumpkin_back.gif")
+    }
+  },
+  InitTrigger: function() {},
+  BirthStyle: function(c, d, b, a) {
+    b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.gif";
+    EditEle(b, {
+        id: d
+      },
+      a, EDPZ);
+    NewImg(d + "2", "images/Plants/PumpkinHead/PumpkinHead2.gif", "left:" + c.pixelLeft + "px;top:" + c.pixelTop + "px;z-index:" + (c.zIndex - 2), EDPZ)
+  },
+  PrivateBirth: function(a) {
+    let s = NewEle(
       "oAttack_" + a.id,
       "div",
       "left:" +
-      (a.AttackedLX-20)+
+      (a.AttackedLX - 20) +
       "px;top:" +
-      (a.pixelTop-10) +
+      (a.pixelTop - 10) +
       "px;position:absolute;width:97px;height:87px;z-index:150",
       0,
       EDAll
     );
-s.onclick=function(){
-for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-	let A = oZ.getArZ((a.AttackedLX-120),(a.AttackedRX + 120), i),
-		t,
-              w = A.length;
-	if(a.HP>=1000){
-            while (w--) {
-	PlayAudio("shovel");
-        (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
-            }
-	if(w>0){
-	a&&a.getHurt(a,0,500)
-	}
+    s.onclick = function() {
+      for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+        let A = oZ.getArZ((a.AttackedLX - 120), (a.AttackedRX + 120), i),
+          t,
+          w = A.length;
+        if (a.HP >= 1000) {
+          while (w--) {
+            PlayAudio("shovel");
+            (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
           }
-}
-	};
-	oSym.addTask(100,function(a){
-                a&&(a.HP < 2000) && (PlayAudio("scream"),a.HP += 500);
-                !a.isDie && oSym.addTask(1000,arguments.callee,[a]);
-	},[a])
-        },
-	PrivateDie: function(a) {
-		ClearChild($(a.id + "_2"));
-		a.isDie = true;
-		ClearChild($("oAttack_" + a.id))
+	if(w>0){
+          a && a.getHurt(a, 0, 500)
 	}
+        }
+      }
+    };
+    oSym.addTask(100, function(a) {
+      a && (a.HP < 2000) && (PlayAudio("scream"), a.HP += 500);
+      !a.isDie && oSym.addTask(1000, arguments.callee, [a]);
+    }, [a]);
+    a.lookHP && a.lookHP(a)
+  },
+  lookHP: function(h) {
+    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 80) + "px;left:" + (h.AttackedLX + 40) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    qdHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if ($P[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.AttackedLX+40) + "px";
+        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
+  },
+  PrivateDie: function(a) {
+    ClearChild($(a.id + "2"));
+    a.isDie = true;
+    ClearChild($("oAttack_" + a.id))
+  }
 }),
 oFlowerPot = InheritO(CPlants, {
 	EName: "oFlowerPot",
