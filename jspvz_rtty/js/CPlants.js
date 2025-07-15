@@ -1371,7 +1371,17 @@ oPumpkinHead = InheritO(CPlants, {
 		NewImg(d + "_2", "images/Plants/PumpkinHead/PumpkinHead2.gif", "left:" + c.pixelLeft + "px;top:" + c.pixelTop + "px;z-index:" + (c.zIndex - 2), EDPZ)
 	},
 	PrivateBirth: function(a){
-	let s=$(a.id);
+let s=NewEle(
+      "oAttack_" + c.id,
+      "div",
+      "left:" +
+      b.AttackedLX+
+      ";top:" +
+      (b.pixelTop-10) +
+      ";position:absolute;width:97px;height:87px;",
+      0,
+      EDAll
+    );
 s.onclick=function(){
 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
 	let A = oZ.getArZ((a.AttackedLX-120),(a.AttackedRX + 120), i),
@@ -1394,6 +1404,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 	PrivateDie: function(a) {
 		ClearChild($(a.id + "_2"));
 		a.isDie = true;
+		ClearChild($("oAttack_" + c.id))
 	}
 }),
 oFlowerPot = InheritO(CPlants, {
