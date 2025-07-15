@@ -1378,7 +1378,7 @@ let s=NewEle(
       (a.AttackedLX-20)+
       "px;top:" +
       (a.pixelTop-10) +
-      "px;position:absolute;width:97px;height:87px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:150",
+      "px;position:absolute;width:97px;height:87px;z-index:150",
       0,
       EDAll
     );
