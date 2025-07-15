@@ -1392,7 +1392,7 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 	PlayAudio("shovel");
         (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
             }
-	if(w){
+	if(w>0){
 	a&&a.getHurt(a,0,500)
 	}
           }
