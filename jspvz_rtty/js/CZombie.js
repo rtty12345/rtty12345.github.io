@@ -2201,7 +2201,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			oP.MonPrgs()
 		},
         PrivateAct: function(a){
-            if(a.HP <= a.BreakPoint){
+            if(a.HP <= 40){
             oSym.addTask(100,function(a){
 		a.OpenBox(a.id)
             },[a])
