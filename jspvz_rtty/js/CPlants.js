@@ -1331,7 +1331,7 @@ oPumpkinHead = InheritO(CPlants, {
 	height: 67,
 	beAttackedPointL: 15,
 	beAttackedPointR: 82,
-	SunNum: 125,
+	SunNum: 250,
 	PKind: 2,
 	HP: 5000,
 	coolTime: 45,
@@ -1392,7 +1392,9 @@ for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.
 	PlayAudio("shovel");
         (t = A[w]).Altitude==1&&t.getHit0(t,500,0);
             }
+	if(w){
 	a&&a.getHurt(a,0,500)
+	}
           }
 }
 	};
