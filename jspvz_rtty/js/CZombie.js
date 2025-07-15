@@ -2202,9 +2202,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		},
         PrivateAct: function(a){
             if(a.HP <= 40){
-            oSym.addTask(100,function(a){
 		a.OpenBox(a.id)
-            },[a])
             }
         },
 	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（500）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
