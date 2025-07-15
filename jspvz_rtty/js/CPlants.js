@@ -1372,12 +1372,12 @@ oPumpkinHead = InheritO(CPlants, {
 	},
 	PrivateBirth: function(a){
 let s=NewEle(
-      "oAttack_" + c.id,
+      "oAttack_" + a.id,
       "div",
       "left:" +
-      b.AttackedLX+
+      a.AttackedLX+
       ";top:" +
-      (b.pixelTop-10) +
+      (a.pixelTop-10) +
       ";position:absolute;width:97px;height:87px;",
       0,
       EDAll
