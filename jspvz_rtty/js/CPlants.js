@@ -1396,7 +1396,7 @@ oPumpkinHead = InheritO(CPlants, {
             PlayAudio("shovel");
             (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
           }
-	if(w>0){
+	if(w!=0){
           a && a.getHurt(a, 0, 500)
 	}
         }
