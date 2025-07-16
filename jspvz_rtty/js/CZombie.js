@@ -1459,10 +1459,6 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		h.ChangeChkActsTo0(h, g, f)
 	},
 	ChangeChkActsTo0: function(g, e, a) {
-		if (!g.PZ) {
-			g.ChangeChkActsTo1(g, e, a);
-			return
-		}
 		var d = 4,
 		h = g.ArDZ,
 		c, b, f;
@@ -1577,7 +1573,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 							}
 						},
 						[A, z]));
-						B && B.beAttacked&& B.PZ&&(oP.AppearUP(y, z, i), 
+						B && B.beAttacked&&(!B.PZ)&&(oP.AppearUP(y, z, i), 
 						oSym.addTask(80,
 						function(D, C) {
 							var E = $Z[D];
@@ -1597,7 +1593,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 					function(y, i) {
 						var z = $Z[y],
 						j;
-						z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j)
+						z && z.beAttacked && (j = (z.PZ?z.ChkActs:z.ChkActs1),z.ChkTmp = j)
 					},
 					[t, s])
 				}
