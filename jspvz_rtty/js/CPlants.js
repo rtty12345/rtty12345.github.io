@@ -1395,10 +1395,8 @@ oPumpkinHead = InheritO(CPlants, {
           while (w--) {
             PlayAudio("shovel");
             (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
-          }
-	if(w!=0){
+	  }
           a && a.getHurt(a, 0, 500)
-	}
         }
       }
     };
@@ -1409,7 +1407,7 @@ oPumpkinHead = InheritO(CPlants, {
     a.lookHP && a.lookHP(a)
   },
   lookHP: function(h) {
-    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 80) + "px;left:" + (h.AttackedLX + 40) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 70) + "px;left:" + (h.AttackedLX + 20) + "px;width:100%;font-size:12px", "", EDAll);
     var A = "hp" + Math.random();
     qdHP.id = A;
     var C = $(A);
@@ -1418,7 +1416,7 @@ oPumpkinHead = InheritO(CPlants, {
       ClearChild(C);
       if ($P[h.id]) {
         EDAll && EDAll.appendChild(C);
-        C.style.left = (h.AttackedLX+40) + "px";
+        C.style.left = (h.AttackedLX+20) + "px";
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
