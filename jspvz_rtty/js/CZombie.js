@@ -1593,7 +1593,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 					function(y, i) {
 						var z = $Z[y],
 						j;
-						z && z.beAttacked && (j = (z.PZ?z.ChkActs:z.ChkActs1),z.ChkTmp = j)
+						z && z.beAttacked && (j = z.ChkActs,z.ChkActs = z.ChkTmp,z.ChkTmp = j)
 					},
 					[t, s])
 				}
