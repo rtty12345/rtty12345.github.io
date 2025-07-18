@@ -4006,7 +4006,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 }),
 oBoom=InheritO(oZombie, {
 HP:400,
-PrivateAct:oBackupDancer1.prototype.OpenBox
+PrivateAct:function(){this&&this.OpenBox(this.id)},
+OpenBox:oBackupDancer1.prototype.OpenBox
 }),
 oNewspaperZombie3= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie3",
