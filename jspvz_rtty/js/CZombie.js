@@ -2308,9 +2308,11 @@ var a=oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
 	Z=b.length,
 	z=a.length;
 	while(z--){
+	while(Z--){
 	if(a[z].EName!="oFlagZombie"&&b[Z].EName!="oFlagZombie"){
 	h.hard==2?b[Z].getr(a[z],-5):a[z].getr(a[z],-5)
 	    }
+	}
 	}
 	}
 if(h.HPlook&&!h.bHP){
