@@ -2713,7 +2713,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 			[d, c])
 		},
 	NormalAttack: function(d, c) {
-	var ZP=[oZombie,oZombie2,oZombie3,oDancingZombie,oDancingZombie1,oConeheadZombie,oBucketheadZombie,oZomboni,oNewspaperZombie,oNewspaperZombie2,oNewspaperZombie3,oFlagZombie,oScreenDoorZombie,oFootballZombie1,oBalloonZombie,oPeaZombie,oJackinTheBoxZombie,oDiggerZombie];
+	var ZP=[oZombie,oZombie2,oZombie3,oDancingZombie,oDancingZombie1,oConeheadZombie,oBucketheadZombie,oZomboni,oNewspaperZombie,oNewspaperZombie2,oNewspaperZombie3,oFlagZombie,oScreenDoorZombie,oFootballZombie,oBalloonZombie,oPeaZombie,oJackinTheBoxZombie,oDiggerZombie];
             PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
             oSym.addTask(50, function(e) {
                 $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
