@@ -2713,7 +2713,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 			[d, c])
 		},
 	NormalAttack: function(d, c) {
-	var ZP=[oZombie,oZombie2,oZombie3,oDancingZombie,oDancingZombie1,oConeheadZombie,oBucketHeadZombie,oZomboni,oNewspaperZombie,oNewspaperZombie2,oNewspaperZombie3,oFlagZombie,oScreenDoorZombie,oFootballZombie,oFootballZombie1,oBalloonZombie,oPeaZombie,oJackinTheBoxZombie,oDiggerZombie];
+	var ZP=[oZombie,oZombie2,oZombie3,oDancingZombie,oDancingZombie1,oConeheadZombie,oBucketheadZombie,oZomboni,oNewspaperZombie,oNewspaperZombie2,oNewspaperZombie3,oFlagZombie,oScreenDoorZombie,oFootballZombie1,oBalloonZombie,oPeaZombie,oJackinTheBoxZombie,oDiggerZombie];
             PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
             oSym.addTask(50, function(e) {
                 $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
@@ -4370,11 +4370,8 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 			PlayAudio(["shieldhit","shieldhit2"][Math.floor(Math.random() * 2)]);
 			e.getHit4(e, b, c)
 		},
-        getHit0: function(a, c, b) {
-a.hard==2?(
-	if(!a.PZ){
-	return
-	}
+getHit0:function(a,c){
+	if(a.hard==2){
         let z = $(a.id);
         let div = $n("div");
         let d = "Pea" + Math.random();
@@ -4411,9 +4408,10 @@ a.hard==2?(
             };
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
-        }, [z, d, a,c])):(a.CheckOrnHP(a, a.id, a.OrnHP, c, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+        }, [z, d, a,c])}
+	if(a.hard!=2){(a.CheckOrnHP(a, a.id, a.OrnHP, c, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
-            }, [a.id]))
+            }, [a.id]))}
         },
 PrivateAct: function() {
     let a = this;
