@@ -4409,7 +4409,7 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-	if(a.hard!=2){(a.CheckOrnHP(a, a.id, a.OrnHP, c, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+	if(a.hard!==2){(a.CheckOrnHP(a, a.id, a.OrnHP, c, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))}
         },
@@ -4799,7 +4799,7 @@ CheckBoomFire1: function (f) {
                     RM = f.R + 1 <= oS.R ? f.R + 1 : oS.R;
 	for(let i = R;i <= RM;i++){
 	for(let l=0;l<=oS.R;l++){
-          ($Z[f.id] && randomNumber <= 100)&&f.hard==2?f.BoomFire(l):f.BoomFire(i);
+          ($Z[f.id] && randomNumber <= 100)&&(f.hard==2)?f.BoomFire(l):f.BoomFire(i);
           oSym.addTask(1500, arguments.callee, [f]);
 	}
 	}
