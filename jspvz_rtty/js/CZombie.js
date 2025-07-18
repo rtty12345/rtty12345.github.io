@@ -2994,8 +2994,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
                         t;
-                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = CZombies.prototype)
-                        。NormalAttack, u.getCrushed = t.getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000)));
+                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = CZombies.prototype).NormalAttack,u.getCrushed = t.getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000)));
                 }, [m, n])))
             }, [d, b, a, c, e])
         }
@@ -6449,7 +6448,7 @@ bedevil: function(c) {
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
     if (f.Altitude == 0 && f.AttackedRX < GetX(1) -40) return f.Go_Up(f,Math.round(Math.random()*100)>10?1:0), 1;
-    if (f.Altitude == 0 && f.AttackedRX < GetX(3) -40&&f.hard==2) return f.Go_Up(f,1), 1;
+    if (f.Altitude == 0 && f.AttackedRX < GetX(3) -40&&f.hard==2) return f.Go_Up(f,0), 1;
     var b, a, e;
     !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
     (f.beAttacked && !f.isAttacking && f.JudgeAttack_Dig(),
