@@ -2303,16 +2303,12 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 for (i=0;i<=oS.R;i++){
-var a=oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
-	b=oZ.getArZ(0,oS.W,i),
-	Z=b.length,
+var a=h.hard==2?oZ.getArZ(0,oS.W,i):oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
 	z=a.length;
 	while(z--){
-	while(Z--){
-	if(a[z].EName!="oFlagZombie"&&b[Z].EName!="oFlagZombie"){
-	h.hard==2?b[Z].getr(a[z],-5):a[z].getr(a[z],-5)
+	if(a[z].EName!="oFlagZombie"){
+	a[z].getr(a[z],-5)
 	    }
-	}
 	}
 	}
 if(h.HPlook&&!h.bHP){
@@ -4006,6 +4002,11 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 }),
 oBoom=InheritO(oZombie, {
 HP:400,
+EName:"oBoom",
+PicArr: (function() {
+    var a = "images/Zombies/Zombie/";
+    return ["images/Card/Zombies/Zombie.png", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
+  })(),
 PrivateAct:function(){this&&this.OpenBox(this.id)},
 OpenBox:oBackupDancer1.prototype.OpenBox
 }),
