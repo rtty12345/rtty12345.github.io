@@ -280,19 +280,6 @@ return a;
 	   if(c&&c.hard==1&&num>=66){c.HP*=1.35;c.OrnHP*=1.35
 	    }else if(c&&c.hard==1&&num>=33){c.Speed*=1.5,c.oSpeed*=1.5,c.LostPaperSpeed+=3
 	    }else if(c&&c.hard==1&&num<33){c.Attack+=100};
-	if(c&&c.hard==2&&num>=75){c.HP*=2;c.OrnHP*=2;
-	 }else if(c&&c.hard==2&&num>=50){c.Speed*=2;c.getSlow=function(){};
-	}else if(c&&c.hard==2&&num>=25){c.NormalAttack=function(c,b){
-			var d = $Z[c];
-			$P[b].getHurt(d, 2, d.Attack)
-	};c.JudgeAttack=function() {
-			var f = this,
-			c = f.ZX,
-			d = f.R + "_",
-			e = GetC(c),
-			g = oGd.$,
-			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-	}};
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
@@ -944,7 +931,7 @@ CheckBoomFire: function (f) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
 	  if(g&&g.EName!="oHypnoShroom"&& g.EName!="oGarlic"&&g.getHurt!=function(){}&&g.EName!="oPotatoMine"&&g.EName!="oSquash"){
-          this.hard==2?g&& g.getHurt(this,0,1000):g&& g.getHurt(this，0,100)
+          this.hard==2?g&& g.getHurt(this,0,1000):g&& g.getHurt(this,0,100)
 	  }else	if(g&&g.getHurt!=function(){}){
 	g&&g.Die()
 	  }
@@ -2686,6 +2673,7 @@ for (i=0;i<4;i++){
 		    a.Speed=a.oSpeed=1.6;
 		    },[a]);
 		    a.Attack=100; 
+		}
                 }
             }
 	    }
