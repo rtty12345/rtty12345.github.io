@@ -4799,7 +4799,7 @@ CheckBoomFire1: function (f) {
                     RM = f.R + 1 <= oS.R ? f.R + 1 : oS.R;
 	for(let i = R;i <= RM;i++){
 	for(let l=0;l<=oS.R;l++){
-          ($Z[f.id] && randomNumber <= 100)&&(f.hard==2)?f.BoomFire(l):f.BoomFire(i);
+          ($Z[f.id] && randomNumber <= 100)&&((f.hard==2)?f.BoomFire(l):f.BoomFire(i));
           oSym.addTask(1500, arguments.callee, [f]);
 	}
 	}
@@ -5079,7 +5079,7 @@ oZomboni = function() {
 			d.getHit0 = d.getHit1 = d.getHit2 = d.getHit3 = function() {};
 			return;
 		case c < 450 : d.EleBody.src = "images/Zombies/Zomboni/3.gif";
-			d.hard==2&&d.Speed=7.2;
+			(d.hard==2)&&(d.Speed=7.2);
 			break;
 		case c < 900 : d.EleBody.src = "images/Zombies/Zomboni/2.gif"
 		}
@@ -5411,7 +5411,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		a.beAttacked && (PlayAudio("zombie_entering_water"),SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(240,
 		function(d, b) {
 			var c;
-			$Z[d] && b.beAttacked && (b.WalkStatus = 1, b.OSpeed = b.Speed = 10.8,(b.hard==2)&&b.Altitude=2,SetStyle(b.Ele, {
+			$Z[d] && b.beAttacked && (b.WalkStatus = 1, b.OSpeed = b.Speed = 10.8,(b.hard==2)&&(b.Altitude=2),SetStyle(b.Ele, {
 				left: (c = b.X -= 140) + "px"
 			}), b.AttackedLX = c + (b.beAttackedPointL = 185), b.AttackedRX = c + (b.beAttackedPointR = 265), b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
 		},
@@ -6197,7 +6197,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 				e.JudgeAttackH=t.JudgeAttackH,
 				e.JudgeAttack=(e.PZ?t.JudgeAttack:t.JudgeAttackH),
 				e.Status=1,
-				e.hard==2?e.HP=1500:e.HP=1000)
+				(e.hard==2)?(e.HP=1500):(e.HP=1000))
 			},
 			[c]))
 		},
@@ -6446,7 +6446,7 @@ bedevil: function(c) {
   ChkActs: function(f, d, g, c) {
     // 到了左边自己钻出来
     if (f.Altitude == 0 && f.AttackedRX < GetX(1) -40) return f.Go_Up(f,Math.round(Math.random()*100)>10?1:0), 1;
-    if (f.Altitude == 0 && f.AttackedRX < GetX(3) -40&&f.hard==2) return f.Go_Up(f,0), 1;
+    if (f.Altitude == 0 && f.AttackedRX < GetX(3) -40&&(f.hard==2)) return f.Go_Up(f,0), 1;
     var b, a, e;
     !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
     (f.beAttacked && !f.isAttacking && f.JudgeAttack_Dig(),
