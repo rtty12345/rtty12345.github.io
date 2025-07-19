@@ -2303,14 +2303,25 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 for (i=0;i<=oS.R;i++){
-var a=(h.hard==2)?(oZ.getArZ(0,oS.W,i)):(oZ.getArZ(h.ZX-100,h.ZX+300,h.R)),
+if(h.hard!==2){
+let a=oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
 	z=a.length;
 	while(z--){
 	if(a[z].EName!="oFlagZombie"){
 	a[z].getr(a[z],-5)
 	    }
 	}
+}else{
+let b=oZ.getArZ(0,oS.W,i),
+	Z=b.length;
+	while(Z--){
+	if(b[Z].EName!="oFlagZombie"){
+	b[Z].getr(b[Z],-5)
+	    }
 	}
+    }
+}
+}
 if(h.HPlook&&!h.bHP){
 	h.bHP=1;
     var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+60) + "px;width:100%;font-size:12px", "", EDAll);
@@ -2736,7 +2747,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-         (t=A[w])&&(t.HP*=1.2);
+         (t=A[w])&&(t.OrnHP*=1.2);
             }
 	}
             },[a])
