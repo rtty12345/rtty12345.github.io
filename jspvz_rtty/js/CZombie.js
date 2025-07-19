@@ -4018,6 +4018,7 @@ PicArr: (function() {
     return ["images/Card/Zombies/Zombie.png", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
   })(),
 PrivateAct:function(){this&&this.OpenBox(this.id)},
+bedevilAct:function(){this&&this.OpenBox(this.id)},
 OpenBox:oBackupDancer1.prototype.OpenBox
 }),
 oNewspaperZombie3= InheritO(OrnIIZombies, {
