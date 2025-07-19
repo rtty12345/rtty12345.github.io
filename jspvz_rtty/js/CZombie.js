@@ -4172,7 +4172,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           let p = oZ.getArZ(a.ZX-10, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+            p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft >= 900) {
             ClearChild($(d));
@@ -4438,7 +4438,7 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-(a.CheckOrnHP(a, a.id, a.OrnHP, c, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(a.CheckOrnHP(a, a.id, a.OrnHP, c*0.7, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))
         },
