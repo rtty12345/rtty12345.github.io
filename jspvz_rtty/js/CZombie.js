@@ -2321,7 +2321,6 @@ let b=oZ.getArZ(0,oS.W,i),
 	}
     }
 }
-}
 if(h.HPlook&&!h.bHP){
 	h.bHP=1;
     var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+60) + "px;width:100%;font-size:12px", "", EDAll);
