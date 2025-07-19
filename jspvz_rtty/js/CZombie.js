@@ -2303,7 +2303,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 for (i=0;i<=oS.R;i++){
-var a=h.hard==2?oZ.getArZ(0,oS.W,i):oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
+var a=(h.hard==2)?(oZ.getArZ(0,oS.W,i)):(oZ.getArZ(h.ZX-100,h.ZX+300,h.R)),
 	z=a.length;
 	while(z--){
 	if(a[z].EName!="oFlagZombie"){
