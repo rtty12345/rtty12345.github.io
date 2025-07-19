@@ -2302,7 +2302,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
                 ar: [oS.R - 1],
                 CustomTop: 400 - h.height + h.GetDY()
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-for (i=0;i<=oS.R;i++){
+for (i=1;i<=oS.R;i++){
 if(h.hard!==2){
 let a=oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
 	z=a.length;
