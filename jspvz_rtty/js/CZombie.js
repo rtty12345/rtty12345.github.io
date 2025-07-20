@@ -1101,7 +1101,7 @@ flatTire:function(){},
               do {
                 k = (n = oZ.getArZ(m, o, h)).length;
                 while (k--) {
-                  n[k].ExplosionDie()
+                  n[k].getExplosion(300)
                 }
               } while (h++ < g)
             })(e.ZX, e.R), e.DisappearDie())
