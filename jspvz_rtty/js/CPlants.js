@@ -2441,8 +2441,8 @@ oScaredyShroom = InheritO(oFumeShroom, {
             c.num = 1;
             oSym.addTask(1,function(c){
                 let z = oZ.getArZ(c.pixelLeft,oS.W,c.R);
+	if(c.HP>1){
                 for(let i = 0;i < z.length;i++){
-                    if(z[i].EName == "oSquashZombie" || z[i].EName == "oNewspaperZombie" || z[i].EName == "oNewspaperZombie1" || z[i].EName == "oNewspaperZombie2"|| z[i].EName == "oNewspaperZombie3"|| z[i].EName == "oFlagZombie"|| z[i].EName == "oPoleVaultingZombie1"|| z[i].EName == "oPoleVaultingZombie"|| z[i].EName == "oZomboni"|| z[i].EName == "oPeaZombie"|| z[i].EName == "oFootballZombie"|| z[i].EName == "oDiggerZombie"|| z[i].EName == "oConeheadZombie"|| z[i].EName == "oSnorkelZombie"){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
@@ -2451,8 +2451,8 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
 			PlayAudio("polevault");
-                    }
                 }
+	}
                 (c.HP > 1) && oSym.addTask(1000,arguments.callee,[c])
             },[c]);
             }
