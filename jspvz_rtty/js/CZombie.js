@@ -4401,7 +4401,7 @@ getHit0:function(a,c){
           transform: "rotateY(20deg)",
           zIndex: "24",
           left: a.ZX + "px",
-          top: a.pixelTop + 40 + "px"
+          top: a.pixelTop + 60 + "px"
         }, EDPZ, 0)
         oSym.addTask(1, function(z, d, a,c) {
           try {
@@ -4431,7 +4431,7 @@ getHit0:function(a,c){
           let p = oZ.getArZ(a.ZX - 10, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), ($(d) && ClearChild($(d)))));
+            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], c,0), ($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft >900) {
             ClearChild($(d));
@@ -4439,7 +4439,7 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-(a.CheckOrnHP(a, a.id, a.OrnHP, c*0.7, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(a.CheckOrnHP(a, a.id, a.OrnHP, c*0.5, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))
         },
