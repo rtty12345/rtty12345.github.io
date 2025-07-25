@@ -5858,7 +5858,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		(this.Altitude == 1) && (this.getHit0(this, 13));
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
-})，
+}),
 oSquashZombie = InheritO(oConeheadZombie, {
         EName: "oSquashZombie",
         CName: "窝瓜僵尸",
