@@ -1,7 +1,7 @@
 var CZombies = function(b, a) {
 	return (a = function() {}).prototype = {
 		name: "Zombies",
-		HP: 400,
+		HP: 270,
 		Lvl: 1,
 		NormalGif: 2,
 		CardGif: 0,
@@ -2015,7 +2015,6 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 oZombie = InheritO(OrnNoneZombies,{
 	EName: "oZombie",
 	CName: "领带僵尸",
-	HP:400,
 	StandGif: 9,
 	PicArr: (function() {
 		var a = "images/Zombies/Zombie/";
@@ -2056,7 +2055,7 @@ oZombie2 = InheritO(oZombie, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                       a&&(a.beAttacked)&&p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth>= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(p.HP -=1000),($(d) && ClearChild($(d))));
+                       a&&(a.beAttacked)&&p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth>= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),((a.hard==2)?CustomZombie(oBoom,p.R,p.C):(p.HP -=1000)),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
@@ -2102,7 +2101,7 @@ oZombie2 = InheritO(oZombie, {
           let p = oZ.getArZ(a.ZX- 60, $(d).offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), (p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
+            a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):(p[i].getHit0(p[i], 300, 0)),($(d) && ClearChild($(d)))));
           }
           if ($(d).offsetLeft >= 900) {
             ClearChild($(d));
@@ -2123,8 +2122,8 @@ oZombie2 = InheritO(oZombie, {
 oZombie3= InheritO(oZombie, {
 	EName: "oZombie3",
 	Speed:Math.random()*2+2,
-	HP:Math.random()*300+600,
-	Lvl:2
+	HP:Math.random()*400+600,
+	Lvl:2,
 },
 {
 	PicArr: {
@@ -2186,7 +2185,8 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		},
         PrivateAct: function(a){
             if(a.HP <= 40){
-		a.OpenBox(a.id)
+		a.OpenBox(a.id);
+		a.hard==2&&(a.Speed=12);
             }
         },
 	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（500）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
@@ -2621,7 +2621,7 @@ if(g.HPlook&&!g.bHP){
 oConeheadZombie= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
-	OrnHP: 500,
+	OrnHP: 370,
 	Lvl: 3,
 	SunNum: 175,
 	StandGif: 11,
@@ -2694,8 +2694,8 @@ for (i=0;i<4;i++){
 oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
-	OrnHP: 1200,
-	HP:500,
+	OrnHP: 1100,
+	HP:1000,
 	Lvl: 5,
 	SunNum: 150,
 	LostOrnSpeed:15,
@@ -2770,8 +2770,8 @@ PlayNormalballAudio: function() {
 oFootballZombie= InheritO(oConeheadZombie,{
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
-	OrnHP: 2500,
-	HP:400,
+	OrnHP: 2400,
+	HP:270,
 	Lvl: 3,
 	SunNum: 200,
 	StandGif: 11,
@@ -3830,7 +3830,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	    }
 	},
 	PrivateBirth: function() {
-	    try{AppearTombstones(8,9,this.hard==2?5:2)}catch{}
+	    try{AppearTombstones(8,9,this.hard==2?5:Math.round(Math.random()*1+1))}catch{}
         },
 		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
@@ -4706,7 +4706,7 @@ oDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	EName: "oDuckyTubeZombie2",
 	CName: "路障鸭子救生圈僵尸",
-	OrnHP: 500,
+	OrnHP: 370,
 	Lvl: 2,
 	SunNum: 125,
 	CanDisplay: 0,
@@ -4733,8 +4733,8 @@ oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	EName: "oDuckyTubeZombie3",
 	CName: "铁桶鸭子救生圈僵尸",
-	OrnHP: 1200,
-	HP:300,
+	OrnHP: 1100,
+	HP:800,
 	Lvl: 6,
 	SunNum: 175,
 	PlayNormalballAudio: function() {
@@ -4809,7 +4809,7 @@ if(f.hard==2){
 	return
 }
       oSym.addTask(
-        2500,
+        3500,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -4821,7 +4821,7 @@ if(f.hard==2){
     },
 CheckBoomFire1: function (f) {
       oSym.addTask(
-        3000,
+        3500,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1,
@@ -5645,6 +5645,7 @@ oImp = InheritO(OrnNoneZombies, {
 	PrivateBirth:function(a){
 		oSym.addTask(500,function(a){
 		a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});
+		a.hard==2&&oSym.addTask(2000,function(a){(a.beAttacked)&&(a.HP)&&try{oS.ProduceSun?oP.FlagToEnd():GameOver()}catch{}},[a])
 		},[a])
 	},
 	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系，隔一段时间会瞬移一段距离</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
