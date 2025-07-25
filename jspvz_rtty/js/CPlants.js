@@ -679,7 +679,7 @@ oThreepeater = InheritO(oPeashooter, {
 	height: 80,
 	BKind:0,
 	beAttackedPointR: 53,
-	SunNum: 350,
+	SunNum: 375,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
@@ -688,7 +688,7 @@ oThreepeater = InheritO(oPeashooter, {
 		return [[b, Math.min(c +300, oS.W), 0]]
 	},
 	getTriggerR: function(a) {
-		return [a > 3 ? a - 2 : 1, a < oS.R ? Number(a) + 1 : a]
+		return [1,oS.R]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
@@ -753,7 +753,7 @@ NormalAttack: function(a) {
 		var c = $P[d];
 		c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,5])
+		[this.id,4])
 	}
 }),
 oThreepeater1= InheritO(oPeashooter, {
@@ -769,6 +769,7 @@ oThreepeater1= InheritO(oPeashooter, {
 	Tooltip: "一次射出四行的豌豆",
 	Produce: '四线射手可以在四条线上同时射出豌豆。<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">四线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5。',
 	getTriggerR: function(a) {
+	var b=Math.round(Math.random()*1+1);
 		return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a]
 	},
 	PrivateBirth: function(f) {
@@ -824,7 +825,7 @@ oThreepeater1= InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
 			},
-			[d, $(d), 20, 0, c.AttackedLX,a,(y=Math.round(Math.random()*2-1)), 0, c.AttackedLX - 40, oGd.$Torch])
+			[d, $(d), 20, 0, c.AttackedLX,a,(y=Math.round(Math.random()*1-1)), 0, c.AttackedLX - 40, oGd.$Torch])
 		}
 	}
 }),
@@ -835,7 +836,7 @@ oRepeater = InheritO(oPeashooter, {
 	height: 71,
 	BKind:-1,
 	beAttackedPointR: 53,
-	SunNum: 275,
+	SunNum: 250,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次三条线发射豌豆",
@@ -932,7 +933,7 @@ oGatlingPea= InheritO(oPeashooter, {
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
                 !c.isDie&&oSym.addTask(8000,function(e){
-                    e&&!e.isDie&&e.Die1();
+                    e&&!e.isDie&&CustomSpecial(oGatlingPea1,e.R,e.C);
  		PlayAudio("newspaper_rarrgh2"); 
                  },[this]);
 	},
@@ -949,16 +950,6 @@ oGatlingPea= InheritO(oPeashooter, {
 			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
 		[this.id,Math.round(Math.random()*2+3)])
-	},
-	Die1: function(a) {
-		var b = this,
-		c = b.id;
-		b.oTrigger && oT.delP(b);
-		b.HP = 0;
-		delete $P[c];
-		delete oGd.$[b.R + "_" + b.C + "_" + b.PKind];
-		$P.length -= 1; ! a && ClearChild($(c));
-		CustomSpecial(oGatlingPea1,this.R,this.C);
 	},
 	PrivateDie:function(c){
 	     c.isDie = true;
@@ -1482,7 +1473,7 @@ oPotatoMine = InheritO(CPlants, {
 	CName: "土豆雷",
 	width: 75,
 	height: 55,
-	HP:100000,
+	HP:1000,
 	beAttackedPointR: 55,
 	SunNum: 25,
 	coolTime: 30,
@@ -1533,7 +1524,7 @@ oPotatoMine = InheritO(CPlants, {
 		var c = this;
 		b > 2 ? (c.HP -= a) < 1 && c.Die() : c.NormalAttack(c.pixelLeft, c.pixelRight, c.R)
 	},
-	PrivateBirth: function(b, a) { ! a && oSym.addTask(1500,
+	PrivateBirth: function(b, a) { ! a && oSym.addTask(0,
 		function(d) {
 			var c = $P[d];
 			c && ($(d).childNodes[1].src = "images/Plants/PotatoMine/PotatoMine.gif", c.Status = 1, c.canTrigger = 1, c.getHurt = c.getHurt2)
@@ -1796,7 +1787,7 @@ oTallNut = InheritO(oWallNut, {
 	beAttackedPointR: 63,
 	SunNum: 125,
 	Attack:20,
-	HP: 8000,
+	HP: 10000,
 	ArZ: {},
 	PicArr: ["images/Card/Plants/TallNut.png", "images/Plants/TallNut/0.gif", "images/Plants/TallNut/TallNut.gif", "images/Plants/TallNut/TallnutCracked1.gif", "images/Plants/TallNut/TallnutCracked2.gif"],
 	Tooltip: "不会被跳过的坚实壁垒",
@@ -1811,7 +1802,7 @@ oTallNut = InheritO(oWallNut, {
 	getHurt: function(e, b, a) {
             var c = this,
                 d = $(c.id).childNodes[1];
-            !(b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 2667 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 5333 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
+            !(b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
             e.getHit1(e,30,0);
         },
 	PrivateDie:function(){
@@ -1947,7 +1938,7 @@ oSpikeweed = InheritO(CPlants, {
 			c.Die();
 			break;
 		case 1:
-			Math.round(Math.random()*100)>1?d.getHit2(d, 45, 0):d.getDispelled(d);
+			Math.round(Math.random()*1000)>2?d.getHit2(d, 45, 0):d.getDispelled(d);
 			c.Die();
 			break;
 		default:
@@ -2002,7 +1993,7 @@ oSpikerock = InheritO(oSpikeweed, {
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
-		Math.round(Math.random()*100)>3?c.getHit2(c, this.Attack, 0):c.bedevil(c)
+		Math.round(Math.random()*100)>2?c.getHit2(c, this.Attack, 0):c.bedevil(c)
 	},
 	getHurt: function(f, c, b) {
 		var e = this,
@@ -2349,7 +2340,7 @@ oPuffShroom = InheritO(oFumeShroom, {
 		a.BulletEle = NewImg(0, "images/Plants/ShroomBullet.gif", "left:" + (a.AttackedLX - 46) + "px;top:" + (a.pixelTop + 40) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
 	},
 	PrivateDie: function(a) {
-		a.NormalAttack2();
+		!a.Sleep&&a.NormalAttack2();
 		a.BulletEle = null
 	},
 	NormalAttack: function() {
@@ -2534,14 +2525,14 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
-	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤魅惑玉米普通僵尸(35%)/普通二爷(25%)/机枪铁门(20%)/普通橄榄(10%)/寒冰射手铁门(7%)/玉米炮二爷(3%)<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
+	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤魅惑玉米普通僵尸(40%)/普通二爷(30%)/机枪铁门(13%)/普通橄榄(9%)/寒冰射手铁门(6%)/玉米炮二爷(2%)<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
-b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>65 ? new oZombie2
-	      :Math.round(Math.random()*65)>40 ? new oNewspaperZombie
-	      :Math.round(Math.random()*40)>20 ? new oScreenDoorZombie
-	      :Math.round(Math.random()*20)>10 ? new oFootballZombie
-	      :Math.round(Math.random()*10)>3 ? new oPeaZombie
+!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>60 ? new oZombie2
+	      :Math.round(Math.random()*60)>30 ? new oNewspaperZombie
+	      :Math.round(Math.random()*30)>17 ? new oScreenDoorZombie
+	      :Math.round(Math.random()*17)>8 ? new oFootballZombie
+	      :Math.round(Math.random()*8)>2 ? new oPeaZombie
 	      :new oNewspaperZombie3,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(6000,arguments.callee,[b]);
 	},
