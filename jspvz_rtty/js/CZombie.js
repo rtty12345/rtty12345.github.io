@@ -5645,7 +5645,7 @@ oImp = InheritO(OrnNoneZombies, {
 	PrivateBirth:function(a){
 		oSym.addTask(500,function(a){
 		a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});
-		a.hard==2&&oSym.addTask(2000,function(a){(a.beAttacked)&&(a.HP)&&oS.ProduceSun?oP.FlagToEnd():GameOver()},[a])
+		a.hard==2&&oSym.addTask(2000,function(a){(a.beAttacked)&&(a.HP)&&oS.ProduceSun?GameOver():oP.FlagToEnd()},[a])
 		},[a])
 	},
 	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系，隔一段时间会瞬移一段距离</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
@@ -5858,7 +5858,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 		(this.Altitude == 1) && (this.getHit0(this, 13));
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
-}),
+})，
 oSquashZombie = InheritO(oConeheadZombie, {
         EName: "oSquashZombie",
         CName: "窝瓜僵尸",
