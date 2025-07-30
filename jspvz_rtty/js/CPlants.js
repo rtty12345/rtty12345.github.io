@@ -1912,7 +1912,7 @@ oJalapeno = InheritO(oCherryBomb, {
 	PrivateDie:function(a){
 	for(i=1;i<=9;i++){
 	let b=oGd.$[a.R+"_"+i+"_1"];
-	(b.NormalAttack!==undefined)&&(b.InitTrigger=CPlants.prototype.InitTrigger)
+	b&&(b.NormalAttack!==undefined)&&(b.InitTrigger=CPlants.prototype.InitTrigger)
 	    }
 	}
 }),
