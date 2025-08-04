@@ -1605,8 +1605,8 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 	height: 176,
 	BookHandPosition: "70% 70%",
 	AudioArr: ["Beatit"],
-	OSpeed:10,
-	Speed:10,
+	OSpeed:7.2,
+	Speed:7.2,
 	NormalGif: 9,
 	GetDTop: 5,
 	getShadow: function(a) {
@@ -4439,7 +4439,7 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-(a.CheckOrnHP(a, a.id, a.OrnHP, c*0.5, a.PicArr, a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(a。CheckOrnHP(a, a.id, a.OrnHP,(a.hard==2?c*0.5:c),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))
         },
@@ -4620,9 +4620,26 @@ oAquaticZombie = InheritO(OrnNoneZombies, {
 		}));
 		return 1
 	},
-	ChkActsL2: function(d, c, e, b) {
+	ChkActsL2: function(d, c, e) {
 		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px"));
 		d.AttackedLX < GetX(0) && (d.WalkStatus = 0, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3);
+if(d.HPlook&&!d.bHP){
+	d.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (d.pixelTop + 100) + "px;left:" + (d.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
+    oSym.addTask(1, function(C, d, b) {
+      ClearChild(C);
+      if (d.HP >=d.BreakPoint && $Z[d.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (d.ZX+80) + "px";
+        b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, d, b])
+    }, [C, d, b]);
+}
 		this.PrivateAct && this.PrivateAct(this)
 		return 1
 	},
@@ -4799,8 +4816,25 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.AttackedRX -= (a = d.Speed), LX = d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px", --d.JumpTime);
 		return 1
 	},
-	ChkActsL2: function(d, c, e, b) {
+	ChkActsL2: function(d, c, e) {
 		var a; ! (d.FreeFreezeTime || d.FreeSetbodyTime) && (d.AttackedLX > GetX(0) ? (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px")) : (d.beAttacked && (d.WalkStatus = 0, d.Altitude = 1, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3)));
+		if(d.HPlook&&!d.bHP){
+	d.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (d.pixelTop + 100) + "px;left:" + (d.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
+    oSym.addTask(1, function(C, d, b) {
+      ClearChild(C);
+      if (d.HP >=d.BreakPoint && $Z[d.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (d.ZX+80) + "px";
+        b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, d, b])
+    }, [C, d, b]);
+}
 		return 1
 	},
 	CheckBoomFire: function (f) {
@@ -4821,14 +4855,14 @@ if(f.hard==2){
     },
 CheckBoomFire1: function (f) {
       oSym.addTask(
-        3500,
+        4000,
         function (f) {
           // 生成1到100之间的随机整数
         let randomNumber = Math.floor(Math.random() * 100) + 1,
-	         R = (f.R - 1) || 0,
+	         R = f.R - 1>=1?f.R-1:f.R,
                     RM = f.R + 1 <= oS.R ? f.R + 1 : oS.R;
 	for(let i = R;i <= RM;i++){
-	for(let l=0;l<=oS.R;l++){
+	for(let l=1;l<=oS.R;l++){
           ($Z[f.id] && randomNumber <= 100)&&((f.hard==2)?f.BoomFire(l):f.BoomFire(i));
           oSym.addTask(1500, arguments.callee, [f]);
 	}
@@ -6593,3 +6627,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
