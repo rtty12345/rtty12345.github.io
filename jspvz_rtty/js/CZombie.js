@@ -73,7 +73,7 @@ var CZombies = function(b, a) {
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
 	}
-            this.PrivateAct && this.PrivateAct(this);
+            (GetC(this.ZX)<=10)&&this.PrivateAct && this.PrivateAct(this);
             return g
         },
 		ChkActs1: function(g, e, h, d) {
@@ -6627,5 +6627,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
