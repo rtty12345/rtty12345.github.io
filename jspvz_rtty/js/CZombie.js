@@ -456,13 +456,13 @@ return a;
 			[f, d])
 		},
 		getr:function(e,l){
-		e.ZX +=l,
+		GetR(e.ZX)<10&&(e.ZX +=l,
 			e.AttackedLX += l, 
 			e.AttackedRX += l, 
 			e.X += l, 
 			SetStyle(e.Ele, {
             left: e.X + "px"
-          })
+          }))
 		},
 		flatTire:function(){},
 		getFreeze: function(d, c) {
@@ -6627,6 +6627,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
