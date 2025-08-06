@@ -112,7 +112,7 @@ var CZombies = function(b, a) {
 			return "left:" + (c.beAttackedPointL - 10) + "px;top:" + (c.height - 22) + "px"
 		},
 shootPea:function(a){
-	if(!a.A){
+	if(!a.A&&(!oS.CannotShoot)){
 	a.A=1;
 	oSym.addTask(75, function(a) {
         if (!$Z[a.id]) {
@@ -2032,7 +2032,7 @@ oZombie2 = InheritO(oZombie, {
             z.appendChild(pea);
         },
         PrivateAct: function(a){
-            if(!a.bool){
+            if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
             oSym.addTask(2000,function(a){
 	if(!$Z[a.id]){return}
@@ -4445,7 +4445,7 @@ getHit0:function(a,c){
         },
 PrivateAct: function() {
     let a = this;
-    if (!a.bool) {
+    if (!a.bool&&(!oS.CannotShoot)) {
       a.bool = 1;
       oSym.addTask(140, function(a) {
         let i = 0,
@@ -5996,7 +5996,7 @@ BoomFire: function (y) {
             z.appendChild(pea);
         },
         PrivateAct: function(a){
-            if(!a.bool){
+            if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
 	oSym.addTask(1, function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
@@ -6627,6 +6627,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
