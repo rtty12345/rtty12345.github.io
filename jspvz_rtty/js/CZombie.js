@@ -2480,17 +2480,17 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     var c = this,
       R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
-      C = GetC($(c.id).offsetLeft + 80);
+      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
     c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
     oSym.addTask(250, ClearChild, [c.Ele]);
     c.HP = 0;
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
-    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1,1); i++) {
+    for (let i = C - 1; i <= C + 1; i++) {
       for (let l = R; l <= RM; l++) {
        if ((i == C || l == c.R)||(c.hard==2)) {
 
-          oP.NumZombies += 2,
+          oP.NumZombies += 3,
 
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
                 EDPZ.appendChild(n);
@@ -2505,7 +2505,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
   ExplosionDie: function() {
     var c = this,
       R = (c.R - 1 || 1),
-      C = GetC($(c.id).offsetLeft + 80),
+      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R);
     c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
     oSym.addTask(300, ClearChild, [c.Ele]);
@@ -2530,7 +2530,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     var c = this,
       R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
-      C = GetC($(c.id).offsetLeft + 80);
+      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
     ClearChild(this.Ele);
     this.HP = 0;
     delete $Z[this.id];
@@ -2554,7 +2554,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     var c = this;
     let R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
-      C = GetC($(c.id).offsetLeft + 80);
+      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
     c.GoingDieHead(c.id, c.PicArr, c);
     ClearChild(c.Ele);
     c.HP = 0;
@@ -6627,6 +6627,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
