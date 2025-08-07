@@ -456,7 +456,7 @@ return a;
 			[f, d])
 		},
 		getr:function(e,l){
-		GetR(e.ZX)<10&&(e.ZX +=l,
+		GetR(e.ZX+40)<10&&(e.ZX +=l,
 			e.AttackedLX += l, 
 			e.AttackedRX += l, 
 			e.X += l, 
@@ -6627,6 +6627,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
