@@ -9,6 +9,7 @@ oS.Init({
   ProduceSun: false,
   CardKind: 1,
   DKind: 0,
+  CanSelectCard:1,
   LevelName: "解谜模式：最终决战!",
   LvlEName: "ImZombie2",
   LoadMusic: "Mountains",
