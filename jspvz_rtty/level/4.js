@@ -68,7 +68,7 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
-		[oConeheadZombie, 2, 4]
+		[oNewspaperZombie, 2, 4]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
@@ -100,4 +100,5 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:295px;left:676px", EDAll)
 	}
 });
+
 
