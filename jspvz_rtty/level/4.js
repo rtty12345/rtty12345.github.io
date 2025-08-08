@@ -61,17 +61,19 @@ oS.Init({
 			})())
 		})(283, 122, 68, 117, 73, 71, 131, 511)
 	}
-},{
+},
+{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
-		[oConeheadZombie, 2, 1]
+		[oConeheadZombie, 2, 1],
+		[oConeheadZombie, 2, 4]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
 		a1: [3, 5, 9],
-		a2: [1, 3, 4, 14]
+		a2: [1, 3, 16,42]
 	},
 	FlagToMonitor: {
 		9: [ShowFinalWave, 0]
@@ -98,3 +100,4 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:295px;left:676px", EDAll)
 	}
 });
+
