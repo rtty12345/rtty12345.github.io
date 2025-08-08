@@ -89,7 +89,8 @@ oS.Init({
 		CustomPlants(0, 3, 8);
 		CustomPlants(0, 4, 7)
 	}
-},{
+},
+{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
@@ -113,3 +114,4 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:235px;left:596px", EDAll)
 	}
 });
+
