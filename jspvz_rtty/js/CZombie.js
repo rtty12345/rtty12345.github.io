@@ -62,13 +62,13 @@ var CZombies = function(b, a) {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+    b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP >=h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
         C.style.left = (h.ZX+80) + "px";
-        b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+        b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
@@ -2327,13 +2327,13 @@ if(h.HPlook&&!h.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+    b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP > h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
         C.style.left = (h.ZX+60) + "px";
-        b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+        b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
@@ -3770,13 +3770,13 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+    b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP > h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
         C.style.left = (h.ZX+80) + "px";
-        b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+        b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b])
@@ -4063,13 +4063,13 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+    b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP > h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
         C.style.left = (h.ZX+80) + "px";
-        b.innerHTML = '<div>' + Math.round(Math.max(h.OrnHP,0) + h.HP) + "</div>";
+       b.innerHTML = '<div>' + (h.OrnHP>0&&(Math.round(h.OrnHP,0)+"+"))+ Math.round(h.HP) + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
@@ -6627,6 +6627,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
