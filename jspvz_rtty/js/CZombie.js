@@ -651,13 +651,6 @@ return a;
 			c.ZX = c.AttackedLX;
 			c.ChkActs = CZombies.prototype.ChkActs;
 		},
-		bedevil1: function(c) {
-			c.JudgeAttack = c.JudgeAttack;
-			c.PZ = 1;
-			c.WalkDirection = 0;
-			c.ZX = c.AttackedLX;
-			c.ChkActs = c.ChkActs;
-		},
         SetAlpha: $User.Browser.IE ? function(f, d, e, c) {
             d.style.filter = (f.CSS_alpha = "alpha(opacity=" + e + ")") + f.CSS_fliph
         } : function(f, d, e, c) {
@@ -710,7 +703,6 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFreeze1: function(d, c) {
-			d.beAttacked && d.getHit0(d, 50, 0);
 			d.Speed = 0;
 			d.isAttacking=0;
 			oSym.addTask(400,
@@ -750,6 +742,7 @@ OrnNoneZombies = function() {
 		},
 		getSlowPea: function(e,b,c){
 		var d;
+			e.getHit0(e,50,c);
                 for (d in $Z) {
 		PlayAudio("frozen");
                 e.getFreeze1(e, d);
@@ -6660,6 +6653,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
