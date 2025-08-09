@@ -2024,6 +2024,17 @@ oZombie = InheritO(OrnNoneZombies,{
 		var a = "images/Zombies/Zombie/";
 		return ["images/Card/Zombies/Zombie.png", a + "0.gif", a + "Zombie.gif", a + "ZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
 	})(),
+		GoingDie: function(d) {
+			var c = this,
+			e = c.id;
+	        c.hard==2&&(c.HP=1000);
+			c.PrivateAct=oFootballZombie.prototype.PrivateAct;
+			c.EleBody.src = d;
+			c.GoingDieHead(e, c.PicArr, c);
+			c.beAttacked = 0;
+			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
+			c.AutoReduceHP(e)
+		},
 	Produce: '韧性：<font color="#FF0000">低'
 }),
 oZombie2 = InheritO(oZombie, {
@@ -2754,7 +2765,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-         (t=A[w])&&(t.OrnHP*=1.2);
+         (t=A[w])&&(t.OrnHP*=1.2),
+			 t.HP*=1.2;
             }
 	}
             },[a])
@@ -4644,7 +4656,7 @@ if(d.HPlook&&!d.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-      	if(d.OrnHP>=1){
+      	if(!d.Ornaments){
         b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
     oSym.addTask(1, function(C, d, b) {
@@ -6646,6 +6658,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
