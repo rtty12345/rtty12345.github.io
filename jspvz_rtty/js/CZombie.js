@@ -2386,7 +2386,7 @@ if(h.HPlook&&!h.bHP){
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
 	CName: "路障伴舞僵尸",
-	OrnHP: 500,
+	OrnHP: 370,
 	Lvl: 2,
 	SunNum: 75,
 	StandGif: 1,
@@ -4645,13 +4645,17 @@ if(d.HPlook&&!d.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
+      	if(!d.Ornaments){
+        b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
+	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
     oSym.addTask(1, function(C, d, b) {
       ClearChild(C);
       if (d.HP >=d.BreakPoint && $Z[d.id]) {
         EDAll && EDAll.appendChild(C);
         C.style.left = (d.ZX+80) + "px";
-        b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
+        	if(!d.Ornaments){
+        b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
+	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
       }
       oSym.addTask(5, arguments.callee, [C, d, b])
     }, [C, d, b]);
@@ -6643,6 +6647,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
