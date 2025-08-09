@@ -3005,7 +3005,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                 h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL - 180) + h.beAttackedPointR, SetStyle(i, {
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = CZombies.prototype)
-                    .NormalAttack, h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR  -180) + h.beAttackedPointL, SetStyle(i, {
+                    。NormalAttack, h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR  -180) + h.beAttackedPointL, SetStyle(i, {
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
@@ -3272,7 +3272,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) &&  (h.OrnHP?g.getHit0(g,10,0): g.getHit0(g,100,0)),h.JudgeAttack())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) &&  ((h.OrnHP>=1)?g.getHit0(g,10,0): g.getHit0(g,100,0)),h.JudgeAttack())
 			},
 			[d, c])
 		},
@@ -3283,7 +3283,7 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((g.OrnHP!=0?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((i.OrnHP>=1?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -4645,7 +4645,7 @@ if(d.HPlook&&!d.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-      	if(!d.Ornaments){
+      	if(d.OrnHP>=1){
         b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
     oSym.addTask(1, function(C, d, b) {
@@ -6647,6 +6647,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
