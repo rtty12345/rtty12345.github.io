@@ -2027,7 +2027,7 @@ oZombie = InheritO(OrnNoneZombies,{
 		GoingDie: function(d) {
 			var c = this,
 			e = c.id;
-	        c.hard==2&&(c.HP=1000);
+	        c.hard==2&&(c.HP=600);
 			c.PrivateAct=oFootballZombie.prototype.PrivateAct1;
 			c.EleBody.src = d;
 			c.GoingDieHead(e, c.PicArr, c);
@@ -2040,6 +2040,7 @@ oZombie = InheritO(OrnNoneZombies,{
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2",
 	HP:300,
+	GoingDie:CZombies.prototype.GoingDie,
 	PrivateBirth: function(a){
             let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
@@ -2136,6 +2137,7 @@ oZombie2 = InheritO(oZombie, {
 }),
 oZombie3= InheritO(oZombie, {
 	EName: "oZombie3",
+	GoingDie:CZombies.prototype.GoingDie,
 	Speed:Math.random()*2+2,
 	HP:Math.random()*400+600,
 	Lvl:2,
@@ -3846,7 +3848,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 		try{oP.SetTimeoutWaterZombie(7,9,1,[oNewspaperZombie]);}catch{};
 		a.bool=1;
               }
-	}else if(a.HP<=800){
+	}else if(a.HP<=800&&(a.hard==2)){
 	a.getSlow=a.getFreeze=a.getFreeze1=function(){};
 	a.FreeSlowTime=a.FreeFreezeTime=0;
 	a.Speed=a.LostPaperSpeed;
@@ -4656,7 +4658,7 @@ if(d.HPlook&&!d.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-      	if(!d.Ornaments){
+      	if(d.OrnHP<1){
         b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
     oSym.addTask(1, function(C, d, b) {
@@ -4664,7 +4666,7 @@ if(d.HPlook&&!d.bHP){
       if (d.HP >=d.BreakPoint && $Z[d.id]) {
         EDAll && EDAll.appendChild(C);
         C.style.left = (d.ZX+80) + "px";
-        	if(!d.Ornaments){
+        	if(d.OrnHP<1){
         b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
       }
@@ -6658,6 +6660,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
