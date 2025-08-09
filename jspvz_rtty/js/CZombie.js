@@ -2028,7 +2028,7 @@ oZombie = InheritO(OrnNoneZombies,{
 			var c = this,
 			e = c.id;
 	        c.hard==2&&(c.HP=1000);
-			c.PrivateAct=oFootballZombie.prototype.PrivateAct;
+			c.PrivateAct=oFootballZombie.prototype.PrivateAct1;
 			c.EleBody.src = d;
 			c.GoingDieHead(e, c.PicArr, c);
 			c.beAttacked = 0;
@@ -2201,7 +2201,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         PrivateAct: function(a){
             if(a.HP <= 40){
 		a.OpenBox(a.id);
-		a.hard==2&&(a.Speed=12);
+		a.hard==2&&(a.Speed=16);
             }
         },
 	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（500）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
@@ -6658,6 +6658,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
