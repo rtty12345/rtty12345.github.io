@@ -736,7 +736,7 @@ OrnNoneZombies = function() {
 			b = oZ.getArZ(f, f + 40, g.R),
 			e = b.length;
 			while (e--) {
-				b[e].getFirePeaSputtering2()
+				b[e].getFirePeaSputtering1()
 			}
 			g.getHit1(g, c, j)
 		},
@@ -760,9 +760,6 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFirePeaSputtering1: function() {
-			this.getSnowPea(this, 13)
-		},
-		getFirePeaSputtering2: function() {
 			this.getSnowPea(this, 13)
 		},
 		getSnowPea: function(f, c, g) {
@@ -6653,6 +6650,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
