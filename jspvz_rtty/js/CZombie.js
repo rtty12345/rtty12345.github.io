@@ -2685,7 +2685,7 @@ for (i=0;i<4;i++){
 	for (let l= (a.R - 1 >= 1 ? a.R - 1 : 1); l<= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); l++) {
                 var p = oGd.$[(a.hard==2?l:a.R)+"_"+C+"_"+i];
                 if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-		   	p.Die();
+		   	p.getHurt(this,2,100);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(400,function(a){
 		    a.bool=1;
@@ -2760,7 +2760,9 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
          (t=A[w])&&(t.OrnHP*=1.2),
 			 t.HP*=1.2;
             }
-	}
+			PlayAudio("awooga")
+	};
+	a.hp=false
             },[a])
 	}
         },
@@ -2835,7 +2837,7 @@ oFootballZombie= InheritO(oConeheadZombie,{
             oSym.addTask(600,function(a){
                 PlayAudio("grassstep");
 		   a.hard==2?a.Speed+=4:a.Speed+=2;
-		   a.Attack+=50;
+		   a.hard==2?a.Attack+=100:a.Attack+=50;
 			a.hp=false;
             },[a])
 		 }
@@ -5657,13 +5659,12 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2;
-				for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"});
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
 				left: h.X + "px"
 			}), h.EleShadow.style.left = "45px", n()) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - (h.beAttackedPointR = 100)) + (h.beAttackedPointL = 45), SetStyle(i, {
 				left: h.X + "px"
-			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(), oSym.addTask(170,
+			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(), for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"}),oSym.addTask(170,
 			function(t, w) {
 				var v = $Z[t],
 				u;
@@ -6650,6 +6651,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
