@@ -1263,7 +1263,7 @@ oSunFlower = InheritO(CPlants, {
 		}
 	},
 	PrivateDie:function(a){
-		(!a.CannotDrop)&&(oS.StaticCard)&&(AppearSun(GetX(e.C),GetY(e.R),200))
+		oS.ProduceSun&&&&(!a.CannotDrop)&&(oS.StaticCard)&&(AppearSun(GetX(a.C),GetY(a.R),200))
 	},
 	InitTrigger: function() {}
 }),
@@ -1318,6 +1318,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 		},
 		[a.id, b - 40, b - 20, GetY(a.R)])
 	},
+	PrivateDie:function(){}
 }),
 oPumpkinHead = InheritO(CPlants, {
   EName: "oPumpkinHead",
@@ -3409,5 +3410,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
