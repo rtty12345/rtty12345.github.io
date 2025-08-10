@@ -1263,7 +1263,7 @@ oSunFlower = InheritO(CPlants, {
 		}
 	},
 	PrivateDie:function(a){
-		oS.ProduceSun&&&&(!a.CannotDrop)&&(oS.StaticCard)&&(AppearSun(GetX(a.C),GetY(a.R),200))
+		oS.ProduceSun&&(!a.CannotDrop)&&(oS.StaticCard)&&(AppearSun(GetX(a.C),GetY(a.R),200))
 	},
 	InitTrigger: function() {}
 }),
@@ -3410,6 +3410,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
