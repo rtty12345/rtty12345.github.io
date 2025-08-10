@@ -513,7 +513,7 @@ oSnowPea = InheritO(oPeashooter, {
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
 	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果，有概率冻结，2%概率散射一堆冻结豌豆并短暂提升自身攻速",
-	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果，有概率冻结，2%概率散射一些冻结豌豆并短暂提升自身攻速，对不免疫冻结的僵尸造成超高伤害<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
+	Produce: '寒冰射手会发射寒冰豌豆来攻击敌人，并具有范围减速效果，有概率冻结，2%概率散射一些冻结豌豆并短暂提升自身攻速<p>伤害：<font color="#FF0000">较高，带有范围减速效果</font></p>人们经常告诉寒冰射手他是多么“冷酷”，或者告诫他要“冷静”。他们叫他要“保持镇静”。寒冰射手只是转转他的眼睛。其实他都听见了。',
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		Math.round(Math.random()*100)>2?this.NormalAttack(b):this.NormalAttack1(b);
@@ -551,7 +551,7 @@ oSnowPea = InheritO(oPeashooter, {
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>15?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>10?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	},
 	NormalAttack1:function(a) {
 	if(this.highwork==2){
@@ -674,7 +674,7 @@ oSnowPea = InheritO(oPeashooter, {
 }),
 oThreepeater = InheritO(oPeashooter, {
 	EName: "oThreepeater",
-	CName: "四线射手",
+	CName: "N线射手",
 	width: 73,
 	height: 80,
 	BKind:0,
@@ -682,8 +682,8 @@ oThreepeater = InheritO(oPeashooter, {
 	SunNum: 375,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次射出大量三行的豌豆，攻击距离很短",
-	Produce: '三线射手可以在三条线上同时大量射出豌豆，攻击距离短<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">三线</font></p>三线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
+	Tooltip: "一次射出大量覆盖全图所有行的豌豆，攻击距离很短",
+	Produce: '三线射手可以在全图所有行上同时大量射出豌豆，攻击距离短<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">全图所有的行</font></p> N线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerRange: function(a, b, c) {
 		return [[b, Math.min(c +300, oS.W), 0]]
 	},
@@ -1182,15 +1182,15 @@ oSplitPea = InheritO(oPeashooter, {
 				p == 0 && j[l + "_" + h] && n != h && (PlayAudio("firepea"), p = 1, k = 40, n = h, m.src = "images/Plants/PB" + p + f + ".gif");
 				g && g.Altitude == 1 ? (g[{
 					"-1": "getSnowPea",
-					0 : "getPea",
-					1 : "getFirePea"
+					0 : "getFirePea",
+					1 : "getSlowPea1"
 				} [p]](g, k, f), (SetStyle(m, {
 					left: r + 28 + "px",
 					width: "52px",
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [m])) : (q += (o = !f ? 5 : -5)) < oS.W && q > 100 ? (m.style.left = (r += o) + "px", oSym.addTask(1, arguments.callee, [i, m, k, f, q, l, p, n, r, j])) : ClearChild(m)
 			},
-			[e, $(e),40, c, d.AttackedLX, d.R,1, 0, a, oGd.$Torch])
+			[e, $(e),40, c, d.AttackedLX, d.R,0, 0, a, oGd.$Torch])
 		};
 		b()
 	}
@@ -1230,6 +1230,7 @@ oSunFlower = InheritO(CPlants, {
 		function(d, c, b) {
 			$P[d] && (a.ChangePosition($(d), 1), oSym.addTask(100,
 			function(h, g, f, e) {
+				a.CannotDrop=1;
 				$P[h] && (AppearSun(Math.floor(g + Math.random() * 41), f, 40,0), oSym.addTask(100,
 				function(i) {
 					$P[i] && a.ChangePosition($(i), 0)
@@ -1260,6 +1261,9 @@ oSunFlower = InheritO(CPlants, {
 				e.Die();
 			}
 		}
+	},
+	PrivateDie:function(a){
+		(!a.CannotDrop)&&(oS.StaticCard)&&(AppearSun(GetX(e.C),GetY(e.R),200))
 	},
 	InitTrigger: function() {}
 }),
@@ -3405,4 +3409,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
