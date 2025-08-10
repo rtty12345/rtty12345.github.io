@@ -825,7 +825,7 @@ oThreepeater1= InheritO(oPeashooter, {
 					height: "46px"
 				})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [l])) : (p += (n = !e ? 5 : -5)) < oS.W && p > 100 ? (l.style.left = (q += n) + "px", oSym.addTask(1, arguments.callee, [h, l, j, e, p, k, o, m, q, i])) : ClearChild(l)
 			},
-			[d, $(d), 20, 0, c.AttackedLX,a,(y=Math.round(Math.random()*1-1)), 0, c.AttackedLX - 40, oGd.$Torch])
+			[d, $(d), 20, 0, c.AttackedLX,a,(y=Math.round(Math.random()*100)>25?-1:0), 0, c.AttackedLX - 40, oGd.$Torch])
 		}
 	}
 }),
@@ -3405,3 +3405,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
