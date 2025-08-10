@@ -5664,7 +5664,8 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 				left: h.X + "px"
 			}), h.EleShadow.style.left = "45px", n()) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - (h.beAttackedPointR = 100)) + (h.beAttackedPointL = 45), SetStyle(i, {
 				left: h.X + "px"
-			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(), for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"}),oSym.addTask(170,
+			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(), oSym.addTask(170,
+			for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"});
 			function(t, w) {
 				var v = $Z[t],
 				u;
@@ -6651,6 +6652,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
