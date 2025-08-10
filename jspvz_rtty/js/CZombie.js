@@ -5625,7 +5625,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 	EName: "oDolphinRiderZombie1",
 	CName: "海豚骑士僵尸",
-	HP: 800,
+	HP: 500,
 	NormalAttack: function(d, b, g) {
 		var f = $Z[d],
 		a = f.Ele,
@@ -5659,13 +5659,13 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2;
+				for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"});
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
 				left: h.X + "px"
 			}), h.EleShadow.style.left = "45px", n()) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - (h.beAttackedPointR = 100)) + (h.beAttackedPointL = 45), SetStyle(i, {
 				left: h.X + "px"
 			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(), oSym.addTask(170,
-			for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"});
 			function(t, w) {
 				var v = $Z[t],
 				u;
@@ -6652,6 +6652,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
