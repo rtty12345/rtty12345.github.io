@@ -2750,7 +2750,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
         PrivateAct1:function() {
 			},
 	 PrivateAct2:function(a){
-		 if(!a.hp){
+		 if(!a.hp&&$Z[a.id]){
                  a.hp=true;
             oSym.addTask(1000,function(a){
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
@@ -6652,6 +6652,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
