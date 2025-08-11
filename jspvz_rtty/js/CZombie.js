@@ -2406,7 +2406,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 		a.ZX = a.AttackedRX;
 		a.ChkActs = a.ChkActs1;
 		a.Speed = 10;
-		a.HP=500,
+		a.HP=500;
 		a.ChangeChkActsTo1(a, a.id, a.EleBody);
 		oP.MonPrgs()
 	},
@@ -2489,28 +2489,28 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 	},
 	  NormalDie: function() {
     var c = this,
+		num=Math.random()*100,
       R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
-    c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
+    for (let i = C - 1; i <= C + 1; i++) {
+      for (let l = R; l <= RM; l++) {
+       if ((i == C || l == c.R)||(c.hard==2)&&(num<=25)) {
+          oP.NumZombies += 3,
+            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
+                EDPZ.appendChild(n);
+                m.Birth();
+				!this.PZ&&(m.bedevil(m))
+              },
+              a)
+        }
+      }
+    };
+	c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
     oSym.addTask(250, ClearChild, [c.Ele]);
     c.HP = 0;
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
-    for (let i = C - 1; i <= C + 1; i++) {
-      for (let l = R; l <= RM; l++) {
-       if ((i == C || l == c.R)||(c.hard==2)) {
-
-          oP.NumZombies += 3,
-
-            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
-                EDPZ.appendChild(n);
-                m.Birth();
-              },
-              a);
-        }
-      }
-    }
     return a;
   },
   ExplosionDie: function() {
@@ -2518,23 +2518,24 @@ oConeheadZombie1= InheritO(OrnIZombies, {
       R = (c.R - 1 || 1),
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R);
-    c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
-    oSym.addTask(300, ClearChild, [c.Ele]);
-    c.HP = 0;
-    delete $Z[c.id];
-    c.PZ && oP.MonPrgs();
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
-        if ((i == C || l == c.R)||(c.hard==2)) {
+        if ((i == C || l == c.R)||(c.hard==2)&&(num<=25)) {
           oP.NumZombies += 2,
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
                 EDPZ.appendChild(n);
                 m.Birth();
+				!this.PZ&&(m.bedevil(m))
               },
               a);
         }
       }
-    }
+    };
+	c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
+    oSym.addTask(300, ClearChild, [c.Ele]);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
     return a;
   },
   DisappearDie: function() {
@@ -2542,23 +2543,24 @@ oConeheadZombie1= InheritO(OrnIZombies, {
       R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
-    ClearChild(this.Ele);
-    this.HP = 0;
-    delete $Z[this.id];
-    this.PZ && oP.MonPrgs();
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
-        if ((i == C || l == c.R)||(c.hard==2)) {
+        if ((i == C || l == c.R)||(c.hard==2)&&(num<=25)) {
           oP.NumZombies += 2,
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
               function(n, m) {
                 EDPZ.appendChild(n);
                 m.Birth();
+				!this.PZ&&(m.bedevil(m))
               },
               a);
         }
       }
     }
+	ClearChild(this.Ele);
+    this.HP = 0;
+    delete $Z[this.id];
+    this.PZ && oP.MonPrgs();
     return a;
   },
   CrushDie: function() {
@@ -2566,26 +2568,25 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     let R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
+    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
+      for (let l = R; l <= RM; l++) {
+        if ((i == C || l == c.R)||(c.hard==2)&&(num<=25)) {
+          oP.NumZombies += 3,
+            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
+              function(n, m) {
+                EDPZ.appendChild(n);
+                m.Birth();
+				!this.PZ&&(m.bedevil(m))
+              },
+              a);
+        }
+      }
+    };
     c.GoingDieHead(c.id, c.PicArr, c);
     ClearChild(c.Ele);
     c.HP = 0;
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
-    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
-      for (let l = R; l <= RM; l++) {
-        if ((i == C || l == c.R)||(c.hard==2)) {
-
-          oP.NumZombies += 2,
-
-            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
-              function(n, m) {
-                EDPZ.appendChild(n);
-                m.Birth();
-              },
-              a);
-        }
-      }
-    }
     return a;
   },
 	ChkActs: function(g, d, h, c) {
@@ -6652,6 +6653,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
