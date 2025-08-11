@@ -2500,7 +2500,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
                 EDPZ.appendChild(n);
                 m.Birth();
-				!this.PZ&&(m.bedevil(m))
+				!c.PZ&&(m.bedevil(m))
               },
               a)
         }
@@ -6653,6 +6653,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
