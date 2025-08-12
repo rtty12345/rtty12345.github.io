@@ -559,14 +559,14 @@ oSnowPea = InheritO(oPeashooter, {
 	return;	
 	}
 	this.NormalAttack2();
-	oSym.addTask(5,
+	oSym.addTask(10,
 	function(d, b) {
 		var c = $P[d];
 		c && c.NormalAttack2(); --b && oSym.addTask(5, arguments.callee, [d, b])
 		c&&(c.highwork=2);
 		oSym.addTask(701,function(c){c&&(c.highwork=0)},[c])
 		},
-		[this.id,9])
+		[this.id,7])
 	},
 	NormalAttack2: function() {
 		var g = this,
@@ -596,7 +596,7 @@ oSnowPea = InheritO(oPeashooter, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("PStarB" + Math.random()); (function(h) {
+		})("PStarB1" + Math.random()); (function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -614,7 +614,7 @@ oSnowPea = InheritO(oPeashooter, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("PStarB" + Math.random()); (function(h) {
+		})("PStarB2" + Math.random()); (function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -632,7 +632,7 @@ oSnowPea = InheritO(oPeashooter, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("PStarB" + Math.random());
+		})("PStarB3" + Math.random());
 		 (function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -651,7 +651,7 @@ oSnowPea = InheritO(oPeashooter, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("PStarB" + Math.random()); (function(h) {
+		})("PStarB4" + Math.random()); (function(h) {
 			oSym.addTask(15,
 			function(j) {
 				var i = $(j);
@@ -669,7 +669,7 @@ oSnowPea = InheritO(oPeashooter, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("PStarB" + Math.random());
+		})("PStarB5" + Math.random());
 	}
 }),
 oThreepeater = InheritO(oPeashooter, {
@@ -3411,6 +3411,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
