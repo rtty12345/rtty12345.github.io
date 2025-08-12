@@ -1012,7 +1012,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("GStarB" + Math.random());
+		})("GStarB1" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1031,7 +1031,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("GStarB" + Math.random());
+		})("GStarB2" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1050,7 +1050,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("GStarB" + Math.random());
+		})("GStarB5" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1069,7 +1069,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("GStarB" + Math.random());
+		})("GStarB3" + Math.random());
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1088,7 +1088,7 @@ oGatlingPea1= InheritO(CPlants, {
 				id: h
 			},
 			0, EDPZ), a])
-		})("GStarB" + Math.random())
+		})("GStarB4" + Math.random())
 	},
 	NormalAttack: function(a) {
 		this.NormalAttack1();
@@ -3411,6 +3411,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
