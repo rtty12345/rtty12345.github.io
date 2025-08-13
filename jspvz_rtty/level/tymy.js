@@ -68,4 +68,5 @@ oS.Init({
             NewImg("PointerUD","images/interface/PointerDown.gif","top:185px;left:51%",EDAll) // 创建新图片
         }
     }
-}， 0， {});
+},
+0,{});
