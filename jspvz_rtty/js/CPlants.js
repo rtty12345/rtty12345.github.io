@@ -2440,7 +2440,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
             if(!c.num){
             c.num = 1;
             oSym.addTask(1,function(c){
-                let z = oZ.getArZ(c.pixelLeft,850,c.R);
+                let z = oZ.getArZ(c.pixelLeft,950,c.R);
 	if(c.HP>1){
                 for(let i = 0;i < z.length;i++){
                         z[i].NormalAttack=CZombies.prototype.NormalAttack;
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
