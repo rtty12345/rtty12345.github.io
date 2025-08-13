@@ -1254,9 +1254,6 @@ oSunFlower = InheritO(CPlants, {
 				},
 				[e.C, e.R]));
 				break;
-			case 3:
-				(e.HP -= b) < 1 && e.Die();
-				break;
 			default: // 如果是非自然原因死亡，直接把剩余价值压榨出来
 				if (e.HP > 0) AppearSun(Math.floor(GetX(e.C) - 40 + Math.random() * 41), GetY(e.R), Math.floor(e.HP / 1.5 / 25) * 40, 0);
 				e.Die();
@@ -3411,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
