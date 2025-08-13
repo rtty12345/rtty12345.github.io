@@ -2111,8 +2111,7 @@ oZombie2 = InheritO(oZombie, {
           }
           if ($(d).offsetLeft >= 900) {
             ClearChild($(d));
-            $(d).isDie = true;
-          }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+          }oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
         !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(1500, arguments.callee, [a])
       }, [a]);
@@ -6653,6 +6652,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
