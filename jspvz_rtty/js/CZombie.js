@@ -177,7 +177,7 @@ shootbedevilPea:function(a) {
         }
         let z = $(a.id);
         let div = $n("div");
-        let d = "Pea" + Math.random();
+        let d = "Peab" + Math.random();
         div.id = d;
         div.innerHTML = '<img src="images/Plants/PB00.gif">';
         EditEle(div, 0, {
@@ -188,14 +188,14 @@ shootbedevilPea:function(a) {
           top: a.pixelTop + 40 + "px"
         }, EDPZ, 0)
         oSym.addTask(1, function(z, d, a) {
-          $(d).style.left = $(d).offsetLeft + 5 + "px";
-          let pea = $(d);
-          let p = oZ.getArZ(a.ZX - 10, $(d).offsetLeft + 50, a.R);
+		let pea = $(d);
+          pea.style.left = pea.offsetLeft + 5 + "px";
+          let p = oZ.getArZ(a.ZX - 10, pea.offsetLeft + 50, a.R);
           let i = p.length;
           while (i--) {
-            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), ($(d) && ClearChild($(d)))));
+            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), (pea&& ClearChild(pea))));
           }
-          if ($(d).offsetLeft >900) {
+          if (pea.offsetLeft >900) {
             ClearChild($(d));
           };
 	oSym.addTask(1, arguments.callee, [z, d, a])
@@ -6653,6 +6653,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
