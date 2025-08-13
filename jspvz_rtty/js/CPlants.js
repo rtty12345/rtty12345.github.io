@@ -1261,7 +1261,7 @@ oSunFlower = InheritO(CPlants, {
 		}
 	},
 	PrivateDie:function(a){
-		oS.ProduceSun&&(!a.CannotDrop)&&(oS.StaticCard)&&(AppearSun(GetX(a.C),GetY(a.R),200),a.coolTime=15)
+		oS.ProduceSun&&(!a.CannotDrop)&&(oS.StaticCard)&&AppearSun(GetX(a.C),GetY(a.R),160)
 	},
 	InitTrigger: function() {}
 }),
@@ -2450,7 +2450,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			z[i].PrivateAttack=function(){};
 			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].Attack=100;
-			PlayAudio("polevault");
+			PlayAudio("jack_surprise");
                 }
 	}
                 (c.HP > 1) && oSym.addTask(1000,arguments.callee,[c])
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
