@@ -1,7 +1,7 @@
 alert("本关暂未设计完成！");
-oS.Init({
+oS。Init({
     PName: [oCactus,oSunFlower,oScaredyShroom,oPumpkinHead,oGarlic,oSpikeweed,oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,oSpikerock,oSplitPea,oPuffShroom,oSnowPea], // 植物名称数组
-    ZName: [oPoleVaultingZombie1,oPoleVaultingZombie1], // 僵尸名称数组
+    ZName: [oPoleVaultingZombie1,oPoleVaultingZombie], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
