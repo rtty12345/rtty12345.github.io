@@ -2515,6 +2515,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
   ExplosionDie: function() {
     var c = this,
       R = (c.R - 1 || 1),
+	num=Math.random()*100,
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R);
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
@@ -2540,6 +2541,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
   DisappearDie: function() {
     var c = this,
       R = (c.R - 1 || 1),
+		num=Math.random()*100,
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
@@ -2565,6 +2567,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
   CrushDie: function() {
     var c = this;
     let R = (c.R - 1 || 1),
+		num=Math.random()*100,
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
       C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
@@ -6652,6 +6655,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
