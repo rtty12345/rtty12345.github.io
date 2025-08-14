@@ -14,18 +14,19 @@ oS.Init({
 		10: $("imgFlag3"),
 		20: $("imgFlag1")
 	}
-}, {
+},
+{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
-		[oPoleVaultingZombie, 1, 1]
+		[oPoleVaultingZombie, 1, 2]
 	],
 	FlagNum: 20,
 	FlagToSumNum: {
 		a1: [3, 5, 9, 10, 13, 15, 19],
-		a2: [1, 3, 5, 10, 6, 7, 9, 20]
+		a2: [1, 3, 10, 30, 12, 14, 18, 45]
 	},
 	FlagToMonitor: {
 		9: [ShowLargeWave, 0],
@@ -39,4 +40,5 @@ oS.Init({
 		});
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll)
 	}
+
 });
