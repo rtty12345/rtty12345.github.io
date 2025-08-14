@@ -2956,7 +2956,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/PoleVaultingZombie.png", a + "0.gif", a + "PoleVaultingZombie.gif", a + "PoleVaultingZombieAttack.gif", a + "PoleVaultingZombieLostHead.gif", a + "PoleVaultingZombieLostHeadAttack.gif", a + "PoleVaultingZombieHead.gif" + $Random, a + "PoleVaultingZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "PoleVaultingZombieWalk.gif", a + "PoleVaultingZombieLostHeadWalk.gif", a + "PoleVaultingZombieJump.gif", a + "PoleVaultingZombieJump2.gif", a + "1.gif"]
 	})(),
 	AudioArr: ["polevault", "grassstep"],
-	Produce: '撑杆僵尸可以跳N格<p>韧性：<font color="#FF0000">中(800)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+	Produce: '撑杆僵尸可以跳N格，跳跃完毕后变成巨人攻击方式<p>韧性：<font color="#FF0000">中(800)</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
         getShadow: function(a) {
             return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
         },
@@ -2975,7 +2975,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     continue
                 }
                 for (a = 2; a > -1;
-                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = oZomboni.prototype.JudgeAttack,g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
+                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack,g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
             }
         },
         getCrushed: function(a) {
@@ -3039,14 +3039,14 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
             oSym.addTask(100, function(m, j, i, l, n) {
                 var h = $Z[m],
                     k, q, r;
-                h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL - 180) + h.beAttackedPointR, SetStyle(i, {
+                h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL) + h.beAttackedPointR, SetStyle(i, {
                     left: h.X  + "px",
-                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR  -180) + h.beAttackedPointL, SetStyle(i, {
+                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven,h.JudgeLR=oZomboni.prototype.JudgeLR,h.JudgeSR=oZomboni.prototype.JudgeSR) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR-180) + h.beAttackedPointL, SetStyle(i, {
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
                         t;
-                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack =u.NormalAttack1,u.getCrushed =(t = CZombies.prototype).getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000)));
+                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack =u.NormalAttack1,u.getCrushed =(t = CZombies.prototype).getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000))),u.JudgeLR=oZomboni.prototype.JudgeLR,u.JudgeSR=oZomboni.prototype.JudgeSR
                 }, [m, n])))
             }, [d, b, a, c, e])
         }
@@ -6683,6 +6683,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
