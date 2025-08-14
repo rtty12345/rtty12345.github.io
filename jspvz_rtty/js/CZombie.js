@@ -460,7 +460,7 @@ return a;
 			[f, d])
 		},
 		getr:function(e,l){
-		GetR(e.ZX+40)<10&&(e.ZX +=l,
+		GetC(e.ZX+40)<10&&(e.ZX +=l,
 			e.AttackedLX += l, 
 			e.AttackedRX += l, 
 			e.X += l, 
@@ -2975,7 +2975,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     continue
                 }
                 for (a = 2; a > -1;
-                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack,g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
+                (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = oZomboni.prototype.JudgeAttack,g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
             }
         },
         getCrushed: function(a) {
@@ -2991,6 +2991,34 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         },
         getRaven: function(a) {
             return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0
+        },
+			AttackZombie: function(d, c) {
+			oSym.addTask(150,
+			function(f, e) {
+				var h = $Z[f],
+				g;
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 1500, 0), h.JudgeAttack())
+			},
+			[d, c])
+		},
+		AttackZombie2: function(e, d, c) {
+			e.isAttacking = 1;
+			e.EleBody.src = e.PicArr[e.AttackGif];
+			oSym.addTask(150,
+			function(g, f) {
+				var i = $Z[g],
+				h;
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 1500, 0), oSym.addTask(150, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+			},
+			[d, c])
+		},
+        NormalAttack1: function(d, c) {
+            PlayAudio("zaji");
+            oSym.addTask(150, function(f, e) {
+                var h = $Z[f],
+                    g;
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,2,10000), h.JudgeAttack())
+            }, [d, c]);
         },
         NormalAttack: function(d, b, g) {
             var f = $Z[d],
@@ -3013,12 +3041,12 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     k, q, r;
                 h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL - 180) + h.beAttackedPointR, SetStyle(i, {
                     left: h.X  + "px",
-                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = CZombies.prototype).NormalAttack,h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR  -180) + h.beAttackedPointL, SetStyle(i, {
+                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR  -180) + h.beAttackedPointL, SetStyle(i, {
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
                         t;
-                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = CZombies.prototype).NormalAttack,u.getCrushed = t.getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000)));
+                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack =u.NormalAttack1,u.getCrushed =(t = CZombies.prototype).getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000)));
                 }, [m, n])))
             }, [d, b, a, c, e])
         }
@@ -6655,6 +6683,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
