@@ -13,7 +13,8 @@ oS.Init({
 	LargeWaveFlag: {
 		10: $("imgFlag1")
 	}
-}, {
+},
+{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
@@ -24,7 +25,7 @@ oS.Init({
 	FlagNum: 10,
 	FlagToSumNum: {
 		a1: [3, 5, 9],
-		a2: [1, 3, 7, 15]
+		a2: [1, 6, 14, 30]
 	},
 	FlagToMonitor: {
 		9: [ShowFinalWave, 0]
@@ -37,4 +38,5 @@ oS.Init({
 		});
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
+
 });
