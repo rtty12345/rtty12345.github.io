@@ -3014,7 +3014,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		},
         NormalAttack1: function(d, c) {
             PlayAudio("zaji");
-            oSym.addTask(150, function(f, e) {
+            oSym.addTask(100, function(f, e) {
                 var h = $Z[f],
                     g;
                 h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,2,10000), h.JudgeAttack())
@@ -3041,7 +3041,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     k, q, r;
                 h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL) + h.beAttackedPointR, SetStyle(i, {
                     left: h.X  + "px",
-                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven,h.JudgeLR=oZomboni.prototype.JudgeLR,h.JudgeSR=oZomboni.prototype.JudgeSR) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR-180) + h.beAttackedPointL, SetStyle(i, {
+                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven,h.JudgeLR=oZomboni.prototype.JudgeLR,h.JudgeSR=oZomboni.prototype.JudgeSR) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR-180) + h.beAttackedPointL, SetStyle(i， {
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
@@ -6683,6 +6683,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
