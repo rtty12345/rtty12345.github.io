@@ -69,13 +69,13 @@ oS.Init({
 		[oZombie2, 1, 1],
 		[oZombie3, 1, 1],
 		[oConeheadZombie, 3, 1],
-		[oPoleVaultingZombie, 10, 1],
+		[oPoleVaultingZombie, 1, 4],
 		[oBucketheadZombie, 3, 1]
 	],
 	FlagNum: 20,
 	FlagToSumNum: {
 		a1: [3, 5, 9, 10, 13, 15, 19],
-		a2: [4, 8, 24, 40, 54,66,78,100]
+		a2: [4, 8, 16, 30, 42,56,64,88]
 	},
 	FlagToMonitor: {
 		9: [ShowLargeWave, 0],
@@ -160,3 +160,4 @@ oS.Init({
 		})
 	}
 });
+
