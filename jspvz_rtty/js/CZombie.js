@@ -2867,70 +2867,6 @@ oFootballZombie= InheritO(oConeheadZombie,{
 		},
 	Produce: '橄榄球僵尸免疫减速，有些会给自己加速，有些会换行<p>韧性：<font color="#FF0000">极高(2500+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 }),
-oFootballZombie1= InheritO(oConeheadZombie,{
-	EName: "oFootballZombie1",
-	CName: "黑橄榄球僵尸",
-	OrnHP: 5000,
-	HP:1000,
-	Lvl: 8,
-	SunNum: 400,
-	StandGif: 11,
-	width: 154,
-	height: 160,
-	OSpeed: 2,
-	Speed: 2,
-	beAttackedPointL: 40,
-	beAttackedPointR: 134,
-	PlayNormalballAudio: function() {
-		PlayAudio("plastichit")
-	},
-	getSnowPea:OrnNoneZombies.prototype.getPea,
-	getFirePea:OrnNoneZombies.prototype.getPea,
-	getSlowPea:OrnNoneZombies.prototype.getPea,
-	getSlowPea1:OrnNoneZombies.prototype.getPea,
-	bedevil: function() {
-		},
-	PicArr: (function() {
-		var a = "images/Zombies/FootballZombie/";
-		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
-	})(),
-	getShadow: function(a) {
-		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
-	},
-	AttackZombie: function(d, c) {
-			oSym.addTask(10,
-			function(f, e) {
-				var h = $Z[f],
-				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit1(g,40,0), h.JudgeAttackH())
-			},
-			[d, c])
-		},
-		AttackZombie2: function(e, d, c) {
-			e.isAttacking = 1;
-			e.EleBody.src = e.PicArr[e.AttackGif];
-			oSym.addTask(10,
-			function(g, f) {
-				var i = $Z[g],
-				h;
-				i && i.beAttacked &&!i.FreeFreezeTime && !i.FreeSetbodyTime && (h = $Z[f])&&(h.reNormal(h),i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif])
-			},
-			[d, c])
-		},
-	NormalAttack: function(d, c) {
-            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
-            oSym.addTask(50, function(e) {
-                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
-            }, [d]);
-            oSym.addTask(300, function(f, e) {
-                var h = $Z[f],
-                    g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime&&((g = $P[e])&&g.getHurt(h, 2,h.Attack),g&&g!==undefined&&CustomZombie(oFootballZombie,g.R,g.C),h.JudgeAttack())
-            }, [d, c]);
-            this.PrivateAttack && this.PrivateAttack(this)
-	},
-	Produce: '橄榄球僵尸免疫减速，是双发的一生之敌，且不会溅射火豌豆<p>韧性：<font color="#FF0000">极高(2000+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中（1.5倍）</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
-}),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
@@ -3041,7 +2977,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                     k, q, r;
                 h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL) + h.beAttackedPointR, SetStyle(i, {
                     left: h.X  + "px",
-                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven,h.JudgeLR=oZomboni.prototype.JudgeLR,h.JudgeSR=oZomboni.prototype.JudgeSR) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR-180) + h.beAttackedPointL, SetStyle(i， {
+                }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 3.2, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = h.NormalAttack1,h.getCrushed =(r=CZombies.prototype).getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven,h.JudgeLR=oZomboni.prototype.JudgeLR,h.JudgeSR=oZomboni.prototype.JudgeSR) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - h.beAttackedPointR-180) + h.beAttackedPointL, SetStyle(i,{
                     left: h.X  + "px",
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
@@ -6683,6 +6619,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
