@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oBucketheadZombie],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oBucketheadZombie,oPoleVaultingZombie,oNewspaperZombie],
 	PicArr: function() {
 		var a = oRepeater.prototype,
 			b = a.PicArr;
@@ -13,18 +13,21 @@ oS.Init({
 	LargeWaveFlag: {
 		10: $("imgFlag1")
 	}
-}, {
+},
+{
 	AZ: [
 		[oZombie, 3, 1],
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
+		[oPoleVaultingZombie, 1, 2],
+		[oNewspaperZombie, 1, 4],
 		[oBucketheadZombie, 1, 1]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
 		a1: [3, 5, 9],
-		a2: [1, 3, 5, 15]
+		a2: [1, 6, 45, 60]
 	},
 	FlagToMonitor: {
 		9: [ShowFinalWave, 0]
@@ -37,4 +40,5 @@ oS.Init({
 		});
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
+
 });
