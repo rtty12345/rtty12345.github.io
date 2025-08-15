@@ -744,7 +744,6 @@ OrnNoneZombies = function() {
 		var d;
 			e.getHit0(e,50,c);
                 for (d in $Z) {
-		PlayAudio("frozen");
                 e.getFreeze1(e, d);
 		}
                 },
@@ -6619,6 +6618,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
