@@ -2421,7 +2421,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	Attacking: 0,
 	PicArr: ["images/Card/Plants/ScaredyShroom.png", "images/Plants/ScaredyShroom/0.gif", "images/Plants/ScaredyShroom/ScaredyShroom.gif", "images/Plants/ScaredyShroom/ScaredyShroomSleep.gif", "images/Plants/ScaredyShroom/ScaredyShroomCry.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
 	Tooltip: "远程射手, 但敌人靠近时会蜷缩不动，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力，技能冷却10秒",
-	Produce: '胆小菇是一种远程射手，敌人接近后会躲起来。<p>伤害：<font color="#FF0000">普通</font><br>特点：<font color="#FF0000">敌人接近后就停止攻击，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力，技能冷却10秒，<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“走开！我不想见任何人。除非……除非你是马戏团的人。”',
+	Produce: '胆小菇是一种远程射手，敌人接近后会躲起来。<p>伤害：<font color="#FF0000">普通</font><br>特点：<font color="#FF0000">敌人接近后就停止攻击，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力，技能冷却15秒，<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“走开！我不想见任何人。除非……除非你是马戏团的人。”',
 	GetDX: CPlants.prototype.GetDX,
 	getTriggerRange: CPlants.prototype.getTriggerRange,
 	getTriggerR: function(c) {
@@ -2453,7 +2453,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			PlayAudio("jack_surprise");
                 }
 	}
-                (c.HP > 1) && oSym.addTask(1000,arguments.callee,[c])
+                (c.HP > 1) && oSym.addTask(1500,arguments.callee,[c])
             },[c]);
             }
             }catch(e){document.write(e)}
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
