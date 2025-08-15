@@ -2927,8 +2927,8 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
         getRaven: function(a) {
             return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0
         },
-			AttackZombie: function(d, c) {
-			oSym.addTask(150,
+		AttackZombie: function(d, c) {
+			oSym.addTask(100,
 			function(f, e) {
 				var h = $Z[f],
 				g;
@@ -2939,7 +2939,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		AttackZombie2: function(e, d, c) {
 			e.isAttacking = 1;
 			e.EleBody.src = e.PicArr[e.AttackGif];
-			oSym.addTask(150,
+			oSym.addTask(100,
 			function(g, f) {
 				var i = $Z[g],
 				h;
@@ -2952,7 +2952,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
             oSym.addTask(100, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,2,10000), h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h,1,10000), h.JudgeAttack())
             }, [d, c]);
         },
         NormalAttack: function(d, b, g) {
@@ -6618,6 +6618,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
