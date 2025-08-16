@@ -1023,6 +1023,20 @@ oZ = {
 			}
 		}
 	},
+	getHZ0: function(b, d) {
+		if (d < 1 || d > oS.R) {
+			return
+		}
+		var c = 0,
+		e = this.$[d],
+		f,
+		a = e.length;
+		while (c < a && (f = e[c++]).AttackedLX <= b) {
+			if (!(f.PZ)&&(f.HP) && f.AttackedRX >= b) {
+				return f
+			}
+		}
+	},
 	getZ1: function(h, b) {
 		if (b < 1 || b > oS.R) {
 			return
@@ -1039,6 +1053,26 @@ oZ = {
 		e = g.length;
 		while (d < e && (c = g[d++]).AttackedRX >= h) {
 			if (c.PZ && c.HP && c.AttackedLX <= h) {
+				return c
+			}
+		}
+	},
+		getHZ1: function(h, b) {
+		if (b < 1 || b > oS.R) {
+			return
+		}
+		var d = 0,
+		j = this.$[b],
+		f = this.$R[b],
+		g,
+		c,
+		k,
+		e; (k = j.RefreshTime) == f.RefreshTime ? g = f: (g = (this.$R[b] = j.slice(0)).sort(function(l, i) {
+			return i.AttackedRX - l.AttackedRX
+		})).RefreshTime = k;
+		e = g.length;
+		while (d < e && (c = g[d++]).AttackedRX >= h) {
+			if ((!c.PZ) && c.HP && c.AttackedLX <= h) {
 				return c
 			}
 		}
@@ -2734,3 +2768,4 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
