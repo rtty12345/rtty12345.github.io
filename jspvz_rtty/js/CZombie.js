@@ -195,7 +195,7 @@ shootbedevilPea:function(a) {
           while (i--) {
             p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), (pea&& ClearChild(pea))));
           }
-          if (pea.offsetLeft >900) {
+          if (pea.offsetLeft >720) {
             ClearChild($(d));
           };
 	oSym.addTask(1, arguments.callee, [z, d, a])
@@ -2108,7 +2108,7 @@ oZombie2 = InheritO(oZombie, {
           while (i--) {
             a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):(p[i].getHit0(p[i], 300, 0)),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft >= 900) {
+          if ($(d).offsetLeft >= 720) {
             ClearChild($(d));
           }oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
@@ -4162,9 +4162,9 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           while (i--) {
             p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft >= 900) {
+          if ($(d).offsetLeft >= 720) {
             ClearChild($(d));
-            $(d).isDie = true;
+			$(d).isDie=1;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
         !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
@@ -6086,9 +6086,9 @@ oSym.addTask(1, function(a) {
           while (i--) {
             p &&  (p[i].Altitude==1) && ((p[i].getSlowPea(p[i], 20, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft>=900) {
+          if ($(d).offsetLeft>=720) {
             ClearChild($(d));
-            $(d).isDie = true;
+            $(d).isDie =1;
           };
 	!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
@@ -6618,6 +6618,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
