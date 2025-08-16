@@ -189,7 +189,7 @@ shootbedevilPea:function(a) {
           pea.style.left = pea.offsetLeft + 5 + "px";
           let p = oZ.getZ0(pea.offsetLeft + 50, a.R);
             p && (p.Altitude == 1) && ((p.getPea(p, 20, 0), (pea&& ClearChild(pea))));
-          if (pea.offsetLeft >720) {
+          if (pea.offsetLeft >880) {
             ClearChild(pea);
 			pea.isDie=1;
           }
@@ -2103,7 +2103,7 @@ oZombie2 = InheritO(oZombie, {
           while (i--) {
             a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):(p[i].getHit0(p[i], 300, 0)),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft >= 720) {
+          if ($(d).offsetLeft >= 880) {
             ClearChild($(d));
           }oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
@@ -4157,7 +4157,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
           while (i--) {
             p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft >= 720) {
+          if ($(d).offsetLeft >= 880) {
             ClearChild($(d));
 			$(d).isDie=1;
           }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
@@ -5878,78 +5878,6 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	},
 	prepareBirth: oZomboni.prototype.prepareBirth
 }),
-oSquashZombie = InheritO(oConeheadZombie, {
-        EName: "oSquashZombie",
-        CName: "窝瓜僵尸",
-        Speed:3.2,
-        OrnHP: 500,
-        Lvl: 6,
-        SunNum: 175,
-        GetSunNum: 0,
-        Produce: '能一次性压扁你的植物。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">炮灰植物</font></p>他究竟是从哪里得到这个窝瓜并和他融合的？没有人会知道。',
-        CanPass: function(d, c) {
-            return c;
-        },
-        PrivateBirth:function(a){
-            let z = $(a.id);
-            z.SquashHeadId = "Squash" + Math.random();
-            let squash = NewImg(z.SquashHeadId,"images/Plants/Squash/Squash.gif","position:absolute;left:40px;top:-150px;",0);
-            z.appendChild(squash);
-        },
-        PrivateAct:function(a){
-	if(!a.bool){
-           let z = $(a.id),
-               s = $(z.SquashHeadId);
-		var C = GetC(a.X + 80);
-                var p = oGd.$[`${a.R}_${C}_1`];
-                if(p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
-                    a.Speed = 0;
-                    EditImg(s,0,"images/Plants/Squash/SquashAttack.gif",{
-                        left:"0px",
-                        top:"-50px"
-                    },0);
-                    oSym.addTask(50,function(p,s){
-                        try{
-                            PlayAudio("gargantuar_thump");
-                            p && p.Die();
-                            ClearChild(s);
-			    a.BoomFire(a.R);
-                        }catch(e){
-                            document.write(e);
-                        }
-                    },[p,s]);
-                    a.bool=1;
-		}
-            }
-        },
-BoomFire: function (y) {
-      PlayAudio("jalapeno");
-      fireid = "fire_" + Math.random();
-      NewImg(
-        fireid,
-        "images/Plants/Jalapeno/JalapenoAttack.gif",
-        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
-        EDAll
-      );
-      oSym.addTask(
-        135,
-        (id) => {
-          ClearChild($(id));
-        },
-        [fireid]
-      );
-      for (let i = 1; i <= oS.C; i++) {
-        for (let j = 0; j < 4; j++) {
-          let g = oGd.$[y + "_" + i + "_" + j];
-          g && g.BoomDie();
-        }
-      }
-      this.NormalDie();
-    },
-        CrushDie: function(){
-            this.NormalDie();
-        }
-    }),
     oPeaZombie= InheritO(oNewspaperZombie1, {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
@@ -6081,7 +6009,7 @@ oSym.addTask(1, function(a) {
           while (i--) {
             p &&  (p[i].Altitude==1) && ((p[i].getSlowPea(p[i], 20, 0),($(d) && ClearChild($(d)))));
           }
-          if ($(d).offsetLeft>=720) {
+          if ($(d).offsetLeft>=880) {
             ClearChild($(d));
             $(d).isDie =1;
           };
@@ -6613,43 +6541,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
