@@ -151,11 +151,8 @@ shootPea:function(a){
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
               }
             }
-	let p = oZ.getArHZ(pea.offsetLeft + 50,a.ZX - 10, a.R);
-          let i = p.length;
-          while (i--) {
-            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), (pea&& ClearChild(pea))));
-          }
+	let p = oZ.getHZ1(pea.offsetLeft + 50,a.R);
+            p && (p.Altitude == 1) && ((p.getPea(p, 20, 0), (pea&& ClearChild(pea))));
             if (pea.offsetLeft <= 0) {
               ClearChild(pea);
               pea.isDie = true;
@@ -6616,6 +6613,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
