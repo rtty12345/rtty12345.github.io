@@ -190,15 +190,13 @@ shootbedevilPea:function(a) {
         oSym.addTask(1, function(z, d, a) {
 		let pea = $(d);
           pea.style.left = pea.offsetLeft + 5 + "px";
-          let p = oZ.getArZ(a.ZX - 10, pea.offsetLeft + 50, a.R);
-          let i = p.length;
-          while (i--) {
-            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], 20, 0), (pea&& ClearChild(pea))));
-          }
+          let p = oZ.getZ0(pea.offsetLeft + 50, a.R);
+            p && (p.Altitude == 1) && ((p.getPea(p, 20, 0), (pea&& ClearChild(pea))));
           if (pea.offsetLeft >720) {
-            ClearChild($(d));
-          };
-	oSym.addTask(1, arguments.callee, [z, d, a])
+            ClearChild(pea);
+			pea.isDie=1;
+          }
+	!(pea.isDie)&&oSym.addTask(1, arguments.callee, [z, d, a])
         }, [z, d, a]);
         a.HP > 60&& (!a.PZ) && oSym.addTask(75, arguments.callee, [a])
       }, [a]);
@@ -6618,6 +6616,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
