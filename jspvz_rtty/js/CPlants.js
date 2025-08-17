@@ -2163,7 +2163,7 @@ oFumeShroom = InheritO(CPlants, {
 	width: 100,
 	height: 88,
 	beAttackedPointR: 80,
-	SunNum: 325,
+	SunNum: 225,
 	BookHandBack: 2,
 	SleepGif: 3,
 	night: true,
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
