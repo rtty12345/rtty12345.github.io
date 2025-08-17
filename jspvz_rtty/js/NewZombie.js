@@ -903,4 +903,15 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			g = oGd.$,
 			b; (b = f.JudgeLR(f,d,e,c,g) || f.JudgeSR(f,d,e,c,g)) && f.NormalAttack(b[0], b[1])
 		}
+}),
+oBoom=InheritO(oZombie, {
+HP:400,
+EName:"oBoom",
+PicArr: (function() {
+    var a = "images/Zombies/Zombie/";
+    return ["images/Card/Zombies/Zombie.png", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
+  })(),
+PrivateAct:function(){this&&this.OpenBox(this.id)},
+bedevilAct:function(){this&&this.OpenBox(this.id)},
+OpenBox:oBackupDancer1.prototype.OpenBox
 })
