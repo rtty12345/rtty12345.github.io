@@ -2981,206 +2981,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
             }, [d, b, a, c, e])
         }
     }),
-  oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
-    EName: "oPoleVaultingZombie1",
-    CName: "跳跳僵尸",
-    HP: 500,
-    Lvl:3,
-    width: 348,
-    height: 218,
-    OSpeed: 3.2,
-    Speed: 3.2,
-    beAttackedPointL: 215,
-    beAttackedPointR: 260,
-    StandGif: 13,
-    SunNum: 225,
-    GetDX: function () {
-      return -238;
-    },
-    GetDY: function () {
-      return 2;
-    },
-    Lvl: 2,
-    BookHandPosition: "-30px 70%",
-    PicArr: (function () {
-      var a = "images/Zombies/PoleVaultingZombie/";
-      return [
-        "images/Card/Zombies/PoleVaultingZombie.png",
-        a + "0.gif",
-        a + "PoleVaultingZombie.gif",
-        a + "PoleVaultingZombieAttack.gif",
-        a + "PoleVaultingZombieLostHead.gif",
-        a + "PoleVaultingZombieLostHeadAttack.gif",
-        a + "PoleVaultingZombieHead.gif" + $Random,
-        a + "PoleVaultingZombieDie.gif" + $Random,
-        a + "BoomDie.gif" + $Random,
-        a + "PoleVaultingZombieWalk.gif",
-        a + "PoleVaultingZombieLostHeadWalk.gif",
-        a + "PoleVaultingZombieJump.gif",
-        a + "PoleVaultingZombieJump2.gif",
-        a + "1.gif",
-      ];
-    })(),
-    AudioArr: ["polevault", "grassstep"],
-    Produce:
-      '撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢(跳跃后)</font><BR>特点：<font color="#FF0000">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
-    getShadow: function (a) {
-      return (
-        "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 35) + "px"
-      );
-    },
-    GoingDieHead: function (c, a, b) {
-      oSym.addTask(200, ClearChild, [
-        NewImg(
-          0,
-          a[b.HeadGif] + Math.random(),
-          "left:" +
-            b.X +
-            "px;top:" +
-            (b.pixelTop - 20) +
-            "px;z-index:" +
-            b.zIndex,
-          EDPZ
-        ),
-      ]);
-    },
-    JudgeAttack: function () {
-      var g = this,
-        b = g.ZX,
-        d = g.R + "_",
-        c = GetC(b),
-        h = oGd.$,
-        f,
-        a,
-        e = b - 74;
-      for (f = c - 2; f <= c; f++) {
-        if (f > 9) {
-          continue;
-        }
-        for (
-          a = 2;
-          a > -1;
-          (p = h[d + f + "_" + a--]) &&
-          (p.EName != "oBrains"
-            ? p.AttackedRX >= e &&
-              p.AttackedLX < b &&
-              p.canEat &&
-              ((a = -1),
-              p.Stature > 0
-                ? (g.JudgeAttack = CZombies.prototype.JudgeAttack)
-                : 1,
-              g.NormalAttack(g.id, p.id, p.AttackedLX))
-            : p.AttackedRX >= b &&
-              p.AttackedLX < b &&
-              ((a = -1),
-              (g.JudgeAttack = CZombies.prototype.JudgeAttack),
-              (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))
-        ) {}
-      }
-    },
-    getCrushed: function (a) {
-      this.NormalAttack(this.id, a.id, a.AttackedLX);
-      this.getCrushed = function () {
-        return false;
-      };
-      a.Stature > 0 &&
-        oSym.addTask(
-          50,
-          function (c) {
-            var b = $Z[c];
-            b && b.CrushDie();
-          },
-          [this.id]
-        );
-      return false;
-    },
-    getRaven: function (a) {
-      return (
-        !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0
-      );
-    },
-    NormalAttack: function (d, b, g) {
-      var f = $Z[d],
-        a = f.Ele,
-        c = f.EleShadow,
-        e = f.EleBody;
-      e.src =
-        "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" +
-        $Random +
-        Math.random();
-      PlayAudio("grassstep");
-      SetHidden(c);
-      f.isAttacking = 1;
-      f.Altitude = 2;
-      f.getFreeze = function () {
-        f.getSnowPea(f, 20);
-      };
-      oSym.addTask(
-        50,
-        function (h) {
-          $Z[h] && PlayAudio("polevault");
-        },
-        [d]
-      );
-      oSym.addTask(
-        100,
-        function (m, j, i, l, n) {
-          var h = $Z[m],
-            k,
-            q,
-            r;
-          h &&
-            ((k = $P[j]) && k.Stature > 0
-              ? ((h.AttackedRX =
-                  (h.X =
-                    (h.AttackedLX = h.ZX = q = k.AttackedRX) -
-                    h.beAttackedPointL) + h.beAttackedPointR),
-                SetStyle(i, {
-                  left: h.X + "px",
-                }),
-                (n.src =
-                  "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
-                SetVisible(l),
-                (h.isAttacking = 0),
-                (h.Altitude = 1),
-                (h.OSpeed = h.Speed = 1.6),
-                (h.NormalGif = 9),
-                (h.LostHeadGif = 10),
-                (h.NormalAttack = (r = CZombies.prototype).NormalAttack),
-                (h.getCrushed = r.getCrushed),
-                (h.getFreeze = r.getFreeze),
-                (h.getRaven = r.getRaven))
-              : ((h.ZX = h.AttackedLX =
-                  (h.X = (h.AttackedRX = g) - h.beAttackedPointR) +
-                  h.beAttackedPointL),
-                SetStyle(i, {
-                  left: h.X + "px",
-                }),
-		 (k!==undefined&&k.getHurt(h,2,1000)),
-		 (h.hard==2&&CustomZombie(oZombie3,h.R,GetC(h.ZX))),
-                (n.src =
-                  "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
-                  $Random +
-                  Math.random()),
-                SetVisible(l),
-                oSym.addTask(
-                  80,
-                  function (s, v) {
-                    var u = $Z[s],
-                      t;
-                    u &&
-                      ((u.isAttacking = 0),
-                      (u.Altitude = 1),
-                      (v.src = u.PicArr[u.NormalGif]));
-                  },
-                  [m, n]
-                )));
-        },
-        [d, b, a, c, e]
-      );
-    },
-  }),
-OrnIIZombies = InheritO(OrnNoneZombies, {
+OrnIIZombies = InheritO(OrnNoneZombies,{
 	Ornaments: 2,
 	BreakPoint: 91,
 	NormalGif: 2,
@@ -3195,7 +2996,7 @@ OrnIIZombies = InheritO(OrnNoneZombies, {
 	DieGif: 11,
 	BoomDieGif: 12
 }),
-oNewspaperZombie = InheritO(OrnIIZombies, {
+oNewspaperZombie = InheritO(OrnIIZombies,{
 	EName: "oNewspaperZombie",
 	CName: "你亲爱的二爷",
 	OrnHP: 200,
@@ -3211,15 +3012,14 @@ oNewspaperZombie = InheritO(OrnIIZombies, {
 	SunNum: 125,
 	BreakPoint:1,
 	LostPaperSpeed: 32,
-	LostPaperAtack:800,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
-		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
+		return ["images/Card/Zombies/NewspaperZombie.png"， a + "0.gif"， a + "HeadWalk1.gif"， a + "HeadAttack1.gif"， a + "LostHeadWalk1.gif"， a + "LostHeadAttack1.gif"， a + "HeadWalk0.gif"， a + "HeadAttack0.gif"， a + "LostHeadWalk0.gif"， a + "LostHeadAttack0.gif"， a + "Head.gif" + $Random， a + "Die.gif" + $Random， a + "BoomDie.gif" + $Random， a + "LostNewspaper.gif"， a + "1.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh2"],
 	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（500）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后8倍</font><br>速度：正常，而后超级快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为900（只能一次),破报愣神时无敌</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	getShadow: function(a) {
-		return "left:75px;top:" + (a.height - 25) + "px"
+		return "left:75px;top:" + (a。height - 25) + "px"
 	},
 	CanPass: function(d, c) {
 		return c
@@ -6541,3 +6341,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
