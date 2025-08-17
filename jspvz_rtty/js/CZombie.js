@@ -2333,8 +2333,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-         (t=A[w])&&(t.OrnHP*=1.2),
-			 t.HP*=1.2;
+         (t=A[w])&&(t.OrnHP+=200),
+			 t.HP+=200;
             }
 			PlayAudio("awooga")
 	};
@@ -3066,32 +3066,6 @@ getSlowPea1:function(c, a, b) {
           ));
     },
   }),
-OrnIIZombies1= InheritO(OrnNoneZombies, {
-	Ornaments: 1,
-	BreakPoint: 91,
-	NormalGif: 2,
-	AttackGif: 3,
-	LostHeadGif: 4,
-	LostHeadAttackGif: 5,
-	OrnLostNormalGif: 6,
-	OrnLostAttackGif: 7,
-	OrnLostHeadNormalGif: 8,
-	OrnLostHeadAttackGif: 9,
-	HeadGif: 10,
-	DieGif: 11,
-	BoomDieGif: 12
-}),
-oBoom=InheritO(oZombie, {
-HP:400,
-EName:"oBoom",
-PicArr: (function() {
-    var a = "images/Zombies/Zombie/";
-    return ["images/Card/Zombies/Zombie.png", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif", a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, a + "unlook.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
-  })(),
-PrivateAct:function(){this&&this.OpenBox(this.id)},
-bedevilAct:function(){this&&this.OpenBox(this.id)},
-OpenBox:oBackupDancer1.prototype.OpenBox
-}),
 oNewspaperZombie3= InheritO(OrnIIZombies, {
 	EName: "oNewspaperZombie3",
 	CName: "你亲爱的二形态精英二爷",
@@ -5634,6 +5608,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
