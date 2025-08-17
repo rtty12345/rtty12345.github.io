@@ -4230,9 +4230,9 @@ oDancingZombie1= InheritO(OrnNoneZombies, {
 					},
 					[t,s])
 				}
-			}，
+			},
 			[f,e]))
-		}，
+		},
 		[c, a])
 	}
 }),
@@ -6525,6 +6525,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
