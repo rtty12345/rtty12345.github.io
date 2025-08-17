@@ -1579,6 +1579,91 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		[c, a])
 	}
 }),
+oDancingZombie1 = InheritO(oDancingZombie,{
+    EName: "oDancingZombie1",
+    CName: "舞王僵尸",
+    HP: 800,
+    BreakPoint: 1,
+    Lvl: 3,
+    StandGif: 9,
+    SunNum: 600,
+    beAttackedPointL: 40,
+    beAttackedPointR: 85,
+    width: 184,
+    height: 176,
+    BookHandPosition: "70% 70%",
+    AudioArr: ["Beatit"],
+    OSpeed: 7.2,
+    Speed: 7.2,
+    Summon: function(d, c) {
+      d.LostHeadGif = 16;
+      var a = d.EleBody,
+        b = d.ChkActs;
+      d.ChkActs = d.ChkTmp;
+      d.ChkTmp = b;
+      a.src = "images/Zombies/DancingZombie/Summon1.gif";
+      PlayAudio("Beatit");
+      oSym.addTask(10,
+        function(f, e) {
+          var g = $Z[f];
+          g && g.beAttacked && (e.src = "images/Zombies/DancingZombie/Summon2.gif", oSym.addTask(10,
+            function(t, s, x) {
+              var h = $Z[t],
+                v = h.ZX,
+                m = h.ArDZ,
+                n = [],
+                k = "images/Zombies/BackupDancer/Mound.gif" + $Random + Math.random(),
+                r = 4,
+                w = [],
+                u = [],
+                o = 0,
+                q,
+                l;
+              if (h && h.beAttacked) {
+                s.src = "images/Zombies/DancingZombie/Summon3.gif";
+                while (r--) {
+                  (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = Math.round(Math.random() * 1 + 0) ? new oBackupDancer1 : new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+                }
+                oSym.addTask(150,
+                  function() {
+                    var i = arguments.length;
+                    while (i--) {
+                      ClearChild(arguments[i])
+                    }
+                  },
+                  n);
+                oSym.addTask(90,
+                  function(A, y, z,i) {
+                    var B = $Z[A];
+                    B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(80,
+                      function(D,C) {
+                        var E = $Z[D];
+                        if (E && E.beAttacked) {
+                          return
+                        }
+                        var j = C.length,
+                          E;
+                        while (j--) {
+                          (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
+                        }
+                      },
+                      [A, z]));
+                  },
+                  [t, u, w, o]);
+                oSym.addTask(100,
+                  function(y, i) {
+                    var z = $Z[y],
+                      j;
+                    z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j)
+                  },
+                  [t, s])
+              }
+            },
+            [f, e]))
+        },
+        [c, a])
+    }
+  }),
 oZombie = InheritO(OrnNoneZombies,{
 	EName: "oZombie",
 	CName: "领带僵尸",
@@ -6104,6 +6189,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
