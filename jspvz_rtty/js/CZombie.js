@@ -4056,7 +4056,7 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			if (!k) {
 				return
 			}
-			var j = CZombies.prototype，
+			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
 			k.getPea=e.getPea;
@@ -6104,6 +6104,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
