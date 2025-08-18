@@ -366,7 +366,7 @@ oStarfruit = InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m += 5) < 100 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ1(m, k), 4, i) && ((m += 5) > 720 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
@@ -590,7 +590,7 @@ NormalAttack1:function(a) {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ0(m, k), 0, i) && ((m += 5) >900 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ0(m, k), 0, i) && ((m += 5) >720 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
@@ -1006,7 +1006,7 @@ oGatlingPea1= InheritO(CPlants, {
 			[h]);
 			oSym.addTask(1,
 			function(m, k, l, i, j) {
-				j(oZ.getZ0(m, k), 4, i) && ((m += 5) <50 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
+				j(oZ.getZ0(m, k), 4, i) && ((m += 5)>720 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
 			},
 			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
 				id: h
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
