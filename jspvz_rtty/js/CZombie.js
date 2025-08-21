@@ -141,23 +141,23 @@ shootPea:function(a){
         oSym.addTask(1, function(z, d, a) {
           try {
             let pea = $(d);
-			pea.style.left = pea.offsetLeft - 5 + "px";
+			$(d).style.left = $(d).offsetLeft - 5 + "px";
             let C = GetC(a.ZX + 40);
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
                 let p = oGd.$[a.R + "_" + j + "_" + i];
                 p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" &&
-                  p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= pea.offsetLeft) && (p.AttackedLX >= pea.offsetLeft + pea.offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), (pea && ClearChild(pea)));
+                  p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d)&& ClearChild($(d))));
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
               }
             }
-	let p = oZ.getHZ1(pea.offsetLeft + 50,a.R);
-            p && (p.Altitude == 1) && ((p.getPea(p, 20, 0), (pea&& ClearChild(pea))));
-            if (pea.offsetLeft <= 0) {
-              ClearChild(pea);
-              pea.isDie = true;
+	let Z= oZ.getHZ1(pea.offsetLeft + 50,a.R);
+            Z&& (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d)&& ClearChild($(d)))));
+            if ($(d).offsetLeft <= 0) {
+              ClearChild($(d));
+              $(d).isDie = true;
             };
-            !(pea.isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+            !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
           } catch (e) {}
         }, [z, d, a]);
         a.HP > 60&&(a.PZ)&&oSym.addTask(125, arguments.callee, [a])
@@ -6189,6 +6189,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
