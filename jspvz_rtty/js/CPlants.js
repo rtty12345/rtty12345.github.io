@@ -1204,7 +1204,7 @@ oSunFlower = InheritO(CPlants, {
 	SunNum: 50,
 	PicArr: ["images/Card/Plants/SunFlower.png", "images/Plants/SunFlower/0.gif", "images/Plants/SunFlower/SunFlower1.gif", "images/Plants/SunFlower/SunFlower.gif"],
 	Tooltip: "提供你额外的阳光",
-	Produce: '向日葵，为你生产额外阳光的经济作物。如果死亡时未产出第一个阳光则掉落200阳光，但冷却时间变为15s，若产出阳光则变回7.5s<p>阳光产量：<font color="#FF0000">中等(40)</font></p>向日葵情不自禁地和着节拍起舞。是什么节拍呢？嗨，是大地自己用来提神的爵士节拍，这种频率的节拍，只有向日葵才能听到。',
+	Produce: '向日葵，为你生产额外阳光的经济作物。如果死亡时对局时长未超过两分半，并且未产出第一个阳光则掉落160阳光<p>阳光产量：<font color="#FF0000">中等(40)</font></p>向日葵情不自禁地和着节拍起舞。是什么节拍呢？嗨，是大地自己用来提神的爵士节拍，这种频率的节拍，只有向日葵才能听到。',
 	BirthStyle: function(c, e, b, a) {
 		var d = b.childNodes[1];
 		d.src = "images/Plants/SunFlower/SunFlower.gif";
@@ -1261,7 +1261,7 @@ oSunFlower = InheritO(CPlants, {
 		}
 	},
 	PrivateDie:function(a){
-		oS.ProduceSun&&(!a.CannotDrop)&&(oS.StaticCard)&&AppearSun(GetX(a.C),GetY(a.R),160)
+		(oSym.Now<=15000)&&(oS.ProduceSun)&&(!a.CannotDrop)&&(oS.StaticCard)&&AppearSun(GetX(a.C),GetY(a.R),160)
 	},
 	InitTrigger: function() {}
 }),
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
