@@ -1950,9 +1950,9 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         CName: "推进者旗帜",
         OSpeed: 7.2,
         Speed:7.2,
-	HP:1500,
+	HP:1000,
 	SunNum:225,
-	OrnHP:1500,
+	OrnHP:2400,
         beAttackedPointR: 101,
 	AudioArr:["plastichit"],
 	PlayNormalballAudio: function() {
@@ -2041,7 +2041,7 @@ if(h.HPlook&&!h.bHP){
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
         },
-        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（1500（头盔）+1500）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
+        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+1000）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
     }),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
@@ -2153,7 +2153,6 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     for (let i = C - 1; i <= C + 1; i++) {
       for (let l = R; l <= RM; l++) {
        if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-          oP.NumZombies += 3,
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
                 EDPZ.appendChild(n);
                 m.Birth();
@@ -2179,7 +2178,6 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
         if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-          oP.NumZombies += 2,
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
                 EDPZ.appendChild(n);
                 m.Birth();
@@ -2205,7 +2203,6 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
         if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-          oP.NumZombies += 2,
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
               function(n, m) {
                 EDPZ.appendChild(n);
@@ -2231,7 +2228,6 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
       for (let l = R; l <= RM; l++) {
         if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-          oP.NumZombies += 3,
             asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
               function(n, m) {
                 EDPZ.appendChild(n);
@@ -2370,8 +2366,6 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	HP:800,
 	Lvl: 5,
 	SunNum: 150,
-	LostOrnSpeed:15,
-	LostOrnGif:9,
 	AttackZombie: function(d, c) {
 			oSym.addTask(10,
 			function(f, e) {
@@ -3446,7 +3440,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.HP=1000,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(150,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3626,7 +3620,7 @@ PrivateAct: function() {
             (i > max) && clearInterval(timer);
           },
           100);
-        !a.isDie && (a.HP > 60) && (a.PZ) && oSym.addTask(140, arguments.callee, [a]);
+        !a.isDie && (a.Ornaments) && (a.PZ) && oSym.addTask(140, arguments.callee, [a]);
       }, [a]);
     }
   },
@@ -3671,7 +3665,7 @@ bedevilAct: function() {
             (i > max) && clearInterval(timer);
           },
           100);
-        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(140, arguments.callee, [a]);
+        !a.isDie && (a.Ornaments) && (!a.PZ) && oSym.addTask(140, arguments.callee, [a]);
       }, [a]);
     }
   },
@@ -3684,6 +3678,7 @@ bedevilAct: function() {
 			g.getFirePea = e.getFirePea,
 			g.getFirePeaSputtering = e.getFirePeaSputtering,
 			g.getSnowPea = e.getSnowPea,
+			g.HP=1000,
 			g.getSlowPea=e.getSlowPea,
 			g.getSlowPea1=e.getSlowPea1,
 			g.PlayNormalballAudio = e.PlayNormalballAudio,
@@ -3906,6 +3901,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	OrnHP:600,
 	Lvl: 8,
 	HP:1600,
+	oSpeed:4.8,
+	Speed:4.8,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -3916,7 +3913,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	SunNum: 325,
 	BreakPoint:1,
 	LostPaperSpeed:10,
-	LostPaperAtack:800,
 	PicArr: (function() {
 		var a = "images/Zombies/NewspaperZombie/";
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
@@ -6189,6 +6185,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
