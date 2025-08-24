@@ -1,5 +1,5 @@
 oS.Init({
-PName:[oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster,oHypnoShroom,oScaredyShroom,oIceShroom，oDoomShroom，oLilyPad,oSquash,oThreepeater,oTangleKelp],
+PName:[oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster,oHypnoShroom,oScaredyShroom,oIceShroom,oDoomShroom,oLilyPad,oSquash,oThreepeater,oTangleKelp],
 ZName:[oZombie,oZombie2,oZombie3,oDuckyTubeZombie1,oDuckyTubeZombie2,oDuckyTubeZombie3,oConeheadZombie,oNewspaperZombie2,oBucketheadZombie,oPoleVaultingZombie,oSnorkelZombie,oNewspaperZombie],
 PicArr:function(){var a=oJalapeno.prototype,b=a.PicArr;
 return["images/interface/background3.jpg","images/interface/trophy.png",b[a.CardGif],b[a.NormalGif]]}(),
