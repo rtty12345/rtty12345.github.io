@@ -62,9 +62,6 @@ var CZombies = function(b, a) {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP >=h.BreakPoint && $Z[h.id]) {
@@ -1368,7 +1365,6 @@ oDancingZombie= InheritO(OrnNoneZombies, {
     var A = "shp" + Math.random();
     daHP.id = A;
     var C = $(A);
-    E.innerHTML = '<div>' +Math.round(Math.max(g.OrnHP,0) + g.HP) + "</div>";
     oSym.addTask(1, function(C, g, E) {
       ClearChild(C);
       if (g.HP >=g.BreakPoint && $Z[g.id]) {
@@ -1991,9 +1987,6 @@ if(h.HPlook&&!h.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP > h.BreakPoint && $Z[h.id]) {
@@ -2258,7 +2251,6 @@ if(g.HPlook&&!g.bHP){
     var A = "shp" + Math.random();
     daHP.id = A;
     var C = $(A);
-    E.innerHTML = '<div>' + Math.round(Math.max(g.OrnHP,0) + g.HP) + "</div>";
     oSym.addTask(1, function(C, g, E) {
       ClearChild(C);
       if (g.HP > g.BreakPoint && $Z[g.id]) {
@@ -3187,9 +3179,6 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP > h.BreakPoint && $Z[h.id]) {
@@ -3938,9 +3927,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if (h.HP > h.BreakPoint && $Z[h.id]) {
@@ -4255,9 +4241,6 @@ if(d.HPlook&&!d.bHP){
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-      	if(d.OrnHP<1){
-        b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
     oSym.addTask(1, function(C, d, b) {
       ClearChild(C);
       if (d.HP >=d.BreakPoint && $Z[d.id]) {
@@ -4403,7 +4386,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oSnorkelZombie",
 	CName: "潜水僵尸",
 	Lvl: 2,
-	SunNum: 175,
+	SunNum: 125,
 	width: 143,
 	height: 200,
 	HP:400,
@@ -4413,7 +4396,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	Speed:5,
 	Altitude: 1,
 	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池潜泳以避免遭到攻击，一段时间后，释放辣椒爆炸，本行或者上中下三行<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
-	JumpTime: 25,
+	JumpTime: 100,
 	getShadow: function(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	},
@@ -4427,10 +4410,9 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	AudioArr: ["zombie_entering_water"],
 	BirthCallBack: function(a) {
 		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
-		Math.round(Math.random()*100)>25?this.CheckBoomFire(this):this.CheckBoomFire1(this);
 	},
 	Jump: function(a) {
-		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(), oSym.addTask(160,
+		a.beAttacked && (PlayAudio("zombie_entering_water"), a.Altitude = 2, SetHidden(a.EleShadow), a.EleBody.src = a.PicArr[8] + Math.random(),a.getr(a,-200),oSym.addTask(160,
 		function(c, b) {
 			$Z[c] && b.beAttacked && (b.WalkStatus = 1, b.Altitude = 0, b.OSpeed = b.Speed = 3, b.HP=500,b.EleBody.src = b.PicArr[b.NormalGif = b.WalkGif1], b.ChkActs = b.ChkActsL2)
 		},
@@ -4454,7 +4436,6 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
-    b.innerHTML = '<div>' + Math.round(Math.max(d.OrnHP,0) + d.HP) + "</div>";
     oSym.addTask(1, function(C, d, b) {
       ClearChild(C);
       if (d.HP >=d.BreakPoint && $Z[d.id]) {
@@ -4467,69 +4448,6 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 }
 		return 1
 	},
-	CheckBoomFire: function (f) {
-if(f.hard==2){
-	f.CheckBoomFire1(f);
-	return
-}
-      oSym.addTask(
-        3500,
-        function (f) {
-          // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-          $Z[f.id] && randomNumber <= 100 && f.BoomFire(f.R);
-          oSym.addTask(1000, arguments.callee, [f]);
-        },
-        [f]
-      );
-    },
-CheckBoomFire1: function (f) {
-      oSym.addTask(
-        4000,
-        function (f) {
-          // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 100) + 1,
-	         R = f.R - 1>=1?f.R-1:f.R,
-                    RM = f.R + 1 <= oS.R ? f.R + 1 : oS.R;
-	for(let i = R;i <= RM;i++){
-	for(let l=1;l<=oS.R;l++){
-          ($Z[f.id] && randomNumber <= 100)&&((f.hard==2)?f.BoomFire(l):f.BoomFire(i));
-          oSym.addTask(1500, arguments.callee, [f]);
-	}
-	}
-        },
-        [f]
-      );
-    },
-    BoomFire: function (y) {
-      PlayAudio("jalapeno");
-      fireid = "fire_" + Math.random();
-      NewImg(
-        fireid,
-        "images/Plants/Jalapeno/JalapenoAttack.gif",
-        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
-        EDAll
-      );
-      oSym.addTask(
-        135,
-        (id) => {
-          ClearChild($(id));
-        },
-        [fireid]
-      );
-      for (let i = 1; i <= oS.C; i++) {
-        for (let j = 0; j < 4; j++) {
-          let g = oGd.$[y + "_" + i + "_" + j];
-          g && g.BoomDie();
-        }
-      }
-    },
-getbedevil:function(){
-	this.DisappearDie()
-},
-bedevil:function(){
-	this.DisappearDie()
-},
 	JudgeAttack: function() {
 		var e = this,
 		b = e.ZX,
@@ -6185,6 +6103,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
