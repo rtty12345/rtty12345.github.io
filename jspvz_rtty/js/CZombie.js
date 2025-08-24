@@ -4466,11 +4466,12 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		[f, e]))
 	},
 	NormalAttack: function(b, a) {
+		var num=Math.random()*100;
 		oSym.addTask(100,
 		function(d, c) {
 			var f = $Z[d],
 			e;
-			f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $P[c]) && e.getHurt(f, 0, 100), f.JudgeAttack())
+			f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $P[c]) &&(num<20)?(e.getHurt(f, 2, 100),f.getHit0(f,300,0)):e.getHurt(f, 0, 100), f.JudgeAttack())
 		},
 		[b, a])
 	},
@@ -4496,7 +4497,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		function(g, e, d, f) {
 			$Z[e] && g.beAttacked && ((f = $Z[d]) && f.beAttacked ? (g.EleBody.src = g.PicArr[g.AttackGif], g.Altitude = 1, oSym.addTask(10,
 			function(k, i, j, h) {
-				$Z[i] && k.beAttacked && !k.FreeFreezeTime && !k.FreeSetbodyTime && ($Z[h] && j.beAttacked ? (j.bedevil1(j, 15, 0), oSym.addTask(10, arguments.callee, [k, i, j, h])) : (k.EleBody.src = k.PicArr[10] + Math.random(), k.Altitude = 0, oSym.addTask(70,
+				$Z[i] && k.beAttacked && !k.FreeFreezeTime && !k.FreeSetbodyTime && ($Z[h] && j.beAttacked ? (j.getHit0(j, 15, 0), oSym.addTask(10, arguments.callee, [k, i, j, h])) : (k.EleBody.src = k.PicArr[10] + Math.random(), k.Altitude = 0, oSym.addTask(70,
 				function(l, m) {
 					$Z[l] && m.beAttacked && (m.isAttacking = 0, m.EleBody.src = m.PicArr[m.NormalGif])
 				},
@@ -6103,3 +6104,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
