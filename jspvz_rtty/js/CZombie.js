@@ -3890,8 +3890,8 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	OrnHP:600,
 	Lvl: 8,
 	HP:1600,
-	oSpeed:4.8,
-	Speed:4.8,
+	oSpeed:2.4,
+	Speed:2.4,
 	Altitude:1,
 	LostPaperGif: 13,
 	StandGif: 14,
@@ -6103,16 +6103,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
