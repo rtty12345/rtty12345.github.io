@@ -275,7 +275,8 @@ return a;
 		c = this;
 	   if(c&&c.hard==1&&num>=66){c.HP*=1.35;c.OrnHP*=1.35
 	    }else if(c&&c.hard==1&&num>=33){c.Speed*=1.5,c.oSpeed*=1.5,c.LostPaperSpeed+=3
-	    }else if(c&&c.hard==1&&num<33){c.Attack+=100};
+	    }else if(c&&c.hard==1&&num<33){c.getSlow=c.getr=c.getFreeze=c.getFreeze1=function(){};
+		c.getSnowPea=c.getSlowPea1=c.getPea};
             $Z[c.id] = c;
             oZ.add(c);
             c.BirthCallBack(c);
@@ -6104,4 +6105,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
