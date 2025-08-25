@@ -1956,7 +1956,7 @@ oSpikeweed = InheritO(CPlants, {
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
-		Math.round(Math.random()*100)>3?c.getHit2(c, this.Attack, 0):c.getDispelled(c)
+		Math.round(Math.random()*100)>10?c.getHit2(c, this.Attack, 0):c.getrPea(c,40,0)
 	},
 	GetDY: function(b, c, a) {
 		return - 2
@@ -3408,6 +3408,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
