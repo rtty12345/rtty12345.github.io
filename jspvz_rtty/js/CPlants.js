@@ -1913,10 +1913,6 @@ oJalapeno = InheritO(oCherryBomb, {
 		[a.id])
 	},
 	PrivateDie:function(a){
-	for(i=1;i<=9;i++){
-	let b=oGd.$[a.R+"_"+i+"_1"];
-	b&&(b.NormalAttack!==undefined)&&(b.InitTrigger=CPlants.prototype.InitTrigger)
-	    }
 	}
 }),
 oSpikeweed = InheritO(CPlants, {
@@ -1933,7 +1929,7 @@ oSpikeweed = InheritO(CPlants, {
 	Attack: 30,
 	ArZ: {},
 	Tooltip: "扎破轮胎, 也能伤害走在上面的僵尸",
-	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害，有概率将僵尸击飞<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
+	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害，有概率将僵尸击退一小段距离<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
@@ -1956,7 +1952,7 @@ oSpikeweed = InheritO(CPlants, {
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
-		Math.round(Math.random()*100)>10?c.getHit2(c, this.Attack, 0):c.getrPea(c,40,0)
+		Math.round(Math.random()*100)>10?c.getHit2(c, this.Attack, 0):(c.getHit2(c,60,0),c.getr(c,40))
 	},
 	GetDY: function(b, c, a) {
 		return - 2
@@ -2549,7 +2545,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 		var c = this;
 		switch (b) {
 		case 3:
-			(c.HP -= a) < 1 && c.Die(1);
+			(c.HP -= a) < 1 && c.Die();
 			break;
 		case 0:
 			!c.Sleep && d.bedevil(d),d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
@@ -3408,6 +3404,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
