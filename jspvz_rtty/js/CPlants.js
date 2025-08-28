@@ -267,194 +267,70 @@ oBrains = InheritO(CPlants, {
 	}
 }),
 oStarfruit = InheritO(CPlants, {
-	EName: "oStarfruit",
-	CName: "杨桃",
-	width: 77,
-	height: 70,
-	beAttackedPointR: 57,
-	canEat: 0,
-	SunNum: 200,
-	GetDY: function(b, c, a) {
-		return a[0] ? -17 : -10
-	},
-	PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
-	Tooltip: "向五个方向发射小杨桃",
-	Produce: '杨桃可以向五个方向发射小杨桃,不可被啃食<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">五个方向</font></p>杨桃：“嘿，哥们，有一天我去看牙医，他说我有四个牙洞。我一数，我就只有一颗牙齿！一颗牙齿长了四个牙洞？怎么会这样啊？”',
-	getTriggerRange: function(e, g, f) {
-		var a = this.R,
-		b = GetY(a),
-		c = oS.W,
-		j = this.ArFlyTime,
-		h = this.ArHitX,
-		i,
-		d = 0.5 * (g + f); ! j && (j = this.ArFlyTime = {},
-		h = this.ArHitX = {});
-		switch (true) {
-		case e < a: j[e] = [(i = b - GetY(e)) / 5, i / 3];
-			h[e] = [d, d + i / 3 * 4];
-			return [[100, c, 0]];
-		case e == a: return ([[100, g + 25, 4]]);
-		default:
-			j[e] = [(i = GetY(e) - b) / 5, i / 3];
-			h[e] = [d, d + i / 3 * 4];
-			return [[100, c, 0]]
-		}
-	},
-	AttackCheck2: function(l) {
-		var j = l.R;
-		if (j == this.R) {
-			return (l.Altitude > 0)
-		}
-		var q = 0,
-		t = l.AttackedLX,
-		b = l.AttackedRX,
-		e, g, d = this.ArFlyTime,
-		c = this.ArHitX,
-		s = d[j],
-		r = c[j],
-		f = l.WalkDirection ? -1 : 1,
-		k = false,
-		m,
-		p,
-		n,
-		h,
-		a = l.Speed;
-		while (q < s.length) {
-			h = a * s[q] * f * 0.1;
-			e = Math.floor(t - h);
-			g = Math.floor(b - h);
-			p = r[0];
-			n = r[1];
-			if (e + 20 < p && g - 20 > p || e < n && g > n) {
-				k = true;
-				break
-			}++q
-		}
-		return (k && (l.Altitude == 1 || l.Altitude == 2))
-	},
-	getTriggerR: function(a) {
-		return [1, oS.R]
-	},
-	PrivateBirth: function(d) {
-		var c = d.pixelLeft + 58,
-		b = c - 20,
-		a = d.pixelTop + 30;
-		d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
-	},
-	PrivateDie: function(a) {
-		a.BulletEle = null
-	},
-	getHurt: function(d, b, a) {
-		var c = this;
-		b != 3 && c.NormalAttack(); (c.HP -= a) < 1 && c.Die()
-	},
-	NormalAttack: function() {
-		var g = this,
-		f = g.pixelLeft + 58,
-		d = f - 20,
-		b = g.pixelTop + 30,
-		c = g.R,
-		e = f + 30,
-		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getHit1(j,20,i),ClearChild(h), false) : true)
-		}; (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m += 5) > oS.W ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
-			},
-			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(m, n, l, k, i, j) {
-				j(oZ.getRangeLeftZ(m, n, l), 6, i) && ((k -= 5) < -15 ? ClearChild(i) : (i.style.top = k + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
-			},
-			[d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(m, n, l, k, i, j) {
-				j(oZ.getRangeLeftZ(m, n, l), 2, i) && ((k += 5) > 600 ? ClearChild(i) : (i.style.top = k + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
-			},
-			[d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 7, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
-					top: k + "px"
-				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
-			},
-			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("StarB" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 1, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
-					top: k + "px"
-				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
-			},
-			[f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("StarB" + Math.random());(function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(m, k, l, i, j) {
-				j(oZ.getZ1(m, k), 4, i) && ((m -= 5) < 100 ? ClearChild(i) : (i.style.left = (l -= 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
-			},
-			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("StarB" + Math.random())
-	}
+  EName: "oStarfruit",
+  CName: "杨桃",
+  width: 77,
+  height: 70,
+  beAttackedPointR: 57,
+HP:500,
+  SunNum: 325,
+  GetDY: function(b, c, a) {
+    return a[0] ? -17 : -10
+  },
+  PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
+  Tooltip: "张万森，下杨桃雨了",
+  Produce: '在场时，全场由上散下一堆杨桃<p>伤害：<font color="#FF0000">中等（20）</font><br>范围：<font color="#FF0000">全屏</font></p>今日天气：晴转杨桃雨',
+  getTriggerR: function(a) {
+    return [1, oS.R]
+  },
+  PrivateBirth: function(d) {
+    d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "top:0px;z-index:" + (d.zIndex + 2))
+  },
+  CheckLoop: function(b, c) {
+    var a = this.id;
+    this.NormalAttack(b);
+    oSym.addTask(this.highwork?7:15,
+      function(e, f, h) {
+        var g;
+        (g = $P[e]) && g.AttackCheck1(f, h)
+      },
+      [a, b, c])
+  },
+  getTriggerRange: function(a, b, c) {
+    return [
+      [100, oS.W, 0]
+    ]
+  },
+  PrivateDie: function(a) {
+    a.BulletEle = null
+  },
+  NormalAttack: function() {
+    var g = this,
+      d = Math.random() * 780 + 100,
+      b = 0,
+      c = g.R,
+      e = d + 30,
+      a = function(j, i, h) {
+        return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
+      };
+    (function(h) {
+      oSym.addTask(15,
+        function(j) {
+          var i = $(j);
+          i && SetVisible(i)
+        },
+        [h]);
+      oSym.addTask(1,
+        function(m, n, l, k, i, j) {
+          j(oZ.getRangeLeftZ(m, n, l), 0, i) && ((k += 5) > 600 ? ClearChild(i) : (i.style.top = k + "px",
+            i.style.left = m + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
+        },
+        [d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
+            id: h
+          },
+          0, EDPZ), a])
+    })("StarB" + Math.random());
+  }
 }),
 oPeashooter = InheritO(CPlants, {
 	EName: "oPeashooter",
@@ -3103,7 +2979,7 @@ oCactus = InheritO(CPlants, {
 		},
 		[this.id,2])
 	}
-}),
+})，
 oBlover = InheritO(CPlants, {
 	EName: "oBlover",
 	CName: "三叶草",
@@ -3135,7 +3011,7 @@ oBlover = InheritO(CPlants, {
 			var p = $P[id]; p && p.Die();
 		},[id]);
 	}
-}), 
+}),
 oRepeater2 = InheritO(oRepeater, { // 编者注: 我觉得目前版本 jspvz 比较难受的一点就是子弹不是模块化的，导致要修改其属性就得完全重写一个，其实定义一个子弹的类会更方便，这里便不再过多解释
 	EName: "oRepeater2",
 	CName: "反向双发射手",
@@ -3173,7 +3049,7 @@ oRepeater2 = InheritO(oRepeater, { // 编者注: 我觉得目前版本 jspvz 比
 	getTriggerRange: function(a, b, c) {
 		return [[100, b + 25, 1]]
 	}
-}), 
+}),
 oFlowerVase = InheritO(CPlants, {
 	EName: "oFlowerVase", CName: "花瓶", // ID 中文名
 	SunNum: 0, coolTime: 0, // 阳光 冷却时间
@@ -3404,89 +3280,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
-
-
-
-
-oStarfruit114514 = InheritO(CPlants, {
-  EName: "oStarfruit114514",
-  CName: "杨桃",
-  width: 77,
-  height: 70,
-  beAttackedPointR: 57,
-HP:500,
-  SunNum: 325,
-  GetDY: function(b, c, a) {
-    return a[0] ? -17 : -10
-  },
-  PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
-  Tooltip: "张万森，下杨桃雨了",
-  Produce: '在场时，全场由上散下一堆杨桃<p>伤害：<font color="#FF0000">中等（20）</font><br>范围：<font color="#FF0000">全屏</font></p>今日天气：晴转杨桃雨',
-  getTriggerR: function(a) {
-    return [1, oS.R]
-  },
-  PrivateBirth: function(d) {
-    d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "top:0px;z-index:" + (d.zIndex + 2))
-  },
-  CheckLoop: function(b, c) {
-    var a = this.id;
-    this.NormalAttack(b);
-    oSym.addTask(this.highwork?7:15,
-      function(e, f, h) {
-        var g;
-        (g = $P[e]) && g.AttackCheck1(f, h)
-      },
-      [a, b, c])
-  },
-  getTriggerRange: function(a, b, c) {
-    return [
-      [100, oS.W, 0]
-    ]
-  },
-  PrivateDie: function(a) {
-    a.BulletEle = null
-  },
-  NormalAttack: function() {
-    var g = this,
-      d = Math.random() * 780 + 100,
-      b = 0,
-      c = g.R,
-      e = d + 30,
-      a = function(j, i, h) {
-        return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
-      };
-    (function(h) {
-      oSym.addTask(15,
-        function(j) {
-          var i = $(j);
-          i && SetVisible(i)
-        },
-        [h]);
-      oSym.addTask(1,
-        function(m, n, l, k, i, j) {
-          j(oZ.getRangeLeftZ(m, n, l), 0, i) && ((k += 5) > 600 ? ClearChild(i) : (i.style.top = k + "px",
-            i.style.left = m + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
-        },
-        [d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
-            id: h
-          },
-          0, EDPZ), a])
-    })("StarB" + Math.random());
-  }
-}),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
