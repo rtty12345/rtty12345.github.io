@@ -2979,7 +2979,7 @@ oCactus = InheritO(CPlants, {
 		},
 		[this.id,2])
 	}
-})，
+}),
 oBlover = InheritO(CPlants, {
 	EName: "oBlover",
 	CName: "三叶草",
@@ -3280,3 +3280,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
