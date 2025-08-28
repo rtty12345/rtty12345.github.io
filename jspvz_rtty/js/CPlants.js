@@ -3408,6 +3408,72 @@ oFlowerVase = InheritO(CPlants, {
 
 
 
+oStarfruit114514 = InheritO(CPlants, {
+  EName: "oStarfruit114514",
+  CName: "杨桃",
+  width: 77,
+  height: 70,
+  beAttackedPointR: 57,
+HP:500,
+  SunNum: 325,
+  GetDY: function(b, c, a) {
+    return a[0] ? -17 : -10
+  },
+  PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
+  Tooltip: "张万森，下杨桃雨了",
+  Produce: '在场时，全场由上散下一堆杨桃<p>伤害：<font color="#FF0000">中等（20）</font><br>范围：<font color="#FF0000">全屏</font></p>今日天气：晴转杨桃雨',
+  getTriggerR: function(a) {
+    return [1, oS.R]
+  },
+  PrivateBirth: function(d) {
+    d.BulletEle = NewImg(0, "images/Plants/Starfruit/Star.gif", "top:0px;z-index:" + (d.zIndex + 2))
+  },
+  CheckLoop: function(b, c) {
+    var a = this.id;
+    this.NormalAttack(b);
+    oSym.addTask(this.highwork?7:15,
+      function(e, f, h) {
+        var g;
+        (g = $P[e]) && g.AttackCheck1(f, h)
+      },
+      [a, b, c])
+  },
+  getTriggerRange: function(a, b, c) {
+    return [
+      [100, oS.W, 0]
+    ]
+  },
+  PrivateDie: function(a) {
+    a.BulletEle = null
+  },
+  NormalAttack: function() {
+    var g = this,
+      d = Math.random() * 780 + 100,
+      b = 0,
+      c = g.R,
+      e = d + 30,
+      a = function(j, i, h) {
+        return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
+      };
+    (function(h) {
+      oSym.addTask(15,
+        function(j) {
+          var i = $(j);
+          i && SetVisible(i)
+        },
+        [h]);
+      oSym.addTask(1,
+        function(m, n, l, k, i, j) {
+          j(oZ.getRangeLeftZ(m, n, l), 0, i) && ((k += 5) > 600 ? ClearChild(i) : (i.style.top = k + "px",
+            i.style.left = m + "px", oSym.addTask(1, arguments.callee, [m, n, GetR(k + 15), k, i, j])))
+        },
+        [d, e, c, b, EditEle(g.BulletEle.cloneNode(false), {
+            id: h
+          },
+          0, EDPZ), a])
+    })("StarB" + Math.random());
+  }
+}),
 
 
 
