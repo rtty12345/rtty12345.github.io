@@ -289,7 +289,7 @@ HP:500,
   CheckLoop: function(b, c) {
     var a = this.id;
     this.NormalAttack(b);
-    oSym.addTask(this.highwork?7:15,
+    oSym.addTask(this.highwork?5:10,
       function(e, f, h) {
         var g;
         (g = $P[e]) && g.AttackCheck1(f, h)
@@ -1484,7 +1484,7 @@ oWallNut = InheritO(CPlants, {
 	coolTime: 30,
 	PicArr: ["images/Card/Plants/WallNut.png", "images/Plants/WallNut/0.gif", "images/Plants/WallNut/WallNut.gif", "images/Plants/WallNut/Wallnut_cracked1.gif", "images/Plants/WallNut/Wallnut_cracked2.gif"],
 	Tooltip: "阻碍僵尸前进, 并保护你其他的植物",
-	Produce: '坚果墙拥有足以让你用来保护其它植物的坚硬外壳，死后变成巨大坚果保龄球碾压一路僵尸<p>韧性：<font color="FF0000">高</font></p>坚果墙：“人们想知道，经常被僵尸啃的感觉怎样？他们不知道，我有限的感官，只能让我感到一种麻麻的感觉，像是，令人放松的背部按摩。”',
+	Produce: '坚果墙拥有足以让你用来保护其它植物的坚硬外壳，死后变成巨大坚果保龄球碾压途径的植物与僵尸<p>韧性：<font color="FF0000">高</font></p>坚果墙：“人们想知道，经常被僵尸啃的感觉怎样？他们不知道，我有限的感官，只能让我感到一种麻麻的感觉，像是，令人放松的背部按摩。”',
 	CanGrow: function(c, b, f) {
 		var a = b + "_" + f,
 		d = c[1],
@@ -2035,7 +2035,7 @@ oFumeShroom = InheritO(CPlants, {
 	width: 100,
 	height: 88,
 	beAttackedPointR: 80,
-	SunNum: 225,
+	SunNum: 150,
 	BookHandBack: 2,
 	SleepGif: 3,
 	night: true,
@@ -3280,4 +3280,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
