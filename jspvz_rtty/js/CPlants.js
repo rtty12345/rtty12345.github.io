@@ -1868,6 +1868,7 @@ oSpikeweed1= InheritO(CPlants, {
 	Produce: '只是一个没有灵魂的替身<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
 	PrivateBirth:function(a){
 	(function(b, c, k, j, e, g) {
+		let leftnum;
       k > c && (leftnum = 1), k < 100 && (leftnum = 0);
       if (!leftnum) {
         b.pixelRight += 1, b.AttackedLX = k += 1, b.AttackedRX = j += 1, g.style.left = (b.pixelLeft += 1) + "px"
@@ -3356,6 +3357,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
