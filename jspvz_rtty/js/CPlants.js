@@ -1851,6 +1851,75 @@ oSpikeweed = InheritO(CPlants, {
 		return a.Altitude == 1 && a.beAttacked
 	}
 }),
+oSpikeweed1= InheritO(CPlants, {
+	EName: "oSpikeweed1",
+	CName: "地刺王的替身",
+	width: 85,
+	height: 35,
+	beAttackedPointL: 10,
+	beAttackedPointR: 75,
+	SunNum: 100,
+	Stature: -1,
+	canEat: 0,
+	PKind:3.5,
+	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.gif", "images/Plants/Spikeweed/Spikeweed.gif"],
+	Attack: 20,
+	Tooltip: "能伤害走在上面的僵尸",
+	Produce: '只是一个没有灵魂的替身<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
+	PrivateBirth:function(a){
+	(function(b, c, k, j, e, g) {
+      k > c && (leftnum = 1), k < 100 && (leftnum = 0);
+      if (!leftnum) {
+        b.pixelRight += 1, b.AttackedLX = k += 1, b.AttackedRX = j += 1, g.style.left = (b.pixelLeft += 1) + "px"
+      } else {
+        b.pixelRight -= 1, b.AttackedLX = k -= 1, b.AttackedRX = j -= 1, g.style.left = (b.pixelLeft -= 1) + "px"
+      }
+      a.HP>1&&oSym.addTask(1, arguments.callee, [b, c, k, j, e, g])
+    })(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
+	},
+	CanGrow: function(c, b, e) {
+		var a = b + "_" + e,
+		d = oS.ArP;
+		return d ? e > 0 && e < d.ArC[1] && oGd.$LF[b] == 1 && !(c[1] || c[0]) : !(e < 1 || e > 9 || oGd.$LF[b] - 1 || c[1] || c[0] || oGd.$Crater[a] || oGd.$Tombstones[a])
+	},
+	getHurt: function(d, b, a) {
+		var c = this;
+		switch (b) {
+		case 2:
+			d.getDispelled(d);
+			c.Die();
+			break;
+		case 1:
+			Math.round(Math.random()*1000)>2?d.getHit2(d, 45, 0):d.getDispelled(d);
+			c.Die();
+			break;
+		default:
+			(c.HP -= a) < 1 && c.Die()
+		}
+	},
+	NormalAttack: function() {
+		var a=oZ.getArZ(this.pixelLeft - 160, this.pixelRight + 160,this.R),
+			b=a.length;
+	while(b--){
+		var c = a[b];
+		c&&c.getHit2(c, this.Attack, 0)
+	}
+	},
+	PrivateDie:function(){
+		oSym.addTask(1500,function(){
+			!oGd.$[this.R+"_"+this.C+"_"+1].isDie&&(CustomSpecial(oSpikeweed1,this.R,this.C))
+		},[])
+	},
+	GetDY: function(b, c, a) {
+		return - 2
+	},
+	getTriggerRange: function(a, b, c) {
+		return [[this.pixelLeft - 160, this.pixelRight + 160, 0]]
+	},
+	AttackCheck2: function(a) {
+		return a.Altitude == 1 && a.beAttacked
+	}
+}),
 oSpikerock = InheritO(oSpikeweed, {
 	EName: "oSpikerock",
 	CName: "地刺王",
@@ -1872,9 +1941,16 @@ oSpikerock = InheritO(oSpikeweed, {
 	GetDY: function(b, c, a) {
 		return 0
 	},
+	PrivateBirth:function(){
+		CustomSpecial(oSpikeweed1,this.R,this.C)
+	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
 		Math.round(Math.random()*100)>2?c.getHit2(c, this.Attack, 0):c.bedevil(c)
+	},
+	PrivateDie:function(){
+		oGd.$[this.R+"_"+this.C+"_"+3.5]&&oGd.$[this.R+"_"+this.C+"_"+3.5].Die();
+		this.isDie=1
 	},
 	getHurt: function(f, c, b) {
 		var e = this,
@@ -3280,5 +3356,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
