@@ -4472,7 +4472,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		function(d, c) {
 			var f = $Z[d],
 			e;
-			f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $P[c]) &&(num<20)?(e.getHurt(f, 2, 100),f.getHit0(f,300,0)):e.getHurt(f, 0, 100), f.JudgeAttack())
+			f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $P[c]) &&(num<20)?(e&&e.getHurt(f, 2, 100),f.getHit0(f,300,0)):(e&&e.getHurt(f, 0, 100)), f.JudgeAttack())
 		},
 		[b, a])
 	},
@@ -6105,5 +6105,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
