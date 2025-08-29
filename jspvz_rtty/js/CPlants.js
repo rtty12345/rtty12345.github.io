@@ -1834,7 +1834,7 @@ oSpikeweed = InheritO(CPlants, {
 		return - 2
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[this.pixelLeft - 160, this.pixelRight + 160, 0]]
+		return [[100,oS.W, 0]]
 	},
 	TriggerCheck: function(i, h) {
 		var c = i.id,
@@ -3357,6 +3357,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
