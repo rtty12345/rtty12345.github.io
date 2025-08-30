@@ -11,7 +11,7 @@ LevelName:"3-10",
 LvlEName:30,
 LargeWaveFlag:{10:$("imgFlag3"),20:$("imgFlag2"),30:$("imgFlag1")},
 StaticCard:0,
-UserDefinedFlagFunc:function(a){oP.FlagNum==oP.FlagZombies&&oP.SetTimeoutWaterZombie(1,4,6,[oDuckyTubeZombie1])},
+UserDefinedFlagFunc:function(a){oP.FlagNum==oP.FlagZombies&&oP.SetTimeoutWaterZombie(2,4,6,[oDuckyTubeZombie1])},
 StartGameMusic:"2.75",
 StartGame:function(){StopMusic();PlayMusic(oS.LoadMusic=oS.StartGameMusic);SetVisible($("tdShovel"),$("dFlagMeter"),$("dTop"));
 SetHidden($("dSunNum"));
@@ -20,19 +20,19 @@ PrepareGrowPlants(function(){
 oP.Monitor({f:function(){(
 function(){
 var a=ArCard.length;
-if(a<10){var c=oS.PName,b=oP.FlagZombies<6?Math.floor(1+Math。random()*10)<4?1:Math。floor(Math。random()*c.length):Math.floor(1+Math.random()*10)<3?0:Math。floor(Math。random()*c.length)，
+if(a<10){var c=oS.PName,b=oP.FlagZombies<6?Math.floor(1+Math.random()*10)<4?1:Math.floor(Math.random()*c.length):Math.floor(1+Math.random()*10)<3?0:Math.floor(Math.random()*c.length),
 e=c[b],
-d=e.prototype，
+d=e.prototype,
 f="dCard"+Math.random();
 ArCard[a]={DID:f,PName:e,PixelTop:600};
-NewImg(f，d。PicArr[d。CardGif]，"top:600px;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto)"，
-$("dCardList")，
+NewImg(f,d.PicArr[d.CardGif],"top:600px;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto)",
+$("dCardList"),
 {onmouseover:function(g){ViewPlantTitle(GetChoseCard(f),g)},
 onmouseout:function(){SetHidden($("dTitle"))},
 onclick:function(g){ChosePlant(g,oS.ChoseCard,f)}})}oSym.addTask(600,arguments.callee,[])})();
-(function(){var b=ArCard。length，a,c;
+(function(){var b=ArCard.length,a,c;
 while(b--){(c=(a=ArCard[b]).PixelTop)>60*b&&($(a.DID).style.top=(a.PixelTop=c-1)+"px")}oSym.addTask(5,arguments.callee,[])})()},ar:[]});
-oP。AddZombiesFlag();
+oP.AddZombiesFlag();
 SetVisible($("dFlagMeterContent"))})}
 },
 {AZ:[[oZombie,3,1],[oZombie2,3,1],[oZombie3,2,1],[oDuckyTubeZombie1,1,6,[6,7,8,10,19,20,25,30]],[oDuckyTubeZombie2,1,6,[10,20,30]],[oDuckyTubeZombie3,1,6,[10,20,30]],[oConeheadZombie,4,1],[oBucketheadZombie,2,4],[oDolphinRiderZombie,1,10,[10,14,15,16,18,19,20]],[oZomboni,1,30,[30]],[oSnorkelZombie,1,15,[15,16,18,20,25,30]]],
