@@ -1862,7 +1862,6 @@ oSpikeweed1= InheritO(CPlants, {
 	canEat: 0,
 	HP:100,
 	PKind:3.5,
-	highwork:1,
 	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.gif", "images/Plants/Spikeweed/Spikeweed.gif"],
 	Attack: 30,
 	Tooltip: "能伤害走在上面的僵尸",
@@ -3367,6 +3366,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
