@@ -1899,6 +1899,15 @@ oSpikeweed1= InheritO(CPlants, {
 			(c.HP -= a) < 1 && c.Die()
 		}
 	},
+		CheckLoop: function(b, c) {
+		var a = this.id;
+		this.NormalAttack(b);
+		oSym.addTask(this.highwork?35:70,
+		function(e, f, h) {
+			var g; (g = $P[e]) && g.AttackCheck1(f, h)
+		},
+		[a, b, c])
+	},
 	NormalAttack: function() {
 		var a=oZ.getArZ(this.AttackedLX,this.AttackedRX,this.R),
 			b=a.length;
@@ -1951,7 +1960,7 @@ oSpikerock = InheritO(oSpikeweed, {
 		Math.round(Math.random()*100)>2?c.getHit2(c, this.Attack, 0):c.bedevil(c)
 	},
 	PrivateDie:function(){
-		oGd.$[this.R+"_"+this.C+"_"+3.5]&&oGd.$[this.R+"_"+this.C+"_"+3.5].Die();
+		oGd.$[this.R+"_"+this.C+"_"+2.5]&&oGd.$[this.R+"_"+this.C+"_"+2.5].Die();
 		this.isDie=1
 	},
 	getHurt: function(f, c, b) {
@@ -3358,6 +3367,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
