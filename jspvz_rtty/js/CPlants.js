@@ -1862,6 +1862,7 @@ oSpikeweed1= InheritO(CPlants, {
 	canEat: 0,
 	HP:100,
 	PKind:3.5,
+	highwork:1,
 	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.gif", "images/Plants/Spikeweed/Spikeweed.gif"],
 	Attack: 30,
 	Tooltip: "能伤害走在上面的僵尸",
@@ -1915,7 +1916,7 @@ oSpikeweed1= InheritO(CPlants, {
 		return - 2
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[this.AttackedLX, this.AttackedRX, 0]]
+		return [[100,oS.W,0]]
 	},
 	AttackCheck2: function(a) {
 		return a.Altitude == 1 && a.beAttacked
@@ -3357,6 +3358,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
