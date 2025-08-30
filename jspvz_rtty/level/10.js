@@ -1,5 +1,5 @@
 oS.Init({
-	PName: [oTwinSunflower,oPeashooter, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater],
+	PName: [oPeashooter, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater],
 	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oPoleVaultingZombie, oBucketheadZombie],
 	PicArr: ["images/interface/background1.jpg", "images/interface/trophy.png"],
 	backgroundImage: "images/interface/background1.jpg",
@@ -160,4 +160,5 @@ oS.Init({
 		})
 	}
 });
+
 
