@@ -1915,7 +1915,7 @@ oSpikeweed1= InheritO(CPlants, {
 		return - 2
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[this.pixelLeft - 80, this.pixelRight + 80, 0]]
+		return [[this.AttackedLX, this.AttackedRX, 0]]
 	},
 	AttackCheck2: function(a) {
 		return a.Altitude == 1 && a.beAttacked
@@ -3357,6 +3357,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
