@@ -3138,11 +3138,11 @@ getSlowPea1:function(c, a, b) {
           ));
     },
   }),
-oNewspaperZombie3= InheritO(OrnIIZombies, {
+oNewspaperZombie3= InheritO(oNewspaperZombie, {
 	EName: "oNewspaperZombie3",
 	CName: "你亲爱的二形态精英二爷",
 	OrnHP: 200,
-	Lvl: 4,
+	Lvl: 5,
 	HP:1000,
 	Altitude:1,
 	LostPaperGif: 13,
@@ -3154,16 +3154,7 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 	SunNum: 225,
 	BreakPoint:1,
 	LostPaperSpeed: 8,
-	LostPaperAtack:800,
-	PicArr: (function() {
-		var a = "images/Zombies/NewspaperZombie/";
-		return ["images/Card/Zombies/NewspaperZombie.png", a + "0.gif", a + "HeadWalk1.gif", a + "HeadAttack1.gif", a + "LostHeadWalk1.gif", a + "LostHeadAttack1.gif", a + "HeadWalk0.gif", a + "HeadAttack0.gif", a + "LostHeadWalk0.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper.gif", a + "1.gif"]
-	})(),
-	AudioArr: ["newspaper_rarrgh2"],
 	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（1000）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">同普僵</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次)</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
-	getShadow: function(a) {
-		return "left:75px;top:" + (a.height - 25) + "px"
-	},
 	CanPass: function(d, c) {
 		return c
 	},
@@ -3331,98 +3322,6 @@ oNewspaperZombie3= InheritO(OrnIIZombies, {
 			c.ChkActs = (c.OrnHP?c.ChkActs1:CZombies.prototype.ChkActs1);
 			oP.MonPrgs()
 		},
-	GoingDie: function(b) {
-		var a = this,
-		c = a.id;
-		a.EleBody.src = b;
-		oSym.addTask(200, ClearChild, [NewImg(0, a.PicArr[a.HeadGif] + Math.random(), "left:" + a.AttackedLX + "px;top:" + (a.pixelTop - 20) + "px;z-index:" + a.zIndex, EDPZ)]);
-		a.beAttacked = 0;
-		a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
-		a.AutoReduceHP(c)
-	},
-	getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
-		var e = this;
-		if (!e.beAttacked) {
-			k && e.DisappearDie();
-			return
-		}
-		var b = e.id,
-		h = e.HP,
-		d = e.PicArr,
-		f = e.isAttacking;
-		switch (true) {
-		case(h -= g) < 1 : e.HP = 0;
-			e.NormalDie();
-			return;
-		case h < 1 : e.HP = h;
-			e.GoingDie(d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]);
-			return
-		}
-		e.HP = h;
-		switch (m) {
-		case - 1 : e.getSlow(e, b, 1000);
-			break;
-		case 1:
-			e.getFireball(e, b, a);
-			break;
-		default:
-			!i && j == -1 && e.PlayNormalballAudio()
-		}
-		SetAlpha(e.EleBody,400, 0.5);
-		oSym.addTask(10,
-		function(q) {
-			var n = $Z[q];
-			n && SetAlpha(n.EleBody,800,1)
-		},
-		[b])
-	},
-	getSnowPea: function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit0(c, a, b)
-	},
-	getSlowPea:function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit0(c, a, b)
-	},
-	getSlowPea1:function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit1(c, a, b)
-	},
-	getFirePea: function(f,b,e) {
-		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
-		f.Attack = 800;
-		var d = f.AttackedLX,
-		g = f.AttackedRX,
-		a = oZ.getArZ(d, d + 40, f.R),
-		c = a.length,
-		h;
-		while (c--) { (h = a[c]) != this && h.getFirePeaSputtering()
-		} (f.HP -= b) < f.BreakPoint ? (f.getFirePea = OrnNoneZombies.prototype.getFirePea, f.GoingDie(f.PicArr[[f.LostHeadGif, f.LostHeadAttackGif][f.isAttacking]]), f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = function() {}) : (f.CheckOrnHP(f, f.id, f.OrnHP, b, f.PicArr, f.isAttacking, 0), f.SetAlpha(f, f.EleBody,400, 0.5), oSym.addTask(10,
-		function(j, i) { (i = $Z[j]) && i.SetAlpha(i, i.EleBody,800, 1)
-		},
-		[f.id]))
-	},
-	getHit0: function(c, a, b) {
-		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
-		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
-		},
-		[c.id])
-	},
-	getHit1: function(b, a) { (b.HP -= a) < b.BreakPoint ? (b.GoingDie(b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]), b.getFirePea = OrnNoneZombies.prototype.getFirePea, b.getSnowPea = OrnNoneZombies.prototype.getSnowPea, b.getHit = b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function() {}) : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0), b.SetAlpha(b, b.EleBody,400, 0.5), oSym.addTask(10,
-		function(d, c) { (c = $Z[d]) && c.SetAlpha(c, c.EleBody,800, 1)
-		},
-		[b.id]))
-	},
-	getHit2: function(b, a) { (b.HP -= a) < b.BreakPoint ? (b.GoingDie(b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]), b.getFirePea = OrnNoneZombies.prototype.getFirePea, b.getSnowPea = OrnNoneZombies.prototype.getSnowPea, b.getHit = b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function() {}) : (b.SetAlpha(b, b.EleBody,400, 0.5), oSym.addTask(10,
-		function(d, c) { (c = $Z[d]) && c.SetAlpha(c, c.EleBody,800,1)
-		},
-		[b.id]))
-	},
-	getHit3: function(b, a) { (b.HP -= a) < b.BreakPoint ? (b.GoingDie(b.PicArr[[b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]]), b.getFirePea = OrnNoneZombies.prototype.getFirePea, b.getSnowPea = OrnNoneZombies.prototype.getSnowPea, b.getHit = b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function() {}) : (b.CheckOrnHP(b, b.id, b.OrnHP, a, b.PicArr, b.isAttacking, 0), b.SetAlpha(b, b.EleBody,400, 0.5), oSym.addTask(10,
-		function(d, c) { (c = $Z[d]) && c.SetAlpha(c, c.EleBody,800,1)
-		},
-		[b.id]))
-	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
 			return 1
@@ -3885,7 +3784,7 @@ oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
       );
     },
   }),
-oNewspaperZombie2= InheritO(OrnIIZombies, {
+oNewspaperZombie2= InheritO(oNewspaperZombie, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
@@ -3909,9 +3808,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
 	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1600）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
-	getShadow: function(a) {
-		return "left:75px;top:" + (a.height - 25) + "px"
-	},
 	CanPass: function(d, c) {
 		return c
 	},
@@ -3944,14 +3840,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
         },
 	bedevil: function() {},
 	getbedevil: function() {},
-	GoingDie: function(b) {
-		var a = this,
-		c = a.id;
-		a.EleBody.src = b;
-		oSym.addTask(200, ClearChild, [NewImg(0, a.PicArr[a.HeadGif] + Math.random(), "left:" + a.AttackedLX + "px;top:" + (a.pixelTop - 20) + "px;z-index:" + a.zIndex, EDPZ)]);
-		a.FreeFreezeTime =a.FreeSetbodyTime = a.FreeSlowTime = 0;
-		a.AutoReduceHP(c)
-	},
         getExplosion: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"ExplosionDie":howDie;
@@ -3991,42 +3879,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 	PrivateBirth: function() {
 	    try{AppearTombstones(8,9,this.hard==2?5:Math.round(Math.random()*1+1))}catch{}
         },
-		getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
-		var e = this;
-		if (!e.beAttacked) {
-			k && e.DisappearDie();
-			return
-		}
-		var b = e.id,
-		h = e.HP,
-		d = e.PicArr,
-		f = e.isAttacking;
-		switch (true) {
-		case(h -= g) < 1 : e.HP =0;
-			e.NormalDie();
-			return;
-		case h < 1 : e.HP = h;
-			e.GoingDie(d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]);
-			return
-		}
-		e.HP = h;
-		switch (m) {
-		case - 1 : e.getSlow(e, b, 1000);
-			break;
-		case 1:
-			e.getFireball(e, b, a);
-			break;
-		default:
-			!i && j == -1 && e.PlayNormalballAudio()
-		}
-		SetAlpha(e.EleBody,400, 0.5);
-		oSym.addTask(10,
-		function(q) {
-			var n = $Z[q];
-			n && SetAlpha(n.EleBody,800,1)
-		},
-		[b])
-	},
 	getHit0: function(c, a, b) {
  		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
  		function(e, d) { (d = $Z[e]) && d.SetAlpha(d, d.EleBody,800,1)
@@ -4077,18 +3929,6 @@ oNewspaperZombie2= InheritO(OrnIIZombies, {
 			},
 			[d, c])
 		},
-	getSnowPea: function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit0(c, a, b)
-	},
-	getSlowPea:function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit0(c, a, b)
-	},
-	getSlowPea1:function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit1(c, a, b)
-	},
 	reNormal: function(c) {
 			c.ExchangeLR(c, 0);
 			c.JudgeAttack = (c.OrnHP<1?c.JudgeAttack1:CZombies.prototype.JudgeAttack);
@@ -4396,8 +4236,8 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	OSpeed: 5,
 	Speed:5,
 	Altitude: 1,
-	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池潜泳以避免遭到攻击，一段时间后，释放辣椒爆炸，本行或者上中下三行<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
-	JumpTime: 100,
+	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池潜泳以避免遭到攻击，每次啃咬有概率秒杀植物，自身扣除300血<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
+	JumpTime: 50,
 	getShadow: function(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	},
@@ -5110,7 +4950,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2
 				oP.SetTimeoutZombie([oDolphinRiderZombie1, oDolphinRiderZombie1], 0);
-                                oP.NumZombies += 2;
+                oP.NumZombies += 2;
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
 				left: h.X + "px"
@@ -5184,7 +5024,9 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 				h.getFreeze = s.getFreeze;
 				h.getRaven = s.getRaven;
 				h.AttackZombie2 = s.AttackZombie2;
-				for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"});
+				if($P[j]&&($P[j].Stature<=0)){
+				for(z in $Z) left= $Z[z],A=left.Ele,left.ZX -= 80, left.AttackedLX -=80, left.AttackedRX -= 80, left.X -=80,SetStyle(A,{left:left.X+"px"})
+				}
 			};
 			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
 				left: h.X + "px"
@@ -5227,8 +5069,16 @@ oImp = InheritO(OrnNoneZombies, {
 		return "left:" + (a.beAttackedPointL - 20) + "px;top:" + (a.height - 32) + "px"
 	},
 	PrivateBirth:function(a){
-		oSym.addTask(500,function(a){
-		a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});
+	oSym.addTask(500,function(a){
+	a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});
+    for (let i = 0; i <= 4; i++) {
+      for (let j = 8; j >= 1; j--) {
+        let p = oGd.$[a.R + "_" + j + "_" + i];
+        if (p && (p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&&(a.PZ)) {
+          p.pixelRight += 80, p.AttackedLX += 80, p.AttackedRX += 80, p.pixelLeft += 80, $(p.id).style.left = (p.pixelLeft) + "px",p.C+=1
+        }
+      }
+    }
 		},[a])
 	},
 	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系，隔一段时间会瞬移一段距离</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
@@ -6105,6 +5955,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
