@@ -5075,7 +5075,7 @@ oImp = InheritO(OrnNoneZombies, {
       for (let j = 8; j >= 1; j--) {
         let p = oGd.$[a.R + "_" + j + "_" + i];
         if (p && (p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&&(a.PZ)) {
-          p.pixelRight += 80, p.AttackedLX += 80, p.AttackedRX += 80, p.pixelLeft += 80, $(p.id).style.left = (p.pixelLeft) + "px",p.C+=1
+          p.pixelRight += 80, p.AttackedLX += 80, p.AttackedRX += 80, p.pixelLeft += 80, $(p.id).style.left = (p.pixelLeft) + "px"
         }
       }
     }
@@ -5955,6 +5955,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
