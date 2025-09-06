@@ -5403,8 +5403,8 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	})(),
 PrivateAct:function(){
 	if(!this.opennum){
-		this&&(this.HP<200)&&this.OpenBox(this.id);
-		this.opennum=1
+		this&&(this.HP<200)&&(this.OpenBox(this.id),
+		this.opennum=1)
 	}
 },
 			AttackZombie: function(d, c) {
@@ -5856,3 +5856,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
