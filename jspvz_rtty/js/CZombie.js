@@ -5395,13 +5395,19 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 3.6,
 	Speed: 3.6,
-	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">打开玩偶匣会爆炸，无视植物</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">啃咬时产生爆炸并恢复自身血量至1000点，残血开盒爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
 	PicArr: (function() {
 		var a = "images/Zombies/JackinTheBoxZombie/";
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
 PrivateAct:function(){
+	if(!this.opennum){
+		this&&(this.HP<200)&&(this.OpenBox(this.id),
+		this.opennum=1)
+	}
+},
+bedevilAct:function(){
 	if(!this.opennum){
 		this&&(this.HP<200)&&(this.OpenBox(this.id),
 		this.opennum=1)
@@ -5430,6 +5436,7 @@ PrivateAct:function(){
 		},
 	OpenBox: function(b) {
 		var a = $Z[b];
+		a&&(a.HP<200)&&a.EleBody.src = a.PicArr[7];
 		a.ChkActs = a.ChkActs1 = function() {
 			return 1
 		};
@@ -5450,7 +5457,7 @@ PrivateAct:function(){
 		};
 		oSym.addTask(a.HP<200?50:0,
 		function(c) {
-			$Z[c] && (a.Status = 0,
+			$Z[c] && (a.Status = 0,(a.HP<200)&&!--oGd.$JackinTheBox && (StopAudio("jackinthebox")),
 				  PlayAudio("jack_surprise"), oSym.addTask(a.HP<200?90:0,
 			function(f) {
 				var e = $Z[f],
@@ -5856,4 +5863,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
