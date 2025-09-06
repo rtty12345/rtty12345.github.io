@@ -5436,7 +5436,6 @@ bedevilAct:function(){
 		},
 	OpenBox: function(b) {
 		var a = $Z[b];
-		a&&(a.HP<200)&&(a.EleBody.src = a.PicArr[7]);
 		a.ChkActs = a.ChkActs1 = function() {
 			return 1
 		};
@@ -5455,6 +5454,7 @@ bedevilAct:function(){
 			c;
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		};
+		a&&(a.HP<200)&&(a.EleBody.src = a.PicArr[7]);
 		oSym.addTask((a.HP<200)?50:0,
 		function(c) {
 			$Z[c] && (a.Status = 0,(a.HP<200)&&(!--oGd.$JackinTheBox)&& StopAudio("jackinthebox"),
@@ -5863,6 +5863,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
