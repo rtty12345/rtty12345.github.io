@@ -692,7 +692,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				f = oZ["getZ" + e](p, k);
 				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif");
 				f && f.Altitude == 1 ? (f[{
-					"-1":"getZPea",
+					"-1":"getPea",
 					0 : "gethPea",
 					1 : "getSlowPea1"
 				} [o]](f, j, e), (SetStyle(l, {
@@ -769,7 +769,7 @@ oPeashooter1= InheritO(CPlants, {
 			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =50, k = e, j.src = "images/Plants/PB" + m + c + ".gif");
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
-				0 : "getZPea",
+				0 : "getPea",
 				1 : "getFirePea"
 			} [m]](d, h, c), (SetStyle(j, {
 				left: o + 28 + "px",
@@ -1266,7 +1266,8 @@ oPumpkinHead = InheritO(CPlants, {
             PlayAudio("shovel");
             (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
 	  }
-          a && a.getHurt(a, 0, 500)
+		if(w>=0){
+          a && a.getHurt(a, 0, 500)}
         }
       }
     };
@@ -2166,7 +2167,7 @@ oFumeShroom = InheritO(CPlants, {
 		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
 		var t;
 		for (t in $Z){
- 		Math.round(Math.random()*100)>2?g.getSlow(g):g.getr(g,50)}}
+ 		Math.round(Math.random()*100)>2?((!g.FreeSlowTime)&&g.getSlow(g)):g.getr(g,50)}}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
@@ -2502,7 +2503,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	      :Math.round(Math.random()*17)>8 ? new oFootballZombie
 	      :Math.round(Math.random()*8)>2 ? new oPeaZombie
 	      :new oNewspaperZombie3,b.R,b.C,1);
-	b.HP >= 1&& oSym.addTask(6000,arguments.callee,[b]);
+	b.HP >= 1&& oSym.addTask(4500,arguments.callee,[b]);
 	},
 	getHurt: function(d, b, a) {
 		var c = this;
@@ -3027,7 +3028,7 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1&&(Math.round(Math.random()*100)>5?e.getPea(e,2,d):e.getrPea(e,20,d)),(k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1&&(Math.round(Math.random()*100)>3?e.getPea(e,2,d):e.getrPea(e,20,d)),(k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
@@ -3367,6 +3368,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
