@@ -357,7 +357,7 @@ return a;
                 this.OrnHP-=Attack;
             }else if(this.OrnHP<1){
                 if(this.HP>Attack){
-                    this.HP-Attack;
+                    this.HP-=Attack;
                 }else if(this.HP<=Attack){
                     this[howDie](this);
                 }
@@ -395,8 +395,8 @@ return a;
                 }
             }else if(this.OrnHP<Attack && this.OrnHP>1){
                 if(this.OrnHP+this.HP>Attack){
-                    this.OrnHP=0;
-                    this.HP-=(Attack-this.OrnHP);	
+                    this.HP-=(Attack-this.OrnHP);
+					this.OrnHP=0;
                 }else if(this.OrnHP+this.HP<=Attack){
                     this[howDie](this);
                 }
@@ -5403,7 +5403,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	})(),
 PrivateAct:function(){
 	if(!this.opennum){
-		this.HP<180&&this.OpenBox(this.id);
+		(this.HP<200)&&this.OpenBox(this.id);
 		this.opennum=1
 	}
 },
@@ -5485,7 +5485,7 @@ PrivateAct:function(){
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})(e.ZX, e.R),e.HP<180?(e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
+				})(e.ZX, e.R),e.HP>180?(e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
 				 e.ChkActs1=t.ChkActs1,
 				e.JudgeAttackH=t.JudgeAttackH,
 				e.JudgeAttack=(e.PZ?t.JudgeAttack:t.JudgeAttackH),
@@ -5856,6 +5856,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
