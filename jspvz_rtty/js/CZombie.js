@@ -5448,10 +5448,10 @@ PrivateAct:function(){
 			c;
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		};
-		oSym.addTask(a.HP<180?50:0,
+		oSym.addTask(a.HP<200?50:0,
 		function(c) {
 			$Z[c] && (a.Status = 0,
-				  PlayAudio("jack_surprise"), oSym.addTask(a.HP<180?90:0,
+				  PlayAudio("jack_surprise"), oSym.addTask(a.HP<200?90:0,
 			function(f) {
 				var e = $Z[f],
 				d;
@@ -5856,10 +5856,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
