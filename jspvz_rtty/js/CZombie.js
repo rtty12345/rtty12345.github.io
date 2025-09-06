@@ -5485,7 +5485,7 @@ PrivateAct:function(){
 							n[k].ExplosionDie()
 						}
 					} while ( h ++< g )
-				})(e.ZX, e.R),e.HP>180?(e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
+				})(e.ZX, e.R),e.HP>=200?(e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
 				 e.ChkActs1=t.ChkActs1,
 				e.JudgeAttackH=t.JudgeAttackH,
 				e.JudgeAttack=(e.PZ?t.JudgeAttack:t.JudgeAttackH),
@@ -5856,4 +5856,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
