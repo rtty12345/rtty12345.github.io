@@ -3793,6 +3793,9 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
             }
             callback && callback();
         },
+	CrushDie:function(){
+		this.getHit(this,this.OrnHP)
+	},
 	PrivateAct:function(a){
             if(!a.bool){
 	        for (let i = 0; i <= 0; i++) {
@@ -3905,6 +3908,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 			k.getFirePea=e.getFirePea;
 			k.getRaven=j.getRaven;
 			k.getThump=j.getThump;
+			k.CrushDie=j.CrushDie;
 			k.getHit1=k.getHit2=k.getHit3=k.getHit0=k.getHit4=e.getHit;
 			k.getExplosion=j.getExplosion;
 			k.Attack=800;
@@ -5863,6 +5867,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
