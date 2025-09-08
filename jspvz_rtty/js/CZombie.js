@@ -2494,6 +2494,24 @@ oFootballZombie= function() {
       h.ExchangeLR(h, 1),
       h.ZX = h.AttackedRX,
       h.WalkDirection = 1);
+		if(h.HPlook&&!h.bHP){
+	h.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP >=h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX+80) + "px";
+	if(!h.Ornaments){
+        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
+	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
+	};
     return g
   },
   getHit0: a,
@@ -2543,6 +2561,24 @@ oFootballZombie= function() {
       g.ExchangeLR(g, 0),
       g.ZX = g.AttackedLX,
       g.WalkDirection = 0);
+		if(h.HPlook&&!h.bHP){
+	h.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP >=h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX+80) + "px";
+	if(!h.Ornaments){
+        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
+	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
+	};
     return f
   },
   ChkActs0: function(h, f, j, e) {
@@ -2552,10 +2588,28 @@ oFootballZombie= function() {
       ar: [oS.R - 1],
       CustomTop: 400 - h.height + h.GetDY()
     })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-    h.ZX <= 200 && (h.ChkActs = h.ChkActs1,
+    h.ZX <= 300 && (h.ChkActs = h.ChkActs1,
       h.ExchangeLR(h, 1),
       h.ZX = h.AttackedRX,
       h.WalkDirection = 1);
+	 	if(h.HPlook&&!h.bHP){
+	h.bHP=1;
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    dHP.id = A;
+    var C = $(A);
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if (h.HP >=h.BreakPoint && $Z[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.ZX+80) + "px";
+	if(!h.Ornaments){
+        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
+	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
+	}; 
     return g
   },
 	Produce: '橄榄球僵尸免疫减速，有些会给自己加速，有些会换行<p>韧性：<font color="#FF0000">极高(2500+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
@@ -5916,6 +5970,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
