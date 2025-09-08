@@ -2467,6 +2467,7 @@ oFootballZombie= function() {
 	getShadow: function(a) {
 		return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
 	},
+	PrivateBirth:function(){},
 	  ChkActs: function(h, f, j, e) {
     var d, c, g;
     !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (!h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
@@ -3574,7 +3575,8 @@ PrivateAct: function() {
                 for (let i = 3; i >= 0; i--) {
                   for (let j = 1; j <= C; j++) {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
-                    p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom" &&
+                    p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
+										p.EName != "oJalapeno" && p.EName != "oDoomShroom" &&
                       p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
 		p&& (p.EName== "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
@@ -3602,7 +3604,6 @@ bedevilAct: function() {
     let a = this;
     if (!a.e) {
       a.e = 1;
-      a.Speed = 1.6;
       oSym.addTask(140, function(a) {
         let i = 0,
           max = 3;
@@ -3611,7 +3612,7 @@ bedevilAct: function() {
 	if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
-            let d = "Pea" + Math.random();
+            let d = "GPea" + Math.random();
             div.id = d;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
@@ -5527,7 +5528,10 @@ bedevilAct:function(){
 		},
 	OpenBox: function(b) {
 		var a = $Z[b];
-		a.ChkActs = a.ChkActs1 = function() {
+		a.ChkActs= function() {
+			return 1
+		};
+		a.ChkActs1 = function() {
 			return 1
 		};
 		a.JudgeAttack = function() {
@@ -5954,6 +5958,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
