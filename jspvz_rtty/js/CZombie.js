@@ -2433,10 +2433,10 @@ oFootballZombie= function() {
     var d = f.OrnHP,
       c = f.HP,
       e = OrnNoneZombies.prototype;
-    f.HP += 15;
-    (d = f.OrnHP -= b) < 1 && (f.ChkActs = e.ChkActs, f.WalkDirection && (f.ExchangeLR(f, 0),
+    f.HP += 8;
+    (d = f.OrnHP -= b) < 1 && (f.PZ&&(f.ChkActs = e.ChkActs),f.WalkDirection && (f.ExchangeLR(f, 0),
       f.ZX = f.AttackedLX,
-      f.WalkDirection = 0), f.HP += d, f.Ornaments = 0, f.Speed += 2, f.oSpeed += 2, f.tasktime -= 50, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit, PlayAudio("newspaper_rarrgh2"));
+      f.WalkDirection = 0), f.HP += d, f.Ornaments = 0, f.Speed += 2, f.oSpeed += 2, f.tasktime -= 50, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit);
     f.SetAlpha(f, f.EleBody, 50, 0.5);
     oSym.addTask(10,
       function(h, g) {
@@ -2449,7 +2449,7 @@ oFootballZombie= function() {
 	CName: "橄榄球僵尸",
 	OrnHP: 2400,
 	HP:270,
-	Lvl: 3,
+	Lvl: 4,
 	SunNum: 200,
 	StandGif: 11,
 	width: 154,
@@ -2490,7 +2490,7 @@ oFootballZombie= function() {
       ar: [oS.R - 1],
       CustomTop: 400 - h.height + h.GetDY()
     })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-    h.ZX <= 300 && (h.ChkActs = h.ChkActs1,
+    h.ZX <= 250 && (h.ChkActs = h.ChkActs1,
       h.ExchangeLR(h, 1),
       h.ZX = h.AttackedRX,
       h.WalkDirection = 1);
@@ -2588,7 +2588,7 @@ oFootballZombie= function() {
       ar: [oS.R - 1],
       CustomTop: 400 - h.height + h.GetDY()
     })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-    h.ZX <= 300 && (h.ChkActs = h.ChkActs1,
+    h.ZX <= 250 && (h.ChkActs = h.ChkActs1,
       h.ExchangeLR(h, 1),
       h.ZX = h.AttackedRX,
       h.WalkDirection = 1);
@@ -2612,7 +2612,7 @@ oFootballZombie= function() {
 	}; 
     return g
   },
-	Produce: '橄榄球僵尸免疫减速，有些会给自己加速，有些会换行<p>韧性：<font color="#FF0000">极高(2500+400)</font><br>速度：<font color="#FF0000">快（原版两倍）</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">磁力菇</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+	Produce: '橄榄球僵尸免疫减速，头盔每次受击本体+8滴血，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后速度+2，两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+（270+增加的血量）)</font><br>速度：<font color="#FF0000">快</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">单次高伤植物</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 })
 }(),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
@@ -5970,6 +5970,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
