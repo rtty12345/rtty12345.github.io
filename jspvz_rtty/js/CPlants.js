@@ -1462,7 +1462,7 @@ oTorchwood = InheritO(CPlants, {
 	beAttackedPointR: 53,
 	SunNum: 175,
 	HP:600,
-	VaseNum:0,
+	Vasenum:0,
 	PKind:2,
 	PicArr: ["images/Card/Plants/Torchwood.png", "images/Plants/Torchwood/0.gif", "images/Plants/Torchwood/Torchwood.gif", "images/Plants/PB00.gif", "images/Plants/PB01.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/Torchwood/SputteringFire.gif"],
 	AudioArr: ["firepea", "ignite", "ignite2"],
@@ -1475,9 +1475,10 @@ oTorchwood = InheritO(CPlants, {
 		oS.HaveFog && oGd.GatherFog(a, b, 1, 1, 0);
 	},
 	InitTrigger: function() {},
-	SetVase:function(a){
-		var Plist=[ 
-oPeashooter,
+	SetVase:function(){
+		var a=this,
+		Plist=[ 
+  oPeashooter,
   oSunFlower,
   oCherryBomb,
   oWallNut,
@@ -3418,6 +3419,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
