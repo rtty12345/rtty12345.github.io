@@ -369,7 +369,7 @@ oPeashooter = InheritO(CPlants, {
 				A=oGd.$[i + "_" + e+"_2"],
 			d = oZ["getZ" + c](n, i);
 			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =Math.random()*200+15, k = e, j.src = "images/Plants/PB" + m + c + ".gif",
-			A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
+			A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
@@ -420,7 +420,7 @@ oSnowPea = InheritO(oPeashooter, {
 			A=oGd.$[i + "_" + e+"_2"],
 			d = oZ["getZ" + c](n, i);
 			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 100), k = e, j.src = "images/Plants/PB" + m + c + ".gif",
-		A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
+		A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSlowPea1",
 				0 : "getSlowPea",
@@ -614,7 +614,7 @@ oThreepeater = InheritO(oPeashooter, {
 					A=oGd.$[i + "_" + e+"_2"],
 				f = oZ["getZ" + e](p, k);
 				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
-				A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
+				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
 					0 : "getPea",
@@ -698,7 +698,7 @@ oThreepeater1= InheritO(oPeashooter, {
 					A=oGd.$[i + "_" + e+"_2"],
 				f = oZ["getZ" + e](p, k);
 				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
-				A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
+				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
 				f && f.Altitude == 1 ? (f[{
 					"-1":"getPea",
 					0 : "gethPea",
@@ -776,7 +776,7 @@ oPeashooter1= InheritO(CPlants, {
 				A=oGd.$[i + "_" + e+"_2"],
 			d = oZ["getZ" + c](n, i);
 			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =50, k = e, j.src = "images/Plants/PB" + m + c + ".gif",
-		A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
+		A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
@@ -1067,7 +1067,7 @@ oSplitPea = InheritO(oPeashooter, {
 					A=oGd.$[i + "_" + e+"_2"],
 				g = oZ["getZ" + f](q, l);
 				p == 0 && j[l + "_" + h] && n != h && (PlayAudio("firepea"), p = 1, k = 40, n = h, m.src = "images/Plants/PB" + p + f + ".gif",
-				A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
+				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
 				g && g.Altitude == 1 ? (g[{
 					"-1": "getSnowPea",
 					0 : "getFirePea",
@@ -3425,6 +3425,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
