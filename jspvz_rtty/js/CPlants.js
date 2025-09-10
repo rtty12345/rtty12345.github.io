@@ -417,6 +417,7 @@ oSnowPea = InheritO(oPeashooter, {
 		oSym.addTask(1,
 		function(f, j, h, c, n, i, m, k, o, g) {
 			var l, e = GetC(n),
+			A=oGd.$[i + "_" + e+"_2"],
 			d = oZ["getZ" + c](n, i);
 			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 100), k = e, j.src = "images/Plants/PB" + m + c + ".gif",
 		A&&(A.Vasenum+=1,A.Vasenum>=30&&A.setVase()));
@@ -3424,6 +3425,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
