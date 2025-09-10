@@ -1518,7 +1518,7 @@ oTorchwood = InheritO(CPlants, {
   oFlowerPot,
   oCoffeeBean,
   oGarlic];
-		a.VaseNum=0;
+		a.Vasenum=0;
 		oFlowerVase.prototype.SpecialBirth(a.R, a.C, 0, {
   "Type": "Plants",
   "Value": Plist[Math.floor(Math.random() *Plist.length)]
@@ -3425,6 +3425,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
