@@ -1481,7 +1481,7 @@ oTorchwood = InheritO(CPlants, {
 		oS.HaveFog && oGd.GatherFog(a, b, 1, 1, 0);
 	},
 	InitTrigger: function() {},
-	SetVase:function(){
+	setVase:function(){
 		var a=this,
 		Plist=[ 
   oPeashooter,
@@ -3425,6 +3425,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
