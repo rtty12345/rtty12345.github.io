@@ -611,7 +611,7 @@ oThreepeater = InheritO(oPeashooter, {
 			oSym.addTask(1,
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
-					A=oGd.$[i + "_" + e+"_2"],
+					A=oGd.$[k + "_" + g+"_2"],
 				f = oZ["getZ" + e](p, k);
 				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
 				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
@@ -695,7 +695,7 @@ oThreepeater1= InheritO(oPeashooter, {
 			oSym.addTask(1,
 			function(h, l, j, e, p, k, o, m, q, i) {
 				var n, g = GetC(p),
-					A=oGd.$[i + "_" + e+"_2"],
+					A=oGd.$[k + "_" + g+"_2"],
 				f = oZ["getZ" + e](p, k);
 				o==0&& i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
 				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
@@ -1064,7 +1064,7 @@ oSplitPea = InheritO(oPeashooter, {
 			oSym.addTask(1,
 			function(i, m, k, f, q, l, p, n, r, j) {
 				var o, h = GetC(q),
-					A=oGd.$[i + "_" + e+"_2"],
+					A=oGd.$[l + "_" + h+"_2"],
 				g = oZ["getZ" + f](q, l);
 				p == 0 && j[l + "_" + h] && n != h && (PlayAudio("firepea"), p = 1, k = 40, n = h, m.src = "images/Plants/PB" + p + f + ".gif",
 				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
@@ -3425,6 +3425,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
