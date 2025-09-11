@@ -1482,7 +1482,7 @@ oTorchwood = InheritO(CPlants, {
 		c.numlook&&c.numlook(c)
 	},
   numlook: function(h) {
-    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:30px;left:40px;width:100%;font-size:12px","",$(h.id));
+    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:60px;left:40px;width:100%;font-size:12px","",$(h.id));
     var A = "hp" + Math.random();
     qdHP.id = A;
     var C = $(A);
@@ -3439,6 +3439,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
