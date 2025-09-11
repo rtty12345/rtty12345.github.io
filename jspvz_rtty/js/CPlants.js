@@ -1481,20 +1481,19 @@ oTorchwood = InheritO(CPlants, {
 		oS.HaveFog && oGd.GatherFog(a, b, 1, 1, 0);
 		c.numlook&&c.numlook(c)
 	},
-numlook: function(h) {
-    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 70) + "px;left:" + (h.AttackedLX + 20) + "px;width:100%;font-size:12px", "", EDAll);
+  numlook: function(h) {
+    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:30px;left:40px;width:100%;font-size:12px","",$(h.id));
     var A = "hp" + Math.random();
     qdHP.id = A;
     var C = $(A);
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if ($P[h.id]) {
-        EDAll && EDAll.appendChild(C);
-        C.style.left = (h.AttackedLX+20) + "px";
+        $(h.id) && $(h.id).appendChild(C);
         b.innerHTML = '<div>' + h.Vasenum + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
-    }, [C, h, b]);
+    }， [C, h, b]);
   },
 	InitTrigger: function() {},
 	setVase:function(){
@@ -3440,6 +3439,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
