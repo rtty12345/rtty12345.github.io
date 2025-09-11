@@ -6,8 +6,6 @@ oS.Init({
 	}(),
 	LevelName: "游戏初始界面",
 	LevelEName: 0,
-	PName: [CPlants],
-	ZName: [CZombies],
 	ShowScroll: 1,
 	LoadMusic: "Faster",
 	StartGameMusic: "Faster",
@@ -66,6 +64,7 @@ oS.Init({
 		)();
 	}
 });
+
 
 
 
