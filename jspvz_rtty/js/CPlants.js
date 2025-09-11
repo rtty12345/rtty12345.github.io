@@ -420,7 +420,7 @@ oSnowPea = InheritO(oPeashooter, {
 			A=oGd.$[i + "_" + e+"_2"],
 			d = oZ["getZ" + c](n, i);
 			m<1&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 100), k = e, j.src = "images/Plants/PB" + m + c + ".gif",
-		A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
+		A&&(A.Vasenum+=2,A.Vasenum>=30&&(A&&A.setVase())));
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSlowPea1",
 				0 : "getSlowPea",
@@ -614,7 +614,7 @@ oThreepeater = InheritO(oPeashooter, {
 					A=oGd.$[k + "_" + g+"_2"],
 				f = oZ["getZ" + e](p, k);
 				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
-				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
+				A&&(A.Vasenum+=0.5,A.Vasenum>=30&&(A&&A.setVase())));
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
 					0 : "getPea",
@@ -776,7 +776,7 @@ oPeashooter1= InheritO(CPlants, {
 				A=oGd.$[i + "_" + e+"_2"],
 			d = oZ["getZ" + c](n, i);
 			m == 0 && g[i + "_" + e] && k != e && (PlayAudio("firepea"), m = 1, h =50, k = e, j.src = "images/Plants/PB" + m + c + ".gif",
-		A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
+		A&&(A.Vasenum+=0.5,A.Vasenum>=30&&(A&&A.setVase())));
 			d && d.Altitude == 1 ? (d[{
 				"-1": "getSnowPea",
 				0 : "getPea",
@@ -1067,7 +1067,7 @@ oSplitPea = InheritO(oPeashooter, {
 					A=oGd.$[l + "_" + h+"_2"],
 				g = oZ["getZ" + f](q, l);
 				p == 0 && j[l + "_" + h] && n != h && (PlayAudio("firepea"), p = 1, k = 40, n = h, m.src = "images/Plants/PB" + p + f + ".gif",
-				A&&(A.Vasenum+=1,A.Vasenum>=30&&(A&&A.setVase())));
+				A&&(A.Vasenum+=2,A.Vasenum>=30&&(A&&A.setVase())));
 				g && g.Altitude == 1 ? (g[{
 					"-1": "getSnowPea",
 					0 : "getFirePea",
@@ -1479,7 +1479,23 @@ oTorchwood = InheritO(CPlants, {
 		b = c.C;
 		oGd.$Torch[a + "_" + b] = c.id;
 		oS.HaveFog && oGd.GatherFog(a, b, 1, 1, 0);
+		c.numlook&&c.numlook(c)
 	},
+numlook: function(h) {
+    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 70) + "px;left:" + (h.AttackedLX + 20) + "px;width:100%;font-size:12px", "", EDAll);
+    var A = "hp" + Math.random();
+    qdHP.id = A;
+    var C = $(A);
+    oSym.addTask(1, function(C, h, b) {
+      ClearChild(C);
+      if ($P[h.id]) {
+        EDAll && EDAll.appendChild(C);
+        C.style.left = (h.AttackedLX+20) + "px";
+        b.innerHTML = '<div>' + h.Vasenum + "</div>";
+      }
+      oSym.addTask(5, arguments.callee, [C, h, b])
+    }, [C, h, b]);
+  },
 	InitTrigger: function() {},
 	setVase:function(){
 		var a=this,
@@ -1506,7 +1522,6 @@ oTorchwood = InheritO(CPlants, {
   oTangleKelp,
   oJalapeno,
   oSpikeweed,
-  oTorchwood,
   oTallNut,
   oSeaShroom,
   oPlantern,
@@ -3425,6 +3440,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
