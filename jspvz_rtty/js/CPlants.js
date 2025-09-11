@@ -1493,7 +1493,7 @@ oTorchwood = InheritO(CPlants, {
         b.innerHTML = '<div>' + h.Vasenum + "</div>";
       }
       oSym.addTask(5, arguments.callee, [C, h, b])
-    }， [C, h, b]);
+	},[C, h, b]);
   },
 	InitTrigger: function() {},
 	setVase:function(){
@@ -3439,6 +3439,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
