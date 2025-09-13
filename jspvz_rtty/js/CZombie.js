@@ -2739,10 +2739,10 @@ if(!a.gif){
       let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:-50px;top:-50px;", 0);
       z.appendChild(pea);
 	a.gif=1;
-	oSym.addTask(10,function(a){
+	oSym.addTask(10,function(a,pea){
 	a&&(!a.beAttacked)&&(a.Polenum==0)&&(ClearChild(pea));
-	oSym.addTask(10,arguments.callee,[a])
-	},[a])
+	oSym.addTask(10,arguments.callee,[a,pea])
+	},[a,pea])
 }
     if (!a.bool&&a.Polenum) {
       a.bool = 1;
@@ -6124,5 +6124,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
