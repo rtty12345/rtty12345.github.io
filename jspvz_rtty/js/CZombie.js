@@ -2729,7 +2729,7 @@ oPoleVaultingZombie2= InheritO(oPoleVaultingZombie, {
   Speed: 4,
   Lvl: 5,
   SunNum: 175,
-Polenum:0,
+Polenum:-1,
   AudioArr: ["polevault", "grassstep"],
 PrivateAct:function(){
 	    let a = this;
@@ -2740,7 +2740,7 @@ if(!a.gif){
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a){
-	a&&(!a.beAttacked)&&(ClearChild(pea),a.gif=0);
+	a&&(!a.beAttacked)&&(a.Polenum==0)&&(ClearChild(pea));
 	oSym.addTask(10,arguments.callee,[a])
 	},[a])
 }
@@ -2752,7 +2752,6 @@ if(!a.gif){
             let d = "Pea" + Math.random();
             div.id = d;
             div.innerHTML = '<img src="images/Plants/Cactus/Projectile32.png">';
-		  if(!a.Polenum){return ClearChild(pea)}
             EditEle(div, 0, {
               position: "absolute",
               zIndex: "24",
@@ -2815,7 +2814,7 @@ if(!a.gif){
             oSym.addTask(1, function(z, d, a) {
               try {
                 $(d).style.left = $(d).offsetLeft + 5 + "px";
-			let Z= oZ.getZ0(pea.offsetLeft + 10,a.R);
+			let Z= oZ.getZ0($(d).offsetLeft + 10,a.R);
             Z&& (Z.Altitude == 1) && ((Z.getHit0(Z, 4, 0)));
                 if ($(d).offsetLeft <= 0) {
                   ClearChild($(d));
@@ -6125,3 +6124,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
