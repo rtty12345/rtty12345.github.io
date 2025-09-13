@@ -2829,6 +2829,23 @@ if(!a.gif){
 },
 AttackZombie:CZombies.prototype.AttackZombie,
 AttackZombie2:CZombies.prototype.AttackZombie2,
+	  JudgeAttack: function() {
+    var g = this,
+      b = g.ZX,
+      d = g.R + "_",
+      c = GetC(b),
+      h = oGd.$,
+      f,
+      a,
+      e = b - 74;
+    for (f = c - 2; f <= c; f++) {
+      if (f > 9) {
+        continue
+      }
+      for (a = 2; a > -1;
+        (p = h[d + f + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= e && p.AttackedLX < b && p.canEat && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, g.NormalAttack(g.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, g.JudgeAttack = CZombies.prototype.JudgeAttack, (g.NormalAttack = CZombies.prototype.NormalAttack)(g.id, p.id)))) {}
+    }
+  },
   NormalAttack: function(d, b, g) {
     var f = $Z[d],
       a = f.Ele,
@@ -6108,6 +6125,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
