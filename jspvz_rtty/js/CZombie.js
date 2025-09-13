@@ -2659,7 +2659,7 @@ if(!a.g){
                   ClearChild($(d));
                   $(d).isDie = true;
                 }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a]);
-				oSym.addTask(70,function(a,z){a&&a.beAttacked&&EditImg($(z.PeaHead),0,"images/Plants/Cactus/Cactus.gif",{},0)},[a,z])
+				oSym.addTask(30,function(a,z){a&&a.beAttacked&&EditImg($(z.PeaHead),0,"images/Plants/Cactus/Cactus.gif",{},0)},[a,z])
               } catch (e) {}
             }, [z, d, a]);
         !a.PZ &&(a.HP > 60) && oSym.addTask(75, arguments.callee, [a]);
@@ -5959,3 +5959,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
