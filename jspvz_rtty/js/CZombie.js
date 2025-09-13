@@ -2746,7 +2746,7 @@ if(!a.gif){
 }
     if (!a.bool&&(a.Polenum==1)) {
       a.bool = 1;
-      oSym.addTask(10, function(a) {
+      oSym.addTask(20, function(a) {
 		  EditImg($(z.PeaHead),0,"images/Plants/Cactus/Attack.gif",{},0);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -2757,7 +2757,7 @@ if(!a.gif){
               zIndex: "24",
               left: a.ZX + "px",
               transform: "rotateY(180deg)",
-              top: a.pixelTop + 40 + "px"
+              top: a.pixelTop + 60 + "px"
             }, EDPZ, 0);
             oSym.addTask(1, function(z, d, a) {
               try {
@@ -2780,7 +2780,7 @@ if(!a.gif){
                 }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
               } catch (e) {}
             }, [z, d, a]);
-        a.PZ &&a.Polenum&& (a.HP > 60) && oSym.addTask(10, arguments.callee, [a]);
+        a.PZ &&a.Polenum&& (a.HP > 60) && oSym.addTask(20, arguments.callee, [a]);
       }, [a]);
     }
 },
@@ -2800,7 +2800,7 @@ if(!a.g){
     if (!a.ec) {
       a.ec = 1;
       oSym.addTask(75, function(a) {
-		  a&&(!a.gif)&&EditImg($(z.PeaHead),0,"images/Plants/Cactus/Attack.gif",{},0);
+      EditImg($(z.PeaHead),0,"images/Plants/Cactus/Attack.gif",{},0);
             let div = $n("div");
             let d = "Pea" + Math.random();
             div.id = d;
@@ -2809,17 +2809,18 @@ if(!a.g){
               position: "absolute",
               zIndex: "24",
               left: a.ZX + "px",
-              top: a.pixelTop + 40 + "px"
+              top: a.pixelTop + 60 + "px"
             }, EDPZ, 0);
             oSym.addTask(1, function(z, d, a) {
               try {
                 $(d).style.left = $(d).offsetLeft + 5 + "px";
 			let Z= oZ.getZ0($(d).offsetLeft + 10,a.R);
-            Z&& (Z.Altitude == 1) && ((Z.getHit0(Z, 4, 0)));
+            Z&& (Z.Altitude == 1) && ((Z.getHit0(Z, 6, 0)));
                 if ($(d).offsetLeft>=oS.W) {
                   ClearChild($(d));
                   $(d).isDie = true;
-                }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+                }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a]);
+				oSym.addTask(70,function(a,z){a&&a.beAttacked&&EditImg($(z.PeaHead),0,"images/Plants/Cactus/Cactus.gif",{},0)},[a,z])
               } catch (e) {}
             }, [z, d, a]);
         !a.PZ &&(a.HP > 60) && oSym.addTask(75, arguments.callee, [a]);
@@ -6124,6 +6125,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
