@@ -2721,6 +2721,155 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
             }, [d, b, a, c, e])
         }
     }),
+oPoleVaultingZombie2= InheritO(oPoleVaultingZombie, {
+  EName: "oPoleVaultingZombie2",
+  CName: "仙人掌撑杆僵尸",
+  HP: 600,
+  OSpeed: 4,
+  Speed: 4,
+  Lvl: 5,
+  SunNum: 175,
+Polenum:0,
+  AudioArr: ["polevault", "grassstep"],
+PrivateAct:function(){
+	    let a = this;
+	var z = $(a.id);	
+if(!a.gif){
+      z.PeaHead = "Pea" + Math.random();
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:30px;top:-50px;", 0);
+      z.appendChild(pea);
+	a.gif=1;
+	oSym.addTask(10,function(a){
+	a&&(!a.beAttacked)&&(ClearChild(pea),a.gif=0);
+	oSym.addTask(10,arguments.callee,[a])
+	},[a])
+}
+    if (!a.bool&&a.Polenum) {
+      a.bool = 1;
+      oSym.addTask(10, function(a) {
+		  EditImg($(z.PeaHead),0,"images/Plants/Cactus/Attack.gif",{},0);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/Cactus/Projectile32.png">';
+		  if(!a.Polenum){return ClearChild(pea)}
+            EditEle(div, 0, {
+              position: "absolute",
+              zIndex: "24",
+              left: a.ZX + "px",
+              transform: "rotateY(180deg)",
+              top: a.pixelTop + 40 + "px"
+            }, EDPZ, 0);
+            oSym.addTask(1, function(z, d, a) {
+              try {
+                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                let pea = $(d);
+                let C = GetC(a.ZX + 40);
+                for (let i = 3; i >= 0; i--) {
+                  for (let j = 1; j <= C; j++) {
+                    let p = oGd.$[a.R + "_" + j + "_" + i];
+                    p && (p.canEat) && (p.EName != "oBrains"&& p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") 
+						&& (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && ((p.gethurt(a,3,10)));
+                    p && (p.canEat) && (p.HP <= 0) && p.Die();
+                  }
+                }
+			let Z= oZ.getHZ1(pea.offsetLeft + 50,a.R);
+            Z&& (Z.Altitude == 1) && ((Z.getHit0(Z, 10, 0)));
+                if ($(d).offsetLeft <= 0) {
+                  ClearChild($(d));
+                  $(d).isDie = true;
+                }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+              } catch (e) {}
+            }, [z, d, a]);
+        a.PZ &&a.Polenum&& (a.HP > 60) && oSym.addTask(10, arguments.callee, [a]);
+      }, [a]);
+    }
+},
+bedevilAct:function(){
+		    let a = this;
+	var z = $(a.id);	
+if(!a.gif){
+      z.PeaHead = "Pea" + Math.random();
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:30px;top:-50px;", 0);
+      z.appendChild(pea);
+	a.gif=1;
+	oSym.addTask(10,function(a){
+	a&&(!a.beAttacked)&&ClearChild(pea);
+	oSym.addTask(10,arguments.callee,[a])
+	},[a])
+}
+    if (!a.ec) {
+      a.ec = 1;
+      oSym.addTask(75, function(a) {
+		  EditImg($(z.PeaHead),0,"images/Plants/Cactus/Attack.gif",{},0);
+            let div = $n("div");
+            let d = "Pea" + Math.random();
+            div.id = d;
+            div.innerHTML = '<img src="images/Plants/Cactus/Projectile32.png">';
+            EditEle(div, 0, {
+              position: "absolute",
+              zIndex: "24",
+              left: a.ZX + "px",
+              top: a.pixelTop + 40 + "px"
+            }, EDPZ, 0);
+            oSym.addTask(1, function(z, d, a) {
+              try {
+                $(d).style.left = $(d).offsetLeft + 5 + "px";
+			let Z= oZ.getZ0(pea.offsetLeft + 10,a.R);
+            Z&& (Z.Altitude == 1) && ((Z.getHit0(Z, 4, 0)));
+                if ($(d).offsetLeft <= 0) {
+                  ClearChild($(d));
+                  $(d).isDie = true;
+                }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
+              } catch (e) {}
+            }, [z, d, a]);
+        a.PZ &&(a.HP > 60) && oSym.addTask(75, arguments.callee, [a]);
+      }, [a]);
+    }
+},
+AttackZombie:CZombies.prototype.AttackZombie,
+AttackZombie2:CZombies.prototype.AttackZombie2,
+  NormalAttack: function(d, b, g) {
+    var f = $Z[d],
+      a = f.Ele,
+      c = f.EleShadow,
+      e = f.EleBody;
+    e.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" + $Random + Math.random();
+	f.Polenum=1;
+    PlayAudio("grassstep");
+    SetHidden(c);
+    f.isAttacking = 1;
+    f.Altitude = 2;
+    f.getFreeze = function() {
+      f.getSnowPea(f, 20)
+    };
+    oSym.addTask(50,
+      function(h) {
+        $Z[h] && PlayAudio("polevault")
+      },
+      [d]);
+    oSym.addTask(100,
+      function(m, j, i, l, n) {
+        var h = $Z[m],
+          k,
+          q,
+          r;
+        h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = q = k.AttackedRX) - h.beAttackedPointL) + h.beAttackedPointR, SetStyle(i, {
+          left: h.X + "px"
+        }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", SetVisible(l), h.isAttacking = 0, h.Altitude = 1, h.OSpeed = h.Speed = 1.6, h.NormalGif = 9, h.LostHeadGif = 10, h.NormalAttack = (r = CZombies.prototype).NormalAttack, h.getCrushed = r.getCrushed, h.getFreeze = r.getFreeze, h.getRaven = r.getRaven,h.Polenum=0) :
+		(h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g-=80) - h.beAttackedPointR) + h.beAttackedPointL, SetStyle(i, {
+          left: h.X + "px"
+        }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80,
+          function(s, v) {
+            var u = $Z[s],
+              t;
+            u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 1.6, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack = (t = CZombies.prototype).NormalAttack, u.getCrushed = t.getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,u.Polenum=0)
+          },
+          [m, n])))
+      },
+      [d, b, a, c, e])
+  }
+}),
 OrnIIZombies = InheritO(OrnNoneZombies,{
 	Ornaments: 2,
 	BreakPoint: 91,
@@ -5959,6 +6108,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
