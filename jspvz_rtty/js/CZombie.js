@@ -2740,7 +2740,7 @@ if(!a.gif){
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a,pea){
-	a&&(!a.beAttacked)&&!a.PZ&&(ClearChild(pea));
+	a&&(!a.beAttacked)&&(!a.PZ)&&(ClearChild(pea));
 	oSym.addTask(10,arguments.callee,[a,pea])
 	},[a,pea])
 }
@@ -2789,7 +2789,7 @@ bedevilAct:function(){
 	var z = $(a.id);	
 if(!a.g){
       z.PeaHead = "Pea" + Math.random();
-      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:100px;top:20px;", 0);
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:70px;top:-20px;", 0);
       z.appendChild(pea);
 	a.g=1;
 	oSym.addTask(10,function(a){
@@ -6124,6 +6124,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
