@@ -2736,7 +2736,7 @@ PrivateAct:function(){
 	var z = $(a.id);	
 if(!a.gif){
       z.PeaHead = "Pea" + Math.random();
-      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:30px;top:-50px;", 0);
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:-50px;top:-50px;", 0);
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a){
@@ -2768,7 +2768,7 @@ if(!a.gif){
                   for (let j = 1; j <= C; j++) {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
                     p && (p.canEat) && (p.EName != "oBrains"&& p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") 
-						&& (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && ((p.gethurt(a,3,10)));
+						&& (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && ((p.getHurt(a,3,10)));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
                 }
@@ -6124,4 +6124,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
