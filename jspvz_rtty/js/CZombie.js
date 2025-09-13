@@ -1840,7 +1840,6 @@ if(h.HPlook&&!h.bHP){
       oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
 }
-            this.PrivateAct && this.PrivateAct(this);
             return g
 	},
 			AttackZombie: function(d, c) {
@@ -1873,7 +1872,6 @@ if(h.HPlook&&!h.bHP){
                     g;
                 h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
             }, [d, c]);
-            this.PrivateAttack && this.PrivateAttack(this)
         },
         Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+1000）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
     }),
@@ -3332,7 +3330,8 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom"&& p.EName != "oGatlingPea" && p.EName != "oLilyPad" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("potato_mine"),(a.hard==2?CustomZombie(oBoom,p.R,p.C):p.HP -=1000),($(d) && ClearChild($(d))));
+                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom"&& p.EName != "oGatlingPea" && p.EName != "oLilyPad" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& 
+							(PlayAudio("potato_mine"),(a.hard==2?CustomZombie(oBoom,p.R,p.C):p.HP -=1000),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
@@ -3506,7 +3505,7 @@ getHit0:function(a,c){
 	if(a.hard==2){
         let z = $(a.id);
         let div = $n("div");
-        let d = "Pea" + Math.random();
+        let d = "ftPea" + Math.random();
         div.id = d;
         div.innerHTML = '<img src="images/Plants/PB01.gif">';
         EditEle(div, 0, {
@@ -3525,7 +3524,7 @@ getHit0:function(a,c){
               for (let j = 1; j <= C; j++) {
                 let p = oGd.$[a.R + "_" + j + "_" + i];
                 p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" &&
-                  p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -=c), ($(d) && ClearChild($(d))));
+                  p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"), (p.HP -=c), ($(d) && ClearChild($(d))));
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
               }
             }
@@ -3566,7 +3565,7 @@ PrivateAct: function() {
 	if(!$Z[a.id]){return}
             let z = $(a.id);	    
             let div = $n("div");
-            let d = "Pea" + Math.random();
+            let d = "GPea" + Math.random();
 	div.id=d;
             div.innerHTML = '<img src="images/Plants/PB00.gif">';
             EditEle(div, 0, {
@@ -3585,8 +3584,8 @@ PrivateAct: function() {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
                     p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
 										p.EName != "oJalapeno" && p.EName != "oDoomShroom" &&
-                      p.EName != "oSunFlower") && ((p.AttackedLX+ $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
-		p&& (p.EName== "oSunFlower") && ((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
+                      p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
+		p&& (p.EName== "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
                 }
@@ -3681,7 +3680,7 @@ bedevilAct: function() {
 oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
     EName: "oPoleVaultingZombie1",
     CName: "跳跳僵尸",
-    HP: 500,
+    HP: 800,
     Lvl:3,
     width: 348,
     height: 218,
@@ -3819,12 +3818,6 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 	oSpeed:2.4,
 	Speed:2.4,
 	Altitude:1,
-	LostPaperGif: 13,
-	StandGif: 14,
-	width: 216,
-	height: 164,
-	beAttackedPointL: 60,
-	beAttackedPointR: 130,
 	SunNum: 325,
 	BreakPoint:1,
 	LostPaperSpeed:10,
@@ -5389,11 +5382,11 @@ oBalloonZombie = InheritO(OrnIZombies, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
+                p && (p.canEat) && (p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
 				    p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& 
-				    p.EName != "oTorchwood"&&p.EName!="oGatlingPea"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 50),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
-		p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"
-				    &&p.EName!="oLilyPad") &&((p.AttackedLX + $(p.id).offsetWidth >= $(d).offsetLeft) && (p.AttackedLX >= $(d).offsetLeft + $(d).offsetWidth)) && (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+				    p.EName != "oTorchwood"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&(p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"),(p.HP -= 50),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
+		p && (p.canEat) && (p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"
+				    &&p.EName!="oLilyPad") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
@@ -5794,14 +5787,14 @@ bedevil: function(c) {
  "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random
     ];
   })(),
-  AudioArr: ["zombie_entering_water","jack_surprise","explosion"],
+  AudioArr: ["wakeup","jack_surprise","explosion"],
   Go_Up: function(a, WD) {
     // WD: 方向，1右0左
     a.isUp = 1; //a.Ifgc=0;
     a.beAttacked &&
       ((a.WalkDirection = WD),
         (a.BoomDieGif = 12),
-        PlayAudio("zombie_entering_water"),
+        PlayAudio("wakeup"),
         (a.Altitude = 4),
         SetVisible(a.EleShadow),
         (a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
@@ -5966,15 +5959,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
