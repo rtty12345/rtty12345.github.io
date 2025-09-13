@@ -1270,7 +1270,7 @@ oPumpkinHead = InheritO(CPlants, {
     );
     s.onclick = function() {
       for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-        let A = oZ.getArZ((a.AttackedLX - 120), (a.AttackedRX + 120), i),
+        let A = oZ.getArZ((a.AttackedLX - 100), (a.AttackedRX + 100), i),
           t,
           w = A.length;
         if (a.HP >= 1000) {
@@ -1278,8 +1278,7 @@ oPumpkinHead = InheritO(CPlants, {
             PlayAudio("shovel");
             (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
 	  }
-		if(w>=0){
-          a && a.getHurt(a, 0, 500)}
+    a && a.getHurt(a, 0, 500)
         }
       }
     };
@@ -3440,3 +3439,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
