@@ -2724,9 +2724,9 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 oPoleVaultingZombie2= InheritO(oPoleVaultingZombie, {
   EName: "oPoleVaultingZombie2",
   CName: "仙人掌撑杆僵尸",
-  HP: 600,
-  OSpeed: 4,
-  Speed: 4,
+  HP: 500,
+  OSpeed: 3.2,
+  Speed: 3.2,
   Lvl: 5,
   SunNum: 175,
 Polenum:-1,
@@ -2740,7 +2740,7 @@ if(!a.gif){
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a,pea){
-	a&&(!a.beAttacked)&&(!a.PZ)&&(ClearChild(pea));
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(pea));
 	oSym.addTask(10,arguments.callee,[a,pea])
 	},[a,pea])
 }
@@ -6124,6 +6124,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
