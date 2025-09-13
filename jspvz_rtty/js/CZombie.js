@@ -2736,15 +2736,15 @@ PrivateAct:function(){
 	var z = $(a.id);	
 if(!a.gif){
       z.PeaHead = "Pea" + Math.random();
-      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:-50px;top:-50px;", 0);
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:100px;top:-50px;", 0);
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a,pea){
-	a&&(!a.beAttacked)&&(a.Polenum==0)&&(ClearChild(pea));
+	a&&(!a.beAttacked||(a.Polenum==0))&&(ClearChild(pea));
 	oSym.addTask(10,arguments.callee,[a,pea])
 	},[a,pea])
 }
-    if (!a.bool&&a.Polenum) {
+    if (!a.bool&&(a.Polenum)) {
       a.bool = 1;
       oSym.addTask(10, function(a) {
 		  EditImg($(z.PeaHead),0,"images/Plants/Cactus/Attack.gif",{},0);
@@ -2789,7 +2789,7 @@ bedevilAct:function(){
 	var z = $(a.id);	
 if(!a.gif){
       z.PeaHead = "Pea" + Math.random();
-      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:30px;top:-50px;", 0);
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:100px;top:-50px;", 0);
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a){
@@ -2822,7 +2822,7 @@ if(!a.gif){
                 }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
               } catch (e) {}
             }, [z, d, a]);
-        a.PZ &&(a.HP > 60) && oSym.addTask(75, arguments.callee, [a]);
+        !a.PZ &&(a.HP > 60) && oSym.addTask(75, arguments.callee, [a]);
       }, [a]);
     }
 },
@@ -6124,6 +6124,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
