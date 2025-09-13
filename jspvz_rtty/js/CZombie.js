@@ -2736,7 +2736,7 @@ PrivateAct:function(){
 	var z = $(a.id);	
 if(!a.gif){
       z.PeaHead = "Pea" + Math.random();
-      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:100px;top:-50px;", 0);
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:150px;top:-100px;", 0);
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a,pea){
@@ -2789,7 +2789,7 @@ bedevilAct:function(){
 	var z = $(a.id);	
 if(!a.gif){
       z.PeaHead = "Pea" + Math.random();
-      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:100px;top:-50px;", 0);
+      let pea = NewImg(z.PeaHead, "images/Plants/Cactus/Cactus.gif", "position:absolute;width:122px;height:157px;left:150px;top:-100px;", 0);
       z.appendChild(pea);
 	a.gif=1;
 	oSym.addTask(10,function(a){
@@ -6124,6 +6124,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
