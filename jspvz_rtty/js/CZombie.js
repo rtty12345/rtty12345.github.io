@@ -2570,10 +2570,6 @@ oPoleVaultingZombie2= InheritO(oPoleVaultingZombie, {
   SunNum: 175,
 Polenum:-1,
   AudioArr: ["polevault", "grassstep"],
-PicArr:{
-	14:"images/Plants/Cactus/Attack.gif",
-	15:"images/Plants/Cactus/Cactus.gif"
-},
 PrivateAct:function(){
 	    let a = this;
 	var z = $(a.id);	
@@ -2729,7 +2725,12 @@ AttackZombie2:CZombies.prototype.AttackZombie2,
       },
       [d, b, a, c, e])
   }
-}),
+}, {
+PicArr:{
+	14:"images/Plants/Cactus/Attack.gif",
+	15:"images/Plants/Cactus/Cactus.gif"
+}
+    }),
 OrnIIZombies = InheritO(OrnNoneZombies,{
 	Ornaments: 2,
 	BreakPoint: 91,
@@ -5963,5 +5964,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
