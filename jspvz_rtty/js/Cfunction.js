@@ -136,6 +136,7 @@ oS = {
 	W: 880,
 	H: 600,
 	C: 9,
+	ThreepeaterGrowNum:0,
 	LawnMowerX: 70,
 	Lvl: 0,
 	MaxSunNum: 114514,
@@ -2768,4 +2769,5 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
