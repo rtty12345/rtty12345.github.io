@@ -3979,7 +3979,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		[f.id]))
 	},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (g.ChkActs = function() {
 			return 1
 		},
 		g.ChkActs1 = function() {
@@ -5964,6 +5964,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
