@@ -537,7 +537,7 @@ oThreepeater = InheritO(oPeashooter, {
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
-		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1] ||oS.ThreepeaterGrowNum>=3)) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]||oS.ThreepeaterGrowNum>=3) : c[0] && !c[1]
+		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1] ||oS.ThreepeaterGrowNum>2)) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]||oS.ThreepeaterGrowNum>2) : c[0] && !c[1]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
@@ -3410,6 +3410,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
