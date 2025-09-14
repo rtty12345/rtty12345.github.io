@@ -476,43 +476,7 @@ NormalAttack1:function(a) {
 				id: h
 			},
 			0, EDPZ), a])
-		})("PStarB1" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
-					top: k + "px"
-				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
-			},
-			[f, c, d, b+15,EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("PStarB2" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
-					top: k + "px"
-				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
-			},
-			[f, c, d, b-15, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("PStarB3" + Math.random());
+		})("PStarB1" + Math.random()); 
 		 (function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -569,6 +533,11 @@ oThreepeater = InheritO(oPeashooter, {
 	},
 	getTriggerR: function(a) {
 		return [1,oS.R]
+	},
+	CanGrow: function(c, b, e) {
+		var a = b + "_" + e,
+		d = oS.ArP;
+		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]) : c[0] && !c[1]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
@@ -3439,4 +3408,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
