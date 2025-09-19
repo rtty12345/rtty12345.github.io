@@ -15,6 +15,7 @@ var CZombies = function(b, a) {
 		BookHandPosition: "50% 70%",
 		AttackGif: 3,
 		LostHeadGif: 4,
+		Pnum:0,
 		LostHeadAttackGif: 5,
 		HeadGif: 6,
 		DieGif: 7,
@@ -683,6 +684,17 @@ OrnNoneZombies = function() {
 			e.PlayNormalballAudio();
 			e.getHit4(e, b, c)
 		},
+		    getPoison: function(e,b,c){
+                e.FreePoisonTime = 1;
+				e.Pnum<5&&(e.Pnum+=1);
+                oSym.addTask(5/e.Pnum,function(e,b,c){
+                    e.getHit0(e,1,c);
+                    e.FreePoisonTime && oSym.addTask(5/e.Pnum,arguments.callee,[e,b,c]);
+                },[e,b,c]);
+                oSym.addTask(e.Pnum*200,function(){
+                    e.FreePoisonTime = 0;
+                });
+            },
 		getFirePea: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
 			g.Attack = 100;
@@ -5965,6 +5977,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
