@@ -3685,12 +3685,12 @@ bedevilAct: function() {
 oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
     EName: "oPoleVaultingZombie1",
     CName: "跳跳僵尸",
-    HP: 800,
-    Lvl:3,
+    HP: 500,
+    Lvl:6,
     width: 348,
     height: 218,
-    OSpeed: 3.2,
-    Speed: 3.2,
+    OSpeed: 15,
+    Speed: 15,
     beAttackedPointL: 215,
     beAttackedPointR: 260,
     StandGif: 13,
@@ -3805,6 +3805,7 @@ oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
                     u &&
                       ((u.isAttacking = 0),
                       (u.Altitude = 1),
+					   (u.Speed=u.oSpeed=5),
                       (v.src = u.PicArr[u.NormalGif]));
                   },
                   [m, n]
@@ -5964,6 +5965,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
