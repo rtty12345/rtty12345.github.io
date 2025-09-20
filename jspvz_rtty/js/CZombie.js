@@ -685,15 +685,17 @@ OrnNoneZombies = function() {
 			e.getHit4(e, b, c)
 		},
 		    getPoison: function(e,b,c){
-                e.FreePoisonTime = 1;
+				var a;
 				e.Pnum<5&&(e.Pnum+=1);
+                e.FreePoisonTime=a=oSym.Now+(e.Pnum*200);
                 oSym.addTask(5/e.Pnum,function(e,b,c){
                     e.getHit0(e,1,c);
                     e.FreePoisonTime && oSym.addTask(5/e.Pnum,arguments.callee,[e,b,c]);
                 },[e,b,c]);
-                oSym.addTask(e.Pnum*200,function(){
-                    e.FreePoisonTime = 0;
-                });
+                oSym.addTask(e.Pnum*200,function(e,a){
+               e.FreePoisonTime=a &&(e.FreePoisonTime = 0,
+					e.Pnum=0)
+				},[e,a]);
             },
 		getFirePea: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
@@ -5977,6 +5979,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
