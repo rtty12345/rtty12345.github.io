@@ -1475,6 +1475,7 @@ ViewCardTitle = function(b, c) {
 	})
 },
 PrivateTombstones=function(h,b){
+	var f;
 for (f = 0; f < 4; f++) { (l = oGd.$[h+ "_" + b]) && l.Die()
 		} 
 A= NewEle("dTombstones" +h+ "_"+b, "div", "position:absolute;width:86px;height:91px;left:" + (GetX(2) - 43) + "px;top:" + (GetY(1) - 91) + "px", 0, EDAll);
@@ -2782,6 +2783,7 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
 
 
