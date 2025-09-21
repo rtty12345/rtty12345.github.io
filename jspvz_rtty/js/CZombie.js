@@ -4027,7 +4027,7 @@ OpenBox:oBackupDancer1.prototype.OpenBox
 }),
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
-  CName: "读报僵尸",
+  CName: "读报Boss",
   OrnHP: 40000,
   Lvl: 200,
   LostPaperGif: 13,
@@ -4194,7 +4194,7 @@ SunNum:2000,
                   a.cancai = 1;
                   for (let i = 0; i < 4; i++) {
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 20) + "_" + i];
-                    p && (p.canEat) && p.getHurt(p, 1, 100);
+                    p && (p.canEat) && p.getHurt(a, 1, 100);
                     a.cancai = 0;
                   }
                 }
@@ -6195,6 +6195,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
