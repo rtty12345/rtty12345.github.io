@@ -4195,9 +4195,10 @@ SunNum:2000,
                   for (let i = 0; i < 4; i++) {
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 20) + "_" + i];
                     p && (p.canEat) && p.getHurt(p, 1, 100);
+                    a.cancai = 0;
                   }
                 }
-			return 1;
+                return 1;
               }, e.caiPlants(e))
             }
           },
@@ -6194,6 +6195,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
