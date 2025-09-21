@@ -3433,7 +3433,6 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	CName: "铁门僵尸",
 	OrnHP: 1100,
 	Lvl: 3,
-	HP:400,
 	oSpeed:1.6,
 	Speed:1.6,
 	SunNum: 175,
@@ -4039,6 +4038,7 @@ oNewspaperBoss = InheritO(oNewspaperZombie2, {
   beAttackedPointL: 120,
   beAttackedPointR: 260,
   AKind: 2,
+SunNum:2000,
   CanPass: function(d, c) {
     return c
   },
@@ -6194,6 +6194,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
