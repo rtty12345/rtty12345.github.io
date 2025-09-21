@@ -693,7 +693,7 @@ OrnNoneZombies = function() {
                     e.FreePoisonTime && oSym.addTask(5/e.Pnum,arguments.callee,[e,b,c]);
                 },[e,b,c]);
                 oSym.addTask(e.Pnum*200,function(e,a){
-               e.FreePoisonTime=a &&(e.FreePoisonTime = 0,
+               e.FreePoisonTime==a&&(e.FreePoisonTime = 0,
 					e.Pnum=0)
 				},[e,a]);
             },
@@ -4096,7 +4096,7 @@ SunNum:2000,
   changeR: function(a) {
     if (!a.Change) {
       a.Change = true;
-      oSym.addTask(2000 + (a.OrnHP * 0.01), function(a) {
+      oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
         a.ZX += 5, a.AttackedLX += 5,
           a.AttackedRX += 5,
           a.X += 5,
@@ -4118,14 +4118,14 @@ SunNum:2000,
           oP.NumZombies += 3;
         } else if (a.OrnHP >= 5000) {
           AppearTombstones(6, 9, 2);
-          oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oPeaZombie], 0);
+          oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oNewspaperZombie], 0);
           oP.NumZombies += 4;
         } else {
           AppearTombstones(4, 9, 5);
           oP.SetTimeoutZombie([oNewspaperZombie2, oNewspaperZombie3, oFootballZombie, oNewspaperZombie, oNewspaperZombie], 0);
           oP.SetTimeoutTomZombie([oPeaZombie, oNewspaperZombie, oFootballZombie]);
-          oP.NumZombies += 4;
+          oP.NumZombies += 5;
         }
         a.Change = false;
       }, [a])
@@ -4196,8 +4196,8 @@ SunNum:2000,
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 20) + "_" + i];
                     p && (p.canEat) && p.getHurt(p, 1, 100);
                   }
-                  return 1;
                 }
+			return 1;
               }, e.caiPlants(e))
             }
           },
@@ -6194,6 +6194,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
