@@ -2234,7 +2234,6 @@ oFootballZombie= function() {
     var d = f.OrnHP,
       c = f.HP,
       e = OrnNoneZombies.prototype;
-    f.HP += 8;
     (d = f.OrnHP -= b) < 1 && (f.PZ&&(f.ChkActs = e.ChkActs,f.WalkDirection && (f.ExchangeLR(f, 0)),
       f.ZX = f.AttackedLX,
       f.WalkDirection = 0), f.HP += d, f.Ornaments = 0,f.tasktime -= 50, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit);
@@ -2249,7 +2248,7 @@ oFootballZombie= function() {
 	EName: "oFootballZombie",
 	CName: "橄榄球僵尸",
 	OrnHP: 2400,
-	HP:270,
+	HP:800,
 	Lvl: 6,
 	SunNum: 250,
 	StandGif: 11,
@@ -2414,7 +2413,7 @@ oFootballZombie= function() {
 	}; 
     return g
   },
-	Produce: '橄榄球僵尸免疫减速，头盔每次受击本体+8滴血，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+（270+增加的血量))</font><br>速度：<font color="#FF0000">快</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">单次高伤植物</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+	Produce: '橄榄球僵尸免疫减速，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+800)</font><br>速度：<font color="#FF0000">快</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">单次高伤植物</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 })
 }(),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
@@ -3435,6 +3434,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	Lvl: 3,
 	oSpeed:1.6,
 	Speed:1.6,
+	HP:270,
 	SunNum: 175,
 	StandGif: 13,
 	width: 166,
@@ -4028,7 +4028,7 @@ OpenBox:oBackupDancer1.prototype.OpenBox
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
   CName: "读报Boss",
-  OrnHP: 40000,
+  OrnHP: 45000,
   Lvl: 200,
   LostPaperGif: 13,
   StandGif: 14,
@@ -4096,7 +4096,7 @@ SunNum:2000,
   changeR: function(a) {
     if (!a.Change) {
       a.Change = true;
-      oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
+      oSym.addTask(1000 + (a.OrnHP * 0.01), function(a) {
         a.ZX += 5, a.AttackedLX += 5,
           a.AttackedRX += 5,
           a.X += 5,
@@ -4104,19 +4104,19 @@ SunNum:2000,
             left: a.X + "px"
           });
         a.ChangeR(a);
-        if (a.OrnHP >= 35000) {
+        if (a.OrnHP >= 40000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
           oP.NumZombies += 3;
-        } else if (a.OrnHP >= 25000) {
+        } else if (a.OrnHP >= 35000) {
           oP.SetTimeoutZombie([oNewspaperZombie, oNewspaperZombie], 0);
           oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 2;
-        } else if (a.OrnHP >= 15000) {
+        } else if (a.OrnHP >= 20000) {
           AppearTombstones(8, 9, 1);
           oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3]);
           oP.NumZombies += 3;
-        } else if (a.OrnHP >= 5000) {
+        } else if (a.OrnHP >= 10000) {
           AppearTombstones(6, 9, 2);
           oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oNewspaperZombie], 0);
@@ -4124,7 +4124,7 @@ SunNum:2000,
         } else {
           AppearTombstones(4, 9, 5);
           oP.SetTimeoutZombie([oNewspaperZombie2, oNewspaperZombie3, oFootballZombie, oNewspaperZombie, oNewspaperZombie], 0);
-          oP.SetTimeoutTomZombie([oPeaZombie, oNewspaperZombie, oFootballZombie]);
+          oP.SetTimeoutTomZombie([oNewspaperZombie3, oNewspaperZombie, oFootballZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -4193,7 +4193,7 @@ SunNum:2000,
                 if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])) {
                   a.cancai = 1;
                   for (let i = 0; i < 4; i++) {
-                    let p = oGd.$[a.R + "_" + GetC(a.ZX - 20) + "_" + i];
+                    let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                     p && (p.canEat) && p.getHurt(a, 1, 100);
                     a.cancai = 0;
                   }
@@ -6195,6 +6195,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
