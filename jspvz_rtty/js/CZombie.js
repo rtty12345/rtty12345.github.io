@@ -4124,7 +4124,7 @@ SunNum:2000,
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie2, oNewspaperZombie3, oFootballZombie, oNewspaperZombie, oNewspaperZombie], 0);
-          oP.SetTimeoutTomZombie([oNewspaperZombie3,oNewspaperZombi,oFootballZombie,oScreenDoorZombie]);
+          oP.SetTimeoutTomZombie([oNewspaperZombie3,oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -6195,6 +6195,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
