@@ -4042,7 +4042,7 @@ SunNum:2000,
   CanPass: function(d, c) {
     return c
   },
-  Birth: CZombies.prototype.Birth,
+  birth: CZombies.prototype.birth,
   getr: function() {},
   AudioArr: ["newspaper_rarrgh"],
   Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
@@ -4112,19 +4112,19 @@ SunNum:2000,
           oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 2;
         } else if (a.OrnHP >= 20000) {
-          AppearTombstones(8, 9, 1);
+          try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3]);
           oP.NumZombies += 3;
         } else if (a.OrnHP >= 10000) {
-          AppearTombstones(6, 9, 2);
+          try{AppearTombstones(6, 9, 2);}catch{};
           oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oNewspaperZombie], 0);
           oP.NumZombies += 4;
         } else {
-          AppearTombstones(4, 9, 5);
+          try{AppearTombstones(4, 9, 5);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie2, oNewspaperZombie3, oFootballZombie, oNewspaperZombie, oNewspaperZombie], 0);
-          oP.SetTimeoutTomZombie([oNewspaperZombie3, oNewspaperZombie, oFootballZombie]);
+          oP.SetTimeoutTomZombie([oNewspaperZombie3,oNewspaperZombi,oFootballZombie,oScreenDoorZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -4133,14 +4133,14 @@ SunNum:2000,
   },
   CheckSkills: function(a) {
     a.cannotCheck = 1;
-    oSym.addTask(2000 + (a.OrnHP * 0.01), function(a) {
+    oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
       a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
       a.cannotCheck = 0;
     }, [a])
   },
   Skill: [{
       name: "墓碑炸弹",
-      tip: "向前发射并向下各散射一个墓碑吞噬者，击中植物或魅惑僵尸直接在当格生成墓碑",
+      tip: "向前发射并向上下各散射一个墓碑吞噬者，击中植物或魅惑僵尸直接在当格生成墓碑",
       func: function(a) {
         let i = 0,
           max = 3;
@@ -4249,7 +4249,7 @@ SunNum:2000,
     var e = OrnNoneZombies.prototype;
     (g.OrnHP = d -= c) < 1 && (
       g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-      oSym.addTask(600,
+      oSym.addTask(1000,
         function(m, l) {
           var k = $Z[m];
           if (!k) {
@@ -6195,6 +6195,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
