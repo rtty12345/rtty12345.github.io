@@ -688,7 +688,7 @@ OrnNoneZombies = function() {
 				var a;
 				e.Pnum<5&&(e.Pnum+=1);
                 e.FreePoisonTime=a=oSym.Now+(e.Pnum*200);
-                oSym.addTask(5/e.Pnum,function(e,b,c){
+                oSym.addTask(10/e.Pnum,function(e,b,c){
                     e.getHit0(e,1,c);
                     e.FreePoisonTime && oSym.addTask(5/e.Pnum,arguments.callee,[e,b,c]);
                 },[e,b,c]);
@@ -3521,7 +3521,7 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-(a.CheckOrnHP(a, a.id, a.OrnHP,(a.hard==2?c*0.5:c),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(a.CheckOrnHP(a,a.id, a.OrnHP,(a.hard==2?c*0.5:c),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))
         },
@@ -4185,7 +4185,7 @@ SunNum:2000,
               e = $Z[u], (!e.cancai) && (e.caiPlants = function(a) {
                 if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])) {
                   a.cancai = 1;
-				!a.color&&($(a.id).style.filter = 'saturate(25%)');
+				(!a.color)&&($(a.id).style.filter = 'saturate(25%)');
 					a.color=1;
                   for (let i = 0; i < 4; i++) {
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
@@ -6192,22 +6192,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
