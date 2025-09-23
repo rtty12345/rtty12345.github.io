@@ -4185,7 +4185,7 @@ for (let i = 0; i < 4; i++) {
         a.PrivateAct = function(a) {
             for (u in $Z) {
               e = $Z[u],
-			p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i],
+			p = oGd.$[e.R + "_" + GetC(e.ZX - 10) + "_" + i],
 			    e&& (
 				 (!e.color)&&($(e.id).style.filter = 'saturate(25%)'),
 					e.color=1,
@@ -6194,6 +6194,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
