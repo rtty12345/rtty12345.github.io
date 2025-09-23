@@ -4264,7 +4264,7 @@ SunNum:2000,
             }
           };
           k.oSpeed = 1.6;
-          oP.SetTimeoutTomZombie([oNewspaperZombie, oNewspaperZombie, oNewspaperZombie3, oNewspaperZombie2, oNewspaperZombie3]);
+          try{oP.SetTimeoutTomZombie([oNewspaperZombie, oNewspaperZombie, oNewspaperZombie3, oNewspaperZombie2, oNewspaperZombie3]);}catch{};
           k.Speed = 1.6;
           if (!k.beAttacked) {
             return
@@ -6192,3 +6192,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
