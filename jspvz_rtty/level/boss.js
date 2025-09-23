@@ -1,6 +1,6 @@
 oS.Init({
 PName:[oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster,oHypnoShroom,oScaredyShroom,oIceShroom,oDoomShroom,oLilyPad,oSquash,oThreepeater,oTangleKelp,oJalapeno,oSpikeweed,oTorchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oFlowerPot,oCoffeeBean,oGarlic,oGatlingPea,oGloomShroom,oTwinSunflower,oSpikerock],
-ZName:[oZombie,oZombie2,oZombie3,oPoleVaultingZombie,oNewspaperZombie,oScreenDoorZombie,oFootballZombie,oDancingZombie,oBackupDancer,oZomboni,oImp,oJackinTheBoxZombie,oBalloonZombie],
+ZName:[oZombie,oZombie2,oZombie3,oNewspaperZombie,oScreenDoorZombie,oFootballZombie,oImp,oNewspaperBoss],
 PicArr:["images/interface/background1.jpg"],
 backgroundImage:"images/interface/background1.jpg",
 CanSelectCard:1,
