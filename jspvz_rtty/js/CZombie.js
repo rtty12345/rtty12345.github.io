@@ -4180,22 +4180,22 @@ SunNum:2000,
       name: "狂暴",
       tip: "使全场僵尸能踩植物，此技能持续10秒",
       func: function(a) {
+for (let i = 0; i < 4; i++) {
+		  var p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
         a.PrivateAct = function(a) {
             for (u in $Z) {
               e = $Z[u],e&& (
 				 (!e.color)&&($(e.id).style.filter = 'saturate(25%)'),
 					e.color=1,
 				e.caiPlants = function(a) {
-			for (let i = 0; i < 4; i++) {
-				var p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                 if (a.PZ&& a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])&&p&&p.canEat) {
                     p && (p.canEat) && p.getHurt(a, 1, 100);
                   }
-                }
                 return 1;
 				},
 				p&&(p.canEat)&&e.caiPlants(e))
             }
+		}
           },
           $Z[a.id] && oSym.addTask(1000, function(a) {
             a.PrivateAct = function() {};
@@ -6192,6 +6192,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
