@@ -1,0 +1,19 @@
+oS.Init({
+PName:[oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster,oHypnoShroom,oScaredyShroom,oIceShroom,oDoomShroom,oLilyPad,oSquash,oThreepeater,oTangleKelp,oJalapeno,oSpikeweed,oTorchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oFlowerPot,oCoffeeBean,oGarlic,oGatlingPea,oGloomShroom,oTwinSunflower,oSpikerock],
+ZName:[oZombie,oZombie2,oZombie3,oPoleVaultingZombie,oNewspaperZombie,oScreenDoorZombie,oFootballZombie,oDancingZombie,oBackupDancer,oZomboni,oImp,oJackinTheBoxZombie,oBalloonZombie],
+PicArr:["images/interface/background1.jpg"],
+backgroundImage:"images/interface/background1.jpg",
+CanSelectCard:1,
+SunNum:114514,
+LevelName:"??",
+LvlEName:"boss",
+LargeWaveFlag:{20:$("imgFlag1")},
+StartGameMusic:"Ultimate battle"
+},
+{AZ:[[oNewspaperBoss,0,1]],
+FlagNum:20,
+FlagToSumNum:{a1:[3,5,9],
+a2:[0,0,0,200]},
+FlagToMonitor:{
+20:[ShowFinalWave,0]
+}});
