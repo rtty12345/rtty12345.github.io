@@ -4185,7 +4185,8 @@ SunNum:2000,
               e = $Z[u], (!e.cancai) && (e.caiPlants = function(a) {
                 if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])) {
                   a.cancai = 1;
-				$(a.id).style.filter = 'saturate(25%)';
+				!a.color&&($(a.id).style.filter = 'saturate(25%)');
+					a.color=1;
                   for (let i = 0; i < 4; i++) {
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                     p && (p.canEat) && p.getHurt(a, 1, 100);
@@ -4201,6 +4202,7 @@ SunNum:2000,
             for (u in $Z) {
               e = $Z[u],
                 e.caiPlants = function() {};
+				e.color=0;
 				$(e.id).style.filter = 'saturate(100%)';
             }
           }, [a])
@@ -6190,6 +6192,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
