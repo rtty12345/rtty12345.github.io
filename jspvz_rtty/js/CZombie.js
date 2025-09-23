@@ -4181,7 +4181,7 @@ SunNum:2000,
       tip: "使全场僵尸能踩植物，此技能持续10秒",
       func: function(a) {
 for (let i = 0; i < 4; i++) {
-		  var p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
+	var p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
         a.PrivateAct = function(a) {
             for (u in $Z) {
               e = $Z[u],e&& (
@@ -4196,7 +4196,8 @@ for (let i = 0; i < 4; i++) {
 				p&&(p.canEat)&&e.caiPlants(e))
             }
 		}
-          },
+	}
+},
           $Z[a.id] && oSym.addTask(1000, function(a) {
             a.PrivateAct = function() {};
             for (u in $Z) {
@@ -6192,6 +6193,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
