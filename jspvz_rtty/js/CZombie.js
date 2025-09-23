@@ -4028,7 +4028,7 @@ OpenBox:oBackupDancer1.prototype.OpenBox
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
   CName: "读报Boss",
-  OrnHP: 45000,
+  OrnHP: 50000,
   Lvl: 200,
   LostPaperGif: 13,
   StandGif: 14,
@@ -4104,14 +4104,16 @@ SunNum:2000,
             left: a.X + "px"
           });
         a.ChangeR(a);
-        if (a.OrnHP >= 40000) {
+        if (a.OrnHP >= 45000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
+		  oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 3;
         } else if (a.OrnHP >= 35000) {
-          oP.SetTimeoutZombie([oNewspaperZombie, oNewspaperZombie], 0);
+		try{AppearTombstones(8, 9, 1);}catch{};
+          oP.SetTimeoutZombie([oNewspaperZombie, oNewspaperZombie,oZombie, oZombie2, oZombie3], 0);
           oP.SetTimeoutTomZombie([oZombie]);
-          oP.NumZombies += 2;
-        } else if (a.OrnHP >= 20000) {
+          oP.NumZombies += 5;
+        } else if (a.OrnHP >= 25000) {
           try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3]);
@@ -4119,7 +4121,7 @@ SunNum:2000,
         } else if (a.OrnHP >= 10000) {
           try{AppearTombstones(6, 9, 2);}catch{};
           oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie], 0);
-          oP.SetTimeoutTomZombie([oNewspaperZombie], 0);
+          oP.SetTimeoutTomZombie([oNewspaperZombie,oScreenDoorZombie]);
           oP.NumZombies += 4;
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
@@ -4140,10 +4142,10 @@ SunNum:2000,
   },
   Skill: [{
       name: "墓碑炸弹",
-      tip: "向前发射并向上下各散射一个墓碑吞噬者，击中植物或魅惑僵尸直接在当格生成墓碑",
+      tip: "向前发射并向上下各散射两个墓碑吞噬者，击中植物或魅惑僵尸直接在当格生成墓碑",
       func: function(a) {
         let i = 0,
-          max = 3;
+          max = 5;
         var timer = setInterval(function() {
             i++;
             let z = $(a.id);
@@ -4160,7 +4162,7 @@ SunNum:2000,
             }, EDPZ, 0);
             oSym.addTask(1, function(z, d, a, i) {
                 let pea = $(d);
-                let y = (i <= 1 ? (Math.random() * 4 + 0) : (i <= 3 ? 0 : Math.random() * 0 - 4));
+                let y = (i <= 2 ? (Math.random() * 4 + 0) : (i <= 4 ? 0 : Math.random() * 0 - 4));
                 $(d).style.left = $(d).offsetLeft - 5 + "px";
                 $(d).style.top = $(d).offsetTop - y + "px";
                 let C = GetC(a.ZX + 40);
@@ -6195,6 +6197,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
