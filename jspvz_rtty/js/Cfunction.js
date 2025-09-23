@@ -1476,6 +1476,7 @@ ViewCardTitle = function(b, c) {
 },
 PrivateTombstones=function(h,b){
 	var f;
+	if(!oGd.$Tombstones[h+ "_" +b]){
 for (f = 0; f < 4; f++) { (l = oGd.$[h+ "_" + b+"_"+f]) && l.Die()
 		} 
 A= NewEle("dTombstones" +h+ "_"+b, "div", "position:absolute;width:86px;height:91px;left:" + (GetX(b) - 43) + "px;top:" + (GetY(h) - 91) + "px", 0, EDAll);
@@ -1487,6 +1488,7 @@ var c;
     className: "Tom1"
   },
   A)).cloneNode(false))).className = "Tom2";
+	}
  },
 SelectCard = function(c) {
 	PlayAudio("tap");
@@ -2783,6 +2785,7 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
 
 
