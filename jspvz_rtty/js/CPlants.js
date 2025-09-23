@@ -527,7 +527,7 @@ oThreepeater = InheritO(oPeashooter, {
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次射出大量覆盖全图所有行的豌豆，攻击距离很短",
-	Produce: '三线射手可以在全图所有行上同时大量射出豌豆，攻击距离短，最多种植三株<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">全图所有的行</font></p> N线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
+	Produce: '三线射手可以在全图所有行上同时大量射出豌豆，攻击距离短，最多种植五株<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">全图所有的行</font></p> N线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerRange: function(a, b, c) {
 		return [[b, Math.min(c +300, oS.W), 0]]
 	},
@@ -537,7 +537,7 @@ oThreepeater = InheritO(oPeashooter, {
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
-		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1] ||oS.ThreepeaterGrowNum>2)) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]||oS.ThreepeaterGrowNum>2) : c[0] && !c[1]
+		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1] ||oS.ThreepeaterGrowNum>4)) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]||oS.ThreepeaterGrowNum>4) : c[0] && !c[1]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
@@ -3410,6 +3410,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
