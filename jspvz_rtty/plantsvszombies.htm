@@ -23,13 +23,13 @@ if (N === "hardpro") {
     CZombies.prototype.HPlook=0
 } else if (N === "highplant"){
     alert("植物更兴奋了");
-CPlants.prototype.highwork=1
+CPlants。prototype.highwork=1
 } else if (N === "normalplant"){
     alert("植物正常了");
     CPlants.prototype.highwork=0
 } else if (N === "bedevil"){
     alert("心控就绪！");
-   for (t in $Z)($Z[t].bedevil!=function(){})?$Z[t].bedevil($Z[t]):$Z[t].DisappearDie()
+   for (t in $Z)($Z[t].bedevil!=function(){})?$Z[t]&&($Z[t].bedevil($Z[t])):$Z[t]&&($Z[t].DisappearDie())
 }else {
     alert("没有任何用");
  }
@@ -202,9 +202,6 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 					<script>LvlList(3,1,5)</script>
 				</div>
 			</div>
-			<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenLevel()">关闭</div>
-		</div>
-		
 		<div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
 			<div id="dMiniSmallTitle">迷 你 游 戏</div>
 			<div id="dMini0" style="width:885px;height:475px;overflow-y:scroll;">
@@ -235,7 +232,8 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 							'jiajuewang','假·绝望','jiajuewang.png',
 							'二爷海','二爷海','jiajuewang.png',
 							'dong','测试','shiduojinhua.png',
-'wujin','无尽关卡','shiduojinhua.png'
+                            'wujin','无尽关卡','shiduojinhua.png',
+							'boss','??','DailyLevel.png'
 						], v, i = 0, n, l = ar.length, s = "";
 
 						for (n = 0; n < l; n += 3) {
@@ -669,6 +667,7 @@ a;}
 <script id="JSPVZ"></script>
 </body>
 </html>
+
 
 
 
