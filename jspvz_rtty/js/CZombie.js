@@ -438,7 +438,7 @@ return a;
 			switch (true) {
 			case ! e: !(h.FreeFreezeTime || h.FreeSetbodyTime) && (h.Speed = 0.5 * h.OSpeed);
 				h.Attack = 50;
-				h.PlaySlowballAudio();
+				!h.FreeSlowTime&&(h.PlaySlowballAudio());
 				h.FreeSlowTime = d;
 				c = 1;
 				break;
@@ -730,7 +730,7 @@ OrnNoneZombies = function() {
 		},
 		getSlowPea1: function(e,b,c){
                 e.getFirePea2(e,b,c);
-                e.getSlow(e);
+                e.getSlow(e,e.id,600);
                 },
 		getrPea:function(e,b,c){
 			e.getPea(e,b,c);
@@ -6195,6 +6195,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
