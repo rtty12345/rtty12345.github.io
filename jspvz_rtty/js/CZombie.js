@@ -2904,7 +2904,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 		},
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
-})，
+}),
   oNewspaperZombie1= InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie1",
     CName: "读报僵尸",
@@ -6192,6 +6192,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
