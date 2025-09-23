@@ -4196,7 +4196,7 @@ for (let i = 0; i < 4; i++) {
 				p&&(p.canEat)&&e.caiPlants(e))
             }
 		}
-	},
+	}
           $Z[a.id] && oSym.addTask(1000, function(a) {
             a.PrivateAct = function() {};
             for (u in $Z) {
@@ -6192,6 +6192,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
