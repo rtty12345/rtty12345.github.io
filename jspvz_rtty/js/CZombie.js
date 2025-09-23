@@ -4187,8 +4187,8 @@ SunNum:2000,
 					e.color=1; 
 				e.caiPlants = function(a) {
 			for (let i = 0; i < 4; i++) {
-                if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])&&(oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i].canEat)) {
-                  a.cancai = 1;
+                if (a.PZ&& a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])&&(oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i].canEat)) {
+                  a.cancai = 1,
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                     p && (p.canEat) && p.getHurt(a, 1, 100);
                     a.cancai = 0;
@@ -6193,5 +6193,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
