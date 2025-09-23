@@ -4183,9 +4183,10 @@ SunNum:2000,
 for (let i = 0; i < 4; i++) {
 	let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
         a.PrivateAct = function(a) {
-		let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
             for (u in $Z) {
-              e = $Z[u],e&& (
+              e = $Z[u],
+			p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i],
+			    e&& (
 				 (!e.color)&&($(e.id).style.filter = 'saturate(25%)'),
 					e.color=1,
 				e.caiPlants = function(a) {
@@ -6193,6 +6194,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
