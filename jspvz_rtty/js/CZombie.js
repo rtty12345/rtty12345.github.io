@@ -2779,15 +2779,6 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 			},
 			[d, c])
 		},
-	GoingDie: function(b) {
-		var a = this,
-		c = a.id;
-		a.EleBody.src = b;
-		oSym.addTask(200, ClearChild, [NewImg(0, a.PicArr[a.HeadGif] + Math.random(), "left:" + a.AttackedLX + "px;top:" + (a.pixelTop - 20) + "px;z-index:" + a.zIndex, EDPZ)]);
-		a.beAttacked = 0;
-		a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
-		a.AutoReduceHP(c)
-	},
 	getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
 		if (!e.beAttacked) {
@@ -4194,6 +4185,7 @@ SunNum:2000,
               e = $Z[u], (!e.cancai) && (e.caiPlants = function(a) {
                 if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])) {
                   a.cancai = 1;
+				$(a.id).style.filter = 'saturate(25%)';
                   for (let i = 0; i < 4; i++) {
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                     p && (p.canEat) && p.getHurt(a, 1, 100);
@@ -4208,7 +4200,8 @@ SunNum:2000,
             a.PrivateAct = function() {};
             for (u in $Z) {
               e = $Z[u],
-                e.caiPlants = function() {}
+                e.caiPlants = function() {};
+				$(e.id).style.filter = 'saturate(100%)';
             }
           }, [a])
       }
@@ -6197,6 +6190,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
