@@ -10,10 +10,13 @@ LvlEName:"boss",
 LargeWaveFlag:{20:$("imgFlag1")},
 StartGameMusic:"Ultimate battle"
 },
-{AZ:[[oNewspaperBoss,1,1]],
+{
+AZ:[[oNewspaperBoss,0,100,[10]],
+   [oZombie,1,0]],
 FlagNum:20,
-FlagToSumNum:{a1:[3,5,9],
-a2:[0,0,0,200]},
+FlagToSumNum:{
+    a1: [9],
+		a2: [0,1]},
 FlagToMonitor:{
 20:[ShowFinalWave,0]
 }});
