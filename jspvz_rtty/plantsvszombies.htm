@@ -23,7 +23,7 @@ if (N === "hardpro") {
     CZombies.prototype.HPlook=0
 } else if (N === "highplant"){
     alert("植物更兴奋了");
-CPlants。prototype.highwork=1
+CPlants.prototype.highwork=1
 } else if (N === "normalplant"){
     alert("植物正常了");
     CPlants.prototype.highwork=0
@@ -202,6 +202,8 @@ LvlList=function(BLvl,SLvl1,SLvl2){
 					<script>LvlList(3,1,5)</script>
 				</div>
 			</div>
+			<div class="button" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'"  onclick="HiddenLevel()">关闭</div>
+		</div>
 		<div id="dMiniSmallContainer" class="TitleSmallContainer Challenge_Background">
 			<div id="dMiniSmallTitle">迷 你 游 戏</div>
 			<div id="dMini0" style="width:885px;height:475px;overflow-y:scroll;">
@@ -667,6 +669,7 @@ a;}
 <script id="JSPVZ"></script>
 </body>
 </html>
+
 
 
 
