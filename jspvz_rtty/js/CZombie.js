@@ -4182,12 +4182,13 @@ SunNum:2000,
       func: function(a) {
         a.PrivateAct = function(a) {
             for (u in $Z) {
-              e = $Z[u], (!e.cancai) && (e.caiPlants = function(a) {
-                if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])) {
+              e = $Z[u], (!e.cancai) && (
+				 (!e.color)&&($(a.id).style.filter = 'saturate(25%)'),
+					e.color=1; 
+				e.caiPlants = function(a) {
+			for (let i = 0; i < 4; i++) {
+                if (a.PZ && a.beAttacked && (!a.FreeSetbodyTime) && ($Z[a.id])&&(oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i].canEat)) {
                   a.cancai = 1;
-				(!a.color)&&($(a.id).style.filter = 'saturate(25%)');
-					a.color=1;
-                  for (let i = 0; i < 4; i++) {
                     let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                     p && (p.canEat) && p.getHurt(a, 1, 100);
                     a.cancai = 0;
@@ -6192,4 +6193,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
