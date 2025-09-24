@@ -4183,17 +4183,18 @@ SunNum:2000,
         a.PrivateAct = function(a) {
             for (u in $Z) {
               e = $Z[u],
-				  e&&((e.color!==1)&&($(e.id).style.filter = 'saturate(25%)'),
+				 e.PZ&& e.beAttacked && (!e.FreeSetbodyTime)&&((e.color!==1)&&($(e.id).style.filter = 'saturate(25%)'),
 					e.color=1);
-			    e.PZ&& e.beAttacked && (!e.FreeSetbodyTime) &&(
-				e.caiPlants = function(a) {
 			for (let i = 0; i < 4; i++) {
+			    oGd.$[e.R + "_" + GetC(e.ZX - 10) + "_" + i]&&(oGd.$[e.R + "_" + GetC(e.ZX - 10) + "_" + i].canEat)&&
+					e.PZ&& e.beAttacked && (!e.FreeSetbodyTime) &&(
+				e.caiPlants = function(a) {
 				let p = oGd.$[a.R + "_" + GetC(a.ZX - 10) + "_" + i];
                     p && (p.canEat) && p.getHurt(a, 1, 100);
-			}
                 return 1;
 				},
 				e.caiPlants(e))
+			}
 		}
 	}
           $Z[a.id] && oSym.addTask(1000, function(a) {
@@ -6191,6 +6192,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
