@@ -875,6 +875,11 @@ oBackupDancer = InheritO(OrnNoneZombies, {
         },
         [fireid]
       );
+	var n = oZ.getArHZ(0, oS.W, y);
+	var k = n.length;
+                while (k--) {
+                  n[k].getExplosion(300)
+                }
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
@@ -6192,6 +6197,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
