@@ -2157,6 +2157,122 @@ for (i=0;i<4;i++){
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>特性：有概率冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约4秒解除此形态，另一形态若正常关卡扣阳光，iz加阳光<font color="#FF0000"></font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
+oJalapenoZombie= InheritO(oConeheadZombie,{
+	EName: "oJalapenoZombie",
+	CName: "辣椒僵尸",
+	Lvl: 5,
+	SunNum: 175,
+	PrivateBirth: function(a){
+	    a.PrivateAct = Math.round(Math.random()*100)>10 ? a.PrivateAct1 : a.PrivateAct2;
+		 a.bedevilAct=(a.PrivateAct==a.PrivateAct2?a.bedevilAct2:a.bedevilAct1)
+		if(a.PrivateAct==a.PrivateAct2){a.getHit(a,370)}
+	},
+        PrivateAct1:function(a) {
+			if(!a.Boom){
+				a.Boom=1;
+				var z=$(a.id);
+	z.JaHead = "Ja" + Math.random();
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:60px;top:0px;", 0);
+      z.appendChild(Ja);
+	oSym.addTask(10,function(a,Ja){
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
+	oSym.addTask(10,arguments.callee,[a,Ja])
+	},[a,Ja])
+				oSym.addTask(2500,function(a){
+					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
+				},[a,i])
+			  }
+			},
+	 PrivateAct2:function(a){
+		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)));
+		if(!a.Boom){
+		a.Boom=1;
+		var z=$(a.id);
+	z.JaHead = "Ja" + Math.random();
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:60px;top:-40px;", 0);
+      z.appendChild(Ja);
+	oSym.addTask(10,function(a,Ja){
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
+	oSym.addTask(10,arguments.callee,[a,Ja])
+	},[a,Ja])
+				oSym.addTask(2500,function(a,i){
+					$Z[a.id]&&a.beAttacked&&(a.BoomFire(i),CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)))
+				},[a,i])
+			  }
+		 }
+        },
+	bedevilAct1:function(a) {
+			if(!a.boom){
+				a.boom=1;
+				var z=$(a.id);
+	z.JaHead = "Ja" + Math.random();
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:60px;top:0px;", 0);
+      z.appendChild(Ja);
+	oSym.addTask(10,function(a,Ja){
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Ja));
+	oSym.addTask(10,arguments.callee,[a,Ja])
+	},[a,Ja])
+				oSym.addTask(2500,function(a){
+					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
+				},[a,i])
+			  }
+	},
+	bedevilAct2:function(a){
+		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1));
+		if(!a.boom){
+		a.boom=1;
+		var z=$(a.id);
+	z.JaHead = "Ja" + Math.random();
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:60px;top:-40px;", 0);
+      z.appendChild(Ja);
+	oSym.addTask(10,function(a,Ja){
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Ja));
+	oSym.addTask(10,arguments.callee,[a,Ja])
+	},[a,Ja])
+				oSym.addTask(2500,function(a,i){
+					$Z[a.id]&&a.beAttacked&&(a.BoomFire(i),CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1))
+				},[a,i])
+			  }
+		 }
+        },
+    BoomFire: function (y) {
+      PlayAudio("jalapeno");
+      fireid = "fire_" + Math.random();
+      NewImg(
+        fireid,
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
+        EDAll
+      );
+      oSym.addTask(
+        135,
+        (id) => {
+          ClearChild($(id));
+        },
+        [fireid]
+      );
+	var n = oZ["getAr"+(this.PZ?"HZ":"Z")](0, oS.W, y);
+	var k = n.length;
+                while (k--) {
+                  n[k].getExplosion(2000)
+                }
+      for (let i = 1; i <= oS.C; i++) {
+        for (let j = 0; j < 4; j++) {
+          let g = oGd.$[y + "_" + i + "_" + j];
+g&&g.getHurt($Z[this.id],3,2000)
+        }
+      }
+      this.DisappearDie();
+    },
+	Produce: '他热情似火（bushi）<p>韧性：<font color="#FF0000">中（370+500）</font><br>特点：<font color="#FF0000">过段时间爆炸</font></p>他对待什么都是热情似火'
+},
+{
+	PicArr: {
+6:"images/Zombies/Zombie/unlook.gif" + $Random
+	},
+}),
 oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
@@ -6197,6 +6313,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
