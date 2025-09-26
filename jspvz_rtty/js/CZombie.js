@@ -2180,12 +2180,14 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	},[a,Ja])
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
-				},[a,i])
+				}，[a])
 			  }
 			},
 	 PrivateAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)));
+		 		if(!a.Attacking){
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)),a.Attacking=1);
+				}
 		if(!a.Boom){
 		a.Boom=1;
 		var z=$(a.id);
@@ -2215,12 +2217,14 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	},[a,Ja])
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
-				},[a,i])
+				},[a])
 			  }
 	},
 	bedevilAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1));
+		if(!a.Attacking){
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1),a.Attacking=1);
+		}
 		if(!a.boom){
 		a.boom=1;
 		let z=$(a.id);
@@ -6313,6 +6317,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
