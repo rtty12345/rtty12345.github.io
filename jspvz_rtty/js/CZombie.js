@@ -2161,6 +2161,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	EName: "oJalapenoZombie",
 	CName: "辣椒僵尸",
 	Lvl: 5,
+	HP:500,
 	SunNum: 175,
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*100)>10 ? a.PrivateAct1 : a.PrivateAct2;
@@ -2185,9 +2186,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 			},
 	 PrivateAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 		if(!a.Attacking){
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)),a.Attacking=1);
-				}
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),!a.Attacking&&CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)),a.Attacking=1);
 		if(!a.Boom){
 		a.Boom=1;
 		var z=$(a.id);
@@ -2222,9 +2221,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	},
 	bedevilAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		if(!a.Attacking){
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1),a.Attacking=1);
-		}
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),!a.Attacking&&CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1),a.Attacking=1);
 		if(!a.boom){
 		a.boom=1;
 		let z=$(a.id);
@@ -6317,6 +6314,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
