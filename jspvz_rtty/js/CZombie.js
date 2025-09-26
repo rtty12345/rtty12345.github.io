@@ -2223,7 +2223,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1));
 		if(!a.boom){
 		a.boom=1;
-		var z=$(a.id);
+		let z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
       let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:60px;top:-40px;", 0);
       z.appendChild(Ja);
@@ -6313,6 +6313,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
