@@ -1726,7 +1726,7 @@ oTallNut = InheritO(oWallNut, {
             var c = this,
                 d = $(c.id).childNodes[1];
             !(b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
-            e.getHit1(e,30,0);
+            b!==3&&e.getHit1(e,30,0);
         },
 	PrivateDie:function(){
         }
@@ -2047,9 +2047,9 @@ oGarlic = InheritO(CPlants, {
 	HurtStatus: 0,
 	getHurt: function(e, b, a) {
 		var c = this,
-		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= 20) < 1 ? c.Die(): (e.ChangeR({
+		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= 20) < 1 ? c.Die(): (b!==3&&(e.ChangeR({
 			R: c.R
-		}),e.getr(e,80),c.HP < 134 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/Garlic/Garlic_body3.gif") : c.HP < 267 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/Garlic/Garlic_body2.gif")) : c.Die(),e.getr(e,80)
+		}),e.getr(e,80)),c.HP < 134 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/Garlic/Garlic_body3.gif") : c.HP < 267 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/Garlic/Garlic_body2.gif")) : c.Die(),b!==3&&e.getr(e,80)
 	}
 }),
 oSquash = InheritO(CPlants, {
@@ -3410,6 +3410,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
