@@ -2180,7 +2180,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	},[a,Ja])
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
-				}，[a])
+				},[a])
 			  }
 			},
 	 PrivateAct2:function(a){
@@ -6317,6 +6317,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
