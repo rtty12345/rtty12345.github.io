@@ -2259,12 +2259,14 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
                 while (k--) {
                   n[k].getExplosion(2000)
                 }
+		if(this.PZ){
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
 g&&g.getHurt($Z[this.id],3,2000)
         }
       }
+	}
       this.DisappearDie();
     },
 	Produce: '他热情似火（bushi）<p>韧性：<font color="#FF0000">中（370+500）</font><br>特点：<font color="#FF0000">过段时间爆炸</font></p>他对待什么都是热情似火'
@@ -6314,6 +6316,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
