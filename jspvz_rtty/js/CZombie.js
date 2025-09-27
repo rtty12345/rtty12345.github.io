@@ -2221,7 +2221,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	},
 	bedevilAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),!a.Attacking&&CustomZombies(oJalapenoZombie,a.R,GetC(a.ZX-10),1),a.Attacking=1);
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),!a.Attacking&&CustomZombies(new oJalapenoZombie,a.R,GetC(a.ZX-10),1),a.Attacking=1);
 		if(!a.boom){
 		a.boom=1;
 		let z=$(a.id);
@@ -6316,6 +6316,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
