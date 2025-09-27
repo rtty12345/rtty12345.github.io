@@ -3372,26 +3372,6 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
       }, [a]);
     }
   },
-              AttackZombie: function(d, c) {
-			oSym.addTask(10,
-			function(f, e) {
-				var h = $Z[f],
-				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g,100,0), h.JudgeAttack())
-			},
-			[d, c])
-		},
-		AttackZombie2: function(e, d, c) {
-			e.isAttacking = 1;
-			e.EleBody.src = e.PicArr[e.AttackGif];
-			oSym.addTask(10,
-			function(g, f) {
-				var i = $Z[g],
-				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 100, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
-			},
-			[d, c])
-		},
 	bedevil: function(c) {
 			c.ExchangeLR(c, 1);
 			c.JudgeAttack = c.JudgeAttackH;
@@ -3639,6 +3619,7 @@ bedevilAct: function() {
 			g.getHit=e.getHit0,
 			g.Speed=8,
 		    g.oSpeed=8,
+			g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
 			g.AKind=2)
 	},
 	getFireball: function(c, a, b) {
@@ -4018,12 +3999,12 @@ OpenBox:oBackupDancer1.prototype.OpenBox
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
   CName: "读报Boss",
-  OrnHP: 50000,
+  OrnHP: 80000,
   Lvl: 200,
   LostPaperGif: 13,
   StandGif: 14,
   width: 432,
-  HP: 20000,
+  HP: 10000,
   height: 328,
   beAttackedPointL: 120,
   beAttackedPointR: 260,
@@ -4032,7 +4013,7 @@ SunNum:2000,
   CanPass: function(d, c) {
     return c
   },
-  birth: CZombies.prototype.birth,
+  Birth: CZombies.prototype.Birth,
   getr: function() {},
   AudioArr: ["newspaper_rarrgh"],
   Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
@@ -4094,16 +4075,16 @@ SunNum:2000,
             left: a.X + "px"
           });
         a.ChangeR(a);
-        if (a.OrnHP >= 45000) {
+        if (a.OrnHP >= 70000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
 		  oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 3;
-        } else if (a.OrnHP >= 35000) {
+        } else if (a.OrnHP >= 50000) {
 		try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oNewspaperZombie,oZombie, oZombie2, oZombie3], 0);
           oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 5;
-        } else if (a.OrnHP >= 25000) {
+        } else if (a.OrnHP >= 30000) {
           try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oScreenDoorZombie], 0);
           oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3]);
@@ -4235,7 +4216,7 @@ SunNum:2000,
     a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
     a.AutoReduceHP(c)
   },
-  bedevil: function() {
+  getbedevil: function() {
     this.getHit0(this, 2000, 0)
   },
   getPoison: function(e, b, c) {
@@ -4245,7 +4226,7 @@ SunNum:2000,
     var e = OrnNoneZombies.prototype;
     (g.OrnHP = d -= c) < 1 && (
       g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-      oSym.addTask(1000,
+      oSym.addTask(1200,
         function(m, l) {
           var k = $Z[m];
           if (!k) {
@@ -6184,6 +6165,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
