@@ -2188,7 +2188,8 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
         },
 NormalDie: function() {
     var c = this;
-c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),a.R,GetC(a.ZX-10),1);
+	c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1);
 	c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
     oSym.addTask(250, ClearChild, [c.Ele]);
     c.HP = 0;
@@ -2198,8 +2199,8 @@ c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZomb
   },
 ExplosionDie: function() {
     var c = this;
-c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),c.R,GetC(c.ZX-10),1);
-
+	c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1);
 	c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
     oSym.addTask(300, ClearChild, [c.Ele]);
     c.HP = 0;
@@ -2209,7 +2210,8 @@ c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZomb
   },
   DisappearDie: function() {
     var c = this;
-c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),c.R,GetC(c.ZX-10),1);
+c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1);
 	ClearChild(this.Ele);
     this.HP = 0;
     delete $Z[this.id];
@@ -2218,7 +2220,8 @@ c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZomb
   },
   CrushDie: function() {
     var c = this;
-c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),c.R,GetC(c.ZX-10),1);
+c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1);
     c.GoingDieHead(c.id, c.PicArr, c);
     ClearChild(c.Ele);
     c.HP = 0;
@@ -6173,5 +6176,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
