@@ -1833,6 +1833,8 @@ oJalapeno = InheritO(oCherryBomb, {
 		[a.id])
 	},
 	PrivateDie:function(a){
+	for(let i=1;i<=oS.R;i++){
+	i!==a.R&&CustomZombies(new oJalapenoZombie,i,0,1)}
 	}
 }),
 oSpikeweed = InheritO(CPlants, {
@@ -2535,15 +2537,15 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
-	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤魅惑玉米普通僵尸(25%)/普通二爷(20%)/仙人掌撑杆(17%)/机枪铁门(13%)/普通橄榄(10%)/寒冰射手铁门(10%)/玉米炮二爷(5%)<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
+	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤魅惑玉米普通僵尸(30%)/普通二爷(25%)/仙人掌撑杆(20%)/机枪铁门(17%)/普通橄榄(7%)/寒冰射手铁门(4%)/玉米炮二爷(2%)<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
-!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>75 ? new oZombie2
-	      :Math.round(Math.random()*75)>55 ? new oNewspaperZombie
-	      :Math.round(Math.random()*55)>38 ? new oPoleVaultingZombie2
-		  :Math.round(Math.random()*38)>25 ? new oScreenDoorZombie
-	      :Math.round(Math.random()*25)>15 ? new oFootballZombie
-	      :Math.round(Math.random()*15)>5? new oPeaZombie
+!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>70 ? new oZombie2
+	      :Math.round(Math.random()*75)>50 ? new oNewspaperZombie
+	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
+		  :Math.round(Math.random()*30)>13 ? new oScreenDoorZombie
+	      :Math.round(Math.random()*13)>6 ? new oFootballZombie
+	      :Math.round(Math.random()*6)>2? new oPeaZombie
 	      :new oNewspaperZombie3,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(4500,arguments.callee,[b]);
 	},
@@ -3410,6 +3412,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
