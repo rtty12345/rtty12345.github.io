@@ -144,7 +144,7 @@ shootPea:function(a){
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
                 let p = oGd.$[a.R + "_" + j + "_" + i];
-                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" &&
+                p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains"&& p.EName != "oCherryBomb" &&
                   p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"), (p.HP -= 20), ($(d)&& ClearChild($(d))));
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
               }
@@ -911,6 +911,10 @@ oBackupDancer1= InheritO(oBackupDancer, {
   EName: "oBackupDancer",
   CName: "伴舞僵尸",
   CanSelect: 0,
+  PicArr: (function() {
+    var a= "images/Zombies/BackupDancer/";
+    return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
+  })(),
   ChkActs: function(g, d, h, c) {
     var e, b, a, f;
     !(g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
@@ -1535,16 +1539,13 @@ oZombie2 = InheritO(oZombie, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                       a&&(a.beAttacked)&&p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oLilyPad"&& p.EName != "oCherryBomb" && p.EName != "oGatlingPea"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") &&
+                       a&&(a.beAttacked)&&p&& (p.canEat)&&(p.Stature>=0) && (p.EName != "oBrains" && p.EName != "oCherryBomb"&& p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") &&
 						   (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("potato_mine"),((a.hard==2)?CustomZombie(oBoom,p.R,p.C):(p.HP -=1000)),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ($(d).offsetLeft-50,a.ZX+60,a.R);
-          let i = Z.length;
-          while (i--) {
-            a&&(a.beAttacked)&&Z&& (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
-          }
+	let Z= oZ.getHZ1($(d).offsetLeft-50,a.R);
+            a&&(a.beAttacked)&&Z&& (Z.Altitude==1) && (PlayAudio("potato_mine"), (Z.getHit0(Z,300,0),($(d) && ClearChild($(d)))));
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
                     $(d).isDie = true;
@@ -1579,11 +1580,8 @@ oZombie2 = InheritO(oZombie, {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(a.ZX + 40);
-          let p = oZ.getArZ(a.ZX- 60, $(d).offsetLeft + 50, a.R);
-          let i = p.length;
-          while (i--) {
-            a&&(a.beAttacked)&&p && (p[i].Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):(p[i].getHit0(p[i], 300, 0)),($(d) && ClearChild($(d)))));
-          }
+          let p = oZ.getZ0($(d).offsetLeft + 50, a.R);
+            a&&(a.beAttacked)&&p && (p.Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):(p.getHit0(p, 300, 0)),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >= 880) {
             ClearChild($(d));
           }oSym.addTask(1, arguments.callee, [z, d, a])
@@ -1939,12 +1937,11 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 		},
 		[b, a])
 	},
-	  NormalDie: function() {
-    var c = this,
-		num=Math.random()*100,
+	CZ:function(c){
+	var num=Math.random()*100,
       R = (c.R - 1 || 1),
       RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
-      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
+      C = Math.max(Math.min(GetC(c.ZX),9),1);
     for (let i = C - 1; i <= C + 1; i++) {
       for (let l = R; l <= RM; l++) {
        if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
@@ -1956,7 +1953,11 @@ oConeheadZombie1= InheritO(OrnIZombies, {
               a)
         }
       }
-    };
+    }
+	},
+	  NormalDie: function() {
+    var c = this;
+	c.CZ(c);
 	c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
     oSym.addTask(250, ClearChild, [c.Ele]);
     c.HP = 0;
@@ -1964,24 +1965,9 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     c.PZ && oP.MonPrgs();
     return a;
   },
-  ExplosionDie: function() {
-    var c = this,
-      R = (c.R - 1 || 1),
-	num=Math.random()*100,
-      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1),
-      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R);
-    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
-      for (let l = R; l <= RM; l++) {
-        if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")), function(n, m) {
-                EDPZ.appendChild(n);
-                m.Birth();
-				!c.PZ&&(m.bedevil(m))
-              },
-              a);
-        }
-      }
-    };
+ExplosionDie: function() {
+    var c = this;
+	c.CZ(c);
 	c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
     oSym.addTask(300, ClearChild, [c.Ele]);
     c.HP = 0;
@@ -1990,24 +1976,8 @@ oConeheadZombie1= InheritO(OrnIZombies, {
     return a;
   },
   DisappearDie: function() {
-    var c = this,
-      R = (c.R - 1 || 1),
-		num=Math.random()*100,
-      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
-      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
-    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
-      for (let l = R; l <= RM; l++) {
-        if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
-              function(n, m) {
-                EDPZ.appendChild(n);
-                m.Birth();
-				!c.PZ&&(m.bedevil(m))
-              },
-              a);
-        }
-      }
-    }
+    var c = this;
+c.CZ(c);
 	ClearChild(this.Ele);
     this.HP = 0;
     delete $Z[this.id];
@@ -2016,23 +1986,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
   },
   CrushDie: function() {
     var c = this;
-    let R = (c.R - 1 || 1),
-		num=Math.random()*100,
-      RM = (c.R + 1 <= oS.R ? c.R + 1 : oS.R),
-      C = Math.max(Math.min(GetC($(c.id).offsetLeft + 80),9),1);
-    for (let i = Math.max(C - 1, 1); i <= Math.max(C + 1, 1); i++) {
-      for (let l = R; l <= RM; l++) {
-        if (((i == C || l == c.R)||(c.hard==2))&&(num<=25)) {
-            asyncInnerHTML(((a = new oZombie).CustomBirth(l, i, 1, "auto")),
-              function(n, m) {
-                EDPZ.appendChild(n);
-                m.Birth();
-				!c.PZ&&(m.bedevil(m))
-              },
-              a);
-        }
-      }
-    };
+c.CZ(c);
     c.GoingDieHead(c.id, c.PicArr, c);
     ClearChild(c.Ele);
     c.HP = 0;
@@ -2308,7 +2262,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             oSym.addTask(50, function(f, e) {
                 var h = $Z[f],
                     g;
-                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e])&&g.getHurt(h, 2, h.Attack),(g&&g!==undefined)&&(h.hard==2?CustomZombie(ZP[Math.floor(Math.random() *ZP.length)],g.R,g.C):CustomZombie(oZombie3,g.R,g.C)),h.JudgeAttack())
+                h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e])&&g.getHurt(h, 2, h.Attack),(g&&g!==undefined)&&(h.hard==2?CustomZombie(ZP[Math.floor(Math.random() *ZP.length)],g.R,g.C):
+			CustomZombie(oZombie3,g.R,g.C)),h.JudgeAttack())
             }, [d, c]);
             this.PrivateAttack && this.PrivateAttack(this)
 	},
@@ -2411,7 +2366,7 @@ oFootballZombie= function() {
       ar: [oS.R - 1],
       CustomTop: 400 - h.height + h.GetDY()
     })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-    h.ZX <= 250 && (h.ChkActs = h.ChkActs1,
+    h.hard!==2&&(h.ZX <= 250) && (h.ChkActs = h.ChkActs1,
       h.ExchangeLR(h, 1),
       h.ZX = h.AttackedRX,
       h.WalkDirection = 1);
@@ -2475,7 +2430,7 @@ oFootballZombie= function() {
 			},
 			[d, c])
 		},
-		  ChkActs1: function(g, e, h, d) {
+ChkActs1: function(g, e, h, d) {
     var c, f;
     !(g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(),!g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
     g.ZX > 850 && (g.ChkActs = g.ChkActs0,
@@ -3025,7 +2980,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 		[h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
 	}
 }),
-  oNewspaperZombie1= InheritO(OrnIIZombies, {
+  oNewspaperZombie1= InheritO(oNewspaperZombie, {
     EName: "oNewspaperZombie1",
     CName: "读报僵尸",
     OrnHP: 180,
@@ -3039,116 +2994,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
     beAttackedPointL: 60,
     beAttackedPointR: 240,
     LostPaperSpeed: 5,
-    HeadPosition: [{
-      x: 62,
-      y: 30,
-      width: 40,
-      height: 40,
-    }, {
-      x: 62,
-      y: 30,
-      width: 40,
-      height: 40,
-    }, ],
-    PicArr: (function() {
-      var a = "images/Zombies/NewspaperZombie/";
-      return [
-        "images/Card/Zombies/NewspaperZombie.png",
-        a + "0.gif",
-        a + "HeadWalk1.gif",
-        a + "HeadAttack1.gif",
-        a + "LostHeadWalk1.gif",
-        a + "LostHeadAttack1.gif",
-        a + "HeadWalk0.gif",
-        a + "HeadAttack0.gif",
-        a + "LostHeadWalk0.gif",
-        a + "LostHeadAttack0.gif",
-        a + "Head.gif" + $Random,
-        a + "Die.gif" + $Random,
-        a + "BoomDie.gif" + $Random,
-        a + "LostNewspaper.gif",
-        a + "1.gif",
-      ];
-    })(),
     AudioArr: ["newspaper_rarrgh2"],
-    Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">中</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>看到在另一个平行宇宙称霸的二爷，停留在原时空的读报也坐不住了，终于在星云的帮助下喝了药水，喝完后，他的感言：“ I feel I become stronger!',
-    getShadow: function(a) {
-      return "left:75px;top:" + (a.height - 25) + "px";
-    },
-    GoingDie: function(b) {
-      var a = this,
-        c = a.id;
-      a.EleBody.src = b;
-      oSym.addTask(200, ClearChild, [
-        NewImg(
-          0,
-          a.PicArr[a.HeadGif] + Math.random(),
-          "left:" +
-          a.AttackedLX +
-          "px;top:" +
-          (a.pixelTop - 20) +
-          "px;z-index:" +
-          a.zIndex,
-          EDPZ
-        ),
-      ]);
-      a.beAttacked = 0;
-      a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
-      a.AutoReduceHP(c);
-    },
-    getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
-      var e = this;
-      if (!e.beAttacked) {
-        k && e.DisappearDie();
-        return;
-      }
-      var b = e.id,
-        h = e.HP,
-        d = e.PicArr,
-        f = e.isAttacking;
-      switch (true) {
-        case (h -= g) < 1:
-          e.HP = 0;
-          e.NormalDie();
-          return;
-        case h < 91:
-          e.HP = h;
-          e.GoingDie(d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]);
-          return;
-      }
-      e.HP = h;
-      switch (m) {
-        case -1:
-          e.getSlow(e, b, 1000);
-          break;
-        case 1:
-          e.getFireball(e, b, a);
-          break;
-        default:
-          !i && j == -1 && e.PlayNormalballAudio();
-      }
-      SetAlpha(e.EleBody, 50, 0.5);
-      oSym.addTask(
-        10,
-        function(q) {
-          var n = $Z[q];
-          n && SetAlpha(n.EleBody, 100, 1);
-        },
-        [b]
-      );
-    },
-    getSnowPea: function(c, a, b) {
-      PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-      c.getHit0(c, a, b);
-    },
-getSlowPea:function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit0(c, a, b)
-	},
-getSlowPea1:function(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
-		c.getHit1(c, a, b)
-	},
     getFirePea: function(f, b, e) {
       f.PlayFireballAudio();
       (f.FreeSlowTime || f.FreeFreezeTime) &&
@@ -3422,16 +3268,13 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                        p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom"&& p.EName != "oGatlingPea" && p.EName != "oLilyPad" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& 
+                        p && (p.canEat) &&(p.Stature>=0)&& (p.EName != "oBrains" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& 
 							(PlayAudio("potato_mine"),(a.hard==2?CustomZombie(oBoom,p.R,p.C):p.HP -=1000),($(d) && ClearChild($(d))));
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ($(d).offsetLeft -50,a.ZX +60,a.R);
-          let i = Z.length;
-          while (i--) {
-            Z&&  (Z[i].Altitude==1) && (PlayAudio("potato_mine"), (Z[i].getHit0(Z[i],300,0),($(d) && ClearChild($(d)))));
-          }
+	let Z= oZ.getHZ1($(d).offsetLeft -50,a.R);
+            Z&&(Z.Altitude==1) && (PlayAudio("potato_mine"), (Z.getHit0(Z,300,0),($(d) && ClearChild($(d)))));
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
                     $(d).isDie = true;
@@ -3466,11 +3309,8 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(a.ZX+ 40);
-          let p = oZ.getArZ(a.ZX-10, $(d).offsetLeft + 50, a.R);
-          let i = p.length;
-          while (i--) {
-            p &&  (p[i].Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p[i].R,GetC(p[i].ZX)-1,1):p[i].getHit0(p[i], 300, 0),($(d) && ClearChild($(d)))));
-          }
+          let p = oZ.getZ0(a.ZX-10,a.R);
+            p &&  (p.Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):p.getHit0(p, 300, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >= 880) {
             ClearChild($(d));
 			$(d).isDie=1;
@@ -3615,26 +3455,20 @@ getHit0:function(a,c){
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
                 let p = oGd.$[a.R + "_" + j + "_" + i];
-                p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" &&
+                p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains" && p.EName != "oCherryBomb" &&
                   p.EName != "oJalapeno" && p.EName != "oDoomShroom" && p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"), (p.HP -=c), ($(d) && ClearChild($(d))));
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
               }
             }
-	let p = oZ.getArHZ($(d).offsetLeft + 50,a.ZX - 10, a.R);
-          let i = p.length;
-          while (i--) {
-            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i],c,0), ($(d) && ClearChild($(d)))));
-          }
+	let p = oZ.getHZ1($(d).offsetLeft + 50,a.R);
+            p && (p.Altitude == 1) && ((p.getPea(p,c,0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft <= 0) {
               ClearChild($(d));
               $(d).isDie = true;
         }}else{
           $(d).style.left = $(d).offsetLeft + 5 + "px";
-          let p = oZ.getArZ(a.ZX - 10, $(d).offsetLeft + 50, a.R);
-          let i = p.length;
-          while (i--) {
-            p && (p[i].Altitude == 1) && ((p[i].getPea(p[i], c,0), ($(d) && ClearChild($(d)))));
-          }
+          let p = oZ.getZ0($(d).offsetLeft + 50, a.R);
+            p && (p.Altitude == 1) && ((p.getPea(p, c,0), ($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >900) {
             ClearChild($(d));
           }}
@@ -3674,18 +3508,14 @@ PrivateAct: function() {
                 for (let i = 3; i >= 0; i--) {
                   for (let j = 1; j <= C; j++) {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
-                    p && (p.canEat) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
-										p.EName != "oJalapeno" && p.EName != "oDoomShroom" &&
-                      p.EName != "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
+                    p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oCherryBomb" && 
+										p.EName != "oJalapeno" && p.EName != "oDoomShroom") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
 		p&& (p.EName== "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
                 }
-                let Z = oZ.getArHZ($(d).offsetLeft, a.ZX + 60, a.R);
-                let i = Z.length;
-                while (i--) {
-                  Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i], 20, 0)), ($(d) && ClearChild($(d))));
-                }
+                let Z = oZ.getHZ1($(d).offsetLeft,a.R);
+                  Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0)), ($(d) && ClearChild($(d))));
                 if ($(d).offsetLeft <= 0) {
                   ClearChild($(d));
                   $(d).isDie = true;
@@ -3724,11 +3554,8 @@ bedevilAct: function() {
               try {
                 $(d).style.left = $(d).offsetLeft + 5 + "px";
                 let pea = $(d);
-                let Z = oZ.getArZ(a.ZX-40, $(d).offsetLeft+50, a.R);
-                let i = Z.length;
-                while (i--) {
-                  Z && (Z[i].Altitude == 1) && ((Z[i].getPea(Z[i],20,0)),($(d) && ClearChild($(d))));
-                }
+                let Z = oZ.getZ0($(d).offsetLeft+50, a.R);
+                  Z && (Z.Altitude == 1) && ((Z.getPea(Z,20,0)),($(d) && ClearChild($(d))));
                 if ($(d).offsetLeft>=900) {
                   ClearChild($(d));
                   $(d).isDie = true;
@@ -3744,7 +3571,7 @@ bedevilAct: function() {
     }
   },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = oNewspaperZombie3.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments = 1, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments =0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
 			g.LostHeadGif = 8,
 			g.LostHeadAttackGif = 9,
 			g.getPea = e.getPea,
@@ -3758,9 +3585,9 @@ bedevilAct: function() {
 			g.PlayFireballAudio = e.PlayFireballAudio, 
 			g.PlaySlowballAudio = e.PlaySlowballAudio,
 			g.getHit=e.getHit0,
-			g.OrnHP=100,
-			g.AKind=2,
-			g.CheckOrnHP=e.CheckOrnHP)
+			g.Speed=8;
+		    g.oSpeed=8;
+			g.AKind=2)
 	},
 	getFireball: function(c, a, b) {
 		b != c.WalkDirection ? (c.FreeSlowTime = 0, c.Attack = 100, c.Speed != c.OSpeed ? (c.PlayNormalballAudio(), c.Speed = c.OSpeed) : c.PlayFireballAudio()) : c.PlayNormalballAudio()
@@ -4973,9 +4800,9 @@ oZomboni = function() {
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
-			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
-                            p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oGatlingPea")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
-			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGatlingPea")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
+			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
+                p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
+			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
                         }
                     }
                 }
@@ -5735,19 +5562,15 @@ oBalloonZombie = InheritO(OrnIZombies, {
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                p && (p.canEat) && (p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && 
+                p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains"&& p.EName != "oCherryBomb" && 
 				    p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& 
-				    p.EName != "oTorchwood"&&p.EName!="oGatlingPea1"&&p.EName!="oLilyPad") &&(p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"),(p.HP -= 50),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
-		p && (p.canEat) && (p.EName != "oBrains" && p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom"
-				    &&p.EName!="oLilyPad") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
+				    p.EName != "oTorchwood") &&(p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"),(p.HP -= 50),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
+		p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains"&& p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"),(p.HP -= 20),($(d) && ClearChild($(d))));
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getArHZ($(d).offsetLeft - 50,a.ZX +60, a.R);
-          let i = Z.length;
-          while (i--) {
-            Z&&(Z[i].Altitude==1)&& (PlayAudio("splat1"), (Z[i].getHit0(Z[i],50,0),(Z[i].getSlow(Z[i])),($(d) && ClearChild($(d)))));
-          }
+	let Z= oZ.getHZ1($(d).offsetLeft - 50,a.R);
+            Z&&(Z.Altitude==1)&& (PlayAudio("splat1"), (Z.getHit0(Z,50,0),(Z.getSlow(Z)),($(d) && ClearChild($(d)))));
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
                     $(d).isDie = true;
@@ -5793,11 +5616,8 @@ oSym.addTask(1, function(a) {
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let p = oZ.getArZ(a.ZX - 10, $(d).offsetLeft + 50, a.R);
-          let i = p.length;
-          while (i--) {
-            p &&  (p[i].Altitude==1) && ((p[i].getSlowPea(p[i], 20, 0),($(d) && ClearChild($(d)))));
-          }
+          let p = oZ.getZ0($(d).offsetLeft - 50,a.R);
+            p &&  (p.Altitude==1) && ((p.getSlowPea(p, 20, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft>=880) {
             ClearChild($(d));
             $(d).isDie =1;
@@ -6312,34 +6132,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
