@@ -3585,8 +3585,8 @@ bedevilAct: function() {
 			g.PlayFireballAudio = e.PlayFireballAudio, 
 			g.PlaySlowballAudio = e.PlaySlowballAudio,
 			g.getHit=e.getHit0,
-			g.Speed=8;
-		    g.oSpeed=8;
+			g.Speed=8,
+		    g.oSpeed=8,
 			g.AKind=2)
 	},
 	getFireball: function(c, a, b) {
@@ -6132,3 +6132,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
