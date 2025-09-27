@@ -2146,7 +2146,8 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja]);
 	oSym.addTask(2999,function(a,i){
-	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
+	if(!($Z[a.id]&&a.beAttacked)){return}
+	oSym.addTask(1,function(a,i){
 					a.BoomFire(i)
 		},[a,i]);
 				},[a,i])
@@ -2183,7 +2184,8 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja])
 	oSym.addTask(2999,function(a,i){
-	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
+	if(!($Z[a.id]&&a.beAttacked)){return}
+	oSym.addTask(1,function(a,i){
 					a.BoomFire(i)
 		},[a,i]);
 				},[a,i])
@@ -6180,6 +6182,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
