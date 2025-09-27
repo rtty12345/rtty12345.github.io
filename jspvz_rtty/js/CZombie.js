@@ -4162,7 +4162,7 @@ SunNum:2000,
       func: function(a) {
         a.PrivateAct = function(a) {
             for (u in $Z) {
-              e = $Z[u],
+              e = $Z[u];
 			if(e.color!==1){
 				 e.PZ&&e.beAttacked && (!e.FreeSetbodyTime)&&($(e.id).style.filter = 'saturate(25%)',
 					e.color=1);
@@ -6166,6 +6166,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
