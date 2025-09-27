@@ -4181,8 +4181,8 @@ SunNum:2000,
           $Z[a.id] && oSym.addTask(1000, function(a) {
             a.PrivateAct = function() {};
             for (u in $Z) {
-              e = $Z[u],
-                e.caiPlants = function() {};
+              e = $Z[u];
+                e.caiPlants =function(){return 1};
 				e.color=0;
 				$(e.id).style.filter = 'saturate(100%)';
             }
@@ -6166,6 +6166,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
