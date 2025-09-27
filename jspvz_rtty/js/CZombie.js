@@ -911,10 +911,6 @@ oBackupDancer1= InheritO(oBackupDancer, {
   EName: "oBackupDancer",
   CName: "伴舞僵尸",
   CanSelect: 0,
-  PicArr: (function() {
-    var a= "images/Zombies/BackupDancer/";
-    return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
-  })(),
   ChkActs: function(g, d, h, c) {
     var e, b, a, f;
     !(g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
@@ -2166,7 +2162,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*100)>10 ? a.PrivateAct1 : a.PrivateAct2;
 		 a.bedevilAct=(a.PrivateAct==a.PrivateAct2?a.bedevilAct2:a.bedevilAct1)
-		if(a.PrivateAct==a.PrivateAct2){a.getHit(a,370)}
+		if(a.PrivateAct==a.PrivateAct2){a.getHit(a,170)}
 	},
         PrivateAct1:function(a) {
 			if(!a.Boom){
@@ -2178,7 +2174,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,function(a,Ja){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
 	oSym.addTask(10,arguments.callee,[a,Ja])
-	},[a,Ja])
+	},[a,Ja]);
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
 				},[a])
@@ -6316,6 +6312,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
