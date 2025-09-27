@@ -2188,7 +2188,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
         },
 NormalDie: function() {
     var c = this;
-	c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+	c.PrivateAct==c.PrivateAct2&&$Z[c.id]&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
 CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
 	c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
     oSym.addTask(250, ClearChild, [c.Ele]);
@@ -2199,7 +2199,7 @@ CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
   },
 ExplosionDie: function() {
     var c = this;
-	c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+	c.PrivateAct==c.PrivateAct2&&$Z[c.id]&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
 CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
 	c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
     oSym.addTask(300, ClearChild, [c.Ele]);
@@ -2210,7 +2210,7 @@ CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
   },
   DisappearDie: function() {
     var c = this;
-c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+c.PrivateAct==c.PrivateAct2&&$Z[c.id]&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
 CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
 	ClearChild(this.Ele);
     this.HP = 0;
@@ -2220,7 +2220,7 @@ CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
   },
   CrushDie: function() {
     var c = this;
-c.PrivateAct==c.PrivateAct2&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
+c.PrivateAct==c.PrivateAct2&&$Z[c.id]&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
 CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
     c.GoingDieHead(c.id, c.PicArr, c);
     ClearChild(c.Ele);
@@ -3353,7 +3353,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(a.ZX+ 40);
-          let p = oZ.getZ0($(d).offsetLeft-50,a.R);
+          let p = oZ.getZ0($(d).offsetLeft+10,a.R);
             p &&  (p.Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):p.getHit0(p, 300, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >= 880) {
             ClearChild($(d));
@@ -3598,7 +3598,7 @@ bedevilAct: function() {
               try {
                 $(d).style.left = $(d).offsetLeft + 5 + "px";
                 let pea = $(d);
-                let Z = oZ.getZ0($(d).offsetLeft-50, a.R);
+                let Z = oZ.getZ0($(d).offsetLeft+50, a.R);
                   Z && (Z.Altitude == 1) && ((Z.getPea(Z,20,0)),($(d) && ClearChild($(d))));
                 if ($(d).offsetLeft>=900) {
                   ClearChild($(d));
@@ -6176,6 +6176,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
