@@ -1578,8 +1578,6 @@ oZombie2 = InheritO(oZombie, {
         }, EDPZ, 0)
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
-          let pea = $(d);
-          let C = GetC(a.ZX + 40);
           let p = oZ.getZ0($(d).offsetLeft + 50, a.R);
             a&&(a.beAttacked)&&p && (p.Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):(p.getHit0(p, 300, 0)),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >= 880) {
@@ -2136,7 +2134,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 			},
 	 PrivateAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),!a.Attacking&&CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)),a.Attacking=1);
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i));
 		if(!a.Boom){
 		a.Boom=1;
 		var z=$(a.id);
@@ -2148,7 +2146,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja]);
 				oSym.addTask(2500,function(a,i){
-					$Z[a.id]&&a.beAttacked&&(a.BoomFire(a.R),CustomZombie(oJalapenoZombie,a.R,GetC(a.ZX-10)))
+					$Z[a.id]&&a.beAttacked&&(a.BoomFire(a.R))
 				},[a,i])
 			  }
 		 }
@@ -2171,7 +2169,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	},
 	bedevilAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i),!a.Attacking&&CustomZombies(new oJalapenoZombie,a.R,GetC(a.ZX-10),1),a.Attacking=1);
+		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i));
 		if(!a.boom){
 		a.boom=1;
 		let z=$(a.id);
@@ -2183,11 +2181,51 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja])
 				oSym.addTask(2500,function(a,i){
-					$Z[a.id]&&a.beAttacked&&(a.BoomFire(a.R),CustomZombies(new oJalapenoZombie,a.R,GetC(a.ZX-10),1))
+					$Z[a.id]&&a.beAttacked&&(a.BoomFire(a.R))
 				},[a,i])
 			  }
 		 }
         },
+NormalDie: function() {
+    var c = this;
+c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),a.R,GetC(a.ZX-10),1);
+	c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
+    oSym.addTask(250, ClearChild, [c.Ele]);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
+    return a;
+  },
+ExplosionDie: function() {
+    var c = this;
+c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),c.R,GetC(c.ZX-10),1);
+
+	c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
+    oSym.addTask(300, ClearChild, [c.Ele]);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
+    return a;
+  },
+  DisappearDie: function() {
+    var c = this;
+c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),c.R,GetC(c.ZX-10),1);
+	ClearChild(this.Ele);
+    this.HP = 0;
+    delete $Z[this.id];
+    this.PZ && oP.MonPrgs();
+    return a;
+  },
+  CrushDie: function() {
+    var c = this;
+c.PrivateAct==c.PrivateAct2&&["CustomZombi"+(c.PZ?"e":"es")](c.PZ?(oJalapenoZombie):(new oJalapenoZombie),c.R,GetC(c.ZX-10),1);
+    c.GoingDieHead(c.id, c.PicArr, c);
+    ClearChild(c.Ele);
+    c.HP = 0;
+    delete $Z[c.id];
+    c.PZ && oP.MonPrgs();
+    return a;
+  },
     BoomFire: function (y) {
       PlayAudio("jalapeno");
       fireid = "fire_" + Math.random();
@@ -2657,7 +2695,7 @@ if(!a.gif){
                 for (let i = 3; i >= 0; i--) {
                   for (let j = 1; j <= C; j++) {
                     let p = oGd.$[a.R + "_" + j + "_" + i];
-                    p && (p.canEat) && (p.EName != "oBrains"&& p.EName != "oPuffShroom" && p.EName != "oSunShroom" && p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") 
+                    p && (p.canEat) && (p.Stature>=0)&&(p.EName != "oBrains"&& p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom") 
 						&& (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && ((p.getHurt(a,3,10)));
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
@@ -2995,6 +3033,9 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
     beAttackedPointR: 240,
     LostPaperSpeed: 5,
     AudioArr: ["newspaper_rarrgh2"],
+	getExplosion:CZombies.prototype.getExplosion,
+	AttackZombie:CZombies.prototype.AttackZombie,
+	AttackZombie2: CZombies.prototype.AttackZombie2,
     getFirePea: function(f, b, e) {
       f.PlayFireballAudio();
       (f.FreeSlowTime || f.FreeFreezeTime) &&
@@ -3309,7 +3350,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
           let C = GetC(a.ZX+ 40);
-          let p = oZ.getZ0(a.ZX-10,a.R);
+          let p = oZ.getZ0($(d).offsetLeft-50,a.R);
             p &&  (p.Altitude==1)&& (PlayAudio("potato_mine"), (a.hard==2?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):p.getHit0(p, 300, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >= 880) {
             ClearChild($(d));
@@ -3467,7 +3508,7 @@ getHit0:function(a,c){
               $(d).isDie = true;
         }}else{
           $(d).style.left = $(d).offsetLeft + 5 + "px";
-          let p = oZ.getZ0($(d).offsetLeft + 50, a.R);
+          let p = oZ.getZ0($(d).offsetLeft - 50, a.R);
             p && (p.Altitude == 1) && ((p.getPea(p, c,0), ($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft >900) {
             ClearChild($(d));
@@ -3514,7 +3555,7 @@ PrivateAct: function() {
                     p && (p.canEat) && (p.HP <= 0) && p.Die();
                   }
                 }
-                let Z = oZ.getHZ1($(d).offsetLeft,a.R);
+                let Z = oZ.getHZ1($(d).offsetLeft-50,a.R);
                   Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0)), ($(d) && ClearChild($(d))));
                 if ($(d).offsetLeft <= 0) {
                   ClearChild($(d));
@@ -3554,7 +3595,7 @@ bedevilAct: function() {
               try {
                 $(d).style.left = $(d).offsetLeft + 5 + "px";
                 let pea = $(d);
-                let Z = oZ.getZ0($(d).offsetLeft+50, a.R);
+                let Z = oZ.getZ0($(d).offsetLeft-50, a.R);
                   Z && (Z.Altitude == 1) && ((Z.getPea(Z,20,0)),($(d) && ClearChild($(d))));
                 if ($(d).offsetLeft>=900) {
                   ClearChild($(d));
@@ -5616,7 +5657,7 @@ oSym.addTask(1, function(a) {
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let p = oZ.getZ0($(d).offsetLeft - 50,a.R);
+          let p = oZ.getZ0($(d).offsetLeft + 50,a.R);
             p &&  (p.Altitude==1) && ((p.getSlowPea(p, 20, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft>=880) {
             ClearChild($(d));
@@ -6132,4 +6173,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
