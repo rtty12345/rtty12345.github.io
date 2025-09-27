@@ -2121,7 +2121,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 				a.Boom=1;
 				var z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:60px;top:0px;", 0);
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:30px;top:0px;", 0);
       z.appendChild(Ja);
 	oSym.addTask(10,function(a,Ja){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
@@ -2139,16 +2139,15 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 		a.Boom=1;
 		var z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:60px;top:-40px;", 0);
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:30px;top:-40px;", 0);
       z.appendChild(Ja);
 	oSym.addTask(10,function(a,Ja){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja]);
 	oSym.addTask(2999,function(a,i){
-	if(!($Z[a.id]&&a.beAttacked)){return}
-	oSym.addTask(1,function(a,i){
-					a.BoomFire(i)
+	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
+					a.BoomFire(a.R)
 		},[a,i]);
 				},[a,i])
 			  }
@@ -2184,9 +2183,8 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja])
 	oSym.addTask(2999,function(a,i){
-	if(!($Z[a.id]&&a.beAttacked)){return}
-	oSym.addTask(1,function(a,i){
-					a.BoomFire(i)
+	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
+			a.BoomFire(a.R)
 		},[a,i]);
 				},[a,i])
 			  }
@@ -6182,6 +6180,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
