@@ -2158,7 +2158,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 				a.boom=1;
 				var z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:60px;top:0px;", 0);
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:80px;top:0px;", 0);
       z.appendChild(Ja);
 	oSym.addTask(10,function(a,Ja){
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Ja));
@@ -2176,14 +2176,16 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 		a.boom=1;
 		let z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:60px;top:-40px;", 0);
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:80px;top:-40px;", 0);
       z.appendChild(Ja);
 	oSym.addTask(10,function(a,Ja){
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Ja));
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja])
-				oSym.addTask(2500,function(a,i){
-					$Z[a.id]&&a.beAttacked&&(a.BoomFire(a.R))
+	oSym.addTask(2999,function(a,i){
+	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
+					a.BoomFire(i)
+		},[a,i]);
 				},[a,i])
 			  }
 		 }
@@ -2198,7 +2200,7 @@ CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
     delete $Z[c.id];
     c.PZ && oP.MonPrgs();
     return a;
-  },
+},
 ExplosionDie: function() {
     var c = this;
 	c.PrivateAct==c.PrivateAct2&&$Z[c.id]&&(c.PZ?CustomZombie(oJalapenoZombie,c.R,GetC(c.ZX-10)):
@@ -6178,6 +6180,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
