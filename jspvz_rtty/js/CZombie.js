@@ -2145,10 +2145,12 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja]);
-	oSym.addTask(2999,function(a,i){
-	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
-					a.BoomFire(a.R)
-		},[a,i]);
+	oSym.addTask(2999,function(a){
+	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a){
+					a.BoomFire(a.R);
+		a.R!==1&&a.BoomFire(a.R-1);
+		a.R!==oS.R&&a.BoomFire(a.R+1);
+		},[a]);
 				},[a,i])
 			  }
 		 }
@@ -2183,9 +2185,11 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	oSym.addTask(10,arguments.callee,[a,Ja])
 	},[a,Ja])
 	oSym.addTask(2999,function(a,i){
-	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a,i){
-			a.BoomFire(a.R)
-		},[a,i]);
+	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a){
+			a.BoomFire(a.R);
+		a.R!==1&&a.BoomFire(a.R-1);
+		a.R!==oS.R&&a.BoomFire(a.R+1);
+		},[a]);
 				},[a,i])
 			  }
 		 }
@@ -6180,6 +6184,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
