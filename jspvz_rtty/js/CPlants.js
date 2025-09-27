@@ -1833,8 +1833,9 @@ oJalapeno = InheritO(oCherryBomb, {
 		[a.id])
 	},
 	PrivateDie:function(a){
+var num=Math.random()*100;
 	for(let i=1;i<=oS.R;i++){
-	i!==a.R&&CustomZombies(new oJalapenoZombie,i,0,1)}
+	num<20&&(i!==a.R)&&CustomZombies(new oJalapenoZombie,i,0,1)}
 	}
 }),
 oSpikeweed = InheritO(CPlants, {
@@ -3412,6 +3413,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
