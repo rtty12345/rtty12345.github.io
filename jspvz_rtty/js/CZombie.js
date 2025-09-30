@@ -852,14 +852,14 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	ChkActs: function(g, d, h, c) {
 		if(!g.PZ){
 		g.bedevil(g);
-		return}
+		}
 		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
 			R: d,
 			ar: [oS.R - 1],
 			CustomTop: 400 - g.height + g.GetDY()
 		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
 		g.ChkSpeed(g);
-		this.BoomFire(this.R);
+		this.PZ&&this.BoomFire(this.R);
 		return f
 	},
     BoomFire: function (y) {
@@ -922,7 +922,7 @@ oBackupDancer1= InheritO(oBackupDancer, {
     var a= "images/Zombies/BackupDancer/";
     return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
   })(),
-BoomFire: this.PZ?function(b) {
+BoomFire:function(b) {
     var a = $Z[this.id];
     oSym.addTask(0,
       function(c) {
@@ -967,7 +967,7 @@ BoomFire: this.PZ?function(b) {
           [c]))
       },
       [this.id])
-  }:oBackupDancer.prototype.BoomFire
+  }
 }),
 oDancingZombie= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
@@ -1365,20 +1365,6 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 							}
 						},
 						[A, z]));
-						B && B.beAttacked&&(oP.AppearUP(y, z, i), 
-						oSym.addTask(80,
-						function(D, C) {
-							var E = $Z[D];
-							if (E && E.beAttacked) {
-								return
-							}
-							var j = C.length,
-							E;
-							while (j--) { (E = C[j]).ChangeChkActsTo1(E,E.id, E.EleBody),
-							E.bedevil(E)
-							}
-						},
-						[A, z]))
 					},
 					[t, u, w, o]);
 					oSym.addTask(100,
@@ -6164,6 +6150,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
