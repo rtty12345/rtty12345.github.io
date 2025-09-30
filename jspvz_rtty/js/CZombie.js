@@ -798,7 +798,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/BackupDancer/";
 		return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random]
 	})(),
-	CustomBirth: function(g, d, a, b, j) {
+	CustomBirth: function(g, d, a, b,q,j) {
 		var e = this,
 		c = GetY(g) + e.GetDY(),
 		f = c - e.height,
@@ -806,6 +806,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		h = e.beAttackedPointR;
 		e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
 		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
+		e.PZ=q;
 		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
 	},
 	Produce: '已被辞退</p><p>韧性：<font color="#FF0000">中（400）</font><br>孩子们，我被辞退了，什么罐头我说',
@@ -849,6 +850,9 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		[b, a])
 	},
 	ChkActs: function(g, d, h, c) {
+		if(!g.PZ){
+		g.bedevil(g);
+		return}
 		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
 			R: d,
 			ar: [oS.R - 1],
@@ -859,7 +863,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		return f
 	},
     BoomFire: function (y) {
-      var s=$Z[this];
+      var s=$Z[this.id];
       PlayAudio("jalapeno");
       fireid = "fire_" + Math.random();
       NewImg(
@@ -875,23 +879,26 @@ oBackupDancer = InheritO(OrnNoneZombies, {
         },
         [fireid]
       );
-	var n = oZ.getArHZ(0, oS.W, y);
+	var n = oZ["getAr"+(this.PZ?"HZ":"Z")](0, oS.W, y);
 	var k = n.length;
                 while (k--) {
-                  n[k].getExplosion(300)
-                }
+                  this.hard==2?n[k].getExplosion(2000):n[k].getExplosion(300)
+				}
+		if(this.PZ){
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
-	  if(g&&g.EName!="oHypnoShroom"&& g.EName!="oGarlic"&&g.getHurt!=function(){}&&g.EName!="oPotatoMine"&&g.EName!="oSquash"){
           this.hard==2?g&& g.getHurt(this,3,1000):g&& g.getHurt(this,3,100)
-	  }else	if(g&&g.getHurt!=function(){}){
-	g&&g.Die()
-	  }
         }
       }
+	}
       this.DisappearDie();
     },
+	ChkActs1: function(g, e, h, d) {
+			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
+			this.BoomFire(this);
+			return f
+		},
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
 			return
@@ -915,20 +922,8 @@ oBackupDancer1= InheritO(oBackupDancer, {
     var a= "images/Zombies/BackupDancer/";
     return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random, "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random]
   })(),
-  ChkActs: function(g, d, h, c) {
-    var e, b, a, f;
-    !(g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
-      R: d,
-      ar: [oS.R - 1],
-      CustomTop: 400 - g.height + g.GetDY()
-    })), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
-    g.ChkSpeed(g);
-    g.OpenBox(g.id);
-    return f
-  },
-  OpenBox: function(b) {
-    var a = $Z[b];
-    a.getPea = a.getSnowPea = a.getFirePeaSputtering = a.getFirePea = a.getHit = a.getHit0 = a.getHit1 = a.getHit2 = a.getHit3 = a.ChangeR = a.bedevil = function() {};
+BoomFire: this.PZ?function(b) {
+    var a = $Z[this.id];
     oSym.addTask(0,
       function(c) {
         $Z[c] && (a.Status =0,PlayAudio("jack_surprise"), oSym.addTask(0,
@@ -971,8 +966,8 @@ oBackupDancer1= InheritO(oBackupDancer, {
           },
           [c]))
       },
-      [b])
-  }
+      [this.id])
+  }:oBackupDancer.prototype.BoomFire
 }),
 oDancingZombie= InheritO(OrnNoneZombies, {
 	EName: "oDancingZombie",
@@ -1282,7 +1277,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		g.NormalGif = 2;
 		g.DZStep = 1;
 		g.DZStepT = oSym.Now + 150; ! g.isAttacking && (a.src = g.PicArr[2]);
-		g.PZ && oSym.addTask(220,
+		oSym.addTask(220,
 		function(j, i) {
 			var k = $Z[j];
 			k && k.beAttacked && k.ChkBackupDancer(k, j, i)
@@ -1345,7 +1340,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 				l;
 				if (h && h.beAttacked) {
 					s.src = "images/Zombies/DancingZombie/Summon3.gif";
-					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie1).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+					while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oConeheadZombie1).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random(),h.PZ), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
 					}
 					oSym.addTask(150,
 					function() {
@@ -1370,7 +1365,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 							}
 						},
 						[A, z]));
-						B && B.beAttacked&&(!B.PZ)&&(oP.AppearUP(y, z, i), 
+						B && B.beAttacked&&(oP.AppearUP(y, z, i), 
 						oSym.addTask(80,
 						function(D, C) {
 							var E = $Z[D];
@@ -1894,7 +1889,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 		},
 		[d, b])
 	},
-	CustomBirth: function(g, d, a, b, j) {
+	CustomBirth: function(g, d, a, b,q, j) {
 		var e = this,
 		c = GetY(g) + e.GetDY(),
 		f = c - e.height,
@@ -1902,6 +1897,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 		h = e.beAttackedPointR;
 		e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
 		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
+		e.PZ=q;
 		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
 	},
 	AudioArr: ["plastichit"],
@@ -1909,7 +1905,7 @@ oConeheadZombie1= InheritO(OrnIZombies, {
 		PlayAudio("plastichit")
 	},
 	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶',
-		ChangeChkActsTo0: function(c, b, a) {
+	ChangeChkActsTo0: function(c, b, a) {
 		if (!c.PZ) {
 			c.ChangeChkActsTo1(c, b, a);
 			return
@@ -1993,6 +1989,7 @@ c.CZ(c);
     return a;
   },
 	ChkActs: function(g, d, h, c) {
+		!g.PZ&&g.bedevil(g);
 		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
 			R: d,
 			ar: [oS.R - 1],
@@ -6167,6 +6164,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
