@@ -1438,7 +1438,7 @@ oDancingZombie1 = InheritO(oDancingZombie,{
               if (h && h.beAttacked) {
                 s.src = "images/Zombies/DancingZombie/Summon3.gif";
                 while (r--) {
-                  (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = Math.round(Math.random() * 1 + 0) ? new oBackupDancer1 : new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+                  (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = Math.round(Math.random() * 1 + 0) ? new oBackupDancer1 : new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random(),h.PZ), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
                 }
                 oSym.addTask(150,
                   function() {
@@ -6164,6 +6164,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
