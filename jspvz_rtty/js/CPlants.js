@@ -345,10 +345,32 @@ oPeashooter = InheritO(CPlants, {
 	Tooltip: "向敌人射出豌豆",
 	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（10～100）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
 	PrivateBirth: function(a) {
-		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
+		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
+	let s = NewEle(
+      "oAttack_" + a.id,
+      "div",
+      "left:" +
+      (a.AttackedLX - 20) +
+      "px;top:" +
+      (a.pixelTop - 10) +
+      "px;position:absolute;width:97px;height:87px;z-index:150",
+      0,
+      EDAll
+    );
+s.onclick=function(){
+	$(a.id).style.opacity=0.8;
+	!a.attack&&a.NormalAttack(a);
+	a.attack=1;
+	oSym.addTask(40,function(a){a.attack=0},[a]);
+	oSym.addTask(1000,function(s){
+		s.onclick=null;
+		$(a.id).style.opacity=1;
+	},[s]);
+}
 	},
 	PrivateDie: function(a) {
-		a.BulletEle = null
+		a.BulletEle = null;
+		ClearChild($("oAttack_" + a.id))
 	},
 	NormalAttack: function() {
 		var a = this,
@@ -3413,6 +3435,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
