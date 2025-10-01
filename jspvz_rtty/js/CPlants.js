@@ -668,7 +668,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				pixelLeft: d,
 				F: oGd.MB1
 			}));
-			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + d + "px;top:" + (GetY(b) - 50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + (d- 40) + "px;top:" + (GetY(b) -50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
 		}
 	},
 	PrivateDie: function(a) {
@@ -725,12 +725,68 @@ oRepeater = InheritO(oPeashooter, {
         PrivateBirth:oThreepeater1.prototype.PrivateBirth,
         PrivateDie:oThreepeater1.prototype.PrivateDie,
 	NormalAttack1: oThreepeater1.prototype.NormalAttack,
+		NormalAttack2:function(){
+		var g = this,
+		f = g.pixelLeft-5,
+		d = f-30,
+		b = g.pixelTop,
+		c = g.R,
+		e = f,
+		A=0,
+		a = function(j, i, h) {
+			return (j && j.Altitude == 1 ? (j.gethPea(j,40,i),(SetStyle(h,{
+				left:j.ZX-12 + "px",
+				width: "52px",
+				height: "46px"
+			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]), false) : true)
+		}; 
+		 (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b+15, EditEle(g.BulletEle[A++].cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("PStarB4" + Math.random()); (function(h) {
+			oSym.addTask(15,
+			function(j) {
+				var i = $(j);
+				i && SetVisible(i)
+			},
+			[h]);
+			oSym.addTask(1,
+			function(n, l, m, k, i, j) {
+				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+					left: (m += 4) + "px",
+					top: k + "px"
+				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
+			},
+			[f, c, d, b-15, EditEle(g.BulletEle[A++].cloneNode(false), {
+				id: h
+			},
+			0, EDPZ), a])
+		})("PStarB5" + Math.random());
+		},
 	NormalAttack: function(a) {
 		this.NormalAttack1();
+		this.NormalAttack2();
 		oSym.addTask(15,
 		function(d, b) {
 			var c = $P[d];
-			c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
+			c && c.NormalAttack1();
+			c && c.NormalAttack2();
+			--b && oSym.addTask(15, arguments.callee, [d, b])
 		},
 		[this.id,Math.round(Math.random()*2+1)])
 	}	
@@ -3438,6 +3494,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
