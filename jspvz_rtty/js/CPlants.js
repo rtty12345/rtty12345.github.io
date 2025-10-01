@@ -365,7 +365,7 @@ s.onclick=function(){
 	oSym.addTask(40,function(a){a.attack=0},[a]);
 };
 oSym.addTask(1000,function(s){
-		$P[this.id]&&s.onclick=null;
+		$P[this.id]&&(s.onclick=null);
 		$(a.id).style.opacity=1;
 	},[s]);
 	oSym.addTask(4000,arguments.callee,[a,s])
@@ -668,7 +668,7 @@ oThreepeater1= InheritO(oPeashooter, {
 				pixelLeft: d,
 				F: oGd.MB1
 			}));
-			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + (d- 40) + "px;top:" + (GetY(b) -50) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + (d- 40) + "px;top:" + (GetY(b) -80) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
 		}
 	},
 	PrivateDie: function(a) {
@@ -754,7 +754,7 @@ oRepeater = InheritO(oPeashooter, {
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
-			[f, c, d, b+15, EditEle(g.BulletEle[A++].cloneNode(false), {
+			[f, c, d, b+25, EditEle(g.BulletEle[A++].cloneNode(false), {
 				id: h
 			},
 			0, EDPZ), a])
@@ -772,7 +772,7 @@ oRepeater = InheritO(oPeashooter, {
 					top: k + "px"
 				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
 			},
-			[f, c, d, b-15, EditEle(g.BulletEle[A++].cloneNode(false), {
+			[f, c, d, b-25, EditEle(g.BulletEle[A++].cloneNode(false), {
 				id: h
 			},
 			0, EDPZ), a])
@@ -3494,6 +3494,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
