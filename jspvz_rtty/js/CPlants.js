@@ -719,8 +719,8 @@ oRepeater = InheritO(oPeashooter, {
 	SunNum: 250,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次三条线发射豌豆",
-	Produce: '双发射手可以一次三线发射豌豆，豌豆有概率无视所有防具，伤害僵尸的本体<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
+	Tooltip: "一次三线发射豌豆，并散射速度不同的豌豆，散射豌豆速度越快伤害越高",
+	Produce: '双发射手可以一次三线发射豌豆，并散射速度不同的豌豆，散射豌豆速度越快伤害越高，豌豆有概率无视所有防具，伤害僵尸的本体<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
 	getTriggerR:oThreepeater1.prototype.getTriggerR,
         PrivateBirth:oThreepeater1.prototype.PrivateBirth,
         PrivateDie:oThreepeater1.prototype.PrivateDie,
@@ -733,51 +733,53 @@ oRepeater = InheritO(oPeashooter, {
 		c = g.R,
 		e = f,
 		A=0,
-		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.gethPea(j,40,i),(SetStyle(h,{
-				left:j.ZX-12 + "px",
-				width: "52px",
-				height: "46px"
-			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]), false) : true)
-		}; 
-		 (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
-					top: k + "px"
-				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
-			},
-			[f, c, d, b+25, EditEle(g.BulletEle[A++].cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("PStarB4" + Math.random()); (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(n, l, m, k, i, j) {
-				j(oZ.getZ0(n, l), 0, i) && ((n += 4) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
-					left: (m += 4) + "px",
-					top: k + "px"
-				}), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j])))
-			},
-			[f, c, d, b-25, EditEle(g.BulletEle[A++].cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("PStarB5" + Math.random());
-		},
+        B = Math.random() * 7 + 3,
+        a = function(j, i, h, B) {
+          return (j && j.Altitude == 1 ? (j.getPea(j, Math.round(|B|) * 5, i), (SetStyle(h, {
+            left: j.ZX - 12 + "px",
+            width: "52px",
+            height: "46px"
+          })).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]), false) : true)
+        };
+      (function(h) {
+        oSym.addTask(15,
+          function(j) {
+            var i = $(j);
+            i && SetVisible(i)
+          },
+          [h]);
+        oSym.addTask(1,
+          function(n, l, m, k, i, j, B) {
+            j(oZ.getZ0(n, l), 0, i, B) && ((n += B) > 900 || (k -= 3) < -15 ? ClearChild(i) : (SetStyle(i, {
+              left: (m += B) + "px",
+              top: k + "px"
+            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B])))
+          },
+          [f, c, d, b + 25, EditEle(g.BulletEle[A++].cloneNode(false), {
+              id: h
+            },
+            0, EDPZ), a, B])
+      })("PStarB4" + Math.random());
+      (function(h) {
+        oSym.addTask(15,
+          function(j) {
+            var i = $(j);
+            i && SetVisible(i)
+          },
+          [h]);
+        oSym.addTask(1,
+          function(n, l, m, k, i, j, B) {
+            j(oZ.getZ0(n, l), 0, i, B) && ((n += B) > 900 || (k += 3) > 600 ? ClearChild(i) : (SetStyle(i, {
+              left: (m += B) + "px",
+              top: k + "px"
+            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B])))
+          },
+          [f, c, d, b - 25, EditEle(g.BulletEle[A++].cloneNode(false), {
+              id: h
+            },
+            0, EDPZ), a, B])
+      })("PStarB5" + Math.random());
+	},
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		this.NormalAttack2();
@@ -3494,6 +3496,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
