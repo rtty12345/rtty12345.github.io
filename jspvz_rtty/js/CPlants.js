@@ -343,7 +343,7 @@ oPeashooter = InheritO(CPlants, {
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	PicArr: ["images/Card/Plants/Peashooter.png", "images/Plants/Peashooter/0.gif", "images/Plants/Peashooter/Peashooter.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	Tooltip: "向敌人射出豌豆",
-	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（10～100）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
+	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（10～80）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
 	PrivateBirth: function(a) {
 		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
 	let s = NewEle(
@@ -357,17 +357,20 @@ oPeashooter = InheritO(CPlants, {
       0,
       EDAll
     );
+oSym.addTask(0,function(a,s){
+$(a.id).style.opacity=0.8;
 s.onclick=function(){
-	$(a.id).style.opacity=0.8;
 	!a.attack&&a.NormalAttack(a);
 	a.attack=1;
 	oSym.addTask(40,function(a){a.attack=0},[a]);
-	oSym.addTask(1000,function(s){
-		s.onclick=null;
+};
+oSym.addTask(1000,function(s){
+		$P[this.id]&&s.onclick=null;
 		$(a.id).style.opacity=1;
 	},[s]);
-}
-	},
+	oSym.addTask(4000,arguments.callee,[a,s])
+ },[a,s])
+},
 	PrivateDie: function(a) {
 		a.BulletEle = null;
 		ClearChild($("oAttack_" + a.id))
@@ -402,7 +405,7 @@ s.onclick=function(){
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
 		},
-		[b, $(b),Math.random()*100+10,0,a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch])
+		[b, $(b),Math.random()*70+10,0,a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch])
 	}
 }),
 oSnowPea = InheritO(oPeashooter, {
@@ -3435,6 +3438,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
