@@ -458,6 +458,12 @@ oSnowPea = InheritO(oPeashooter, {
 		},
 		[b, $(b),30,0,a.AttackedLX,a.R,Math.round(Math.random()*100)>10?-1:1,0,a.AttackedLX - 40, oGd.$Torch])
 	},
+		PrivateBirth: function(a) {
+		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
+},
+	PrivateDie: function(a) {
+		a.BulletEle = null;
+	},
 NormalAttack1:function(a) {
 	if(this.highwork==2){
 	this.NormalAttack();
@@ -735,7 +741,7 @@ oRepeater = InheritO(oPeashooter, {
 		A=0,
         B = Math.random() * 7 + 3,
         a = function(j, i, h, B) {
-          return (j && j.Altitude == 1 ? (j.getPea(j, Math.round(|B|) * 5, i), (SetStyle(h, {
+          return (j && j.Altitude == 1 ? (j.getPea(j, Math.round(B) * 5, i), (SetStyle(h, {
             left: j.ZX - 12 + "px",
             width: "52px",
             height: "46px"
@@ -3496,6 +3502,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
