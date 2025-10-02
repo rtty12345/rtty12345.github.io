@@ -12,7 +12,8 @@ DKind:0,
 LevelName:"2-10番外篇：我是僵尸",
 LvlEName:"20",
 LoadMusic:"Mountains",
-StartGameMusic:"Mountains",ArP:{
+StartGameMusic:"Mountains",
+ArP:{
 ArC:[1,6],
 ArR:[1,5],
 Auto:1,P:[0,0,0,1,1,1,1,1,0,2,2,1,3,3,3,3,3,3,4,4,4,4,5,6,6,6,7,7,8,1]},
@@ -21,14 +22,13 @@ f=k.ArC,
 j=k.ArR,
 e=k.P,
 d=oS.PName,
-c，
+c,
 g=f[0],
 b=f[1],
 i=j[0],
 h=j[1],
 a;
-if(k.Auto){
-while(i<=h){
+if(k.Auto){while(i<=h){
 CustomSpecial(oBrains,i,0);
 for(a=g;a<=b;a++){
 CustomSpecial(d[e[c=Math.floor(Math.random()*e.length)]],i,a,1);
@@ -49,6 +49,3 @@ AutoSelectCard:function(){
   var c=oS.ArCard,b=-1,a=c.length-1;while(++b<a){SelectCard(c[b].prototype.EName)}
 }
 });
-
-
-
