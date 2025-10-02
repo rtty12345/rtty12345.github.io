@@ -4841,7 +4841,7 @@ oZomboni = function() {
 			c = GetC(h);
 			c > -1 && c < n[1] && (oGd.$Crater[j + "_" + c] = 1, n[1] = c);
 			h > 120 && h < n[2] && (n[2] = h, l.firstChild.style.clip = "rect(0,auto,auto," + f + "px)", l.childNodes[1].style.left = Math.max(0, f) + "px");
-			GetC(e.AttackedLX) > 5 && (e.OSpeed = (e.Speed+= 0.01));
+			e.OSpeed = (e.Speed+= 0.01);
 				if(e.HPlook&&!e.bHP){
 	e.bHP=1;
     var E= NewEle("edHP", "div", "position:absolute;color:#fff;top:" + (e.pixelTop + 240) + "px;left:" + (e.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
@@ -6144,27 +6144,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
