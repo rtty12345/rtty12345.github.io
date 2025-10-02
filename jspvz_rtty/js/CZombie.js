@@ -1397,6 +1397,21 @@ oDancingZombie1 = InheritO(oDancingZombie,{
     AudioArr: ["Beatit"],
     OSpeed: 7.2,
     Speed: 7.2,
+	bedevil: function(b) {
+		var a = b.id;
+		b.ExchangeLR(b, 1);
+		b.JudgeAttack = b.JudgeAttackH;
+		b.PZ = 0;
+        b.Summon=function(){};
+		b.WalkDirection = 1;
+		b.ZX = b.AttackedRX;
+		b.ChkActs = b.ChkActs1;
+		b.ChangeChkActsTo1(b, a, b.EleBody);
+		b.ResetBackupDancer(b);
+		$(a + "_spotlightCon").style.left = "20px",
+		$(a + "_spotlight2Con").style.left = "25px";
+		oP.MonPrgs()
+	},
     Summon: function(d, c) {
       d.LostHeadGif = 16;
       var a = d.EleBody,
@@ -6150,6 +6165,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
