@@ -1,13 +1,4 @@
-        NormalAttack: function(a) {
-            this.NormalAttack1();
-            oSym.addTask(15,
-                function(d, b) {
-                    var c = $P[d];
-                    c && c.NormalAttack1();
-                    --b && oSym.addTask(15, arguments.callee, [d, b])
-                },
-                [this.id, 3])
-        }﻿var CPlants = NewO({
+ var CPlants = NewO({
 	name: "Plants",
 	HP: 300,
 	PKind: 1,
@@ -3520,6 +3511,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
