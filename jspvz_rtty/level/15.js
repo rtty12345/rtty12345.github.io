@@ -33,13 +33,14 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 1, 1],
 		[oConeheadZombie, 2, 1],
+		[oJalapenoZombie, 2, 3],
 		[oPoleVaultingZombie, 1, 1],
 		[oScreenDoorZombie, 1, 1]
 	],
 	FlagNum: 20,
 	FlagToSumNum: {
 		a1: [3, 5, 9, 10, 13, 15, 19],
-		a2: [1, 2, 3, 15, 4, 5, 6, 30]
+		a2: [1, 2, 3, 20, 6, 10, 12,40]
 	},
 	FlagToMonitor: {
 		9: [ShowLargeWave, 0],
@@ -54,3 +55,4 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
 });
+
