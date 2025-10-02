@@ -1884,7 +1884,7 @@ oJalapeno = InheritO(oCherryBomb, {
 	PicArr: ["images/Card/Plants/Jalapeno.png", "images/Plants/Jalapeno/0.gif", "images/Plants/Jalapeno/Jalapeno.gif", "images/Plants/Jalapeno/JalapenoAttack.gif"],
 	AudioArr: ["jalapeno"],
 	Tooltip: "消灭整行的敌人",
-	Produce: '火爆辣椒可以摧毁一整条线上的敌人。<p>伤害：<font color="#FF0000">极高(2000)</font><br>范围：<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在不会爆炸，还不到时候，不过快了，喔~，快了快了，快来了。他知道，他感受到了，他一生都是在等待这个时刻！',
+	Produce: '火爆辣椒可以摧毁一整条线上的敌人，有20%概率在底线除自身行以外其他所有行召唤一个辣椒僵尸<p>伤害：<font color="#FF0000">极高(2000)</font><br>范围：<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在不会爆炸，还不到时候，不过快了，喔~，快了快了，快来了。他知道，他感受到了，他一生都是在等待这个时刻！',
 	PrivateBirth: function(a) {
 		oSym.addTask(72,
 		function(j) {
@@ -1921,7 +1921,7 @@ oJalapeno = InheritO(oCherryBomb, {
 		},
 		[a.id])
 	},
-	PrivateDie:function(a){
+PrivateDie:function(a){
 var num=Math.random()*100;
 	for(let i=1;i<=oS.R;i++){
 	num<20&&(i!==a.R)&&CustomZombies(new oJalapenoZombie,i,0,1)}
@@ -2668,7 +2668,7 @@ oIceShroom = InheritO(oFumeShroom, {
 	GetDY: CPlants.prototype.GetDY,
 	InitTrigger: function() {},
 	PrivateDie: function(a) {},
-	PrivateBirth: function(a) { ! oS.DKind ? (a.NormalAttack(a.id), a.getHurt = function(d, c, b) {}) : a.getHurt = CPlants.prototype.getHurt
+	PrivateBirth: function(a) { ! oS.DKind ? (a.NormalAttack(a), a.getHurt = function(d, c, b) {}) : a.getHurt = CPlants.prototype.getHurt
 	},
 	WakeUP: function(a) {
 		var b = a.id;
@@ -2677,20 +2677,29 @@ oIceShroom = InheritO(oFumeShroom, {
 		a.NormalAttack(b)
 	},
 	NormalAttack: function(a) {
-		oSym.addTask(100,
+            this.NormalAttack1(this.id);
+            oSym.addTask(10,
+                function(d, b) {
+                    var c = $P[d];
+                    c && c.NormalAttack1(d);
+                    --b?oSym.addTask(10, arguments.callee, [d, b]):c&&c.Die()
+                },
+                [this.id,9])
+        },
+	NormalAttack1: function(a) {
+		oSym.addTask(10,
 		function(c) {
 			var f = $P[c];
 			if (f) {
 				PlayAudio("frozen");
 				var e, d, b = "Snow_" + Math.random();
-				for (d in $Z) { (e = $Z[d]).ZX < 901 && e.getFreeze(e,d,500)
+				for (d in $Z) { (e = $Z[d]).ZX < 901 && e.getFreeze(e,d)
 				}
 				oSym.addTask(40,
 				function(g) {
 					ClearChild(g)
 				},
 				[NewEle(b, "div", "position:absolute;left:0;top:0;width:900px;height:600px;z-index:10;filter:alpha(opacity=50);opacity:.5;background:#9CF url(images/Plants/IceShroom/Snow.gif) no-repeat scroll " + (f.pixelLeft - 197) + "px " + (f.pixelTop - 80) + "px", 0, EDPZ)]);
-				f.Die()
 			}
 		},
 		[a])
@@ -3502,6 +3511,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
