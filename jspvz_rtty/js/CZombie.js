@@ -792,7 +792,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	StandGif: 9,
 	width: 126,
 	height: 152,
-	CanSelect: 0,
 	beAttackedPointL: 50,
 	beAttackedPointR: 95,
 	PicArr: (function() {
@@ -6144,3 +6143,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
