@@ -3903,14 +3903,6 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 			},
 			[d, c])
 		},
-	reNormal: function(c) {
-			c.ExchangeLR(c, 0);
-			c.JudgeAttack = (c.OrnHP<1?c.JudgeAttack1:CZombies.prototype.JudgeAttack);
-			c.PZ = 1;
-			c.WalkDirection = 0;
-			c.ZX = c.AttackedLX;
-			c.ChkActs = CZombies.prototype.ChkActs;
-		},
 	getFirePea: function(f,b,e) {
 		f.PlayFireballAudio(); (f.FreeSlowTime || f.FreeFreezeTime) && (f.Speed = f.OSpeed, f.FreeSlowTime = 0, f.FreeFreezeTime = 0);
 		f.Attack = 100;
@@ -3932,15 +3924,16 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea= g.getSlowPea1=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=g.getHit4=function(){},g.AKind=2,oSym.addTask(600,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea= g.getSlowPea1=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=g.getHit4=function(){},
+		g.JudgeAttack=oZomboni.prototype.JudgeAttack,g.NormalAttack=oZomboni.prototype.NormalAttack,oSym.addTask(600,
 		function(m, l) {
+			k.isAttacking=0;
 			var k = $Z[m];
 			if (!k) {
 				return
 			}
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
-			k.Altitude=1;
 			k.getPea=e.getPea;
 			k.getSlow=j.getSlow;
 			k.getSnowPea=e.getSnowPea;
@@ -3954,8 +3947,6 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 			k.getExplosion=j.getExplosion;
 			k.Attack=800;
 			k.AKind=0;
-			k.NormalAttack=k.NormalAttack1;
-			k.JudgeAttack=k.JudgeAttack1;
 			k.bedevil=j.bedevil;
 			k.getbedevil=j.getbedevil;
 			k.ChkActs = (k.PZ?j.ChkActs:j.ChkActs1);
@@ -3967,22 +3958,9 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 			PlayAudio("newspaper_rarrgh");
 			k.EleBody.src = l;
 			k.JudgeAttack();
-			k.Attack=800
 		},
 		[h,f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]]]))
-	},
-			NormalAttack1: function(c,b) {
-			var d = $Z[c];
-			$P[b].getHurt(d,2,d.Attack)
-		},
-		JudgeAttack1: function() {
-			var f = this,
-			c = f.ZX,
-			d = f.R + "_",
-			e = GetC(c),
-			g = oGd.$,
-			b; (b = f.JudgeLR(f,d,e,c,g) || f.JudgeSR(f,d,e,c,g)) && f.NormalAttack(b[0], b[1])
-		}
+	}
 }),
 oBoom=InheritO(oZombie, {
 HP:400,
@@ -6166,6 +6144,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
