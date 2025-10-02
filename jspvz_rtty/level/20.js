@@ -21,7 +21,7 @@ f=k.ArC,
 j=k.ArR,
 e=k.P,
 d=oS.PName,
-c,
+c，
 g=f[0],
 b=f[1],
 i=j[0],
@@ -32,7 +32,7 @@ while(i<=h){
 CustomSpecial(oBrains,i,0);
 for(a=g;a<=b;a++){
 CustomSpecial(d[e[c=Math.floor(Math.random()*e.length)]],i,a,1);
-e。splice(c，1)}++i}}
+e.splice(c,1)}++i}}
 NewImg("iStripe",
        "images/interface/Stripe.png",
        "left:"+(GetX1X2(7)[0]-11)+"px;top:65px",
@@ -49,5 +49,6 @@ AutoSelectCard:function(){
   var c=oS.ArCard,b=-1,a=c.length-1;while(++b<a){SelectCard(c[b].prototype.EName)}
 }
 });
+
 
 
