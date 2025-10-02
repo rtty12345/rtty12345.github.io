@@ -464,7 +464,7 @@ return a;
 		},
 		flatTire:function(){},
 		getFreeze: function(d, c) {
-			d.beAttacked && d.getHit0(d, 1000, 0);
+			d.beAttacked && d.getHit0(d, 40, 0);
 			d.Speed = 0;
 			oSym.addTask(1500,
 			function(g, f, e) {
@@ -688,7 +688,7 @@ OrnNoneZombies = function() {
 				var a;
 				e.Pnum<5&&(e.Pnum+=1);
                 e.FreePoisonTime=a=oSym.Now+(e.Pnum*200);
-                oSym.addTask(10/e.Pnum,function(e,b,c){
+                oSym.addTask(15/e.Pnum,function(e,b,c){
                     e.getHit0(e,1,c);
                     e.FreePoisonTime && oSym.addTask(5/e.Pnum,arguments.callee,[e,b,c]);
                 },[e,b,c]);
@@ -792,6 +792,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	StandGif: 9,
 	width: 126,
 	height: 152,
+	CanSelect: 0,
 	beAttackedPointL: 50,
 	beAttackedPointR: 95,
 	PicArr: (function() {
@@ -6165,6 +6166,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
