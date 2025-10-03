@@ -3926,11 +3926,11 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea= g.getSlowPea1=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=g.getHit4=function(){},
 		g.JudgeAttack=oZomboni.prototype.JudgeAttack,g.NormalAttack=oZomboni.prototype.NormalAttack,oSym.addTask(600,
 		function(m, l) {
-			k.isAttacking=0;
 			var k = $Z[m];
 			if (!k) {
 				return
 			}
+			k.isAttacking=0;
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.getPea=e.getPea;
@@ -6143,4 +6143,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
