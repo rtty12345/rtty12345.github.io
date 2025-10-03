@@ -594,7 +594,7 @@ return a;
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -1164,10 +1164,11 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		},
 		[d.id])
 	},
-	ChkActs1: function(e, b, f, a) {
-		var c, d; ! (e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += 3.5) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += 3.5, e.Ele.style.left = Math.ceil(e.X += 3.5) + "px", d = 1) : d = 1) : d = 1;
-		return d
-	},
+  ChkActs1: function(e, b, f, a) {
+    var c, d;
+    !(e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += e.Speed) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += e.Speed, e.Ele.style.left = Math.ceil(e.X += e.Speed) + "px", d = 1) : d = 1) : d = 1;
+    return d
+  },
 	ChkTmp: function(c, b, d, a) {
 		c.ChkSpeed(c);
 		return 0
@@ -1246,7 +1247,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		d = 4,
 		j = 1,
 		c, e, a;
-		while (d--) { (e = b[d]) && (!(c = e[0]) || !(a = $Z[c]) || (a.PZ ? false: (e[0] = "", true))) && (d = j = 0)
+		while (d--) { (e = b[d]) && (!(c = e[0]) || !(a = $Z[c])) && (d = j = 0)
 		} ! h.isAttacking && j ? f.src = h.PicArr[10] : h.Summon(h, g);
 		h.ChangeChkActsTo0(h, g, f)
 	},
@@ -1683,7 +1684,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -1828,7 +1829,7 @@ if(h.HPlook&&!h.bHP){
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -2473,7 +2474,7 @@ oFootballZombie= function() {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h,20,0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h,20,0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -2615,7 +2616,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 1500, 0), oSym.addTask(150, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 1500, 0), oSym.addTask(150, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -2897,7 +2898,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((i.OrnHP>=1?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((i.OrnHP>=1?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -3898,7 +3899,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 200, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -4552,7 +4553,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 		function(g, e, d, f) {
 			$Z[e] && g.beAttacked && ((f = $Z[d]) && f.beAttacked ? (g.EleBody.src = g.PicArr[g.AttackGif], g.Altitude = 1, oSym.addTask(10,
 			function(k, i, j, h) {
-				$Z[i] && k.beAttacked && !k.FreeFreezeTime && !k.FreeSetbodyTime && ($Z[h] && j.beAttacked ? (j.getHit0(j, 15, 0), oSym.addTask(10, arguments.callee, [k, i, j, h])) : (k.EleBody.src = k.PicArr[10] + Math.random(), k.Altitude = 0, oSym.addTask(70,
+				$Z[i]&&k.PZ&& k.beAttacked && !k.FreeFreezeTime && !k.FreeSetbodyTime && ($Z[h] && j.beAttacked ? (j.getHit0(j, 15, 0), oSym.addTask(10, arguments.callee, [k, i, j, h])) : (k.EleBody.src = k.PicArr[10] + Math.random(), k.Altitude = 0, oSym.addTask(70,
 				function(l, m) {
 					$Z[l] && m.beAttacked && (m.isAttacking = 0, m.EleBody.src = m.PicArr[m.NormalGif])
 				},
@@ -5690,7 +5691,7 @@ bedevilAct:function(){
 		this.opennum=1)
 	}
 },
-			AttackZombie: function(d, c) {
+		AttackZombie: function(d, c) {
 			oSym.addTask(10,
 			function(f, e) {
 				var h = $Z[f],
@@ -5699,17 +5700,6 @@ bedevilAct:function(){
 			},
 			[d, c]);
 			this.OpenBox&& this.OpenBox(this.id)
-		},
-		AttackZombie2: function(e, d, c) {
-			e.isAttacking = 1;
-			e.EleBody.src = e.PicArr[e.AttackGif];
-			oSym.addTask(10,
-			function(g, f) {
-				var i = $Z[g],
-				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
-			},
-			[d, c]);
 		},
 	OpenBox: function(b) {
 		var a = $Z[b];
@@ -6143,5 +6133,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
