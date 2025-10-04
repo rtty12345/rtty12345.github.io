@@ -1486,11 +1486,10 @@ oDancingZombie2= InheritO(oDancingZombie, {
   EName: "oDancingZombie2",
   CName: "舞王僵尸",
   HP: 1200,
-  BreakPoint: 166,
   Lvl: 7,
   StandGif: 9,
   SunNum: 450,
-  AudioArr: ["dancer"],
+  AudioArr: ["Beatit"],
   OSpeed: 7.2,
   Speed: 7.2,
   getFreeze: function() {},
@@ -1619,7 +1618,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
     d.ChkActs = d.ChkTmp;
     d.ChkTmp = b;
     a.src = "images/Zombies/DancingZombie/Summon1.gif";
-    PlayAudio("dancer");
+    PlayAudio("Beatit");
     oSym.addTask(10,
       function(f, e) {
         var g = $Z[f];
@@ -6315,3 +6314,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
