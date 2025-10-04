@@ -1063,7 +1063,6 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b.WalkDirection = 1;
 		b.ZX = b.AttackedRX;
 		b.ChkActs = b.ChkActs1;
-		b.ChangeChkActsTo1(b, a, b.EleBody);
 		b.ResetBackupDancer(b);
         b.havelight&&($(a + "_spotlightCon").style.left = "20px",
 		$(a + "_spotlight2Con").style.left = "25px");
@@ -1168,6 +1167,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
   ChkActs1: function(e, b, f, a) {
     var c, d;
     !(e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += e.Speed) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += e.Speed, e.Ele.style.left = Math.ceil(e.X += e.Speed) + "px", d = 1) : d = 1) : d = 1;
+	e.ChkSpeed(e);
     return d
   },
 	ChkTmp: function(c, b, d, a) {
@@ -1408,7 +1408,6 @@ oDancingZombie1 = InheritO(oDancingZombie,{
 		b.WalkDirection = 1;
 		b.ZX = b.AttackedRX;
 		b.ChkActs = b.ChkActs1;
-		b.ChangeChkActsTo1(b, a, b.EleBody);
 		b.ResetBackupDancer(b);
 		$(a + "_spotlightCon").style.left = "20px",
 		$(a + "_spotlight2Con").style.left = "25px";
@@ -1502,8 +1501,8 @@ oDancingZombie2= InheritO(oDancingZombie, {
     b.WalkDirection = 1;
     b.ZX = b.AttackedRX;
     b.ChkActs = b.ChkActs1;
-    b.ChangeChkActsTo1(b, a, b.EleBody);
     b.ResetBackupDancer(b);
+	b.Summon(b,a);
     b.havelight&&($(a + "_spotlightCon").style.left = "20px",
       $(a + "_spotlight2Con").style.left = "25px");
     oP.MonPrgs()
@@ -1659,7 +1658,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
 					  z[i].AttackZombie2 = function() {},
 					  z[i].ChkActs=function(a){
 					  a&&a.bedevil(a);
-					  return
+					  return 1;
 					})
 				}
             },
@@ -1668,7 +1667,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
                 function(y, i) {
                   var z = $Z[y],
                     j;
-                  z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j)
+                  z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j);
                 },
                 [t, s])
             }
@@ -6317,6 +6316,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
