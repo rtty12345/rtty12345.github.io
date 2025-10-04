@@ -1654,12 +1654,10 @@ oDancingZombie2= InheritO(oDancingZombie, {
                 function(A, y, z, i) {
                   var B = $Z[A];
                   B && B.beAttacked && oP.AppearUP(y, z, i);
-                  oSym.addTask(110, function(B, z, i) {
-                      while (i--) {
-                        B.beAttacked && B && !B.PZ && z[i].bedevil(z[i])
-                      }
-                    },
-                    [B,z,i]);
+				  B&&!B.PZ&&(z[i].ChkActs=function(a){
+					  a&&a.bedevil(a);
+					  return
+					})
                 },
                 [t, u, w, o]);
               oSym.addTask(200,
@@ -6315,6 +6313,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
