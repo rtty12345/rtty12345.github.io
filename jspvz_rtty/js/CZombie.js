@@ -1658,7 +1658,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
                         B.beAttacked && B && !B.PZ && z[i].bedevil(z[i])
                       }
                     },
-                    [B, w, o]);
+                    [B,z,i]);
                 },
                 [t, u, w, o]);
               oSym.addTask(200,
@@ -6314,4 +6314,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
