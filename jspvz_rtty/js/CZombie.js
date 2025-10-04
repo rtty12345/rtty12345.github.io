@@ -999,6 +999,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 	LostHeadGif: 14,
 	addSpotlight: (function() {
 		var a, b;
+		this.havelight=1;
 		$User.Browser.IE6 ? (a = "_8", b = "filter:alpha(opacity=30)") : a = b = "";
 		return function(d, f, c) {
 			var g = $Z[d],
@@ -1064,8 +1065,8 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b.ChkActs = b.ChkActs1;
 		b.ChangeChkActsTo1(b, a, b.EleBody);
 		b.ResetBackupDancer(b);
-		$(a + "_spotlightCon").style.left = "20px",
-		$(a + "_spotlight2Con").style.left = "25px";
+        b.havelight&&($(a + "_spotlightCon").style.left = "20px",
+		$(a + "_spotlight2Con").style.left = "25px");
 		oP.MonPrgs()
 	},
 	ResetBackupDancer: function(f) {
@@ -1503,8 +1504,8 @@ oDancingZombie2= InheritO(oDancingZombie, {
     b.ChkActs = b.ChkActs1;
     b.ChangeChkActsTo1(b, a, b.EleBody);
     b.ResetBackupDancer(b);
-    $(a + "_spotlightCon").style.left = "20px",
-      $(a + "_spotlight2Con").style.left = "25px";
+    b.havelight&&($(a + "_spotlightCon").style.left = "20px",
+      $(a + "_spotlight2Con").style.left = "25px");
     oP.MonPrgs()
   },
   BirthCallBack: function(d) {
@@ -2490,7 +2491,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 20, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 20, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -3091,7 +3092,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((i.OrnHP>=1?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i.PZ &&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((i.OrnHP>=1?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -6314,5 +6315,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
