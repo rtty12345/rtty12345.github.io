@@ -1167,7 +1167,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
   ChkActs1: function(e, b, f, a) {
     var c, d;
     !(e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += e.Speed) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += e.Speed, e.Ele.style.left = Math.ceil(e.X += e.Speed) + "px", d = 1) : d = 1) : d = 1;
-	e.ChkSpeed(e);
+	e&&e.ChkSpeed(e);
     return d
   },
 	ChkTmp: function(c, b, d, a) {
@@ -1502,7 +1502,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
     b.ZX = b.AttackedRX;
     b.ChkActs = b.ChkActs1;
     b.ResetBackupDancer(b);
-	b.Summon(b,a);
+	oSym.addTask(10,function(b,a){b.Summon(b,a)},[b,a]);
     b.havelight&&($(a + "_spotlightCon").style.left = "20px",
       $(a + "_spotlight2Con").style.left = "25px");
     oP.MonPrgs()
@@ -6316,6 +6316,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
