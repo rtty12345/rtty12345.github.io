@@ -594,7 +594,7 @@ return a;
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -1655,7 +1655,9 @@ oDancingZombie2= InheritO(oDancingZombie, {
                   var B = $Z[A];
                   B && B.beAttacked && oP.AppearUP(y, z, i);
 				while(i--){
-				  B.beAttacked&&B&&!B.PZ&&(z[i].ChkActs=function(a){
+				  B.beAttacked&&B&&!B.PZ&&(
+					  z[i].AttackZombie2 = function() {},
+					  z[i].ChkActs=function(a){
 					  a&&a.bedevil(a);
 					  return
 					})
@@ -6315,6 +6317,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
