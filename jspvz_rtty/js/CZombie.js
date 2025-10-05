@@ -1496,13 +1496,13 @@ oDancingZombie2= InheritO(oDancingZombie, {
   bedevil: function(b) {
     var a = b.id;
     b.ExchangeLR(b, 1);
+	!b.Summoned&&b.TurnLeft(b);
     b.JudgeAttack = b.JudgeAttackH;
     b.PZ = 0;
     b.WalkDirection = 1;
     b.ZX = b.AttackedRX;
     b.ChkActs = b.ChkActs1;
     b.ResetBackupDancer(b);
-	oSym.addTask(10,function(b,a){b.Summon(b,a)},[b,a]);
     b.havelight&&($(a + "_spotlightCon").style.left = "20px",
       $(a + "_spotlight2Con").style.left = "25px");
     oP.MonPrgs()
@@ -1618,6 +1618,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
     d.ChkActs = d.ChkTmp;
     d.ChkTmp = b;
     a.src = "images/Zombies/DancingZombie/Summon1.gif";
+	d.Summoned=1;
     PlayAudio("Beatit");
     oSym.addTask(10,
       function(f, e) {
@@ -1668,6 +1669,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
                   var z = $Z[y],
                     j;
                   z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j);
+				  z&&z.Summoned=1;
                 },
                 [t, s])
             }
@@ -6316,6 +6318,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
