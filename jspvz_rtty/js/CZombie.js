@@ -1570,7 +1570,7 @@ AttackZombie:function(){
       },
       r
     ];
-	$(l).style.filter='saturate(200%)';
+	$(l).style.filter='saturate(500%)';
     func = function(t, o) {
       var u = $Z[t];
       u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
@@ -1614,6 +1614,31 @@ AttackZombie:function(){
       },
       [e, a])
   },
+	TurnLeft: function(c) {
+		var a = CZombies.prototype,
+		b = c.id;
+		c.AttackZombie = a.AttackZombie;
+		c.NormalAttack = a.NormalAttack;
+		c.OSpeed = 3.5; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 3.5);
+		c.getSnowPea = OrnNoneZombies.prototype.getSnowPea;
+		c.getFreeze = CZombies.prototype.getFreeze;
+		oSym.addTask(20,
+		function(d, e) {
+			$Z[d] && e.beAttacked && (e.addSpotlight(d, e, e.Ele), oSym.addTask(200,
+			function(g, f, i, h, k) {
+				var j = $Z[g];
+				j && (h > -736 ? h -= 184 : h = 0, f.style.left = h + "px", k > -736 ? k -= 184 : k = 0, i.style.left = k + "px", oSym.addTask(100, arguments.callee, [g, f, i, h, k]))
+			},
+			[d, e.spotlight, e.spotlight2, 0, 0]), oSym.addTask(200,
+			function(h, g) {
+				var f;
+				$Z[g] && h.beAttacked && (f = h.EleBody, !h.isAttacking ? f.src = h.PicArr[10] : h.isAttacking = 0, h.ChangeChkActsTo0(h, g, f))
+			},
+			[e, d]))
+		},
+		[b, c]);
+		c.Summon(c, b)
+	},
   Summon: function(d, c) {
     d.LostHeadGif = 16;
     var a = d.EleBody,
@@ -6319,6 +6344,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
