@@ -1313,7 +1313,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 	},
 	NormalAttack: function(a) {
 		var b = $Z[a];
-		b.ExchangeLR(b, 0);
+		b&&b.PZ&&b.ExchangeLR(b, 0);
 		b.TurnLeft(b)
 	},
 	Summon: function(d, c) {
@@ -6316,6 +6316,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
