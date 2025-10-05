@@ -1669,7 +1669,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
                   var z = $Z[y],
                     j;
                   z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j);
-				  z&&z.Summoned=1;
+				  z&&(z.Summoned=1);
                 },
                 [t, s])
             }
@@ -6318,6 +6318,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
