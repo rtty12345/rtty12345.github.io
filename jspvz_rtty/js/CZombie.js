@@ -1507,7 +1507,7 @@ oDancingZombie2= InheritO(oDancingZombie, {
     oP.MonPrgs()
   },
 AttackZombie:function(){
-	this&&this.NormalAttack(this)
+	this&&this.NormalAttack(this.id)
 },
   BirthCallBack: function(d) {
     var b = d.delayT,
@@ -6318,6 +6318,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
