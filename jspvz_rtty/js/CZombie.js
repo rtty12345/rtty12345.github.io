@@ -1570,6 +1570,7 @@ AttackZombie:function(){
       },
       r
     ];
+	SetStyle(d.Ele,{"filter":"'saturate(200%)'"}),
     func = function(t, o) {
       var u = $Z[t];
       u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
@@ -6318,6 +6319,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
