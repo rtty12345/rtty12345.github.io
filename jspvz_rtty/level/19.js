@@ -1,6 +1,6 @@
 oS.Init({
-	PName: [oTwinSunfloweroPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom, oGraveBuster, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom,oGloomShroom],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oScreenDoorZombie, oConeheadZombie1,oBucketheadZombie,oFootballZombie,oBackupDancer,oBackupDancer1,oDancingZombie1],
+	PName: [oTwinSunflower,oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom, oGraveBuster, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom,oGloomShroom],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oScreenDoorZombie, oConeheadZombie1,oBucketheadZombie,oFootballZombie,oBackupDancer,oBackupDancer1,oDancingZombie1,oDancingZombie2],
 	PicArr: ["images/interface/background2.jpg", "images/interface/Tombstones.png", "images/interface/Tombstone_mounds.png", "images/interface/ZombieNoteSmall.png", "images/interface/ZombieNote2.png"],
 	backgroundImage: "images/interface/background2.jpg",
 	CanSelectCard: 1,
@@ -29,7 +29,8 @@ oS.Init({
 		[oConeheadZombie, 3, 1],
 		[oScreenDoorZombie, 1, 1],
 		[oFootballZombie, 1, 1],
-		[oDancingZombie1, 1, 1],
+		[oDancingZombie2, 1, 4],
+		[oDancingZombie1, 1, 3],
 		[oDancingZombie, 1, 1]
 	],
 	FlagNum: 10,
@@ -59,4 +60,5 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll)
 	}
 });
+
 
