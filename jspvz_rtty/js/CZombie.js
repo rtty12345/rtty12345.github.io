@@ -2164,7 +2164,8 @@ oConeheadZombie1= InheritO(OrnIZombies, {
                 m.Birth();
 				!c.PZ&&(m.bedevil(m))
               },
-              a)
+              a);
+		   ++oP.NumZombies;
         }
       }
     }
@@ -6339,6 +6340,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
