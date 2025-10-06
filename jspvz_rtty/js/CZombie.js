@@ -5504,15 +5504,13 @@ oImp = InheritO(OrnNoneZombies, {
 	},
 	PrivateBirth:function(a){
 	oSym.addTask(500,function(a){
-	a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});
-    for (let i = 0; i <= 4; i++) {
-      for (let j = 8; j >= 1; j--) {
-        let p = oGd.$[a.R + "_" + j + "_" + i];
-        if (p && (p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&&(a.PZ)&&$Z[a.id]) {
-          p.pixelRight += 80, p.AttackedLX += 80, p.AttackedRX += 80, p.pixelLeft += 80, $(p.id).style.left = (p.pixelLeft) + "px"
+	a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});  
+        if ((a.PZ)&&$Z[a.id]) {
+    EDAll && (EDAll.style.opacity = 0);
+    oSym.addTask(500, function() {
+      EDAll && (EDAll.style.opacity = 1);
+    }, [])
         }
-      }
-    }
 		},[a])
 	},
 	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系，隔一段时间会瞬移一段距离</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
@@ -6340,23 +6338,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
