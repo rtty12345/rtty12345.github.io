@@ -798,7 +798,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/BackupDancer/";
 		return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random]
 	})(),
-	CustomBirth: function(g, d, a, b,q,j) {
+	CustomBirth: function(g, d, a, b,j) {
 		var e = this,
 		c = GetY(g) + e.GetDY(),
 		f = c - e.height,
@@ -806,7 +806,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		h = e.beAttackedPointR;
 		e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
 		e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
-		e.PZ=q;
 		return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
 	},
 	Produce: '已被辞退</p><p>韧性：<font color="#FF0000">中（400）</font><br>孩子们，我被辞退了，什么罐头我说',
@@ -850,9 +849,6 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		[b, a])
 	},
 	ChkActs: function(g, d, h, c) {
-		if(!g.PZ){
-		g.bedevil(g);
-		}
 		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
 			R: d,
 			ar: [oS.R - 1],
@@ -6343,6 +6339,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
