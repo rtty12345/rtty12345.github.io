@@ -2547,17 +2547,14 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                   t.OrnLostAttackGif = 10,
 				t.Ornaments=1,
 				t.PlayNormalballAudio = oBucketheadZombie.prototype.PlayNormalballAudio);
-		if(t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"){
-             t&&(t.NormalGif = 2,
+             t.CName!== "鸭子救生圈僵尸"?(t.NormalGif = 2,
                   t.AttackGif = 3,
                   t.PicArr = oBucketheadZombie.prototype.PicArr,
-                  t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2])
-              }else if(t.CName == "鸭子救生圈僵尸"){
-			 t&&(t.NormalGif = 3,
+                  t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2]):
+				 (t.NormalGif = 3,
                   t.AttackGif = 5,
                   t.PicArr = oDuckyTubeZombie3.prototype.PicArr,
                   t.EleBody.src = t.isAttacking ? t.PicArr[5] : t.PicArr[3])
-			  }
 			}
           }
         };
@@ -2570,20 +2567,20 @@ bedevilAct2: function(a) {
       a.Ac = 1;
 	  a.HP=1100;
       let z = $(a.id);
-      z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;left:40px;top:15px;transform:rotateY(180deg);",0);
-      z.appendChild(squash);
-	oSym.addTask(10,function(a,squash){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squash));
-	oSym.addTask(10,arguments.callee,[a,squash])
-	},[a,squash]);
+      z.SquashHeadId2= "Squash" + Math.random();
+      let squa= NewImg(z.SquashHeadId2, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;left:40px;top:15px;transform:rotateY(180deg);",0);
+      z.appendChild(squa);
+	oSym.addTask(10,function(a,squa){
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squa));
+	oSym.addTask(10,arguments.callee,[a,squa])
+	},[a,squa]);
       oSym.addTask(500,function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
             let A = oZ.getArHZ(a.ZX - 80, a.ZX + 80, i);
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
-              if ((t.EName == "oBucketheadZombie" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸")&&
+              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸" ||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸")&&
 			(t.OrnHP <= 1)&&(t.beAttacked)&&($Z[t.id])) {
 			    t&&(t.OrnHP = 1100,
                   t.getHit0 = (s = OrnIZombies.prototype).getHit0,
@@ -2594,7 +2591,8 @@ bedevilAct2: function(a) {
                   t.OrnLostAttackGif = 10,
 				t.Ornaments=1,
 				t.PlayNormalballAudio = oBucketheadZombie.prototype.PlayNormalballAudio);
-             t.CName!== "鸭子救生圈僵尸"?(t.NormalGif = 2,
+            (t.CName!=="路障鸭子救生圈僵尸")&&(t.CName!== "鸭子救生圈僵尸")&&(t.CName!== "铁桶鸭子救生圈僵尸")
+				?(t.NormalGif = 2,
                   t.AttackGif = 3,
                   t.PicArr = oBucketheadZombie.prototype.PicArr,
                   t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2]):
@@ -6391,6 +6389,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
