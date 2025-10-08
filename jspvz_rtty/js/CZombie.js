@@ -2536,8 +2536,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
-              if ((t.EName == "oBucketheadZombie" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸")&&
-			(t.OrnHP <= 1)&&(t.beAttacked)&&($Z[t.id])) {
+              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸")&&
+			(t.OrnHP<1)&&(t.beAttacked)&&($Z[t.id])) {
 			    t&&(t.OrnHP = 1100,
                   t.getHit0 = (s = OrnIZombies.prototype).getHit0,
                   t.getHit1 = s.getHit1,
@@ -2547,7 +2547,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                   t.OrnLostAttackGif = 10,
 				t.Ornaments=1,
 				t.PlayNormalballAudio = oBucketheadZombie.prototype.PlayNormalballAudio);
-		if(t.EName == "oBucketheadZombie" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"){
+		if(t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"){
              t&&(t.NormalGif = 2,
                   t.AttackGif = 3,
                   t.PicArr = oBucketheadZombie.prototype.PicArr,
@@ -6394,4 +6394,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
