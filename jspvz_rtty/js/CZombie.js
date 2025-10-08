@@ -1686,7 +1686,7 @@ AttackZombie:function(){
 				}
             },
                 [t, u, w, o]);
-              oSym.addTask(200,
+              oSym.addTask(0,
                 function(y, i) {
                   var z = $Z[y],
                     j;
@@ -2594,17 +2594,14 @@ bedevilAct2: function(a) {
                   t.OrnLostAttackGif = 10,
 				t.Ornaments=1,
 				t.PlayNormalballAudio = oBucketheadZombie.prototype.PlayNormalballAudio);
-		if(t.EName == "oBucketheadZombie" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"){
-             t&&(t.NormalGif = 2,
+             t.CName!== "鸭子救生圈僵尸"?(t.NormalGif = 2,
                   t.AttackGif = 3,
                   t.PicArr = oBucketheadZombie.prototype.PicArr,
-                  t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2])
-              }else if(t.CName == "鸭子救生圈僵尸"){
-			 t&&(t.NormalGif = 3,
+                  t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2]):
+				 (t.NormalGif = 3,
                   t.AttackGif = 5,
                   t.PicArr = oDuckyTubeZombie3.prototype.PicArr,
                   t.EleBody.src = t.isAttacking ? t.PicArr[5] : t.PicArr[3])
-			  }
 			}
           }
         };
@@ -6394,5 +6391,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
