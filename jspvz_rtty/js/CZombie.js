@@ -2532,7 +2532,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	},[a,squash]);
       oSym.addTask(500,function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-            let A = oZ.getArZ(a.ZX - 80, a.ZX + 80, i);
+            let A = oZ.getArZ(a.ZX - 100, a.ZX + 100, i);
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
@@ -2576,7 +2576,7 @@ bedevilAct2: function(a) {
 	},[a,squash]);
       oSym.addTask(500,function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-            let A = oZ.getArHZ(a.ZX-80, a.ZX + 80, i);
+            let A = oZ.getArHZ(a.ZX-100, a.ZX + 100, i);
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
@@ -5792,14 +5792,18 @@ oBalloonZombie = InheritO(OrnIZombies, {
         },
         Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(800)</font><br>铁栅门韧性：<font color="#FF0000">高(2000)</font></p><div style="color:red">特点：发射寒冰豌豆，同时使3×3的僵尸额外发射一颗普通豌豆</div>只是一个普普通通的小豌豆僵尸',
 	PrivateBirth: function(a){
-            let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
-            z.appendChild(pea);
         },
         PrivateAct: function(a){
             if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
+			let z = $(a.id);
+            z.PeaHead = "Pea" + Math.random();
+            let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+            z.appendChild(Pea);
+	oSym.addTask(10,function(a,Pea){
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea));
+	oSym.addTask(10,arguments.callee,[a,Pea])
+	},[a,Pea]);
 	oSym.addTask(1, function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
@@ -5812,7 +5816,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
         };
         oSym.addTask(100, arguments.callee, [a])
       }, [a]);
-            oSym.addTask(700,function(a){
+oSym.addTask(700,function(a){
 	if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
@@ -5859,6 +5863,14 @@ oBalloonZombie = InheritO(OrnIZombies, {
     if (!a.e) {
       a.Speed = 1;
       a.e = 1;
+	let z = $(a.id);
+    z.PeaHead = "Pea" + Math.random();
+    let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;left:45px;top:15px;",0);
+    z.appendChild(Pea);
+	oSym.addTask(10,function(a,Pea){
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea));
+	oSym.addTask(10,arguments.callee,[a,Pea])
+	},[a,Pea]);
 oSym.addTask(1, function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
@@ -6389,8 +6401,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
