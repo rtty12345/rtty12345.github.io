@@ -5778,7 +5778,8 @@ oBalloonZombie = InheritO(OrnIZombies, {
     oPeaZombie= InheritO(oScreenDoorZombie, {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
-        OrnHP:2000,
+        OrnHP:2200,
+		BreakPoint:90,
         HP: 800,
         Lvl: 3,
         SunNum: 200,
@@ -5791,19 +5792,20 @@ oBalloonZombie = InheritO(OrnIZombies, {
             return c;
         },
         Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(800)</font><br>铁栅门韧性：<font color="#FF0000">高(2000)</font></p><div style="color:red">特点：发射寒冰豌豆，同时使3×3的僵尸额外发射一颗普通豌豆</div>只是一个普普通通的小豌豆僵尸',
-	PrivateBirth: function(a){
-        },
         PrivateAct: function(a){
-            if(!a.bool&&(!oS.CannotShoot)){
+        if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
 			let z = $(a.id);
             z.PeaHead = "Pea" + Math.random();
             let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
             z.appendChild(Pea);
-	oSym.addTask(10,function(a,Pea){
-	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea));
-	oSym.addTask(10,arguments.callee,[a,Pea])
-	},[a,Pea]);
+			z.FumeDoor = "Fume" + Math.random();
+            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:40px;",0);
+            z.appendChild(Sh);
+	oSym.addTask(10,function(a,Pea,Sh){
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea),ClearChild(Sh));
+	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
+	},[a,Pea,Sh]);
 	oSym.addTask(1, function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
@@ -5816,7 +5818,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
         };
         oSym.addTask(100, arguments.callee, [a])
       }, [a]);
-oSym.addTask(700,function(a){
+oSym.addTask(300,function(a){
 	if(!$Z[a.id]){return}
             let z = $(a.id);
             let div = $n("div");
@@ -5867,10 +5869,13 @@ oSym.addTask(700,function(a){
     z.PeaHead = "Pea" + Math.random();
     let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;left:45px;top:15px;",0);
     z.appendChild(Pea);
-	oSym.addTask(10,function(a,Pea){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea));
-	oSym.addTask(10,arguments.callee,[a,Pea])
-	},[a,Pea]);
+	z.FumeDoor = "Fume" + Math.random();
+            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:80px;height:80px;left:45px;top:40px;",0);
+            z.appendChild(Sh);
+	oSym.addTask(10,function(a,Pea,Sh){
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea),ClearChild(Sh));
+	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
+	},[a,Pea,Sh]);
 oSym.addTask(1, function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
@@ -6401,3 +6406,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
