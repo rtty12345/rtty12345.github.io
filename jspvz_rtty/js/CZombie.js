@@ -3783,13 +3783,13 @@ getHit0:function(a,c){
 },
 PrivateAct: function() {
     let a = this;
-var b=oZ.getArZ(a.ZX,a.ZX+200,a.R);
+var b=oZ.getArZ(a.ZX+1,a.ZX+200,a.R);
 	c=b.length;
 c ? (a.protect=1):(a.protect=0);
   },
 bedevilAct: function() {
     let a = this;
-	var b=oZ.getArHZ(a.ZX-200,a.ZX,a.R);
+	var b=oZ.getArHZ(a.ZX-200,a.ZX-1,a.R);
 	c=b.length;
    c ? (a.protect=1):(a.protect=0);
   },
@@ -6330,6 +6330,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
