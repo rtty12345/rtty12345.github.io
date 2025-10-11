@@ -5804,6 +5804,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
             z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea),ClearChild(Sh));
+	a&&!a.Ornaments&&!$Z[a.id]&&!a.PZ&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
 	oSym.addTask(1, function(a) {
@@ -5873,7 +5874,8 @@ oSym.addTask(300,function(a){
             let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:80px;height:80px;left:45px;top:40px;",0);
             z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea),ClearChild(Sh));
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea));
+		a&&!a.Ornaments&&!$Z[a.id]&&a.PZ&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
 oSym.addTask(1, function(a) {
@@ -6406,4 +6408,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
