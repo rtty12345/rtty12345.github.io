@@ -3687,6 +3687,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	oSpeed:1.6,
 	Speed:1.6,
 	HP:270,
+	BreakPoint:90,
 	SunNum: 175,
 	StandGif: 13,
 	width: 166,
@@ -3735,7 +3736,6 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 			e.getHit4(e, b, c)
 		},
 getHit0:function(a,c){
-	a.protect&&(c=2);
 	if(a.hard==2){
         let z = $(a.id);
         let div = $n("div");
@@ -3777,19 +3777,19 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-(a.CheckOrnHP(a,a.id, a.OrnHP,((a.hard==2)?c*0.5:c),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(a.CheckOrnHP(a,a.id, a.OrnHP,((a.hard==2)?c*0.5:(a.protect==1?2:c)),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))
 },
 PrivateAct: function() {
     let a = this;
-var b=oZ.getArZ(a.ZX-200,a.ZX,a.R);
+var b=oZ.getArZ(a.ZX,a.ZX+200,a.R);
 	c=b.length;
 c ? (a.protect=1):(a.protect=0);
   },
 bedevilAct: function() {
     let a = this;
-	var b=oZ.getArHZ(a.ZX,a.ZX+200,a.R);
+	var b=oZ.getArHZ(a.ZX-200,a.ZX,a.R);
 	c=b.length;
    c ? (a.protect=1):(a.protect=0);
   },
@@ -6240,17 +6240,17 @@ bedevil: function(c) {
     if (!a.bool) {
       a.bool = 1;
       oSym.addTask(200, function(a) {
-        for (let i = GetC(a.ZX); i <= GetC(a.ZX)+2; i++) {
+        for (let i = GetC(a.ZX); i <= GetC(a.ZX)+1; i++) {
           for (l = 0; l < 4; l++) {
             if (oGd.$[a.R + "_" + i + "_" + l]) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
               let m = oGd.$[a.R + "_" + i + "_" + l];
               m&&(m.HP -= 100);
-	      let s= oZ.getArHZ(a.ZX,a.ZX+200,a.R),
+	      let s= oZ.getArHZ(a.ZX,a.ZX+100,a.R),
               g=s.length;
 	while(g--){
 	(t=s[g])&&t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit1(t,100,0)
-        };
+	};
 	try{m.SetAlpha(m,$(m.id),50,0.5)}catch{}
 	oSym.addTask(10, function(m) {
                 try{m.SetAlpha(m,$(m.id), 100, 1)}catch{}
@@ -6268,7 +6268,7 @@ bedevilAct: function(a) {
       a.b= 1;
       oSym.addTask(100, function(a) {
               PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
-              let m = oZ.getArZ(a.ZX,a.ZX+200,a.R),
+              let m = oZ.getArZ(a.ZX,a.ZX+100,a.R),
               l=m.length;
 	while(l--){
 	(t=m[l])&&t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit1(t,100,0)
@@ -6330,6 +6330,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
