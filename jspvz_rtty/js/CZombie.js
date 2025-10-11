@@ -3735,6 +3735,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 			e.getHit4(e, b, c)
 		},
 getHit0:function(a,c){
+	a.protect&&(c=2);
 	if(a.hard==2){
         let z = $(a.id);
         let div = $n("div");
@@ -3776,100 +3777,21 @@ getHit0:function(a,c){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a,c])
           } catch (e) {}
         }, [z, d, a,c])}
-(a.CheckOrnHP(a,a.id, a.OrnHP,(a.hard==2?c*0.5:c),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
+(a.CheckOrnHP(a,a.id, a.OrnHP,((a.hard==2)?c*0.5:c),a.PicArr,a.isAttacking, 1), a.SetAlpha(a, a.EleBody, 50, 0.5), oSym.addTask(10, function(e, d) {
                 (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1)
             }, [a.id]))
-        },
+},
 PrivateAct: function() {
     let a = this;
-    if (!a.bool&&(!oS.CannotShoot)) {
-      a.bool = 1;
-      oSym.addTask(140, function(a) {
-        let i = 0,
-          max = 3;
-        var timer = setInterval(function() {
-            i++;
-	if(!$Z[a.id]){return}
-            let z = $(a.id);	    
-            let div = $n("div");
-            let d = "GPea" + Math.random();
-	div.id=d;
-            div.innerHTML = '<img src="images/Plants/PB00.gif">';
-            EditEle(div, 0, {
-              position: "absolute",
-              zIndex: "24",
-              left: a.ZX + "px",
-              top: a.pixelTop + 40 + "px"
-            }, EDPZ, 0);
-            oSym.addTask(1, function(z, d, a) {
-              try {
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
-                let pea = $(d);
-                let C = GetC(a.ZX + 40);
-                for (let i = 3; i >= 0; i--) {
-                  for (let j = 1; j <= C; j++) {
-                    let p = oGd.$[a.R + "_" + j + "_" + i];
-                    p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains" && p.EName != "oSunFlower" && p.EName != "oCherryBomb" && 
-										p.EName != "oJalapeno" && p.EName != "oDoomShroom") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"), (p.HP -= 20), ($(d) && ClearChild($(d))));
-		p&& (p.EName== "oSunFlower") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"), (p.getHurt($Z[a],0,20)), ($(d) && ClearChild($(d))));
-                    p && (p.canEat) && (p.HP <= 0) && p.Die();
-                  }
-                }
-                let Z = oZ.getHZ1($(d).offsetLeft-50,a.R);
-                  Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0)), ($(d) && ClearChild($(d))));
-                if ($(d).offsetLeft <= 0) {
-                  ClearChild($(d));
-                  $(d).isDie = true;
-                }!($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
-              } catch (e) {}
-            }, [z, d, a]);
-            (i > max) && clearInterval(timer);
-          },
-          100);
-        !a.isDie && (a.Ornaments) && (a.PZ) && oSym.addTask(140, arguments.callee, [a]);
-      }, [a]);
-    }
+var b=oZ.getArZ(a.ZX-200,a.ZX,a.R);
+	c=b.length;
+c ? (a.protect=1):(a.protect=0);
   },
 bedevilAct: function() {
     let a = this;
-    if (!a.e) {
-      a.e = 1;
-      oSym.addTask(140, function(a) {
-        let i = 0,
-          max = 3;
-        var timer = setInterval(function() {
-            i++;
-	if(!$Z[a.id]){return}
-            let z = $(a.id);
-            let div = $n("div");
-            let d = "GPea" + Math.random();
-            div.id = d;
-            div.innerHTML = '<img src="images/Plants/PB00.gif">';
-            EditEle(div, 0, {
-              position: "absolute",
-              zIndex: "24",
-              left: a.ZX + "px",
-              top: a.pixelTop + 40 + "px"
-            }, EDPZ, 0);
-            oSym.addTask(1, function(z, d, a) {
-              try {
-                $(d).style.left = $(d).offsetLeft + 5 + "px";
-                let pea = $(d);
-                let Z = oZ.getZ0($(d).offsetLeft+50, a.R);
-                  Z && (Z.Altitude == 1) && ((Z.getPea(Z,20,0)),($(d) && ClearChild($(d))));
-                if ($(d).offsetLeft>=900) {
-                  ClearChild($(d));
-                  $(d).isDie = true;
-                };
-                !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
-              } catch (e) {}
-            }, [z, d, a]);
-            (i > max) && clearInterval(timer);
-          },
-          100);
-        !a.isDie && (a.Ornaments) && (!a.PZ) && oSym.addTask(140, arguments.callee, [a]);
-      }, [a]);
-    }
+	var b=oZ.getArHZ(a.ZX,a.ZX+200,a.R);
+	c=b.length;
+   c ? (a.protect=1):(a.protect=0);
   },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments =0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
@@ -6408,6 +6330,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
