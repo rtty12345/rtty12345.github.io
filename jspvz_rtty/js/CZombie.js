@@ -3790,8 +3790,9 @@ c ? (a.protect=1):(a.protect=0);
 bedevilAct: function() {
     let a = this;
 	var b=oZ.getArHZ(a.ZX-200,a.ZX-1,a.R);
-	c=b.length;
-   c ? (a.protect=1):(a.protect=0);
+	for(let c=0;c<b.length;c++){
+   c.EName!=="oScreenDoorZombie" ? (a.protect=1):(a.protect=0);
+	}
   },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments =0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
@@ -6330,6 +6331,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
