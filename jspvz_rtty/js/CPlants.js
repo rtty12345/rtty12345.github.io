@@ -4,6 +4,7 @@
 	PKind: 1,
 	beAttackedPointL: 20,
 	CardGif: 0,
+	AttTime:0,
 	StaticGif: 1,
 	NormalGif: 2,
 	BookHandBack: 0,
@@ -23,6 +24,26 @@
 		d = oS.ArP;
 		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]) : c[0] && !c[1]
 	},
+	 getSlow: function(h, f, g) {
+			var d = oSym.Now + g,
+			e = h.FreeSlowTime,
+			c = 0;
+			switch (true) {
+			case ! e: !(h.FreeFreezeTime || h.FreeSetbodyTime) && (h.Speed = 0.5 * h.OSpeed);
+				h.AttTime = 140;
+				h.FreeSlowTime = d;
+				c = 1;
+				break;
+			case e < d: h.FreeSlowTime = d;
+				c = 1
+			}
+			c && oSym.addTask(g,
+			function(j, i) {
+				var k = $Z[j];
+				k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.AttTime =0)
+			},
+			[f, d])
+		},
 	getHurt: function(e, c, b) {
 		var d = this,
 		a = d.id; ! (c % 3) ? (d.HP -= b) < 1 && d.Die() : d.Die()
@@ -101,7 +122,7 @@
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		this.NormalAttack(b);
-		oSym.addTask(this.highwork?70:140,
+		oSym.addTask((this.highwork?70:140)+this.AttTime,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.AttackCheck1(f, h)
 		},
@@ -289,7 +310,7 @@ HP:500,
   CheckLoop: function(b, c) {
     var a = this.id;
     this.NormalAttack(b);
-    oSym.addTask(this.highwork?5:10,
+    oSym.addTask((this.highwork?5:10)+this.AttTime,
       function(e, f, h) {
         var g;
         (g = $P[e]) && g.AttackCheck1(f, h)
@@ -1097,7 +1118,7 @@ oSplitPea = InheritO(oPeashooter, {
 	},
 	CheckLoop: function(a, b) {
 		this.NormalAttack(b);
-		oSym.addTask(this.highwork?70:140,
+		oSym.addTask((this.highwork?70:140)+this.AttTime,
 		function(c, e, g) {
 			var f; (f = $P[c]) && f.AttackCheck1(e, g)
 		},
@@ -3047,7 +3068,7 @@ oCactus = InheritO(CPlants, {
 		var a = this.id;
 		this.NormalAttack(b);
 		this.ES();
-		this.Status == 0 && oSym.addTask(this.highwork?100:200,
+		this.Status == 0 && oSym.addTask((this.highwork?70:140)+this.AttTime,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.ES() && g.AttackCheck1(f, h)
 		},
@@ -3057,7 +3078,7 @@ oCactus = InheritO(CPlants, {
 		var a = this.id;
 		this.NormalAttack(b);
 		this.ES();
-		this.Status && oSym.addTask(this.highwork?40:140,
+		this.Status && oSym.addTask((this.highwork?40:90)+this.AttTime,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.ES() && g.AttackCheck12(f, h)
 		},
@@ -3511,6 +3532,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
