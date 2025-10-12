@@ -5773,7 +5773,6 @@ oBalloonZombie = InheritO(OrnIZombies, {
               } else {
                 ClearChild(h);
                 a.Speed = a.OSpeed = 1.6;
-			    break;
               }
         a&&a.PZ&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
       }, [a,a.id + "_Bullet",z]);//使3*3僵尸射豌豆,大喷技能
@@ -6393,3 +6392,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
