@@ -5748,7 +5748,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	for (let i = GetC(a.ZX - 20) - 2; i <= GetC(a.ZX - 20); i++) {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
-                !a.isAttacking&&(Tz||m)?(
+                !a.isAttacking&&(Tz||m!==undefined)?(
 					a.Speed = a.OSpeed = 0,
 					m&&(a.Speed = a.OSpeed = 0),
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
@@ -6394,6 +6394,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
