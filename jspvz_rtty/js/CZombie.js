@@ -5749,11 +5749,11 @@ oBalloonZombie = InheritO(OrnIZombies, {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
                 !a.isAttacking&&(Tz||(m&&$P[m.id]))?(a.Speed = a.OSpeed = 0,
-				EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
+				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
                   SetVisible($(h)),
 			oSym.addTask(50,function(a,z){
-			a&&a.Ornaments&&EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
+			a&&a.Ornaments&&EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
 			},[a,z]),
                   ImgSpriter(h, a.id, [
                       ["0 0", 4, 1],
@@ -5834,7 +5834,7 @@ oSym.addTask(300,function(a){
 	a&&(!a.Ornaments||!$Z[a.id]||a.PZ)&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
-NewEle(a.id + "_Bullet",
+NewEle(a.id + "Bullet",
 "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:80px;top:40px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
 oSym.addTask(1, function(a,h,z) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
@@ -5850,12 +5850,12 @@ oSym.addTask(1, function(a,h,z) {
     let B= oZ.getArZ(a.ZX, a.ZX+200, a.R),
         Tz= B.length;
 		!a.isAttacking&&Tz?(
-			EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
+			EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
 			PlayAudio("fume"),
             SetVisible($(h)),
 			a.Speed = a.OSpeed = 0,
 			oSym.addTask(50,function(a,z){
-			a&&a.Ornaments&&EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
+			a&&a.Ornaments&&EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
 			},[a,z]),
             ImgSpriter(h, a.id, [
                       ["0 0", 4, 1],
@@ -5872,8 +5872,8 @@ oSym.addTask(1, function(a,h,z) {
                 ClearChild(h);
                 a.Speed = a.OSpeed = 1.6;
               }
-        ($Z[a.id])&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
-      }, [a,a.id + "_Bullet",z]);
+        ($Z[a.id])&&oSym.addTask(100, arguments.callee, [a,a.id + "Bullet",z])
+      }, [a,a.id + "Bullet",z]);
       oSym.addTask(200, function(a) {
 	if(!$Z[a.id]){return}
         let z = $(a.id);
@@ -6392,5 +6392,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
