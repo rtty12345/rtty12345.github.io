@@ -5814,7 +5814,7 @@ oSym.addTask(1, function(a,h) {
           }
         };
     if (a.OrnHP >= 1) {
-    let B= oZ.getArZ(a.ZX - 120, a.ZX, a.R),
+    let B= oZ.getArZ(a.ZX, a.ZX+200, a.R),
               Tz= B.length;
 		!a.isAttacking&&Tz?(PlayAudio("fume"),
             SetVisible($(h)),
@@ -6354,6 +6354,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
