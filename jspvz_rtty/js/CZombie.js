@@ -5727,8 +5727,8 @@ oBalloonZombie = InheritO(OrnIZombies, {
             let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:rotateY(180deg);left:45px;top:40px;",0);
             z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
-	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea),ClearChild(Sh));
-	a&&!a.Ornaments&&!$Z[a.id]&&!a.PZ&&ClearChild(Sh)
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea));
+	a&&(!a.Ornaments||!$Z[a.id]||!a.PZ)&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
 	oSym.addTask(1, function(a) {
@@ -5752,7 +5752,7 @@ oSym.addTask(300,function(a){
             div.innerHTML = '<img src="images/Plants/PB-10.gif">';
             EditEle(div,0,{
                 position:"absolute",
-		transform:"rotateY(20deg)",
+		transform:"rotateY(180deg)",
                 zIndex:"24",
                 left:a.ZX + "px",
                 top:a.pixelTop + 40 + "px"
@@ -5772,7 +5772,7 @@ oSym.addTask(300,function(a){
                 p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getHZ1($(d).offsetLeft - 50,a.R);
+	let Z= oZ.getHZ1($(d).offsetLeft + 50,a.R);
             Z&&(Z.Altitude==1)&& (PlayAudio("splat1"), (Z.getHit0(Z,50,0),(Z.getSlow(Z)),($(d) && ClearChild($(d)))));
                 if($(d).offsetLeft <= 0){
                     ClearChild($(d));
@@ -5799,7 +5799,7 @@ oSym.addTask(300,function(a){
             z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea));
-		a&&!a.Ornaments&&!$Z[a.id]&&a.PZ&&ClearChild(Sh)
+	a&&(!a.Ornaments||!$Z[a.id]||!a.PZ)&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
 oSym.addTask(1, function(a) {
@@ -5831,7 +5831,7 @@ oSym.addTask(1, function(a) {
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let p = oZ.getZ0($(d).offsetLeft + 50,a.R);
+          let p = oZ.getZ0($(d).offsetLeft -50,a.R);
             p &&  (p.Altitude==1) && ((p.getSlowPea(p, 20, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft>=880) {
             ClearChild($(d));
@@ -6332,6 +6332,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
