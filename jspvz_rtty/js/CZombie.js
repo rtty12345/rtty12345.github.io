@@ -5719,9 +5719,9 @@ oBalloonZombie = InheritO(OrnIZombies, {
         PrivateAct: function(a){
     if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
-		let z = $(a.id);
+		var z = $(a.id);
         z.PeaHead = "Pea" + Math.random();
-        let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+        let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:30px;top:15px;",0);
         z.appendChild(Pea);
 		z.FumeDoor = "Fume" + Math.random();
         let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:rotateY(180deg);left:30px;top:40px;",0);
@@ -5730,8 +5730,10 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea));
 	a&&(!a.Ornaments||!$Z[a.id]||!a.PZ)&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
-	},[a,Pea,Sh]);//寒冰头与大喷菇门
-	oSym.addTask(1, function(a) {
+	},[a,Pea,Sh]);//寒冰头与大喷菇
+	NewEle(a.id + "_Bullet", 
+	"div", "position:absolute;transform:rotateY(180deg);visibility:hidden;width:343px;height:62px;left:-250px;top:60px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
+	oSym.addTask(1, function(a,h,z) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
             let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
@@ -5741,8 +5743,37 @@ oBalloonZombie = InheritO(OrnIZombies, {
             }
           }
         };
-        oSym.addTask(100, arguments.callee, [a])
-      }, [a]);//使3*3僵尸射豌豆
+		if (a.OrnHP >= 1&&(a.PZ)) {
+		let A= oZ.getArHZ(a.ZX, a.ZX+200, a.R),
+        Tz= A.length;
+	for (let i = GetC(a.ZX - 20) - 2; i <= GetC(a.ZX - 20); i++) {
+            for (let l = 0; l < 4; l++) {
+              var m = oGd.$[a.R + "_" + i + "_" + l];
+                !a.isAttacking&&(Tz||$P[m.id])?(a.Speed = a.OSpeed = 0,
+                  PlayAudio("fume"),
+                  SetVisible($(h)),
+                  ImgSpriter(h, a.id, [
+                      ["0 0", 4, 1],
+                      ["0 -62px", 4, 2],
+                      ["0 -124px", 4, -1]
+                    ], 0,
+                    function(i, j) {
+                      SetHidden($(i))
+                    }),
+                  m && (m.getHurt(a, 3,50),m.getSlow(m,m.id,1500))
+						):(a.Speed = a.OSpeed = 1.6);
+					}
+	             }
+			while (Tz--) {
+              (t = B[Tz])&&(t.Altitude==1)&&(t.getHit1(t,50,0),t.getSlow(t,t.id,1500))
+            }
+              } else {
+                ClearChild(h);
+                a.Speed = a.OSpeed = 1.6;
+			    break;
+              }
+        a&&a.PZ&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
+      }, [a,a.id + "_Bullet",z]);//使3*3僵尸射豌豆,大喷技能
 oSym.addTask(300,function(a){
 	if(!$Z[a.id]){return}
             let z = $(a.id);
@@ -5794,7 +5825,7 @@ oSym.addTask(300,function(a){
     let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;left:45px;top:15px;",0);
     z.appendChild(Pea);
 	z.FumeDoor = "Fume" + Math.random();
-            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;left:30px;top:40px;",0);
+            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;left:45px;top:40px;",0);
             z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea));
@@ -5815,7 +5846,7 @@ oSym.addTask(1, function(a,h,z) {
         };
     if (a.OrnHP >= 1&&(!a.PZ)) {
     let B= oZ.getArZ(a.ZX, a.ZX+200, a.R),
-              Tz= B.length;
+        Tz= B.length;
 		!a.isAttacking&&Tz?(
 			EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
 			PlayAudio("fume"),
@@ -5833,7 +5864,7 @@ oSym.addTask(1, function(a,h,z) {
                       SetHidden($(i))
             })):(a.Speed = a.OSpeed = 1.6);
 		    while (Tz--) {
-              !a.isAttacking&&(t = B[Tz])&&(t.Altitude==1)&&(t.getHit1(t,100,0),t.getSlow(t,t.id,1500))
+              !a.isAttacking&&(t = B[Tz])&&(t.Altitude==1)&&(t.getHit1(t,50,0),t.getSlow(t,t.id,1500))
             }
             } else {
                 ClearChild(h);
@@ -6359,6 +6390,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
