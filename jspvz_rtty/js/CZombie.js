@@ -5802,7 +5802,7 @@ oSym.addTask(300,function(a){
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
 NewEle(a.id + "_Bullet",
-"div", "position:absolute;visibility:hidden;width:343px;height:62px;left:50px;top:60px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
+"div", "position:absolute;visibility:hidden;width:343px;height:62px;left:80px;top:40px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
 oSym.addTask(1, function(a,h) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
@@ -6359,6 +6359,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
