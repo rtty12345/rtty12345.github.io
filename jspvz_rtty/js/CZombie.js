@@ -5748,7 +5748,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	for (let i = GetC(a.ZX - 20) - 2; i <= GetC(a.ZX - 20); i++) {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
-                !a.isAttacking&&(Tz||(m&&$P[m.id]))?(
+                !a.isAttacking&&(Tz||m)?(
 					a.Speed = a.OSpeed = 0,
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
@@ -5851,10 +5851,10 @@ oSym.addTask(1, function(a,h,z) {
     let B= oZ.getArZ(a.ZX, a.ZX+200, a.R),
         Tz= B.length;
 		!a.isAttacking&&Tz?(
+			a.Speed = a.OSpeed = 0,
 			EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
 			PlayAudio("fume"),
             SetVisible($(h)),
-			a.Speed = a.OSpeed = 0,
 			oSym.addTask(50,function(a,z){
 			a&&a.Ornaments&&EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
 			},[a,z]),
@@ -6393,6 +6393,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
