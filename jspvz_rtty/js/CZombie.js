@@ -5748,7 +5748,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	for (let i = GetC(a.ZX - 20) - 2; i <= GetC(a.ZX - 20); i++) {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
-                !a.isAttacking&&(Tz||$P[m.id])?(a.Speed = a.OSpeed = 0,
+                !a.isAttacking&&(Tz||(m&&$P[m.id]))?(a.Speed = a.OSpeed = 0,
 				EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
                   SetVisible($(h)),
@@ -5768,7 +5768,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 					}
 	             }
 			while (Tz--) {
-              (t = B[Tz])&&(t.Altitude==1)&&(t.getHit1(t,50,0),t.getSlow(t,t.id,1500))
+              (t = A[Tz])&&(t.Altitude==1)&&(t.getHit1(t,50,0),t.getSlow(t,t.id,1500))
             }
               } else {
                 ClearChild(h);
@@ -6392,4 +6392,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
