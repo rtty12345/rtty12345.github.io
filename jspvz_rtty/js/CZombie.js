@@ -5703,9 +5703,8 @@ oBalloonZombie = InheritO(OrnIZombies, {
         EName: "oPeaZombie",
         CName: "寒冰射手僵尸",
         OrnHP:2200,
-		BreakPoint:90,
         HP: 800,
-        Lvl: 3,
+        Lvl: 6,
         SunNum: 200,
         PicArr: (function() {
             var a = "images/Zombies/ScreenDoorZombie/",
@@ -5750,8 +5749,12 @@ oBalloonZombie = InheritO(OrnIZombies, {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
                 !a.isAttacking&&(Tz||$P[m.id])?(a.Speed = a.OSpeed = 0,
+				EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
                   SetVisible($(h)),
+			oSym.addTask(50,function(a,z){
+			a&&a.Ornaments&&EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
+			},[a,z]),
                   ImgSpriter(h, a.id, [
                       ["0 0", 4, 1],
                       ["0 -62px", 4, 2],
@@ -6390,23 +6393,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
