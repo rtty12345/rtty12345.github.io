@@ -5750,6 +5750,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
               var m = oGd.$[a.R + "_" + i + "_" + l];
                 !a.isAttacking&&(Tz||m)?(
 					a.Speed = a.OSpeed = 0,
+					m&&(a.Speed = a.OSpeed = 0),
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
                   SetVisible($(h)),
@@ -6393,6 +6394,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
