@@ -5743,12 +5743,13 @@ oBalloonZombie = InheritO(OrnIZombies, {
           }
         };
 		if (a.OrnHP >= 1&&(a.PZ)) {
-		let A= oZ.getArHZ(a.ZX, a.ZX+200, a.R),
+		let A= oZ.getArHZ(a.ZX-200, a.ZX, a.R),
         Tz= A.length;
 	for (let i = GetC(a.ZX - 20) - 2; i <= GetC(a.ZX - 20); i++) {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
-                !a.isAttacking&&(Tz||(m&&$P[m.id]))?(a.Speed = a.OSpeed = 0,
+                !a.isAttacking&&(Tz||(m&&$P[m.id]))?(
+					a.Speed = a.OSpeed = 0,
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
                   SetVisible($(h)),
@@ -5774,7 +5775,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
                 ClearChild(h);
                 a.Speed = a.OSpeed = 1.6;
               }
-        a&&a.PZ&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
+        a&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
       }, [a,a.id + "_Bullet",z]);//使3*3僵尸射豌豆,大喷技能
 oSym.addTask(300,function(a){
 	if(!$Z[a.id]){return}
@@ -6392,6 +6393,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
