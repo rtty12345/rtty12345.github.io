@@ -5789,7 +5789,7 @@ oSym.addTask(300,function(a){
     if (!a.e) {
       a.Speed = 1;
       a.e = 1;
-	let z = $(a.id);
+	var z = $(a.id);
     z.PeaHead = "Pea" + Math.random();
     let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;left:45px;top:15px;",0);
     z.appendChild(Pea);
@@ -5822,7 +5822,7 @@ oSym.addTask(1, function(a,h,z) {
             SetVisible($(h)),
 			a.Speed = a.OSpeed = 0,
 			oSym.addTask(50,function(a,z){
-			a&&a.beAttacked&&EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
+			a&&a.Ornaments&&EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
 			},[a,z]),
             ImgSpriter(h, a.id, [
                       ["0 0", 4, 1],
@@ -6359,6 +6359,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
