@@ -59,7 +59,7 @@ var CZombies = function(b, a) {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
 	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
@@ -1179,7 +1179,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		g.ChkSpeed(g);
 		if(g.HPlook&&!g.bHP){
 	g.bHP=1;
-    var E= NewEle("daHP", "div", "position:absolute;color:#fff;top:" + (g.pixelTop + 100) + "px;left:" + (g.ZX+60) + "px;width:100%;font-size:12px", "", EDAll);
+    var E= NewEle("daHP", "div", "position:absolute;color:#fff;top:" + (g.pixelTop + 100) + "px;left:" + (g.ZX+60) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "shp" + Math.random();
     daHP.id = A;
     var C = $(A);
@@ -1656,7 +1656,7 @@ AttackZombie:function(){
               w = [],
               u = [],
               o = 0,
-              ZP = [new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie, new oNewspaperZombie, new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie, new oImp,new oPeaZombie, new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3],
+              ZP = [new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie, new oNewspaperZombie, new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3],
               q,
               l;
             if (h && h.beAttacked) {
@@ -2013,7 +2013,7 @@ let b=oZ.getArZ(0,oS.W,i),
 }
 if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+60) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+60) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
@@ -2536,7 +2536,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
-              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸")&&
+              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸"||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸")&&
 			(t.OrnHP<1)&&(t.beAttacked)&&($Z[t.id])&&(t.PZ==a.PZ)) {
 			    t&&(t.OrnHP = 1100,
                   t.getHit0 = (s = OrnIZombies.prototype).getHit0,
@@ -2547,7 +2547,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
                   t.OrnLostAttackGif = 10,
 				t.Ornaments=1,
 				t.PlayNormalballAudio = oBucketheadZombie.prototype.PlayNormalballAudio);
-             t.CName!== "鸭子救生圈僵尸"?(t.NormalGif = 2,
+             (t.CName!=="路障鸭子救生圈僵尸")&&(t.CName!== "鸭子救生圈僵尸")&&(t.CName!== "铁桶鸭子救生圈僵尸")?(t.NormalGif = 2,
                   t.AttackGif = 3,
                   t.PicArr = oBucketheadZombie.prototype.PicArr,
                   t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2]):
@@ -2690,7 +2690,7 @@ oFootballZombie= function() {
       h.WalkDirection = 1);
 		if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
@@ -2757,7 +2757,7 @@ ChkActs1: function(g, e, h, d) {
       g.WalkDirection = 0);
 		if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
@@ -2788,7 +2788,7 @@ ChkActs1: function(g, e, h, d) {
       h.WalkDirection = 1);
 	 	if(h.HPlook&&!h.bHP){
 	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
@@ -5480,9 +5480,9 @@ oImp = InheritO(OrnNoneZombies, {
 	PrivateBirth:function(a){
 	oSym.addTask(500,function(a){
 	a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});  
-        if ((a.PZ)&&$Z[a.id]) {
+        if ((a.PZ)&&$Z[a.id]&&a.beAttacked) {
     EDAll && (EDAll.style.opacity = 0);
-    oSym.addTask(500, function() {
+    oSym.addTask(300, function() {
       EDAll && (EDAll.style.opacity = 1);
     }, [])
         }
@@ -5717,20 +5717,20 @@ oBalloonZombie = InheritO(OrnIZombies, {
         },
         Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(800)</font><br>铁栅门韧性：<font color="#FF0000">高(2000)</font></p><div style="color:red">特点：发射寒冰豌豆，同时使3×3的僵尸额外发射一颗普通豌豆</div>只是一个普普通通的小豌豆僵尸',
         PrivateAct: function(a){
-        if(!a.bool&&(!oS.CannotShoot)){
+    if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
-			let z = $(a.id);
-            z.PeaHead = "Pea" + Math.random();
-            let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
-            z.appendChild(Pea);
-			z.FumeDoor = "Fume" + Math.random();
-            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:rotateY(180deg);left:45px;top:40px;",0);
-            z.appendChild(Sh);
+		let z = $(a.id);
+        z.PeaHead = "Pea" + Math.random();
+        let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:15px;",0);
+        z.appendChild(Pea);
+		z.FumeDoor = "Fume" + Math.random();
+        let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:rotateY(180deg);left:30px;top:40px;",0);
+        z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea));
 	a&&(!a.Ornaments||!$Z[a.id]||!a.PZ)&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
-	},[a,Pea,Sh]);
+	},[a,Pea,Sh]);//寒冰头与大喷菇门
 	oSym.addTask(1, function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
@@ -5742,7 +5742,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
           }
         };
         oSym.addTask(100, arguments.callee, [a])
-      }, [a]);
+      }, [a]);//使3*3僵尸射豌豆
 oSym.addTask(300,function(a){
 	if(!$Z[a.id]){return}
             let z = $(a.id);
@@ -5752,7 +5752,6 @@ oSym.addTask(300,function(a){
             div.innerHTML = '<img src="images/Plants/PB-10.gif">';
             EditEle(div,0,{
                 position:"absolute",
-		transform:"rotateY(180deg)",
                 zIndex:"24",
                 left:a.ZX + "px",
                 top:a.pixelTop + 40 + "px"
@@ -5784,9 +5783,9 @@ oSym.addTask(300,function(a){
             },[z,d,a]);
             !a.isDie && (a.HP > 60) &&(a.PZ)&&oSym.addTask(125,arguments.callee,[a])
             },[a]);
-            }
+            }//自身冻结豆
         },
-  bedevilAct: function(a) {
+  bedevilAct: function(a) {//相关魅惑修复
     if (!a.e) {
       a.Speed = 1;
       a.e = 1;
@@ -5802,7 +5801,9 @@ oSym.addTask(300,function(a){
 	a&&(!a.Ornaments||!$Z[a.id]||!a.PZ)&&ClearChild(Sh)
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh])
 	},[a,Pea,Sh]);
-oSym.addTask(1, function(a) {
+NewEle(a.id + "_Bullet",
+"div", "position:absolute;transform:rotateY(180deg); visibility:hidden;width:343px;height:62px;left:-250px;top:80px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
+oSym.addTask(1, function(a,h) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
             let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
@@ -5812,8 +5813,29 @@ oSym.addTask(1, function(a) {
             }
           }
         };
-        oSym.addTask(100, arguments.callee, [a])
-      }, [a]);
+    if (a.OrnHP >= 1) {
+    let B= oZ.getArZ(a.ZX - 120, a.ZX, a.R),
+              Tz= B.length;
+		!a.isAttacking&&Tz?(PlayAudio("fume"),
+            SetVisible($(h)),
+			a.Speed = a.OSpeed = 0,
+            ImgSpriter(h, a.id, [
+                      ["0 0", 4, 1],
+                      ["0 -62px", 4, 2],
+                      ["0 -124px", 4, -1]
+                    ], 0,
+            function(i, j) {
+                      SetHidden($(i))
+            })):(a.Speed = a.OSpeed = 1.6);
+		    while (Tz--) {
+              !a.isAttacking&&(t = B[Tz])&&t.getSnowPea(t,100,0)
+            }
+            } else {
+                ClearChild(h);
+                a.Speed = a.OSpeed = 1.6;
+              }
+        ($Z[a.id])&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet"])
+      }, [a,a.id + "_Bullet"]);
       oSym.addTask(200, function(a) {
 	if(!$Z[a.id]){return}
         let z = $(a.id);
@@ -6332,6 +6354,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
