@@ -5794,7 +5794,7 @@ oSym.addTask(300,function(a){
     let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;left:45px;top:15px;",0);
     z.appendChild(Pea);
 	z.FumeDoor = "Fume" + Math.random();
-            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;left:45px;top:40px;",0);
+            let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;left:30px;top:40px;",0);
             z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Pea));
@@ -5803,7 +5803,7 @@ oSym.addTask(300,function(a){
 	},[a,Pea,Sh]);
 NewEle(a.id + "_Bullet",
 "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:80px;top:40px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
-oSym.addTask(1, function(a,h) {
+oSym.addTask(1, function(a,h,z) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oPeaZombie" && ($Z[a.id])) {
             let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
@@ -5813,17 +5813,17 @@ oSym.addTask(1, function(a,h) {
             }
           }
         };
-    if (a.OrnHP >= 1) {
+    if (a.OrnHP >= 1&&(!a.PZ)) {
     let B= oZ.getArZ(a.ZX, a.ZX+200, a.R),
               Tz= B.length;
 		!a.isAttacking&&Tz?(
-			EditImg($(a.id).FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
+			EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
 			PlayAudio("fume"),
             SetVisible($(h)),
 			a.Speed = a.OSpeed = 0,
-			oSym.addTask(50,function(a){
-			a&&a.beAttacked&&EditImg($(a.id).FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
-			},[a]),
+			oSym.addTask(50,function(a,z){
+			a&&a.beAttacked&&EditImg(z.FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{},0)
+			},[a,z]),
             ImgSpriter(h, a.id, [
                       ["0 0", 4, 1],
                       ["0 -62px", 4, 2],
@@ -5839,8 +5839,8 @@ oSym.addTask(1, function(a,h) {
                 ClearChild(h);
                 a.Speed = a.OSpeed = 1.6;
               }
-        ($Z[a.id])&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet"])
-      }, [a,a.id + "_Bullet"]);
+        ($Z[a.id])&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
+      }, [a,a.id + "_Bullet",z]);
       oSym.addTask(200, function(a) {
 	if(!$Z[a.id]){return}
         let z = $(a.id);
@@ -5858,7 +5858,7 @@ oSym.addTask(1, function(a,h) {
         oSym.addTask(1, function(z, d, a) {
           $(d).style.left = $(d).offsetLeft + 5 + "px";
           let pea = $(d);
-          let p = oZ.getZ0($(d).offsetLeft -50,a.R);
+          let p = oZ.getZ0($(d).offsetLeft+50,a.R);
             p &&  (p.Altitude==1) && ((p.getSlowPea(p, 20, 0),($(d) && ClearChild($(d)))));
           if ($(d).offsetLeft>=880) {
             ClearChild($(d));
@@ -6359,6 +6359,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
