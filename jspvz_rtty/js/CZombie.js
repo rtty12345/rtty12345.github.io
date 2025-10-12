@@ -3784,8 +3784,9 @@ getHit0:function(a,c){
 PrivateAct: function() {
     let a = this;
 var b=oZ.getArZ(a.ZX+1,a.ZX+200,a.R);
-	c=b.length;
-c ? (a.protect=1):(a.protect=0);
+for(let c=0;c<b.length;c++){
+   c.EName!=="oScreenDoorZombie" ? (a.protect=1):(a.protect=0);
+}
   },
 bedevilAct: function() {
     let a = this;
@@ -6331,6 +6332,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
