@@ -5823,7 +5823,7 @@ oSym.addTask(1, function(a,h) {
 			a.Speed = a.OSpeed = 0,
 			oSym.addTask(50,function(a){
 			a&&a.beAttacked&&EditImg($(a.id).FumeDoor,0,"images/Plants/FumeShroom/FumeShroom.gif",{})
-			},[a]);
+			},[a]),
             ImgSpriter(h, a.id, [
                       ["0 0", 4, 1],
                       ["0 -62px", 4, 2],
@@ -6359,6 +6359,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
