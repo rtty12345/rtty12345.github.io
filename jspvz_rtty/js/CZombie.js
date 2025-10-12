@@ -5723,7 +5723,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
         let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:30px;top:15px;",0);
         z.appendChild(Pea);
 		z.FumeDoor = "Fume" + Math.random();
-        let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:rotateY(180deg);left:30px;top:40px;",0);
+        let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:rotateY(180deg);left:20px;top:50px;",0);
         z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Pea));
@@ -6393,6 +6393,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
