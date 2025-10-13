@@ -1816,6 +1816,11 @@ oZombie3= InheritO(oZombie, {
 	Speed:Math.random()*2+2,
 	HP:Math.random()*400+600,
 	Lvl:2,
+	PrivateAttack:function(){
+		if(!a.att){
+			this.att=1
+		}
+	}
 },
 {
 	PicArr: {
@@ -6395,6 +6400,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
