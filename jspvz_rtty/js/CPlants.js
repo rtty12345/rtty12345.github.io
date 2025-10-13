@@ -29,9 +29,9 @@
 			e = h.FreeSlowTime,
 			c = 0;
 			switch (true) {
-			case ! e: !(h.FreeFreezeTime || h.FreeSetbodyTime) && (h.Speed = 0.5 * h.OSpeed);
+			case ! e: 
 				h.AttTime = 140;
-				$(h.id).style.opacity=0.7;
+				$P[h.id]&&($(h.id).style.opacity=0.7);
 				h.FreeSlowTime = d;
 				c = 1;
 				break;
@@ -3534,6 +3534,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
