@@ -31,6 +31,7 @@
 			switch (true) {
 			case ! e: !(h.FreeFreezeTime || h.FreeSetbodyTime) && (h.Speed = 0.5 * h.OSpeed);
 				h.AttTime = 140;
+				$(h.id).style.opacity=0.7;
 				h.FreeSlowTime = d;
 				c = 1;
 				break;
@@ -39,8 +40,9 @@
 			}
 			c && oSym.addTask(g,
 			function(j, i) {
-				var k = $Z[j];
-				k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.AttTime =0)
+				var k = $P[j];
+				k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.AttTime =0,$(k.id).style.opacity=1
+											)
 			},
 			[f, d])
 		},
@@ -3532,6 +3534,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
