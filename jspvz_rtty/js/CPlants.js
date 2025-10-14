@@ -2426,7 +2426,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 		l = j + "_Bullet";
 		for (g = k.MinR; g <= f; g++){
 			e = oZ.getArZ(c, b, g);
-			for (h = e.length; h--; (a = e[h]).Altitude < 2 && (a.getHit1(a, 80),a.getPoison(a,10))
+			for (h = e.length; h--; (a = e[h]).Altitude < 2 && (a.getHit1(a, 80),a.Pnum<5&&a.getPoison(a,10))
 			){}
 		}
 		oSym.addTask(100,
@@ -3534,6 +3534,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
