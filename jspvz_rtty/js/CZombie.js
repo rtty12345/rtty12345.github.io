@@ -686,7 +686,6 @@ OrnNoneZombies = function() {
 		},
 		    getPoison: function(e,b,c){
 				var a;
-				if(e.Pnum>=5){return};
 				e.Pnum<5&&(e.Pnum+=1);
                 e.FreePoisonTime=a=oSym.Now+(e.Pnum*200);
                 oSym.addTask(15/e.Pnum,function(e,b,c){
@@ -6400,6 +6399,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
