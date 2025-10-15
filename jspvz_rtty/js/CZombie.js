@@ -3790,14 +3790,18 @@ PrivateAct: function() {
     let a = this;
 var b=oZ.getArZ(a.ZX+1,a.ZX+200,a.R);
 for(let c=0;c<b.length;c++){
-   c.EName!=="oScreenDoorZombie" ? (a.protect=1):(a.protect=0);
+if(b[c].EName!=="oScreenDoorZombie"){
+a.protect=1;
+	}else{a.protect=0}
 }
   },
 bedevilAct: function() {
     let a = this;
 	var b=oZ.getArHZ(a.ZX-200,a.ZX-1,a.R);
 	for(let c=0;c<b.length;c++){
-   c.EName!=="oScreenDoorZombie" ? (a.protect=1):(a.protect=0);
+	if(b[c].EName!=="oScreenDoorZombie"){
+a.protect=1;
+	}else{a.protect=0}
 	}
   },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
@@ -5738,15 +5742,6 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	NewEle(a.id + "_Bullet", 
 	"div", "position:absolute;transform:rotateY(180deg);visibility:hidden;width:343px;height:62px;left:-250px;top:60px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
 	oSym.addTask(1, function(a,h,z) {
-        for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-          if (a.EName == "oPeaZombie" && ($Z[a.id])) {
-            let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
-              w = A.length;
-            while (w--) {
-              (t = A[w])&& t.shootPea(t)
-            }
-          }
-        };
 		if (a.OrnHP >= 1&&(a.PZ)) {
 		let A= oZ.getArHZ(a.ZX-200, a.ZX, a.R),
         Tz= A.length;
@@ -5844,15 +5839,6 @@ oSym.addTask(300,function(a){
 NewEle(a.id + "Bullet",
 "div", "position:absolute;visibility:hidden;width:343px;height:62px;left:80px;top:40px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1), 0, $(a.id));
 oSym.addTask(1, function(a,h,z) {
-        for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-          if (a.EName == "oPeaZombie" && ($Z[a.id])) {
-            let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
-              w = A.length;
-            while (w--) {
-              (t = A[w])&& t.shootbedevilPea(t)
-            }
-          }
-        };
     if (a.OrnHP >= 1&&(!a.PZ)) {
     let B= oZ.getArZ(a.ZX, a.ZX+200, a.R),
         Tz= B.length;
@@ -6399,6 +6385,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
