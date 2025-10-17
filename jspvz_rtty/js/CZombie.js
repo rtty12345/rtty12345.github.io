@@ -2052,7 +2052,7 @@ if(h.HPlook&&!h.bHP){
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 40, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -2305,8 +2305,8 @@ PrivateAct2:function(a){
         },
 	PrivateAct1:function(a){
             if(!a.bool){
-                a.Speed =a.oSpeed=5;
-                var C = GetC(a.X + 80);
+                a.Speed =a.OSpeed=4.8;
+                var C = GetC(a.ZX-1);
 for (i=0;i<4;i++){
 	for (let l= (a.R - 1 >= 1 ? a.R - 1 : 1); l<= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); l++) {
                 var p = oGd.$[(a.hard==2?l:a.R)+"_"+C+"_"+i];
@@ -2541,7 +2541,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
-              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸"||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸")&&
+              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "辣椒僵尸"||t.CName == "寒冰射手僵尸"||||t.CName == "鸭子救生圈僵尸"||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸")&&
 			(t.OrnHP<1)&&(t.beAttacked)&&($Z[t.id])&&(t.PZ==a.PZ)) {
 			    t&&(t.OrnHP = 1100,
                   t.getHit0 = (s = OrnIZombies.prototype).getHit0,
@@ -2585,7 +2585,7 @@ bedevilAct2: function(a) {
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
-              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸" ||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸")&&
+              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸" ||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸"||t.CName == "辣椒僵尸"||t.CName == "寒冰射手僵尸")&&
 			(t.OrnHP <= 1)&&(t.beAttacked)&&($Z[t.id])&&(t.PZ==a.PZ)) {
 			    t&&(t.OrnHP = 1100,
                   t.getHit0 = (s = OrnIZombies.prototype).getHit0,
@@ -2749,7 +2749,7 @@ oFootballZombie= function() {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit1(h,20,0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f])&&i.PZ ? (h.getHit1(h,20,0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -2814,6 +2814,134 @@ ChkActs1: function(g, e, h, d) {
 	Produce: '橄榄球僵尸免疫减速，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+800)</font><br>速度：<font color="#FF0000">快</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">单次高伤植物</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 })
 }(),
+    oFootballZombie1= InheritO(oConeheadZombie, {
+        EName: "oFootballZombie",
+        CName: "橄榄球僵尸",
+        OrnHP: 2000,
+		HP:400,
+        Lvl: 6,
+        SunNum: 250,
+        StandGif: 11,
+        width: 154,
+        height: 160,
+        OSpeed: 3.2,
+        Speed: 3.2,
+        beAttackedPointL: 40,
+        beAttackedPointR: 134,
+        PicArr: oFootballZombie.prototype.PicArr,
+        getShadow: function(a) {
+            return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
+        },
+  PrivateAct: function(a) {
+    if (!a.bool) {
+      a.bool = 1;
+	let z = $(a.id);
+      z.SquashHeadId = "Squash" + Math.random();
+      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:30px;",0);
+      z.appendChild(squash);
+	oSym.addTask(10,function(a,squash){
+	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(squash));
+	oSym.addTask(10,arguments.callee,[a,squash])
+	},[a,squash]);
+	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+          if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
+            let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
+              w = A.length;
+            while (w--) {
+              (t = A[w])&& t.shootPea(t)
+            }
+          }
+        };
+      oSym.addTask(1, function(a) {
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "tPea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB00.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: (a.ZX+20) + "px",
+          top: a.pixelTop + 40 + "px"
+        }, EDPZ, 0);
+        let y = Math.random() * 12 - 6;
+        oSym.addTask(1, function(z, d, a, y) {
+            let pea = $(d);
+            $(d).style.left = $(d).offsetLeft - 5 + "px";
+            $(d).style.top = $(d).offsetTop - y + "px";
+            let C = GetC(a.ZX);
+            for (let i = 3; i >= 0; i--) {
+              for (let j = 1; j <= C; j++) {
+                let p = oGd.$[GetR($(d).offsetTop + 30) + "_" + j + "_" + i];
+                p && (p.canEat) && (p.Stature >= 0) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (p.getHurt(a, 3, 20), ($(d) && ClearChild($(d))));
+              }
+            }
+            let Z = oZ.getHZ1(pea.offsetLeft + 50, GetR($(d).offsetTop + 30));
+            Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
+            if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
+              ClearChild($(d));
+            }
+            oSym.addTask(1, arguments.callee, [z, d, a, y])
+          },
+          [z, d, a, y]);
+        $Z[a.id] && a.beAttacked && (a.PZ) && oSym.addTask(5, arguments.callee, [a])
+      }, [a]);
+    }
+  },
+bedevilAct: function(a) {
+    if (!a.b) {
+      a.b = 1;
+	let z = $(a.id);
+      z.SquashHeadId = "Squash" + Math.random();
+      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;left:45px;top:30px;",0);
+      z.appendChild(squash);
+	oSym.addTask(10,function(a,squash){
+	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squash));
+	oSym.addTask(10,arguments.callee,[a,squash])
+	},[a,squash]);
+	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+          if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
+            let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
+              w = A.length;
+            while (w--) {
+              (t = A[w])&& t.shootbedevilPea(t)
+            }
+          }
+        };
+      oSym.addTask(1, function(a) {
+        let z = $(a.id);
+        let div = $n("div");
+        let d = "tPea" + Math.random();
+        div.id = d;
+        div.innerHTML = '<img src="images/Plants/PB00.gif">';
+        EditEle(div, 0, {
+          position: "absolute",
+          transform: "rotateY(20deg)",
+          zIndex: "24",
+          left: (a.ZX-20) + "px",
+          top: a.pixelTop + 40 + "px"
+        }, EDPZ, 0);
+        let y = Math.random() * 12 - 6;
+        oSym.addTask(1, function(z, d, a, y) {
+            let pea = $(d);
+            $(d).style.left = $(d).offsetLeft + 5 + "px";
+            $(d).style.top = $(d).offsetTop - y + "px";
+            let Z = oZ.getZ0(pea.offsetLeft + 50, GetR($(d).offsetTop + 35));
+            Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
+            if ($(d).offsetLeft >= oS.W || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
+              ClearChild($(d));
+            }
+            oSym.addTask(1, arguments.callee, [z, d, a, y])
+          },
+          [z, d, a, y]);
+        $Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(5, arguments.callee, [a])
+      }, [a]);
+    }
+  },
+  PrivateBirth: function() {},
+Produce: '橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">极高</font><br>速度：<font color="#FF0000">快</font><br>弱点：<font color="#FF0000">磁力菇</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。'
+    }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
 	CName: "撑杆僵尸",
@@ -3708,7 +3836,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Produce: '他的铁门是非常坚硬的盾牌。<p>韧性：<font color="#FF0000">低(400)</font><br>铁门韧性：<font color="#FF0000">高（1100）</font><br>弱点：大喷菇和磁力菇</p>能发射豌豆',
+	Produce: '他的铁门是非常坚硬的盾牌，若后方有僵尸则每次铁门限伤2<p>韧性：<font color="#FF0000">低(270)</font><br>铁门韧性：<font color="#FF0000">高（1100）</font><br>弱点：大喷菇和磁力菇</p>精英形态：寒冰射手铁门，能发射冻结豌豆，手里的大喷菇可以对前方两格的植物造成减速和伤害',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
@@ -3838,8 +3966,8 @@ oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
     Lvl:6,
     width: 348,
     height: 218,
-    OSpeed: 15,
-    Speed: 15,
+    OSpeed: 9.6,
+    Speed: 9.6,
     beAttackedPointL: 215,
     beAttackedPointR: 260,
     StandGif: 13,
@@ -3954,7 +4082,7 @@ oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
                     u &&
                       ((u.isAttacking = 0),
                       (u.Altitude = 1),
-					   (u.Speed=u.oSpeed=5),
+					   (u.Speed=u.OSpeed=3.2),
                       (v.src = u.PicArr[u.NormalGif]));
                   },
                   [m, n]
@@ -4179,7 +4307,7 @@ OpenBox:oBackupDancer1.prototype.OpenBox
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
   CName: "读报Boss",
-  OrnHP: 80000,
+  OrnHP: 60000,
   Lvl: 200,
   LostPaperGif: 13,
   StandGif: 14,
@@ -4224,7 +4352,7 @@ SunNum:2000,
         oSym.addTask(5, arguments.callee, [C, h, b])
       }, [C, h, b]);
     }
-    (this.Ornaments == 2) && this.changeR(this);
+    this.changeR(this);
     this.PrivateAct && this.PrivateAct(this);
     !this.cannotCheck && this.CheckSkills(this);
     return g
@@ -4255,11 +4383,11 @@ SunNum:2000,
             left: a.X + "px"
           });
         a.ChangeR(a);
-        if (a.OrnHP >= 70000) {
+        if (a.OrnHP >= 50000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
 		  oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 3;
-        } else if (a.OrnHP >= 50000) {
+        } else if (a.OrnHP >= 40000) {
 		try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oNewspaperZombie,oZombie, oZombie2, oZombie3], 0);
           oP.SetTimeoutTomZombie([oZombie]);
@@ -4286,7 +4414,7 @@ SunNum:2000,
   },
   CheckSkills: function(a) {
     a.cannotCheck = 1;
-    oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
+    oSym.addTask(1000 + (a.OrnHP * 0.01), function(a) {
       a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
       a.cannotCheck = 0;
     }, [a])
@@ -4338,7 +4466,7 @@ SunNum:2000,
     },
     {
       name: "狂暴",
-      tip: "使全场僵尸能踩植物，此技能持续10秒",
+      tip: "使全场僵尸能踩植物，此技能持续15秒",
       func: function(a) {
 		  $(a.id).style.filter = 'saturate(25%)',
         a.PrivateAct = function(a) {
@@ -4359,7 +4487,7 @@ SunNum:2000,
 			}
 		}
 	};
-          $Z[a.id] && oSym.addTask(1000, function(a) {
+          $Z[a.id] && oSym.addTask(1500, function(a) {
             a.PrivateAct = function() {};
 			$(a.id).style.filter = 'saturate(100%)';
             for (u in $Z) {
@@ -4369,7 +4497,14 @@ SunNum:2000,
             }
           }, [a])
       }
-    }
+    },
+{
+name:"The world",
+tip:"使场上植物停止攻击,持续5秒，此技能会在破报期间立刻发动",
+func:function(){
+for (u in $P) e = $P[u], e && (e.AttTime=500);
+}
+}		
   ],
   Init: function(e, g, c, b) {
     var a = 0,
@@ -4408,6 +4543,7 @@ SunNum:2000,
     var e = OrnNoneZombies.prototype;
     (g.OrnHP = d -= c) < 1 && (
       g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
+		for (u in $P)  e = $P[u], e && (e.AttTime=1200);
       oSym.addTask(1200,
         function(m, l) {
           var k = $Z[m];
@@ -4425,9 +4561,8 @@ SunNum:2000,
               }
             }
           };
-          k.oSpeed = 1.6;
-          try{oP.SetTimeoutTomZombie([oNewspaperZombie, oNewspaperZombie, oNewspaperZombie3, oNewspaperZombie2, oNewspaperZombie3]);}catch{};
-          k.Speed = 1.6;
+          k.oSpeed = 0.8;
+          k.Speed = 0.8;
           if (!k.beAttacked) {
             return
           }
@@ -6385,6 +6520,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
