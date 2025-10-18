@@ -2845,6 +2845,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(squash));
 	oSym.addTask(10,arguments.callee,[a,squash])
 	},[a,squash]);
+	oSym.addTask(1,function(a){
 	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
             let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
@@ -2854,6 +2855,8 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             }
           }
         };
+		oSym.addTask(100,arguments.callee,[a])
+	},[a]);
       oSym.addTask(1, function(a) {
         let z = $(a.id);
         let div = $n("div");
@@ -2875,11 +2878,11 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             let C = GetC(a.ZX);
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
-                let p = oGd.$[GetR($(d).offsetTop + 100) + "_" + j + "_" + i];
+                let p = oGd.$[(!y?a.R:GetR($(d).offsetTop)) + "_" + j + "_" + i];
                 p && (p.canEat) && (p.Stature >= 0) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (p.getHurt(a, 3, 20), ($(d) && ClearChild($(d))));
               }
             }
-            let Z = oZ.getHZ1(pea.offsetLeft + 50, GetR($(d).offsetTop + 100));
+            let Z = oZ.getHZ1(pea.offsetLeft + 50,(!y?a.R:GetR($(d).offsetTop)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
               ClearChild($(d));
@@ -2902,6 +2905,7 @@ bedevilAct: function(a) {
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squash));
 	oSym.addTask(10,arguments.callee,[a,squash])
 	},[a,squash]);
+oSym.addTask(1,function(a){
 	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
             let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
@@ -2911,6 +2915,8 @@ bedevilAct: function(a) {
             }
           }
         };
+	$Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(100, arguments.callee, [a])
+},[a]);
       oSym.addTask(1, function(a) {
         let z = $(a.id);
         let div = $n("div");
@@ -2929,7 +2935,7 @@ bedevilAct: function(a) {
             let pea = $(d);
             $(d).style.left = $(d).offsetLeft + 5 + "px";
             $(d).style.top = $(d).offsetTop - y + "px";
-            let Z = oZ.getZ0(pea.offsetLeft + 50, GetR($(d).offsetTop + 100));
+            let Z = oZ.getZ0(pea.offsetLeft + 50,(!y?a.R:GetR($(d).offsetTop)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft >= oS.W || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
               ClearChild($(d));
@@ -6522,6 +6528,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
