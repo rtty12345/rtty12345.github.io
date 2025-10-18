@@ -2864,7 +2864,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
           position: "absolute",
           transform: "rotateY(20deg)",
           zIndex: "24",
-          left: (a.ZX+20) + "px",
+          left: (a.ZX-10) + "px",
           top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
         let y = Math.random() * 12 - 6;
@@ -2921,7 +2921,7 @@ bedevilAct: function(a) {
           position: "absolute",
           transform: "rotateY(20deg)",
           zIndex: "24",
-          left: (a.ZX-20) + "px",
+          left: (a.ZX-30) + "px",
           top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
         let y = Math.random() * 12 - 6;
@@ -6522,6 +6522,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
