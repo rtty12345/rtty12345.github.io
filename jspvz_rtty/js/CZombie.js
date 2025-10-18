@@ -2839,7 +2839,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
       a.bool = 1;
 	let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:20px;",0);
+      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:35px;top:20px;",0);
       z.appendChild(squash);
 	oSym.addTask(10,function(a,squash){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(squash));
@@ -2864,7 +2864,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
           position: "absolute",
           transform: "rotateY(20deg)",
           zIndex: "24",
-          left: (a.ZX-10) + "px",
+          left: (a.ZX-20) + "px",
           top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
         let y = Math.random() * 12 - 6;
@@ -2875,7 +2875,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             let C = GetC(a.ZX);
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
-                let p = oGd.$[GetR($(d).offsetTop + 30) + "_" + j + "_" + i];
+                let p = oGd.$[GetR($(d).offsetTop + 60) + "_" + j + "_" + i];
                 p && (p.canEat) && (p.Stature >= 0) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (p.getHurt(a, 3, 20), ($(d) && ClearChild($(d))));
               }
             }
@@ -6522,6 +6522,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
