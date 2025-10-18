@@ -4502,7 +4502,7 @@ SunNum:2000,
 name:"The world",
 tip:"使场上植物停止攻击,持续5秒，此技能会在破报期间立刻发动",
 func:function(){
-for (u in $P) e = $P[u], e && (e.AttTime=500);
+for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && (e.AttTime=0)},[e]);
 }
 }		
   ],
@@ -4543,7 +4543,6 @@ for (u in $P) e = $P[u], e && (e.AttTime=500);
     var e = OrnNoneZombies.prototype;
     (g.OrnHP = d -= c) < 1 && (
       g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-		for (u in $P)  e = $P[u], e && (e.AttTime=1200);
       oSym.addTask(1200,
         function(m, l) {
           var k = $Z[m];
@@ -4551,6 +4550,7 @@ for (u in $P) e = $P[u], e && (e.AttTime=500);
             return
           }
           var j = CZombies.prototype;
+		for (u in $P) e = $P[u], e && (e.AttTime=1000),oSym.addTask(1000,function(e){e && (e.AttTime=0)},[e]);
           try {
             AppearTombstones(8, 9, 12)
           } catch {};
@@ -6520,6 +6520,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
