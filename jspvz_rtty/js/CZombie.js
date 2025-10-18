@@ -2855,7 +2855,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             }
           }
         };
-		oSym.addTask(100,arguments.callee,[a])
+		$Z[a.id] && a.beAttacked && (!a.PZ) &&oSym.addTask(100,arguments.callee,[a])
 	},[a]);
       oSym.addTask(1, function(a) {
         let z = $(a.id);
@@ -6528,6 +6528,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
