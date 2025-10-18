@@ -2814,11 +2814,10 @@ ChkActs1: function(g, e, h, d) {
 	Produce: '橄榄球僵尸免疫减速，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+800)</font><br>速度：<font color="#FF0000">快</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">单次高伤植物</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 })
 }(),
-    oFootballZombie1= InheritO(oConeheadZombie, {
-        EName: "oFootballZombie",
+oFootballZombie1= InheritO(oConeheadZombie, {
+        EName: "oFootballZombie1",
         CName: "橄榄球僵尸",
-        OrnHP: 2000,
-		HP:400,
+        OrnHP: 2400,
         Lvl: 6,
         SunNum: 250,
         StandGif: 11,
@@ -2828,7 +2827,10 @@ ChkActs1: function(g, e, h, d) {
         Speed: 3.2,
         beAttackedPointL: 40,
         beAttackedPointR: 134,
-        PicArr: oFootballZombie.prototype.PicArr,
+        PicArr: (function() {
+		var a = "images/Zombies/FootballZombie/";
+		return ["images/Card/Zombies/FootballZombie.png", a + "0.gif", a + "FootballZombie.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "OrnLost.gif", a + "OrnLostAttack.gif", a + "1.gif"]
+	})(),
         getShadow: function(a) {
             return "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
         },
@@ -2837,7 +2839,7 @@ ChkActs1: function(g, e, h, d) {
       a.bool = 1;
 	let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:30px;",0);
+      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:20px;",0);
       z.appendChild(squash);
 	oSym.addTask(10,function(a,squash){
 	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(squash));
@@ -2863,7 +2865,7 @@ ChkActs1: function(g, e, h, d) {
           transform: "rotateY(20deg)",
           zIndex: "24",
           left: (a.ZX+20) + "px",
-          top: a.pixelTop + 40 + "px"
+          top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
         let y = Math.random() * 12 - 6;
         oSym.addTask(1, function(z, d, a, y) {
@@ -2894,7 +2896,7 @@ bedevilAct: function(a) {
       a.b = 1;
 	let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;left:45px;top:30px;",0);
+      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;left:45px;top:20px;",0);
       z.appendChild(squash);
 	oSym.addTask(10,function(a,squash){
 	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squash));
@@ -2920,7 +2922,7 @@ bedevilAct: function(a) {
           transform: "rotateY(20deg)",
           zIndex: "24",
           left: (a.ZX-20) + "px",
-          top: a.pixelTop + 40 + "px"
+          top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
         let y = Math.random() * 12 - 6;
         oSym.addTask(1, function(z, d, a, y) {
@@ -6520,6 +6522,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
