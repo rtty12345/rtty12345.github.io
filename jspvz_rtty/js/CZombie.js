@@ -2873,7 +2873,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
         let y = Math.random() * 12 - 6;
         oSym.addTask(1, function(z, d, a, y) {
             let pea = $(d);
-			let Left=(y>-1&&(y<1))?1:0;
+			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft - 5 + "px";
             $(d).style.top = $(d).offsetTop - y + "px";
             let C = GetC(a.ZX);
@@ -2934,7 +2934,7 @@ oSym.addTask(1,function(a){
         let y = Math.random() * 12 - 6;
         oSym.addTask(1, function(z, d, a, y) {
             let pea = $(d);
-			let Left=(y>-1&&(y<1))?1:0;
+			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft + 5 + "px";
             $(d).style.top = $(d).offsetTop - y + "px";
             let Z = oZ.getZ0(pea.offsetLeft + 50,(Left=?a.R:GetR($(d).offsetTop+60)));
@@ -6530,6 +6530,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
