@@ -2879,11 +2879,11 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             let C = GetC(a.ZX);
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
-                let p = oGd.$[(Left?a.R:GetR($(d).offsetTop+60)) + "_" + j + "_" + i];
+                let p = oGd.$[(Left?a.R:GetR($(d).offsetTop+30)) + "_" + j + "_" + i];//若子弹偏转角度过小则直接判定为本行
                 p && (p.canEat) && (p.Stature >= 0) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (p.getHurt(a, 3, 20), ($(d) && ClearChild($(d))));
               }
             }
-            let Z = oZ.getHZ1(pea.offsetLeft + 50,(Left?a.R:GetR($(d).offsetTop+60)));
+            let Z = oZ.getHZ1(pea.offsetLeft + 50,(Left?a.R:GetR($(d).offsetTop+30)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
               ClearChild($(d));
@@ -2937,7 +2937,7 @@ oSym.addTask(1,function(a){
 			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft + 5 + "px";
             $(d).style.top = $(d).offsetTop - y + "px";
-            let Z = oZ.getZ0(pea.offsetLeft + 50,(Left?a.R:GetR($(d).offsetTop+60)));
+            let Z = oZ.getZ0(pea.offsetLeft + 50,(Left?a.R:GetR($(d).offsetTop+30)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft >= oS.W || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
               ClearChild($(d));
@@ -6530,6 +6530,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
