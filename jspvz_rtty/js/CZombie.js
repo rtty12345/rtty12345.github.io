@@ -1937,18 +1937,58 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
-	JudgeAttack:oZomboni.prototype.JudgeAttack,
+	JudgeAttack: function() {
+			var f = this,
+			c = f.ZX,
+			d = f.R + "_",
+			e = GetC(c),
+			g = oGd.$,
+			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+		},
+		JudgeAttack1: function() {
+			var f = this,
+			c = f.ZX,
+			d = f.R + "_",
+			e = GetC(c),
+			g = oGd.$,
+			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
+		},
 		reNormal: function(c) {
 			c.ExchangeLR(c, 0);
-			c.JudgeAttack = oZomboni.prototype.JudgeAttack;
+			c.JudgeAttack = c.JudgeAttack1;
 			c.PZ = 1;
 			c.WalkDirection = 0;
 			c.ZX = c.AttackedLX;
 			c.ChkActs = CZombies.prototype.ChkActs;
 		},
-		JudgeLR: oZomboni.prototype.JudgeLR,
-		JudgeSR: oZomboni.prototype.JudgeSR,
-		NormalAttack: oZomboni.prototype.NormalAttack
+		JudgeLR: function(e, c, d, b, f) {
+			return d > 10 || d < 1 ? false: function() {
+				c += --d + "_";
+				var g = 3,
+				h;
+				while (g--) {
+					if (h = f[c + g]) {
+						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
+					}
+				}
+			} ()
+		},
+		JudgeSR: function(e, c, d, b, f) {
+			return d > 9 ? false: function() {
+				c += d + "_";
+				var g = 3,
+				h;
+				while (g--) {
+					if (h = f[c + g]) {
+						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
+					}
+				}
+			} ()
+		},
+		NormalAttack: function(c, b) {
+			var d = $Z[c];
+			$P[b].getHurt(d, 2, d.Attack)
+		}
 }):InheritO(OrnIZombies, {
         PicArr: (function() {
             var a ="images/Zombies/FlagZombie/",
@@ -6508,6 +6548,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
