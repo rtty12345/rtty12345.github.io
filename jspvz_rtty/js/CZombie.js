@@ -1827,7 +1827,7 @@ oZombie3= InheritO(oZombie, {
       function(f, e) {
         var h = $Z[f],
           g;
-        for (let j = 1; j < $P[e].C; j++) {
+        for (let j = 1; j < GetC(a.ZX-10); j++) {
           for (i = 3; i >= 1; i--) {
             let d = oGd.$[h.R + "_" + j + "_" + i];
             if (!d) continue;
@@ -6508,6 +6508,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
