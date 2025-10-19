@@ -1718,7 +1718,7 @@ oZombie = InheritO(OrnNoneZombies,{
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
-	Produce: '韧性：<font color="#FF0000">低'
+	Produce: '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。</font><br>精英：<font color="#FF0000">玉米炮、快速形态'
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2",
@@ -1814,12 +1814,31 @@ oZombie3= InheritO(oZombie, {
 	EName: "oZombie3",
 	Speed:Math.random()*2+2,
 	HP:Math.random()*400+600,
-	Lvl:2,
-	PrivateAttack:function(){
-		if(!a.att){
-			this.att=1
-		}
-	}
+	Lvl:3,
+	Num: 1,
+  NormalAttack: function(d, c) {
+    PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
+    oSym.addTask(50,
+      function(e) {
+        $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
+      },
+      [d]);
+    oSym.addTask(100,
+      function(f, e) {
+        var h = $Z[f],
+          g;
+        for (let j = 1; j < $P[e].C; j++) {
+          for (i = 3; i >= 1; i--) {
+            let d = oGd.$[h.R + "_" + j + "_" + i];
+            if (!d) continue;
+            h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime &&
+              h.Num && (d.getHurt(h, 3, h.Attack), h.Num = 0)
+          }
+        };
+        h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack(), h.Num = 1)
+      },
+      [d, c])
+  },
 },
 {
 	PicArr: {
@@ -1863,7 +1882,6 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	HP:500,
 	BreakPoint:1,
 	beAttackedPointR: 101,
-	AudioArr:["lawnmower"],
 	CanPass: function(d, c) {
 		return c
 	},
@@ -1891,7 +1909,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	flatTire:function(){
 	this.getExplosion(20)
 	},
-			AttackZombie: function(d, c) {
+		AttackZombie: function(d, c) {
 			oSym.addTask(1,
 			function(f, e) {
 				var h = $Z[f],
@@ -1907,11 +1925,11 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i.PZ&&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
-			GoingDie: function(d) {
+		GoingDie: function(d) {
 			var c = this,
 			e = c.id;
 			c.EleBody.src = d;
@@ -1919,58 +1937,18 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
-	JudgeAttack: function() {
-			var f = this,
-			c = f.ZX,
-			d = f.R + "_",
-			e = GetC(c),
-			g = oGd.$,
-			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-		},
-		JudgeAttack1: function() {
-			var f = this,
-			c = f.ZX,
-			d = f.R + "_",
-			e = GetC(c),
-			g = oGd.$,
-			b; (b = f.JudgeLR(f, d, e, c, g) || f.JudgeSR(f, d, e, c, g)) && f.NormalAttack(b[0], b[1])
-		},
+	JudgeAttack:oZomboni.prototype.JudgeAttack,
 		reNormal: function(c) {
 			c.ExchangeLR(c, 0);
-			c.JudgeAttack = c.JudgeAttack1;
+			c.JudgeAttack = oZomboni.prototype.JudgeAttack;
 			c.PZ = 1;
 			c.WalkDirection = 0;
 			c.ZX = c.AttackedLX;
 			c.ChkActs = CZombies.prototype.ChkActs;
 		},
-		JudgeLR: function(e, c, d, b, f) {
-			return d > 10 || d < 1 ? false: function() {
-				c += --d + "_";
-				var g = 3,
-				h;
-				while (g--) {
-					if (h = f[c + g]) {
-						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
-					}
-				}
-			} ()
-		},
-		JudgeSR: function(e, c, d, b, f) {
-			return d > 9 ? false: function() {
-				c += d + "_";
-				var g = 3,
-				h;
-				while (g--) {
-					if (h = f[c + g]) {
-						return h.AttackedRX >= b && h.AttackedLX <= b ? [e.id, h.id] : false
-					}
-				}
-			} ()
-		},
-		NormalAttack: function(c, b) {
-			var d = $Z[c];
-			$P[b].getHurt(d, 2, d.Attack)
-		}
+		JudgeLR: oZomboni.prototype.JudgeLR,
+		JudgeSR: oZomboni.prototype.JudgeSR,
+		NormalAttack: oZomboni.prototype.NormalAttack
 }):InheritO(OrnIZombies, {
         PicArr: (function() {
             var a ="images/Zombies/FlagZombie/",
@@ -6530,6 +6508,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
