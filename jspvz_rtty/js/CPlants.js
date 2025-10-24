@@ -389,9 +389,9 @@ s.onclick=function(){
 };
 oSym.addTask(1000,function(s,a){
 	s.onclick=null;
-		$(a.id).style.opacity=1;
+	$P[a.id]&&$(a.id).style.opacity=1;
 	},[s,a]);
-	oSym.addTask(4000,arguments.callee,[a,s])
+	$P[a.id]&&oSym.addTask(4000,arguments.callee,[a,s])
  },[a,s])
 },
 	PrivateDie: function(a) {
@@ -591,7 +591,7 @@ oThreepeater = InheritO(oPeashooter, {
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
-		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1] ||oS.ThreepeaterGrowNum>4)) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]||oS.ThreepeaterGrowNum>4) : c[0] && !c[1]
+		return d ? oGd.$LF[b] == 1 ? (e > 0 && e < d.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])) : c[0] && !c[1] : oGd.$LF[b] == 1 ? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1]) : c[0] && !c[1]
 	},
 	PrivateBirth: function(f) {
 		var e = f.AttackedLX,
@@ -600,7 +600,6 @@ oThreepeater = InheritO(oPeashooter, {
 		b;
 		f.BulletClass = [];
 		f.BulletEle = [];
-		oS.ThreepeaterGrowNum+=1;
 		for (b in c) {
 			f.BulletClass.push(NewO({
 				X: e,
@@ -617,7 +616,6 @@ oThreepeater = InheritO(oPeashooter, {
 	},
 	PrivateDie: function(a) {
 		a.BulletEle.length = 0;
-		oS.ThreepeaterGrowNum-=1;
 	},
 	NormalAttack1: function() {
 		var a, c = this,
@@ -961,7 +959,7 @@ oGatlingPea1= InheritO(CPlants, {
 		c = g.R,
 		e = f + 15,
 		a = function(j, i, h) {
-			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,30,i),(SetStyle(h, {
+			return (j && j.Altitude == 1 ? (j.getSlowPea1(j,40,i),(SetStyle(h, {
 				left:j.ZX-12 + "px",
 				width: "52px",
 				height: "46px"
@@ -1770,6 +1768,7 @@ oHugeNutBowling = InheritO(oNutBowling, {
 oBoomNutBowling = InheritO(oNutBowling, {
 	EName: "oBoomNutBowling",
 	CName: "爆炸坚果",
+	PKind:10,
 	PicArr: ["images/Card/Plants/BoomWallNut.png", "images/Plants/WallNut/1.gif", "images/Plants/WallNut/BoomWallNutRoll.gif", "images/Plants/CherryBomb/Boom.gif"],
 	AudioArr: ["cherrybomb", "bowling"],
 	PrivateBirth: function(a) {
@@ -1820,10 +1819,8 @@ oTallNut = InheritO(oWallNut, {
 	width: 83,
 	height: 119,
 	beAttackedPointR: 63,
-	SunNum: 125,
-	Attack:20,
+	SunNum: 225,
 	HP: 10000,
-	ArZ: {},
 	PicArr: ["images/Card/Plants/TallNut.png", "images/Plants/TallNut/0.gif", "images/Plants/TallNut/TallNut.gif", "images/Plants/TallNut/TallnutCracked1.gif", "images/Plants/TallNut/TallnutCracked2.gif"],
 	Tooltip: "不会被跳过的坚实壁垒",
 	Produce: '高坚果是重型壁垒植物，而且不会被跨过。<p>韧性：<font color="#FF0000">非常高</font><br>特殊：<font color="#FF0000">不会被跨过或越过</font></p>人们想知道，坚果墙和高坚果是否在竞争。高坚果以男中音的声调大声笑了。“我们之间怎么会存在竞争关系？我们是哥们儿。你知道坚果墙为我做了什么吗……”高坚果的声音越来越小，他狡黠地笑着。”',
@@ -1833,11 +1830,15 @@ oTallNut = InheritO(oWallNut, {
 		e = oS.ArP;
 		return e ? oGd.$LF[b] == 1 ? f > 0 && f < e.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d: d && d.EName == "oTallNut" ? 1 : oGd.$LF[b] == 1 ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d
 	},
+	PrivateBirth:function(b){
+	$P[b.id]&&CustomSpecial(oNutBowling,b.R,b.C);
+	$P[b.id]&& oSym.addTask(6000,arguments.callee,[b]);
+	},
 	Stature: 1,
 	getHurt: function(e, b, a) {
             var c = this,
                 d = $(c.id).childNodes[1];
-            !(b % 3) ? (c.HP -= a) < 1 ? c.Die() : c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif") : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif") : c.Die()
+            !(b % 3) ? (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.Die()
             b!==3&&e.getHit1(e,30,0);
         },
 	PrivateDie:function(){
@@ -1896,7 +1897,6 @@ oCherryBomb = InheritO(CPlants, {
             CustomSpecial(oPotatoMine,this.R,this.C);
         }
 }),
-
 oJalapeno = InheritO(oCherryBomb, {
 	EName: "oJalapeno",
 	CName: "火爆辣椒",
@@ -2318,12 +2318,15 @@ oFumeShroom = InheritO(CPlants, {
 		d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX +720, oS.W), f.R),
 		e = d.length,
 		g,
+		H=Math.random()*100,
 		P=$P[f],
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
-		while (e--) { (g = d[e]).Altitude < 2 && g.getHit1(g, 30);
- 		Math.round(Math.random()*100)>2?((!g.FreeSlowTime)&&g.getSlow(g,g.id,3000)):g.getr(g,50)}
+		while (e--) { 
+		(g = d[e]).Altitude < 2 && g.getHit1(g, 50);
+ 		H>22?((!g.FreeSlowTime)&&g.getSlow(g,g.id,3000)):(H>2?g.getr(g,50):g.getFreeze(f))
+		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
 		ImgSpriter(a, c, [["0 0", 9, 1], ["0 -62px", 9, 2], ["0 -124px", 9, 3], ["0 -186px", 9, 4], ["0 -248px", 9, 5], ["0 -310px", 9, 6], ["0 -372px", 9, 7], ["0 -434px", 9, -1]], 0,
@@ -2426,7 +2429,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 		l = j + "_Bullet";
 		for (g = k.MinR; g <= f; g++){
 			e = oZ.getArZ(c, b, g);
-			for (h = e.length; h--; (a = e[h]).Altitude < 2 && (a.getHit1(a, 80),a.Pnum<5&&a.getPoison(a,10))
+			for (h = e.length; h--; (a = e[h]).Altitude < 2 && (a.getHit1(a, 80),a.getPoison(a,10))
 			){}
 		}
 		oSym.addTask(100,
@@ -2656,8 +2659,8 @@ oHypnoShroom = InheritO(oFumeShroom, {
 !b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>70 ? new oZombie2
 	      :Math.round(Math.random()*75)>50 ? new oNewspaperZombie
 	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
-		  :Math.round(Math.random()*30)>13 ? new oScreenDoorZombie
-	      :Math.round(Math.random()*13)>6 ? new oFootballZombie
+		  :Math.round(Math.random()*30)>13 ? new oFootballZombie
+	      :Math.round(Math.random()*13)>6 ? new oFootballZombie1
 	      :Math.round(Math.random()*6)>2? new oPeaZombie
 	      :new oNewspaperZombie3,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(4500,arguments.callee,[b]);
@@ -2822,8 +2825,8 @@ oDoomShroom = InheritO(oFumeShroom, {
 			if (d) {
 				var g = $(c),
 				l = d.R,
-				h = l > 3 ? l - 2 : 1,
-				f = Math.min(oS.R, l + 2),
+				h = 1
+				f = oS.R,
 				n = d.pixelLeft -1000,
 				m = d.pixelRight +1000,
 				e,
@@ -3175,6 +3178,7 @@ oCactus = InheritO(CPlants, {
 	NormalAttack: function() {
 		var b = this,
 		c = "CB" + Math.random(),
+		num=Math.random()*100,
 		a = b.id;
 		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
 		oSym.addTask(150,
@@ -3194,7 +3198,9 @@ oCactus = InheritO(CPlants, {
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
 			e = oZ["getZ" + d](k, h);
-			e && e.Altitude == 1&&(Math.round(Math.random()*100)>3?e.getHit0(e,2,d):e.getrPea(e,20,d)),(k += (j = !d ? 5 : -5)) < oS.W && k > 100 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) : ClearChild(i)
+			e && e.Altitude == 1&&
+			(Math.round(Math.random()*100)>3?e.getHit0(e,2,d):e.getrPea(e,20,d)),((k += (j = !d ? 5 : -5)) < oS.W && k > 100)||num<=20 ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) :
+			(num>20?ClearChild(i):(d?(d=0):(d=1)))
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
@@ -3254,13 +3260,12 @@ oBlover = InheritO(CPlants, {
 		var id = this.id, z, oBalloon;
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
-		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(),
+		for(z in $Z) oBalloon = $Z[z], (oBalloon.HP+oBalloon.OrnHP<700) && oBalloon.getDispelled(),
                 oBalloon&&oBalloon.getSlow(oBalloon);//吹气球并给予减速
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
 			oSym.addTask(3600 + 150, oGd.MoveFogLeft, []); // 24s后恢复
-		}
-		
+		}		
 		oSym.addTask(150, function(id) {
 			var p = $P[id]; p && p.Die();
 		},[id]);
@@ -3534,3 +3539,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
