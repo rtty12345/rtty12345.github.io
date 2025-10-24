@@ -3260,7 +3260,7 @@ oBlover = InheritO(CPlants, {
 		var id = this.id, z, oBalloon;
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
-		for(z in $Z) oBalloon = $Z[z], (oBalloon.HP+oBalloon.OrnHP<700) && oBalloon.getDispelled(),
+		for(z in $Z) oBalloon = $Z[z], ((oBalloon.HP+oBalloon.OrnHP)<700) && oBalloon.getDispelled(),
                 oBalloon&&oBalloon.getSlow(oBalloon);//吹气球并给予减速
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
@@ -3539,5 +3539,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
-
-
