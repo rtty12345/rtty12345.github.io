@@ -389,7 +389,7 @@ s.onclick=function(){
 };
 oSym.addTask(1000,function(s,a){
 	s.onclick=null;
-	$P[a.id]&&$(a.id).style.opacity=1;
+	$P[a.id]&&($(a.id).style.opacity=1);
 	},[s,a]);
 	$P[a.id]&&oSym.addTask(4000,arguments.callee,[a,s])
  },[a,s])
@@ -3539,3 +3539,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
