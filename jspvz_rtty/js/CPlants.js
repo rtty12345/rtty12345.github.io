@@ -1671,6 +1671,7 @@ oNutBowling = InheritO(CPlants, {
 	AudioArr: ["bowling", "bowlingimpact", "bowlingimpact2"],
 	Produce: "",
 	CanAttack: 1,
+	PKind:10,
 	InitTrigger: function() {},
 	getHurt: function() {},
 	CanGrow: function(d, e, f) {
@@ -1746,6 +1747,7 @@ oHugeNutBowling = InheritO(oNutBowling, {
 	beAttackedPointR: 137,
 	HP: 8000,
 	Stature: 1,
+	PKind:1,
 	PicArr: ["images/Card/Plants/HugeWallNut.png", "images/Plants/WallNut/2.gif", "images/Plants/WallNut/HugeWallNutRoll.gif"],
 	PrivateBirth: function(a) {
 		PlayAudio("bowling"); (function(b, c, n, m, e, g) {
@@ -2825,7 +2827,7 @@ oDoomShroom = InheritO(oFumeShroom, {
 			if (d) {
 				var g = $(c),
 				l = d.R,
-				h = 1
+				h = 1,
 				f = oS.R,
 				n = d.pixelLeft -1000,
 				m = d.pixelRight +1000,
@@ -3539,4 +3541,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
