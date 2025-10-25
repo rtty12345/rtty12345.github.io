@@ -2321,13 +2321,12 @@ oFumeShroom = InheritO(CPlants, {
 		e = d.length,
 		g,
 		H=Math.random()*100,
-		P=$P[f],
 		c = f.id,
 		b = $(c),
 		a = c + "_Bullet";
 		while (e--) { 
 		(g = d[e]).Altitude < 2 && g.getHit1(g, 50);
- 		H>20?((!g.FreeSlowTime)&&g.getSlow(g,g.id,3000)):(H>5?g.getr(g,30):g.getFreeze1(f))
+ 		H>20?((!g.FreeSlowTime)&&g.getSlow(g,g.id,3000)):(H>5?g.getr(g,30):g.getFreeze1(g,g.id))
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
@@ -3541,6 +3540,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
