@@ -21,6 +21,8 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
+		[oPoleVaultingZombie1, 1, 4],
+		[oPoleVaultingZombie2, 1, 2],
 		[oPoleVaultingZombie, 1, 2]
 	],
 	FlagNum: 20,
@@ -42,5 +44,6 @@ oS.Init({
 	}
 
 });
+
 
 
