@@ -1732,8 +1732,8 @@ oNutBowling = InheritO(CPlants, {
 				}), w != a && (z.R = w, t = true, !z.CanAttack && (z.CanAttack = 1)), i != l && (z.C = i, t = true), t && (oGd.del({
 					R: a,
 					C: l,
-					PKind: 1
-				}), oGd.add(z, w + "_" + i + "_1")), oSym.addTask(1, arguments.callee, [z, y, z.AttackedLX, z.AttackedRX, z.pixelLeft, x, e, g, b]))
+					PKind: 10
+				}), oGd.add(z, w + "_" + i + "_10")), oSym.addTask(1, arguments.callee, [z, y, z.AttackedLX, z.AttackedRX, z.pixelLeft, x, e, g, b]))
 			}
 		})(c, oS.W, c.AttackedLX, c.AttackedRX, c.pixelLeft, d, 0, GetY1Y2(1)[0], 600)
 	}
@@ -2327,7 +2327,7 @@ oFumeShroom = InheritO(CPlants, {
 		a = c + "_Bullet";
 		while (e--) { 
 		(g = d[e]).Altitude < 2 && g.getHit1(g, 50);
- 		H>22?((!g.FreeSlowTime)&&g.getSlow(g,g.id,3000)):(H>2?g.getr(g,50):g.getFreeze(f))
+ 		H>20?((!g.FreeSlowTime)&&g.getSlow(g,g.id,3000)):(H>5?g.getr(g,30):g.getFreeze1(f))
 		}
 		b.childNodes[1].src = "images/Plants/FumeShroom/FumeShroomAttack.gif";
 		SetVisible($(a));
@@ -3180,7 +3180,6 @@ oCactus = InheritO(CPlants, {
 	NormalAttack: function() {
 		var b = this,
 		c = "CB" + Math.random(),
-		num=Math.random()*100,
 		a = b.id;
 		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
 		oSym.addTask(150,
@@ -3199,10 +3198,11 @@ oCactus = InheritO(CPlants, {
 		oSym.addTask(1,
 		function(g, i, d, k, h, l) {
 			var j, f = GetC(k),
+			num=Math.random()*100,
 			e = oZ["getZ" + d](k, h);
 			e && e.Altitude == 1&&
-			(Math.round(Math.random()*100)>3?e.getHit0(e,2,d):e.getrPea(e,20,d)),((k += (j = !d ? 5 : -5)) < oS.W && k > 100)||(num<=20) ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) :
-			(num>20?ClearChild(i):(d?(d=0):(d=1)))
+			(Math.round(Math.random()*100)>3?e.getHit0(e,2,d):e.getrPea(e,20,d)),((k += (j = !d ? 5 : -5)) < oS.W && k > 100) ? (i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l])) :
+			(num>20?ClearChild(i):(d?(d=0):(d=1),(i.style.left = (l += j) + "px", oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))))
 		},
 		[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40])
 	},
@@ -3541,5 +3541,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
