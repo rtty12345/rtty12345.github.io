@@ -20,7 +20,8 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 2, 1],
 		[oConeheadZombie, 2, 1],
-		[oPoleVaultingZombie, 1, 2]
+		[oPoleVaultingZombie, 1, 2],
+		[oPoleVaultingZombie2, 1, 1]
 	],
 	FlagNum: 10,
 	FlagToSumNum: {
@@ -40,4 +41,5 @@ oS.Init({
 	}
 
 });
+
 
