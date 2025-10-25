@@ -4124,11 +4124,10 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 	EName: "oNewspaperZombie2",
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
-	Lvl: 8,
+	Lvl: 6,
 	HP:1600,
 	oSpeed:2.4,
 	Speed:2.4,
-	Altitude:1,
 	SunNum: 325,
 	BreakPoint:1,
 	LostPaperSpeed:10,
@@ -4197,7 +4196,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		this.getHit0(this,this.OrnHP)
 	},
 	PrivateAct:function(a){
-            if(!a.bool){
+        if(!a.bool){
 	        for (let i = 0; i <= 0; i++) {
                 oP.SetTimeoutTomZombie([oNewspaperZombie]);
 		try{oP.SetTimeoutWaterZombie(7,9,1,[oNewspaperZombie]);}catch{};
@@ -6548,6 +6547,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
