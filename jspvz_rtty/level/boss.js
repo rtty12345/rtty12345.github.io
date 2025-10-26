@@ -25,7 +25,7 @@ AZ:[[oNewspaperBoss,0,100,[10]],
    [oZombie,1,0]],
 FlagNum:20,
 FlagToSumNum:{
-    a1: [15],
+    a1: [19],
 	a2: [0,1]},
 FlagToMonitor:{
 20:[ShowFinalWave,0]
