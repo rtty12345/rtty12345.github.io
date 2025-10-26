@@ -44,7 +44,7 @@ var AppearCard = function (h, f, e, a, t) { // x, y, 植物id, 移动卡槽类�
 */
 
 oS.Init({
-	PName: [oLilyPad, oLilyPad, oLilyPad, oPeashooter, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oFumeShroom, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom,oGraveBuster,oSquash,oThreepeater,oTangleKelp,oJalapeno,oSpikeweed,oTorchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oGarlic,oGatlingPea],
+	PName: [oLilyPad, oLilyPad, oLilyPad, oPeashooter, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oFumeShroom, oHypnoShroom, oScaredyShroom, oIceShroom, oDoomShroom，oGraveBuster,oSquash,oThreepeater,oTangleKelp,oJalapeno,oSpikeweed,oTorchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oGarlic,oGatlingPea],
 	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oBucketheadZombie, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oJackinTheBoxZombie, oNewspaperZombie, oScreenDoorZombie, oFootballZombie, oZomboni, oDancingZombie, oConeheadZombie1],
 	PicArr: ["images/interface/background4.jpg","images/interface/trophy.png","images/interface/PointerDown.gif"],
 	backgroundImage: "images/interface/background4.jpg",
@@ -93,8 +93,8 @@ oS.Init({
 		39: [ShowFinalWave, 0]
 	},
 	FlagToEnd: function() {
-		NewImg("imgSF", "images/interface/trophy.png", "left:43.5%;top:220px", EDMove, { onclick: function() { SelectModal(0), PlayAudio("winmusic"); } });
-		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:51%", EDMove);
+		NewImg("imgSF", "images/interface/trophy.png", "left:43.5%;top:220px", EDAll, { onclick: function() { SelectModal(0), PlayAudio("winmusic"); } });
+		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:51%", EDAll);
 	}
 },{
 	dRand: function (l, r) { return Math.floor(Math.random() * (r - l + 1) + l); }, 
