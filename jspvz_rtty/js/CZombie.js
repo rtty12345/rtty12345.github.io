@@ -676,10 +676,7 @@ OrnNoneZombies = function() {
 			e.PlayNormalballAudio();
 			e.getHit0(e, b, c)
 		},
-		getZPea: function(e, b, c) {
-			e.PlayNormalballAudio();
-			Math.round(Math.random()*1000)>5?e.getHit0(e, b, c):(e.PZ?CustomZombies(new oImp,e.R,GetC(e.ZX-1),1):CustomZombie(oImp,e.R,GetC(e.ZX+1)))
-		},
+		getZPea: function(){},
 		gethPea: function(e, b, c) {
 			e.PlayNormalballAudio();
 			e.getHit4(e, b, c)
@@ -694,10 +691,11 @@ OrnNoneZombies = function() {
 					e.Pnum=0)
 				},[e,a]);
 			if(e.Pnum==5){return}
-                oSym.addTask(5,function(e,b,c){
-                    e.getHit0(e,e.Pnum,c);
-                    e.FreePoisonTime && oSym.addTask(5,arguments.callee,[e,b,c]);
-                },[e,b,c]);
+                oSym.addTask(5,function(g,b,c){
+					var d=$Z[g];
+                    d.getHit0(d,d.Pnum,c);
+                    d.FreePoisonTime && oSym.addTask(5,arguments.callee,[e.id,b,c]);
+                },[e.id,b,c]);
             },
 		getFirePea: function(g, c, j) {
 			g.PlayFireballAudio(); (g.FreeSlowTime || g.FreeFreezeTime) && (g.Speed = g.OSpeed, g.FreeSlowTime = 0, g.FreeFreezeTime = 0);
@@ -768,7 +766,7 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFirePeaSputtering1: function() {
-			this.getSnowPea(this, 13)
+			this.getSlow(this, this.id,1000)
 		},
 		getSnowPea: function(f, c, g) {
 			var e = f.FreeSlowTime,
@@ -6549,6 +6547,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
