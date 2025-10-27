@@ -2338,7 +2338,7 @@ HiddenOptions = function() {
 ViewHandBook = function() {
 	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
 	oS.Lvl ? (AllAudioPaused(), PlayAudio("gravebutton"), SetNone($("dSurface")), oSym.Stop(), innerText($("dMenu0"), "回到游戏"), $("dMenu1").onclick = null) : (AllAudioPaused(), PlayAudio("tap"));
-	PlayAudio("Look up at the Sky");
+	PlayAudio("yaogun");
 	SetVisible($("dHandBook"))
 },
 ReturnHandBookInx = function() {
@@ -2348,7 +2348,7 @@ ReturnHandBookInx = function() {
 },
 CloseHandBook = function() {
 	PlayAudio("tap");
-	StopAudio("Look up at the Sky");
+	StopAudio("yaogun");
 	oS.Lvl ? ResetGame($("dMenu0")) : oSym.addTask(100, AllAudioPauseCanceled);
 	SetNone($("dHandBookP"), $("dHandBookZ"));
 	SetHidden($("dHandBookPZ"), $("dHandBook"))
@@ -2785,6 +2785,7 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
 
 
