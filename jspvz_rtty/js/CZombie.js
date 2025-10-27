@@ -693,8 +693,8 @@ OrnNoneZombies = function() {
 			if(e.Pnum==5){return}
                 oSym.addTask(5,function(g,b,c){
 					var d=$Z[g];
-                    d.getHit0(d,d.Pnum,c);
-                    d.FreePoisonTime && oSym.addTask(5,arguments.callee,[e.id,b,c]);
+                    d&&d.getHit0(d,d.Pnum,c);
+                    d&&d.FreePoisonTime && oSym.addTask(5,arguments.callee,[e.id,b,c]);
                 },[e.id,b,c]);
             },
 		getFirePea: function(g, c, j) {
@@ -6547,6 +6547,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
