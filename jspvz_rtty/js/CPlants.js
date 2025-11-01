@@ -2565,13 +2565,13 @@ oScaredyShroom = InheritO(oFumeShroom, {
                 let z = oZ.getArZ(c.pixelLeft,950,c.R);
 	if(c.HP>1){
                 for(let i = 0;i < z.length;i++){
-                        z[i].NormalAttack=CZombies.prototype.NormalAttack;
+            z[i].NormalAttack=CZombies.prototype.NormalAttack;
 			z[i].JudgeAttack=CZombies.prototype.JudgeAttack;
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
 			z[i].PrivateAttack=function(){};
 			z[i].GoingDie=CZombies.prototype.GoingDie;
-			z[i].Attack=100;
+			z[i].tasktime=100;
 			PlayAudio("jack_surprise");
                 }
 	}
@@ -2751,7 +2751,23 @@ oSunShroom = InheritO(oFumeShroom, {
 	GetDY: CPlants.prototype.GetDY,
 	InitTrigger: function() {},
 	PrivateDie: function(a) {},
-	PrivateBirth: function() {
+	PrivateBirth: function(a) {
+		NewEle("Canvas_"+a.id, "div", "left:-40px;top:30px;pointer-events:none;position:absolute;width:900px;height:600px;z-index:200", 0, $(a.id));
+		let b= oZ.getArZ(0,oS.W,a.R);
+		b.sort(function(d,c){return c.HP-d.HP});
+	var can= $("Canvas_"+a.id);
+    var ctx = can.getContext('2d');
+    var x1 = 10, y1 = 100;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(b[0].ZX,b[0].pixelTop+30);
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+		oSym.addTask(500,function(b,can){
+        b[0].ExplosionDie();
+		ClearChild(can)
+		},[b,can])
 	},
 	BirthStyle: function(c, d, b, a) {
 		oS.DKind ? (c.canTrigger = 0, c.Sleep = 1, b.childNodes[1].src = "images/Plants/SunShroom/SunShroomSleep.gif") : (oSym.addTask(600,
@@ -3542,6 +3558,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
