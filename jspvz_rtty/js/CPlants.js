@@ -776,13 +776,13 @@ oRepeater = InheritO(oPeashooter, {
 		}
 	},
 shootZ:function(a){
-oSym.addTask(1000, function(a) {
+oSym.addTask(500, function(a) {
     let b = oZ.getArZ(0, oS.W, a.R);
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
     $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200), 0);
-    $P[a.id] && oSym.addTask(600, arguments.callee, [a]);
+    $P[a.id] && oSym.addTask(300, arguments.callee, [a]);
     PlayAudio("cherrybomb");
   }, [a]);
 	},
@@ -3574,6 +3574,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
