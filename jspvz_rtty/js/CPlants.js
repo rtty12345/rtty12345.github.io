@@ -1172,7 +1172,7 @@ oSunFlower = InheritO(CPlants, {
 	width: 73,
 	height: 74,
 	beAttackedPointR: 53,
-	SunNum: 50,
+	SunNum: 75,
 	PicArr: ["images/Card/Plants/SunFlower.png", "images/Plants/SunFlower/0.gif", "images/Plants/SunFlower/SunFlower1.gif", "images/Plants/SunFlower/SunFlower.gif"],
 	Tooltip: "提供你额外的阳光",
 	Produce: '向日葵，为你生产额外阳光的经济作物。如果死亡时对局时长未超过两分半，并且未产出第一个阳光则掉落160阳光<p>阳光产量：<font color="#FF0000">中等(40)</font></p>向日葵情不自禁地和着节拍起舞。是什么节拍呢？嗨，是大地自己用来提神的爵士节拍，这种频率的节拍，只有向日葵才能听到。',
@@ -1201,8 +1201,6 @@ oSunFlower = InheritO(CPlants, {
 		function(d, c, b) {
 			$P[d] && (a.ChangePosition($(d), 1), oSym.addTask(100,
 			function(h, g, f, e) {
-				a.CannotDrop=1;
-				a.coolTime=7.5;
 				$P[h] && (AppearSun(Math.floor(g + Math.random() * 41), f, 40,0), oSym.addTask(100,
 				function(i) {
 					$P[i] && a.ChangePosition($(i), 0)
@@ -1242,7 +1240,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 	width: 83,
 	height: 84,
 	beAttackedPointR: 63,
-	SunNum: 175,
+	SunNum: 250,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/TwinSunflower.png", "images/Plants/TwinSunflower/0.gif", "images/Plants/TwinSunflower/TwinSunflower1.gif", "images/Plants/TwinSunflower/TwinSunflower.gif"],
 	Tooltip: "一次提供两倍于向日葵的阳光量<br>(需要向日葵)",
@@ -2432,7 +2430,8 @@ oGloomShroom = InheritO(oFumeShroom, {
 		l = j + "_Bullet";
 		for (g = k.MinR; g <= f; g++){
 			e = oZ.getArZ(c, b, g);
-			for (h = e.length; h--; (a = e[h]).Altitude < 2 && (a.getHit1(a, 80),a.getPoison(a,10))
+			for (h = e.length; h--; (a = e[h]).Altitude < 2 && (a.getHit1(a, 80),
+			a.getPoison(a,10))
 			){}
 		}
 		oSym.addTask(100,
@@ -2664,8 +2663,8 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
 		  :Math.round(Math.random()*30)>13 ? new oFootballZombie
 	      :Math.round(Math.random()*13)>6 ? new oFootballZombie1
-	      :Math.round(Math.random()*6)>2? new oPeaZombie
-	      :new oNewspaperZombie3,b.R,b.C,1);
+	      :Math.round(Math.random()*6)>2? new oNewspaperZombie3
+	      :new oPeaZombie,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(4500,arguments.callee,[b]);
 	},
 	getHurt: function(d, b, a) {
@@ -2741,33 +2740,26 @@ oSunShroom = InheritO(oFumeShroom, {
 	height: 61,
 	beAttackedPointL: 15,
 	beAttackedPointR: 44,
-	SunNum: 25,
+	SunNum: 100,
 	Stature: -1,
 	Status: 0,
 	PicArr: ["images/Card/Plants/SunShroom.png", "images/Plants/SunShroom/0.gif", "images/Plants/SunShroom/SunShroom2.gif", "images/Plants/SunShroom/SunShroomSleep.gif", "images/Plants/SunShroom/SunShroom.gif"],
 	Tooltip: "开始提供少量的阳光, 一段时间后提供正常量的阳光",
-	Produce: '阳光菇开始提供少量阳光，稍后提供正常数量阳光。<p>生产阳光：<font color="#FF0000">开始低，之后正常<br>白天睡觉</font></p>阳光菇讨厌阳光。恨到当它内部产生点阳光时，就尽可能快的吐出来。它就是不能忍受这个。对它来说，阳光令人厌恶。',
+	Produce: '阳光菇开始提供少量阳光，稍后提供正常数量阳光，每隔一段时间对本行血量最高的僵尸造成百分比伤害<p>生产阳光：<font color="#FF0000">开始低，之后正常<br>白天睡觉</font></p>阳光菇讨厌阳光。恨到当它内部产生点阳光时，就尽可能快的吐出来。它就是不能忍受这个。对它来说，阳光令人厌恶。',
 	GetDX: CPlants.prototype.GetDX,
 	GetDY: CPlants.prototype.GetDY,
 	InitTrigger: function() {},
 	PrivateDie: function(a) {},
 	PrivateBirth: function(a) {
-		NewEle("Canvas_"+a.id, "div", "left:-40px;top:30px;pointer-events:none;position:absolute;width:900px;height:600px;z-index:200", 0, $(a.id));
-		let b= oZ.getArZ(0,oS.W,a.R);
-		b.sort(function(d,c){return c.HP-d.HP});
-	var can= $("Canvas_"+a.id);
-    var ctx = can.getContext('2d');
-    var x1 = 10, y1 = 100;
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(b[0].ZX,b[0].pixelTop+30);
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-		oSym.addTask(500,function(b,can){
-        b[0].ExplosionDie();
-		ClearChild(can)
-		},[b,can])
+  oSym.addTask(1000, function(a) {
+    let b = oZ.getArZ(0, oS.W, a.R);
+    b.sort(function(d, c) {
+      return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
+    });
+    !a.Sleep&&$P[a.id]&&b[0].getHit0(Math.max((b[0].OrnHP + b[0].HP)*0.1,150));
+	$P[a.id]&&oSym.addTask(600,arguments.callee,[a]);
+	PlayAudio("cherrybomb");	
+  }, [a]);
 	},
 	BirthStyle: function(c, d, b, a) {
 		oS.DKind ? (c.canTrigger = 0, c.Sleep = 1, b.childNodes[1].src = "images/Plants/SunShroom/SunShroomSleep.gif") : (oSym.addTask(600,
@@ -2775,7 +2767,7 @@ oSunShroom = InheritO(oFumeShroom, {
 			var e = $P[h];
 			e && e.ProduceSun(e, g, f)
 		},
-		[d, GetX(c.C) - 40, GetY(c.R)]), oSym.addTask(12000,
+		[d, GetX(c.C) - 40, GetY(c.R)]), oSym.addTask(8000,
 		function(f) {
 			var e = $P[f];
 			e && (e.Sleep = 0, $(f).childNodes[1].src = "images/Plants/SunShroom/SunShroom.gif", e.Status = 1)
@@ -2787,7 +2779,7 @@ oSunShroom = InheritO(oFumeShroom, {
 		a, EDPZ)
 	},
 	ProduceSun: function(a, c, b) {
-		AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 25 : 40, 0),
+		AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 25 : 60, 0),
 		oSym.addTask(2400,
 		function(g, f, e) {
 			var d = $P[g];
@@ -3558,6 +3550,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
