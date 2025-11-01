@@ -691,7 +691,7 @@ OrnNoneZombies = function() {
                e.FreePoisonTime==a&&(e.FreePoisonTime = 0,
 					e.Pnum=0)
 				},[e,a]);
-			if(e.Pnum){return}
+			if(e.Pnum>1){return}
                 oSym.addTask(5,function(g,b,c){
 					var d=$Z[g];
                     d&&d.getHit0(d,d.Pnum,c);
@@ -6357,3 +6357,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
