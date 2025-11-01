@@ -777,13 +777,15 @@ oRepeater = InheritO(oPeashooter, {
 	},
 shootZ:function(a){
 oSym.addTask(500, function(a) {
-    let b = oZ.getArZ(0, oS.W, a.R);
+for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
+    let b = oZ.getArZ(0, oS.W,i);
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
     $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200), 0);
     $P[a.id] && oSym.addTask(300, arguments.callee, [a]);
     PlayAudio("cherrybomb");
+}
   }, [a]);
 	},
         PrivateDie:oThreepeater1.prototype.PrivateDie,
@@ -3574,6 +3576,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
