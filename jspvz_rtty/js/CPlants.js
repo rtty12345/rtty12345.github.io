@@ -333,11 +333,11 @@ HP:500,
       b = 0,
       c = g.R,
       e = d + 30,
-	  num=Math.random()*1000,
+	  num=Math.random()*100,
       a = function(j, i, h) {
         return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
       };
-	  num<=2&&(AppearCard(g.pixelLeft,0,oStarfruit,1,1500));
+	  num<=1&&(AppearCard(g.pixelLeft,0,oStarfruit,1,1500));
     (function(h) {
       oSym.addTask(15,
         function(j) {
@@ -3542,6 +3542,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
