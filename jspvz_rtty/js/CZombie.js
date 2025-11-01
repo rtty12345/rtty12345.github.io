@@ -67,7 +67,7 @@ var CZombies = function(b, a) {
       ClearChild(C);
       if (h.HP >=h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX+80) + "px";
+        C.style.left = (h.ZX) + "px";
 	if(!h.Ornaments){
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
@@ -691,7 +691,7 @@ OrnNoneZombies = function() {
                e.FreePoisonTime==a&&(e.FreePoisonTime = 0,
 					e.Pnum=0)
 				},[e,a]);
-			if(e.Pnum==5){return}
+			if(e.Pnum){return}
                 oSym.addTask(5,function(g,b,c){
 					var d=$Z[g];
                     d&&d.getHit0(d,d.Pnum,c);
@@ -1886,16 +1886,6 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	CanPass: function(d, c) {
 		return c
 	},
-	bedevil: function(c) {
-			c.ExchangeLR(c, 1);
-			c.JudgeAttack = c.JudgeAttackH;
-			c.PZ = 0;
-		    c.Speed=3;
-			c.WalkDirection = 1;
-			c.ZX = c.AttackedRX;
-			c.ChkActs = c.ChkActs1;
-			oP.MonPrgs()
-		},
         PrivateAct: function(a){
             if(a.HP <= 40){
 		a.DisappearDie=function(){};
@@ -1908,9 +1898,6 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	getSlowPea1:OrnNoneZombies.prototype.getFirePea,
 	getSlow:function(){},
-	flatTire:function(){
-	this.getExplosion(20)
-	},
 		AttackZombie: function(d, c) {
 			oSym.addTask(1,
 			function(f, e) {
@@ -2011,13 +1998,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		PlayAudio("plastichit")
 	},
 	CanPass:function(d,c){return c},
-        ChkActs: function(h, f, j, e) {
-            var d, c, g;
-            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
-                R: f,
-                ar: [oS.R - 1],
-                CustomTop: 400 - h.height + h.GetDY()
-            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+PrivateAct:function(h){
 for (i=1;i<=oS.R;i++){
 if(h.hard!==2){
 let a=oZ.getArZ(h.ZX-100,h.ZX+300,h.R),
@@ -2036,27 +2017,8 @@ let b=oZ.getArZ(0,oS.W,i),
 	    }
 	}
     }
-}
-if(h.HPlook&&!h.bHP){
-	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+60) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
-    var A = "hp" + Math.random();
-    dHP.id = A;
-    var C = $(A);
-    oSym.addTask(1, function(C, h, b) {
-      ClearChild(C);
-      if (h.HP > h.BreakPoint && $Z[h.id]) {
-        EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX+60) + "px";
-        	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
-      }
-      oSym.addTask(5, arguments.callee, [C, h, b])
-    }, [C, h, b]);
-}
-            return g
-	},
+  }
+},
         Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+1000）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
     }),
 oConeheadZombie1= InheritO(OrnIZombies, {
@@ -2693,7 +2655,7 @@ oFootballZombie= function() {
       ClearChild(C);
       if (h.HP >=h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX+80) + "px";
+        C.style.left = (h.ZX) + "px";
 	if(!h.Ornaments){
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
@@ -2725,7 +2687,7 @@ ChkActs1: function(g, e, h, d) {
       ClearChild(C);
       if (h.HP >=h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX+80) + "px";
+        C.style.left = (h.ZX) + "px";
 	if(!h.Ornaments){
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
@@ -2756,7 +2718,7 @@ ChkActs1: function(g, e, h, d) {
       ClearChild(C);
       if (h.HP >=h.BreakPoint && $Z[h.id]) {
         EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX+80) + "px";
+        C.style.left = (h.ZX) + "px";
 	if(!h.Ornaments){
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
@@ -2905,7 +2867,7 @@ oSym.addTask(1,function(a){
       }, [a]);
     }
   },
-  PrivateBirth: function() {},
+PrivateBirth: function() {},
 Produce: '橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">极高</font><br>速度：<font color="#FF0000">快</font><br>弱点：<font color="#FF0000">磁力菇</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。'
     }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
@@ -3593,43 +3555,12 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 	beAttackedPointR: 130,
 	SunNum: 225,
 	BreakPoint:1,
-	LostPaperSpeed: 8,
+	LostPaperSpeed:4.8,
 	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">中（1000）</font><br>封印韧性：<font color="#FF0000">低（200）</font><br>伤害：<font color="#FF0000">同普僵</font><br>速度：正常，而后快(失去封印后)</font><br>特性：若在有报时受到灰烬伤害，将自身血量变为1500（只能一次)</p>你亲爱的二爷很容易破防，请不要在黑夜关卡用小喷菇惹他',
 	CanPass: function(d, c) {
 		return c
 	},
-	ChkActs: function(h, f, j, e) {
-            var d, c, g;
-            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
-                R: f,
-                ar: [oS.R - 1],
-                CustomTop: 400 - h.height + h.GetDY()
-            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-		if(h.HPlook&&!h.bHP){
-	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
-    var A = "hp" + Math.random();
-    dHP.id = A;
-    var C = $(A);
-    oSym.addTask(1, function(C, h, b) {
-      ClearChild(C);
-      if (h.HP > h.BreakPoint && $Z[h.id]) {
-        EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX) + "px";
-       	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
-      }
-      oSym.addTask(5, arguments.callee, [C, h, b])
-    }, [C, h, b]);
-		}
-            return g
-        },
-	ChkActs1: function(g, e, h, d) {
-			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
-			return f
-		},
-        getExplosion: function(Attack,howDie,callback) {
+    getExplosion: function(Attack,howDie,callback) {
             Attack = Attack == undefined?1800:Attack;
             howDie = howDie == undefined?"ExplosionDie":howDie;
             if(this.OrnHP>=Attack){
@@ -3653,7 +3584,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
             callback && callback();
         },
         PrivateAct: function(a){
-            if(!a.bool){
+            if(!a.bool&&(a.OSpeed==4.8)){
             a.bool = 1;
             oSym.addTask(75,function(a){
 	    if(!$Z[a.id]){return}
@@ -3696,7 +3627,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
             }
         },
   bedevilAct: function(a) {
-    if (!a.e) {
+    if (!a.e&&(a.OSpeed==4.8)) {
       a.Speed = 1;
       a.e = 1;
       oSym.addTask(100, function(a) {
@@ -3728,15 +3659,6 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
       }, [a]);
     }
   },
-	bedevil: function(c) {
-			c.ExchangeLR(c, 1);
-			c.JudgeAttack = c.JudgeAttackH;
-			c.PZ = 0;
-			c.WalkDirection = 1;
-			c.ZX = c.AttackedRX;
-			c.ChkActs = (c.OrnHP?c.ChkActs1:CZombies.prototype.ChkActs1);
-			oP.MonPrgs()
-		},
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
 		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.ChkActs = function() {
 			return 1
@@ -3902,7 +3824,7 @@ a.protect=1;
 			g.PlaySlowballAudio = e.PlaySlowballAudio,
 			g.getHit=e.getHit0,
 			g.Speed=8,
-		    g.oSpeed=8,
+		    g.OSpeed=8,
 			g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
 			g.AKind=2)
 	},
@@ -4021,8 +3943,7 @@ oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
                 SetStyle(i, {
                   left: h.X + "px",
                 }),
-		 (k!==undefined&&k.getHurt(h,2,1000)),
-		 (h.hard==2&&CustomZombie(oZombie3,h.R,GetC(h.ZX))),
+		 ($P[k.id]&&k.getHurt(h,2,1000)),
                 (n.src =
                   "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
                   $Random +
@@ -4261,7 +4182,7 @@ SunNum:2000,
   Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
   ChkActs: function(h, f, j, e) {
     var d, c, g;
-    h.Ornaments !== 0 && (h.ZX <= 700) && (h.Speed = h.oSpeed = 0);
+    h.Ornaments !== 0 && (h.ZX <= 800) && (h.Speed = h.oSpeed = 0);
     !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.getHit0(h, 114514), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
       R: f,
       ar: [oS.R - 1],
@@ -4310,12 +4231,7 @@ SunNum:2000,
     if (!a.Change) {
       a.Change = true;
       oSym.addTask(1000 + (a.OrnHP * 0.01), function(a) {
-        a.ZX += 5, a.AttackedLX += 5,
-          a.AttackedRX += 5,
-          a.X += 5,
-          SetStyle(a.Ele, {
-            left: a.X + "px"
-          });
+        a.getr(a,5);
         a.ChangeR(a);
         if (a.OrnHP >= 50000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
@@ -4333,13 +4249,13 @@ SunNum:2000,
           oP.NumZombies += 3;
         } else if (a.OrnHP >= 10000) {
           try{AppearTombstones(6, 9, 2);}catch{};
-          oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie], 0);
+          oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie,oPeaZombie], 0);
           oP.SetTimeoutTomZombie([oNewspaperZombie,oScreenDoorZombie]);
           oP.NumZombies += 4;
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie2, oNewspaperZombie3, oFootballZombie, oNewspaperZombie, oNewspaperZombie], 0);
-          oP.SetTimeoutTomZombie([oNewspaperZombie3,oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
+          oP.SetTimeoutTomZombie([oNewspaperZombie3,oNewspaperZombie,oFootballZombie,oScreenDoorZombie,oPeaZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -4426,7 +4342,7 @@ SunNum:2000,
 			$(a.id).style.filter = 'saturate(100%)';
             for (u in $Z) {
               e = $Z[u];
-                e.caiPlants =function(){return 1};
+                e.caiPlants =function(){return 0};
 				e.color=0;
             }
           }, [a])
@@ -4461,6 +4377,7 @@ for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && 
   GoingDie: function(b) {
     var a = this,
       c = a.id;
+	for (i in $Z)i!==c&&$Z[i].ExplosionDie();
     a.EleBody.src = b;
     oSym.addTask(200, ClearChild, [NewImg(0, a.PicArr[a.HeadGif] + Math.random(), "width:500px;height:372px; left:" + a.AttackedLX + "px;top:" + (a.pixelTop - 20) + "px;z-index:" + a.zIndex, EDPZ)]);
     a.beAttacked = 0;
@@ -4471,7 +4388,7 @@ for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && 
     this.getHit0(this, 2000, 0)
   },
   getPoison: function(e, b, c) {
-    this.getHit0(this, 40, 0)
+    this.getHit0(this,60,0)
   },
   CheckOrnHP: function(g, h, d, c, f, b, a) {
     var e = OrnNoneZombies.prototype;
@@ -4565,7 +4482,7 @@ oAquaticZombie = InheritO(OrnNoneZombies, {
 		d.AttackedLX < GetX(0) && (d.WalkStatus = 0, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3);
 if(d.HPlook&&!d.bHP){
 	d.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (d.pixelTop + 100) + "px;left:" + (d.ZX+80) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (d.pixelTop + 100) + "px;left:" + (d.ZX) + "px;width:100%;font-size:12px;z-index:50", "", EDAll);
     var A = "hp" + Math.random();
     dHP.id = A;
     var C = $(A);
@@ -4573,7 +4490,7 @@ if(d.HPlook&&!d.bHP){
       ClearChild(C);
       if (d.HP >=d.BreakPoint && $Z[d.id]) {
         EDAll && EDAll.appendChild(C);
-        C.style.left = (d.ZX+80) + "px";
+	C.style.left= (d.ZX) + "px";
         	if(d.OrnHP<1){
         b.innerHTML = '<div>' + Math.round(d.HP) + "</div>";
 	}else{b.innerHTML = '<div>' +Math.round(d.OrnHP)+"+"+Math.round(d.HP) + "</div>"}
@@ -5080,7 +4997,7 @@ oZomboni = function() {
             oSym.addTask(1,function(a){
                 let R = (a.R - 1) || 0,
                     RM = a.R + 1 <= oS.R ? a.R + 1 : oS.R,
-                    C = GetC($(a.id).offsetLeft + 80);
+                    C = GetC(a.ZX);
                 for(let i = R;i <= RM;i++){
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
@@ -5679,7 +5596,6 @@ NormalAttack: function(c, b) {
   },
 	Drop:function() {
 		var a = this;
-		if(a.hard==2){return}
 		PlayAudio("balloon_pop");
 		a.EleBody.src = "images/Zombies/BalloonZombie/Drop.gif" + $Random + Math.random();
 	a.ChkActs = function() {
@@ -6054,7 +5970,7 @@ bedevilAct:function(){
 						do {
 							j = q + "_" + g + "_";
 							for (l = 0; l < 4; l++) { (m = r[j + l]) && m.BoomDie()
-							}
+													}
 						} while ( g ++< h )
 					} while ( q ++< o )
 				})(e.R, GetC(e.ZX))) : (function(j, l) {
