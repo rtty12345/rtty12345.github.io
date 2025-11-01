@@ -751,7 +751,41 @@ oRepeater = InheritO(oPeashooter, {
 	Tooltip: "一次三线发射豌豆，并散射速度不同的豌豆，散射豌豆速度越快伤害越高",
 	Produce: '双发射手可以一次三线发射豌豆，并散射速度不同的豌豆，散射豌豆速度越快伤害越高，豌豆有概率无视所有防具，伤害僵尸的本体<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
 	getTriggerR:oThreepeater1.prototype.getTriggerR,
-        PrivateBirth:oThreepeater1.prototype.PrivateBirth,
+    PrivateBirth:function(f) {
+		f.skillnum=Math.round(Math.random()*1+1);
+		f.skillnum==2&&(f.NormalAttack2=function(){},
+		f.shootZ(f));
+		var e = f.AttackedLX,
+		d = e - 40,
+		a, c = f.oTrigger,
+		b;
+		f.BulletClass = [];
+		f.BulletEle = [];
+		for (b in c) {
+			f.BulletClass.push(NewO({
+				X: e,
+				R: b,
+				D: 0,
+				Attack: 20,
+				Kind: 0,
+				ChangeC: 0,
+				pixelLeft: d,
+				F: oGd.MB1
+			}));
+			f.BulletEle.push(NewImg(0, "images/Plants/PB00.gif", "left:" + (d- 40) + "px;top:" + (GetY(b) -80) + "px;visibility:hidden;z-index:" + (3 * b + 2)))
+		}
+	},
+shootZ:function(a){
+oSym.addTask(1000, function(a) {
+    let b = oZ.getArZ(0, oS.W, a.R);
+    b.sort(function(d, c) {
+      return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
+    });
+    $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200), 0);
+    $P[a.id] && oSym.addTask(600, arguments.callee, [a]);
+    PlayAudio("cherrybomb");
+  }, [a]);
+	},
         PrivateDie:oThreepeater1.prototype.PrivateDie,
 	NormalAttack1: oThreepeater1.prototype.NormalAttack,
 		NormalAttack2:function(){
@@ -2740,27 +2774,17 @@ oSunShroom = InheritO(oFumeShroom, {
 	height: 61,
 	beAttackedPointL: 15,
 	beAttackedPointR: 44,
-	SunNum: 100,
+	SunNum: 50,
 	Stature: -1,
 	Status: 0,
 	PicArr: ["images/Card/Plants/SunShroom.png", "images/Plants/SunShroom/0.gif", "images/Plants/SunShroom/SunShroom2.gif", "images/Plants/SunShroom/SunShroomSleep.gif", "images/Plants/SunShroom/SunShroom.gif"],
 	Tooltip: "开始提供少量的阳光, 一段时间后提供正常量的阳光",
-	Produce: '阳光菇开始提供少量阳光，稍后提供正常数量阳光，每隔一段时间对本行血量最高的僵尸造成百分比伤害<p>生产阳光：<font color="#FF0000">开始低，之后正常<br>白天睡觉</font></p>阳光菇讨厌阳光。恨到当它内部产生点阳光时，就尽可能快的吐出来。它就是不能忍受这个。对它来说，阳光令人厌恶。',
+	Produce: '阳光菇开始提供少量阳光，稍后提供正常数量阳光<p>生产阳光：<font color="#FF0000">开始低，之后正常<br>白天睡觉</font></p>阳光菇讨厌阳光。恨到当它内部产生点阳光时，就尽可能快的吐出来。它就是不能忍受这个。对它来说，阳光令人厌恶。',
 	GetDX: CPlants.prototype.GetDX,
 	GetDY: CPlants.prototype.GetDY,
 	InitTrigger: function() {},
 	PrivateDie: function(a) {},
-	PrivateBirth: function(a) {
-  oSym.addTask(1000, function(a) {
-    let b = oZ.getArZ(0, oS.W, a.R);
-    b.sort(function(d, c) {
-      return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
-    });
-    !a.Sleep&&$P[a.id]&&b[0].getHit0(Math.max((b[0].OrnHP + b[0].HP)*0.1,150));
-	$P[a.id]&&oSym.addTask(600,arguments.callee,[a]);
-	PlayAudio("cherrybomb");	
-  }, [a]);
-	},
+	PrivateBirth: function(a) {},
 	BirthStyle: function(c, d, b, a) {
 		oS.DKind ? (c.canTrigger = 0, c.Sleep = 1, b.childNodes[1].src = "images/Plants/SunShroom/SunShroomSleep.gif") : (oSym.addTask(600,
 		function(h, g, f) {
@@ -3550,6 +3574,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
