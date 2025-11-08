@@ -25,7 +25,6 @@ oS.Init({
   },
     LoadAccess: function(i) {
             $("tGround").style.left = "-115px";
-            ClearChild($("JSPVZAjax"));
             oS.RiddleAutoGrow();
             SetStyle($("dTop"), {
                 left: "105px",
@@ -79,6 +78,5 @@ oS.Init({
     oP.Monitor();
     BeginCool();
     SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
-    oS.RiddleAutoGrow()
   }
 });
