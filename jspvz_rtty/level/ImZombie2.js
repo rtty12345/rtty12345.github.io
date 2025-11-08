@@ -21,11 +21,9 @@ oS.Init({
     P: [0, 1, 1, 1, 20, 2, 3, 3, 4, 4, 5, 5, 6, 6, 19, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 17, 18]
   },
   LvlClearFunc: function() {
-                oS.ScrollScreen = oS.LvlVar.ScrollScreen;
-                delete oS.LvlVar.ScrollScreen
+    delete oS.ScrollScreen
   },
     LoadAccess: function(i) {
-           oS.LvlVar.ScrollScreen = oS.ScrollScreen;
             $("tGround").style.left = "-115px";
             ClearChild($("JSPVZAjax"));
             oS.RiddleAutoGrow();
