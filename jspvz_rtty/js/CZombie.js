@@ -5912,7 +5912,7 @@ bedevilAct:function(){
 													}
 						} while ( g ++< h )
 					} while ( q ++< o );
-					for (let i in $Z) $Z[i]&&!$Z[i].PZ&&($Z[i].Lvl<=3)&&$Z[i].OpenBox(i);
+					for (let i in $Z) $Z[i]&&$Z[i].PZ&&($Z[i].Lvl<=3)&&$Z[i].OpenBox(i);
 				})(e.R, GetC(e.ZX))) : (function(j, l) {
 					var m = j - 120,
 					o = j + 120,
@@ -6298,3 +6298,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
