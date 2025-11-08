@@ -42,6 +42,7 @@ oS.Init({
         NewEle("dButton1", "button", "position:absolute;left:650px;top:510px;width:100px;height:35px;z-index:255", {
                 innerHTML: "开始挑战",
                 onclick: function() {
+                  i(0);
                    oS.ScrollScreen(0);
                 }
             }, EDAll);
