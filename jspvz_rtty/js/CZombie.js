@@ -823,41 +823,9 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		},
 		[c, b])
 	},
-	ChangeChkActsTo0: function(c, b, a) {
-		if (!c.PZ) {
-			c.ChangeChkActsTo1(c, b, a);
-			return
-		}
-		c.LostHeadGif = 10;
-		c.NormalGif = 9; ! c.isAttacking && (a.src = c.PicArr[9]);
-		c.Speed = c.DZStep = 0;
-		oSym.addTask(200,
-		function(e, d) {
-			var f = $Z[e];
-			f && f.beAttacked && f.ChangeChkActsTo1(f, e, d)
-		},
-		[b, a])
-	},
-	ChangeChkActsTo1: function(c, b, a) {
-		c.LostHeadGif = 4;
-		c.NormalGif = 2;
-		c.DZStep = 1; ! c.isAttacking && (a.src = c.PicArr[2]);
-		c.PZ && oSym.addTask(220,
-		function(e, d) {
-			var f = $Z[e];
-			f && f.beAttacked && f.ChangeChkActsTo0(f, e, d)
-		},
-		[b, a])
-	},
 	ChkActs: function(g, d, h, c) {
-		var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
-			R: d,
-			ar: [oS.R - 1],
-			CustomTop: 400 - g.height + g.GetDY()
-		})), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
-		g.ChkSpeed(g);
 		this.PZ&&this.BoomFire(this.R);
-		return f
+		return 0
 	},
     BoomFire: function (y) {
       var s=$Z[this.id];
@@ -892,9 +860,8 @@ oBackupDancer = InheritO(OrnNoneZombies, {
       this.DisappearDie();
     },
 	ChkActs1: function(g, e, h, d) {
-			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			this.BoomFire(this);
-			return f
+			return 0
 		},
 	ChkSpeed: function(b) {
 		if (!b.DZStep) {
@@ -1450,19 +1417,7 @@ oDancingZombie1 = InheritO(oDancingZombie,{
                 oSym.addTask(90,
                   function(A, y, z,i) {
                     var B = $Z[A];
-                    B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(80,
-                      function(D,C) {
-                        var E = $Z[D];
-                        if (E && E.beAttacked) {
-                          return
-                        }
-                        var j = C.length,
-                          E;
-                        while (j--) {
-                          (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
-                        }
-                      },
-                      [A, z]));
+                    B && B.beAttacked && (oP.AppearUP(y, z, i));
                   },
                   [t, u, w, o]);
                 oSym.addTask(100,
@@ -6357,4 +6312,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
