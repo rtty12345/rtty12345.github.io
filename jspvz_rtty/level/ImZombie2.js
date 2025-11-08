@@ -3,7 +3,6 @@ oS.Init({
   ZName: [oNewspaperZombie, oJalapenoZombie,oZombie3, oFlagZombie, oNewspaperZombie2,oZomboni, oConeheadZombie, oDancingZombie2, oPeaZombie, oPoleVaultingZombie,oJackinTheBoxZombie],
   PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
   backgroundImage: "images/interface/background2.jpg",
-  ShowScroll: false,
   SunNum: 2000,
   BrainsNum: 5,
   ProduceSun: false,
