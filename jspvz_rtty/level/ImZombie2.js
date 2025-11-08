@@ -1,4 +1,4 @@
-oS。Init({
+oS.Init({
   PName: [oPeashooter, oSunFlower, oSnowPea, oSpikeweed, oGloomShroom, oStarfruit, oGatlingPea, oTorchwood, oRepeater, oPotatoMine, oWallNut, oSpikerock, oThreepeater, oGarlic, oCactus, oChomper, oSquash, oScaredyShroom, oTallNut, oBlover, oHypnoShroom],
   ZName: [oNewspaperZombie, oJalapenoZombie,oZombie3, oFlagZombie, oNewspaperZombie2,oZomboni, oConeheadZombie, oDancingZombie2, oPeaZombie, oPoleVaultingZombie,oJackinTheBoxZombie],
   PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
@@ -22,7 +22,7 @@ oS。Init({
   },
   LvlClearFunc: function() {
     oS.LvlVarScrollScreen=oS.ScrollScreen
-    delete oS.LvlVarScrollScreen
+    delete oS.LvlVar.ScrollScreen
   },
     LoadAccess: function(i) {
        ! oS.LvlVar ? oS.LvlVar = {
