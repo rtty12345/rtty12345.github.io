@@ -76,11 +76,13 @@ var CZombies = function(b, a) {
     }, [C, h, b]);
 	}
             (GetC(this.ZX)<=10)&&this.PrivateAct && this.PrivateAct(this);
+			Math.random()*100<10&&(GetC(this.ZX)<=10)&&this.Act&& this.Act(this);
             return g
         },
 		ChkActs1: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			this.bedevilAct&&this.bedevilAct(this);
+			Math.random()*100<10&&(GetC(this.ZX)<=10)&&this.ActH&& this.ActH(this);
 			return f
 		},
 		GetDX: function() {
@@ -3135,6 +3137,74 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 	CanPass: function(d, c) {
 		return c
 	},
+	Act:function(a) {
+    let z = $(a.id);
+    if (!a.Ch) {
+      a.Ch = 1;
+      a.OrnHP = 1000;
+      z.SquashHeadId = "Squash" + Math.random();
+      let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
+      z.appendChild(squash);
+    }
+    let s = $(z.SquashHeadId);
+	!(a.PZ||a.Ornaments)&&ClearChild(s);
+    a.OSpeed = a.Speed = 4;
+    for (let i = 3; i >= 0; i--) {
+      let p = oGd.$[a.R + "_" + GetC(a.ZX-20) + "_" + i];
+		Z=oZ.getHZ1(a.ZX-20,a.R);
+      if (((p && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner") && (p.EName != "oPotatoMine"))||Z)&&a.Ornaments) {
+        a.ChkActs = function() {
+          return 1
+        };
+        a.Ornaments && EditImg(s, 0, "images/Plants/Squash/SquashAttack.gif", {
+          left: "0px",
+          top: "-50px"
+        }, 0);
+        oSym.addTask(50, function(p, s,Z) {
+			var g = oZ.getArHZ(Z.ZX-100, Z.ZX,j),
+        h = g.length;
+	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)};
+          PlayAudio("gargantuar_thump");
+          $Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 1, 1000);
+          ClearChild(s);
+          $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
+        }, [p, s,Z]);
+        break;
+      }
+    }
+  },
+Act:function(a) {
+    let z = $(a.id);
+    if (!a.Chi) {
+      a.Chi= 1;
+      a.OrnHP = 1000;
+      z.SquashHeadId = "Squash" + Math.random();
+      let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:50px;top:-100px;", 0);
+      z.appendChild(squash);
+    }
+    let s = $(z.SquashHeadId);
+    a.OSpeed = a.Speed = 4;
+	!a.Ornaments&&ClearChild(s);
+	let Z=oZ.getZ0(a.ZX-20,a.R);
+      if (Z&&a.Ornaments) {
+        a.ChkActs1= function() {
+          return 1
+        };
+        a.Ornaments && EditImg(s, 0, "images/Plants/Squash/SquashAttack.gif", {
+          left: "0px",
+          top: "-50px"
+        }, 0);
+        oSym.addTask(50, function(p, s,Z) {
+			var g = oZ.getArZ(Z.ZX, Z.ZX+100,j),
+        h = g.length;
+	while(h--){$Z[a.id] && a.beAttacked&&g[h].bedevil(g[h])};
+        PlayAudio("gargantuar_thump");
+          ClearChild(s);
+          $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
+        }, [p, s,Z]);
+        break;
+      }
+  },
 	getExplosion: function(){
             if(this.OrnHP >= 1){
                 this.getHit0(this,200)
@@ -4108,6 +4178,7 @@ SunNum:2000,
   CanPass: function(d, c) {
     return c
   },
+	Act:function(){},
   getr: function() {},
   AudioArr: ["newspaper_rarrgh"],
   Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
@@ -6296,3 +6367,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
