@@ -338,7 +338,7 @@ HP:500,
       a = function(j, i, h) {
         return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
       };
-	  num<=1&&(AppearCard(g.pixelLeft,0,oStarfruit,1,1500));
+	  num<=2&&(AppearCard(g.pixelLeft,0,oStarfruit,1,1500));
     (function(h) {
       oSym.addTask(15,
         function(j) {
@@ -785,7 +785,7 @@ oSym.addTask(500, function(a,i) {
     });
     $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200), 0);
     $P[a.id] && oSym.addTask(500, arguments.callee, [a,i]);
-    PlayAudio("cherrybomb");
+    $P[a.id] && b[0]&&PlayAudio("cherrybomb");
   }, [a,i]);
  }
 },
@@ -3577,6 +3577,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
