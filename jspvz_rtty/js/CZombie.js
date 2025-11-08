@@ -5494,32 +5494,29 @@ oBalloonZombie = InheritO(OrnIZombies, {
 			PlayAudio("ballooninflate");
 		}, [c, a, b]) : (SetBlock(a), f[b] == undefined ? f[b] = 1 : ++f[b], PlayAudio("ballooninflate"));
 	},
-	ChkActs: function(f, d, g, c) {
-		var b, a, e;
-		!(f.FreeFreezeTime || f.FreeSetbodyTime) ?(f.beAttacked && !f.isAttacking && f.JudgeAttack(),!f.isAttacking ?((a = f.AttackedRX -= (b = f.Speed)) < -50 ? (g.splice(c, 1), f.DisappearDie(), e = 0) : (a < 100 && !f.PointZombie && (f.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), f.ChangeR({
-			R: d,
-			ar: [oS.R - 1],
-			CustomTop: 400 - f.height + f.GetDY()
-		})), f.ZX = f.AttackedLX -= b, f.Ele.style.left = Math.floor(f.X -= b) + "px", e = 1)) :e=1): e = 1;
-	if(f.HPlook&&!f.bHP){
-	f.bHP=1;
-    var E = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (f.pixelTop + 100) + "px;left:" + (f.ZX - 50) + "px;width:100%;font-size:12px", "", EDAll);
-    var A = "hp" + Math.random();
-    dHP.id = A;
-    var C = $(A);
-    E.innerHTML = '<div>' + Math.round(Math.max(f.OrnHP,0) + f.HP) + "</div>";
-    oSym.addTask(1, function(C, f, E) {
-      ClearChild(C);
-      if (f.HP > f.BreakPoint && $Z[f.id]) {
-        EDAll && EDAll.appendChild(C);
-        C.style.left = (f.ZX - 50) + "px";
-        E.innerHTML = '<div>' + Math.round(Math.max(f.OrnHP,0) + f.HP) + "</div>";
+PrivateAct:function(a) {
+      let l = GetC(a.ZX+20);
+      for (let j = l; j >= l - 2; j--) {
+        let p = oGd.$[a.R + "_" + j + "_" + 1];
+        if (p && (p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")) {
+          $(p.id) && $P[p.id] && (NewC = GetC(p.pixelRight += 1), p.AttackedLX += 1, p.AttackedRX += 1, p.pixelLeft += 1, $(p.id).style.left = (p.pixelLeft) + "px", NewC != p.R && (p.C = NewC,
+            oGd.del({
+              R: p.R,
+              C: j,
+              PKind: 1
+            }), oGd.add(p, a.R + "_" + NewC + "_" + 1)))
+        }
+	var AZ=oZ.getArHZ(a.ZX-180,a.ZX,a.R),
+		  Zle=AZ.length;
+		  while(Zle--){Zle&&(Zle.getHit0(Zle,0.1,0),Zle.getr(Zle,-1))}
       }
-      oSym.addTask(5, arguments.callee, [C, f, E])
-    }, [C, f, E]);
-	}
-		return e
+    },
+	bedevilAct:function(a){	
+		var Z=oZ.getArZ(a.ZX,a.ZX+180,a.R),
+		  Zle=Z.length;
+		  while(Zle--){Zle&&(Zle.getHit0(Zle,0.1,0),Zle.getr(Zle,1))}
 	},
+JudgeAttackH:function(){},
   JudgeAttack: function() {
     var f = this,
       c = f.ZX,
@@ -5531,7 +5528,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
   },
 NormalAttack: function(c, b) {
     var d = $Z[c];
-    $P[b].getHurt(d, 2, d.Attack)
+    $P[b].getHurt(d, 0,$P[b].HP)
   },
 	Drop:function() {
 		var a = this;
@@ -5552,6 +5549,7 @@ NormalAttack: function(c, b) {
 				c.EleBody.src = "images/Zombies/BalloonZombie/Walk.gif";
 				c.NormalAttack=OrnIZombies.prototype.NormalAttack;
 				c.JudgeAttack=OrnIZombies.prototype.JudgeAttack;
+				c.PrivateAct=function(){};
 				c.ChkActs = OrnIZombies.prototype.ChkActs;
 				c.ExplosionDie = function() {
 					var d = this;
@@ -6298,4 +6296,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
