@@ -3146,7 +3146,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
     let z = $(a.id);
     if (!a.Ch) {
       a.Ch = 1;
-      a.OrnHP = 1000;
+      a.OrnHP = 500;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
       z.appendChild(squash);
@@ -3188,7 +3188,7 @@ ActH1:function(a) {
 	if(a.bool){return}
     if (!a.Chi) {
       a.Chi= 1;
-      a.OrnHP = 1000;
+      a.OrnHP = 500;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:50px;top:-100px;", 0);
       z.appendChild(squash);
@@ -3199,6 +3199,7 @@ ActH1:function(a) {
 	$Z[a.id]&&!a.Ornaments&&ClearChild(s);
 	let Z=oZ.getZ0(a.ZX+20,a.R);
       if (Z&&a.Ornaments) {
+try{
         a.ChkActs1= function() {
           return 1
         };
@@ -3215,6 +3216,7 @@ ActH1:function(a) {
           $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
 		a.bo=1;
         }, [s,Z]);
+}catch{}
 	     }
       }
   },
@@ -3227,26 +3229,6 @@ ActH1:function(a) {
                 this.DisappearDie()
             }
         },
-			AttackZombie: function(d, c) {
-			oSym.addTask(10,
-			function(f, e) {
-				var h = $Z[f],
-				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) &&  ((h.OrnHP>=1)?g.getHit0(g,10,0): g.getHit0(g,100,0)),h.JudgeAttack())
-			},
-			[d, c])
-		},
-		AttackZombie2: function(e, d, c) {
-			e.isAttacking = 1;
-			e.EleBody.src = e.PicArr[e.AttackGif];
-			oSym.addTask(10,
-			function(g, f) {
-				var i = $Z[g],
-				h;
-				i.PZ &&i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? ((i.OrnHP>=1?h.getHit0(h, 10, 0): h.getHit0(h, 100, 0)), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
-			},
-			[d, c])
-		},
 	getHurtOrnLost: function(j, a, g, m, c, l, k, i) {
 		var e = this;
 		if (!e.beAttacked) {
@@ -6357,6 +6339,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
