@@ -3138,9 +3138,9 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 		return c
 	},
 	PrivateBirth: function(a){
-		var num=Math.round(Math.random()*100);
-	    a.Act = num>10 ? function(){}:a.Act1;
-		 a.ActH=(num>10?function(){}:a.ActH1);
+		var num=Math.random()*100;
+	    a.Act = (num>10?function(){}:a.Act1);
+		a.ActH=(num>10?function(){}:a.ActH1);
 	},
 	Act1:function(a) {
     let z = $(a.id);
@@ -4000,33 +4000,6 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 	CanPass: function(d, c) {
 		return c
 	},
-	ChkActs: function(h, f, j, e) {
-            var d, c, g;
-            !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
-                R: f,
-                ar: [oS.R - 1],
-                CustomTop: 400 - h.height + h.GetDY()
-            })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
-		if(h.HPlook&&!h.bHP){
-	h.bHP=1;
-    var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 100) + "px;left:" + (h.ZX) + "px;width:100%;font-size:12px;z-index:25", "", EDAll);
-    var A = "hp" + Math.random();
-    dHP.id = A;
-    var C = $(A);
-    oSym.addTask(1, function(C, h, b) {
-      ClearChild(C);
-      if (h.HP > h.BreakPoint && $Z[h.id]) {
-        EDAll && EDAll.appendChild(C);
-        C.style.left = (h.ZX) + "px";
-        	if(!h.Ornaments){
-        b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
-	}else{b.innerHTML = '<div>' +Math.round(h.OrnHP)+"+"+Math.round(h.HP) + "</div>"}
-      }
-      oSym.addTask(5, arguments.callee, [C, h, b])
-    }, [C, h, b])
-		}
-            return g
-        },
 	bedevil: function() {},
 	getbedevil: function() {},
     getExplosion: function(Attack,howDie,callback) {
@@ -4056,9 +4029,9 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		this.getHit0(this,this.OrnHP)
 	},
 	PrivateAct:function(a){
-        if(!a.bool){
+        if(!a.bool&&(a.OSpeed==a.LostPaperSpeed)){
 	        for (let i = 0; i <= 0; i++) {
-                oP.SetTimeoutTomZombie([oNewspaperZombie]);
+                oP.SetTimeoutTomZombie([oNewspaperZombie,oNewspaperZombie3]);
 		try{oP.SetTimeoutWaterZombie(7,9,1,[oNewspaperZombie]);}catch{};
 		a.bool=1;
               }
@@ -4068,8 +4041,11 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 	a.Speed=a.LostPaperSpeed;
 	    }
 	},
-	PrivateBirth: function() {
+	PrivateBirth: function(a) {
 	    try{AppearTombstones(8,9,this.hard==2?5:Math.round(Math.random()*1+1))}catch{}
+		var num=Math.random()*100;
+	    a.Act = (num>10?function(){}:a.Act1);
+		a.ActH=(num>10?function(){}:a.ActH1);
         },
 	getHit0: function(c, a, b) {
  		c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1), c.SetAlpha(c, c.EleBody,400, 0.5), oSym.addTask(10,
@@ -6378,6 +6354,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
