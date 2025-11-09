@@ -5328,7 +5328,7 @@ ChkActsL2: function(d, c, e, b) {
 			if (e > 9) {
 				continue
 			}
-			for (a = 2; a > -1; (p = g[d + e + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= b && p.AttackedLX < b && (a = -1, f.JudgeAttack = CZombies.prototype.JudgeAttack, f.NormalAttack(f.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, f.JudgeAttack = CZombies.prototype.JudgeAttack, (f.NormalAttack = CZombies.prototype.NormalAttack)(f.id, p.id)))) {}
+			for (a = 2; a > -1; (p = g[d + e + "_" + a--]) && (p.EName != "oBrains" ? p.AttackedRX >= b && p.AttackedLX < b && (a = -1,f.NormalAttack(f.id, p.id, p.AttackedLX)) : p.AttackedRX >= b && p.AttackedLX < b && (a = -1, f.JudgeAttack = CZombies.prototype.JudgeAttack, (f.NormalAttack = CZombies.prototype.NormalAttack)(f.id, p.id)))) {}
 		}
 	},
 	AttackZombie2: function(c, b, a) {
@@ -5337,14 +5337,9 @@ ChkActsL2: function(d, c, e, b) {
 	NormalAttack: function(d, b, g) {
 		var f = $Z[d];
 		PlayAudio("dolphin_before_jumping");
-		oSym.addTask(50,
-		function(m) {
-			var h = $Z[m];
 				oP.SetTimeoutZombie([oDolphinRiderZombie1, oDolphinRiderZombie1], 0);
                 oP.NumZombies += 2;
-			h.NormalAttack=function(){}
-		},
-		[d])
+			f.NormalAttack=function(){}
 	},
 	ChkActs3: function(h, f, j, e) {
             var d, c, g;
@@ -6363,6 +6358,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
