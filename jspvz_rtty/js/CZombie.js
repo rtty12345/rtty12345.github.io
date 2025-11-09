@@ -5241,8 +5241,31 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	Produce: '海豚骑士僵尸善于利用你水池防御的弱点<p>韧性：<font color="#FF0000">中(800)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤，但跳跃时会使全场僵尸前进一格）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
-		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
+		oZomboni.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
 	},
+ChkActsL2: function(d, c, e, b) {
+    var a;
+    !(d.FreeFreezeTime || d.FreeSetbodyTime) && (d.beAttacked && !d.isAttacking && d.JudgeAttack(), !d.isAttacking && (d.AttackedRX -= (a = d.Speed), d.ZX = d.AttackedLX -= a, d.Ele.style.left = Math.floor(d.X -= a) + "px"));
+    d.AttackedLX < GetX(0) && (d.WalkStatus = 0, d.EleBody.src = d.PicArr[d.NormalGif = d.WalkGif0], SetVisible(d.EleShadow), d.ChkActs = d.ChkActsL3);
+    d.Ice(d, c);
+    return 1
+  },
+  Ice: function(e, j) {
+    var b, r, m, g, n = oGd.$Ice[j],
+      d, h, f, c, l = $("dIceCar" + j);
+    if (l == null) { // 对没有冰道的情况下特判
+      l = NewEle("dIceCar" + j, "div", "position:absolute;z-index:2;left:105px;top:" + (GetY(e.R) - 65) + "px;width:800px;height:72px", 0, EDPZ); // 生成新的冰道
+      NewImg("", "images/interface/blank.png", "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x", l);
+      NewImg("", "images/Zombies/Zomboni/ice_cap.png", "position:absolute;display:none;left:0", l);
+      n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
+    }
+    d = e.X;
+    h = d + 250;
+    f = d + 100;
+    c = GetC(h);
+    c > -1 && c < n[1] && (oGd.$Crater[j + "_" + c] = 1, n[1] = c);
+    h > 120 && h < n[2] && (n[2] = h, l.firstChild.style.clip = "rect(0,auto,auto," + f + "px)", l.childNodes[1].style.left = Math.max(0, f) + "px");
+  },
 	CanPass: function(d, c) {
 		return c
 	},
@@ -5257,6 +5280,15 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		[a.id, a]),a.ChkActs = function() {
 			return 1
 		})
+	},
+	ExplosionDie:function(){
+		this.getHit0(this,this.HP-100)
+	},
+	DisappearDie:function(){
+		this.getHit0(this,this.HP-100)
+	},
+	CrushDie:function(){
+		this.getHit0(this,this.HP-100)
 	},
 	ChkActsL1: function(d, c, e, b) {
 		if (d.JumpTime <= 0) {
@@ -5303,54 +5335,16 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		c.NormalAttack(b, a, $Z[a].AttackedLX)
 	},
 	NormalAttack: function(d, b, g) {
-		var f = $Z[d],
-		a = f.Ele,
-		c = f.EleShadow,
-		e = f.EleBody;
-		e.src = f.PicArr[9] + Math.random();
-		SetHidden(c);
-		f.isAttacking = 1;
-		f.Altitude = 2;
-		f.haveDolphin = 0;
+		var f = $Z[d];
 		PlayAudio("dolphin_before_jumping");
-		f.getFreeze = function() {
-			f.getSnowPea(f, 20, 0)
-		};
 		oSym.addTask(50,
-		function(m, j, i, l, q) {
-			var h = $Z[m],
-			k,
-			r,
-			s,
-			n = function() {
-				q.src = h.PicArr[10];
-				h.isAttacking = 0;
-				h.Altitude = 1;
-				h.WalkGif0 = 11;
-				h.NormalGif = h.WalkGif1 = 10;
-				h.LostHeadGif = h.DieGif = 12;
-				h.NormalAttack = (s = CZombies.prototype).NormalAttack;
-				h.getCrushed = s.getCrushed;
-				h.getFreeze = s.getFreeze;
-				h.getRaven = s.getRaven;
-				h.AttackZombie2 = s.AttackZombie2
+		function(m) {
+			var h = $Z[m];
 				oP.SetTimeoutZombie([oDolphinRiderZombie1, oDolphinRiderZombie1], 0);
                 oP.NumZombies += 2;
-			};
-			h && ((k = $P[j]) && k.Stature > 0 ? (h.AttackedRX = (h.X = (h.AttackedLX = h.ZX = r = k.AttackedRX) - (h.beAttackedPointL = 45)) + (h.beAttackedPointR = 100), SetStyle(i, {
-				left: h.X + "px"
-			}), h.EleShadow.style.left = "45px", n()) : (h.ZX = h.AttackedLX = (h.X = (h.AttackedRX = g) - (h.beAttackedPointR = 100)) + (h.beAttackedPointL = 45), SetStyle(i, {
-				left: h.X + "px"
-			}), h.EleShadow.style.left = "45px", q.src = h.PicArr[13] + Math.random(),
-			oSym.addTask(170,
-			function(t, w) {
-				var v = $Z[t],
-				u;
-				v && n()
-			},
-			[m, q])))
+			h.NormalAttack=function(){}
 		},
-		[d, b, a, c, e])
+		[d])
 	},
 	ChkActs3: function(h, f, j, e) {
             var d, c, g;
@@ -5361,10 +5355,34 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
             })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
             return g
         },
+JudgeIce: function() {
+    var d = this,
+      b = d.R,
+      e = $("dIceCar" + b),
+      c = oGd.$Ice[b];
+    if (d.PointZombie) return; // 如果冰车已经进入家门，则不产冰
+    e && e.childNodes[1] && SetBlock(e.childNodes[1]);
+    (--c[0]) <= 0 && oSym.addTask(3000,
+      function(k, h) {
+        var j = oGd.$Ice[h],
+          g,
+          f = oGd.$Crater;
+        if (j && j[0] <= 0 && k) {
+          ClearChild(k);
+          g = j[1];
+          while (g < 11) {
+            delete f[h + "_" + g++];
+            delete oGd.$Ice[h]
+          }
+        }
+      },
+      [e, b])
+  },
 	GoingDie: function() {
 		var b = this,
 		c = b.id,
 		a = b.PicArr;
+		b.JudgeIce();
 		b.EleBody.src = a[b.haveDolphin ? 7 : 12] + Math.random();
 		b.GoingDieHead(c, a, b);
 		b.beAttacked = 0;
@@ -5377,6 +5395,12 @@ oDolphinRiderZombie1= InheritO(oDolphinRiderZombie, {
 	CName: "海豚骑士僵尸",
 	HP: 500,
 	Lvl:2,
+	Ice:function(){},
+	JudgeIce:function(){},
+	BirthCallBack: function(a) {
+		PlayAudio("dolphin_appears");
+		oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
+	},
 	NormalAttack: function(d, b, g) {
 		var f = $Z[d],
 		a = f.Ele,
@@ -6339,6 +6363,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
