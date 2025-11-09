@@ -3168,12 +3168,12 @@ if(!a.bool){
         }, 0);
         oSym.addTask(50, function(p, s,Z) {
 try{
-	if(Z){
-	let g = oZ.getArHZ(Z.ZX-100, Z.ZX,a.R),
+	let g = oZ.getArHZ(a.ZX-100, a.ZX,a.R),
         h = g.length;
-	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}}
+	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}
           PlayAudio("gargantuar_thump");
-          p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 1, 1000);
+	    p&&(p.HP<=2000)&&CustomZombie(oNewspaperZombie,a.R,GetC(a.ZX)-1);
+          p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 3, 2000);
           ClearChild(s);
           $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
 }catch(e){console.error(e)}
@@ -3185,6 +3185,7 @@ try{
   },
 ActH1:function(a) {
     let z = $(a.id);
+	if(a.bool){return}
     if (!a.Chi) {
       a.Chi= 1;
       a.OrnHP = 1000;
@@ -6356,6 +6357,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
