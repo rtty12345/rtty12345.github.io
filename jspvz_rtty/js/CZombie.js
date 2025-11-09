@@ -76,13 +76,13 @@ var CZombies = function(b, a) {
     }, [C, h, b]);
 	}
             (GetC(this.ZX)<=10)&&this.PrivateAct && this.PrivateAct(this);
-			Math.random()*100<10&&(GetC(this.ZX)<=10)&&this.Act&& this.Act(this);
+			(GetC(this。ZX)<=10)&&this.Act&& this.Act(this);
             return g
         },
 		ChkActs1: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			this.bedevilAct&&this.bedevilAct(this);
-			Math.random()*100<10&&(GetC(this.ZX)<=10)&&this.ActH&& this.ActH(this);
+			(GetC(this.ZX)<=10)&&this.ActH&& this.ActH(this);
 			return f
 		},
 		GetDX: function() {
@@ -3137,7 +3137,11 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 	CanPass: function(d, c) {
 		return c
 	},
-	Act:function(a) {
+	PrivateBirth: function(a){
+	    a.Act = Math.round(Math.random()*100)>10 ? function(){}:a.Act1;
+		 a.ActH=(a.Act!==function(){}?a.ActH1:function(){});
+	},
+	Act1:function(a) {
     let z = $(a.id);
     if (!a.Ch) {
       a.Ch = 1;
@@ -3161,10 +3165,11 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
           top: "-50px"
         }, 0);
         oSym.addTask(50, function(p, s,Z) {
+try{
+	if(Z){
 	let g = oZ.getArHZ(Z.ZX-100, Z.ZX,j),
         h = g.length;
-try{
-	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)};
+	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}}
           PlayAudio("gargantuar_thump");
           $Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 1, 1000);
           ClearChild(s);
@@ -3175,7 +3180,7 @@ try{
       }
     }
   },
-ActH:function(a) {
+ActH1:function(a) {
     let z = $(a.id);
     if (!a.Chi) {
       a.Chi= 1;
@@ -3197,7 +3202,7 @@ ActH:function(a) {
           left: "0px",
           top: "-50px"
         }, 0);
-        oSym.addTask(50, function(p, s,Z) {
+        oSym.addTask(50, function(s,Z) {
 			var g = oZ.getArZ(Z.ZX, Z.ZX+100,j),
         h = g.length;
 	while(h--){$Z[a.id] && a.beAttacked&&g[h].bedevil(g[h])};
@@ -3205,7 +3210,7 @@ ActH:function(a) {
           ClearChild(s);
           $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
 		a.bo=1;
-        }, [p, s,Z]);
+        }, [s,Z]);
 	     }
       }
   },
@@ -6371,6 +6376,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
