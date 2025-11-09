@@ -3138,8 +3138,9 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 		return c
 	},
 	PrivateBirth: function(a){
-	    a.Act = Math.round(Math.random()*100)>10 ? function(){}:a.Act1;
-		 a.ActH=(a.Act!=function(){}?a.ActH1:function(){});
+		var num=Math.round(Math.random()*100);
+	    a.Act = num>10 ? function(){}:a.Act1;
+		 a.ActH=(num>10?function(){}:a.ActH1);
 	},
 	Act1:function(a) {
     let z = $(a.id);
@@ -3192,7 +3193,7 @@ ActH1:function(a) {
 	if(!a.bo){
     let s = $(z.SquashHeadId);
     a.OSpeed = a.Speed = 4;
-	!a.Ornaments&&ClearChild(s);
+	$Z[a.id]&&!a.Ornaments&&ClearChild(s);
 	let Z=oZ.getZ0(a.ZX+20,a.R);
       if (Z&&a.Ornaments) {
         a.ChkActs1= function() {
@@ -3722,6 +3723,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
+	Act1:function(){},
 	Produce: '他的铁门是非常坚硬的盾牌，若后方有僵尸则每次铁门限伤2<p>韧性：<font color="#FF0000">低(270)</font><br>铁门韧性：<font color="#FF0000">高（1100）</font><br>弱点：大喷菇和磁力菇</p>精英形态：寒冰射手铁门，能发射冻结豌豆，手里的大喷菇可以对前方两格的植物造成减速和伤害',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
@@ -6376,6 +6378,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
