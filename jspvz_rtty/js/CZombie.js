@@ -3151,6 +3151,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
       z.appendChild(squash);
     }
+if(!a.bool){
     let s = $(z.SquashHeadId);
 	!(a.PZ||a.Ornaments)&&ClearChild(s);
     a.OSpeed = a.Speed = 4;
@@ -3172,14 +3173,14 @@ try{
         h = g.length;
 	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}}
           PlayAudio("gargantuar_thump");
-          $Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 1, 1000);
+          p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 1, 1000);
           ClearChild(s);
           $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
 }catch(e){console.error(e)}
         }, [p, s,Z]);
-        break;
+        a.bool=1;
       }
-    }
+	}
   },
 ActH1:function(a) {
     let z = $(a.id);
@@ -6354,6 +6355,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
