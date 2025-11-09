@@ -3181,6 +3181,7 @@ try{
         a.bool=1;
       }
 	}
+}
   },
 ActH1:function(a) {
     let z = $(a.id);
@@ -6355,6 +6356,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
