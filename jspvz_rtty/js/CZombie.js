@@ -76,13 +76,13 @@ var CZombies = function(b, a) {
     }, [C, h, b]);
 	}
             (GetC(this.ZX)<=10)&&this.PrivateAct && this.PrivateAct(this);
-			(GetC(this。ZX)<=10)&&this.Act&& this.Act(this);
+			(GetC(this.ZX)<=10)&&this.Act&& this.Act(this);
             return g
         },
 		ChkActs1: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			this.bedevilAct&&this.bedevilAct(this);
-			(GetC(this.ZX)<=10)&&this.ActH&& this.ActH(this);
+			this.ActH&& this.ActH(this);
 			return f
 		},
 		GetDX: function() {
@@ -6376,6 +6376,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
