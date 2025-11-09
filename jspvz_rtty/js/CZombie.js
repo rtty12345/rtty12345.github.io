@@ -3167,7 +3167,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
         oSym.addTask(50, function(p, s,Z) {
 try{
 	if(Z){
-	let g = oZ.getArHZ(Z.ZX-100, Z.ZX,j),
+	let g = oZ.getArHZ(Z.ZX-100, Z.ZX,a.R),
         h = g.length;
 	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}}
           PlayAudio("gargantuar_thump");
@@ -3203,7 +3203,7 @@ ActH1:function(a) {
           top: "-50px"
         }, 0);
         oSym.addTask(50, function(s,Z) {
-			var g = oZ.getArZ(Z.ZX, Z.ZX+100,j),
+			var g = oZ.getArZ(Z.ZX, Z.ZX+100,a.R),
         h = g.length;
 	while(h--){$Z[a.id] && a.beAttacked&&g[h].bedevil(g[h])};
         PlayAudio("gargantuar_thump");
@@ -6376,6 +6376,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
