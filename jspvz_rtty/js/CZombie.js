@@ -3139,7 +3139,7 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 	},
 	PrivateBirth: function(a){
 	    a.Act = Math.round(Math.random()*100)>10 ? function(){}:a.Act1;
-		 a.ActH=(a.Act!==function(){}?a.ActH1:function(){});
+		 a.ActH=(a.Act!=function(){}?a.ActH1:function(){});
 	},
 	Act1:function(a) {
     let z = $(a.id);
@@ -3193,7 +3193,7 @@ ActH1:function(a) {
     let s = $(z.SquashHeadId);
     a.OSpeed = a.Speed = 4;
 	!a.Ornaments&&ClearChild(s);
-	let Z=oZ.getZ0(a.ZX-20,a.R);
+	let Z=oZ.getZ0(a.ZX+20,a.R);
       if (Z&&a.Ornaments) {
         a.ChkActs1= function() {
           return 1
@@ -6376,6 +6376,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
