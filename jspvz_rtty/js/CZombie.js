@@ -3200,7 +3200,7 @@ ActH1:function(a) {
 	let Z=oZ.getZ0(a.ZX+20,a.R);
       if (Z&&a.Ornaments) {
 try{
-        a.ChkActs1= function() {
+        a.ChkActs= function() {
           return 1
         };
         a.Ornaments && EditImg(s, 0, "images/Plants/Squash/SquashAttack.gif", {
@@ -5570,13 +5570,13 @@ PrivateAct:function(a) {
         }
 	var AZ=oZ.getArHZ(a.ZX-180,a.ZX,a.R),
 		  Zle=AZ.length;
-		  while(Zle--){Zle&&(Zle.getHit0(Zle,0.1,0),Zle.getr(Zle,-1))}
+		  while(Zle--){AZ[Zle]&&(AZ[Zle].getHit0(AZ[Zle],1,0),AZ[Zle].getr(AZ[Zle],-1))}
       }
     },
 	bedevilAct:function(a){	
 		var Z=oZ.getArZ(a.ZX,a.ZX+180,a.R),
 		  Zle=Z.length;
-		  while(Zle--){Zle&&(Zle.getHit0(Zle,0.1,0),Zle.getr(Zle,1))}
+		  while(Zle--){Z[Zle]&&(Z[Zle].getHit0(Z[Zle],1,0),Z[Zle].getr(Z[Zle],1))}
 	},
 JudgeAttackH:function(){},
   JudgeAttack: function() {
@@ -6358,6 +6358,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
