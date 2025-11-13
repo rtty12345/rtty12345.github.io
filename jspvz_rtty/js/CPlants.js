@@ -753,8 +753,8 @@ oRepeater = InheritO(oPeashooter, {
 	Produce: '双发射手可以一次三线发射豌豆，并散射速度不同的豌豆，散射豌豆速度越快伤害越高，豌豆有概率无视所有防具，伤害僵尸的本体<p>伤害：<font color="#FF0000">中等(每颗)</font><br>发射速度：<font color="#FF0000">两倍</font></p>双发射手很凶悍，他是在街头混大的。他不在乎任何人的看法，无论是植物还是僵尸，他打出豌豆，是为了让别人离他远点。其实呢，双发射手一直暗暗地渴望着爱情。',
 	getTriggerR:oThreepeater1.prototype.getTriggerR,
     PrivateBirth:function(f) {
-		f.skillnum=Math.round(Math.random()*1+1);
-		f.skillnum==2&&(f.NormalAttack2=function(){},
+		f.skillnum=Math.random()*100;
+		f.skillnum<=20&&(f.NormalAttack2=function(){},
 		f.shootZ(f));
 		var e = f.AttackedLX,
 		d = e - 40,
@@ -783,7 +783,7 @@ oSym.addTask(500, function(a,i) {
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
-    $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200), 0);
+    $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 150), 0);
     $P[a.id] && oSym.addTask(500, arguments.callee, [a,i]);
     $P[a.id] && b[0]&&PlayAudio("cherrybomb");
   }, [a,i]);
@@ -3577,6 +3577,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
