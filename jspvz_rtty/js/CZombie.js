@@ -460,7 +460,6 @@ shootbedevilPea:function(a) {
 		},
 		NormalDie: function() {
 			var c = this;
-			try{ClearChild($("dHP"))}catch{};
 			c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
 			oSym.addTask(250, ClearChild, [c.Ele]);
 			c.HP = 0;
@@ -469,7 +468,6 @@ shootbedevilPea:function(a) {
 		},
 		ExplosionDie: function() {
 			var c = this;
-			try{ClearChild($("dHP"))}catch{};
 			c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
 			oSym.addTask(300, ClearChild, [c.Ele]);
 			c.HP = 0;
@@ -477,7 +475,6 @@ shootbedevilPea:function(a) {
 			c.PZ && oP.MonPrgs()
 		},
 		DisappearDie: function() {
-			try{ClearChild($("dHP"))}catch{};
 			ClearChild(this.Ele);
 			this.HP = 0;
 			delete $Z[this.id];
@@ -485,7 +482,6 @@ shootbedevilPea:function(a) {
 		},
 		CrushDie: function() {
 			var c = this;
-			try{ClearChild($("dHP"))}catch{};
 			c.GoingDieHead(c.id, c.PicArr, c);
 			ClearChild(c.Ele);
 			c.HP = 0;
@@ -574,7 +570,7 @@ shootbedevilPea:function(a) {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(10, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.getHit0(h, 10, 0), oSym.addTask(i.tasktime*0.1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -6358,6 +6354,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
