@@ -4010,13 +4010,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		this.getHit0(this,this.OrnHP)
 	},
 	PrivateAct:function(a){
-        if(!a.bool&&(a.OSpeed==a.LostPaperSpeed)){
-	        for (let i = 0; i <= 0; i++) {
-                oP.SetTimeoutTomZombie([oNewspaperZombie,oNewspaperZombie3]);
-		try{oP.SetTimeoutWaterZombie(7,9,1,[oNewspaperZombie]);}catch{};
-		a.bool=1;
-              }
-	}else if(a.HP<=800&&(a.hard==2)){
+if(a.HP<=800&&(a.hard==2)){
 	a.getSlow=a.getFreeze=a.getFreeze1=function(){};
 	a.FreeSlowTime=a.FreeFreezeTime=0;
 	a.Speed=a.LostPaperSpeed;
@@ -4105,6 +4099,8 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 			k.tasktime=2;
 			k.bedevil=j.bedevil;
 			k.getbedevil=j.getbedevil;
+		oP.SetTimeoutTomZombie([oNewspaperZombie,oNewspaperZombie3]);
+		try{oP.SetTimeoutWaterZombie(7,9,1,[oNewspaperZombie]);}catch{};
 			k.ChkActs = (k.PZ?j.ChkActs:j.ChkActs1);
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
@@ -6354,6 +6350,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
