@@ -955,7 +955,7 @@ oPeashooter2= InheritO(oPeashooter, {
 		ch=Math.random*100,
 		Pea,
 		b = "PB" + Math.random();
-		switch(true){
+		switch(ch){
 			case ch<30:
 			a.PicArr[3]="images/Plants/PB10.gif";
 			Pea=1;
@@ -1021,7 +1021,7 @@ oGatlingPea1= InheritO(CPlants, {
 		return [1, oS.R]
 	},
 PrivateBirth: function(a) {
-		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
+	a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
 },
 	PrivateDie: function(a) {
 		a.BulletEle = null
@@ -1061,12 +1061,13 @@ PrivateBirth: function(a) {
 			0, EDPZ), a,B])
 		})("GStarB2" + Math.random());
 	},
+	NormalAttack2:oPeashooter2.prototype.NormalAttack,
 	NormalAttack: function(a) {
 		this.NormalAttack1();
 		oSym.addTask(10,
 		function(d, b) {
 			var c = $P[d];
-			c && oPeashooter2.prototype.NormalAttack();
+			c && c.NormalAttack2();
 			c && c.NormalAttack1(); --b && oSym.addTask(10, arguments.callee, [d, b])
 		},
 		[this.id,Math.round(Math.random()*3+5)])
@@ -3540,6 +3541,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
