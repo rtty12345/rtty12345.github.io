@@ -859,24 +859,8 @@ oSym.addTask(500, function(a,i) {
 		[this.id,Math.round(Math.random()*2+1)])
 	}	
 }),
-oPeashooter1= InheritO(CPlants, {
+oPeashooter1= InheritO(oPeashooter, {
 	EName: "oPeashooter1",
-	CName: "豌豆射手",
-	width: 71,
-	height: 71,
-	beAttackedPointR: 51,
-	SunNum:150,
-	BKind: 0,
-	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	PicArr: ["images/Card/Plants/Peashooter.png", "images/Plants/Peashooter/0.gif", "images/Plants/Peashooter/Peashooter.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
-	Tooltip: "向敌人射出豌豆",
-	Produce: '豌豆射手，你的第一道防线。它们通过发射豌豆来攻击僵尸。<p>伤害：<font color="#FF0000">随机（10～100）</font></p>一棵植物，怎么能如此快地生长，并发射如此多的豌豆呢？豌豆射手：“努力工作，奉献自己，再加上一份阳光，高纤维和氧化碳均衡搭配，这种健康早餐让一切成为可能。”',
-	PrivateBirth: function(a) {
-		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2))
-	},
-	PrivateDie: function(a) {
-		a.BulletEle = null
-	},
 	NormalAttack: function() {
 		var a = this,
 		b = "PB" + Math.random();
@@ -961,6 +945,59 @@ oGatlingPea= InheritO(oPeashooter, {
 	     c.isDie = true;
         }
 }),
+oPeashooter2= InheritO(oPeashooter, {
+	EName: "oPeashooter2",
+	PrivateBirth:oSnowPea.prototype.PrivateBirth,
+	NormalAttack: function() {
+		var a = this,
+		ch=Math.random*100,
+		Pea,
+		b = "PB" + Math.random();
+		switch(true){
+			case ch<=20:
+			a.PicArr[3]="images/Plants/PB10.gif";
+			Pea=1;
+			break;
+			case ch<=80:
+			a.PicArr[3]="images/Plants/PB00.gif";
+			Pea=0;
+			break;
+			default:
+			a.PicArr[3]="images/Plants/PB-10.gif";
+			Pea=(Math.random()*100>20?-1:-2);	
+		}
+		EditEle(a.BulletEle.cloneNode(false), {
+			id: b,
+			src:a.PicArr[3]
+		},
+		0, EDPZ);
+		oSym.addTask(15,
+		function(d) {
+			var c = $(d);
+			c && SetVisible(c)
+		},
+		[b]);
+		oSym.addTask(1,
+		function(f, j, h, c, n, i, m, k, o, g) {
+			var l, e = GetC(n),
+				A=oGd.$[i + "_" + e+"_2"],
+			d = oZ["getZ" + c](n, i);
+     m==0&& g[i + "_" + e] && k != e && (PlayAudio("firepea"), ++m && (h = 40), k = e, j.src = "images/Plants/PB" + Math.min(m,1) + c + ".gif",
+		A&&(A.Vasenum+=0.5,A.Vasenum>=50&&(A&&A.setVase())));
+			d && d.Altitude == 1 ? (d[{
+				"-2": "getSlowPea",
+				"-1": "getSnowPea",
+				0 : "getPea",
+				1 : "getSlowPea1"
+			} [m]](d, h, c), (SetStyle(j, {
+				left: o + 28 + "px",
+				width: "52px",
+				height: "46px"
+			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
+		},
+		[b, $(b),20,0,a.AttackedLX, a.R,Pea, 0, a.AttackedLX - 40, oGd.$Torch])
+	}
+}),
 oGatlingPea1= InheritO(CPlants, {
 	EName: "oGatlingPea1",
 	CName:"散射机枪射手",
@@ -1004,22 +1041,7 @@ oGatlingPea1= InheritO(CPlants, {
 				width: "52px",
 				height: "46px"
 			})).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]),false) : true)
-		}; (function(h) {
-			oSym.addTask(15,
-			function(j) {
-				var i = $(j);
-				i && SetVisible(i)
-			},
-			[h]);
-			oSym.addTask(1,
-			function(m, k, l, i, j) {
-				j(oZ.getZ0(m, k), 4, i) && ((m += 5)>880 ? ClearChild(i) : (i.style.left = (l += 5) + "px", oSym.addTask(1, arguments.callee, [m, k, l, i, j])))
-			},
-			[f, c, d, EditEle(g.BulletEle.cloneNode(false), {
-				id: h
-			},
-			0, EDPZ), a])
-		})("GStarB1" + Math.random());
+		}; 
 		(function(h) {
 			oSym.addTask(15,
 			function(j) {
@@ -1045,6 +1067,7 @@ oGatlingPea1= InheritO(CPlants, {
 		oSym.addTask(10,
 		function(d, b) {
 			var c = $P[d];
+			c && oPeashooter2.prototype.NormalAttack();
 			c && c.NormalAttack1(); --b && oSym.addTask(10, arguments.callee, [d, b])
 		},
 		[this.id,Math.round(Math.random()*3+5)])
@@ -3518,4 +3541,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
