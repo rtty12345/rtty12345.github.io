@@ -952,18 +952,17 @@ oPeashooter2 = InheritO(oPeashooter, {
     },
     NormalAttack: function() {
       var a = this,
-        ch = Math.random() * 100,
-        Pea,
         b = "PB" + Math.random();
-      if (ch > 80) {
+		a.ch = Math.random() * 100;
+      if (a.ch > 80) {
         a.PicArr[3] = "images/Plants/PB10.gif";
-        Pea = 1;
-      } else if (ch > 40) {
+        a.Pea = 1;
+      } else if (a.ch > 40) {
         a.PicArr[3] = "images/Plants/PB00.gif";
-        Pea = 0;
+        a.Pea = 0;
       } else {
         a.PicArr[3] = "images/Plants/PB-10.gif";
-        Pea = (Math.random() * 100 > 20 ? -1 : -2);
+        a.Pea = (Math.random() * 100 > 20 ? -1 : -2);
       }
       EditEle(a.BulletEle.cloneNode(false), {
           id: b,
@@ -995,7 +994,7 @@ oPeashooter2 = InheritO(oPeashooter, {
             height: "46px"
           })).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [j])) : (n += (l = !c ? 5 : -5)) < oS.W && n > 100 ? (j.style.left = (o += l) + "px", oSym.addTask(1, arguments.callee, [f, j, h, c, n, i, m, k, o, g])) : ClearChild(j)
         },
-        [b, $(b), 20, 0, a.AttackedLX, a.R, Pea, 0, a.AttackedLX - 40, oGd.$Torch])
+        [b, $(b), 20, 0, a.AttackedLX, a.R,a.Pea, 0, a.AttackedLX - 40, oGd.$Torch])
     }
   }),
   oGatlingPea1 = InheritO(CPlants, {
@@ -1042,8 +1041,13 @@ oPeashooter2 = InheritO(oPeashooter, {
         d = f - 15,
         b = g.pixelTop + 20,
         c = g.R,
-        a = function(j, i, h) {
-          return (j && j.Altitude == 1 ? (j.getSlowPea1(j, 40, i), (SetStyle(h, {
+        a = function(j, i, h,Pea) {
+          return (j && j.Altitude == 1 ? (j[{
+            "-2": "getSlowPea",
+            "-1": "getSnowPea",
+            0: "getPea",
+            1: "getSlowPea1"
+          } [Pea]](j, 40, i), (SetStyle(h, {
             left: j.ZX - 12 + "px",
             width: "52px",
             height: "46px"
@@ -1057,17 +1061,17 @@ oPeashooter2 = InheritO(oPeashooter, {
           },
           [h]);
         oSym.addTask(1,
-          function(n, l, m, k, i, j, B) {
-            j(oZ.getZ0(n, l), 7, i) && ((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
+          function(n, l, m, k, i, j, B,Pea) {
+            j(oZ.getZ0(n, l), 7, i,Pea) && ((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
               left: (m += 5) + "px",
               top: k + "px"
-            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B])))
+            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B,Pea])))
           },
           [f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
               id: h,
               src: g.PicArr[3]
             },
-            0, EDPZ), a, Math.random() * 14 - 7]);
+            0, EDPZ), a, Math.random() * 14 - 7,a.Pea]);
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
       })("GStarB2" + Math.random(), 2);
     },
@@ -3552,6 +3556,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
