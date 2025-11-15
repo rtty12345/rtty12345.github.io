@@ -486,7 +486,7 @@ oSnowPea = InheritO(oPeashooter, {
 	},
 		PrivateBirth: function(a) {
 		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
-},
+		},
 	PrivateDie: function(a) {
 		a.BulletEle = null;
 	},
@@ -954,11 +954,11 @@ oPeashooter2= InheritO(oPeashooter, {
 		Pea,
 		b = "PB" + Math.random();
 		switch(true){
-			case ch<=20:
+			case ch<30:
 			a.PicArr[3]="images/Plants/PB10.gif";
 			Pea=1;
 			break;
-			case ch<=80:
+			case ch<80:
 			a.PicArr[3]="images/Plants/PB00.gif";
 			Pea=0;
 			break;
@@ -1018,12 +1018,9 @@ oGatlingPea1= InheritO(CPlants, {
 	getTriggerR: function(a) {
 		return [1, oS.R]
 	},
-	PrivateBirth: function(d) {
-		var c = d.pixelLeft + 38,
-		b = c - 15,
-		a = d.pixelTop +20;
-		d.BulletEle = NewImg(0, "images/Plants/PB10.gif", "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2))
-	},
+PrivateBirth: function(a) {
+		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
+},
 	PrivateDie: function(a) {
 		a.BulletEle = null
 	},
@@ -3541,5 +3538,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
