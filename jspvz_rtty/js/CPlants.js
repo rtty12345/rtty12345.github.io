@@ -639,7 +639,7 @@ oThreepeater = InheritO(oPeashooter, {
 				var n, g = GetC(p),
 					A=oGd.$[k + "_" + g+"_2"],
 				f = oZ["getZ" + e](p, k);
-				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 40, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
+				o == 0 && i[k + "_" + g] && m != g && (PlayAudio("firepea"), o = 1, j = 30, m = g, l.src = "images/Plants/PB" + o + e + ".gif",
 				A&&(A.Vasenum+=0.5,A.Vasenum>=50&&(A&&A.setVase())));
 				f && f.Altitude == 1 ? (f[{
 					"-1": "getSnowPea",
@@ -1396,7 +1396,7 @@ oPumpkinHead = InheritO(CPlants, {
             PlayAudio("shovel");
             (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
 	  }
-    a && a.getHurt(a, 0, 500)
+    w&&a.getHurt(a, 0, 500)
         }
       }
     };
@@ -1869,15 +1869,12 @@ oTallNut = InheritO(oWallNut, {
 		e = oS.ArP;
 		return e ? oGd.$LF[b] == 1 ? f > 0 && f < e.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d: d && d.EName == "oTallNut" ? 1 : oGd.$LF[b] == 1 ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d
 	},
-	PrivateBirth:function(b){
-	$P[b.id]&&CustomSpecial(oNutBowling,b.R,b.C);
-	$P[b.id]&& oSym.addTask(6000,arguments.callee,[b]);
-	},
 	Stature: 1,
 	getHurt: function(e, b, a) {
             var c = this,
                 d = $(c.id).childNodes[1];
-            !(b % 3) ? (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.Die()
+    if(!b%3){var a=1000}
+    (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
             b!==3&&e.getHit1(e,30,0);
         },
 	PrivateDie:function(){
@@ -3044,7 +3041,7 @@ oPlantern = InheritO(CPlants, {
 		NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
 		oS.HaveFog && oGd.GatherFog(a, b, 4, 6, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
 		c.HP>=1&&oSym.addTask(2000,function(f){f.HP>=1&&CustomSpecial(oPlantern,a,b)},[c]);
-		this.excited&&this.excited(this);
+		this.excited(this);
 	},
 	excited:function(c){
 		var a = c.R,
@@ -3072,7 +3069,7 @@ oPlantern = InheritO(CPlants, {
 			let highplant=oGd.$[i+"_"+l+"_"+e];
 			highplant&&(highplant.highwork=0);
 		}
-		}
+	  }
 	}
 	},
 	GetDY: function(b, c, a) {
@@ -3577,18 +3574,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
