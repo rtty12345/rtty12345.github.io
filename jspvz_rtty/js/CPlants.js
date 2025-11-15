@@ -952,7 +952,7 @@ oPeashooter2= InheritO(oPeashooter, {
 },
 	NormalAttack: function() {
 		var a = this,
-		ch=Math.random*100,
+		ch=Math.random()*100,
 		Pea,
 		b = "PB" + Math.random();
 		switch(true){
@@ -960,7 +960,7 @@ oPeashooter2= InheritO(oPeashooter, {
 			a.PicArr[3]="images/Plants/PB10.gif";
 			Pea=1;
 			break;
-			case ch<80:
+			case ch<50:
 			a.PicArr[3]="images/Plants/PB00.gif";
 			Pea=0;
 			break;
@@ -3553,6 +3553,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
