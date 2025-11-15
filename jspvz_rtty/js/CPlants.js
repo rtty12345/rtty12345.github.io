@@ -947,7 +947,9 @@ oGatlingPea= InheritO(oPeashooter, {
 }),
 oPeashooter2= InheritO(oPeashooter, {
 	EName: "oPeashooter2",
-	PrivateBirth:oSnowPea.prototype.PrivateBirth,
+	PrivateBirth:function(a) {
+		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
+},
 	NormalAttack: function() {
 		var a = this,
 		ch=Math.random*100,
@@ -3538,6 +3540,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
