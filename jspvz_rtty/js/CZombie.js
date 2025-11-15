@@ -721,7 +721,7 @@ OrnNoneZombies = function() {
 			while (e--) {
 				b[e].getFirePeaSputtering1()
 			}
-			g.getHit1(g, c, j)
+			g.getHit0(g,c,j)
 		},
 		getSlowPea: function(e,b,c){
 		var d;
@@ -742,7 +742,7 @@ OrnNoneZombies = function() {
 			g.getHit0(g, c, j)
 		},
 		getFirePeaSputtering1: function() {
-			this.getSlow(this, this.id,1000)
+			this.getSnowPea(this,13)
 		},
 		getSnowPea: function(f, c, g) {
 			var e = f.FreeSlowTime,
@@ -3147,10 +3147,10 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
       z.appendChild(squash);
     }
-if(!a.bool){
+if(!a.boo){
     let s = $(z.SquashHeadId);
-	!(a.PZ||a.Ornaments)&&ClearChild(s);
-    a.OSpeed = a.Speed = 4;
+	!a.PZ||(!a.Ornaments)&&ClearChild(s);
+    a.Ornaments&&(a.OSpeed = a.Speed = 4);
     for (let i = 3; i >= 0; i--) {
       let p = oGd.$[a.R + "_" + GetC(a.ZX-20) + "_" + i];
 		Z=oZ.getHZ1(a.ZX-20,a.R);
@@ -3168,13 +3168,12 @@ try{
         h = g.length;
 	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}
           PlayAudio("gargantuar_thump");
-	    p&&(p.HP<=2000)&&CustomZombie(oNewspaperZombie,a.R,GetC(a.ZX)-1);
           p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 3, 2000);
           ClearChild(s);
           $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
 }catch(e){console.error(e)}
         }, [p, s,Z]);
-        a.bool=1;
+        a.boo=1;
       }
 	}
 }
@@ -3704,7 +3703,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie1, {
 	PlayNormalballAudio: function() {
 		PlayAudio("splat" + Math.floor(1 + Math.random() * 3))
 	},
-	Act1:function(){},
+PrivateBirth:function(){},
 	Produce: '他的铁门是非常坚硬的盾牌，若后方有僵尸则每次铁门限伤2<p>韧性：<font color="#FF0000">低(270)</font><br>铁门韧性：<font color="#FF0000">高（1100）</font><br>弱点：大喷菇和磁力菇</p>精英形态：寒冰射手铁门，能发射冻结豌豆，手里的大喷菇可以对前方两格的植物造成减速和伤害',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
@@ -3936,7 +3935,7 @@ oPoleVaultingZombie1= InheritO(oPoleVaultingZombie, {
                 SetStyle(i, {
                   left: h.X + "px",
                 }),
-		 ($P[k.id]&&k.getHurt(h,2,1000)),
+		 (k&&k.getHurt(h,1,1000)),
                 (n.src =
                   "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
                   $Random +
@@ -5940,7 +5939,7 @@ bedevilAct:function(){
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		});
 		a&&(a.HP<200)&&(a.EleBody.src = a.PicArr[7]);
-		oSym.addTask((a.HP<200)?50:0,
+		a&&oSym.addTask((a.HP<200)?50:0,
 		function(c) {
 			$Z[c] && (a.Status = 0,(a.HP<200)&&(!--oGd.$JackinTheBox)&& StopAudio("jackinthebox"),
 				  PlayAudio("jack_surprise"), oSym.addTask(a.HP<200?40:0,
@@ -6007,10 +6006,6 @@ bedevilAct:function(){
 		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a))
 	},
         NormalAttack: function(d, c) {
-            PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
-            oSym.addTask(50, function(e) {
-                $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)])
-            }, [d]);
             oSym.addTask(1, function(f, e) {
                 var h = $Z[f],
                     g;
@@ -6018,7 +6013,7 @@ bedevilAct:function(){
             }, [d, c]);
             this.OpenBox&& this.OpenBox(this.id)
         },	
-	NormalDie: function() {
+NormalDie: function() {
 		var a = this;
 		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
 		a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
@@ -6350,21 +6345,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
