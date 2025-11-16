@@ -947,6 +947,7 @@ oGatlingPea= InheritO(oPeashooter, {
 }),
 oPeashooter2 = InheritO(oPeashooter, {
     EName: "oPeashooter2",
+	Pea:0,
     PrivateBirth: function(a) {
       a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
     },
@@ -1062,8 +1063,8 @@ oPeashooter2 = InheritO(oPeashooter, {
           },
           [h]);
         oSym.addTask(1,
-          function(n, l, m, k, i, j, B,Pea) {
-			  var j=oZ.getZ0(n, l);
+          function(n, l, m, k, i,B,Pea) {
+		var j=oZ.getZ0(n, l);
          j && j.Altitude == 1 ? (j[{
             "-2": "getSlowPea",
             "-1": "getSnowPea",
@@ -1082,7 +1083,7 @@ oPeashooter2 = InheritO(oPeashooter, {
               id: h,
               src: g.PicArr[3]
             },
-            0, EDPZ), a, Math.random() * 14 - 7,a.Pea]);
+            0, EDPZ),Math.random() * 12 - 6,g.Pea]);
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
       })("GStarB2" + Math.random(), 3);
     },
@@ -3567,6 +3568,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
