@@ -1078,7 +1078,7 @@ try{
               left: (m += 5) + "px",
               top: k + "px"
             }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i,B,Pea])))
-}catch{continue}
+}catch{}
           },
           [f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
               id: h,
@@ -3569,6 +3569,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
