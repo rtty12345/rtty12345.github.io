@@ -922,7 +922,7 @@ oGatlingPea= InheritO(oPeashooter, {
 			F: oGd.MB1
 		});
 		c.BulletEle = NewImg(0, c.PicArr[3], "left:" + a + "px;top:" + (c.pixelTop + 8) + "px;visibility:hidden;z-index:" + (c.zIndex + 2));
-                !c.isDie&&oSym.addTask(8000,function(e){
+                !c.isDie&&oSym.addTask(6000,function(e){
                     e&&!e.isDie&&CustomSpecial(oGatlingPea1,e.R,e.C);
  		PlayAudio("newspaper_rarrgh2"); 
                  },[this]);
@@ -1063,7 +1063,17 @@ oPeashooter2 = InheritO(oPeashooter, {
           [h]);
         oSym.addTask(1,
           function(n, l, m, k, i, j, B,Pea) {
-            j(oZ.getZ0(n, l), 7, i,Pea) && ((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
+			  var j=oZ.getZ0(n, l);
+         j && j.Altitude == 1 ? (j[{
+            "-2": "getSlowPea",
+            "-1": "getSnowPea",
+            0: "getPea",
+            1: "getSlowPea1"
+          } [Pea]](j, 40,0), (SetStyle(i, {
+            left: j.ZX - 12 + "px",
+            width: "52px",
+            height: "46px"
+          })).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [i])) : ((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
               left: (m += 5) + "px",
               top: k + "px"
             }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B,Pea])))
@@ -1074,7 +1084,7 @@ oPeashooter2 = InheritO(oPeashooter, {
             },
             0, EDPZ), a, Math.random() * 14 - 7,a.Pea]);
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
-      })("GStarB2" + Math.random(), 2);
+      })("GStarB2" + Math.random(), 3);
     },
     NormalAttack2: oPeashooter2.prototype.NormalAttack,
     NormalAttack: function(a) {
@@ -3557,6 +3567,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
