@@ -1067,7 +1067,7 @@ oPeashooter2 = InheritO(oPeashooter, {
 j(oZ.getZ0(n, l), 7, i,Pea)&&((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
               left: (m += 5) + "px",
               top: k + "px"
-            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B,Pea])))
+            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i,B,Pea,j])))
           },
           [f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
               id: h,
@@ -3558,6 +3558,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
