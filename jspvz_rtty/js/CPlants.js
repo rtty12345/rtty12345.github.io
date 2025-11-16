@@ -1078,6 +1078,7 @@ try{
               left: (m += 5) + "px",
               top: k + "px"
             }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i,B,Pea])))
+}catch{continue}
           },
           [f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
               id: h,
@@ -1085,7 +1086,6 @@ try{
             },
             0, EDPZ),Math.random() * 12 - 6,g.Pea])
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
-	catch{continue}
       })("GStarB2" + Math.random(), 3);
     },
     NormalAttack2: oPeashooter2.prototype.NormalAttack,
@@ -3569,6 +3569,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
