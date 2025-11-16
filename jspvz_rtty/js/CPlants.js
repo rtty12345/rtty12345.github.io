@@ -1064,6 +1064,7 @@ oPeashooter2 = InheritO(oPeashooter, {
         oSym.addTask(1,
           function(n, l, m, k, i,B,Pea) {
 	     let j=oZ.getZ0(n,l);
+try{
          j && j.Altitude == 1 ? (j[{
             "-2": "getSlowPea",
             "-1": "getSnowPea",
@@ -1082,8 +1083,9 @@ oPeashooter2 = InheritO(oPeashooter, {
               id: h,
               src: g.PicArr[3]
             },
-            0, EDPZ),Math.random() * 12 - 6,g.Pea]);
+            0, EDPZ),Math.random() * 12 - 6,g.Pea])
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
+	catch{continue}
       })("GStarB2" + Math.random(), 3);
     },
     NormalAttack2: oPeashooter2.prototype.NormalAttack,
@@ -3567,6 +3569,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
