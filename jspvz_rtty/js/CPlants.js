@@ -1042,13 +1042,13 @@ oPeashooter2 = InheritO(oPeashooter, {
         d = f,
         b = g.pixelTop,
         c = g.R,
-        a = function(j, i, h,Pea) {
+        a = function(j,h,Pea) {
           return (j && j.Altitude == 1 ? (j[{
             "-2": "getSlowPea",
             "-1": "getSnowPea",
             0: "getPea",
             1: "getSlowPea1"
-          } [Pea]](j, 40, i), (SetStyle(h, {
+          } [Pea]](j, 40,0), (SetStyle(h, {
             left: j.ZX - 12 + "px",
             width: "52px",
             height: "46px"
@@ -1062,17 +1062,27 @@ oPeashooter2 = InheritO(oPeashooter, {
           },
           [h]);
         oSym.addTask(1,
-          function(n, l, m, k, i,B,Pea,j) {
-j(oZ.getZ0(n, l), 7, i,Pea)&&((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
+          function(n, l, m, k, i,B,Pea) {
+	     let j=oZ.getZ0(n,l);
+         j && j.Altitude == 1 ? (j[{
+            "-2": "getSlowPea",
+            "-1": "getSnowPea",
+            0: "getPea",
+            1: "getSlowPea1"
+          } [Pea]](j, 40,0), (SetStyle(i, {
+            left: j.ZX - 12 + "px",
+            width: "52px",
+            height: "46px"
+          })).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [i])):((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
               left: (m += 5) + "px",
               top: k + "px"
-            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i,B,Pea,j])))
+            }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i,B,Pea])))
           },
           [f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
               id: h,
               src: g.PicArr[3]
             },
-            0, EDPZ),Math.random() * 12 - 6,g.Pea,a]);
+            0, EDPZ),Math.random() * 12 - 6,g.Pea]);
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
       })("GStarB2" + Math.random(), 3);
     },
@@ -3557,6 +3567,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
