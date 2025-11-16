@@ -1041,7 +1041,7 @@ oPeashooter2 = InheritO(oPeashooter, {
         f = g.pixelLeft,
         d = f,
         b = g.pixelTop,
-        c = g.R,
+        c = g.R;
       (function(h, N) {
         oSym.addTask(15,
           function(j) {
@@ -3557,6 +3557,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
