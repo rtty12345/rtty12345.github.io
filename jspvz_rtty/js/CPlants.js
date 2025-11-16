@@ -1043,7 +1043,7 @@ oPeashooter2 = InheritO(oPeashooter, {
         b = g.pixelTop + 20,
         c = g.R,
         a = function(j, i, h,Pea) {
-	var Kind=Pea;
+	let Kind=Pea;
           return (j && j.Altitude == 1 ? (j[{
             "-2": "getSlowPea",
             "-1": "getSnowPea",
@@ -1064,17 +1064,7 @@ oPeashooter2 = InheritO(oPeashooter, {
           [h]);
         oSym.addTask(1,
           function(n, l, m, k, i,B,Pea) {
-		var j=oZ.getZ0(n, l);
-         j && j.Altitude == 1 ? (j[{
-            "-2": "getSlowPea",
-            "-1": "getSnowPea",
-            0: "getPea",
-            1: "getSlowPea1"
-          } [Pea]](j, 40,0), (SetStyle(i, {
-            left: j.ZX - 12 + "px",
-            width: "52px",
-            height: "46px"
-          })).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [i])) : ((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
+j(oZ.getZ0(n, l), 7, i,Pea)&&((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
               left: (m += 5) + "px",
               top: k + "px"
             }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i, j, B,Pea])))
@@ -3568,6 +3558,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
