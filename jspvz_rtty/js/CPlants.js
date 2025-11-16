@@ -1043,13 +1043,12 @@ oPeashooter2 = InheritO(oPeashooter, {
         b = g.pixelTop,
         c = g.R,
         a = function(j, i, h,Pea) {
-	let Kind=Pea;
           return (j && j.Altitude == 1 ? (j[{
             "-2": "getSlowPea",
             "-1": "getSnowPea",
             0: "getPea",
             1: "getSlowPea1"
-          } [Kind]](j, 40, i), (SetStyle(h, {
+          } [Pea]](j, 40, i), (SetStyle(h, {
             left: j.ZX - 12 + "px",
             width: "52px",
             height: "46px"
@@ -3558,6 +3557,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
