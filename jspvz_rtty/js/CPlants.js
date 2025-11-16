@@ -1063,7 +1063,7 @@ oPeashooter2 = InheritO(oPeashooter, {
           },
           [h]);
         oSym.addTask(1,
-          function(n, l, m, k, i,B,Pea) {
+          function(n, l, m, k, i,B,Pea,j) {
 j(oZ.getZ0(n, l), 7, i,Pea)&&((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) : (SetStyle(i, {
               left: (m += 5) + "px",
               top: k + "px"
@@ -1073,7 +1073,7 @@ j(oZ.getZ0(n, l), 7, i,Pea)&&((n += 5) > 900 || (k += B) < -15 ? ClearChild(i) :
               id: h,
               src: g.PicArr[3]
             },
-            0, EDPZ),Math.random() * 12 - 6,g.Pea]);
+            0, EDPZ),Math.random() * 12 - 6,g.Pea,a]);
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
       })("GStarB2" + Math.random(), 3);
     },
@@ -3558,6 +3558,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
