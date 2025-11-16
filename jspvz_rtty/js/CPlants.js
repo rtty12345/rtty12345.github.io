@@ -1039,8 +1039,8 @@ oPeashooter2 = InheritO(oPeashooter, {
    NormalAttack1: function() {
       var g = this,
         f = g.pixelLeft,
-        d = f - 15,
-        b = g.pixelTop + 20,
+        d = f,
+        b = g.pixelTop,
         c = g.R,
         a = function(j, i, h,Pea) {
 	let Kind=Pea;
@@ -3558,6 +3558,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
