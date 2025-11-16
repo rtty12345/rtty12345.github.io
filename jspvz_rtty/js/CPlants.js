@@ -1042,18 +1042,6 @@ oPeashooter2 = InheritO(oPeashooter, {
         d = f,
         b = g.pixelTop,
         c = g.R,
-        a = function(j,h,Pea) {
-          return (j && j.Altitude == 1 ? (j[{
-            "-2": "getSlowPea",
-            "-1": "getSnowPea",
-            0: "getPea",
-            1: "getSlowPea1"
-          } [Pea]](j, 40,0), (SetStyle(h, {
-            left: j.ZX - 12 + "px",
-            width: "52px",
-            height: "46px"
-          })).src = "images/Plants/PeaBulletHit.gif", oSym.addTask(10, ClearChild, [h]), false) : true)
-        };
       (function(h, N) {
         oSym.addTask(15,
           function(j) {
@@ -1078,7 +1066,7 @@ try{
               left: (m += 5) + "px",
               top: k + "px"
             }), oSym.addTask(1, arguments.callee, [n, GetR(k + 15), m, k, i,B,Pea])))
-}catch{}
+}catch{ClearChild(i),j && j.Altitude == 1&&j["getPea"](j, 40,0)}
           },
           [f, c, d, b, EditEle(g.BulletEle.cloneNode(false), {
               id: h,
@@ -3569,6 +3557,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
