@@ -1817,7 +1817,6 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	},
         PrivateAct: function(a){
             if(a.HP <= 40){
-		a.DisappearDie=function(){};
 		a.OpenBox(a.id);
 		a.hard==2&&(a.Speed=16);
             }
@@ -1905,6 +1904,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		},
 		NormalAttack: function(c, b) {
 			var d = $Z[c];
+			c&&(c.hard==2)&&CustomZombie(oFlagZombie,b.R,b.C);
 			$P[b].getHurt(d, 2, d.Attack)
 		}
 }):InheritO(OrnIZombies, {
@@ -2191,7 +2191,7 @@ PrivateAct2:function(a){
 for (i=0;i<4;i++){
 	for (let l= (a.R - 1 >= 1 ? a.R - 1 : 1); l<= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); l++) {
                 var p = oGd.$[(a.hard==2?l:a.R)+"_"+C+"_"+i];
-                if(p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                if(a.beAttacked&&p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
 		   	p.getHurt(this,2,100);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(300,function(a){
@@ -3180,7 +3180,7 @@ try{
   },
 ActH1:function(a) {
     let z = $(a.id);
-	if(a.bool){return}
+	if(a.boo){return}
     if (!a.Chi) {
       a.Chi= 1;
       a.OrnHP = 500;
@@ -6345,3 +6345,4 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
