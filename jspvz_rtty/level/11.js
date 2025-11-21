@@ -9,7 +9,7 @@ oS.Init({
 	backgroundImage: "images/interface/background2.jpg",
 	CanSelectCard: 1,
 	DKind: 0,
-	SunNum: 50,
+	SunNum: 100,
 	LevelName: "关卡 2-1",
 	LvlEName: 11,
 	AudioArr: ["crazydaveshort1", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
@@ -148,3 +148,4 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll)
 	}
 });
+
