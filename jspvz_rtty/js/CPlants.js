@@ -439,6 +439,7 @@ oSnowPea = InheritO(oPeashooter, {
 	CName: "寒冰射手",
 	SunNum: 300,
 	BKind: 1,
+	getSlow:function(){},
 	PicArr: ["images/Card/Plants/SnowPea.png", "images/Plants/SnowPea/0.gif", "images/Plants/SnowPea/SnowPea.gif", "images/Plants/PB-10.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["frozen", "splat1", "splat2", "splat3", "shieldhit", "shieldhit2", "plastichit"],
 	Tooltip: "寒冰射手可造成较高伤害, 同时又有范围减速效果，有概率冻结，2%概率散射一堆冻结豌豆并短暂提升自身攻速",
@@ -446,7 +447,7 @@ oSnowPea = InheritO(oPeashooter, {
 	CheckLoop: function(b, c) {
 		var a = this.id;
 		Math.round(Math.random()*100)>2?this.NormalAttack(b):this.NormalAttack1(b);
-		oSym.addTask(this.highwork?70:140,
+		oSym.addTask(this.highwork?70:140+this.AttTime,
 		function(e, f, h) {
 			var g; (g = $P[e]) && g.AttackCheck1(f, h)
 		},
@@ -1085,7 +1086,7 @@ oPeashooter2 = InheritO(oPeashooter, {
           c && c.NormalAttack1();
           --b && oSym.addTask(10, arguments.callee, [d, b])
         },
-        [this.id, Math.round(Math.random() * 7 + 5)])
+        [this.id, Math.round(Math.random() * 6 + 6)])
     }
   }),
 oSplitPea = InheritO(oPeashooter, {
@@ -1715,7 +1716,7 @@ oNutBowling = InheritO(CPlants, {
 					A.getHit0(A, Math.min(A.OrnHP, 900), 0);
 					break;
 				default:
-					z.side ? A.NormalDie() : A.CheckOrnHP(A, u, A.OrnHP, 400, A.PicArr, 0, 0, 0)
+					z.side ? A.getHit0(A,A.HP) : A.CheckOrnHP(A, u, A.OrnHP, 400, A.PicArr, 0, 0, 0)
 				}
 				z.CanAttack = 0;
 				switch (a) {
@@ -1808,7 +1809,7 @@ oBoomNutBowling = InheritO(oNutBowling, {
 				do {
 					k = (e = oZ.getArZ(u, r, j)).length;
 					while (k--) {
-						e[k].ExplosionDie(2000)
+						e[k].getExplosion(2000)
 					}
 				} while ( j ++< g );
 				s.Die(1);
@@ -1855,7 +1856,7 @@ oTallNut = InheritO(oWallNut, {
 	getHurt: function(e, b, a) {
             var c = this,
                 d = $(c.id).childNodes[1];
-    if(!(b%3)){var a=1000}
+    if(b%3){var a=1000}
     (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
             b!==3&&e.getHit1(e,30,0);
         },
@@ -3556,6 +3557,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
