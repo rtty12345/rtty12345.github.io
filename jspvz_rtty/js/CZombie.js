@@ -2720,10 +2720,9 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 			num=Math.random()*100;
         oSym.addTask(1, function(z, d, a, y,num) {
             let pea = $(d);
-			if(num<50){let y=0};
 			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft - 5 + "px";
-            $(d).style.top = $(d).offsetTop - y + "px";
+            num<25&&$(d).style.top = $(d).offsetTop - y + "px";
             let C = GetC(a.ZX);
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
@@ -2739,7 +2738,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
           [z, d, a, y,num]);
-        $Z[a.id] && a.beAttacked && (a.PZ) && oSym.addTask(5, arguments.callee, [a])
+        $Z[a.id] && a.beAttacked && (a.PZ) && oSym.addTask(15, arguments.callee, [a])
       }, [a]);
     }
   },
@@ -2783,10 +2782,9 @@ oSym.addTask(1,function(a){
 		  let num=Math.random()*100;
         oSym.addTask(1, function(z, d, a, y,num) {
             let pea = $(d);
-			if(num<50){let y=0;}
 			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft + 5 + "px";
-            $(d).style.top = $(d).offsetTop - y + "px";
+            num<25&&$(d).style.top = $(d).offsetTop - y + "px";
             let Z = oZ.getZ0(pea.offsetLeft + 50,(Left?a.R:GetR($(d).offsetTop+30)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft >= oS.W || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
@@ -2795,7 +2793,7 @@ oSym.addTask(1,function(a){
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
           [z, d, a, y,num]);
-        $Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(5, arguments.callee, [a])
+        $Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(15, arguments.callee, [a])
       }, [a]);
     }
   },
@@ -6360,6 +6358,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
