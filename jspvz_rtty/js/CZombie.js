@@ -4336,7 +4336,7 @@ func:function(a){
 	var num=Math.random()*100;
 	for(i=6;i<=9;i++){
 		for(l=1;l<=oS.R;l++){
-		CustomZombie(num<25?oFootballZombie1:oPeaZombie,i,l)
+		CustomZombie(num<25?oFootballZombie1:oPeaZombie,l,i)
 		}
 	}
  }
@@ -6361,5 +6361,6 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
