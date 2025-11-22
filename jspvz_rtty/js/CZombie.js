@@ -166,7 +166,6 @@ shootPea:function(a){
   },
 shootbedevilPea:function(a) {
     if (!a.eW) {
-      a.Speed = 1;
       a.eW= 1;
       oSym.addTask(75, function(a) {
         if (!$Z[a.id]) {
@@ -1904,7 +1903,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		},
 		NormalAttack: function(c, b) {
 			var d = $Z[c];
-			c&&(c.hard==2)&&CustomZombie(oFlagZombie,b.R,b.C);
+			d&&(d.hard==2)&&CustomZombie(oFlagZombie,b.R,b.C);
 			$P[b].getHurt(d, 2, d.Attack)
 		}
 }):InheritO(OrnIZombies, {
@@ -2717,9 +2716,11 @@ oFootballZombie1= InheritO(oConeheadZombie, {
           left: (a.ZX-10) + "px",
           top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
-        let y = Math.random() * 12 - 6;
-        oSym.addTask(1, function(z, d, a, y) {
+        let y = Math.random() * 12 - 6,
+			num=Math.random()*100;
+        oSym.addTask(1, function(z, d, a, y,num) {
             let pea = $(d);
+			if(num<50){let y=0};
 			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft - 5 + "px";
             $(d).style.top = $(d).offsetTop - y + "px";
@@ -2735,9 +2736,9 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
               ClearChild($(d));
             }
-            oSym.addTask(1, arguments.callee, [z, d, a, y])
+            oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
-          [z, d, a, y]);
+          [z, d, a, y,num]);
         $Z[a.id] && a.beAttacked && (a.PZ) && oSym.addTask(5, arguments.callee, [a])
       }, [a]);
     }
@@ -2779,8 +2780,10 @@ oSym.addTask(1,function(a){
           top: a.pixelTop + 30 + "px"
         }, EDPZ, 0);
         let y = Math.random() * 12 - 6;
-        oSym.addTask(1, function(z, d, a, y) {
+		  let num=Math.random()*100;
+        oSym.addTask(1, function(z, d, a, y,num) {
             let pea = $(d);
+			if(num<50){let y=0;}
 			let Left=((y>-1&&(y<1))?1:0);
             $(d).style.left = $(d).offsetLeft + 5 + "px";
             $(d).style.top = $(d).offsetTop - y + "px";
@@ -2789,9 +2792,9 @@ oSym.addTask(1,function(a){
             if ($(d).offsetLeft >= oS.W || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
               ClearChild($(d));
             }
-            oSym.addTask(1, arguments.callee, [z, d, a, y])
+            oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
-          [z, d, a, y]);
+          [z, d, a, y,num]);
         $Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(5, arguments.callee, [a])
       }, [a]);
     }
@@ -4196,7 +4199,7 @@ SunNum:2000,
     if (!a.Change&&a.beAttacked&&$Z[a.id]) {
       a.Change = true;
       oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
-        a.ZX +=5;
+            a.ZX +=5;
 			a.AttackedLX += 5;
 			a.AttackedRX += 5; 
 			a.X += 5;
@@ -4218,7 +4221,7 @@ SunNum:2000,
           oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oScreenDoorZombie,oPeaZombie], 0);
           oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3]);
           oP.NumZombies += 4;
-        } else if (a.OrnHP >= 10000) {
+        } else if (a.OrnHP >= 5000) {
           try{AppearTombstones(6, 9, 2);}catch{};
           oP.SetTimeoutZombie([oFootballZombie, oNewspaperZombie3, oNewspaperZombie, oScreenDoorZombie,oPeaZombie], 0);
           oP.SetTimeoutTomZombie([oNewspaperZombie,oScreenDoorZombie]);
@@ -4325,8 +4328,21 @@ tip:"使场上植物停止攻击,持续5秒，此技能会在破报期间立刻�
 func:function(){
 for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && (e.AttTime=0)},[e]);
 }
-}		
+},
+{
+name:"重装出击",
+tip:"场上出现大量寒冰铁门或机枪橄榄",
+func:function(a){
+	var num=Math.random()*100;
+	for(i=6;i<=9;i++){
+		for(l=1;l<=oS.R;l++){
+		CustomZombie(num<25?oFootballZombie1:oPeaZombie,i,l)
+		}
+	}
+ }
+}
   ],
+shootPea:function(){},
   Init: function(e, g, c, b) {
     var a = 0,
       f = this,
@@ -6345,4 +6361,5 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
