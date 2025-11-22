@@ -1903,7 +1903,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		},
 		NormalAttack: function(c, b) {
 			var d = $Z[c];
-			d&&(d.hard==2)&&CustomZombie(oFlagZombie,b.R,b.C);
+			d&&(d.hard==2)&&CustomZombie(oFlagZombie,$P[b].R,$P[b].C);
 			$P[b].getHurt(d, 2, d.Attack)
 		}
 }):InheritO(OrnIZombies, {
@@ -4333,10 +4333,9 @@ for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && 
 name:"重装出击",
 tip:"场上出现大量寒冰铁门或机枪橄榄",
 func:function(a){
-	var num=Math.random()*100;
 	for(i=6;i<=9;i++){
 		for(l=1;l<=oS.R;l++){
-		CustomZombie(num<25?oFootballZombie1:oPeaZombie,l,i)
+		CustomZombie(Math.random()*100<10?oFootballZombie1:oPeaZombie,l,i)
 		}
 	}
  }
@@ -4381,7 +4380,7 @@ shootPea:function(){},
     var e = OrnNoneZombies.prototype;
     (g.OrnHP = d -= c) < 1 && (
       g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-      oSym.addTask(1200,
+      oSym.addTask(600,
         function(m, l) {
           var k = $Z[m];
           if (!k) {
@@ -6361,6 +6360,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
