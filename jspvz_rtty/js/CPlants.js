@@ -1390,7 +1390,7 @@ oPumpkinHead = InheritO(CPlants, {
     a.lookHP && a.lookHP(a)
   },
   lookHP: function(h) {
-    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 70) + "px;left:" + (h.AttackedLX + 20) + "px;width:100%;font-size:12px", "", EDAll);
+    var b = NewEle("qdHP", "div", "position:absolute;color:#fff;top:" + (h.pixelTop + 70) + "px;left:" + (h.AttackedLX + 20) + "px;width:100%;font-size:12px;z-index:25", "", EDPZ);
     var A = "hp" + Math.random();
     qdHP.id = A;
     var C = $(A);
@@ -1858,7 +1858,7 @@ oTallNut = InheritO(oWallNut, {
                 d = $(c.id).childNodes[1];
     if(b%3){var a=1000}
     (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
-            b!==3&&e.getHit1(e,30,0);
+            e.HP&&(b!==3)&&e.getHit1(e,30,0);
         },
 	PrivateDie:function(){
         }
@@ -3557,6 +3557,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
