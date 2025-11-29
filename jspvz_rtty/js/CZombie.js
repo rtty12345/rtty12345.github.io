@@ -2338,8 +2338,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
-	oSym.addTask(10,function(a,Ja,z){
-	a&&(!a.beAttacked)&&(ClearChild(Ja));
+	oSym.addTask(10,function(a,squash,z){
+	a&&(!a.beAttacked)&&(ClearChild(squash));
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
 	let e=a.PZ;
 	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId])
@@ -2571,14 +2571,14 @@ oFootballZombie1= InheritO(oConeheadZombie, {
       a.bool = 1;
       let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
+      let squash = NewImg(z.SquashHeadId, "images/Plants/GatlingPea/GatlingPea.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
 	oSym.addTask(10,function(a,Ja,z){
 	a&&(!a.beAttacked)&&(ClearChild(Ja));
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
 	let e=a.PZ;
 	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId])
-	},[a,Ja,z.SquashHeadId]);
+	},[a,squash,z.SquashHeadId]);
 	oSym.addTask(1,function(a){
 	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
@@ -2608,7 +2608,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 			num=Math.random()*100;
         oSym.addTask(1, function(z, d, a, y,num) {
             let pea = $(d);
-            $(d).style.left = $(d).offsetLeft +(a.WalkDirection?-5:5) + "px";
+            $(d).style.left = $(d).offsetLeft +(a.WalkDirection?5:-5) + "px";
             num<25&&($(d).style.top = $(d).offsetTop - y + "px");
 			if(a.PZ){
             let C = GetC(a.ZX);
@@ -5487,17 +5487,17 @@ NormalAttack: function(c, b) {
         let Pea = NewImg(z.PeaHead,"images/Plants/SnowPea/SnowPea.gif","position:absolute;width:80px;height:80px;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:30px;top:15px;",0);
         z.appendChild(Pea);
 		z.FumeDoor = "Fume" + Math.random();
-        let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:20px;top:50px;",0);
+        let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:20px;top:50px;",0);
         z.appendChild(Sh);
 	oSym.addTask(10,function(a,Pea,Sh,FumeDoor,PeaHead){
+	a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
 	a&&(!a.beAttacked)&&(ClearChild(Pea));
 	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild(Sh);
-	a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
 	let e=a.PZ;
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead])
 	},[a,Pea,Sh,z.FumeDoor,z.PeaHead]);//寒冰头与大喷菇
 	NewEle(a.id + "_Bullet", 
-	"div", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"visibility:hidden;width:343px;height:62px;left:"+(a.PZ?"-250":"40")+"px;top:60px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1),0,$(a.id));
+	"div", "position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"visibility:hidden;width:343px;height:62px;left:"+(a.PZ?"-250":"40")+"px;top:60px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1),0,$(a.id));
 	oSym.addTask(1, function(a,h,z) {
 		if (a.OrnHP >= 1) {
 		let A= oZ["getAr"+(a.PZ?"HZ":"Z")](a.PZ?a.ZX-200:a.ZX+200, a.ZX, a.R),
