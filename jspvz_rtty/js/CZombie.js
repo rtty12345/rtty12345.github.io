@@ -5489,13 +5489,13 @@ NormalAttack: function(c, b) {
 		z.FumeDoor = "Fume" + Math.random();
         let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:20px;top:50px;",0);
         z.appendChild(Sh);
-	oSym.addTask(10,function(a,Pea,Sh,FumeDoor,PeaHead){
-	a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
+	oSym.addTask(10,function(a,Pea,Sh,FumeDoor,PeaHead,e){
 	a&&(!a.beAttacked)&&(ClearChild(Pea));
 	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild(Sh);
+	e&&a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
 	let e=a.PZ;
-	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead])
-	},[a,Pea,Sh,z.FumeDoor,z.PeaHead]);//寒冰头与大喷菇
+	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead,e])
+	},[a,Pea,Sh,z.FumeDoor,z.PeaHead,a.PZ]);//寒冰头与大喷菇
 	NewEle(a.id + "_Bullet", 
 	"div", "position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"visibility:hidden;width:343px;height:62px;left:"+(a.PZ?"-250":"40")+"px;top:70px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1),0,$(a.id));
 	oSym.addTask(1, function(a,h,z) {
@@ -6004,5 +6004,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
