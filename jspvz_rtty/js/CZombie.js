@@ -5367,6 +5367,7 @@ oBalloonZombie = InheritO(OrnIZombies, {
 	Altitude: 3,
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 3,
+	same:1,
 	BreakBall:false, // 气球是否被戳破
 	MulBallNum: function() { // 减去气球数
 		if (!this.BreakBall) this.BreakBall = true, oGd.$Balloon[this.R] |= 0, --oGd.$Balloon[this.R];
@@ -5406,16 +5407,11 @@ PrivateAct:function(a) {
               PKind: 1
             }), oGd.add(p, a.R + "_" + NewC + "_" + 1)))
         }
-	var AZ=oZ.getArHZ(a.ZX-180,a.ZX,a.R),
+	var AZ=oZ["getAr"+(this.PZ?"HZ":"Z")](this.PZ?a.ZX-180:a.ZX+180,a.ZX,a.R),
 		  Zle=AZ.length;
-		  while(Zle--){AZ[Zle]&&(AZ[Zle].getHit0(AZ[Zle],1,0),AZ[Zle].getr(AZ[Zle],-1))}
+		  while(Zle--){AZ[Zle]&&(AZ[Zle].getHit0(AZ[Zle],2,0),AZ[Zle].getr(AZ[Zle],this.PZ?-2:2))}
       }
     },
-	bedevilAct:function(a){	
-		var Z=oZ.getArZ(a.ZX,a.ZX+180,a.R),
-		  Zle=Z.length;
-		  while(Zle--){Z[Zle]&&(Z[Zle].getHit0(Z[Zle],1,0),Z[Zle].getr(Z[Zle],1))}
-	},
 JudgeAttackH:function(){},
   JudgeAttack: function() {
     var f = this,
@@ -5559,7 +5555,6 @@ NormalAttack: function(c, b) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
                 !a.isAttacking&&(Tz||m!==undefined)?(
 					a.Speed = a.OSpeed = 0,
-					m&&(a.Speed = a.OSpeed = 0),
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
                   SetVisible($(h)),
@@ -5741,12 +5736,6 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
 PrivateAct:function(){
-	if(!this.opennum){
-		this&&(this.HP<200)&&(this.OpenBox(this.id),
-		this.opennum=1)
-	}
-},
-bedevilAct:function(){
 	if(!this.opennum){
 		this&&(this.HP<200)&&(this.OpenBox(this.id),
 		this.opennum=1)
@@ -5992,15 +5981,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
         }
       })();
   },
-bedevil: function(c) {
-			c.ExchangeLR(c, 1);
-			c.JudgeAttack = c.JudgeAttackH;
-			c.PZ = 0;
-			c.WalkDirection = 1;
-			c.ZX = c.AttackedRX;
-			c.ChkActs = c.ChkActs1;
-			oP.MonPrgs()
-		},
   PicArr: (function() {
     var a = "images/Zombies/DiggerZombie/";
     return [
@@ -6098,52 +6078,6 @@ bedevil: function(c) {
     (e = 1);
     return e;
   },
- PrivateAct: function(a) {
-    if (!a.bool) {
-      a.bool = 1;
-      oSym.addTask(200, function(a) {
-        for (let i = GetC(a.ZX); i <= GetC(a.ZX)+1; i++) {
-          for (l = 0; l < 4; l++) {
-            if (oGd.$[a.R + "_" + i + "_" + l]) {
-              PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
-              let m = oGd.$[a.R + "_" + i + "_" + l];
-              m&&(m.HP -= 100);
-	      let s= oZ.getArHZ(a.ZX,a.ZX+100,a.R),
-              g=s.length;
-	while(g--){
-	(t=s[g])&&t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit1(t,100,0)
-	};
-	try{m.SetAlpha(m,$(m.id),50,0.5)}catch{}
-	oSym.addTask(10, function(m) {
-                try{m.SetAlpha(m,$(m.id), 100, 1)}catch{}
-            }, [m]);
-                m && (m.HP <= 0) && m.Die()
-            }
-          }
-        };
-        (a.PZ)&&a.HP >= 1 && a.beAttacked && oSym.addTask(200, arguments.callee, [a]);
-      }, [a]);
-    }
-  },
-bedevilAct: function(a) {
-    if (!a.b) {
-      a.b= 1;
-      oSym.addTask(100, function(a) {
-              PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
-              let m = oZ.getArZ(a.ZX,a.ZX+100,a.R),
-              l=m.length;
-	while(l--){
-	(t=m[l])&&t&&(t.beAttacked)&&(t.Altitude==1)&&t.getHit1(t,100,0)
-        };
-        (!a.PZ)&&a.HP >= 1 && a.beAttacked && oSym.addTask(200, arguments.callee, [a]);
-      }, [a]);
-    }
-  },
-ChkActs1: function(g, e, h, d) {
-			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
-			g&&(g.PZ)?this.PrivateAct&&this.PrivateAct(this):this.bedevilAct&&this.bedevilAct(this);
-			return f
-},
   CanDig: {
     oPotatoMine,oChomper,oSpikerock,oSpikeweed: true
   },
@@ -6192,11 +6126,3 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
