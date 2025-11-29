@@ -5492,7 +5492,7 @@ NormalAttack: function(c, b) {
 	oSym.addTask(10,function(a,Pea,Sh,FumeDoor,PeaHead,e){
 	a&&(!a.beAttacked)&&(ClearChild(Pea));
 	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild(Sh);
-	e&&a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
+	try{a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));}catch{};
 	let e=a.PZ;
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead,e])
 	},[a,Pea,Sh,z.FumeDoor,z.PeaHead,a.PZ]);//寒冰头与大喷菇
@@ -6004,6 +6004,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
