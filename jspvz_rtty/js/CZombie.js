@@ -2575,7 +2575,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
       z.appendChild(squash);
 	oSym.addTask(10,function(a,Ja,z){
 	a&&(!a.beAttacked)&&(ClearChild(Ja));
-	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
+	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
 	let e=a.PZ;
 	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId])
 	},[a,squash,z.SquashHeadId]);
@@ -3451,7 +3451,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60)&& (a.PZ)&&oSym.addTask(75,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&&oSym.addTask(75,arguments.callee,[a])
             },[a]);
             }
         },
@@ -5497,7 +5497,7 @@ NormalAttack: function(c, b) {
 	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead])
 	},[a,Pea,Sh,z.FumeDoor,z.PeaHead]);//寒冰头与大喷菇
 	NewEle(a.id + "_Bullet", 
-	"div", "position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"visibility:hidden;width:343px;height:62px;left:"+(a.PZ?"-250":"40")+"px;top:60px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1),0,$(a.id));
+	"div", "position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"visibility:hidden;width:343px;height:62px;left:"+(a.PZ?"-250":"40")+"px;top:70px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1),0,$(a.id));
 	oSym.addTask(1, function(a,h,z) {
 		if (a.OrnHP >= 1) {
 		let A= oZ["getAr"+(a.PZ?"HZ":"Z")](a.PZ?a.ZX-200:a.ZX+200, a.ZX, a.R),
@@ -5505,7 +5505,7 @@ NormalAttack: function(c, b) {
 	for (let i = GetC(a.ZX) - 2; i <= GetC(a.ZX); i++) {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
-                !a.isAttacking&&((Tz&&a.PZ)||m!==undefined)?(
+                !a.isAttacking&&(Tz||(m!==undefined&&a.PZ))?(
 					a.Speed = a.OSpeed = 0,
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
@@ -5532,7 +5532,7 @@ NormalAttack: function(c, b) {
                 ClearChild(h);
                 a.Speed = a.OSpeed = 1.6;
               }
-        a&&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
+        a &&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
       }, [a,a.id + "_Bullet",z]);//大喷技能
 oSym.addTask(300,function(a){
 	if(!$Z[a.id]&&!a.beAttacked){return}
@@ -6004,3 +6004,4 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
