@@ -2344,7 +2344,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
 	let e=a.PZ;
 	oSym.addTask(10,arguments.callee,[a,Ja,z.SquashHeadId])
-	},[a,Ja,z.SquashHeadId]);
+	},[a,squash,z.SquashHeadId]);
       oSym.addTask(500,function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
             let A = oZ["getAr"+(this.PZ?"Z":"HZ")](a.ZX - 100, a.ZX + 100, i);
@@ -2510,6 +2510,7 @@ ChkActs1: function(g, e, h, d) {
 	};
     return f
   },
+PrivateBirth:function(){},
   ChkActs0: function(h, f, j, e) {
     var d, c, g;
     !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (!h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.DisappearDie(), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
@@ -6126,3 +6127,4 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
