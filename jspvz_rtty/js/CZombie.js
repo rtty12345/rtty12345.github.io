@@ -2589,7 +2589,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             }
           }
         };
-		$Z[a.id] && a.beAttacked && (a.PZ) &&oSym.addTask(100,arguments.callee,[a])
+		$Z[a.id] && a.beAttacked &&oSym.addTask(100,arguments.callee,[a])
 	},[a]);
       oSym.addTask(1, function(a) {
         let z = $(a.id);
@@ -2621,7 +2621,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 		}
             let Z = oZ["get"+(a.PZ?"HZ1":"Z0")](pea.offsetLeft + 20,(num>25?a.R:GetR($(d).offsetTop+30)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
-            if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)||$(d).offsetTop >= oS.W) {
+            if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)||$(d).offsetLeft >= oS.W) {
               ClearChild($(d));
             }
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
@@ -6005,6 +6005,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
