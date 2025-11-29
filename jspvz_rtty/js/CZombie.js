@@ -28,6 +28,7 @@ var CZombies = function(b, a) {
 		BreakPoint: 90,
 		SunNum: 50,
 		coolTime: 0,
+		same:0,
 		Ornaments: 0,
 		OrnHP: 0,
 		OSpeed: 1.6,
@@ -82,6 +83,7 @@ var CZombies = function(b, a) {
 		ChkActs1: function(g, e, h, d) {
 			var c, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), !g.isAttacking ? (g.AttackedLX += (c = g.Speed)) > oS.W ? (h.splice(d, 1), g.DisappearDie(), f = 0) : (g.ZX = g.AttackedRX += c, g.Ele.style.left = Math.ceil(g.X += c) + "px", f = 1) : f = 1) : f = 1;
 			this.bedevilAct&&this.bedevilAct(this);
+			this.same&&this.PrivateAct && this.PrivateAct(this);
 			this.ActH&& this.ActH(this);
 			return f
 		},
@@ -1652,6 +1654,7 @@ oZombie = InheritO(OrnNoneZombies,{
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2",
 	HP:300,
+	same:1,
 	GoingDie:CZombies.prototype.GoingDie,
 	PrivateBirth: function(a){
             let z = $(a.id);
@@ -1677,9 +1680,10 @@ oZombie2 = InheritO(oZombie, {
             },EDPZ,0)
             oSym.addTask(1,function(z,d,a){
                 try{
-                $(d).style.left = $(d).offsetLeft - 5 + "px";
+                $(d).style.left = $(d).offsetLeft+(a.WalkDirection?-5:5) + "px";
                 let pea = $(d);
                 let C = GetC(a.ZX+ 40);
+	if(a.PZ){
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
@@ -1688,9 +1692,10 @@ oZombie2 = InheritO(oZombie, {
                         p && (p.canEat) && (p.HP <= 0) && p.Die();
                     }
                 }
-	let Z= oZ.getHZ1($(d).offsetLeft-50,a.R);
+	}
+	let Z= oZ["get"+(this.PZ?"HZ1":"Z0")]($(d).offsetLeft-20,a.R);
             a&&(a.beAttacked)&&Z&& (Z.Altitude==1) && (PlayAudio("potato_mine"), (Z.getHit0(Z,300,0),($(d) && ClearChild($(d)))));
-                if($(d).offsetLeft <= 0){
+                if($(d).offsetLeft <= 0||$(d).offsetLeft >= 880){
                     ClearChild($(d));
                     $(d).isDie = true;
                 }
@@ -1698,40 +1703,10 @@ oZombie2 = InheritO(oZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60)&&(a.PZ)&&oSym.addTask(1500,arguments.callee,[a])
+            !a.isDie && (a.HP > 60)&&oSym.addTask(1500,arguments.callee,[a])
             },[a]);
             }
-        },
-  bedevilAct: function(a) {
-    if (!a.e) {
-      a.Speed = 1;
-      a.e = 1;
-      oSym.addTask(2000, function(a) {
-	if(!$Z[a.id]){return}
-        let z = $(a.id);
-        let div = $n("div");
-        let d = "Pea" + Math.random();
-        div.id = d;
-        div.innerHTML = '<img src="images/Plants/PB31.gif">';
-        EditEle(div, 0, {
-          position: "absolute",
-          transform: "rotateY(20deg)",
-          zIndex: "24",
-          left: a.ZX + "px",
-          top: a.pixelTop + 40 + "px"
-        }, EDPZ, 0)
-        oSym.addTask(1, function(z, d, a) {
-          $(d).style.left = $(d).offsetLeft + 5 + "px";
-          let p = oZ.getZ0($(d).offsetLeft + 50, a.R);
-            a&&(a.beAttacked)&&p && (p.Altitude==1) && (PlayAudio("potato_mine"), ((a.hard==2)?CustomZombies(new oBoom,p.R,GetC(p.ZX)-1,1):(p.getHit0(p, 300, 0)),($(d) && ClearChild($(d)))));
-          if ($(d).offsetLeft >= 880) {
-            ClearChild($(d));
-          }oSym.addTask(1, arguments.callee, [z, d, a])
-        }, [z, d, a]);
-        !a.isDie && (a.HP > 60) && (!a.PZ) && oSym.addTask(1500, arguments.callee, [a])
-      }, [a]);
-    }
-  }
+        }
 },
 {
 	PicArr: {
@@ -1807,7 +1782,6 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	OSpeed: (this.hard==2)?12:8,
 	Speed: (this.hard==2)?12:8,
 	SunNum: 300,
-	Attack:500,
 	HP:500,
 	BreakPoint:1,
 	beAttackedPointR: 101,
@@ -2140,6 +2114,7 @@ oConeheadZombie= InheritO(OrnIZombies, {
 	CName: "路障伴舞僵尸",
 	OrnHP: 370,
 	Lvl: 3,
+	same:1,
 	SunNum: 125,
 	StandGif: 11,
 	PicArr: (function() {
@@ -2156,30 +2131,18 @@ PrivateAct2:function(a){
 	this&&this.PrivateAct1(this);
 	return
 	}
-            if(!this.bool){
+    if(!this.bool){
                 this.bool = 1;
                 oSym.addTask(50,function(a){
                     if(+ESSunNum.innerHTML > 0 && !oS.CardKind && oS.StaticCard){
                         ESSunNum.innerHTML = +ESSunNum.innerHTML - 1;
                         a.GetSunNum += 1;
                     }else if(oS.CardKind && oS.StaticCard){
-                        AppearSun(a.ZX + 40,a.pixelTop + 80,40);
+                        AppearSun(a.ZX + 40,a.pixelTop + 80,50);
                         a.GetSunNum += 1;
                     }
                     !oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(100,arguments.callee,[a]);
-		oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
-                },[a])
-            }
-        },
-	bedevilAct:function(a){
-            if(!this.be){
-                this.be= 1;
-		  oSym.addTask(50,function(a){  
-              if(!oS.CardKind && oS.StaticCard){
-                        AppearSun(a.ZX+ 40,a.pixelTop + 80,40);
-                        a.GetSunNum += 1;
-                    }
-		!oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
+		            oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
                 },[a])
             }
         },
@@ -2190,7 +2153,7 @@ PrivateAct2:function(a){
 for (i=0;i<4;i++){
 	for (let l= (a.R - 1 >= 1 ? a.R - 1 : 1); l<= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); l++) {
                 var p = oGd.$[(a.hard==2?l:a.R)+"_"+C+"_"+i];
-                if(a.beAttacked&&p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")){
+                if(a.beAttacked&&p && p.canEat && (p.EName != "oPotatoMine" && p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom")&&a.PZ){
 		   	p.getHurt(this,2,100);
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(300,function(a){
@@ -2213,10 +2176,10 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	CName: "辣椒僵尸",
 	Lvl: 4,
 	HP:500,
+	same:1,
 	SunNum: 175,
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*100)>10 ? a.PrivateAct1 : a.PrivateAct2;
-		 a.bedevilAct=(a.PrivateAct==a.PrivateAct2?a.bedevilAct2:a.bedevilAct1);
 		if(a.PrivateAct==a.PrivateAct2){a.getHit(a,170)}
 	},
         PrivateAct1:function(a) {
@@ -2224,72 +2187,37 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 				a.Boom=1;
 				var z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:60px;top:0px;", 0);
+      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:60px;top:0px;",0);
       z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja){
-	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
-	oSym.addTask(10,arguments.callee,[a,Ja])
-	},[a,Ja]);
+	oSym.addTask(10,function(a,Ja,z){
+	a&&(!a.beAttacked)&&(ClearChild(Ja));
+	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
+	let e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead])
+	},[a,Ja,z.JaHead]);
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
 				},[a])
 			  }
 			},
-	 PrivateAct2:function(a){
+PrivateAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i));
+        a.isAttacking&&(a.BoomFire(i));
 		if(!a.Boom){
 		a.Boom=1;
 		var z=$(a.id);
 	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:rotateY(180deg);left:60px;top:-40px;", 0);
+	let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:60px;top:-20px;",0);
       z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja){
-	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(Ja));
-	oSym.addTask(10,arguments.callee,[a,Ja])
-	},[a,Ja]);
+	oSym.addTask(10,function(a,Ja,z){
+	a&&(!a.beAttacked)&&(ClearChild(Ja));
+	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
+	let e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead])
+	},[a,Ja,z.JaHead]);
 	oSym.addTask(2999,function(a){
 	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a){
-					a.BoomFire(a.R);
-		a.R!==1&&a.BoomFire(a.R-1);
-		a.R!==oS.R&&a.BoomFire(a.R+1);
-		},[a]);
-				},[a,i])
-			  }
-		 }
-        },
-	bedevilAct1:function(a) {
-			if(!a.boom){
-				a.boom=1;
-				var z=$(a.id);
-	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:30px;top:0px;", 0);
-      z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Ja));
-	oSym.addTask(10,arguments.callee,[a,Ja])
-	},[a,Ja])
-				oSym.addTask(2500,function(a){
-					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
-				},[a])
-			  }
-	},
-	bedevilAct2:function(a){
-		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-		 !a.getHurt&&a.isAttacking&&(a.BoomFire(i));
-		if(!a.boom){
-		a.boom=1;
-		let z=$(a.id);
-	z.JaHead = "Ja" + Math.random();
-      let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;left:30px;top:-40px;", 0);
-      z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(Ja));
-	oSym.addTask(10,arguments.callee,[a,Ja])
-	},[a,Ja])
-	oSym.addTask(2999,function(a,i){
-	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a){
-			a.BoomFire(a.R);
+		a.BoomFire(a.R);
 		a.R!==1&&a.BoomFire(a.R-1);
 		a.R!==oS.R&&a.BoomFire(a.R+1);
 		},[a]);
@@ -2384,6 +2312,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	OrnHP: 1100,
 	HP:800,
 	Lvl: 5,
+	same:1,
 	SunNum: 150,
 	NormalAttack: function(d, c) {
 	var ZP=[oZombie,oZombie2,oZombie3,oDancingZombie,oDancingZombie1,oConeheadZombie,oBucketheadZombie,oZomboni,oNewspaperZombie,oNewspaperZombie2,oNewspaperZombie3,oFlagZombie,oScreenDoorZombie,oFootballZombie,oBalloonZombie,oPeaZombie,oJackinTheBoxZombie,oDiggerZombie];
@@ -2401,7 +2330,6 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	},
 	PrivateBirth: function(a){
 	    a.PrivateAct = Math.round(Math.random()*100)>15 ?(function(){}): a.PrivateAct2;
-		a.bedevilAct=(a.PrivateAct==a.PrivateAct2?a.bedevilAct2:(function(){}))
 	},
   PrivateAct2: function(a) {
     if (!a.A) {
@@ -2409,15 +2337,17 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	  a.HP=1100;
       let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;left:40px;top:15px;",0);
+      let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
-	oSym.addTask(10,function(a,squash){
-	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(squash));
-	oSym.addTask(10,arguments.callee,[a,squash])
-	},[a,squash]);
+	oSym.addTask(10,function(a,Ja,z){
+	a&&(!a.beAttacked)&&(ClearChild(Ja));
+	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
+	let e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Ja,z.SquashHeadId])
+	},[a,Ja,z.SquashHeadId]);
       oSym.addTask(500,function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-            let A = oZ.getArZ(a.ZX - 100, a.ZX + 100, i);
+            let A = oZ["getAr"+(this.PZ?"Z":"HZ")](a.ZX - 100, a.ZX + 100, i);
             for (w = 0; w < A.length; w++) {
               var t = A[w],
                 s;
@@ -2443,52 +2373,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 			}
           }
         };
-        a.PZ&&a.beAttacked&&$Z[a.id]&&oSym.addTask(500, arguments.callee, [a])
-      }, [a]);
-    }
-  },
-bedevilAct2: function(a) {
-    if (!a.Ac) {
-      a.Ac = 1;
-	  a.HP=1100;
-      let z = $(a.id);
-      z.SquashHeadId= "Squash" + Math.random();
-      let squash= NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;left:40px;top:15px;transform:rotateY(180deg);",0);
-      z.appendChild(squash);
-	oSym.addTask(10,function(a,squash){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squash));
-	oSym.addTask(10,arguments.callee,[a,squash])
-	},[a,squash]);
-      oSym.addTask(500,function(a) {
-        for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-            let A = oZ.getArHZ(a.ZX-100, a.ZX + 100, i);
-            for (w = 0; w < A.length; w++) {
-              var t = A[w],
-                s;
-              if ((t.CName == "铁桶僵尸" || t.CName == "领带僵尸" || t.CName == "路障僵尸" || t.CName == "铁栅门僵尸"||t.CName == "鸭子救生圈僵尸" ||t.CName=="路障鸭子救生圈僵尸"||t.CName== "铁桶鸭子救生圈僵尸"||t.CName == "辣椒僵尸"||t.CName == "寒冰射手僵尸")&&
-			(t.OrnHP <= 1)&&(t.beAttacked)&&($Z[t.id])&&(t.PZ==a.PZ)) {
-			    t&&(t.OrnHP = 1100,
-                  t.getHit0 = (s = OrnIZombies.prototype).getHit0,
-                  t.getHit1 = s.getHit1,
-                  t.getHit2 = s.getHit2,
-                  t.getHit3 = s.getHit3,
-				t.OrnLostNormalGif = 9,
-                  t.OrnLostAttackGif = 10,
-				t.Ornaments=1,
-				t.PlayNormalballAudio = oBucketheadZombie.prototype.PlayNormalballAudio);
-            (t.CName!=="路障鸭子救生圈僵尸")&&(t.CName!== "鸭子救生圈僵尸")&&(t.CName!== "铁桶鸭子救生圈僵尸")
-				?(t.NormalGif = 2,
-                  t.AttackGif = 3,
-                  t.PicArr = oBucketheadZombie.prototype.PicArr,
-                  t.EleBody.src = t.isAttacking ? t.PicArr[3] : t.PicArr[2]):
-				 (t.NormalGif = 3,
-                  t.AttackGif = 5,
-                  t.PicArr = oDuckyTubeZombie3.prototype.PicArr,
-                  t.EleBody.src = t.isAttacking ? t.PicArr[5] : t.PicArr[3])
-			}
-          }
-        };
-        !a.PZ&&a.beAttacked&&$Z[a.id]&&oSym.addTask(500, arguments.callee, [a])
+        a.beAttacked&&$Z[a.id]&&oSym.addTask(500, arguments.callee, [a])
       }, [a]);
     }
   },
@@ -2671,6 +2556,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
         height: 160,
         OSpeed: 3.2,
         Speed: 3.2,
+	same:1,
         beAttackedPointL: 40,
         beAttackedPointR: 134,
         PicArr: (function() {
@@ -2683,18 +2569,20 @@ oFootballZombie1= InheritO(oConeheadZombie, {
   PrivateAct: function(a) {
     if (!a.bool) {
       a.bool = 1;
-	let z = $(a.id);
+      let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;transform:rotateY(180deg);left:45px;top:20px;",0);
+      let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
-	oSym.addTask(10,function(a,squash){
-	a&&(!a.beAttacked||!a.PZ)&&(ClearChild(squash));
-	oSym.addTask(10,arguments.callee,[a,squash])
-	},[a,squash]);
+	oSym.addTask(10,function(a,Ja,z){
+	a&&(!a.beAttacked)&&(ClearChild(Ja));
+	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
+	let e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Ja,z.SquashHeadId])
+	},[a,Ja,z.SquashHeadId]);
 	oSym.addTask(1,function(a){
 	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
-            let A = oZ.getArZ(a.ZX - 120, a.ZX + 120, i),
+            let A = oZ["getAr"+(this.PZ?"Z":"HZ")](a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
               (t = A[w])&& t.shootPea(t)
@@ -2720,8 +2608,9 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 			num=Math.random()*100;
         oSym.addTask(1, function(z, d, a, y,num) {
             let pea = $(d);
-            $(d).style.left = $(d).offsetLeft - 5 + "px";
+            $(d).style.left = $(d).offsetLeft +(a.WalkDirection?-5:5) + "px";
             num<25&&($(d).style.top = $(d).offsetTop - y + "px");
+			if(a.PZ){
             let C = GetC(a.ZX);
             for (let i = 3; i >= 0; i--) {
               for (let j = 1; j <= C; j++) {
@@ -2729,69 +2618,16 @@ oFootballZombie1= InheritO(oConeheadZombie, {
                 p && (p.canEat) && (p.Stature >= 0) && (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (p.getHurt(a, 3, 20), ($(d) && ClearChild($(d))));
               }
             }
-            let Z = oZ.getHZ1(pea.offsetLeft + 50,(num>25?a.R:GetR($(d).offsetTop+30)));
+		}
+            let Z = oZ["get"+(this.PZ?"HZ1":"Z0")](pea.offsetLeft + 20,(num>25?a.R:GetR($(d).offsetTop+30)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
-            if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
+            if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)||$(d).offsetTop >= oS.W) {
               ClearChild($(d));
             }
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
           [z, d, a, y,num]);
-        $Z[a.id] && a.beAttacked && (a.PZ) && oSym.addTask(15, arguments.callee, [a])
-      }, [a]);
-    }
-  },
-bedevilAct: function(a) {
-    if (!a.b) {
-      a.b = 1;
-	let z = $(a.id);
-      z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId,"images/Plants/GatlingPea/GatlingPea.gif","position:absolute;width:80px;height:80px;left:45px;top:20px;",0);
-      z.appendChild(squash);
-	oSym.addTask(10,function(a,squash){
-	a&&(!a.beAttacked||a.PZ)&&(ClearChild(squash));
-	oSym.addTask(10,arguments.callee,[a,squash])
-	},[a,squash]);
-oSym.addTask(1,function(a){
-	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
-          if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
-            let A = oZ.getArHZ(a.ZX - 120, a.ZX + 120, i),
-              w = A.length;
-            while (w--) {
-              (t = A[w])&& t.shootbedevilPea(t)
-            }
-          }
-        };
-	$Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(100, arguments.callee, [a])
-},[a]);
-      oSym.addTask(1, function(a) {
-        let z = $(a.id);
-        let div = $n("div");
-        let d = "tPea" + Math.random();
-        div.id = d;
-        div.innerHTML = '<img src="images/Plants/PB00.gif">';
-        EditEle(div, 0, {
-          position: "absolute",
-          transform: "rotateY(20deg)",
-          zIndex: "24",
-          left: (a.ZX-30) + "px",
-          top: a.pixelTop + 30 + "px"
-        }, EDPZ, 0);
-        let y = Math.random() * 12 - 6;
-		  let num=Math.random()*100;
-        oSym.addTask(1, function(z, d, a, y,num) {
-            let pea = $(d);
-            $(d).style.left = $(d).offsetLeft + 5 + "px";
-            num<25&&($(d).style.top = $(d).offsetTop - y + "px");
-            let Z = oZ.getZ0(pea.offsetLeft + 50,(num>25?a.R:GetR($(d).offsetTop+30)));
-            Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
-            if ($(d).offsetLeft >= oS.W || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)) {
-              ClearChild($(d));
-            }
-            oSym.addTask(1, arguments.callee, [z, d, a, y,num])
-          },
-          [z, d, a, y,num]);
-        $Z[a.id] && a.beAttacked && (!a.PZ) && oSym.addTask(15, arguments.callee, [a])
+        $Z[a.id] && a.beAttacked&& oSym.addTask(15, arguments.callee, [a])
       }, [a]);
     }
   },
@@ -6356,6 +6192,7 @@ ChkActs1: function(g, e, h, d) {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
