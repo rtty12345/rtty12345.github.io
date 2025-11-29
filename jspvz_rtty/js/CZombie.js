@@ -2188,12 +2188,12 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	z.JaHead = "Ja" + Math.random();
       let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:60px;top:0px;",0);
       z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja,z){
+	oSym.addTask(10,function(a,Ja,z,e){
 	a&&(!a.beAttacked)&&(ClearChild(Ja));
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
-	let e=a.PZ;
-	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead])
-	},[a,Ja,z.JaHead]);
+	e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead,e])
+	},[a,Ja,z.JaHead,a.PZ]);
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
 				},[a])
@@ -2208,12 +2208,12 @@ PrivateAct2:function(a){
 	z.JaHead = "Ja" + Math.random();
 	let Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:60px;top:-20px;",0);
       z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja,z){
+	oSym.addTask(10,function(a,Ja,z,e){
 	a&&(!a.beAttacked)&&(ClearChild(Ja));
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
-	let e=a.PZ;
-	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead])
-	},[a,Ja,z.JaHead]);
+	e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead,e])
+	},[a,Ja,z.JaHead,a.PZ]);
 	oSym.addTask(2999,function(a){
 	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a){
 		a.BoomFire(a.R);
@@ -2338,12 +2338,12 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
-	oSym.addTask(10,function(a,squash,z){
+	oSym.addTask(10,function(a,squash,z,e){
 	a&&(!a.beAttacked)&&(ClearChild(squash));
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(0deg)":"rotateY(180deg)"},0);
-	let e=a.PZ;
-	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId])
-	},[a,squash,z.SquashHeadId]);
+	e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId,e])
+	},[a,squash,z.SquashHeadId,a.PZ]);
       oSym.addTask(500,function(a) {
         for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
             let A = oZ["getAr"+(a.PZ?"Z":"HZ")](a.ZX - 100, a.ZX + 100, i);
@@ -2571,14 +2571,14 @@ oFootballZombie1= InheritO(oConeheadZombie, {
       a.bool = 1;
       let z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
-      let squash = NewImg(z.SquashHeadId, "images/Plants/GatlingPea/GatlingPea.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
+      let squash = NewImg(z.SquashHeadId, "images/Plants/GatlingPea/GatlingPea.gif", "position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
-	oSym.addTask(10,function(a,Ja,z){
+	oSym.addTask(10,function(a,Ja,z,e){
 	a&&(!a.beAttacked)&&(ClearChild(Ja));
 	a.PZ!==e&&(e!==undefined)&&EditImg($(z),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
-	let e=a.PZ;
-	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId])
-	},[a,squash,z.SquashHeadId]);
+	e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId,e])
+	},[a,squash,z.SquashHeadId,a.PZ]);
 	oSym.addTask(1,function(a){
 	for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
           if (a.EName == "oFootballZombie1" && ($Z[a.id])) {
@@ -4127,7 +4127,8 @@ tip:"场上出现大量寒冰铁门或橄榄",
 func:function(a){
 	for(i=Math.max(Math.round(a.OrnHP/8000),6);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
-		CustomZombie(Math.random()*100<10?oFootballZombie:oPeaZombie,l,i)
+		var a=CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
+		a.OrnHP*=1.5;
 		}
 	}
  }
@@ -5357,9 +5358,9 @@ PrivateAct:function(a) {
               PKind: 1
             }), oGd.add(p, a.R + "_" + NewC + "_" + 1)))
         }
-	var AZ=oZ["getAr"+(this.PZ?"HZ":"Z")](this.PZ?a.ZX-180:a.ZX+180,a.ZX,a.R),
+	var AZ=oZ["getAr"+(a.PZ?"HZ":"Z")](a.PZ?a.ZX-180:a.ZX,a.PZ?a.ZX:a.ZX+180,a.R),
 		  Zle=AZ.length;
-		  while(Zle--){AZ[Zle]&&(AZ[Zle].getHit0(AZ[Zle],2,0),AZ[Zle].getr(AZ[Zle],this.PZ?-2:2))}
+		  while(Zle--){AZ[Zle]&&(AZ[Zle].getHit0(AZ[Zle],2,0),AZ[Zle].getr(AZ[Zle],a.PZ?-2:2))}
       }
     },
 JudgeAttackH:function(){},
@@ -5489,18 +5490,18 @@ NormalAttack: function(c, b) {
 		z.FumeDoor = "Fume" + Math.random();
         let Sh = NewImg(z.FumeDoor,"images/Plants/FumeShroom/FumeShroom.gif","position:absolute;width:100px;height:88px;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:20px;top:50px;",0);
         z.appendChild(Sh);
-	oSym.addTask(10,function(a,Pea,Sh,FumeDoor,PeaHead){
+	oSym.addTask(10,function(a,Pea,Sh,FumeDoor,PeaHead,e){
 	a&&(!a.beAttacked)&&(ClearChild(Pea));
 	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild(Sh);
-	try{a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));}catch{};
-	let e=a.PZ;
-	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead])
+	a.PZ!==e&&(e!==undefined)&&(EditImg($(FumeDoor),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),EditImg($(PeaHead),0,{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
+	e=a.PZ;
+	oSym.addTask(10,arguments.callee,[a,Pea,Sh,z.FumeDoor,z.PeaHead,e])
 	},[a,Pea,Sh,z.FumeDoor,z.PeaHead,a.PZ]);//寒冰头与大喷菇
 	NewEle(a.id + "_Bullet", 
 	"div", "position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"visibility:hidden;width:343px;height:62px;left:"+(a.PZ?"-250":"40")+"px;top:70px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" + (a.zIndex + 1),0,$(a.id));
 	oSym.addTask(1, function(a,h,z) {
 		if (a.OrnHP >= 1) {
-		let A= oZ["getAr"+(a.PZ?"HZ":"Z")](a.PZ?a.ZX-200:a.ZX+200, a.ZX, a.R),
+		let A= oZ["getAr"+(a.PZ?"HZ":"Z")](a.PZ?a.ZX-200:a.ZX,a.PZ?a.ZX:a.ZX+200, a.R),
         Tz= A.length;
 	for (let i = GetC(a.ZX) - 2; i <= GetC(a.ZX); i++) {
             for (let l = 0; l < 4; l++) {
@@ -6004,6 +6005,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
