@@ -2619,7 +2619,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
               }
             }
 		}
-            let Z = oZ["get"+(this.PZ?"HZ1":"Z0")](pea.offsetLeft + 20,(num>25?a.R:GetR($(d).offsetTop+30)));
+            let Z = oZ["get"+(a.PZ?"HZ1":"Z0")](pea.offsetLeft + 20,(num>25?a.R:GetR($(d).offsetTop+30)));
             Z && (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d) && ClearChild($(d)))));
             if ($(d).offsetLeft <= 0 || ($(d).offsetTop <= -15) || ($(d).offsetTop >= 600)||$(d).offsetTop >= oS.W) {
               ClearChild($(d));
@@ -3443,7 +3443,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 			}
 	let Z= oZ["get"+(a.PZ?"HZ1":"Z0")]($(d).offsetLeft -20,a.R);
             Z&&(Z.Altitude==1) && (PlayAudio("potato_mine"), (Z.getHit0(Z,300,0),($(d) && ClearChild($(d)))));
-                if($(d).offsetLeft <= 0){
+                if($(d).offsetLeft <= 0||($(d).offsetLeft>=oS.W)){
                     ClearChild($(d));
                     $(d).isDie = true;
                 }
@@ -5566,7 +5566,7 @@ oSym.addTask(300,function(a){
 			}
 	let Z= oZ["get"+(a.PZ?"HZ1":"Z0")]($(d).offsetLeft + 20,a.R);
             Z&&(Z.Altitude==1)&& (PlayAudio("splat1"), (Z.getHit0(Z,50,0),(Z.getSlow(Z)),($(d) && ClearChild($(d)))));
-                if($(d).offsetLeft <= 0){
+                if($(d).offsetLeft <= 0||($(d).offsetLeft>=oS.W)){
                     ClearChild($(d));
                     $(d).isDie = true;
                 };
@@ -6004,4 +6004,5 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
