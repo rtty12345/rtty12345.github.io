@@ -2055,14 +2055,14 @@ oSpikeweed1= InheritO(CPlants, {
               R: b.R,
               C: b.C,
               PKind: 2.5
-            }), oGd.add(b,R + "_" + NewC + "_" + 2.5)
+            }), oGd.add(b,R + "_" + NewC + "_" + 2.5))
       } else {
         R=b.R,NewC = GetC(b.pixelRight -= 1),b.AttackedLX = k -= 1, b.AttackedRX = j -= 1, g.style.left = (b.pixelLeft -= 1) + "px",NewC != b.C && (b.C = NewC,
             oGd.del({
               R: b.R,
               C: b.C,
               PKind: 2.5
-            }), oGd.add(b,R + "_" + NewC + "_" + 2.5)
+            }), oGd.add(b,R + "_" + NewC + "_" + 2.5))
       }
       a.HP>1&&oSym.addTask(1, arguments.callee, [b, c, k, j, e, g])
     })(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
@@ -3567,3 +3567,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
