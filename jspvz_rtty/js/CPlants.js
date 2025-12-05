@@ -2067,12 +2067,6 @@ oSpikeweed1= InheritO(CPlants, {
       a.HP>1&&oSym.addTask(1, arguments.callee, [b, c, k, j, e, g])
     })(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
 	},
-	NewC = GetC(p.pixelRight += 1), p.AttackedLX += 1, p.AttackedRX += 1, p.pixelLeft += 1, $(p.id).style.left = (p.pixelLeft) + "px", NewC != p.R && (p.C = NewC,
-            oGd.del({
-              R: p.R,
-              C: j,
-              PKind: 1
-            }), oGd.add(p, a.R + "_" + NewC + "_" + 1))
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
@@ -2589,7 +2583,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		e.PZ && Math.abs(e.ZX - b.MX) < 121 && e.beAttacked ? (b.ArZ.push(e.id), !b.Cry && (b.Cry = 1, $(a).childNodes[1].src = "images/Plants/ScaredyShroom/ScaredyShroomCry.gif", b.CryCheck(a))) : (e.R == b.R && !b.Cry && !b.Attacking && e.Altitude > 0 && e.Altitude < 3 && b.NormalAttack())
 	},
 	PrivateBirth: function(c) {
-	  CustomSpecial(oCoffeeBean,this.R,this.C)  
+	  CustomSpecial(oCoffeeBean,this.R,this.C);
             try{
             if(!c.num){
             c.num = 1;
@@ -3573,32 +3567,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
