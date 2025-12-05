@@ -2048,7 +2048,7 @@ oSpikeweed1= InheritO(CPlants, {
 	var leftnum;
 	$(a.id).style.opacity=0.25;
 	(function(b, c, k, j, e, g) {
-      k > c && (leftnum = 1), k < 100 && (leftnum = 0);
+      k > c && (leftnum = 1), k < 100 && (leftnum = 0,b.Attack+=2,b.HP+=20);
       if (!leftnum) {
         b.pixelRight += 1, b.AttackedLX = k += 1, b.AttackedRX = j += 1, g.style.left = (b.pixelLeft += 1) + "px"
       } else {
@@ -2067,14 +2067,14 @@ oSpikeweed1= InheritO(CPlants, {
 		switch (b) {
 		case 2:
 			d.getDispelled(d);
-			c.Die();
+			(c.HP -= 100) < 1 && c.Die()
 			break;
 		case 1:
 			Math.round(Math.random()*1000)>2?d.getHit2(d, 45, 0):d.getDispelled(d);
 			c.Die();
 			break;
 		default:
-			(c.HP -= a) < 1 && c.Die()
+			(c.HP -= 100) < 1 && c.Die()
 		}
 	},
 		CheckLoop: function(b, c) {
@@ -2091,7 +2091,7 @@ oSpikeweed1= InheritO(CPlants, {
 			b=a.length;
 	while(b--){
 		var c = a[b];
-		c&&c.getHit2(c, this.Attack, 0)
+		c&&c.getHit2(c,Math.min(this.Attack,80), 0)
 	}
 	},
 	PrivateDie:function(){
@@ -3557,6 +3557,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
