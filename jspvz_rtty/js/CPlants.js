@@ -2050,13 +2050,29 @@ oSpikeweed1= InheritO(CPlants, {
 	(function(b, c, k, j, e, g) {
       k > c && (leftnum = 1), k < 100 && (leftnum = 0,b.Attack+=2,b.HP+=20);
       if (!leftnum) {
-        b.pixelRight += 1, b.AttackedLX = k += 1, b.AttackedRX = j += 1, g.style.left = (b.pixelLeft += 1) + "px"
+        R=b.R,NewC = GetC(b.pixelRight += 1),b.AttackedLX = k += 1, b.AttackedRX = j += 1, g.style.left = (b.pixelLeft += 1) + "px",NewC != b.C && (b.C = NewC,
+            oGd.del({
+              R: b.R,
+              C: b.C,
+              PKind: 2.5
+            }), oGd.add(b,R + "_" + NewC + "_" + 2.5)
       } else {
-        b.pixelRight -= 1, b.AttackedLX = k -= 1, b.AttackedRX = j -= 1, g.style.left = (b.pixelLeft -= 1) + "px"
+        R=b.R,NewC = GetC(b.pixelRight -= 1),b.AttackedLX = k -= 1, b.AttackedRX = j -= 1, g.style.left = (b.pixelLeft -= 1) + "px",NewC != b.C && (b.C = NewC,
+            oGd.del({
+              R: b.R,
+              C: b.C,
+              PKind: 2.5
+            }), oGd.add(b,R + "_" + NewC + "_" + 2.5)
       }
       a.HP>1&&oSym.addTask(1, arguments.callee, [b, c, k, j, e, g])
     })(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
 	},
+	NewC = GetC(p.pixelRight += 1), p.AttackedLX += 1, p.AttackedRX += 1, p.pixelLeft += 1, $(p.id).style.left = (p.pixelLeft) + "px", NewC != p.R && (p.C = NewC,
+            oGd.del({
+              R: p.R,
+              C: j,
+              PKind: 1
+            }), oGd.add(p, a.R + "_" + NewC + "_" + 1))
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
@@ -3557,6 +3573,7 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 });
+
 
 
 
