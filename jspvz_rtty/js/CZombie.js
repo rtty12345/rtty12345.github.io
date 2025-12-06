@@ -2151,6 +2151,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
 				},[a])
 			  };
+			var z=$(a.id);
 		a&&(!a.beAttacked)&&(ClearChild($(z.JaHead)));
 			},
 PrivateAct2:function(a){
@@ -2175,6 +2176,7 @@ PrivateAct2:function(a){
 				},[a,i])
 			  }
 		 }
+	var z=$(a.id);
 	a&&(!a.beAttacked)&&(ClearChild($(z.JaHead)));
 },
 NormalDie: function() {
@@ -2326,6 +2328,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
         a.beAttacked&&$Z[a.id]&&oSym.addTask(500, arguments.callee, [a])
       }, [a]);
     };
+	var z=$(a.id);
 	a&&(!a.beAttacked)&&ClearChild($(z.SquashHeadId));
   },
 PlayNormalballAudio: function() {
@@ -2581,7 +2584,8 @@ if(!a.sk){
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
           [z, d, a, y,num]);
-        $Z[a.id] && a.beAttacked&& oSym.addTask(15, arguments.callee, [a])
+		  var z=$(a.id);
+        $Z[a.id] && a.beAttacked&& oSym.addTask(12, arguments.callee, [a])
       }, [a]);
 };
   },
@@ -5540,9 +5544,10 @@ oSym.addTask(300,function(a){
             !a.isDie && (a.HP > 60) &&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             };//自身冻结豆
+	var z=$(a.id);
 	a&&(!a.beAttacked)&&(ClearChild($(z.PeaHead)));
 	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild($(z.FumeDoor));	
-	!a.PZ&&(EditEle(a.id + "_Bullet", 
+	!a.PZ&&(EditEle($(a.id + "_Bullet"), 
 	0, {transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)",left:(a.PZ?"-250":"40")+"px"},$(a.id),0),
 	EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
 	EditImg($(z.PeaHead),0,"images/Plants/SnowPea/SnowPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
@@ -5972,6 +5977,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
