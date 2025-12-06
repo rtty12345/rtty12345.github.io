@@ -1,6 +1,6 @@
 oS.Init({
 PName:[oSunFlower,oFumeShroom,oGloomShroom,oPuffShroom,oScaredyShroom,oDoomShroom,oHypnoShroom,oGraveBuster,oIceShroom],
-ZName:[oZombie2,oDancingZombie1,oNewspaperZombie,oJackinTheBoxZombie,oFootballZombie,oScreenDoorZombie,oPeaZombie ,oBackupDancer1,oBackupDancer],
+ZName:[oZombie2,oDancingZombie1,oNewspaperZombie,oJackinTheBoxZombie,oFootballZombie,oScreenDoorZombie,oPeaZombie,oBackupDancer],
 PicArr:["images/interface/background2.jpg","images/interface/trophy.png","images/interface/Stripe.png"],
 backgroundImage:"images/interface/background2.jpg",
 ShowScroll:false,
@@ -36,7 +36,8 @@ e.splice(c,1)}++i}}
 NewImg("iStripe",
        "images/interface/Stripe.png",
        "left:"+(GetX1X2(7)[0]-11)+"px;top:65px",
-       EDAll)},
+       EDAll)
+},
 StartGame:function(){
   oP.Monitor();
   BeginCool();
