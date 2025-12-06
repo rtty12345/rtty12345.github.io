@@ -2357,9 +2357,9 @@ oFootballZombie= function() {
     var d = f.OrnHP,
       c = f.HP,
       e = OrnNoneZombies.prototype;
-    (d = f.OrnHP -= b) < 1 && (f.PZ&&(f.ChkActs = e.ChkActs,f.WalkDirection && (f.ExchangeLR(f, 0)),
+    (d = f.OrnHP -= b) < 1 && (f.PZ&&(f.ChkActs = e.ChkActs,f.getr(f,-150),f.WalkDirection && (f.ExchangeLR(f, 0)),
       f.ZX = f.AttackedLX,
-      f.WalkDirection = 0), f.HP += d, f.Ornaments = 0,f.tasktime -= 50, f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit);
+      f.WalkDirection = 0), f.HP += d, f.Ornaments = 0,f.EleBody.src = f.PicArr[[f.NormalGif = f.OrnLostNormalGif, f.AttackGif = f.OrnLostAttackGif][f.isAttacking]], f.PlayNormalballAudio = e.PlayNormalballAudio, f.PlayFireballAudio = e.PlayFireballAudio, f.PlaySlowballAudio = e.PlaySlowballAudio, f.getHit = f.getHit0 = f.getHit1 = f.getHit2 = f.getHit3 = e.getHit);
     f.SetAlpha(f, f.EleBody, 50, 0.5);
     oSym.addTask(10,
       function(h, g) {
@@ -3555,14 +3555,23 @@ a.protect=1;
 }
   },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
-		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments =0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
+		var e = OrnNoneZombies.prototype; (g.OrnHP = d -= c) < 1 && (a && (g.HP += d), g.Ornaments=0, g.EleBody.src = f[[g.NormalGif = g.OrnLostNormalGif,g.AttackGif = g.OrnLostAttackGif][b]],
 			g.LostHeadGif = 8,
 			g.LostHeadAttackGif = 9,
 			g.getPea = e.getPea,
 			g.getFirePea = e.getFirePea,
 			g.getFirePeaSputtering = e.getFirePeaSputtering,
 			g.getSnowPea = e.getSnowPea,
-			g.HP=1200,
+			g.HP+=1000,
+	        g.PrivateAct=function(a){
+            if(!a.Change){
+                a.Change = true;
+                oSym.addTask(200,function(a){
+                    $Z[a.id]&&a.ChangeR(a);
+                    a.Change = false;
+                },[a])
+            }
+          },
 			g.shootPea(g),
 			g.getSlowPea=e.getSlowPea,
 			g.getSlowPea1=e.getSlowPea1,
@@ -5977,3 +5986,4 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
