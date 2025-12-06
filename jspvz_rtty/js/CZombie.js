@@ -3864,7 +3864,7 @@ PicArr: (function() {
   })(),
 PrivateAct:function(){this&&this.OpenBox(this.id)},
 bedevilAct:function(){this&&this.OpenBox(this.id)},
-OpenBox:oBackupDancer1.prototype.BoomFire
+OpenBox:oBackupDancer.prototype.OpenBox
 }),
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
@@ -5969,3 +5969,4 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
