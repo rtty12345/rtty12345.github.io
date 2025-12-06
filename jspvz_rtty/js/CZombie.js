@@ -2151,8 +2151,8 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
 				},[a])
 			  };
-			var z=$(a.id);
-		a&&(!a.beAttacked)&&(ClearChild($(z.JaHead)));
+	var p=$(a.id);
+	a&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
 			},
 PrivateAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
@@ -2176,8 +2176,8 @@ PrivateAct2:function(a){
 				},[a,i])
 			  }
 		 }
-	var z=$(a.id);
-	a&&(!a.beAttacked)&&(ClearChild($(z.JaHead)));
+	var p=$(a.id);
+	a&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
 },
 NormalDie: function() {
     var c = this;
@@ -2328,8 +2328,8 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
         a.beAttacked&&$Z[a.id]&&oSym.addTask(500, arguments.callee, [a])
       }, [a]);
     };
-	var z=$(a.id);
-	a&&(!a.beAttacked)&&ClearChild($(z.SquashHeadId));
+	var p=$(a.id);
+	a&&(!a.beAttacked)&&ClearChild($(p.SquashHeadId));
   },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
@@ -2533,7 +2533,8 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 	oSym.addTask(10,arguments.callee,[a,squash,z.SquashHeadId,e])
 	},[a,squash,z.SquashHeadId,a.PZ]);
 	}
-	(!a.beAttacked)&&(ClearChild($(z.SquashHeadId)));
+	var p=$(a.id);
+	(!a.beAttacked)&&(ClearChild($(p.SquashHeadId)));
 if(!a.sk){
 	a.sk=1;
 	oSym.addTask(1,function(a){
@@ -2584,7 +2585,6 @@ if(!a.sk){
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
           },
           [z, d, a, y,num]);
-		  var z=$(a.id);
         $Z[a.id] && a.beAttacked&& oSym.addTask(12, arguments.callee, [a])
       }, [a]);
 };
@@ -5544,13 +5544,13 @@ oSym.addTask(300,function(a){
             !a.isDie && (a.HP > 60) &&oSym.addTask(125,arguments.callee,[a])
             },[a]);
             };//自身冻结豆
-	var z=$(a.id);
-	a&&(!a.beAttacked)&&(ClearChild($(z.PeaHead)));
-	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild($(z.FumeDoor));	
+	var P=$(a.id);
+	a&&(!a.beAttacked)&&(ClearChild($(P.PeaHead)));
+	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild($(P.FumeDoor));	
 	!a.PZ&&(EditEle($(a.id + "_Bullet"), 
 	0, {transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)",left:(a.PZ?"-250":"40")+"px"},$(a.id),0),
-	EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
-	EditImg($(z.PeaHead),0,"images/Plants/SnowPea/SnowPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
+	EditImg($(P.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
+	EditImg($(P.PeaHead),0,"images/Plants/SnowPea/SnowPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
         },
         CheckOrnHP: function(g, h, d, c, f, b, a) {
             var e = OrnNoneZombies.prototype;
@@ -5977,3 +5977,4 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
