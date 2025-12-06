@@ -2152,7 +2152,7 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 				},[a])
 			  };
 	var p=$(a.id);
-	a&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
+	$Z[a.id]&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
 			},
 PrivateAct2:function(a){
 		 for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
@@ -2177,7 +2177,7 @@ PrivateAct2:function(a){
 			  }
 		 }
 	var p=$(a.id);
-	a&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
+	$Z[a.id]&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
 },
 NormalDie: function() {
     var c = this;
@@ -2329,7 +2329,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
       }, [a]);
     };
 	var p=$(a.id);
-	a&&(!a.beAttacked)&&ClearChild($(p.SquashHeadId));
+	$Z[a.id]&&(!a.beAttacked)&&ClearChild($(p.SquashHeadId));
   },
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
@@ -2534,7 +2534,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 	},[a,squash,z.SquashHeadId,a.PZ]);
 	}
 	var p=$(a.id);
-	(!a.beAttacked)&&(ClearChild($(p.SquashHeadId)));
+	$Z[a.id]&&(!a.beAttacked)&&(ClearChild($(p.SquashHeadId)));
 if(!a.sk){
 	a.sk=1;
 	oSym.addTask(1,function(a){
@@ -2942,7 +2942,7 @@ Act1:function(a) {
     }
 if(!a.boo){
     let s = $(z.SquashHeadId);
-	!a.PZ||(!a.Ornaments)&&ClearChild(s);
+	$Z[a.id]&&(!a.PZ||(!a.Ornaments))&&ClearChild(s);
     a.Ornaments&&(a.OSpeed = a.Speed = 4);
     for (let i = 3; i >= 0; i--) {
       let p = oGd.$[a.R + "_" + GetC(a.ZX-20) + "_" + i];
@@ -3557,15 +3557,14 @@ a.protect=1;
 			g.getFirePea = e.getFirePea,
 			g.getFirePeaSputtering = e.getFirePeaSputtering,
 			g.getSnowPea = e.getSnowPea,
-			g.HP=1000,
+			g.HP=1200,
+			g.shootPea(g),
 			g.getSlowPea=e.getSlowPea,
 			g.getSlowPea1=e.getSlowPea1,
 			g.PlayNormalballAudio = e.PlayNormalballAudio,
 			g.PlayFireballAudio = e.PlayFireballAudio, 
 			g.PlaySlowballAudio = e.PlaySlowballAudio,
 			g.getHit=e.getHit0,
-			g.Speed=8,
-		    g.OSpeed=8,
 			g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
 			g.AKind=2)
 	},
@@ -3842,7 +3841,6 @@ if(a.HP<=800&&(a.hard==2)){
 			k.CrushDie=j.CrushDie;
 			k.getHit1=k.getHit2=k.getHit3=k.getHit0=k.getHit4=e.getHit;
 			k.getExplosion=j.getExplosion;
-			k.Attack=800;
 			k.AKind=0;
 			k.tasktime=2;
 			k.bedevil=j.bedevil;
@@ -4079,7 +4077,7 @@ for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && 
 name:"重装出击",
 tip:"场上出现大量寒冰铁门或橄榄",
 func:function(a){
-	for(i=Math.max(Math.round(a.OrnHP/7000),6);i<=9;i++){
+	for(i=Math.max(Math.round(a.OrnHP/7000),7);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
 		var a=CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
 		a.OrnHP*=1.5;
@@ -5546,7 +5544,7 @@ oSym.addTask(300,function(a){
             };//自身冻结豆
 	var P=$(a.id);
 	a&&(!a.beAttacked)&&(ClearChild($(P.PeaHead)));
-	a&&(!a.Ornaments||!$Z[a.id])&&ClearChild($(P.FumeDoor));	
+	a&&(!a.Ornaments)&&ClearChild($(P.FumeDoor));	
 	!a.PZ&&(EditEle($(a.id + "_Bullet"), 
 	0, {transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)",left:(a.PZ?"-250":"40")+"px"},$(a.id),0),
 	EditImg($(P.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
@@ -5977,4 +5975,3 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
