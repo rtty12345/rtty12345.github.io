@@ -2289,7 +2289,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
     if (!a.A) {
       a.A = 1;
 	  a.HP=1100;
-      let z = $(a.id);
+      var z = $(a.id);
       z.SquashHeadId = "Squash" + Math.random();
       var squash = NewImg(z.SquashHeadId, "images/Plants/PumpkinHead/pumpkin_damage1.gif", "position:absolute;transform:"+(a.PZ?"rotateY(0deg);":"rotateY(180deg);")+"left:40px;top:15px;",0);
       z.appendChild(squash);
@@ -5977,7 +5977,3 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
