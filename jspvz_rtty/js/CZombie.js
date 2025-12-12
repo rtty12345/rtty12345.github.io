@@ -222,9 +222,9 @@ shootPea:function(a){
        Birth: function() {
             var num=Math.round(Math.random()*100);
 		c = this;
-	   if(c&&c.hard==1&&num>=66){c.HP*=1.35;c.OrnHP*=1.35
-	    }else if(c&&c.hard==1&&num>=33){c.Speed*=1.5,c.OSpeed*=1.5,c.LostPaperSpeed+=3
-	    }else if(c&&c.hard==1&&num<33){c.getSlow=c.getr=c.getFreeze=c.getFreeze1=function(){};
+	   if(c&&c.hard==1&&num>=66){c.HP*=1.5;c.OrnHP*=1.5
+	    }else if(c&&c.hard==1&&num>=33){c.Speed*=1.5,c.OSpeed*=1.5,c.LostPaperSpeed*=1.2
+	    }else if(c&&c.hard==1&&num<33){c.getSlow=c.getFreeze=c.getFreeze1=function(){};
 		c.getSnowPea=c.getSlowPea1=c.getPea};
             $Z[c.id] = c;
             oZ.add(c);
@@ -763,7 +763,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 		[c, b])
 	},
 	ChkActs: function(g, d, h, c) {
-		Math.random()*1+0?this.BoomFire(this.R):this.OpenBox();
+		Math.round(Math.random()*1+0)?this.BoomFire(this.R):this.OpenBox();
 		return 0
 	},
     BoomFire: function (y) {
@@ -3434,8 +3434,8 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
-			k.ChkActs = j.ChkActs;
-			k.ChkActs = (k.PZ?j.ChkActs:j.ChkActs1);
+			k.ChkActs1= j.ChkActs1;
+			k.ChkActs = (!k.WalkDirection?j.ChkActs:j.ChkActs1);
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
 			if (!k.beAttacked) {
 				return
@@ -5986,4 +5986,5 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
