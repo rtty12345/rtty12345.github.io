@@ -17,7 +17,7 @@ oS.Init({
 		ar: [5, 9, 11]
 	},
 	UserDefinedFlagFunc: function(a) {
-		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie,oPeaZombie,oSquashZombie,oZomboni])
+		oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie,oPeaZombie])
 	},
 	StartGameMusic: "Ultimate battle"
 },
@@ -60,6 +60,7 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll)
 	}
 });
+
 
 
 
