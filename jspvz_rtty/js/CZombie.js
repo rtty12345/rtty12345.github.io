@@ -3853,7 +3853,7 @@ if(a.HP<=800&&(a.hard==2)){
 			k.getbedevil=j.getbedevil;
 		oP.SetTimeoutTomZombie([oNewspaperZombie,oNewspaperZombie3]);
 		try{oP.SetTimeoutWaterZombie(7,9,1,[oNewspaperZombie]);}catch{};
-			k.ChkActs = (k.PZ?j.ChkActs:j.ChkActs1);
+			k.ChkActs = (!k.WalkDirection?j.ChkActs:j.ChkActs1);
 			k.ChkActs1 = j.ChkActs1;
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
 			if (!k.beAttacked) {
@@ -4762,11 +4762,9 @@ oZomboni = function() {
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
-			if(p.NormalAttack!==function(){}){
 			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
                 p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
 			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
-			}
                         }
                     }
                 }
@@ -4824,10 +4822,6 @@ oZomboni = function() {
 			c.getHit0(c, b)
 		},
 		gethPea: function(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
-			c.getHit0(c, b)
-		},
-		getZPea: function(c, b) {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b)
 		},
@@ -5249,9 +5243,11 @@ oImp = InheritO(OrnNoneZombies, {
 	oSym.addTask(500,function(a){
 	a&&($Z[a.id])&&(a.ZX>=200)&&(a.ZX-=300),(a.AttackedLX-=300),(a.AttackedRX-=300),(a.X-=300),SetStyle(a.Ele,{left:a.X+"px"});  
         if ((a.PZ)&&$Z[a.id]&&a.beAttacked) {
-    EDAll && (EDAll.style.opacity = 0);
+	SetHidden($("dMenu"));
+    CSpeed(2,10,2);
     oSym.addTask(300, function() {
-      EDAll && (EDAll.style.opacity = 1);
+      SetVisible($("dMenu"));
+	  CSpeed(1,10,1)
     }, [])
         }
 		},[a])
@@ -5991,6 +5987,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
