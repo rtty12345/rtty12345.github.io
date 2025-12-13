@@ -584,11 +584,8 @@ oThreepeater = InheritO(oPeashooter, {
 	SunNum: 375,
 	PicArr: ["images/Card/Plants/Threepeater.png", "images/Plants/Threepeater/0.gif", "images/Plants/Threepeater/Threepeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
-	Tooltip: "一次射出大量覆盖全图所有行的豌豆，攻击距离很短",
-	Produce: '三线射手可以在全图所有行上同时大量射出豌豆，攻击距离短，最多种植五株<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">全图所有的行</font></p> N线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
-	getTriggerRange: function(a, b, c) {
-		return [[b, Math.min(c +300, oS.W), 0]]
-	},
+	Tooltip: "范围覆盖全图，越靠场地右侧射出豌豆越多",
+	Produce: '三线射手可以在全图所有行上同时射出豌豆，范围覆盖全图，越靠场地右侧射出豌豆越多<p>伤害：<font color="#FF0000">普通(每颗)</font><br>范围：<font color="#FF0000">全图所有的行</font></p> N线射手喜欢读书，下棋和在公园里呆坐。他也喜欢演出，特别是现代爵士乐。“我正在寻找我生命中的另一半，”他说。三线射手最爱的数字是5，除此以外，他还学会了模仿豌豆',
 	getTriggerR: function(a) {
 		return [1,oS.R]
 	},
@@ -662,7 +659,7 @@ NormalAttack: function(a) {
 		var c = $P[d];
 		c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,4])
+		[this.id,Math.max(this.C-2,3)])
 	}
 }),
 oThreepeater1= InheritO(oPeashooter, {
@@ -1367,7 +1364,7 @@ oPumpkinHead = InheritO(CPlants, {
       (a.pixelTop - 10) +
       "px;position:absolute;width:97px;height:87px;z-index:150",
       0,
-      EDAll
+      EDPZ
     );
     s.onclick = function() {
       for (let i = (a.R - 1 >= 1 ? a.R - 1 : 1); i <= (a.R + 1 <= oS.R ? a.R + 1 : oS.R); i++) {
@@ -3566,5 +3563,4 @@ oFlowerVase = InheritO(CPlants, {
 		for (var O in $Z) if ($Z[O].PZ != 0) return false; // 如果有非魅惑的僵尸，直接返回
 		return true;
 	}
-});
-
+})
