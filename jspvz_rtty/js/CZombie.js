@@ -4094,7 +4094,7 @@ func:function(a){
 	for(i=Math.max(Math.round(a.OrnHP/7000),7);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
 		var a=CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
-		a.OrnHP*=1.5;
+		a.OrnHP*=1.2;
 		}
 	}
  }
@@ -4106,7 +4106,7 @@ func:function(a){
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
 		var a=CustomZombie(Math.random()*100>10?oNewspaperZombie3:oFootballZombie1,l,i);
-		a.getHit0(a,Math.min(200,a.OrnHP),0);
+		a.CheckOrnHP&&a.CheckOrnHP(a,a.id,a.OrnHP,200,0,a.PicArr, 0, 0, 0);
 		}
 	}
  }
@@ -4708,7 +4708,7 @@ oZomboni = function() {
 		EName: "oZomboni",
 		CName: "重型冰车僵尸",
 		HP:1350,
-		Lvl: 6,
+		Lvl: 5,
 		StandGif: 2,
 		DieGif: 6,
 		BoomDieGif: 7,
@@ -4719,7 +4719,7 @@ oZomboni = function() {
 		beAttackedPointL: 140,
 		beAttackedPointR: 290,
 		BreakPoint: 1,
-		SunNum:450,
+		SunNum:400,
 		GetDY: function() {
 			return 0
 		},
@@ -4759,9 +4759,11 @@ oZomboni = function() {
                     for(let j = C - 1;j <= C + 1;j++){
                         for(let k = 0;k <= 3;k++){
                             let p = oGd.$[i+"_"+j+"_"+k];
+			if(p.NormalAttack!==function(){}){
 			    p &&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).style.opacity= 0.3); 
                 p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.NormalAttack=function(){});
 			    p && ((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSunFlower")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&& (p.EName != "oStarfruit")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGarlic")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))  && (p.getHurt=CPlants.prototype.getHurt);
+			}
                         }
                     }
                 }
@@ -5480,7 +5482,7 @@ NormalAttack: function(c, b) {
 	for (let i = GetC(a.ZX) - 2; i <= GetC(a.ZX); i++) {
             for (let l = 0; l < 4; l++) {
               var m = oGd.$[a.R + "_" + i + "_" + l];
-                !a.isAttacking&&(Tz||(m!==undefined&&a.PZ))?(
+            Tz||(m!==undefined&&a.PZ)?(
 					a.Speed = a.OSpeed = 0,
 				EditImg($(z.FumeDoor),0,"images/Plants/FumeShroom/FumeShroomAttack.gif",{},0),
                   PlayAudio("fume"),
@@ -5986,5 +5988,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
