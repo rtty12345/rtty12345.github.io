@@ -2113,7 +2113,7 @@ for (i=0;i<4;i++){
                     PlayAudio("gargantuar_thump");
 		    oSym.addTask(300,function(a){
 		    a.bool=1;
-		    a.Speed=a.oSpeed=1.6;
+		    a.Speed=a.OSpeed=1.6;
 		    },[a]);
 		    a.Attack=100; 
 		}
@@ -2144,17 +2144,13 @@ oJalapenoZombie= InheritO(oConeheadZombie,{
 	z.JaHead = "Ja" + Math.random();
       var Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:60px;top:0px;",0);
       z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja,z,e){
-	a.PZ!==e&&(e=a.PZ,EditImg($(z),0,"images/Plants/Jalapeno/Jalapeno.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0));
-	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead,e])
-	},[a,Ja,z.JaHead,a.PZ]);
 				oSym.addTask(2500,function(a){
 					$Z[a.id]&&a.beAttacked&&a.BoomFire(a.R)
 				},[a])
 			  };
 	var p=$(a.id);
 	!(a.PZ==a.check)&&(
-	EditImg($(p.JaHead),0,"images/Plants/GatlingPea/GatlingPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
+	EditImg($(p.JaHead),0,"images/Plants/Jalapeno/Jalapeno.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
 	a.check=0);
 	$Z[a.id]&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
 			},
@@ -2167,10 +2163,6 @@ PrivateAct2:function(a){
 	z.JaHead = "Ja" + Math.random();
 	var Ja = NewImg(z.JaHead,"images/Plants/Jalapeno/Jalapeno.gif","position:absolute;transform:"+(a.PZ?"rotateY(180deg);":"rotateY(0deg);")+"left:60px;top:-20px;",0);
       z.appendChild(Ja);
-	oSym.addTask(10,function(a,Ja,z,e){
-	a.PZ!==e&&EditImg($(z),0,"images/Plants/Jalapeno/Jalapeno.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0);
-	oSym.addTask(10,arguments.callee,[a,Ja,z.JaHead,e])
-	},[a,Ja,z.JaHead,a.PZ]);
 	oSym.addTask(2999,function(a){
 	$Z[a.id]&&a.beAttacked&&oSym.addTask(1,function(a){
 		a.BoomFire(a.R);
@@ -2182,7 +2174,7 @@ PrivateAct2:function(a){
 		 }
 	var p=$(a.id);
 	!(a.PZ==a.check)&&(
-	EditImg($(p.JaHead),0,"images/Plants/GatlingPea/GatlingPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
+	EditImg($(p.JaHead),0,"images/Plants/Jalapeno/Jalapeno.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
 	a.check=0);
 	$Z[a.id]&&(!a.beAttacked)&&(ClearChild($(p.JaHead)));
 },
@@ -2333,7 +2325,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
     };
 	var p=$(a.id);
 	!(a.PZ==a.check)&&(
-	EditImg($(p.SquashHeadId),0,"images/Plants/GatlingPea/GatlingPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
+	EditImg($(p.SquashHeadId),0,"images/Plants/PumpkinHead/pumpkin_damage1.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
 	a.check=0);
 	$Z[a.id]&&(!a.beAttacked)&&ClearChild($(p.SquashHeadId));
   },
@@ -4090,7 +4082,7 @@ for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && 
 {
 name:"重装出击",
 tip:"场上出现大量寒冰铁门或橄榄",
-func:function(a){
+func:function(){
 	for(i=Math.max(Math.round(a.OrnHP/7000),7);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
 		var a=CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
@@ -4102,12 +4094,23 @@ func:function(a){
 {
 name:"火力压制",
 tip:"场上出现玉米二爷或机枪橄榄",
-func:function(a){
+func:function(){
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
 		var a=CustomZombie(Math.random()*100>10?oNewspaperZombie3:oFootballZombie1,l,i);
 		a.CheckOrnHP&&a.CheckOrnHP(a,a.id,a.OrnHP,200,0,a.PicArr, 0, 0, 0);
 		}
+	}
+ }
+},
+
+{
+name:"天罚",
+tip:"后排随机一行出现窝瓜二爷",
+func:function(){
+	  for(l=1;l<=oS.R;l++){
+		var a=CustomZombie(oNewspaperZombie,l,Math.round(Math.random()*3+2));
+		a.Act=a.Act1;
 	}
  }
 }
@@ -5988,6 +5991,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
