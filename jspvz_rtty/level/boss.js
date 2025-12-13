@@ -9,7 +9,7 @@ SunNum:100,
 coolTime:2.5
 });
 oS.Init({
-PName:[oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster1,oHypnoShroom,oScaredyShroom,oIceShroom,oDoomShroom,oLilyPad,oSquash,oThreepeater,oTangleKelp,oJalapeno,oSpikeweed,oTorchwood,oTallNut,oSeaShroom,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oFlowerPot,oCoffeeBean1,oGarlic,oGloomShroom,oTwinSunflower,oSpikerock],
+PName:[oGatlingPea,oPeashooter,oSunFlower,oCherryBomb,oWallNut,oPotatoMine,oSnowPea,oChomper,oRepeater,oPuffShroom,oSunShroom,oFumeShroom,oGraveBuster1,oHypnoShroom,oScaredyShroom,oIceShroom,oDoomShroom,oSquash,oThreepeater,oJalapeno,oSpikeweed,oTorchwood,oTallNut,oPlantern,oCactus,oBlover,oSplitPea,oStarfruit,oPumpkinHead,oFlowerPot,oCoffeeBean1,oGarlic,oGloomShroom,oTwinSunflower,oSpikerock],
 ZName:[oZombie,oZombie2,oZombie3,oNewspaperZombie,oScreenDoorZombie,oFootballZombie,oImp,oNewspaperBoss],
 PicArr:["images/interface/background1.jpg"],
 backgroundImage:"images/interface/background1.jpg",
