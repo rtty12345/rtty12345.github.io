@@ -4097,8 +4097,7 @@ tip:"场上出现玉米二爷或机枪橄榄",
 func:function(){
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
-		var a=CustomZombie(Math.random()*100>10?oNewspaperZombie3:oFootballZombie1,l,i);
-		a.CheckOrnHP&&a.CheckOrnHP(a,a.id,a.OrnHP,200,0,a.PicArr, 0, 0, 0);
+		CustomZombie(Math.random()*100>10?oNewspaperZombie3:oFootballZombie1,l,i);
 		}
 	}
  }
@@ -4108,8 +4107,10 @@ func:function(){
 name:"天罚",
 tip:"后排随机一行出现窝瓜二爷",
 func:function(){
+	var b=Math.round(Math.random()*3+2);
 	  for(l=1;l<=oS.R;l++){
-		var a=CustomZombie(oNewspaperZombie,l,Math.round(Math.random()*3+2));
+		var a=CustomZombie(oNewspaperZombie,l,b);
+		a.PrivateBirth=function(){};
 		a.Act=a.Act1;
 	}
  }
@@ -5987,6 +5988,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
