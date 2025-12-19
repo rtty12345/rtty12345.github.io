@@ -659,7 +659,7 @@ NormalAttack: function(a) {
 		var c = $P[d];
 		c && c.NormalAttack1(); --b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,Math.max(this.C-2,3)])
+		[this.id,Math.max(this.C-1,3)])
 	}
 }),
 oThreepeater1= InheritO(oPeashooter, {
@@ -1826,8 +1826,8 @@ oBoomNutBowling = InheritO(oNutBowling, {
 				}), l != p && (s.C = l, oGd.del({
 					R: v,
 					C: p,
-					PKind: 1
-				}), oGd.add(s, v + "_" + l + "_1")), oSym.addTask(1, arguments.callee, [s, q, s.AttackedLX, s.AttackedRX, m]))
+					PKind: 10
+				}), oGd.add(s, v + "_" + l + "_10")), oSym.addTask(1, arguments.callee, [s, q, s.AttackedLX, s.AttackedRX, m]))
 			}
 		})(a, oS.W, a.AttackedLX, a.AttackedRX, $(a.id))
 	}
@@ -3564,3 +3564,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
