@@ -160,7 +160,7 @@ shootPea:function(a){
             !($(d).isDie) && oSym.addTask(1, arguments.callee, [z, d, a])
           } catch (e) {}
         }, [z, d, a]);
-        a.HP > 60&&(a.PZ)&&oSym.addTask(125, arguments.callee, [a])
+        a.HP > 60&&oSym.addTask(125, arguments.callee, [a])
       }, [a]);
     }
   },
@@ -5988,4 +5988,5 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
