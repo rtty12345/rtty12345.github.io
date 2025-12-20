@@ -21,7 +21,7 @@ LargeWaveFlag:{16:$("imgFlag1")},
 StartGameMusic:"Ultimate battle"
 },
 {
-AZ:[[oNewspaperBoss,0,100,[10]],
+AZ:[[oNewspaperBoss,0,100,[19]],
    [oZombie,1,0]],
 FlagNum:20,
 FlagToSumNum:{
