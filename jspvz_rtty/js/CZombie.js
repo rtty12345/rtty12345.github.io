@@ -4088,8 +4088,7 @@ tip:"场上出现大量寒冰铁门或橄榄",
 func:function(){
 	for(i=Math.max(Math.round(a.OrnHP/7000),7);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
-		var a=CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
-		a&&(a.OrnHP*=1.2);
+         CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
 		}
 	}
  }
@@ -5992,6 +5991,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
