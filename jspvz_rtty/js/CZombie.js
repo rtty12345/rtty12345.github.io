@@ -3987,9 +3987,13 @@ SunNum:2000,
   CheckSkills: function(a) {
     a.cannotCheck = 1;
     oSym.addTask(1300 + (a.OrnHP * 0.01), function(a) {
-      a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
+	var Num=Math.floor(Math.random() * a.Skill.length);
+      a.Skill[Num].func(a);
       a.OrnHP<20000&&a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
       a.cannotCheck = 0;
+	NewEle("DivTeach", "div", 0, 0, EDAll);
+	innerText($("DivTeach"),a.Skill[Num].name);
+	oSym.addTask(500, SetNone, [$("DivTeach")]);
     }, [a])
   },
   Skill: [{
@@ -5988,5 +5992,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
