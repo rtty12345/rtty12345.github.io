@@ -736,7 +736,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
 	beAttackedPointR: 95,
 	PicArr: (function() {
 		var a = "images/Zombies/BackupDancer/";
-		return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random]
+		return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random,"images/Zombies/JackinTheBoxZombie/Boom.gif"]
 	})(),
 	CustomBirth: function(g, d, a, b,j) {
 		var e = this,
@@ -2721,7 +2721,7 @@ Polenum:-1,
   AudioArr: ["polevault", "grassstep"],
 PrivateAct:function(){
 	    let a = this;
-	var z = $(a.id);	
+	var z = $(a.id);
 if(!a.gif){
       z.PeaHead = "Pea" + Math.random();
       let pea = NewImg(z.PeaHead,a.PicArr[15],"position:absolute;width:122px;height:157px;transform:rotateY(180deg);left:150px;top:-20px;", 0);
@@ -2932,7 +2932,7 @@ Act1:function(a) {
     let z = $(a.id);
     if (!a.Ch) {
       a.Ch = 1;
-      a.OrnHP = 500;
+      a.OrnHP *= 2.5;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
       z.appendChild(squash);
@@ -3007,7 +3007,7 @@ try{
   },
 	getExplosion: function(){
             if(this.OrnHP >= 1){
-                this.getHit0(this,200)
+        this.getHit0(this,200)
 		this.HP=900;
 	    }
 	    else{
@@ -3360,10 +3360,9 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
                     this.HP=1500;
                 }else if(this.OrnHP+this.HP<=Attack){
 		    this.OrnHP=0;
-                    this.HP=1500; 
+            this.HP=1500; 
                 }
             }
-            callback && callback();
         },
         PrivateAct: function(a){
             if(!a.bool&&(a.OSpeed==4.8)){
@@ -3426,6 +3425,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
+			oZombie2.prototype.PrivateBirth(k);
 			k.ChkActs1= j.ChkActs1;
 			k.ChkActs = (!k.WalkDirection?j.ChkActs:j.ChkActs1);
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
@@ -3564,7 +3564,6 @@ a.protect=1;
                 },[a])
             }
           },
-			g.shootPea(g),
 			g.getSlowPea=e.getSlowPea,
 			g.getSlowPea1=e.getSlowPea1,
 			g.PlayNormalballAudio = e.PlayNormalballAudio,
@@ -3730,10 +3729,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1600）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时同普僵，破报后碾压</font><br>速度：正常，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤，发怒时，全屏墓碑出普通二爷</p>二爷界的首领',
-	CanPass: function(d, c) {
-		return c
-	},
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1600）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时2倍，破报后碾压</font><br>速度：1.5倍，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤</font><br>发怒时，全屏墓碑出普通二爷或玉米二爷</p>二爷界的首领，有着很强的实力',
 	bedevil: function() {},
 	getbedevil: function() {},
     getExplosion: function(Attack,howDie,callback) {
@@ -3880,12 +3876,12 @@ OpenBox:oBackupDancer.prototype.OpenBox
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
   CName: "读报Boss",
-  OrnHP: 60000,
+  OrnHP: 80000,
   Lvl: 200,
   LostPaperGif: 13,
   StandGif: 14,
   width: 432,
-  HP: 10000,
+  HP: 20000,
   height: 328,
   beAttackedPointL: 120,
   beAttackedPointR: 260,
@@ -3900,7 +3896,7 @@ SunNum:2000,
   Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
   ChkActs: function(h, f, j, e) {
     var d, c, g;
-    h.Ornaments !== 0 && (h.ZX <= 800) && (h.Speed = h.oSpeed = 0);
+    h.Ornaments !== 0 && (h.ZX <= 720) && (h.Speed = h.oSpeed = 0);
     !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.getHit0(h, 114514), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
       R: f,
       ar: [oS.R - 1],
@@ -3930,9 +3926,6 @@ SunNum:2000,
     !this.cannotCheck && this.CheckSkills(this);
     return g
   },
-  getCrushed: function() {
-    return 0
-  },
   getExplosion: function() {
     this.getHit0(this, 2000, 0)
   },
@@ -3948,7 +3941,7 @@ SunNum:2000,
   changeR: function(a) {
     if (!a.Change&&a.beAttacked&&$Z[a.id]) {
       a.Change = true;
-      oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
+      oSym.addTask(1200 + (a.OrnHP * 0.01), function(a) {
             a.ZX +=5;
 			a.AttackedLX += 5;
 			a.AttackedRX += 5; 
@@ -3957,28 +3950,33 @@ SunNum:2000,
             left: a.X + "px"
           });
         a.ChangeR(a);
-        if (a.OrnHP >= 50000) {
+        if (a.OrnHP >= 75000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
 		  oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 3;
-        } else if (a.OrnHP >= 40000) {
+        } else if (a.OrnHP >= 60000) {
 		try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oNewspaperZombie,oZombie, oZombie2, oZombie3], 0);
           oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 5;
-        } else if (a.OrnHP >= 30000) {
+        } else if (a.OrnHP >= 40000) {
           try{AppearTombstones(8, 9, 1);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oScreenDoorZombie,oPeaZombie], 0);
           oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3]);
           oP.NumZombies += 4;
-        } else if (a.OrnHP >= 5000) {
-          try{AppearTombstones(6, 9, 2);}catch{};
-          oP.SetTimeoutZombie([oFootballZombie, oFootballZombie, oNewspaperZombie, oScreenDoorZombie], 0);
-          oP.SetTimeoutTomZombie([oZombie2, oZombie3,oNewspaperZombie,oScreenDoorZombie]);
+        } else if (a.OrnHP >= 30000) {
+          try{AppearTombstones(8, 9, 1);}catch{};
+          oP.SetTimeoutZombie([oNewspaperZombie, oScreenDoorZombie, oFootballZombie,oPeaZombie], 0);
+          oP.SetTimeoutTomZombie([oZombie, oZombie2, oZombie3,oScreenDoorZombie]);
           oP.NumZombies += 4;
+        }else if (a.OrnHP >= 10000) {
+          try{AppearTombstones(6, 9, 2);}catch{};
+          oP.SetTimeoutZombie([oFootballZombie, oFootballZombie, oPeaZombie, oScreenDoorZombie,oPeaZombie], 0);
+          oP.SetTimeoutTomZombie([oZombie2, oZombie3,oNewspaperZombie,oScreenDoorZombie]);
+          oP.NumZombies += 5;
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
-          oP.SetTimeoutZombie([oNewspaperZombie2,oFootballZombie, oNewspaperZombie,oNewspaperZombie,oFootballZombie], 0);
+          oP.SetTimeoutZombie([oNewspaperZombie2,oFootballZombie, oNewspaperZombie,oNewspaperZombie3,oFootballZombie], 0);
           oP.SetTimeoutTomZombie([oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
           oP.NumZombies += 5;
         }
@@ -3990,6 +3988,7 @@ SunNum:2000,
     a.cannotCheck = 1;
     oSym.addTask(1300 + (a.OrnHP * 0.01), function(a) {
       a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
+      a.OrnHP<20000&&a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
       a.cannotCheck = 0;
     }, [a])
   },
@@ -4086,7 +4085,7 @@ func:function(){
 	for(i=Math.max(Math.round(a.OrnHP/7000),7);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
 		var a=CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
-		a.OrnHP*=1.2;
+		a&&(a.OrnHP*=1.2);
 		}
 	}
  }
@@ -4151,11 +4150,12 @@ shootPea:function(){},
   getPoison: function(e, b, c) {
     this.getHit0(this,60,0)
   },
+  CrushDie:function(){this.getHit0(this,2,0)},
   CheckOrnHP: function(g, h, d, c, f, b, a) {
     var e = OrnNoneZombies.prototype;
-    (g.OrnHP = d -= c) < 1 && (
+    (g。OrnHP = d -= c) < 1 && (
       g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9, g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-      oSym.addTask(600,
+      oSym.addTask(300,
         function(m, l) {
           var k = $Z[m];
           if (!k) {
@@ -4167,7 +4167,7 @@ shootPea:function(){},
             AppearTombstones(8, 9, 12)
           } catch {};
           for (i = 5; i <= 7; i++) {
-            for (I = 1; l <= oS.R; l++) {
+            for (l = 1; l <= oS.R; l++) {
               for (A = 1; A < 4; A++) {
                 oGd.$[l + "_" + i + "_" + A] && (PrivateTombstones(l, i))
               }
@@ -5988,9 +5988,3 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
