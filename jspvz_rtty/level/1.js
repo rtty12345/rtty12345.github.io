@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter],
-	ZName: [oZombie,oFootballZombie,oImp],
+	ZName: [oZombie,oFootballZombie1],
 	PicArr: function() {
 		var a = oSunFlower.prototype,
 			b = a.PicArr;
@@ -100,7 +100,7 @@ oS.Init({
 	{
 	AZ: [
 		[oZombie, 5, 1],
-		[oFootballZombie, 3,1]
+		[oFootballZombie1, 3,1]
 		
 	],
 	FlagNum: 4,
