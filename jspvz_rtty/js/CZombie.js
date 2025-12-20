@@ -3993,7 +3993,7 @@ SunNum:2000,
       a.cannotCheck = 0;
 	NewEle("DivTeach", "div", 0, 0, EDAll);
 	innerText($("DivTeach"),a.Skill[Num].name);
-	oSym.addTask(500, SetNone, [$("DivTeach")]);
+	oSym.addTask(500, ClearChild,[$("DivTeach")]);
     }, [a])
   },
   Skill: [{
@@ -5992,6 +5992,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
