@@ -2540,7 +2540,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
             let A = oZ["getAr"+(a.PZ?"Z":"HZ")](a.ZX - 120, a.ZX + 120, i),
               w = A.length;
             while (w--) {
-              (t = A[w])&& t.shootPea(t)
+              (t = A[Math.min(w,2)])&& t.shootPea(t)
             }
           }
         };
@@ -5992,6 +5992,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
