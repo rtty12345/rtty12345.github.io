@@ -4097,12 +4097,12 @@ func:function(){
 name:"火力压制",
 tip:"场上出现玉米二爷或机枪橄榄",
 func:function(){
-	var num=Math.random()*100>10,
-		cannotsummon;
+	var cannotsummon;
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
-		CustomZombie(cannotsummon&&num?oNewspaperZombie3:oFootballZombie1,l,i);
-		cannotsummon=true;
+		var num=Math.random()*100>10;
+		if(num<=10){cannotsummon=true}
+		CustomZombie(!cannotsummon&&num?oNewspaperZombie3:oFootballZombie1,l,i);
 		}
 	}
  }
@@ -5994,6 +5994,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
