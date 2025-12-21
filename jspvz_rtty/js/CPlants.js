@@ -781,7 +781,7 @@ oSym.addTask(500, function(a,i) {
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
-    $P[a.id] && b[0] && b[0].getPea(b[0], Math.max((b[0].OrnHP + b[0].HP) * 0.1, 150), 0);
+    $P[a.id] && b[0] && b[0].getPea(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 150),1000), 0);
     $P[a.id] && oSym.addTask(500, arguments.callee, [a,i]);
     $P[a.id] && b[0]&&PlayAudio("cherrybomb");
   }, [a,i]);
@@ -3564,4 +3564,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
