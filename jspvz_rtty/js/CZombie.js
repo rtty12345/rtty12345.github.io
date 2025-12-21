@@ -4086,7 +4086,7 @@ for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && 
 name:"重装出击",
 tip:"场上出现大量寒冰铁门或橄榄",
 func:function(){
-	for(i=Math.max(Math.round(a.OrnHP/7000),7);i<=9;i++){
+	for(i=Math.max(Math.ceil(a.OrnHP/7000),7);i<=9;i++){
 		for(l=1;l<=oS.R;l++){
          CustomZombie(Math.random()*100>10?oFootballZombie:oPeaZombie,l,i);
 		}
@@ -4095,14 +4095,12 @@ func:function(){
 },
 {
 name:"火力压制",
-tip:"场上出现玉米二爷或机枪橄榄",
+tip:"场上出现玉米二爷",
 func:function(){
-	var cannotsummon;
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
-		var num=Math.random()*100>10;
-		CustomZombie(cannotsummon&&num?oNewspaperZombie3:oFootballZombie1,l,i);
-		if(num<=10){cannotsummon=true}
+		CustomZombie(oNewspaperZombie3,l,i);
+		Math.random()*100>5&&CustomZombie(oFootballZombie1,7,Math.round(Math.random()*5+1));
 		}
 	}
  }
@@ -5994,6 +5992,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
