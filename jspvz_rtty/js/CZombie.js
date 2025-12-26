@@ -1390,9 +1390,6 @@ oDancingZombie2= InheritO(oDancingZombie, {
 AttackZombie:function(){
 	this&&this.NormalAttack(this.id)
 },
-ZP:[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie,new oNewspaperZombie,
-	new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,
-	new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3],
   BirthCallBack: function(d) {
     var b = d.delayT,
       l = d.id,
@@ -1454,6 +1451,9 @@ ZP:[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZo
       },
       r
     ];
+	d.ZP=[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie,new oNewspaperZombie,
+	new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,
+	new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3];
     func = function(t, o) {
       var u = $Z[t];
       u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
@@ -5993,6 +5993,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
