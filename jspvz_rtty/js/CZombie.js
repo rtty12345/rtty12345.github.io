@@ -1390,6 +1390,9 @@ oDancingZombie2= InheritO(oDancingZombie, {
 AttackZombie:function(){
 	this&&this.NormalAttack(this.id)
 },
+ZP:[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie,new oNewspaperZombie,
+	new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,
+	new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3],
   BirthCallBack: function(d) {
     var b = d.delayT,
       l = d.id,
@@ -1541,14 +1544,12 @@ AttackZombie:function(){
               w = [],
               u = [],
               o = 0,
-              ZP = h.hard==2?[new oDancingZombie,new oBucketheadZombie,new oNewspaperZombie,new oFlagZombie,new oFootballZombie1,new oJackinTheBoxZombie,new oPeaZombie,new oDancingZombie1,new oDancingZombie2,new oPoleVaultingZombie1,new oPoleVaultingZombie2,new oNewspaperZombie3]:
-				[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie, new oNewspaperZombie, new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3],
               q,
               l;
             if (h && h.beAttacked) {
               s.src = "images/Zombies/DancingZombie/Summon3.gif";
               while (r--) {
-                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = ZP[Math.floor(Math.random() * ZP.length)]).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = h.ZP[Math.floor(Math.random() * h.ZP.length)]).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
               }
               oSym.addTask(220,
                 function() {
@@ -5992,6 +5993,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
