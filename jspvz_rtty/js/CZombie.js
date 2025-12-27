@@ -1451,14 +1451,14 @@ AttackZombie:function(){
       },
       r
     ];
-	d.ZP=[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie,new oNewspaperZombie,
-	new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,
-	new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3];
     func = function(t, o) {
       var u = $Z[t];
       u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
     };
     b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
+	d.ZP=[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie,new oNewspaperZombie,
+	new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,
+	new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3];
   },
   ChangeChkActsTo0: function(g, e, a) {
     var d = 4,
@@ -1549,7 +1549,7 @@ AttackZombie:function(){
             if (h && h.beAttacked) {
               s.src = "images/Zombies/DancingZombie/Summon3.gif";
               while (r--) {
-                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = h.ZP[Math.floor(Math.random() * h.ZP.length)]).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random(),oP.AppearUP(u, w, o)), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = h.ZP[Math.floor(Math.random() * h.ZP.length)]).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)),oP.AppearUP(u, w, o), ++o)
               }
               oSym.addTask(220,
                 function() {
@@ -5992,6 +5992,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
