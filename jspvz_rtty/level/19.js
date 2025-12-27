@@ -29,7 +29,7 @@ oS.Init({
 		[oConeheadZombie, 3, 1],
 		[oScreenDoorZombie, 1, 1],
 		[oFootballZombie, 1, 1],
-		[oDancingZombie2, 1, 4],
+		[oJalapenoZombie, 1, 2],
 		[oDancingZombie1, 1, 3],
 		[oDancingZombie, 1, 1]
 	],
@@ -60,6 +60,7 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll)
 	}
 });
+
 
 
 
