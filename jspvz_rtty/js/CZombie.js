@@ -1549,7 +1549,7 @@ AttackZombie:function(){
             if (h && h.beAttacked) {
               s.src = "images/Zombies/DancingZombie/Summon3.gif";
               while (r--) {
-                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = h.ZP[Math.floor(Math.random() * h.ZP.length)]).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)),oP.AppearUP(u, w, o), ++o)
+                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = h.ZP[Math.floor(Math.random() * h.ZP.length)]).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)),++o)
               }
               oSym.addTask(220,
                 function() {
@@ -1562,6 +1562,7 @@ AttackZombie:function(){
               oSym.addTask(0,
                 function(A, y, z, i) {
                   var B = $Z[A];
+				oP.AppearUP(y, z, i);
 				while(i--){
 				  B.beAttacked&&B&&!B.PZ&&(
 					  z[i].AttackZombie2 = function() {},
@@ -5992,6 +5993,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
