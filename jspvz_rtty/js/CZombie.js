@@ -1559,7 +1559,7 @@ AttackZombie:function(){
                   }
                 },
                 n);
-              oSym.addTask(110,
+              oSym.addTask(0,
                 function(A, y, z, i) {
                   var B = $Z[A];
 				while(i--){
@@ -5992,6 +5992,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
