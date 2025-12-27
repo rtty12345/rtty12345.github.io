@@ -77,7 +77,7 @@ var CZombies = function(b, a) {
     }, [C, h, b]);
 	}
             (GetC(this.ZX)<=10)&&this.PrivateAct && this.PrivateAct(this);
-			(GetC(this.ZX)<=10)&&this.Act&& this.Act(this);
+			!(h.FreeFreezeTime || h.FreeSetbodyTime)&&(GetC(h.ZX)<=10)&&h.Act&& h.Act(h);
             return g
         },
 		ChkActs1: function(g, e, h, d) {
@@ -5993,6 +5993,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
