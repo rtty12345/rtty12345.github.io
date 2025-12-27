@@ -2705,7 +2705,7 @@ oPoleVaultingZombie = InheritO(OrnNoneZombies, {
                 }), n.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" + $Random + Math.random(), SetVisible(l), oSym.addTask(80, function(s, v) {
                     var u = $Z[s],
                         t;
-                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack =u.NormalAttack1,u.getCrushed =(t = CZombies.prototype).getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000))),u.JudgeLR=oZomboni.prototype.JudgeLR,u.JudgeSR=oZomboni.prototype.JudgeSR
+                    u && (v.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif", u.isAttacking = 0, u.Altitude = 1, u.OSpeed = u.Speed = 3.2, u.NormalGif = 9, u.LostHeadGif = 10, u.NormalAttack =u.NormalAttack1,u.getCrushed =(t = CZombies.prototype).getCrushed, u.getFreeze = t.getFreeze, u.getRaven = t.getRaven,($P[k.id]&&(u.hard==2)&&k.getHurt(h,2,1000)),u.JudgeLR=oZomboni.prototype.JudgeLR,u.JudgeSR=oZomboni.prototype.JudgeSR)
                 }, [m, n])))
             }, [d, b, a, c, e])
         }
@@ -5993,6 +5993,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
