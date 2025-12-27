@@ -1,4 +1,3 @@
-alert("本关暂未设计完成！");
 oS.Init({
     PName: [oCactus,oSunFlower,oScaredyShroom,oPumpkinHead,oGarlic,oSpikeweed,
 			oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,
@@ -36,6 +35,7 @@ oS.Init({
 		[19, 5, 1],
 		[19, 5, 1],
 		[19, 1, 3],
+		[19, 2, 2],
         [3, 5, 1],
 		[3, 3, 2],
 		[3, 5, 2],
@@ -49,7 +49,7 @@ oS.Init({
 		[6, 9, 1],
 		[6, 4, 2],
 		[6, 4, 3],
-		[1,2,2],
+		[1,1,2],
 		[1,8,3],
 		[1,9,4],
 		[15,3,2],
@@ -66,7 +66,8 @@ oS.Init({
 		[5,4,4],
 		[7,2,5],
 		[2,3,5],
-		[12,6,5]
+		[12,6,5],
+		[12,1,4]
 	] // P数组
     },
     // 自动增长谜题
