@@ -1,11 +1,14 @@
 alert("本关暂未设计完成！");
 oS.Init({
-    PName: [oCactus,oSunFlower,oScaredyShroom,oPumpkinHead,oGarlic,oSpikeweed,oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,oSpikerock,oSplitPea,oPuffShroom,oSnowPea], // 植物名称数组
+    PName: [oCactus,oSunFlower,oScaredyShroom,oPumpkinHead,oGarlic,oSpikeweed,
+			oFumeShroom,oTorchwood,oPotatoMine,oGatlingPea,
+		    oSpikerock,oSplitPea,oPuffShroom,oSnowPea,oRepeater,
+			oThreepeater,oWallNut,oGraveBuster,oPlantern,oPeashooter,oTallNut,oHypnoShroom], // 植物名称数组
     ZName: [oPoleVaultingZombie1,oPoleVaultingZombie], // 僵尸名称数组
     PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"], // 图片数组
     backgroundImage: "images/interface/background2.jpg", // 背景图片
     ShowScroll: false, // 是否显示滚动条
-    SunNum:9000, // 初始阳光数量
+    SunNum:600, // 初始阳光数量
     BrainsNum: 5, // 初始大脑数量
     ProduceSun: false, // 是否产生阳光
     CardKind: 1, // 卡片种类
@@ -19,16 +22,51 @@ oS.Init({
         ArR: [1, 5], // ArR数组
         Auto: 1, // 是否自动
         P: [
-		[5, 1, 5],
-	[3, 4, 5],	
-    [2, 3, 5],
-		[7, 2, 5],
-    [0 ,5, 5],
+		[9, 1, 1],
+		[9, 9, 2],
+		[9, 6, 3],
+		[11, 2, 1],
+        [11, 7, 3],
+		[11, 5, 4],
 		[11, 4, 5],
-		[12, 6, 5],
-		[4, 8, 5],
-		[9, 9, 5],
-		[1, 9, 4]
+		[0, 3, 1],
+		[0, 2, 4],
+		[0, 5, 5],
+		[14, 4, 1],
+		[19, 5, 1],
+		[19, 5, 1],
+		[19, 1, 3],
+        [3, 5, 1],
+		[3, 3, 2],
+		[3, 5, 2],
+		[3, 9, 2],
+		[3, 1, 3],
+		[3, 4, 5],
+		[3, 5, 1],
+		[5, 6, 1],
+		[5, 9, 3],
+		[5, 1, 5],
+		[6, 9, 1],
+		[6, 4, 2],
+		[6, 4, 3],
+		[1,2,2],
+		[1,8,3],
+		[1,9,4],
+		[15,3,2],
+		[16,5,2],
+		[16,3,4],
+		[20,6,2],
+		[20,2,3],
+		[17,7,2],
+		[17,9,5],
+		[4,3,3],
+		[4,6,4],
+		[4,8,5],
+		[21,5,3],
+		[5,4,4],
+		[7,2,5],
+		[2,3,5],
+		[12,6,5]
 	] // P数组
     },
     // 自动增长谜题
