@@ -153,7 +153,7 @@ shootPea:function(a){
 	}
 	let Z= oZ["get"+(a.PZ?"HZ1":"Z0")](pea.offsetLeft + 50,a.R);
             Z&& (Z.Altitude == 1) && ((Z.getPea(Z, 20, 0), ($(d)&& ClearChild($(d)))));
-            if ($(d).offsetLeft <= 0) {
+            if ($(d).offsetLeft <= 0||$(d).offsetLeft > oS.W) {
               ClearChild($(d));
               $(d).isDie = true;
             };
@@ -5992,6 +5992,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
