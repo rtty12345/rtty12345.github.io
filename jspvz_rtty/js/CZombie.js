@@ -1549,7 +1549,7 @@ AttackZombie:function(){
             if (h && h.beAttacked) {
               s.src = "images/Zombies/DancingZombie/Summon3.gif";
               while (r--) {
-                Math.random()*100>20?(q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = ZP[Math.floor(Math.random() * ZP.length)]).CustomBirth(q[1], q[2](v),100,"auto"), n.push(NewImg("",k.q, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px",EDPZ)),++o):PrivateTombstones(q[1], q[2](v))
+                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = ZP[Math.floor(Math.random() * ZP.length)]).CustomBirth(q[1], q[2](v),100,"auto"), n.push(NewImg("","z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px",EDPZ)),++o)
               }
               oSym.addTask(220,
                 function() {
@@ -2948,7 +2948,6 @@ if(!a.boo&&$Z[a.id]){
         a.ChkActs = function() {
           return 1
         };
-		$Z[a.id] && a.getHit0(a, a.OrnHP, 0);
         a.Ornaments && EditImg(s, 0, "images/Plants/Squash/SquashAttack.gif", {
           left: "0px",
           top: "-50px"
@@ -2959,6 +2958,7 @@ try{
         h = g.length;
 	while(h--){$Z[a.id] && a.beAttacked&&g[h].getHit0(g[h],2000,0)}
           PlayAudio("gargantuar_thump");
+	      $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
           p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 3, 2000);
 		p.HP<1&&a.Lvl>5&&((CustomZombie(oNewspaperZombie,p.R,p.C)).PrivateBirth=function(a){a.Act=a.Act1;a.ActH=a.ActH1})
           ClearChild(s);
@@ -5803,5 +5803,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
