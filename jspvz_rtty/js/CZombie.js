@@ -5328,7 +5328,7 @@ NormalAttack: function(c, b) {
         a &&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
       }, [a,a.id + "_Bullet",z]);//大喷技能
 oSym.addTask(300,function(a){
-	if(!$Z[a.id]&&!a.beAttacked){return}
+	if(!$Z[a.id]||!a.beAttacked){return}
             let z = $(a.id);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -5349,11 +5349,9 @@ oSym.addTask(300,function(a){
                 for(let i = 3;i >= 0;i--){
                     for(let j = 1;j <= C;j++){
                         let p = oGd.$[a.R+"_"+j+"_"+i];
-                p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains"&& p.EName != "oCherryBomb" && 
-				    p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oSquash"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& 
-				    p.EName != "oTorchwood") &&(p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"),(p.getHurt(a, 3,50)),(p.NormalAttack=function(){}),($(p.id).style.opacity = 0.5),($(d) && ClearChild($(d))));
-		p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains"&& p.EName != "oCherryBomb" && p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oSunFlower"&& p.EName != "oIceShroom") && (p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft)&& (PlayAudio("splat1"),(p.getHurt(a, 3,50)),($(d) && ClearChild($(d))));
-                p && (p.canEat) && (p.HP <= 0) && p.Die();
+                p && (p.canEat)&&(p.Stature>=0)&& (p.EName != "oBrains") &&(p.AttackedLX < $(d).offsetLeft) && (p.AttackedRX > $(d).offsetLeft) && (PlayAudio("splat1"),(p.EName != "oCherryBomb" && 
+				    p.EName != "oJalapeno" && p.EName != "oDoomShroom"&& p.EName != "oIceShroom"&& p.EName != "oSnowPea"&& 
+				    p.EName != "oTorchwood")&&(p.NormalAttack=function(){},$(p.id).style.opacity = 0.5),(p.getHurt(a, 3,50)),($(d) && ClearChild($(d))));
                     }
                 }
 			}
@@ -5803,6 +5801,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
