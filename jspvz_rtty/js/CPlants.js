@@ -8,7 +8,7 @@
 	StaticGif: 1,
 	NormalGif: 2,
 	BookHandBack: 0,
-	 highwork:0,
+	highwork:0,
 	canEat: 1,
 	zIndex: 0,
 	AudioArr: [],
@@ -41,8 +41,7 @@
 			c && oSym.addTask(g,
 			function(j, i) {
 				var k = $P[j];
-				k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.AttTime =0,$(k.id).style.opacity=1
-											)
+				k && k.FreeSlowTime == i && (k.FreeSlowTime = 0, k.AttTime =0,$(k.id).style.opacity=1)
 			},
 			[f, d])
 		},
@@ -338,7 +337,6 @@ HP:500,
       a = function(j, i, h) {
         return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
       };
-	  num<=2&&(AppearCard(g.pixelLeft,0,oStarfruit,1,1500));
     (function(h) {
       oSym.addTask(15,
         function(j) {
@@ -381,10 +379,10 @@ oPeashooter = InheritO(CPlants, {
       (a.pixelTop - 10) +
       "px;position:absolute;width:97px;height:87px;z-index:150",
       0,
-      EDAll
+      EDPZ
     );
 oSym.addTask(0,function(a,s){
-$(a.id).style.opacity=0.8;
+$P[a.id]&&($(a.id).style.opacity=0.8);
 s.onclick=function(){
 	!a.attack&&a.NormalAttack(a);
 	a.attack=1;
@@ -1395,11 +1393,11 @@ oPumpkinHead = InheritO(CPlants, {
     oSym.addTask(1, function(C, h, b) {
       ClearChild(C);
       if ($P[h.id]) {
-        EDAll && EDAll.appendChild(C);
+        EDPZ && EDPZ.appendChild(C);
         C.style.left = (h.AttackedLX+20) + "px";
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
       }
-      oSym.addTask(5, arguments.callee, [C, h, b])
+      oSym.addTask(50, arguments.callee, [C, h, b])
     }, [C, h, b]);
   },
   PrivateDie: function(a) {
@@ -1595,8 +1593,7 @@ oTorchwood = InheritO(CPlants, {
 	InitTrigger: function() {},
 	setVase:function(){
 		var a=this,
-		Plist=[ 
-  oPeashooter,
+		Plist=[oPeashooter,
   oSunFlower,
   oCherryBomb,
   oWallNut,
@@ -1855,7 +1852,7 @@ oTallNut = InheritO(oWallNut, {
                 d = $(c.id).childNodes[1];
     if(b%3){var a=1000}
     (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
-            e.HP&&(b!==3)&&e.getHit1(e,30,0);
+            e.HP&&(b!==3)&&e.getHit1(e,Math.min(a*0.3,30),0);
         },
 	PrivateDie:function(){
         }
@@ -2045,21 +2042,21 @@ oSpikeweed1= InheritO(CPlants, {
 	var leftnum;
 	$(a.id).style.opacity=0.25;
 	(function(b, c, k, j, e, g) {
-      k > c && (leftnum = 1), k < 100 && (leftnum = 0,b.Attack+=2,b.HP+=20);
+      k > c && (leftnum = 1), k < 100 && (leftnum = 0,b.Attack+=5,b.HP+=20);
       if (!leftnum) {
         R=b.R,NewC = GetC(b.pixelRight += 1),b.AttackedLX = k += 1, b.AttackedRX = j += 1, g.style.left = (b.pixelLeft += 1) + "px",NewC != b.C && (b.C = NewC,
             oGd.del({
               R: b.R,
               C: b.C,
               PKind: 2.5
-            }), oGd.add(b,R + "_" + NewC + "_" + 2.5))
+            }), oGd.add(b,R + "_" + NewC + "_" + Math.random()*1+2))
       } else {
         R=b.R,NewC = GetC(b.pixelRight -= 1),b.AttackedLX = k -= 1, b.AttackedRX = j -= 1, g.style.left = (b.pixelLeft -= 1) + "px",NewC != b.C && (b.C = NewC,
             oGd.del({
               R: b.R,
               C: b.C,
               PKind: 2.5
-            }), oGd.add(b,R + "_" + NewC + "_" + 2.5))
+            }), oGd.add(b,R + "_" + NewC + "_" + Math.random()*1+2))
       }
       a.HP>1&&oSym.addTask(1, arguments.callee, [b, c, k, j, e, g])
     })(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id))
@@ -2098,7 +2095,7 @@ oSpikeweed1= InheritO(CPlants, {
 			b=a.length;
 	while(b--){
 		var c = a[b];
-		c&&c.getHit2(c,Math.min(this.Attack,80), 0)
+		c&&c.getHit2(c,Math.min(this.Attack,60), 0)
 	}
 	},
 	PrivateDie:function(){
@@ -2686,9 +2683,9 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	      :Math.round(Math.random()*75)>50 ? new oNewspaperZombie
 	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
 		  :Math.round(Math.random()*30)>13 ? new oFootballZombie
-	      :Math.round(Math.random()*13)>6 ? new oFootballZombie1
+	      :Math.round(Math.random()*13)>6 ? new oPeaZombie
 	      :Math.round(Math.random()*6)>2? new oNewspaperZombie3
-	      :new oPeaZombie,b.R,b.C,1);
+	      :new oFootballZombie1,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(4500,arguments.callee,[b]);
 	},
 	getHurt: function(d, b, a) {
@@ -3564,5 +3561,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
-
-
