@@ -3173,7 +3173,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
             }
         },
         PrivateAct: function(a){
-            if(!a.bool&&(a.OSpeed==4.8)){
+            if(!a.bool&&(a.OSpeed==a.LostPaperSpeed)){
             a.bool = 1;
             oSym.addTask(75,function(a){
 	    if(!$Z[a.id]){return}
@@ -3250,8 +3250,9 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	EName: "oScreenDoorZombie",
 	CName: "铁门僵尸",
-	OrnHP: 1100,
-	Lvl: 3,
+	OrnHP: 1400,
+	Lvl: 4,
+	HP:500,
 	same:1,
 	HP:270,
 	BreakPoint:90,
@@ -3380,7 +3381,7 @@ a.protect=1;
 	if(i&&b.PZ){
       let l = GetX(a[i].C) - 80,
         t = GetY(a[i].R) - 80;
-      $Z[b.id] && (b.beAttacked) && (oSym.addTask(200, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" + l + "px;top:" + t + "px;height:93px;width:132px;z-index:25;opacity:0.1", EDPZ)]),
+      $Z[b.id] && (b.beAttacked) && (oSym.addTask(200, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" + l + "px;top:" + t + "px;height:93px;width:132px;z-index:25;", EDPZ)]),
         PlayAudio("potato_mine"),
 		a[i].Diechange=1,
         a[i].DieClear=function(a){
@@ -5820,6 +5821,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
