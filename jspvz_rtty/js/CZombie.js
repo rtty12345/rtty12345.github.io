@@ -3369,16 +3369,16 @@ a.protect=1;
 	        g.PrivateAct=function(b){
             if(!b.Change){
                 b.Change = true;
-    oSym.addTask(500,function(b){
+    oSym.addTask(400,function(b){
 	    let a = [];
       for (let i in oGd.$) {
         let p = oGd.$[i];
-        if (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains"&&!p.Diechange) {
+        if (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains"&&!p.Diechange&&p.EName != "oSpikeweed1") {
           a.push(oGd.$[i]);
         }
       }
-      let i = Math.floor(Math.random() * a.length);
-	if(i&&b.PZ){
+      var i = Math.floor(Math.random() * a.length);
+	if(i!==undefined&&b.PZ){
       let l = GetX(a[i].C) - 80,
         t = GetY(a[i].R) - 80;
       $Z[b.id] && (b.beAttacked) && (oSym.addTask(200, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" + l + "px;top:" + t + "px;height:93px;width:132px;z-index:25;", EDPZ)]),
@@ -3387,7 +3387,7 @@ a.protect=1;
         a[i].DieClear=function(a){
 			Math.random()*100>50?CustomZombie(oBoom,a.R,a.C):PrivateTombstones(a.R,a.C)
 			},
-        a[i].getHurt(this, 3, 900));
+        a[i].getHurt(this, 3, 1000));
                     $Z[b.id]&&b.ChangeR(b);
                     b.Change = false;
 	}
@@ -5821,6 +5821,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
