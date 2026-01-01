@@ -805,7 +805,7 @@ oBackupDancer = InheritO(OrnNoneZombies, {
           function(f) {
             var e = $Z[f],
               d;
-            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src = e.PicArr[12] + Math.random(), EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
+            e && (d = NewImg("", "images/interface/blank.png", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"), PlayAudio("explosion"), d.src = "images/Zombies/JackinTheBoxZombie/Boom.gif", EDPZ.appendChild(d), oSym.addTask(70, ClearChild, [d]), e.PZ ? ((function(k, g) {
               var q = Math.max(1, k - 1),
                 o = Math.min(oS.R, k + 1),
                 n = Math.max(1, g - 1),
@@ -3365,13 +3365,30 @@ a.protect=1;
 			g.getFirePeaSputtering = e.getFirePeaSputtering,
 			g.getSnowPea = e.getSnowPea,
 			g.HP+=1000,
-	        g.PrivateAct=function(a){
-            if(!a.Change){
-                a.Change = true;
-                oSym.addTask(200,function(a){
-                    $Z[a.id]&&a.ChangeR(a);
-                    a.Change = false;
-                },[a])
+	        g.PrivateAct=function(b){
+            if(!b.Change){
+                b.Change = true;
+    oSym.addTask(500,function(b){
+	    let a = [];
+      for (let i in oGd.$) {
+        let p = oGd.$[i];
+        if (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains"&&!p.Diechange) {
+          a.push(oGd.$[i]);
+        }
+      }
+      let i = Math.floor(Math.random() * a.length);
+      let l = GetX(a[i].C) - 80,
+        t = GetY(a[i].R) - 80;
+      $Z[b.id] && (b.beAttacked) && (oSym.addTask(200, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" + l + "px;top:" + t + "px;height:93px;width:132px;z-index:25;opacity:0.1", EDPZ)]),
+        PlayAudio("potato_mine"),
+		a[i].Diechange=1,
+        a[i].PrivateDie=function(a){
+			Math.random()*100>50?CustomZombie(oBoom,a.R,a.C):PrivateTombstones(a.R,a.C)
+			},
+        a[i].getHurt(this, 3, 900));
+                    $Z[b.id]&&b.ChangeR(b);
+                    b.Change = false;
+                },[b])
             }
           },
 			g.getSlowPea=e.getSlowPea,
@@ -5801,6 +5818,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
