@@ -3377,17 +3377,19 @@ a.protect=1;
         }
       }
       let i = Math.floor(Math.random() * a.length);
+	if(i&&b.PZ){
       let l = GetX(a[i].C) - 80,
         t = GetY(a[i].R) - 80;
       $Z[b.id] && (b.beAttacked) && (oSym.addTask(200, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" + l + "px;top:" + t + "px;height:93px;width:132px;z-index:25;opacity:0.1", EDPZ)]),
         PlayAudio("potato_mine"),
 		a[i].Diechange=1,
-        a[i].PrivateDie=function(a){
+        a[i].DieClear=function(a){
 			Math.random()*100>50?CustomZombie(oBoom,a.R,a.C):PrivateTombstones(a.R,a.C)
 			},
         a[i].getHurt(this, 3, 900));
                     $Z[b.id]&&b.ChangeR(b);
                     b.Change = false;
+	}
                 },[b])
             }
           },
@@ -5818,6 +5820,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
