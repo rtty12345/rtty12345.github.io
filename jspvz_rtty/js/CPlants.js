@@ -1856,8 +1856,7 @@ oTallNut = InheritO(oWallNut, {
     (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
             e.HP&&(b!==3)&&e.getHit1(e,Math.min(a*0.3,30),0);
         },
-	PrivateDie:function(){
-        }
+	DieClear:function(){}
 }),
 oCherryBomb = InheritO(CPlants, {
 	EName: "oCherryBomb",
@@ -3563,5 +3562,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
 
