@@ -165,7 +165,8 @@
 		delete oGd.$[a.R + "_" + a.C + "_" + a.PKind];
 		$P.length -= 1;
 		ClearChild($(b));
-		a.PrivateDie(a)
+		a.PrivateDie(a);
+		a.DieClear&&a.DieClear(a)
 	},
 	Die: function(a) {
 		var b = this,
@@ -175,7 +176,8 @@
 		delete $P[c];
 		delete oGd.$[b.R + "_" + b.C + "_" + b.PKind];
 		$P.length -= 1; ! a && ClearChild($(c));
-		b.PrivateDie(b)
+		b.PrivateDie(b);
+		b.DieClear&&b.DieClear(b)
 	}
 }),
 oGraveBuster = InheritO(CPlants, {
@@ -1665,7 +1667,7 @@ oWallNut = InheritO(CPlants, {
 		var c = this,
 		d = $(c.id).childNodes[1]; ! (b % 3) ? (c.HP -= a) < 1 ? c.Die(): c.HP < 1334 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/WallNut/Wallnut_cracked2.gif") : c.HP < 2667 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/WallNut/Wallnut_cracked1.gif") : c.Die()
 	},
-	PrivateDie:function(){
+	DieClear:function(){
             CustomSpecial(oHugeNutBowling,this.R,this.C);
         }
 }),
@@ -1906,7 +1908,7 @@ oCherryBomb = InheritO(CPlants, {
 		},
 		[a.id])
 	},
-	PrivateDie:function(){
+	DieClear:function(){
             CustomSpecial(oPotatoMine,this.R,this.C);
         }
 }),
@@ -1957,7 +1959,7 @@ oJalapeno = InheritO(oCherryBomb, {
 		},
 		[a.id])
 	},
-PrivateDie:function(a){
+DieClear:function(a){
 var num=Math.random()*100;
 	for(let i=1;i<=oS.R;i++){
 	num<20&&(i!==a.R)&&CustomZombies(new oJalapenoZombie,i,0,1)}
@@ -2134,8 +2136,8 @@ oSpikerock = InheritO(oSpikeweed, {
 	GetDY: function(b, c, a) {
 		return 0
 	},
-	PrivateBirth:function(){
-		a.privateweed=(CustomSpecial(oSpikeweed1,this.R,this.C));
+	PrivateBirth:function(a){
+		a.privateweed=(CustomSpecial(oSpikeweed1,a.R,a.C));
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
@@ -3561,4 +3563,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
