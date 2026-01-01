@@ -1,6 +1,6 @@
 oS.Init({
   PName: [oPeashooter, oSunFlower, oSnowPea, oSpikeweed, oGloomShroom, oStarfruit, oGatlingPea, oTorchwood, oRepeater, oPotatoMine, oWallNut, oSpikerock, oThreepeater, oGarlic, oCactus, oChomper, oSquash, oScaredyShroom, oTallNut, oBlover, oHypnoShroom],
-  ZName: [oNewspaperZombie, oJalapenoZombie,oZombie3, oFlagZombie, oNewspaperZombie2,oZomboni, oConeheadZombie, oNewspaperBoss, oPeaZombie, oPoleVaultingZombie,
+  ZName: [oNewspaperZombie, oJalapenoZombie,oZombie3, oFlagZombie, oNewspaperZombie2,oZomboni, oConeheadZombie, oScreenDoorZombie, oPeaZombie, oPoleVaultingZombie,
           oJackinTheBoxZombie,oFootballZombie1,oPoleVaultingZombie1,oDiggerZombie,oDolphinRiderZombie,oSnorkelZombie,oBucketheadZombie],
   PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
   backgroundImage: "images/interface/background2.jpg",
@@ -21,7 +21,7 @@ oS.Init({
     P: [0, 1, 1, 1, 20, 2, 3, 3, 4, 4, 5, 5, 6, 6, 19, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 17, 18]
   },
   LvlClearFunc: function() {
-    oS.LvlVar.ScrollScreen=oS.ScrollScreen
+    oS.ScrollScreen=oS.LvlVar.ScrollScreen
     delete oS.LvlVar.ScrollScreen
   },
     LoadAccess: function(i) {
