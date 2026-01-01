@@ -2099,9 +2099,9 @@ oSpikeweed1= InheritO(CPlants, {
 	}
 	},
 	PrivateDie:function(){
-		oSym.addTask(1500,function(){
-			oGd.$[this.R+"_"+this.C+"_"+1]&&(!oGd.$[this.R+"_"+this.C+"_"+1].isDie)&&(CustomSpecial(oSpikeweed1,this.R,this.C))
-		},[])
+		oSym.addTask(1500,function(a){
+			a.risen&&(CustomSpecial(oSpikeweed1,a.R,a.C))
+		},[this])
 	},
 	GetDY: function(b, c, a) {
 		return - 2
@@ -2135,15 +2135,15 @@ oSpikerock = InheritO(oSpikeweed, {
 		return 0
 	},
 	PrivateBirth:function(){
-		CustomSpecial(oSpikeweed1,this.R,this.C)
+		a.privateweed=(CustomSpecial(oSpikeweed1,this.R,this.C));
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
 		Math.round(Math.random()*100)>2?c.getHit2(c, this.Attack, 0):c.bedevil(c)
 	},
-	PrivateDie:function(){
-		oGd.$[this.R+"_"+this.C+"_"+2.5]&&oGd.$[this.R+"_"+this.C+"_"+2.5].Die();
-		this.isDie=1
+	PrivateDie:function(a){
+		a.privateweed&&(a.privateweed).Die();
+		(a.privateweed).risen=0;
 	},
 	getHurt: function(f, c, b) {
 		var e = this,
@@ -3561,3 +3561,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
