@@ -1958,7 +1958,10 @@ CustomPlants = function(b, a, c) { (new ArCard[b].PName).Birth(GetX(c), GetY(a),
         }, a);
 	 return a;
     }, 
-CustomSpecial = function(c, b, d, a) {(new c).Birth(GetX(d), GetY(b), b, d, [], a)
+CustomSpecial = function(c, b, d, a) {
+	var id;
+	(id=new c).Birth(GetX(d), GetY(b), b, d, [], a);
+	return id
 },
 CheckAutoSun = function(a) {
 	var b = a.checked ? 1 : 0;
@@ -2785,6 +2788,7 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
 
 
