@@ -2960,7 +2960,7 @@ try{
           PlayAudio("gargantuar_thump");
 	      $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
           p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 3, 2000);
-		p.HP<1&&a.Lvl>5&&((CustomZombie(oNewspaperZombie,p.R,p.C)).PrivateBirth=function(a){a.Act=a.Act1;a.ActH=a.ActH1})
+		  p&&p.HP<1&&a.Lvl>5&&((CustomZombie(oNewspaperZombie,p.R,p.C)).PrivateBirth=function(a){a.Act=a.Act1;a.ActH=a.ActH1})
           ClearChild(s);
 }catch(e){console.error(e)}
         }, [p, s,Z]);
@@ -5821,6 +5821,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
