@@ -910,7 +910,7 @@ oDancingZombie= InheritO(OrnNoneZombies, {
 		b = d + "spotlight2" + c + ".png" + $Random;
 		return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
 	})(),
-	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1200）</font><br>特点：<font color="#FF0000">召唤路障僵尸</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font></p>游戏内音乐：《Beat it》-Michael Jackson',
+	Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中（1200）</font><br>特点：<font color="#FF0000">召唤路障僵尸</font></p>舞王僵尸辞退了原来的伴舞，并将路障收为伴舞，虽然路障们无法配合他的舞蹈，不过brains are the most important!</font><br>精英形态：爆炸舞王（召唤辣椒或小丑爆炸，800血），随机舞王（召唤随机僵尸，碰到植物才召唤）</font></p>游戏内音乐：《Beat it》-Michael Jackson',
 	getSnowPea: function() {
 		this.PlaySlowballAudio();
 	},
@@ -1605,7 +1605,7 @@ oZombie = InheritO(OrnNoneZombies,{
 			c.FreeFreezeTime = c.FreeSetbodyTime = c.FreeSlowTime = 0;
 			c.AutoReduceHP(e)
 		},
-	Produce: '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。</font><br>精英：<font color="#FF0000">玉米炮、快速形态'
+	Produce: '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。</font><br>精英：<font color="#FF0000">玉米炮、快速形态（特殊技能：啃食时会对本行最后一个植物造成等同于它啃食的伤害）'
 }),
 oZombie2 = InheritO(oZombie, {
 	EName: "oZombie2",
@@ -1843,8 +1843,8 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         })(),
         EName: "oFlagZombie",
         CName: "推进者旗帜",
-        OSpeed: 7.2,
-        Speed:7.2,
+        OSpeed: 4.4,
+        Speed:4.4,
 	HP:1000,
 	SunNum:250,
 	OrnHP:2400,
@@ -1876,7 +1876,7 @@ let b=oZ.getArZ(0,oS.W,i),
     }
   }
 },
-        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+1000）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。'
+        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+1000）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也偷偷练习气功，只为了到战场上“把队友护至身前”'
     }),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
@@ -2096,7 +2096,7 @@ PrivateAct2:function(a){
                         AppearSun(a.ZX + 40,a.pixelTop + 80,50);
                         a.GetSunNum += 1;
                     }
-                    !oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(100,arguments.callee,[a]);
+                    !oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(75,arguments.callee,[a]);
 		            oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
                 },[a])
             }
@@ -2124,7 +2124,7 @@ for (i=0;i<4;i++){
 	PlayNormalballAudio: function() {
 		PlayAudio("plastichit")
 	},
-	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>特性：有概率冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约4秒解除此形态，另一形态若正常关卡扣阳光，iz加阳光<font color="#FF0000"></font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
+	Produce: '他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#FF0000">中</font></p>特性：有概率冲撞形态，碰到植物秒杀，在它冲撞第一棵植物后约3秒解除此形态，另一形态若正常关卡扣阳光，iz加阳光<font color="#FF0000"></font></p>路障僵尸在聚会上找到了一份给舞王伴舞的工作，薪水不错，虽然路障僵尸脱帽又戴帽的样子很招笑，但他们的冲击力的确是顶'
 }),
 oJalapenoZombie= InheritO(oConeheadZombie,{
 	EName: "oJalapenoZombie",
@@ -2263,17 +2263,18 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 	EName: "oBucketheadZombie",
 	CName: "铁桶僵尸",
 	OrnHP: 1100,
-	HP:800,
+	HP:500,
 	Lvl: 4,
-	Speed:3.2,
-	OSpeed:3.2,
+	Speed:2.4,
+	OSpeed:2.4,
 	same:1,
 	SunNum: 150,
+	tasktime:50,
 	NormalAttack: function(d, c) {
             PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
             oSym.addTask(50, function(e) {
                 $Z[e] && PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
-				$Z[e]&&($Z[e].HP+=200)
+				$Z[e]&&$Z[e].Ornaments&&($Z[e].HP+=200)
             }, [d]);
             oSym.addTask(50, function(f, e) {
                 var h = $Z[f],
@@ -2332,7 +2333,7 @@ oBucketheadZombie= InheritO(oConeheadZombie,{
 PlayNormalballAudio: function() {
 		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)])
 	},
-	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1100+800)</font><br>特点：<font color="#FF0000">对植物伤害高，植物死后召唤速度快的普僵</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
+	Produce: '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高(1100+500)</font><br>特点：<font color="#FF0000">对植物伤害高，植物死后召唤速度快的普僵，若有防具则同时给本体+200血</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。'
 },
 {
 	PicArr: {            
@@ -2365,7 +2366,7 @@ oFootballZombie= function() {
 	OrnHP: 2400,
 	HP:800,
 	Lvl: 6,
-	SunNum: 250,
+	SunNum: 200,
 	StandGif: 11,
 	width: 154,
 	height: 160,
@@ -2494,7 +2495,7 @@ PrivateBirth:function(){},
 	}; 
     return g
   },
-	Produce: '橄榄球僵尸免疫减速，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+800)</font><br>速度：<font color="#FF0000">快</font><br>伤害：<font color="#FF0000">中</font><br>弱点：<font color="#FF0000">单次高伤植物</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
+	Produce: '橄榄球僵尸免疫减速，有头盔时在第二列到第九列来回奔走，往前走时无视植物，掉落头盔后两倍伤害向前走，不无视植物<p>韧性：<font color="#FF0000">极高(2400+800)</font><br>速度：<font color="#FF0000">快</font></p>橄榄球僵尸因其进攻防守样样在行而受到僵尸的崇拜，圈粉无数，是僵尸橄榄球界的明星，当然这是僵尸从他家发现“Dope”之前的事了'
 })
 }(),
 oFootballZombie1= InheritO(oConeheadZombie, {
@@ -2587,7 +2588,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
 };
   },
 PrivateBirth: function() {},
-Produce: '橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">极高</font><br>速度：<font color="#FF0000">快</font><br>弱点：<font color="#FF0000">磁力菇</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。'
+Produce: '机枪橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">高（1600+800)</font><br>速度：<font color="#FF0000">快</font><br>弱点：<font color="#FF0000">无</font></p>在球场上，机枪橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他有时会误伤队友'
     }),
 oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	EName: "oPoleVaultingZombie",
@@ -3250,11 +3251,10 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	EName: "oScreenDoorZombie",
 	CName: "铁门僵尸",
-	OrnHP: 1400,
+	OrnHP: 1100,
 	Lvl: 4,
 	HP:500,
 	same:1,
-	HP:270,
 	BreakPoint:90,
 	SunNum: 175,
 	StandGif: 13,
@@ -3274,7 +3274,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	AttackZombie:CZombies.prototype.AttackZombie,
 	AttackZombie2: CZombies.prototype.AttackZombie2,
 PrivateBirth:function(){},
-	Produce: '他的铁门是非常坚硬的盾牌，若后方有僵尸则每次铁门限伤2<p>韧性：<font color="#FF0000">低(270)</font><br>铁门韧性：<font color="#FF0000">高（1100）</font><br>弱点：大喷菇和磁力菇</p>精英形态：寒冰射手铁门，能发射冻结豌豆，手里的大喷菇可以对前方两格的植物造成减速和伤害',
+	Produce: '他的铁门是非常坚硬的盾牌，若后方有僵尸则每次铁门限伤2点，掉落铁门后每4秒换行并对场上随机一植物造成1000伤害，并将其亡语修改为随机在本格生成墓碑或小丑爆炸<p>韧性：<font color="#FF0000">低(270)</font><br>铁门韧性：<font color="#FF0000">高（1500）</font><br>弱点：大喷菇和磁力菇</p>精英形态：寒冰射手铁门，能发射冻结豌豆，手里的大喷菇可以对前方两格的植物造成减速和伤害',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea: function(c, a, b) {
 		PlayAudio(b == c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
@@ -5821,6 +5821,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
