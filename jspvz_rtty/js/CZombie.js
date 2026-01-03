@@ -1737,7 +1737,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	CName: "处决者旗帜",
 	OSpeed: (this.hard==2)?12:8,
 	Speed: (this.hard==2)?12:8,
-	SunNum: 300,
+	SunNum:225,
 	HP:500,
 	BreakPoint:1,
 	beAttackedPointR: 101,
@@ -1846,7 +1846,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         OSpeed: 4.4,
         Speed:4.4,
 	HP:1000,
-	SunNum:250,
+	SunNum:275,
 	OrnHP:2400,
 	tasktime:25,
     beAttackedPointR: 101,
@@ -2926,8 +2926,8 @@ oNewspaperZombie = InheritO(OrnIIZombies,{
 	},
 	PrivateBirth: function(a){
 		var num=Math.random()*100;
-	    a.Act = (num>10?function(){}:a.Act1);
-		a.ActH=(num>10?function(){}:a.ActH1);
+	    a.Act = (num>20?function(){}:a.Act1);
+		a.ActH=(num>20?function(){}:a.ActH1);
 	},
 Act1:function(a) {
     let z = $(a.id);
@@ -5821,6 +5821,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
