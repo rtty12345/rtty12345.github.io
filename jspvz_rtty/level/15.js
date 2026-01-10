@@ -1,6 +1,6 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom, oGraveBuster],
-	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oScreenDoorZombie, oPoleVaultingZombie,oNewspaperZombie,oFootballZombie1],
+	ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oScreenDoorZombie, oPoleVaultingZombie,oNewspaperZombie,oFootballZombie1,oJalapenoZombie],
 	PicArr: function() {
 		var a = oHypnoShroom.prototype,
 			b = a.PicArr;
@@ -54,17 +54,17 @@ oS.Init({
 	{
 	AZ: [
 		[oZombie, 2, 1],
-		[oZombie2, 2, 1],
+		[oZombie2, 2, 2],
 		[oZombie3, 1, 1],
-		[oConeheadZombie, 2, 2],
-		[oJalapenoZombie, 2, 3],
-		[oFootballZombie1, 2, 1],
+		[oConeheadZombie,2, 3],
+		[oJalapenoZombie,2,3],
+		[oFootballZombie1,1,1],
 		[oNewspaperZombie,1, 2],
 		[oPoleVaultingZombie, 1, 2],
 		[oPeaZombie, 1, 3],
 		[oScreenDoorZombie, 1, 3]
 	],
-	FlagNum: 21,
+	FlagNum: 20,
 	FlagToSumNum: {
 		a1: [3, 5, 9, 10, 13, 15, 19],
 		a2: [2, 4, 6, 40, 12, 20, 24,60]
@@ -79,6 +79,7 @@ oS.Init({
 				GetNewCard(this, oHypnoShroom, 16)
 			}
 		});
-		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
+		NewImg("PointerUD"， "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
 });
+
