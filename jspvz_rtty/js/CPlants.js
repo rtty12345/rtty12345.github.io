@@ -2396,7 +2396,6 @@ oCoffeeBean = InheritO(CPlants, {
 			PlayAudio("wakeup");
 			var d = oGd.$[c],
 			b;
-			!d.Sleep&&AppearCard(GetX(a.C), GetY(a.R) - 30, d, 0,1500);
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
 			a.Die()
 		},
@@ -3563,3 +3562,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
