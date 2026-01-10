@@ -23,7 +23,7 @@ oS.Init({
 	UserDefinedFlagFunc: function(b) {
 		var a = oP.FlagZombies;
 		a > 3 && AppearTombstones(3, 9, 1);
-	oSym.addtask(400,function(a){
+	oSym.addTask(400,function(a){
 		for (u in $Z) {
               e = $Z[u];
             e.HP*=1.25;
@@ -81,4 +81,5 @@ oS.Init({
 		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
+
 
