@@ -3236,7 +3236,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 	oSym.addTask(0,function(a){
 	$($(a.id).PeaHead).style.left-1+"px";
 	$($(a.id).PeaHead).style.left=="0px"&&oSym.addTask(1,arguments.callee,[a]);
-    },[a]),
+    },[g]),
 	oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
@@ -5442,22 +5442,20 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		var a = "images/Zombies/JackinTheBoxZombie/";
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
+	RandomOpenBox: function(a) {
+        oSym.addTask(Math.floor(Math.random() * 100) > 4 ? Math.floor(1325 + Math.random() * 976) : Math.floor(450 + Math.random() * 301),
+                function(c) {
+                    var b = $Z[c];
+                    b && b.beAttacked && b.OpenBox(c)
+                },
+                [a])
+        },
 PrivateAct:function(){
 	if(!this.opennum){
-		this&&(this.HP<200)&&(this.OpenBox(this.id),
+		this&&(this.HP<250)&&(this.OpenBox(this.id),
 		this.opennum=1)
 	}
 },
-		AttackZombie: function(d, c) {
-			oSym.addTask(10,
-			function(f, e) {
-				var h = $Z[f],
-				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.getHit0(g, 10, 0), h.JudgeAttack())
-			},
-			[d, c]);
-			this.OpenBox&& this.OpenBox(this.id)
-		},
 	OpenBox: function(b) {
 		var a = $Z[b];
 		a&&(a.ChkActs= function() {
@@ -5482,10 +5480,10 @@ PrivateAct:function(){
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		});
 		a&&(a.HP<200)&&(a.EleBody.src = a.PicArr[7]);
-		a&&oSym.addTask((a.HP<200)?50:0,
+		a&&oSym.addTask((a.HP<250)?50:0,
 		function(c) {
-			$Z[c] && (a.Status = 0,(a.HP<200)&&(!--oGd.$JackinTheBox)&& StopAudio("jackinthebox"),
-				  PlayAudio("jack_surprise"), oSym.addTask(a.HP<200?40:0,
+			$Z[c] && (a.Status = 0,(a.HP<250)&&(!--oGd.$JackinTheBox)&& StopAudio("jackinthebox"),
+				  PlayAudio("jack_surprise"), oSym.addTask(a.HP<250?40:0,
 			function(f) {
 				var e = $Z[f],
 				d;
@@ -5521,12 +5519,12 @@ PrivateAct:function(){
 						}
 					} while ( h ++< g);
 		for (let i in $Z) $Z[i]&&!$Z[i].PZ&&($Z[i].Lvl<=3)&&$Z[i].OpenBox(i);
-				})(e.ZX, e.R),e.HP>=200?(e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
+				})(e.ZX, e.R),e.HP>=250?(e.ChkActs=(e.PZ?(t=CZombies.prototype).ChkActs:t.ChkActs1),
 				 e.ChkActs1=t.ChkActs1,
 				e.JudgeAttackH=t.JudgeAttackH,
 				e.JudgeAttack=(e.PZ?t.JudgeAttack:t.JudgeAttackH),
 				e.Status=1,
-				(e.hard==2)?(e.HP=1500):(e.HP=1000)):e.DisappearDie())
+				e.HP=1000):e.DisappearDie())
 			},
 			[c]))
 		},
@@ -5544,17 +5542,17 @@ PrivateAct:function(){
 		c ? oSym.addTask(c,
 		function(f, e) {
 			var g = $Z[f];
-			g && (PlayAudio("jackinthebox",true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e))
+			g && (PlayAudio("jackinthebox",true), ++oGd.$JackinTheBox, g.FreeSetbodyTime = 0, SetBlock(e), g.RandomOpenBox(f))
 		},
-		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a))
+		[b, a]) : (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b))
 	},
         NormalAttack: function(d, c) {
-            oSym.addTask(2, function(f, e) {
+            oSym.addTask(5, function(f, e) {
                 var h = $Z[f],
                     g;
                 h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
             }, [d, c]);
-            this.OpenBox(this.id)
+            this.getr(this,-5)
         },	
 NormalDie: function() {
 		var a = this;
@@ -5832,16 +5830,3 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
