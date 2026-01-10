@@ -23,7 +23,7 @@ oS.Init({
 	UserDefinedFlagFunc: function(b) {
 		var a = oP.FlagZombies;
 		a > 3 && AppearTombstones(3, 9, 1);
-	oSym.addtask(1,function(a){
+	oSym.addtask(400,function(a){
 		for (u in $Z) {
               e = $Z[u];
             e.HP*=1.25;
@@ -56,13 +56,13 @@ oS.Init({
 		[oZombie, 2, 1],
 		[oZombie2, 2, 1],
 		[oZombie3, 1, 1],
-		[oConeheadZombie, 2, 1],
+		[oConeheadZombie, 2, 2],
 		[oJalapenoZombie, 2, 3],
-		[oFootballZombie1, 2, 5],
+		[oFootballZombie1, 2, 1],
 		[oNewspaperZombie,1, 2],
 		[oPoleVaultingZombie, 1, 2],
 		[oPeaZombie, 1, 3]
-		[oScreenDoorZombie, 1, 1]
+		[oScreenDoorZombie, 1, 3]
 	],
 	FlagNum: 21,
 	FlagToSumNum: {
@@ -82,6 +82,7 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
 });
+
 
 
 
