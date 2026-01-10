@@ -2961,7 +2961,7 @@ try{
           PlayAudio("gargantuar_thump");
 	      $Z[a.id] && a.getHit0(a, a.OrnHP, 0);
           p&&$Z[a.id] && a.beAttacked && $P[p.id] && p.getHurt(a, 3, 2000);
-		  p&&p.HP<1&&a.Lvl>5&&((CustomZombie(oNewspaperZombie,p.R,p.C)).PrivateBirth=function(a){a.Act=a.Act1;a.ActH=a.ActH1})
+		  ((g[h]&&g[h].beAttacked)||(p&&p.HP<1))&&a.Lvl>5&&((CustomZombie(oNewspaperZombie,p.R,p.C)).PrivateBirth=function(a){a.Act=a.Act1;a.ActH=a.ActH1})
           ClearChild(s);
 }catch(e){console.error(e)}
         }, [p, s,Z]);
@@ -3172,7 +3172,13 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
             this.HP=1500; 
                 }
             }
-        },
+	},
+	PrivateBirth: function(a){
+		var num=Math.random()*100;
+	    a.Act = (num>20?function(){}:a.Act1);
+		a.ActH=(num>20?function(){}:a.ActH1);
+		oZombie2.prototype.PrivateBirth(a);
+	},
         PrivateAct: function(a){
             if(!a.bool&&(a.OSpeed==a.LostPaperSpeed)){
             a.bool = 1;
@@ -3225,7 +3231,13 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 		g.ChkActs1 = function() {
 			return 1
 		},
-		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,oSym.addTask(150,
+		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,
+		g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
+	oSym.addTask(0,function(a){
+	$($(a.id).PeaHead).style.left-1+"px";
+	$($(a.id).PeaHead).style.left=="0px"&&oSym.addTask(1,arguments.callee,[a]);
+    },[a]),
+	oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3234,7 +3246,6 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 			var j = CZombies.prototype,
 			i = k.OSpeed = k.LostPaperSpeed;
 			k.Altitude=1;
-			oZombie2.prototype.PrivateBirth(k);
 			k.ChkActs1= j.ChkActs1;
 			k.ChkActs = (!k.WalkDirection?j.ChkActs:j.ChkActs1);
 			k.Speed && (k.Speed = !k.FreeSlowTime ? i: 0.5 * i);
@@ -5821,6 +5832,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
