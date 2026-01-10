@@ -79,7 +79,6 @@ oS.Init({
 				GetNewCard(this, oHypnoShroom, 16)
 			}
 		});
-		NewImg("PointerUD"， "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
+		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
-
