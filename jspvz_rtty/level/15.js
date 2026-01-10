@@ -30,7 +30,6 @@ oS.Init({
 			    oSym.addTask(200,function(e){
                     $Z[e.id]&&e.ChangeR(e);
 					$Z[e.id]&& oSym.addTask(200,arguments.callee,[e]);
-	             }
                 },[e])
 			}else if(a>=12){
 			e.OSpeed*=1.5;
@@ -80,4 +79,5 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
 });
+
 
