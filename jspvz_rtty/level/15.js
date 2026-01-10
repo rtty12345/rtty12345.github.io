@@ -61,7 +61,7 @@ oS.Init({
 		[oFootballZombie1, 2, 1],
 		[oNewspaperZombie,1, 2],
 		[oPoleVaultingZombie, 1, 2],
-		[oPeaZombie, 1, 3]
+		[oPeaZombie, 1, 3],
 		[oScreenDoorZombie, 1, 3]
 	],
 	FlagNum: 21,
@@ -82,7 +82,3 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
 });
-
-
-
-
