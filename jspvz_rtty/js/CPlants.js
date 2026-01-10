@@ -1853,7 +1853,7 @@ oTallNut = InheritO(oWallNut, {
             var c = this,
                 d = $(c.id).childNodes[1];
     if(b%3){var a=1000}
-    (c.HP -= a) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
+    (c.HP -= Math.min(a,1000)) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
             e.HP&&(b!==3)&&e.getHit1(e,Math.max(a*0.3,30),0);
         },
 	DieClear:function(){}
@@ -2396,6 +2396,7 @@ oCoffeeBean = InheritO(CPlants, {
 			PlayAudio("wakeup");
 			var d = oGd.$[c],
 			b;
+			!d.Sleep&&AppearCard(GetX(a.C), GetY(a.R) - 30, d, 0,1500);
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
 			a.Die()
 		},
@@ -3562,7 +3563,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
-
-
-
-
