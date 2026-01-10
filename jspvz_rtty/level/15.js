@@ -66,7 +66,7 @@ oS.Init({
 	FlagToSumNum: {
 		a1: [3, 5, 9, 10, 13, 15, 19],
 		a2: [2, 4, 6, 40, 12, 20, 24,60]
-	}，
+	},
 	FlagToMonitor: {
 		9: [ShowLargeWave, 0],
 		19: [ShowFinalWave, 0]
@@ -80,3 +80,4 @@ oS.Init({
 		NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll)
 	}
 });
+
