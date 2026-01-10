@@ -27,12 +27,11 @@ oS.Init({
 		for (u in $Z) {
               e = $Z[u];
             e.HP*=1.25;
-             if(a>2&&a<12){
 			    oSym.addTask(200,function(e){
                     $Z[e.id]&&e.ChangeR(e);
 					$Z[e.id]&& oSym.addTask(200,arguments.callee,[e]);
                 },[e])
-			}else if(a>=12){
+        if(a>10){
 			e.OSpeed*=1.5;
 			e.OSpeed*=1.5;
 			e.caiPlants = function(a) {
@@ -46,7 +45,7 @@ oS.Init({
 				}
 		    }
 		}
-	},[a])
+	},[a]);
 		oP.FlagNum == a && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie,oNewspaperZombie]);
 	},
 	StartGameMusic: "Ultimate battle"
@@ -82,3 +81,4 @@ oS.Init({
 		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
+
