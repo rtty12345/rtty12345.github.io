@@ -1,4 +1,4 @@
-﻿var $User = function() {
+var $User = function() {
 	var b = navigator.platform,
 rose = prompt('请输入您的名字'),
 	i = navigator.userAgent,
@@ -2717,10 +2717,12 @@ function(b) {
 PlayAudio = $User.HTML5 ?
 function(c, a) {
 	var b = oAudio[c];
-	b ? (b.loop = !!a, b.play()) : (NewAudio({
+      var id;
+	b ? (id=b,b.loop = !!a, b.play()) : id=(NewAudio({
 		source: c,
 		loop: !!a
-	})).play()
+	})).play();
+return id
 }: function() {},
 PauseAudio = $User.HTML5 ?
 function(a) {
@@ -2788,15 +2790,3 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
-
-
-
-
-
-
-
-
-
-
-
-
