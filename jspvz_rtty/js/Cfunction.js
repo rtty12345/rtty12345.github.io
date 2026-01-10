@@ -68,7 +68,7 @@ oSym = {
 		this.Timer = this.execTask = null;
 		this.TQ = [{
 			T: 0,
-			f: b,
+			f:b,
 			ar: a || []
 		}];
 		this.NowStep = 1;
@@ -345,7 +345,7 @@ oS = {
 			type: "text/javascript"
 		});
 		b.onload = function() {
-			e(d, 1)
+			e(d,1)
 		};
 		b.onerror = function() {
 			e(d, 0)
@@ -426,7 +426,7 @@ oS = {
 			function(j) {
 				ClearChild(j);
 				i.ScrollScreen()
-			},
+			}，
 			[NewEle("DivTeach", "div", "line-height:50px", {
 				innerHTML: (Math.floor(g.UserAuthority) == "255" ? '<span style="color:#0F0;font-weight:bold">&lt;' + g.UserName + "&gt;</span>": "&lt;" + g.UserName + "&gt;") + "的房子"
 			},
@@ -708,7 +708,7 @@ oP = {
 					[])
 				}][Math.floor(Math.random() * 3)]();
 				oSym.addTask(2000, arguments.callee, [])
-			},
+					   },
 			[])
 		} ();
 		g.ReadyFlag = 1;
@@ -765,7 +765,7 @@ oP = {
 		c = [],
 		a = 0,
 		g = h.ArZ,
-		f = oS.LargeWaveFlag[h.FlagZombies],
+		f = oS。LargeWaveFlag[h.FlagZombies],
 		e = h.SumToZombie,
 		b = !f ? 150 : (f.style.top = "5px", --d, c[a++] = oS.FlagZombie || oFlagZombie, 30);
 		while (d > 0) {
@@ -874,7 +874,7 @@ oP = {
 		a && a.f.apply(a.f, a.ar);
 		oP.UserDefinedFlagFunc = b ? b: null; (function() {
 			oZ.traversalOf();
-			oSym.addTask(10, arguments.callee, [])
+			oSym.addTask(10,arguments.callee, [])
 		})()
 	}
 },
@@ -989,7 +989,7 @@ oGd = {
 				g = $P[b[w]];
 				this.GatherFog(g.R, g.C, 1, 1, 0)
 			}
-			b = oGd.$Plantern;
+			b = oGd。$Plantern;
 			for (w in b) {
 				g = $P[b[w]];
 				this.GatherFog(g.R, g.C, 2, 3, 0)
@@ -1189,7 +1189,7 @@ oT = {
 	},
 	chkD0: function(g, e, d, h) {
 		var f = g.AttackedLX,
-		c = 0,
+		c = 0，
 		b, a;
 		while (c < d.length && (b = d[c])[1] >= f) { (a = $P[b[3]]).canTrigger && b[0] <= f && a.TriggerCheck(g, b[2], c); ++c
 		}
@@ -1267,7 +1267,7 @@ GroundOnmousedown = function(i) {
 	}
 },
 GetAP = function(a, h, d, c) {
-	var f, i = oGd.$,
+	var f,i = oGd.$,
 	e, g = [],
 	b;
 	for (f = 0; f < 4; g.push(e = i[d + "_" + c + "_" + f++]), e && !(a < e.pixelLeft || a > e.pixelRight || h < e.pixelTop || h > e.pixelBottom) && (b = e)) {}
@@ -1514,7 +1514,7 @@ SelectCard = function(c) {
 			onclick: function() {
 				SelectCard(c)
 			}
-		},
+		}，
 		$("dCardList")), NewImg(0, f.src, "width:100px;height:120px", g), innerText(NewEle("sSunNum" + c, "span", 0, 0, g), i.SunNum), f.style.top = "-42px")
 	} else {
 		b.Select = 0; ! --ArPCard.SelNum && (e.disabled = "disabled", e.style.color = "#888"); (g = $("dCard" + c)).onclick = null;
@@ -1538,7 +1538,7 @@ LetsGO = function() {
 	h,
 	l,
 	c,
-	j,
+	j，
 	a,
 	b = document.body;
 	SetStyle($("dTop"), {
@@ -1654,7 +1654,7 @@ MonitorCard = function(d) {
 	}
 	ViewPlantTitle(oS.MCID)
 },
-DoCoolTimer = function(c, b) {
+DoCoolTimer = function(c， b) {
 	var a = $(ArCard[c].DID);
 	NewEle("dCD1" + c, "span", "position:absolute;left:22px;top:22px;font-size:18px;font-weight:500;font-family:Verdana;color:#000", "", a);
 	NewEle("dCD2" + c, "span", "position:absolute;left:20px;top:20px;font-size:18px;font-weight:500;font-family:Verdana;color:#FF0", "", a); (function(d, e) {
@@ -1913,7 +1913,7 @@ GameOver = function(a) {
 	},
 	SetBlock($("dSurface"), $("dShowMsgLogin"), $("dMsgFailed")));
 	oSym.Stop()
-},
+}，
 PrepareGrowPlants = function(a) {
 	var b = function() {
 		PlayAudio("readysetplant");
@@ -2370,7 +2370,7 @@ $ = function(a) {
 	return document.getElementById(a)
 },
 $n = function(a) {
-	return document.createElement(a)
+	return document。createElement(a)
 },
 ClearChild = function() {
 	var a = arguments.length,
@@ -2625,7 +2625,7 @@ StartAdventure = function(d) {
 	oSym.addTask(7,
 	function(f, e, g) {
 		e.style.left = (g -= 330) + "px"; --f && oSym.addTask(7, arguments.callee, [f, e, g])
-	},
+	}，
 	[6, a, 0]);
 	$User.HTML5 ? (function(f, g, e) {
 		if (--e) {
@@ -2717,11 +2717,14 @@ function(b) {
 PlayAudio = $User.HTML5 ?
 function(c, a) {
 	var b = oAudio[c];
-	b ? (b.loop = !!a, b.play()) : (NewAudio({
+	var id;
+	b ? (b.loop = !!a, b.play()) : ((id=NewAudio({
 		source: c,
 		loop: !!a
-	})).play()
-}: function() {},
+	}))
+	).play()
+}: function() {}
+return id,
 PauseAudio = $User.HTML5 ?
 function(a) {
 	oAudio[a].pause()
@@ -2788,6 +2791,7 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
 
 
