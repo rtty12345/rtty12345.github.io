@@ -26,10 +26,9 @@ oS.Init({
 	oSym.addTask(400,function(a){
 		for (u in $Z) {
               e = $Z[u];
-            e.HP*=1.25;
 			    oSym.addTask(200,function(e){
                     $Z[e.id]&&($Z[e.id].Altitude==1)&&e.ChangeR(e);
-					$Z[e.id]&& oSym.addTask(200,arguments.callee,[e]);
+					$Z[e.id]&& oSym.addTask(400,arguments.callee,[e]);
                 },[e])
         if(a>10){
 			e.OSpeed*=1.5;
@@ -56,8 +55,9 @@ oS.Init({
 		[oZombie2, 2, 1],
 		[oZombie3, 1, 1],
 		[oConeheadZombie,2, 2],
-		[oJalapenoZombie,2,2],
+		[oJalapenoZombie,2,3],
 		[oFootballZombie1,1,1],
+		[oPeaZombie,1,1],
 		[oNewspaperZombie,1, 2],
 		[oPoleVaultingZombie, 1, 2],
 		[oScreenDoorZombie, 1, 3]
@@ -80,3 +80,4 @@ oS.Init({
 		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
+
