@@ -22,7 +22,7 @@ oS.Init({
 	},
 	UserDefinedFlagFunc: function(b) {
 		var a = oP.FlagZombies;
-		a > 3 && AppearTombstones(3, 9, 1);
+		a > 5&& AppearTombstones(5, 9, 1);
 	oSym.addTask(400,function(a){
 		for (u in $Z) {
               e = $Z[u];
@@ -33,7 +33,7 @@ oS.Init({
                 },[e])
         if(a>10){
 			e.OSpeed*=1.5;
-			e.OSpeed*=1.5;
+			e.Speed*=1.5;
 			e.caiPlants = function(a) {
 		    if(a.PZ&&a.beAttacked){
 				for (let i = 0; i < 4; i++) {
@@ -53,14 +53,14 @@ oS.Init({
 	{
 	AZ: [
 		[oZombie, 2, 1],
-		[oZombie2, 2, 2],
+		[oZombie2, 2, 1],
 		[oZombie3, 1, 1],
-		[oConeheadZombie,2, 3],
-		[oJalapenoZombie,2,3],
+		[oConeheadZombie,2, 2],
+		[oJalapenoZombie,2,2],
 		[oFootballZombie1,1,1],
 		[oNewspaperZombie,1, 2],
 		[oPoleVaultingZombie, 1, 2],
-		[oPeaZombie, 1, 3],
+		[oPeaZombie, 1, 1],
 		[oScreenDoorZombie, 1, 3]
 	],
 	FlagNum: 20,
@@ -81,6 +81,7 @@ oS.Init({
 		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
+
 
 
 
