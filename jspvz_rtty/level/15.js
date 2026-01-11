@@ -28,7 +28,7 @@ oS.Init({
               e = $Z[u];
             e.HP*=1.25;
 			    oSym.addTask(200,function(e){
-                    $Z[e.id]&&e.ChangeR(e);
+                    $Z[e.id]&&($Z[e.id].Altitude==1)&&e.ChangeR(e);
 					$Z[e.id]&& oSym.addTask(200,arguments.callee,[e]);
                 },[e])
         if(a>10){
@@ -81,5 +81,6 @@ oS.Init({
 		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
+
 
 
