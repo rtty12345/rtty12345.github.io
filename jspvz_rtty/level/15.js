@@ -48,7 +48,7 @@ oS.Init({
 	},[a]);
 		oP.FlagNum == a && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie,oNewspaperZombie]);
 	},
-	StartGameMusic: "Ultimate battle"
+	StartGameMusic: "rebeatedupnight"
 },
 	{
 	AZ: [
@@ -81,6 +81,7 @@ oS.Init({
 		NewImg("PointerUD","images/interface/PointerDown.gif","top:490px;left:836px", EDAll)
 	}
 });
+
 
 
 
