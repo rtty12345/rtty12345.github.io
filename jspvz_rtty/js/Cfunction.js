@@ -206,7 +206,7 @@ oS = {
 		oZ.Init(this.R);
 		oGd.Init();
 		this.LoadTips();
-		this。LoadProgress()
+		this.LoadProgress()
 	},
 	LoadTips: function() {
 		var b = NewEle("dTips", "div", "position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px", "", EDAll),
@@ -260,7 +260,7 @@ oS = {
 		}
 		r = s.length;
 		while (r--) {
-			Array。prototype。push.apply(i, (l = (q = s[r]).prototype).PicArr.slice(0));
+			Array.prototype.push.apply(i, (l = (q = s[r]).prototype).PicArr.slice(0));
 			if ($User.HTML5) {
 				t = l.AudioArr;
 				b = t.length;
@@ -2790,4 +2790,5 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
 
