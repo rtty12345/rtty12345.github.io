@@ -1735,19 +1735,27 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	})(),
 	EName: "oFlagZombie",
 	CName: "处决者旗帜",
-	OSpeed: (this.hard==2)?12:8,
-	Speed: (this.hard==2)?12:8,
+	OSpeed: 8.8,
+	Speed: 8.8,
 	SunNum:225,
-	HP:500,
+	HP:800,
 	BreakPoint:1,
 	beAttackedPointR: 101,
 	CanPass: function(d, c) {
 		return c
 	},
+PrivateBirth:function(a){
+!a.Summon&&((oS.CleanerFlagZombie+=1),
+a.CanSummon=(oS.CleanerFlagZombie-1),
+oSym.addTask(0,function(a){
+oS.CleanerFlagZombie-1&&(
+CustomZombie(oFlagZmbie,Math.round(Math.random()*oS.R+1),11).Summon=1,
+--a.CanSummon&&oSym.addTask(0,arguments.callee,[a]));
+},[a]))
+},
         PrivateAct: function(a){
             if(a.HP <= 40){
 		a.OpenBox(a.id);
-		a.hard==2&&(a.Speed=16);
             }
         },
 	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（500）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
@@ -1760,7 +1768,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			function(f, e) {
 				var h = $Z[f],
 				g;
-				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.CrushDie(g, 10000, 0), h.JudgeAttackH())
+				h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $Z[e]) && g.CrushDie(g), h.JudgeAttackH())
 			},
 			[d, c])
 		},
@@ -1771,7 +1779,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 			function(g, f) {
 				var i = $Z[g],
 				h;
-				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h, 10000, 0), oSym.addTask(1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
+				i && i.beAttacked && !i.FreeFreezeTime && !i.FreeSetbodyTime && ((h = $Z[f]) ? (h.CrushDie(h), oSym.addTask(1, arguments.callee, [g, f])) : (i.isAttacking = 0, i.EleBody.src = i.PicArr[i.NormalGif]))
 			},
 			[d, c])
 		},
@@ -1845,7 +1853,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
         CName: "推进者旗帜",
         OSpeed: 4.4,
         Speed:4.4,
-	HP:1000,
+	HP:800,
 	SunNum:275,
 	OrnHP:2400,
 	tasktime:25,
@@ -1876,7 +1884,7 @@ let b=oZ.getArZ(0,oS.W,i),
     }
   }
 },
-        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+1000）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也偷偷练习气功，只为了到战场上“把队友护至身前”'
+        Produce: '旗帜僵尸标志着即将来袭的一大堆僵尸"流"，这种旗帜推着这些僵尸“流”<p>韧性：<font color="#FF0000">高（2400（头盔）+800）</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也偷偷练习气功，只为了到战场上“把队友护至身前”'
     }),
 oConeheadZombie1= InheritO(OrnIZombies, {
 	EName: "oConeheadZombie",
@@ -3220,7 +3228,7 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
                 }catch(e){
                 }
             },[z,d,a]);
-            !a.isDie && (a.HP > 60)&&oSym.addTask(75,arguments.callee,[a])
+           (a.HP > 60)&&oSym.addTask(75,arguments.callee,[a])
             },[a]);
             }
         },
@@ -3233,10 +3241,10 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 		},
 		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,
 		g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-	oSym.addTask(0,function(a){
-	$($(a.id).PeaHead).style.left-1+"px";
-	$($(a.id).PeaHead).style.left=="0px"&&oSym.addTask(1,arguments.callee,[a]);
-    },[g]),
+      oSym.addTask(100, function(g, P) {
+        P.style.left = P.offsetLeft - 1 + "px";
+        g.OSpeed == 1.6 && oSym.addTask(1, arguments.callee, [g, $($(g.id).PeaHead)]);
+      }, [g, $($(g.id).PeaHead)]),
 	oSym.addTask(150,
 		function(m, l) {
 			var k = $Z[m];
@@ -3264,7 +3272,7 @@ oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	CName: "铁门僵尸",
 	OrnHP: 1100,
 	Lvl: 4,
-	HP:500,
+	HP:300,
 	same:1,
 	BreakPoint:90,
 	SunNum: 175,
@@ -3376,7 +3384,7 @@ a.protect=1;
 			g.getFirePea = e.getFirePea,
 			g.getFirePeaSputtering = e.getFirePeaSputtering,
 			g.getSnowPea = e.getSnowPea,
-			g.HP+=1000,
+			g.HP=1000,
 	        g.PrivateAct=function(b){
             if(!b.Change){
                 b.Change = true;
@@ -3557,7 +3565,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 	CName: "你亲爱的精英二爷",
 	OrnHP:600,
 	Lvl: 6,
-	HP:1600,
+	HP:1800,
 	oSpeed:2.4,
 	Speed:2.4,
 	SunNum: 325,
@@ -3569,7 +3577,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1600）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时2倍，破报后碾压</font><br>速度：1.5倍，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤</font><br>发怒时，全屏墓碑出普通二爷或玉米二爷</p>二爷界的首领，有着很强的实力',
+	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时2倍，破报后碾压</font><br>速度：1.5倍，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤</font><br>发怒时，全屏墓碑出普通二爷或玉米二爷</font><br>二爷界的首领，有着很强的实力',
 	bedevil: function() {},
 	getbedevil: function() {},
     getExplosion: function(Attack,howDie,callback) {
@@ -3663,7 +3671,7 @@ if(a.HP<=800&&(a.hard==2)){
 			return 1
 		},
 		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(),g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea =g.getSnowPea = g.getSlowPea= g.getSlowPea1=g.getSlow=g.getHit0=g.getExplosion=g.getThump=g.getRaven=g.getHit1=g.getHit2=g.getHit3=g.getHit4=function(){},
-		g.JudgeAttack=oZomboni.prototype.JudgeAttack,g.NormalAttack=oZomboni.prototype.NormalAttack,oSym.addTask(600,
+g.JudgeAttack=oZomboni.prototype.JudgeAttack,g.NormalAttack=oZomboni.prototype.NormalAttack,oSym.addTask(600,
 		function(m, l) {
 			var k = $Z[m];
 			if (!k) {
@@ -3817,7 +3825,7 @@ SunNum:2000,
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie2,oFootballZombie, oNewspaperZombie,oNewspaperZombie3,oFootballZombie], 0);
-          oP.SetTimeoutTomZombie([oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
+       oP.SetTimeoutTomZombie([oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -3917,9 +3925,9 @@ SunNum:2000,
     },
 {
 name:"The world",
-tip:"使场上植物停止攻击,持续5秒，此技能会在破报期间立刻发动",
+tip:"使场上植物停止攻击,持续7秒，此技能会在破报期间立刻发动",
 func:function(){
-for (u in $P) e = $P[u], e && (e.AttTime=500),oSym.addTask(500,function(e){e && (e.AttTime=0)},[e]);
+for (u in $P) e = $P[u], e && (e.AttTime=700),oSym.addTask(700,function(e){e && (e.AttTime=0)},[e]);
 }
 },
 {
@@ -3939,8 +3947,7 @@ tip:"场上出现玉米二爷",
 func:function(){
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
-		CustomZombie(oNewspaperZombie3,l,i);
-		Math.random()*100>5&&CustomZombie(oFootballZombie1,7,Math.round(Math.random()*5+1));
+		CustomZombie(oNewspaperZombie3,l,i);	Math.random()*100>5&&CustomZombie(oFootballZombie1,7,Math.round(Math.random()*4+1));
 		}
 	}
  }
@@ -4247,7 +4254,7 @@ oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	Speed:5,
 	Altitude: 1,
 	Produce: '潜水僵尸可以在水下前行。<p>韧性：<font color="#FF0000">低</font><br>特点：<font color="#FF0000">在泳池潜泳以避免遭到攻击，每次啃咬有概率秒杀植物，自身扣除300血<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
-	JumpTime: 50,
+	JumpTime: 30,
 	getShadow: function(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px"
 	},
@@ -4556,7 +4563,7 @@ oZomboni = function() {
 	return InheritO(OrnNoneZombies, {
 		EName: "oZomboni",
 		CName: "重型冰车僵尸",
-		HP:1350,
+		HP:1500,
 		Lvl: 5,
 		StandGif: 2,
 		DieGif: 6,
@@ -4577,7 +4584,7 @@ oZomboni = function() {
 		AKind: 2,
 		tasktime:20,
 		Attack: 50,
-		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高（1500）</font><br>特点：<font color="#FF0000">碾压植物，留下条冰道，越到后面速度越快,冻结植物</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
+		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高（1500）</font><br>特点：<font color="#FF0000">碾压植物，留下冰道，越到后面速度越快,冻结植物</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸',
 		PicArr: (function() {
 			var b = "images/Zombies/Zomboni/";
 			return ["images/Card/Zombies/Zomboni.png", b + "0.gif", b + "1.gif", b + "2.gif", b + "3.gif", b + "4.gif", b + "5.gif" + $Random, b + "BoomDie.gif" + $Random, b + "ice.png", b + "ice_cap.png"]
@@ -5064,7 +5071,7 @@ oImp = InheritO(OrnNoneZombies, {
 	EName: "oImp",
 	CName: "小鬼僵尸",
 	HP: 200,
-	BreakPoint: 23,
+	BreakPoint: 1,
 	beAttackedPointL: 30,
 	beAttackedPointR: 60,
 	width: 81,
@@ -5098,7 +5105,7 @@ oImp = InheritO(OrnNoneZombies, {
         }
 		},[a])
 	},
-	Produce: '小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系，隔一段时间会瞬移一段距离</p><p>韧性：<font color="#FF0000">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
+	Produce: '小鬼们是一群小型僵尸，隔一段时间会瞬移一段距离，隐藏暂停键并加速一段时间</p><p>韧性：<font color="#FF0000">低（200）</font><br>小鬼虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴，但比起这些，僵尸们更关注它过低的韧性',
 	GoingDie: function() {
 		var b = this,
 		c = b.id,
@@ -5202,7 +5209,7 @@ JudgeAttackH:function(){},
   },
 NormalAttack: function(c, b) {
     var d = $Z[c];
-    $P[b].getHurt(d, 0,$P[b].HP)
+    $P[b].getHurt(d, 1,$P[b].HP)
   },
 	Drop:function() {
 		var a = this;
@@ -5297,7 +5304,7 @@ NormalAttack: function(c, b) {
         OrnHP:2200,
         HP: 800,
         Lvl: 5,
-		check:1,
+	check:1,
         SunNum: 225,
         PicArr: (function() {
             var a = "images/Zombies/ScreenDoorZombie/",
@@ -5307,7 +5314,7 @@ NormalAttack: function(c, b) {
         CanPass: function(d, c) {
             return c;
         },
-        Produce: '它拿着一个铁门，还可以不断射出豌豆。<p>韧性：<font color="#FF0000">低(800)</font><br>铁栅门韧性：<font color="#FF0000">高(2000)</font></p><div style="color:red">特点：发射寒冰豌豆，同时使3×3的僵尸额外发射一颗普通豌豆</div>只是一个普普通通的小豌豆僵尸',
+        Produce: '一种被改造的特殊僵尸<p>韧性：<font color="#FF0000">低(800)</font><br>铁栅门韧性：<font color="#FF0000">高(2200)</font></p><div style="color:red">特点：发射寒冰豌豆，同时用手里的大喷菇对植物造成伤害</div>只是一个普普通通的小豌豆僵尸',
         PrivateAct: function(a){
     if(!a.bool&&(!oS.CannotShoot)){
             a.bool = 1;
@@ -5402,7 +5409,7 @@ oSym.addTask(300,function(a){
 	a&&(!a.beAttacked)&&(ClearChild($(P.PeaHead)));
 	!(a.PZ==a.check)&&(EditEle($(a.id + "_Bullet"), 
 	0, {transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)",left:(a.PZ?"-250":"40")+"px"},$(a.id),0),
-	EditImg($(P.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
+	a.Ornaments&&EditImg($(P.FumeDoor),0,"images/Plants/FumeShroom/FumeShroom.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
 	EditImg($(P.PeaHead),0,"images/Plants/SnowPea/SnowPea.gif",{transform:a.PZ?"rotateY(180deg)":"rotateY(0deg)"},0),
 	a.check=0);
         },
@@ -5435,14 +5442,14 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 3.6,
 	Speed: 3.6,
-	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">啃咬时产生爆炸并恢复自身血量至1000点，残血开盒爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">一段时间产生爆炸并恢复自身血量至1000点，残血开盒爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
 	PicArr: (function() {
 		var a = "images/Zombies/JackinTheBoxZombie/";
 		return ["images/Card/Zombies/JackboxZombie.png", a + "0.gif", a + "Attack.gif", a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif", a + "Walk.gif", a + "OpenBox.gif", a + "Boom.gif" + $Random, a + "LostHead.gif", a + "LostHeadAttack.gif", "images/Zombies/Zombie/ZombieHead.gif" + $Random]
 	})(),
 	RandomOpenBox: function(a) {
-        oSym.addTask(Math.floor(Math.random() * 100) > 4 ? Math.floor(1325 + Math.random() * 976) : Math.floor(450 + Math.random() * 301),
+        oSym.addTask(Math.floor(Math.random() * 100) > 5 ? Math.floor(1000 + Math.random() * 800) : Math.floor(450 + Math.random() * 300),
                 function(c) {
                     var b = $Z[c];
                     b && b.beAttacked && b.OpenBox(c)
@@ -5478,7 +5485,7 @@ PrivateAct:function(){
 			c;
 			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1 ? (!e.isAttacking ? (e.isAttacking = 1, e.EleBody.src = e.PicArr[e.AttackGif], e.AttackZombie(f, c = d.id), !d.isAttacking && d.AttackZombie2(d, c, f)) : e.AttackZombie(f, d.id, 1)) : e.isAttacking && (e.isAttacking = 0)
 		});
-		a&&(a.HP<200)&&(a.EleBody.src = a.PicArr[7]);
+		a&&(a.HP<250)&&(a.EleBody.src = a.PicArr[7]);
 		a&&oSym.addTask((a.HP<250)?50:0,
 		function(c) {
 			$Z[c] && (a.Status = 0,(a.HP<250)&&(!--oGd.$JackinTheBox)&& StopAudio("jackinthebox"),
@@ -5551,7 +5558,7 @@ PrivateAct:function(){
                     g;
                 h && h.beAttacked && !h.FreeFreezeTime && !h.FreeSetbodyTime && ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack), h.JudgeAttack())
             }, [d, c]);
-            this.getr(this,-5)
+            this.getr(this,-8)
         },	
 NormalDie: function() {
 		var a = this;
@@ -5600,7 +5607,6 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
   GetDTop: 20,
   beAttackedPointL: 65,
   beAttackedPointR: 90,
-  OrnHP: 0,
   OSpeed: 15,
   Speed: 15,
   Altitude: 0, // 挖矿
@@ -5699,8 +5705,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
       a + "Die.gif" + $Random,
       a + "Up.gif" + $Random,
       a + "Down.gif" + $Random,
-      a + "BoomDie.gif" + $Random,
- "images/Zombies/JackinTheBoxZombie/Boom.gif" + $Random
+      a + "BoomDie.gif" + $Random
     ];
   })(),
   AudioArr: ["wakeup","jack_surprise","explosion"],
@@ -5829,4 +5834,3 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
-
