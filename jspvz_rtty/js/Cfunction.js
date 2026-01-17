@@ -136,7 +136,6 @@ oS = {
 	W: 880,
 	H: 600,
 	C: 9,
-	ThreepeaterGrowNum:0,
 	LawnMowerX: 70,
 	Lvl: 0,
 	MaxSunNum: 114514,
@@ -196,6 +195,7 @@ oS = {
 		this.SunNum == d && (this.SunNum =200);
 		this.CanSelectCard == d && (this.CanSelectCard = 1);
 		this.DKind == d && (this.DKind = 1);
+		this.CleanerFlagZombie=0;
 		this.StaticCard == d && (this.StaticCard = 1);
 		this.ShowScroll == d && (this.ShowScroll = true);
 		this.ProduceSun == d && (this.ProduceSun = true);
@@ -206,11 +206,11 @@ oS = {
 		oZ.Init(this.R);
 		oGd.Init();
 		this.LoadTips();
-		this.LoadProgress()
+		this。LoadProgress()
 	},
 	LoadTips: function() {
 		var b = NewEle("dTips", "div", "position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px", "", EDAll),
-		a = ["本游戏自带调速功能,不信的话你可以去问囧姨!!", "囧姨是谁？囧姨就是囧丫乙！你还不知道囧丫乙？那你总知道Lonelystar吧？她就是囧姨", "为什么没有广告？明知故问。", "告诉你个秘密，很少有改版作者会改“游戏小贴士”。", "这个游戏加载慢？那就去玩原版jspvz吧！", "不会玩?那就看游戏中的“帮助”吧！[doge]", "这游戏是不是给3岁小孩玩的?这么幼稚!亲爱的,如果你玩过原版植物僵尸就不会这么认为了", "大家可以去玩原版jspvz", "这网页版开发速度也太慢了!没错,由于个人业余时间很有限，所以囧姨不更新了，但是你可以投稿关卡让她更新!", "为什么无法注册用户和创建关卡？因为我没有服务器，不过你可以去玩原版jspvz", "初次玩的朋友,请从第一关开始玩起,自然会有教学功能教你一步一步玩下去", "为啥看不到阳光或者僵尸?检查一下你浏览器里的广告杀手功能,也许是它在搞鬼!", "游戏毫无难度?在目前进度下,可以尝试着使用调速功能玩更快的速度", "这里有木有人啊?这儿必须有活人的,打开聊天按钮加入到在线交流行列!", "为啥这么卡?如果你是IE6-8的用户,请使用IE9,Chrome,Firefox,Opera等更好的浏览器!", "原版jspvz广告烦人？大哥，你要吃饭，人家囧姨她也是要吃饭的。", "这是用什么语言写的?javascript,一个简单而又神奇的语言,纯的,JS!"];b.innerHTML = '<span style="font-weight:bold">游戏小贴士:</span><span>' + a[Math.floor(Math.random() * a.length)] + "</span>"
+		a = ["本游戏自带调速功能,不信的话你可以去问囧姨!!", "囧姨是谁？囧姨就是囧丫乙！你还不知道囧丫乙？那你总知道Lonelystar吧？她就是囧姨", "为什么没有广告？明知故问。", "告诉你个秘密，很少有改版作者会改“游戏小贴士”。", "这个游戏加载慢？那就去玩原版jspvz吧！", "不会玩?那就看游戏中的“帮助”吧！[doge]", "这游戏是不是给3岁小孩玩的?这么幼稚!亲爱的,如果你玩过原版植物僵尸就不会这么认为了", "大家可以去玩原版jspvz","为什么无法注册用户和创建关卡？因为我没有服务器，不过你可以去玩原版jspvz", "初次玩的朋友,请从第一关开始玩起,自然会有教学功能教你一步一步玩下去", "为啥看不到阳光或者僵尸?检查一下你浏览器里的广告杀手功能,也许是它在搞鬼!", "游戏毫无难度?在目前进度下,可以尝试着使用调速功能玩更快的速度", "这里有木有人啊?这儿必须有活人的,打开聊天按钮加入到在线交流行列!", "为啥这么卡?如果你是IE6-8的用户,请使用IE9,Chrome,Firefox,Opera等更好的浏览器!", "原版jspvz广告烦人？大哥，你要吃饭，人家囧姨她也是要吃饭的。", "这是用什么语言写的?javascript,一个简单而又神奇的语言,纯的,JS!"];b.innerHTML = '<span style="font-weight:bold">游戏小贴士:</span><span>' + a[Math.floor(Math.random() * a.length)] + "</span>"
 	},
 	LoadProgress: function(r, l, a, t, b) {
 		SetVisible($("dFlagMeter"));
@@ -260,7 +260,7 @@ oS = {
 		}
 		r = s.length;
 		while (r--) {
-			Array.prototype.push.apply(i, (l = (q = s[r]).prototype).PicArr.slice(0));
+			Array。prototype。push.apply(i, (l = (q = s[r]).prototype).PicArr.slice(0));
 			if ($User.HTML5) {
 				t = l.AudioArr;
 				b = t.length;
@@ -2790,3 +2790,4 @@ function(a) {
 	var b = a.checked ? 1 : 0;
 	b != oS.Silence && (addCookie("JSPVZSilence", oS.Silence = b), b ? PauseMusic() : NewMusic(oS.StartGameMusic))
 };
+
