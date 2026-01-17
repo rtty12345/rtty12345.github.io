@@ -1749,7 +1749,7 @@ PrivateBirth:function(a){
 a.CanSummon=(oS.CleanerFlagZombie-1),
 oSym.addTask(0,function(a){
 oS.CleanerFlagZombie-1&&(
-CustomZombie(oFlagZmbie,Math.round(Math.random()*oS.R+1),11).Summon=1,
+CustomZombie(oFlagZombie,Math.round(Math.random()*oS.R+1),11).Summon=1,
 --a.CanSummon&&oSym.addTask(0,arguments.callee,[a]));
 },[a]))
 },
