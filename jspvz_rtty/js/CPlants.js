@@ -75,7 +75,7 @@
 		j = e.zIndex += 3 * h,
 		f = NewEle(0, "div", "position:absolute");
 		NewImg(0, ShadowPNG, e.getShadow(e), f);
-		NewImg(0， e.PicArr[e.NormalGif], "", f);
+		NewImg(0,e.PicArr[e.NormalGif], "", f);
 		e.MaxHP=e.HP;
 		e.pixelLeft = k;
 		e.pixelRight = k + e.width;
@@ -3564,5 +3564,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
 
