@@ -45,9 +45,11 @@
 			},
 			[f, d])
 		},
-	getHurt: function(e, c, b) {
-		var d = this,
-		a = d.id; ! (c % 3) ? (d.HP -= b) < 1 && d.Die() : d.Die()
+	getHurt:  function(e, c, b) {
+    var d = this,
+      a = d.id;
+    !(c % 3) ? (d.HP -= b) < 1 && d.Die(): (oSym.addTask(200, ClearChild, [NewImg(0, d.PicArr[1] ? d.PicArr[d.StaticGif] : d.PicArr[d.NormalGif], 
+"left:" + (d.AttackedLX - 25) + "px;top:" + (d.pixelTop + 60) + "px;height:15px;width:" + (d.width) + "px;z-index:" + d.zIndex, EDPZ)]), PlayAudio("chomp"), d.Die())
 	},
 	GetDY: function(b, c, a) {
 		return a[0] ? -21 : -15
@@ -73,7 +75,7 @@
 		j = e.zIndex += 3 * h,
 		f = NewEle(0, "div", "position:absolute");
 		NewImg(0, ShadowPNG, e.getShadow(e), f);
-		NewImg(0, e.PicArr[e.NormalGif], "", f);
+		NewImg(0， e.PicArr[e.NormalGif], "", f);
 		e.MaxHP=e.HP;
 		e.pixelLeft = k;
 		e.pixelRight = k + e.width;
@@ -3562,4 +3564,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
