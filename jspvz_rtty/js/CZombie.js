@@ -1541,15 +1541,13 @@ AttackZombie:function(){
               w = [],
               u = [],
               o = 0,
-	ZP=[new oZombie, new oZombie2, new oZombie3, new oDancingZombie, new oConeheadZombie, new oBucketheadZombie,new oNewspaperZombie,
-	new oFlagZombie, new oScreenDoorZombie, new oFootballZombie,new oJackinTheBoxZombie,new oPeaZombie,
-	new oDancingZombie1,new oDancingZombie2,new oJalapenoZombie, new oPoleVaultingZombie,new oPoleVaultingZombie1,new oPoleVaultingZombie2, new oNewspaperZombie3],
+	ZP=[oZombie, oZombie2,oZombie3, oDancingZombie, oConeheadZombie, oBucketheadZombie,oNewspaperZombie,oFlagZombie, oScreenDoorZombie, oFootballZombie,oJackinTheBoxZombie,oPeaZombie,oDancingZombie1,oDancingZombie2,oJalapenoZombie,oPoleVaultingZombie,oPoleVaultingZombie1,oPoleVaultingZombie2,oNewspaperZombie3,oFootballZombie1],
               q,
               l;
             if (h && h.beAttacked) {
               s.src = "images/Zombies/DancingZombie/Summon3.gif";
               while (r--) {
-                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = ZP[Math.floor(Math.random() * ZP.length)]).CustomBirth(q[1], q[2](v),100,"auto"), n.push(NewImg("","z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px",EDPZ)),++o)
+                (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new ZP[Math.floor(Math.random() * ZP.length)]).CustomBirth(q[1], q[2](v),100,"auto"), n.push(NewImg("","z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px",EDPZ)),++o)
               }
               oSym.addTask(220,
                 function() {
@@ -1737,7 +1735,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 	CName: "处决者旗帜",
 	OSpeed: 8.8,
 	Speed: 8.8,
-	SunNum:225,
+	SunNum:250,
 	HP:800,
 	BreakPoint:1,
 	beAttackedPointR: 101,
@@ -1745,6 +1743,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 		return c
 	},
 PrivateBirth:function(a){
+a.Boom=Math.random()*100>25?0:1;
 !a.Summon&&((oS.CleanerFlagZombie+=1),
 a.CanSummon=(oS.CleanerFlagZombie-1),
 oSym.addTask(0,function(a){
@@ -1755,7 +1754,7 @@ CustomZombie(oFlagZombie,Math.round(Math.random()*oS.R+1),11).Summon=1,
 },
         PrivateAct: function(a){
             if(a.HP <= 40){
-		a.OpenBox(a.id);
+		a.Boom&&a.OpenBox(a.id);
             }
         },
 	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（500）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
@@ -2104,7 +2103,7 @@ PrivateAct2:function(a){
                         AppearSun(a.ZX + 40,a.pixelTop + 80,50);
                         a.GetSunNum += 1;
                     }
-                    !oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(75,arguments.callee,[a]);
+                    a.PZ&&!oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(75,arguments.callee,[a]);
 		            oS.CardKind &&oS.StaticCard && a.HP >= 1 && oSym.addTask(1000,arguments.callee,[a]);
                 },[a])
             }
