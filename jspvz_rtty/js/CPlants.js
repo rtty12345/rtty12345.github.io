@@ -783,7 +783,7 @@ oSym.addTask(500, function(a,i) {
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
-    $P[a.id] && (b[0] && (a.Boom>=10?b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0):
+    $P[a.id] && (b[0] && (a.Boom>9?b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0):
 (b[0].getExplosion(2000),a.Boom=0)),
 a.Boom+=1,
 oSym.addTask(500, arguments.callee, [a,i]),
@@ -1099,7 +1099,7 @@ oSplitPea = InheritO(oPeashooter, {
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "前后双向发射火豌豆",
 	Produce: '分裂射手，可以向前后两个方向发射火豌豆。<p>伤害：<font color="#FF0000">中等</font><br>范围：<font color="#FF0000">前面和后面</font><br>发射速度：<font color="#FF0000">前面为正常速度，后面为两倍速度</font></p>分裂射手：“没错，我就是双子座。我知道，这的确很令人惊奇。不过，有两个头，或者实际上，长着一个头和一个类似头的东西，在背上，对我这条线上的防守帮助很大。',
-	GetDX: function() {
+GetDX: function() {
 		return - 55
 	},
 	getShadow: function(a) {
@@ -2183,16 +2183,16 @@ oGarlic = InheritO(CPlants, {
 		e = oS.ArP;
 		return e ? oGd.$LF[b] == 1 ? f > 0 && f < e.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d: d && d.EName == "oGarlic" ? 1 : oGd.$LF[b] == 1 ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d
 	},
-  PrivateBirth: function(a) {
+ PrivateBirth: function(a) {
     for (let i = 1; i <= oS.C; i++) {
       var b = oGd.$[a.R + "_" + i + "_" + 1];
-      b && b.protect && (b.getHurt == CPlants.prototype.getHurt && (b.getHurt = function(h, c, b) {
+      b && (b.getHurt == CPlants.prototype.getHurt && (b.getHurt = function(h, c, b) {
         var d = this,
-         num,
+          num,
           a = d.id;
         for (let i = oS.C; i >= 1; i--) {
           var e = oGd.$[d.R + "_" + i + "_" + 1];
-          e && (e.EName == "oGarlic")&&!num&& (!(c % 3) ? (e.getHurt(e, c, b),num=1) : (d.Die(), c.ChangeR(c)))
+          e && (e.EName == "oGarlic") && !num && (!(c % 3) ? (e.getHurt(h, c, b), num = 1) : (d.Die(), c.ChangeR(c)))
         };
       }, b.getHurt1 = b.getHurt, b.protect += 1))
     }
