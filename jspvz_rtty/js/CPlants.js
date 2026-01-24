@@ -2201,7 +2201,7 @@ oGarlic = InheritO(CPlants, {
   PrivateDie: function(a) {
     for (let i = 1; i <= oS.C; i++) {
       var b = oGd.$[a.R + "_" + i + "_" + 1];
-      b.protect -= 1;
+      b&&(b.protect -= 1);
       b && !b.protect && (b.getHurt == b.getHurt1 && (b.getHurt = CPlants.prototype.getHurt))
     }
   },
