@@ -2588,7 +2588,7 @@ oFootballZombie1= InheritO(oConeheadZombie, {
               ClearChild($(d));
             }
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
-          }，
+          },
           [z, d, a, y,num]);
         $Z[a.id] && a.beAttacked&& oSym.addTask(15, arguments.callee, [a])
       }, [a]);
