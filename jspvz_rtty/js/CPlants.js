@@ -783,9 +783,10 @@ oSym.addTask(500, function(a,i) {
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
-    $P[a.id] && (b[0] && (a.Boom>9?(b[0].getExplosion(2000),a.Boom=0):
+    $P[a.id] && (b[0] && (a.Boom>9?(b[0].getExplosion(2000),a.Boom=0,
+oSym.addTask(100, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" +(b[0].AttackedLX+30)+ "px;top:" +(b[0].pixelTop+20)+ "px;height:93px;width:132px;z-index:25;", EDPZ)])):
 b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0)),
-a.Boom+=1,
+b[0] &&(a.Boom+=1),
 oSym.addTask(500, arguments.callee, [a,i]),
  b[0]&&PlayAudio("cherrybomb"));
   }, [a,i]);
@@ -1043,7 +1044,7 @@ oPeashooter2 = InheritO(oPeashooter, {
         b = g.pixelTop,
         c = g.R;
       (function(h, N) {
-        oSym.addTask(15,
+        oSym.addTask(1,
           function(j) {
             var i = $(j);
             i && SetVisible(i)
@@ -2195,14 +2196,14 @@ oGarlic = InheritO(CPlants, {
           e && (e.EName == "oGarlic") && !num && (!(c % 3) ? (e.getHurt(h, c, b), num = 1) : (d.Die(), h.ChangeR(h)))
         };
 	  },
-	b.getHurt1=b.getHurt,b.protect= 1))
+	b.getHurt1=b.getHurt))
     }
     $P[a.id] && oSym.addTask(1, arguments.callee, [a])
   },
   PrivateDie: function(a) {
     for (let i = 1; i <= oS.C; i++) {
       var b = oGd.$[a.R + "_" + i + "_" + 1];
-      b&&(--b.protect)&&(b.getHurt1==b.getHurt&&(b.getHurt = CPlants.prototype.getHurt))
+      b&&(b.getHurt1==b.getHurt&&(b.getHurt = CPlants.prototype.getHurt))
     }
   },
 	InitTrigger: function() {},
