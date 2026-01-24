@@ -2186,7 +2186,7 @@ oGarlic = InheritO(CPlants, {
  PrivateBirth: function(a) {
     for (let i = 1; i <= oS.C; i++) {
       var b = oGd.$[a.R + "_" + i + "_" + 1];
-      b && (b.getHurt == CPlants.prototype.getHurt && (b.getHurt = function(h, c, b) {
+      $P[a.id]&&b && (b.getHurt == CPlants.prototype.getHurt && (b.getHurt = function(h, c, b) {
         var d = this,
           num,
           a = d.id;
@@ -2195,15 +2195,14 @@ oGarlic = InheritO(CPlants, {
           e && (e.EName == "oGarlic") && !num && (!(c % 3) ? (e.getHurt(h, c, b), num = 1) : (d.Die(), h.ChangeR(h)))
         };
 	  },
-	b.protect= 1))
+	b.getHurt1=b.getHurt,b.protect= 1))
     }
     $P[a.id] && oSym.addTask(1, arguments.callee, [a])
   },
   PrivateDie: function(a) {
     for (let i = 1; i <= oS.C; i++) {
       var b = oGd.$[a.R + "_" + i + "_" + 1];
-      b&&(b.protect -= 1);
-      b&& (b.getHurt = CPlants.prototype.getHurt)
+      b&&(--b.protect)&&(b.getHurt1==b.getHurt&&(b.getHurt = CPlants.prototype.getHurt))
     }
   },
 	InitTrigger: function() {},
