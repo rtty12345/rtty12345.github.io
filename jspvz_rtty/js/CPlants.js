@@ -337,7 +337,6 @@ HP:500,
       b = 0,
       c = g.R,
       e = d + 30,
-	  num=Math.random()*100,
       a = function(j, i, h) {
         return (j && j.Altitude == 1 ? (j.getPea(j, 20, i), ClearChild(h), false) : true)
       };
@@ -745,6 +744,7 @@ oRepeater = InheritO(oPeashooter, {
 	width: 73,
 	height: 71,
 	BKind:-1,
+      Boom:0,
 	beAttackedPointR: 53,
 	SunNum: 250,
 	PicArr: ["images/Card/Plants/Repeater.png", "images/Plants/Repeater/0.gif", "images/Plants/Repeater/Repeater.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
@@ -783,9 +783,11 @@ oSym.addTask(500, function(a,i) {
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
-    $P[a.id] && b[0] && b[0].getPea(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 150),1000), 0);
-    $P[a.id] && oSym.addTask(500, arguments.callee, [a,i]);
-    $P[a.id] && b[0]&&PlayAudio("cherrybomb");
+    $P[a.id] && (b[0] && (a.Boom>=10?b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0):
+(b[0].getExplosion(2000),a.Boom=0)),
+a.Boom+=1;
+oSym.addTask(500, arguments.callee, [a,i]),
+ b[0]&&PlayAudio("cherrybomb"));
   }, [a,i]);
  }
 },
@@ -856,7 +858,7 @@ oSym.addTask(500, function(a,i) {
 			c && c.NormalAttack2();
 			--b && oSym.addTask(15, arguments.callee, [d, b])
 		},
-		[this.id,Math.round(Math.random()*2+1)])
+		[this.id,Math.round(Math.random()*1+1)])
 	}	
 }),
 oPeashooter1= InheritO(oPeashooter, {
@@ -901,8 +903,6 @@ oGatlingPea= InheritO(oPeashooter, {
 	height: 84,
 	beAttackedPointR: 68,
 	SunNum: 600,
-	HP:1000,
-	canEat:1,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
@@ -1006,7 +1006,7 @@ oPeashooter2 = InheritO(oPeashooter, {
     beAttackedPointR: 68,
     SunNum: 700,
     coolTime: 100,
-    HP: 1000,
+    HP: 500,
     PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB10.gif", "images/Plants/PeaBulletHit.gif"],
     AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
     Tooltip: "一次散射4~6颗减速的火豌豆<br>(需要双发射手)",
@@ -1106,7 +1106,7 @@ oSplitPea = InheritO(oPeashooter, {
 		return "left:5px;top:" + (a.height - 22) + "px"
 	},
 	getTriggerRange: function(a, b, c) {
-		return [[100, b + 25, 1], [b + 26, oS.W, 0]]
+		return [[100,oS.W, 1], [b + 26, oS.W, 0]]
 	},
 	PrivateBirth: function(c) {
 		var b = c.PicArr,
@@ -1290,7 +1290,7 @@ oTwinSunflower = InheritO(oSunFlower, {
 		function(f, d, c, e) {
 			$P[f] && (a.ChangePosition($(f), 1), oSym.addTask(100,
 			function(k, h, g, j, i) {
-				AppearSun(Math.floor(h + Math.random() * 21), j, 60, 0),
+				AppearSun(Math.floor(h + Math.random() * 21), j, 80, 0),
 				AppearSun(Math.floor(g + Math.random() * 21), j,80,0),
 				CustomZombies(new oConeheadZombie,a.R,a.C,1),
 				oSym.addTask(100,
@@ -1374,17 +1374,17 @@ oPumpkinHead = InheritO(CPlants, {
           t,
           w = A.length;
         if (a.HP >= 1000) {
+   A.length&&a.getHurt(a, 0, 500);
           while (w--) {
             PlayAudio("shovel");
             (t = A[w]).Altitude == 1 && t.getHit0(t, 500, 0);
 	  }
-    w&&a.getHurt(a, 0, 500)
         }
       }
     };
     oSym.addTask(100, function(a) {
       a && (a.HP < 2000) && (PlayAudio("scream"), a.HP += 500);
-      !a.isDie && oSym.addTask(1000, arguments.callee, [a]);
+      $Z[a.id]&& oSym.addTask(1000, arguments.callee, [a]);
     }, [a]);
     a.lookHP && a.lookHP(a)
   },
@@ -1401,12 +1401,11 @@ oPumpkinHead = InheritO(CPlants, {
         C.style.left = (h.AttackedLX+20) + "px";
         b.innerHTML = '<div>' + Math.round(h.HP) + "</div>";
       }
-      oSym.addTask(50, arguments.callee, [C, h, b])
+      oSym.addTask(5, arguments.callee, [C, h, b])
     }, [C, h, b]);
   },
   PrivateDie: function(a) {
     ClearChild($(a.id + "2"));
-    a.isDie = true;
     ClearChild($("oAttack_" + a.id))
   }
 }),
@@ -1572,7 +1571,7 @@ oTorchwood = InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/Torchwood.png", "images/Plants/Torchwood/0.gif", "images/Plants/Torchwood/Torchwood.gif", "images/Plants/PB00.gif", "images/Plants/PB01.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/Torchwood/SputteringFire.gif"],
 	AudioArr: ["firepea", "ignite", "ignite2"],
 	Tooltip: "通过火炬树桩的豌豆将变为随机伤害火球",
-	Produce: '火炬树桩可以把穿过他的豌豆变成火球，可以造成更高的随机伤害。<p>特点：<font color="#FF0000">让穿过他的火球造成随机伤害。火球也会对附近僵尸造成溅射伤害</font></p>每个人都喜欢并敬重火炬树桩。他们喜欢他的诚实和坚贞的友谊，以及增强豌豆伤害的能力。但他也有自己的秘密：他不识字！',
+	Produce: '火炬树桩可以把穿过他的豌豆变成火球，可以造成更高的随机伤害。<p>特点：<font color="#FF0000">让穿过他的火球造成随机伤害。火球也会对附近僵尸造成溅射伤害</font></p>每个人都喜欢并敬重火炬树桩。他们喜欢他的诚实和坚贞的友谊，以及增强豌豆伤害的能力',
 	PrivateBirth: function(c) {
 		var a = c.R,
 		b = c.C;
@@ -1708,7 +1707,7 @@ oNutBowling = InheritO(CPlants, {
 				PlayAudio(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
 				switch (A.Ornaments) {
 				case 0:
-					A.NormalDie();
+					A.getHit0(A,A.HP);
 					break;
 				case 1:
 					A.getHit0(A, Math.min(A.OrnHP, 900), 0);
@@ -1855,8 +1854,8 @@ oTallNut = InheritO(oWallNut, {
             var c = this,
                 d = $(c.id).childNodes[1];
     if(b%3){var a=1000}
-    (c.HP -= Math.min(a,1000)) < 1 ? (c.Die(),CustomSpecial(oNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oBoomNutBowling,c.R,c.C))
-            e.HP&&(b!==3)&&e.getHit1(e,Math.max(a*0.3,30),0);
+    (c.HP -= Math.min(a,1000)) < 1 ? (c.Die(),CustomSpecial(oBoomNutBowling,c.R,c.C)): c.HP < 3333 ? c.HurtStatus < 2 && (c.HurtStatus = 2, d.src = "images/Plants/TallNut/TallnutCracked2.gif",CustomSpecial(oNutBowling,c.R,c.C)) : c.HP < 6666 && c.HurtStatus < 1 && (c.HurtStatus = 1, d.src = "images/Plants/TallNut/TallnutCracked1.gif",CustomSpecial(oNutBowling,c.R,c.C))
+            e.HP&&(b!==3)&&(e.getHit1(e,Math.max(a*0.3,30),0),b%3&&e.getr(e,100));
         },
 	DieClear:function(){}
 }),
@@ -2003,7 +2002,7 @@ oSpikeweed = InheritO(CPlants, {
 	},
 	NormalAttack: function(b, a) {
 		var c = $Z[b];
-		Math.round(Math.random()*100)>10?c.getHit2(c, this.Attack, 0):(c.getHit2(c,60,0),c.getr(c,40))
+		Math.round(Math.random()*100)>10?c.getHit2(c, this.Attack, 0): (Math.round(Math.random()*100)>1?(c.getHit2(c,60,0),c.getr(c,40)):CustomSpecial(oSpikerock,this.R,this.C))
 	},
 	GetDY: function(b, c, a) {
 		return - 2
@@ -2127,7 +2126,7 @@ oSpikerock = InheritO(oSpikeweed, {
 	SunNum: 125,
 	coolTime: 50,
 	PicArr: ["images/Card/Plants/Spikerock.png", "images/Plants/Spikerock/0.gif", "images/Plants/Spikerock/Spikerock.gif", "images/Plants/Spikerock/2.gif", "images/Plants/Spikerock/3.gif"],
-	Attack:45,
+	Attack:50,
 	Tooltip: "能扎破多个轮胎, 并伤害经过上面的僵尸<br>(需要地刺)",
 	Produce: '地刺王可以扎破多个轮胎，并对踩到他的僵尸造成伤害，有概率魅惑僵尸<p><font color="#FF0000">必须种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，也认识了很多有趣的人。这些都真的拓展了他的视野——他从来不知道，他们建造了这么大的博物馆，有这么多的画作。这对他来说太惊奇了。',
 	CanGrow: function(b, a, d) {
@@ -2173,10 +2172,10 @@ oGarlic = InheritO(CPlants, {
 	width: 60,
 	height: 59,
 	beAttackedPointR: 40,
-	SunNum: 50,
-	HP: 1000,
+	SunNum: 200,
+	HP: 1500,
 	PicArr: ["images/Card/Plants/Garlic.png", "images/Plants/Garlic/0.gif", "images/Plants/Garlic/Garlic.gif", "images/Plants/Garlic/Garlic_body2.gif", "images/Plants/Garlic/Garlic_body3.gif"],
-	Tooltip: "将僵尸赶到其它的横行",
+	Tooltip: "将僵尸赶到其它的横行，给一行植物替伤",
 	Produce: '大蒜可以让僵尸改变前进的路线。<p>范围：<font color="#FF0000">近距离接触</font><br>特点：<font color="#FF0000">改变僵尸的前进路线</font></p>路线转向，这不仅仅是大蒜的专业，更是他的热情所在。他在布鲁塞尔大学里，获得了转向学的博士学位。他能把路线向量和反击阵列，讲上一整天。他甚至会把家里的东西，推到街上去。不知道为啥，他老婆还可以忍受这些。',
 	CanGrow: function(c, b, f) {
 		var a = b + "_" + f,
@@ -2184,6 +2183,28 @@ oGarlic = InheritO(CPlants, {
 		e = oS.ArP;
 		return e ? oGd.$LF[b] == 1 ? f > 0 && f < e.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d: d && d.EName == "oGarlic" ? 1 : oGd.$LF[b] == 1 ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d) : c[0] && !d
 	},
+  PrivateBirth: function(a) {
+    for (let i = 1; i <= oS.C; i++) {
+      var b = oGd.$[a.R + "_" + i + "_" + 1];
+      b && b.protect && (b.getHurt == CPlants.prototype.getHurt && (b.getHurt = function(h, c, b) {
+        var d = this,
+         num,
+          a = d.id;
+        for (let i = oS.C; i >= 1; i--) {
+          var e = oGd.$[d.R + "_" + i + "_" + 1];
+          e && (e.EName == "oGarlic")&&!num&& (!(c % 3) ? (e.getHurt(e, c, b),num=1) : (d.Die(), c.ChangeR(c)))
+        };
+      }, b.getHurt1 = b.getHurt, b.protect += 1))
+    }
+    $P[a.id] && oSym.addTask(1, arguments.callee, [a])
+  },
+  PrivateDie: function(a) {
+    for (let i = 1; i <= oS.C; i++) {
+      var b = oGd.$[a.R + "_" + i + "_" + 1];
+      b.protect -= 1;
+      b && !b.protect && (b.getHurt == b.getHurt1 && (b.getHurt = CPlants.prototype.getHurt))
+    }
+  },
 	InitTrigger: function() {},
 	HurtStatus: 0,
 	getHurt: function(e, b, a) {
@@ -2593,7 +2614,6 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			z[i].JudgeLR=CZombies.prototype.JudgeLR;
 			z[i].JudgeSR=CZombies.prototype.JudgeSR;
 			z[i].PrivateAttack=function(){};
-			z[i].GoingDie=CZombies.prototype.GoingDie;
 			z[i].tasktime=100;
 			PlayAudio("jack_surprise");
                 }
@@ -2679,10 +2699,10 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
-	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤魅惑玉米普通僵尸(30%)/普通二爷(25%)/仙人掌撑杆(20%)/机枪铁门(17%)/普通橄榄(7%)/寒冰射手铁门(4%)/玉米炮二爷(2%)<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
+	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
-!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>70 ? new oZombie2
+!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>75 ? new oZombie2
 	      :Math.round(Math.random()*75)>50 ? new oNewspaperZombie
 	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
 		  :Math.round(Math.random()*30)>13 ? new oFootballZombie
@@ -2745,7 +2765,7 @@ oIceShroom = InheritO(oFumeShroom, {
 			if (f) {
 				PlayAudio("frozen");
 				var e, d, b = "Snow_" + Math.random();
-				for (d in $Z) { (e = $Z[d]).ZX < 901 && e.getFreeze(e,d)
+				for (d in $Z) { (e = $Z[d]).ZX < 901 && e.PZ&&e.getFreeze(e,d)
 				}
 				oSym.addTask(40,
 				function(g) {
@@ -2793,7 +2813,7 @@ oSunShroom = InheritO(oFumeShroom, {
 		a, EDPZ)
 	},
 	ProduceSun: function(a, c, b) {
-		AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 25 : 60, 0),
+	oS.ProduceSun&&AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 25 : 60, 0),
 		oSym.addTask(2400,
 		function(g, f, e) {
 			var d = $P[g];
@@ -2895,12 +2915,12 @@ oDoomShroom = InheritO(oFumeShroom, {
 			break;
 		default:
 		}
-		oSym.addTask(9000,
+		oSym.addTask(6000,
 		function(g) {
 			var h = b + "_" + d;
 			g.style.backgroundPosition = "100% 0";
 			oGd.$Crater[h] = 1;
-			oSym.addTask(9000,
+			oSym.addTask(6000,
 			function(i, j) {
 				ClearChild(i);
 				delete oGd.$Crater[j]
@@ -3040,7 +3060,7 @@ oPlantern = InheritO(CPlants, {
 		for (let l=b-1;l<=b+1;l++){
 		for (let e=0;e<=3;e++){
 			let highplant=oGd.$[i+"_"+l+"_"+e];
-			if(c.HP>=1&&highplant&&!highplant.highwork){
+			if($P[c.id]&&highplant&&!highplant.highwork){
 			highplant&&(highplant.highwork=1);
 			}
 		}
@@ -3285,7 +3305,7 @@ oBlover = InheritO(CPlants, {
 		var id = this.id, z, oBalloon;
 		$(id).childNodes[1].src = 'images/Plants/Blover/Blover.gif';
 
-		for(z in $Z) oBalloon = $Z[z], ((oBalloon.HP+oBalloon.OrnHP)<700) && oBalloon.getDispelled(),
+		for(z in $Z) oBalloon = $Z[z], ((oBalloon.HP+oBalloon.OrnHP)<700) &&oBalloon.PZ&& oBalloon.getDispelled(),
                 oBalloon&&oBalloon.getSlow(oBalloon);//吹气球并给予减速
 		if (oS.HaveFog) { // 如果场地上有雾，驱散
 			oGd.MoveFogRight(); // 驱散雾
@@ -3564,6 +3584,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
-
-
-
