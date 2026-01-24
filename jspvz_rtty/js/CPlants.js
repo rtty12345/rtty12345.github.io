@@ -785,7 +785,7 @@ oSym.addTask(500, function(a,i) {
     });
     $P[a.id] && (b[0] && (a.Boom>=10?b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0):
 (b[0].getExplosion(2000),a.Boom=0)),
-a.Boom+=1;
+a.Boom+=1,
 oSym.addTask(500, arguments.callee, [a,i]),
  b[0]&&PlayAudio("cherrybomb"));
   }, [a,i]);
