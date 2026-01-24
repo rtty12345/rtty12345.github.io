@@ -1283,7 +1283,7 @@ oDancingZombie1 = InheritO(oDancingZombie,{
     BreakPoint: 1,
     Lvl: 5,
     StandGif: 9,
-    SunNum: 600,
+    SunNum: 425,
     beAttackedPointL: 40,
     beAttackedPointR: 85,
     width: 184,
@@ -1748,7 +1748,7 @@ a.Boom=Math.random()*100>25?0:1;
 a.CanSummon=(oS.CleanerFlagZombie-1),
 oSym.addTask(0,function(a){
 oS.CleanerFlagZombie-1&&(
-CustomZombie(oFlagZombie,Math.round(Math.random()*oS.R+1),11).Summon=1,
+CustomZombie(oFlagZombie,Math.round(Math.random()*(oS.R-1)+1),11).Summon=1,
 --a.CanSummon&&oSym.addTask(0,arguments.callee,[a]));
 },[a]))
 },
@@ -2588,9 +2588,9 @@ oFootballZombie1= InheritO(oConeheadZombie, {
               ClearChild($(d));
             }
             oSym.addTask(1, arguments.callee, [z, d, a, y,num])
-          },
+          }，
           [z, d, a, y,num]);
-        $Z[a.id] && a.beAttacked&& oSym.addTask(12, arguments.callee, [a])
+        $Z[a.id] && a.beAttacked&& oSym.addTask(15, arguments.callee, [a])
       }, [a]);
 };
   },
@@ -2742,7 +2742,7 @@ if(!a.gif){
 }
     if (!a.bool&&(a.Polenum==1)) {
       a.bool = 1;
-      oSym.addTask(20, function(a) {
+      oSym.addTask(10,function(a) {
 		  EditImg($(z.PeaHead),0,a.PicArr[14],{},0);
             let div = $n("div");
             let d = "Pea" + Math.random();
@@ -3240,9 +3240,9 @@ oNewspaperZombie3= InheritO(oNewspaperZombie, {
 		},
 		g.EleBody.src = f[g.LostPaperGif] + $Random + Math.random(), g.Ornaments = 0, g.LostHeadGif = 8, g.LostHeadAttackGif = 9,g.getFirePea = e.getFirePea, g.getSnowPea = e.getSnowPea,
 		g.getSlowPea1= e.getSlowPea1,g.getSlowPea = e.getSlowPea, g.getHit = g.getHit0 = g.getHit1 = g.getHit2 = g.getHit3 = e.getHit,
-      oSym.addTask(100, function(g, P) {
+      oSym.addTask(50, function(g, P) {
         P.style.left = P.offsetLeft - 1 + "px";
-        g.OSpeed == 1.6 && oSym.addTask(1, arguments.callee, [g, $($(g.id).PeaHead)]);
+        g.OSpeed!=g.LostPaperSpeed&& oSym.addTask(1, arguments.callee, [g, $($(g.id).PeaHead)]);
       }, [g, $($(g.id).PeaHead)]),
 	oSym.addTask(150,
 		function(m, l) {
@@ -3723,12 +3723,12 @@ OpenBox:oBackupDancer.prototype.OpenBox
 oNewspaperBoss = InheritO(oNewspaperZombie2, {
   EName: "oNewspaperBoss",
   CName: "读报Boss",
-  OrnHP: 80000,
+  OrnHP: 90000,
   Lvl: 200,
   LostPaperGif: 13,
   StandGif: 14,
   width: 432,
-  HP: 20000,
+  HP: 15100,
   height: 328,
   beAttackedPointL: 120,
   beAttackedPointR: 260,
@@ -3797,7 +3797,7 @@ SunNum:2000,
             left: a.X + "px"
           });
         a.ChangeR(a);
-        if (a.OrnHP >= 75000) {
+        if (a.OrnHP >= 80000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3], 0);
 		  oP.SetTimeoutTomZombie([oZombie]);
           oP.NumZombies += 3;
@@ -3824,7 +3824,7 @@ SunNum:2000,
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie2,oFootballZombie, oNewspaperZombie,oNewspaperZombie3,oFootballZombie], 0);
-       oP.SetTimeoutTomZombie([oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
+       oP.SetTimeoutTomZombie([oZombie2, oZombie3,oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -4562,7 +4562,7 @@ oZomboni = function() {
 	return InheritO(OrnNoneZombies, {
 		EName: "oZomboni",
 		CName: "重型冰车僵尸",
-		HP:1500,
+		HP:1350,
 		Lvl: 5,
 		StandGif: 2,
 		DieGif: 6,
@@ -4578,12 +4578,11 @@ oZomboni = function() {
 		GetDY: function() {
 			return 0
 		},
-		OSpeed: 2.5,
-		Speed: 2.5,
+		OSpeed: 3,
+		Speed: 3,
 		AKind: 2,
 		tasktime:20,
-		Attack: 50,
-		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高（1500）</font><br>特点：<font color="#FF0000">碾压植物，留下冰道，越到后面速度越快,冻结植物</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸',
+		Produce: '冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#FF0000">高（1350）</font><br>特点：<font color="#FF0000">碾压植物，留下冰道，越到后面速度越快,冻结植物</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸',
 		PicArr: (function() {
 			var b = "images/Zombies/Zomboni/";
 			return ["images/Card/Zombies/Zomboni.png", b + "0.gif", b + "1.gif", b + "2.gif", b + "3.gif", b + "4.gif", b + "5.gif" + $Random, b + "BoomDie.gif" + $Random, b + "ice.png", b + "ice_cap.png"]
