@@ -783,15 +783,15 @@ oSym.addTask(500, function(a,i) {
     b.sort(function(d, c) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
-    $P[a.id] && (b[0] && (a.Boom>9?b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0):
-(b[0].getExplosion(2000),a.Boom=0)),
+    $P[a.id] && (b[0] && (a.Boom>9?(b[0].getExplosion(2000),a.Boom=0):
+b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0)),
 a.Boom+=1,
 oSym.addTask(500, arguments.callee, [a,i]),
  b[0]&&PlayAudio("cherrybomb"));
   }, [a,i]);
  }
 },
-        PrivateDie:oThreepeater1.prototype.PrivateDie,
+    PrivateDie:oThreepeater1.prototype.PrivateDie,
 	NormalAttack1: oThreepeater1.prototype.NormalAttack,
 		NormalAttack2:function(){
 		var g = this,
@@ -2194,7 +2194,8 @@ oGarlic = InheritO(CPlants, {
           var e = oGd.$[d.R + "_" + i + "_" + 1];
           e && (e.EName == "oGarlic") && !num && (!(c % 3) ? (e.getHurt(h, c, b), num = 1) : (d.Die(), h.ChangeR(h)))
         };
-      }, b.getHurt1 = b.getHurt, b.protect += 1))
+	  },
+	b.protect= 1))
     }
     $P[a.id] && oSym.addTask(1, arguments.callee, [a])
   },
@@ -2202,7 +2203,7 @@ oGarlic = InheritO(CPlants, {
     for (let i = 1; i <= oS.C; i++) {
       var b = oGd.$[a.R + "_" + i + "_" + 1];
       b&&(b.protect -= 1);
-      b&& (b.getHurt == b.getHurt1 && (b.getHurt = CPlants.prototype.getHurt))
+      b&& (b.getHurt = CPlants.prototype.getHurt)
     }
   },
 	InitTrigger: function() {},
