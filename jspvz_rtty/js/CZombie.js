@@ -1745,7 +1745,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 PrivateBirth:function(a){
 a.Boom=Math.random()*100>25?0:1;
 !a.Summon&&((oS.CleanerFlagZombie+=1),
-a.CanSummon=(oS.CleanerFlagZombie-1),
+a.CanSummon=Math.min(oS.CleanerFlagZombie-1,5),
 oSym.addTask(0,function(a){
 oS.CleanerFlagZombie-1&&(
 CustomZombie(oFlagZombie,Math.round(Math.random()*(oS.R-1)+1),11).Summon=1,
