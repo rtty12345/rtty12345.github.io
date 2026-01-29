@@ -2663,7 +2663,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			var f = $(g);
 			f && SetVisible(f);
 			$P[a]&&($P[a].AttTime-=2);
-			oSym.addTask(130-Math.min(80,this.AttTime),
+			oSym.addTask(130-Math.min(80,c.AttTime),
 			function(h) {
 				var i = $P[h];
 				i && (i.Attacking = 0)
