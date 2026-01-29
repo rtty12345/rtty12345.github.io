@@ -784,7 +784,7 @@ oSym.addTask(500, function(a,i) {
       return (c.HP + c.OrnHP) - (d.OrnHP + d.HP)
     });
     $P[a.id] && (b[0] && (a.Boom>9?(b[0].getExplosion(2000),a.Boom=0,
-oSym.addTask(100, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" +(b[0].AttackedLX+30)+ "px;top:" +(b[0].pixelTop+20)+ "px;height:93px;width:132px;z-index:25;", EDPZ)])):
+oSym.addTask(100, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" +(b[0].AttackedLX+20)+ "px;top:" +(b[0].pixelTop+20)+ "px;height:93px;width:132px;z-index:25;", EDPZ)])):
 b[0].getHit0(b[0], Math.min(Math.max((b[0].OrnHP + b[0].HP) * 0.1, 200),1000), 0)),
 b[0] &&(a.Boom+=1),
 oSym.addTask(500, arguments.callee, [a,i]),
@@ -1039,7 +1039,7 @@ oPeashooter2 = InheritO(oPeashooter, {
     },
    NormalAttack1: function() {
       var g = this,
-        f = g.pixelLeft,
+        f = g.pixelLeft+25,
         d = f,
         b = g.pixelTop,
         c = g.R;
@@ -1073,7 +1073,7 @@ oPeashooter2 = InheritO(oPeashooter, {
             },
             0, EDPZ),Math.random() * 12 - 6,g.Pea])
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
-      })("GStarB2" + Math.random(), 3);
+      })("GStarB2" + Math.random(), 2);
     },
     NormalAttack2: oPeashooter2.prototype.NormalAttack,
     NormalAttack: function(a) {
@@ -1086,7 +1086,7 @@ oPeashooter2 = InheritO(oPeashooter, {
           c && c.NormalAttack1();
           --b && oSym.addTask(10, arguments.callee, [d, b])
         },
-        [this.id, Math.round(Math.random() * 6 + 6)])
+        [this.id, Math.round(Math.random() * 4 + 4)])
     }
   }),
 oSplitPea = InheritO(oPeashooter, {
@@ -2650,7 +2650,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		function(k, e, f, g, h) {
 			var j = GetC(f),
 			i = oZ.getZ0(f, g);
-			i && i.Altitude == 1 ? (Math.round(Math.random()*1+0)?i.getPea(i,30,0):i.getSnowPea(i, 20, 0), (SetStyle(e, {
+			i && i.Altitude == 1 ? (Math.round(Math.random()*1+0)?i.getPea(i,30,0):i.getSnowPea(i, 30, 0), (SetStyle(e, {
 				left: h + 38 + "px",
 				width: "52px",
 				height: "46px"
@@ -2662,7 +2662,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		function(g, e) {
 			var f = $(g);
 			f && SetVisible(f);
-			oSym.addTask(130,
+			oSym.addTask(130-Math.min(80,this.Atttime),
 			function(h) {
 				var i = $P[h];
 				i && (i.Attacking = 0)
@@ -2700,7 +2700,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	HP:1000,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
-	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔40秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
+	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔50秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
 !b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>75 ? new oZombie2
@@ -2710,7 +2710,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	      :Math.round(Math.random()*13)>6 ? new oPeaZombie
 	      :Math.round(Math.random()*6)>2? new oNewspaperZombie3
 	      :new oFootballZombie1,b.R,b.C,1);
-	b.HP >= 1&& oSym.addTask(4500,arguments.callee,[b]);
+	b.HP >= 1&& oSym.addTask(5000,arguments.callee,[b]);
 	},
 	getHurt: function(d, b, a) {
 		var c = this;
@@ -3291,10 +3291,10 @@ oBlover = InheritO(CPlants, {
 	CName: "三叶草",
 	width: 118,beAttackedPointR: 98,
 	height: 92,
-	SunNum: 100,
+	SunNum: 150,
 	PicArr: ["images/Card/Plants/Blover.png", "images/Plants/Blover/0.gif", "images/Plants/Blover/Blover.gif"],
 	Tooltip: "能吹走所有气球和迷雾",
-	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散,造成减速<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+	Produce: '三叶草，能吹走所有总血量低于700的僵尸，也可以把雾吹散,造成减速<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
 	AudioArr:['blover'],
 	InitTrigger: function() {},
 	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
@@ -3321,6 +3321,7 @@ oRepeater2 = InheritO(oRepeater, { // 编者注: 我觉得目前版本 jspvz 比
 	EName: "oRepeater2",
 	CName: "反向双发射手",
 	PicArr: ["images/Card/Plants/Repeater2.png", "images/Plants/Repeater2/0.gif", "images/Plants/Repeater2/Repeater2.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
+	InitTrigger:function(){},
 	NormalAttack1: function() {
 		var a = this,
 		b = "PB" + Math.random();
@@ -3495,11 +3496,10 @@ oFlowerVase = InheritO(CPlants, {
 				break;
 			case "bedevilZombie": // 生成僵尸
 				Value = new Value(), ++oP.NumZombies; // 创建僵尸对象 增加僵尸数量
-
 				// 生成僵尸
 				asyncInnerHTML(Value.CustomBirth(self.R, self.C, 0, "auto"), function(n, m) {
 					EDPZ.appendChild(n), m.Birth();m.bedevil(m);
-					if (m.EName == "oJackinTheBoxZombie" && self.AutoJoker) m.OpenBox(m.id); // 如果是小丑僵尸，直接引爆爆炸
+					if (Math.random()*100>95) m.OpenBox(m.id); // 如果是小丑僵尸，直接引爆爆炸
 				}, Value);
 				break;
 			case "SunNum": // 生成阳光
