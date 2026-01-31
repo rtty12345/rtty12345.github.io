@@ -1359,7 +1359,7 @@ oDancingZombie1 = InheritO(oDancingZombie,{
               }
             },
             [f, e]))
-        }，
+		},
         [c, a])
     }
   }),
