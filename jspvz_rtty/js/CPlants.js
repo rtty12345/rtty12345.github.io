@@ -1073,7 +1073,7 @@ oPeashooter2 = InheritO(oPeashooter, {
             },
             0, EDPZ),Math.random() * 12 - 6,g.Pea])
         --N && oSym.addTask(0, arguments.callee, ["GStarB2" + Math.random(), N])
-      })("GStarB2" + Math.random(), 2);
+      })("GStarB2" + Math.random(), 3);
     },
     NormalAttack2: oPeashooter2.prototype.NormalAttack,
     NormalAttack: function(a) {
@@ -2662,7 +2662,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 		function(g, e) {
 			var f = $(g);
 			f && SetVisible(f);
-			$P[a]&&($P[a].AttTime-=2);
+			$P[a]&&($P[a].AttTime-=4);
 			oSym.addTask(130+Math.max(-80,c.AttTime),
 			function(h) {
 				var i = $P[h];
