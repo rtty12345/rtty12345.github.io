@@ -1302,8 +1302,8 @@ oDancingZombie1 = InheritO(oDancingZombie,{
 		b.ZX = b.AttackedRX;
 		b.ChkActs = b.ChkActs1;
 		b.ResetBackupDancer(b);
-		$(a + "_spotlightCon").style.left = "20px",
-		$(a + "_spotlight2Con").style.left = "25px";
+		b.havelight&&($(a + "_spotlightCon").style.left = "20px",
+		$(a + "_spotlight2Con").style.left = "25px");
 		oP.MonPrgs()
 	},
     Summon: function(d, c) {
@@ -1343,7 +1343,7 @@ oDancingZombie1 = InheritO(oDancingZombie,{
                     }
                   },
                   n);
-                oSym.addTask(90,
+                oSym.addTask(220,
                   function(A, y, z,i) {
                     var B = $Z[A];
                     B && B.beAttacked && (oP.AppearUP(y, z, i));
@@ -1359,7 +1359,7 @@ oDancingZombie1 = InheritO(oDancingZombie,{
               }
             },
             [f, e]))
-        },
+        }，
         [c, a])
     }
   }),
@@ -1394,7 +1394,7 @@ AttackZombie:function(){
     var b = d.delayT,
       l = d.id,
       a = d.Ele = $(l),
-      c = 320,
+      c = 960,
       i = oGd.$LF,
       g = d.R,
       s = g - 1,
@@ -1455,6 +1455,12 @@ AttackZombie:function(){
       var u = $Z[t];
       u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
     };
+	oSym.addTask(c,
+            function(o) {
+                    var t = $Z[o];
+                    t && t.beAttacked && !t.isAttacking && t.NormalAttack(o)
+            },
+    [d.id])
     b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
   },
   ChangeChkActsTo0: function(g, e, a) {
@@ -1541,7 +1547,7 @@ AttackZombie:function(){
               w = [],
               u = [],
               o = 0,
-	ZP=[oZombie, oZombie2,oZombie3, oDancingZombie, oConeheadZombie, oBucketheadZombie,oNewspaperZombie,oFlagZombie, oScreenDoorZombie, oFootballZombie,oJackinTheBoxZombie,oPeaZombie,oDancingZombie1,oDancingZombie2,oJalapenoZombie,oPoleVaultingZombie,oPoleVaultingZombie1,oPoleVaultingZombie2,oNewspaperZombie3,oFootballZombie1],
+	ZP=[oZombie, oZombie2,oZombie3, oDancingZombie, oConeheadZombie, oBucketheadZombie,oNewspaperZombie,oFlagZombie, oScreenDoorZombie, oFootballZombie,oJackinTheBoxZombie,oPeaZombie,oDancingZombie1,oJalapenoZombie,oPoleVaultingZombie,oPoleVaultingZombie1,oPoleVaultingZombie2,oNewspaperZombie3,oFootballZombie1],
               q,
               l;
             if (h && h.beAttacked) {
@@ -2940,7 +2946,7 @@ Act1:function(a) {
     let z = $(a.id);
     if (!a.Ch) {
       a.Ch = 1;
-      a.OrnHP *= 2.5;
+      a.OrnHP *= 4;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
       z.appendChild(squash);
@@ -2982,7 +2988,7 @@ ActH1:function(a) {
 	if(a.boo||!$Z[a.id]){return}
     if (!a.Chi&&!a.Ch) {
       a.Chi= 1;
-      a.OrnHP = 500;
+      a.OrnHP*=4;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:50px;top:-100px;", 0);
       z.appendChild(squash);
