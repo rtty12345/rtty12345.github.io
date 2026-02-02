@@ -52,7 +52,7 @@ oS.Init({
   AutoSelectCard: function() {
     var c = oS.ArCard,
       b = -1,
-      a = c.length - 1;
+      a = c.length;
     while (++b < a) {
       SelectCard(c[b].prototype.EName)
     }
