@@ -35,7 +35,7 @@ oS.Init({
       while (i <= h) {
         CustomSpecial(oBrains, i, 0);
         for (a = g; a <= b; a++) {
-        (back=CustomZombies(d[e[c = Math.floor(Math.random() * e.length)]], i, a, 1)).Speed=back.OSpeed=back.LostPaperSpeed=0;
+        (back=CustomZombies(new d[e[c = Math.floor(Math.random() * e.length)]], i, a, 1)).Speed=back.OSpeed=back.LostPaperSpeed=0;
           e.splice(c, 1)
         }++i
       }
