@@ -5310,6 +5310,7 @@ NormalAttack: function(c, b) {
         HP: 800,
         Lvl: 5,
 	check:1,
+	LostPaperSpeed:1.6,
         SunNum: 225,
         PicArr: (function() {
             var a = "images/Zombies/ScreenDoorZombie/",
