@@ -1679,6 +1679,7 @@ oZombie3= InheritO(oZombie, {
 	Speed:Math.random()*2+2,
 	HP:Math.random()*400+600,
 	Lvl:3,
+	SunNum:75,
 	Num: 1,
   NormalAttack: function(d, c) {
     PlayAudio(["chomp", "chompsoft"][Math.floor(Math.random() * 2)]);
@@ -2947,6 +2948,7 @@ Act1:function(a) {
     if (!a.Ch) {
       a.Ch = 1;
       a.OrnHP *= 4;
+	  a.OSpeed = a.Speed = 4;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:20px;top:-100px;", 0);
       z.appendChild(squash);
@@ -2954,7 +2956,6 @@ Act1:function(a) {
 if(!a.boo&&$Z[a.id]){
     let s = $(z.SquashHeadId);
 	$Z[a.id]&&(!a.PZ||(!a.Ornaments))&&ClearChild(s);
-    a.Ornaments&&(a.OSpeed = a.Speed = 4);
     for (let i = 3; i >= 0; i--) {
       let p = oGd.$[a.R + "_" + GetC(a.ZX-20) + "_" + i];
 		Z=oZ.getHZ1(a.ZX-20,a.R);
@@ -2989,13 +2990,13 @@ ActH1:function(a) {
     if (!a.Chi&&!a.Ch) {
       a.Chi= 1;
       a.OrnHP*=4;
+	  a.OSpeed = a.Speed = 4;
       z.SquashHeadId = "Squash" + Math.random();
       let squash = NewImg(z.SquashHeadId, "images/Plants/Squash/Squash.gif", "position:absolute;left:50px;top:-100px;", 0);
       z.appendChild(squash);
     }
 	if(!a.bo){
     let s = $(z.SquashHeadId);
-    a.OSpeed = a.Speed = 4;
 	$Z[a.id]&&!a.Ornaments&&ClearChild(s);
 	let Z=oZ.getZ0(a.ZX+20,a.R);
       if (Z&&a.Ornaments) {
@@ -3374,11 +3375,11 @@ getHit0:function(a,c){
 },
 PrivateAct: function() {
     let a = this;
-var b=oZ["getAr"+(a.PZ?"Z":"HZ")](a.ZX+1,a.PZ?a.ZX+200:a.ZX-200,a.R);
+var b=oZ["getAr"+(a.PZ?"Z":"HZ")](a.PZ?a.ZX+1:a.ZX-200,a.PZ?a.ZX+200:a.ZX,a.R);
 for(let c=0;c<b.length;c++){
 if(b[c].EName!=="oScreenDoorZombie"){
 a.protect=1;
-	}else{a.protect=0}
+     }else{a.protect=0}
 }
   },
 	CheckOrnHP: function(g, h, d, c, f, b, a) {
@@ -3794,7 +3795,7 @@ SunNum:2000,
   changeR: function(a) {
     if (!a.Change&&a.beAttacked&&$Z[a.id]) {
       a.Change = true;
-      oSym.addTask(1200 + (a.OrnHP * 0.01), function(a) {
+      oSym.addTask(1500 + (a.OrnHP * 0.01), function(a) {
             a.ZX +=5;
 			a.AttackedLX += 5;
 			a.AttackedRX += 5; 
@@ -5355,7 +5356,7 @@ NormalAttack: function(c, b) {
                       SetHidden($(i))
                     }),
                   a.PZ&&m && (m.getHurt(a, 3,50),m.getSlow(m,m.id,1500))
-						):(a.Speed = a.OSpeed = 1.6);
+						):(a.Speed = a.OSpeed =a.LostPaperSpeed);
 					}
 	             }
 			while (Tz--) {
@@ -5364,7 +5365,7 @@ NormalAttack: function(c, b) {
               } else {
                 ClearChild(h);
 		        ClearChild($(z.FumeDoor));
-                a.Speed = a.OSpeed = 1.6;
+                a.Speed = a.OSpeed =a.LostPaperSpeed;
               }
         a &&oSym.addTask(100, arguments.callee, [a,a.id + "_Bullet",z])
       }, [a,a.id + "_Bullet",z]);//大喷技能
@@ -5456,7 +5457,8 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
         oSym.addTask(Math.floor(Math.random() * 100) > 5 ? Math.floor(1000 + Math.random() * 800) : Math.floor(450 + Math.random() * 300),
                 function(c) {
                     var b = $Z[c];
-                    b && b.beAttacked && b.OpenBox(c)
+                    b && b.beAttacked && b.OpenBox(c);
+					b && b.beAttacked&& b.RandomOpenBox(c)
                 },
                 [a])
         },
