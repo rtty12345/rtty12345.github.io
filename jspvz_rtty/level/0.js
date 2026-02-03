@@ -33,16 +33,6 @@ oS.Init({
 			b.src = "http://" + $User.AuthorWebsite + "/js/Process.js?" + Math.random()) : $("sTime").innerHTML = oS.Version
 		})();
 		$("dServer") && SetBlock($("dServer"));
-
-		let TitleStart = true, Ele = $("1717251538528057c14ff6b76633537ce4508eb4cd82ddba71a14.jpg");
-		let f1 = () => {
-			if (TitleStart != true) return;
-			oEf.Animate(Ele, { top: "34px" }, 2, "linear", f2);
-		}, f2 = () => {
-			if (TitleStart != true) return;
-			oEf.Animate(Ele, { top: "-19px" }, 1, "linear", f1);
-		};
-		f2();
 		(function() {
 			//游戏初始页面的气球僵尸上下浮动
 			var animUp = function(y) {
@@ -62,9 +52,3 @@ oS.Init({
 		)();
 	}
 });
-
-
-
-
-
-
