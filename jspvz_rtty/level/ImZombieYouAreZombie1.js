@@ -1,8 +1,8 @@
 oS.Init({
   PName: [oZombie, oZombie2, oBucketheadZombie,oZombie3,oScreenDoorZombie],
   ZName: [oZombie, oZombie3, oNewspaperZombie],
-  PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
-  backgroundImage: "images/interface/background2.jpg",
+  PicArr: ["images/interface/background1.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
+  backgroundImage: "images/interface/background1.jpg",
   ShowScroll: false,
   SunNum: 1000,
   BrainsNum: 5,
@@ -10,8 +10,8 @@ oS.Init({
   CardKind: 1,
   LevelName: "我是僵尸，你也是僵尸？！",
   LvlEName: "ImZombieYouAreZombie1",
-  LoadMusic: "Mountains",
-  StartGameMusic: "Mountains",
+  LoadMusic: "IZYZ",
+  StartGameMusic: "IZYZ",
   ArP: {
     ArC: [1, 4],
     ArR: [1, 5],
