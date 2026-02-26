@@ -2260,7 +2260,7 @@ CustomZombies(new oJalapenoZombie,c.R,GetC(c.ZX-10),1));
       for (let i = 1; i <= oS.C; i++) {
         for (let j = 0; j < 4; j++) {
           let g = oGd.$[y + "_" + i + "_" + j];
-g&&g.getHurt($Z[this.id],3,2000)
+g&&g.getHurt(this,3,2000)
         }
       }
 	}
@@ -5841,4 +5841,5 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
