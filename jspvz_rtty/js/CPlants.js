@@ -305,7 +305,7 @@ HP:500,
     return a[0] ? -17 : -10
   },
   PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
-  Tooltip: "张万森，下杨桃雨了",
+  Tooltip: "在场时，全场由上散下一堆杨桃",
   Produce: '在场时，全场由上散下一堆杨桃<p>伤害：<font color="#FF0000">中等（20）</font><br>范围：<font color="#FF0000">全屏</font></p>今日天气：晴转杨桃雨',
   getTriggerR: function(a) {
     return [1, oS.R]
@@ -1321,7 +1321,7 @@ oPumpkinHead = InheritO(CPlants, {
   zIndex: 1,
   PicArr: ["images/Card/Plants/PumpkinHead.png", "images/Plants/PumpkinHead/0.gif", "images/Plants/PumpkinHead/PumpkinHead.gif", "images/Plants/PumpkinHead/PumpkinHead1.gif", "images/Plants/PumpkinHead/PumpkinHead2.gif", "images/Plants/PumpkinHead/pumpkin_damage1.gif", "images/Plants/PumpkinHead/Pumpkin_damage2.gif", "images/Plants/PumpkinHead/Pumpkin_back.gif"],
   Tooltip: "能保护种在里面的植物",
-  Produce: '南瓜头，可以用他的外壳保护其他植物。<p>韧性：<font color="#FF0000">高</font><br>特点：<font color="#FF0000">可以种在其他植物上</font></p>南瓜头最近都没收到，关于他表哥刃菲尔德的消息。很明显，刃菲尔德是个大明星，是一种……叫什么运动来着……的体育明星？佩格跳跳球大师？南瓜头反正搞不懂是什么运动，他只想做好他自己的工作。',
+  Produce: '南瓜头，可以用他的外壳保护其他植物，点击它消耗自身1500血量对3×3僵尸造成500伤害<p>韧性：<font color="#FF0000">高</font><br>特点：<font color="#FF0000">可以种在其他植物上</font></p>南瓜头最近都没收到，关于他表哥刃菲尔德的消息。很明显，刃菲尔德是个大明星，是一种……叫什么运动来着……的体育明星？佩格跳跳球大师？南瓜头反正搞不懂是什么运动，他只想做好他自己的工作。',
   CanGrow: function(c, b, d) {
     var a = b + "_" + d;
     return c[2] ? 1 : oGd.$LF[b] == 1 ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a]) : c[0]
@@ -1494,7 +1494,7 @@ oPotatoMine = InheritO(CPlants, {
 		}
 	},
 	PicArr: ["images/Card/Plants/PotatoMine.png", "images/Plants/PotatoMine/0.gif", "images/Plants/PotatoMine/PotatoMine.gif", "images/Plants/PotatoMine/PotatoMineNotReady.gif", "images/Plants/PotatoMine/PotatoMine_mashed.gif", "images/Plants/PotatoMine/ExplosionSpudow.gif"],
-	Tooltip: "敌人接触后爆炸，血量极高<br>需要时间安放",
+	Tooltip: "敌人接触后爆炸，血量极高<br>不需要时间安放",
 	Produce: '土豆雷具有强大的威力，但是他们需要点时间来武装自己。你应把他们种在僵尸前进的路上，当他们一被接触就会发生爆炸。<p>伤害：<font color="FF0000">大(1200)</font><br>范围：<font color="#FF0000">一个小区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，需要一定准备时间才能起作用。</font></p>一些人说土豆雷很懒，因为他总是把所有事情留到最后。土豆雷才没空理他们，他正忙着考虑他的投资战略呢。',
 	Status: 0,
 	AudioArr: ["potato_mine"],
@@ -1572,7 +1572,7 @@ oTorchwood = InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/Torchwood.png", "images/Plants/Torchwood/0.gif", "images/Plants/Torchwood/Torchwood.gif", "images/Plants/PB00.gif", "images/Plants/PB01.gif", "images/Plants/PB10.gif", "images/Plants/PB11.gif", "images/Plants/Torchwood/SputteringFire.gif"],
 	AudioArr: ["firepea", "ignite", "ignite2"],
 	Tooltip: "通过火炬树桩的豌豆将变为随机伤害火球",
-	Produce: '火炬树桩可以把穿过他的豌豆变成火球，可以造成更高的随机伤害。<p>特点：<font color="#FF0000">让穿过他的火球造成随机伤害。火球也会对附近僵尸造成溅射伤害</font></p>每个人都喜欢并敬重火炬树桩。他们喜欢他的诚实和坚贞的友谊，以及增强豌豆伤害的能力',
+	Produce: '火炬树桩可以把穿过他的豌豆变成火球，可以造成更高的随机伤害，子弹被加热时会给火炬充能，达量时生成随机非紫卡植物罐<p>特点：<font color="#FF0000">让穿过他的火球造成随机伤害。火球也会对附近僵尸造成溅射伤害</font></p>每个人都喜欢并敬重火炬树桩。他们喜欢他的诚实和坚贞的友谊，以及增强豌豆伤害的能力',
 	PrivateBirth: function(c) {
 		var a = c.R,
 		b = c.C;
@@ -1631,7 +1631,7 @@ oTorchwood = InheritO(CPlants, {
   oCoffeeBean,
   oGarlic];
 		a.Vasenum=0;
-		oFlowerVase.prototype.SpecialBirth(a.R, a.C, 0, {
+		oFlowerVase.prototype.SpecialBirth(a.R, a.C, 1, {
   "Type": "Plants",
   "Value": Plist[Math.floor(Math.random() *Plist.length)]
 }, function(O) {
@@ -1843,7 +1843,7 @@ oTallNut = InheritO(oWallNut, {
 	HP: 10000,
 	PicArr: ["images/Card/Plants/TallNut.png", "images/Plants/TallNut/0.gif", "images/Plants/TallNut/TallNut.gif", "images/Plants/TallNut/TallnutCracked1.gif", "images/Plants/TallNut/TallnutCracked2.gif"],
 	Tooltip: "不会被跳过的坚实壁垒",
-	Produce: '高坚果是重型壁垒植物，而且不会被跨过。<p>韧性：<font color="#FF0000">非常高</font><br>特殊：<font color="#FF0000">不会被跨过或越过</font></p>人们想知道，坚果墙和高坚果是否在竞争。高坚果以男中音的声调大声笑了。“我们之间怎么会存在竞争关系？我们是哥们儿。你知道坚果墙为我做了什么吗……”高坚果的声音越来越小，他狡黠地笑着。”',
+	Produce: '高坚果是重型壁垒植物，而且不会被跨过，会对僵尸有反伤，会将碾压转化为1000伤害，切换损伤点时召唤保龄球<p>韧性：<font color="#FF0000">非常高（10000）</font><br>特殊：<font color="#FF0000">不会被跨过或越过</font></p>人们想知道，坚果墙和高坚果是否在竞争。高坚果以男中音的声调大声笑了。“我们之间怎么会存在竞争关系？我们是哥们儿。你知道坚果墙为我做了什么吗……”高坚果的声音越来越小，他狡黠地笑着。”',
 	CanGrow: function(c, b, f) {
 		var a = b + "_" + f,
 		d = c[1],
@@ -1980,7 +1980,7 @@ oSpikeweed = InheritO(CPlants, {
 	Attack: 30,
 	ArZ: {},
 	Tooltip: "扎破轮胎, 也能伤害走在上面的僵尸",
-	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害，有概率将僵尸击退一小段距离<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
+	Produce: '地刺可以扎破轮胎，并对踩到他的僵尸造成伤害，有概率将僵尸击退一小段距离，有极小概率升级为地刺王<p>伤害：<font color="#FF0000">普通</font><br>范围：<font color="#FF0000">所有踩到他的僵尸</font><br>特点：<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关注着他喜欢的球员，他也始终如一的在赛后清理冰球场。但只有一个问题：他害怕冰球。',
 	CanGrow: function(c, b, e) {
 		var a = b + "_" + e,
 		d = oS.ArP;
@@ -2193,7 +2193,7 @@ oGarlic = InheritO(CPlants, {
           a = d.id;
         for (let i = oS.C; i >= 1; i--) {
           var e = oGd.$[d.R + "_" + i + "_" + 1];
-          e && (e.EName == "oGarlic") && !num && (!(c % 3) ? (e.getHurt(h, c, b), num = 1) : (d.Die(), h.ChangeR(h)))
+          e && (e.EName == "oGarlic") && !num && (!(c % 3) ? (e.getHurt(h, c, b), num = 1) : (d.Die()))
         };
 	  },
 	b.getHurt1=b.getHurt))
@@ -2420,6 +2420,7 @@ oCoffeeBean = InheritO(CPlants, {
 			PlayAudio("wakeup");
 			var d = oGd.$[c],
 			b;
+			AppearSun(a.pixelLeft,a.pixelTop+40,d.SunNum);
 			d && (b = d.WakeUP, (!b ? ($(d.id).childNodes[1].src = d.PicArr[d.NormalGif], d.canTrigger = 1, d.Sleep = 0) : b(d)));
 			a.Die()
 		},
@@ -2437,7 +2438,7 @@ oGloomShroom = InheritO(oFumeShroom, {
 	PicArr: ["images/Card/Plants/GloomShroom.png", "images/Plants/GloomShroom/0.gif", "images/Plants/GloomShroom/GloomShroom.gif", "images/Plants/GloomShroom/GloomShroomSleep.gif", "images/Plants/GloomShroom/GloomShroomAttack.gif", "images/Plants/GloomShroom/GloomShroomBullet.gif"],
 	AudioArr: ["kernelpult", "kernelpult2"],
 	Tooltip: "向3*3范围喷射减速孢子<br>(需要大喷菇)",
-	Produce: '伪娘终结者，向3x3范围喷射穿透孢子，每次攻击有轻微击退<p><font color="#FF0000">必须种植在大喷菇上</font></p>起初人们一直非议他，后来曾哥用自己独特的绵羊音横扫了宇宙拆迁办，全世界都拜倒在他的脚下。“听说有个节目叫‘快男’？”曾哥说，“没有我在他们真应该感到羞愧。”他于是决定明年去看看。',
+	Produce: '伪娘终结者，向3x3范围喷射穿透孢子，每次攻击附带中毒效果<p><font color="#FF0000">必须种植在大喷菇上</font></p>起初人们一直非议他，后来曾哥用自己独特的绵羊音横扫了宇宙拆迁办，全世界都拜倒在他的脚下。“听说有个节目叫‘快男’？”曾哥说，“没有我在他们真应该感到羞愧。”他于是决定明年去看看。',
 	CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oFumeShroom"
@@ -2588,7 +2589,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 	Attacking: 0,
 	PicArr: ["images/Card/Plants/ScaredyShroom.png", "images/Plants/ScaredyShroom/0.gif", "images/Plants/ScaredyShroom/ScaredyShroom.gif", "images/Plants/ScaredyShroom/ScaredyShroomSleep.gif", "images/Plants/ScaredyShroom/ScaredyShroomCry.gif", "images/Plants/ShroomBullet.gif", "images/Plants/ShroomBulletHit.gif"],
 	Tooltip: "远程射手, 但敌人靠近时会蜷缩不动，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力，技能冷却10秒",
-	Produce: '胆小菇是一种远程射手，敌人接近后会躲起来。<p>伤害：<font color="#FF0000">普通</font><br>特点：<font color="#FF0000">敌人接近后就停止攻击，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力，技能冷却15秒，<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“走开！我不想见任何人。除非……除非你是马戏团的人。”',
+	Produce: '胆小菇是一种远程射手，敌人接近后会躲起来，自身会叠加攻速<p>伤害：<font color="#FF0000">普通</font><br>特点：<font color="#FF0000">敌人接近后就停止攻击，可以使一些碾压、高伤类以及一些特殊技能的僵尸失去能力，技能冷却15秒，<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“走开！我不想见任何人。除非……除非你是马戏团的人。”',
 	GetDX: CPlants.prototype.GetDX,
 	getTriggerRange: CPlants.prototype.getTriggerRange,
 	getTriggerR: function(c) {
@@ -2663,7 +2664,7 @@ oScaredyShroom = InheritO(oFumeShroom, {
 			var f = $(g);
 			f && SetVisible(f);
 			$P[a]&&($P[a].AttTime-=4);
-			oSym.addTask(130+Math.max(-80,c.AttTime),
+			oSym.addTask(130+Math.max(-90,c.AttTime),
 			function(h) {
 				var i = $P[h];
 				i && (i.Attacking = 0)
@@ -2704,6 +2705,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔50秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
 	InitTrigger: function() {},
 	PrivateBirth:function(b){
+try{
 !b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>75 ? new oZombie2
 	      :Math.round(Math.random()*75)>50 ? new oNewspaperZombie
 	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
@@ -2712,6 +2714,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	      :Math.round(Math.random()*6)>2? new oNewspaperZombie3
 	      :new oFootballZombie1,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(5000,arguments.callee,[b]);
+}catch{}
 	},
 	getHurt: function(d, b, a) {
 		var c = this;
@@ -3586,3 +3589,4 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
