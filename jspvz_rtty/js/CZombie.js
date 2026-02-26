@@ -1752,7 +1752,7 @@ oFlagZombie =Math.round(Math.random()*1+0)?InheritO(oZombie, {
 PrivateBirth:function(a){
 a.Boom=Math.random()*100>25?0:1;
 !a.Summon&&((oS.CleanerFlagZombie+=1),
-a.CanSummon=Math.min(oS.CleanerFlagZombie-1,5),
+a.CanSummon=Math.max(oS.CleanerFlagZombie-1,5),
 oSym.addTask(0,function(a){
 oS.CleanerFlagZombie-1&&(
 CustomZombie(oFlagZombie,Math.round(Math.random()*(oS.R-1)+1),11).Summon=1,
@@ -1764,7 +1764,7 @@ CustomZombie(oFlagZombie,Math.round(Math.random()*(oS.R-1)+1),11).Summon=1,
 		a.Boom&&a.OpenBox(a.id);
             }
         },
-	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">低（500）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时有3*3爆炸，对僵尸直接秒杀，方式等同于植物小推车</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
+	Produce: '一个雷厉风行的处决者<p>韧性：<font color="#FF0000">中（800）</font><p>移速：<font color="#FF0000">快</font></p>特性：<font color="#FF0000">碾压植物，濒死时概率3*3爆炸</font></p>作为一个处决者，旗帜僵尸不会对他任何的敌对势力心慈手软，包括他叛变后的僵尸',
 	getSnowPea:OrnNoneZombies.prototype.getPea,
 	getSlowPea:OrnNoneZombies.prototype.getFirePea,
 	getSlowPea1:OrnNoneZombies.prototype.getFirePea,
@@ -3583,7 +3583,7 @@ oNewspaperZombie2= InheritO(oNewspaperZombie, {
 		return ["images/Card/Zombies/NewspaperZombie.png", a + "01.gif", a + "HeadWalk3.gif", a + "HeadAttack2.gif", a + "LostHeadWalk3.gif", a + "LostHeadAttack2.gif", a + "HeadWalk2.gif", a + "HeadWalk2.gif", a + "LostHeadWalk2.gif", a + "LostHeadAttack0.gif", a + "Head.gif" + $Random, a + "Die1.gif" + $Random, a + "BoomDie.gif" + $Random, a + "LostNewspaper1.gif", a + "11.gif"]
 	})(),
 	AudioArr: ["newspaper_rarrgh"],
-	Produce: '他的封印只能提供有限的防御<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时2倍，破报后碾压</font><br>速度：1.5倍，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤</font><br>发怒时，全屏墓碑出普通二爷或玉米二爷</font><br>二爷界的首领，有着很强的实力',
+	Produce: '非常强力的僵尸<p>韧性：<font color="#FF0000">高（1800）</font><br>封印韧性：<font color="#FF0000">中（600）</font><br>伤害：<font color="#FF0000">有报时2倍，破报后碾压</font><br>速度：1.5倍，而后较快(失去封印后)</font><br>特性：破报后碾压植物，破报前免疫魅惑，报纸优先承伤</font><br>发怒时，全屏墓碑出普通二爷或玉米二爷</font><br>二爷界的首领，有着很强的实力',
 	bedevil: function() {},
 	getbedevil: function() {},
     getExplosion: function(Attack,howDie,callback) {
@@ -3747,7 +3747,7 @@ SunNum:2000,
 	Act:function(){},
   getr: function() {},
   AudioArr: ["newspaper_rarrgh"],
-  Produce: '他的报纸只能提供有限的防御。<p>韧性：<font color="#FF0000">低</font><br>报纸韧性：<font color="#FF0000">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
+  Produce: '被神秘力量改造的“僵尸”<p>韧性：<font color="#FF0000">极高</font><br>报纸韧性：<font color="#FF0000">极高</font><br>速度：0，而后慢(失去报纸后)</p>被神秘力量改造的物体，它并不是僵尸',
   ChkActs: function(h, f, j, e) {
     var d, c, g;
     h.Ornaments !== 0 && (h.ZX <= 720) && (h.Speed = h.oSpeed = 0);
@@ -3831,7 +3831,7 @@ SunNum:2000,
         } else {
           try{AppearTombstones(4, 9, 5);}catch{};
           oP.SetTimeoutZombie([oNewspaperZombie2,oFootballZombie, oNewspaperZombie,oNewspaperZombie3,oFootballZombie], 0);
-       oP.SetTimeoutTomZombie([oZombie2, oZombie3,oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
+          oP.SetTimeoutTomZombie([oZombie2, oZombie3,oNewspaperZombie,oFootballZombie,oScreenDoorZombie]);
           oP.NumZombies += 5;
         }
         a.Change = false;
@@ -4862,7 +4862,7 @@ oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return ["images/Card/Zombies/DolphinRiderZombie.png", a + "0.gif", a + "Walk1.gif", a + "Walk2.gif", a + "1.gif", a + "Attack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "Jump.gif" + $Random, a + "Jump2.gif" + $Random, a + "Walk3.gif", a + "Walk4.gif", a + "Die2.gif" + $Random, a + "Jump3.gif" + $Random]
 	})(),
 	AudioArr: ["dolphin_before_jumping", "dolphin_appears", "zombie_entering_water"],
-	Produce: '海豚骑士僵尸善于利用你水池防御的弱点<p>韧性：<font color="#FF0000">中(800)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,有海豚时自身无敌，跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤，但跳跃时会使全场僵尸前进一格）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
+	Produce: '海豚骑士僵尸善于利用你水池防御的弱点<p>韧性：<font color="#FF0000">中(800)</font><br>速度：<font color="#FF0000">快，慢（跳越后）</font><br>特点：<font color="#FF0000">跃过他所遇到的第一株植物,跳跃完毕时会再次召唤两个海豚骑士（被召唤的海豚骑士不会再次召唤，但跳跃时会使全场僵尸前进一格）</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack: function(a) {
 		PlayAudio("dolphin_appears");
 		oZomboni.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
@@ -5448,7 +5448,7 @@ oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	AttackGif: 2,
 	OSpeed: 3.6,
 	Speed: 3.6,
-	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">一段时间产生爆炸并恢复自身血量至1000点，残血开盒爆炸</font><br>弱点：<font color="#FF0000">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	Produce: '这种僵尸带着个会爆炸的盒子。</p><p>韧性：<font color="#FF0000">中</font><br>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">一段时间产生爆炸并恢复自身血量至1000点，残血开盒爆炸</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 	AudioArr: ["jackinthebox", "jack_surprise", "explosion"],
 	PicArr: (function() {
 		var a = "images/Zombies/JackinTheBoxZombie/";
@@ -5841,3 +5841,4 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
