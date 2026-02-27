@@ -2728,7 +2728,7 @@ oSym.addTask(0,function(b){
                         n[k] && n[k].PZ && n[k].bedevil(n[k])
                     }
                 } while (h++ < d)
-	      b.HP >= 1&& oSym.addTask(2000,arguments.callee,[b]);
+	      $P[b.id]&& oSym.addTask(2000,arguments.callee,[b]);
         },[b])
 	},
 	getHurt: function(d, b, a) {}
@@ -3593,5 +3593,6 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
 
