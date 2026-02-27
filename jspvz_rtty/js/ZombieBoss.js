@@ -318,10 +318,10 @@ oHypnoShroomBoss = InheritO(oZombie, {
   EName: "oHypnoShroomBoss",
   CName: "叛变的魅惑菇",
   Lvl: 200,
-  width: 200,
-  height: 300,
+  width: 144,
+  height: 320,
   HP: 80100,
-  beAttackedPointL: 0,
+  beAttackedPointL: 20,
   beAttackedPointR: 122,
   AKind: 2,
   SunNum: 2000,
@@ -378,7 +378,7 @@ oHypnoShroomBoss = InheritO(oZombie, {
   changeR: function(a) {
     if (!a.Change && a.beAttacked && $Z[a.id]) {
       a.Change = true;
-      oSym.addTask(1500 + (a.HP * 0.01), function(a) {
+      oSym.addTask(700 + (a.HP * 0.01), function(a) {
         a.ZX += 5;
         a.AttackedLX += 5;
         a.AttackedRX += 5;
@@ -390,16 +390,16 @@ oHypnoShroomBoss = InheritO(oZombie, {
         if (a.HP >= 75000) {
           oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3, oImp], 0);
           oP.NumZombies += 4;
-        } else if (a.HP >= 50000){
+        } else if (a.HP >= 50000) {
           oP.SetTimeoutZombie([oConeheadZombie, oBucketheadZombie, oNewspaperZombie, oZombie2, oZombie3, oPoleVaultingZombie], 0);
           oP.NumZombies += 6;
-        }else if (a.HP >= 40000){
+        } else if (a.HP >= 40000) {
           oP.SetTimeoutZombie([oConeheadZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie], 0);
           oP.NumZombies += 6;
-        }else if (a.HP >= 25000){
+        } else if (a.HP >= 25000) {
           oP.SetTimeoutZombie([oDancingZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie], 0);
           oP.NumZombies += 6;
-        }else{
+        } else {
           oP.SetTimeoutZombie([oDancingZombie, oPeaZombie, oNewspaperZombie, oFootballZombie, oNewspaperZombie3, oPoleVaultingZombie], 0);
           oP.NumZombies += 6;
         }
@@ -422,7 +422,7 @@ oHypnoShroomBoss = InheritO(oZombie, {
       name: "天罚",
       tip: "后排随机一行出现路障，铁桶，窝瓜二爷",
       func: function(c) {
-        var b = Math.round(Math.random() * 3 + 2);
+        var b = Math.round(Math.random() * 3 + 3);
         for (l = 1; l <= oS.R; l++) {
           var a = CustomZombie(c.HP > 60000 ? oConeheadZombie : (c.HP > 30000 ? oBucketheadZombie : oNewspaperZombie), l, b);
           a.Act = a.Act1;
@@ -432,7 +432,7 @@ oHypnoShroomBoss = InheritO(oZombie, {
     },
     {
       name: "背叛",
-      tip: "随机将植物变为僵尸",
+      tip: "随机将植物变为僵尸，当boss血量大于60000时无效果",
       func: function(b) {
         let a = [];
         for (let i in oGd.$) {
@@ -474,6 +474,7 @@ oHypnoShroomBoss = InheritO(oZombie, {
   PrivateBirth: function() {
     this.ExchangeLR(this, 1)
   },
+  bedevil: function() {},
   PrivateAct: function() {},
   GoingDie: function(b) {
     var a = this,
