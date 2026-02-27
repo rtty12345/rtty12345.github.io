@@ -224,7 +224,8 @@ tip:"场上出现玉米二爷",
 func:function(){
 	for(i=8;i<=9;i++){
 	  for(l=1;l<=oS.R;l++){
-		CustomZombie(oNewspaperZombie3,l,i);	Math.random()*100>5&&CustomZombie(oFootballZombie1,7,Math.round(Math.random()*4+1));
+		CustomZombie(oNewspaperZombie3,l,i);	
+		  Math.random()*100>5&&CustomZombie(oFootballZombie1,7,Math.round(Math.random()*4+1));
 		}
 	}
  }
@@ -345,7 +346,7 @@ oHypnoShroomBoss = InheritO(oZombie, {
     })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
     if (!h.bHP) {
       h.bHP = 1;
-      var b = NewEle("dHP", "div", "position:absolute;top:250px;left:160px;width:100%;font-size:20px;color:red;z-index:25", "", $(h.id));
+      var b = NewEle("dHP", "div", "position:absolute;top:250px;font-family:DwarvenTC,SimSun;left:160px;width:100%;font-size:20px;color:red;z-index:25", "", $(h.id));
       var A = "hp" + Math.random();
       dHP.id = A;
       var C = $(A);
