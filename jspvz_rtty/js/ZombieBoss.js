@@ -328,8 +328,12 @@ SunNum:2000,
   CanPass: function(d, c) {
     return c
   },
-	Act:function(){},
-  getr: function() {},
+Act:function(){},
+getr: function() {},
+PicArr: (function() {
+            var a = "images/Plants/HypnoShroom/HypnoShroom.gif";
+            return ["images/Card/Plants/HypnoShroom.png", a, a, a, a, a, a, a+ $Random, a, a]
+})(),
   Produce: '意料之外，情理之中<p>韧性：<font color="#FF0000">极高（80100）</font><br>速度：0',
   ChkActs: function(h, f, j, e) {
     var d, c, g;
