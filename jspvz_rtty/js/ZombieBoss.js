@@ -313,4 +313,182 @@ shootPea:function(){},
         },
         [h, f[[g.NormalGif = g.OrnLostNormalGif, g.AttackGif = g.OrnLostAttackGif][b]]]))
   }
+}),
+oHypnoShroomBoss = InheritO(oZombie, {
+  EName: "oHypnoShroomBoss",
+  CName: "叛变的魅惑菇",
+  Lvl: 200,
+width: 200,
+height: 176,
+  HP: 80100,
+  beAttackedPointL: 20,
+  beAttackedPointR: 122,
+  AKind: 2,
+SunNum:2000,
+  CanPass: function(d, c) {
+    return c
+  },
+	Act:function(){},
+  getr: function() {},
+  Produce: '意料之外，情理之中<p>韧性：<font color="#FF0000">极高（80100）</font><br>速度：0',
+  ChkActs: function(h, f, j, e) {
+    var d, c, g;
+    (h.ZX <= 720) && (h.Speed = h.oSpeed = 0);
+    !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.getHit0(h, 114514), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
+      R: f,
+      ar: [oS.R - 1],
+      CustomTop: 400 - h.height + h.GetDY()
+    })), h.ZX = h.AttackedLX -= d, h.Ele.style.left = Math.floor(h.X -= d) + "px", g = 1)) : g = 1) : g = 1;
+    if (h.HPlook && !h.bHP) {
+      h.bHP = 1;
+      var b = NewEle("dHP", "div", "position:absolute;color:#fff;top:250px;left:160px;width:100%;font-size:12px;", "", EDAll);
+      var A = "hp" + Math.random();
+      dHP.id = A;
+      var C = $(A);
+      oSym.addTask(1, function(C, h, b) {
+        ClearChild(C);
+        if (h.HP >= h.BreakPoint && $Z[h.id]) {
+          $(h.id) && $(h.id).appendChild(C);
+            b.innerHTML = '<div>' + Math.round(h.OrnHP) + "+" + Math.round(h.HP) + "</div>"
+        }
+        oSym.addTask(5, arguments.callee, [C, h, b])
+      }, [C, h, b]);
+    }
+    this.changeR(this);
+    this.PrivateAct && this.PrivateAct(this);
+    !this.cannotCheck && this.CheckSkills(this);
+    return g
+  },
+  getExplosion: function() {
+    this.getHit0(this, 2000, 0)
+  },
+  getThump: function() {
+    this.getHit0(this, 2000, 0)
+  },
+  DisappearDie: function() {
+    this.getHit0(this, 2000, 0)
+  },
+  ExplosionDie: function() {
+    this.getHit0(this, 2000, 0)
+  },
+  changeR: function(a) {
+    if (!a.Change&&a.beAttacked&&$Z[a.id]) {
+      a.Change = true;
+      oSym.addTask(1500 + (a.HP * 0.01), function(a) {
+            a.ZX +=5;
+			a.AttackedLX += 5;
+			a.AttackedRX += 5; 
+			a.X += 5;
+			SetStyle(a.Ele, {
+            left: a.X + "px"
+          });
+        a.ChangeR(a);
+        if (a.HP >= 75000) {
+          oP.SetTimeoutZombie([oZombie, oZombie2, oZombie3,oImp], 0);
+          oP.NumZombies += 4;
+        } else if (a.OrnHP >= 65000) {
+          oP.SetTimeoutZombie([oConeheadZombie,oBucketheadZombie,oNewspaperZombie,oZombie2, oZombie3,oPoleVaultingZombie], 0);
+          oP.NumZombies += 6;
+        } else if (a.HP >= 55000) {
+          oP.SetTimeoutZombie([oConeheadZombie,oBucketheadZombie,oNewspaperZombie,oZombie3,oPoleVaultingZombie,oJackinTheBoxZombie,oFootballZombie], 0);
+          oP.NumZombies += 7;
+        } else if (a.HP >= 40000) {
+          oP.SetTimeoutZombie([oBucketheadZombie,oNewspaperZombie,oSceeenDoorZombie,oPoleVaultingZombie,oJackinTheBoxZombie,oFootballZombie,oPeaZombie,oDancingZombie,oPoleVaultingZombie2,oNewspaperZombie,oJalapenoZombie], 0);
+          oP.NumZombies += 9;
+        }else if (a.HP >= 30000) {
+          oP.SetTimeoutZombie([oNewspaperZombie,oSceeenDoorZombie,oFootballZombie,oPeaZombie,oDancingZombie,oPoleVaultingZombie2,oNewspaperZombie,oPoleVaultingZombie,oJalapenoZombie], 0);
+          oP.NumZombies += 9;
+        } else if (a.HP >= 15000) {
+          oP.SetTimeoutZombie([oNewspaperZombie,oSceeenDoorZombie,oFootballZombie,oPeaZombie,oDancingZombie2,oPoleVaultingZombie2,oNewspaperZombie,oPoleVaultingZombie1,oJalapenoZombie,oBucketheadZombie,oDancingZombie2,oFlagZombie], 0);
+          oP.NumZombies += 12;
+        }else if (a.HP >= 5000) {
+          oP.SetTimeoutZombie([oNewspaperZombie3,oSceeenDoorZombie,oFootballZombie,oPeaZombie,oDancingZombie,oPoleVaultingZombie2,oNewspaperZombie,oPoleVaultingZombie1,oJalapenoZombie,oBucketheadZombie,oDancingZombie2,oFlagZombie,oNewspaerZombie,oFlagZombie], 0);
+          oP.NumZombies += 14;
+        }else {
+          oP.SetTimeoutZombie([oNewspaperZombie3,oSceeenDoorZombie,oFootballZombie,oPeaZombie,oDancingZombie,oPoleVaultingZombie2,oNewspaperZombie2,oPoleVaultingZombie1,oJalapenoZombie,oBucketheadZombie,oDancingZombie2,oFlagZombie,oNewspaerZombie,oFlagZombie,oZombie,oZombie2,oZombie3,oPoleVaultingZombie,oJackinTheBoxZombie], 0);
+          oP.NumZombies += 18;
+        }
+        a.Change = false;
+      }, [a])
+    }
+  },
+  CheckSkills: function(a) {
+    a.cannotCheck = 1;
+    oSym.addTask(2000 + (a.OrnHP * 0.01), function(a) {
+	var Num=Math.floor(Math.random() * a.Skill.length);
+      a.Skill[Num].func(a);
+      a.OrnHP<20000&&a.Skill[Math.floor(Math.random() * a.Skill.length)].func(a);
+      a.cannotCheck = 0;
+	NewEle("DivTeach", "div", 0, 0, EDAll);
+	innerText($("DivTeach"),a.Skill[Num].name);
+	oSym.addTask(500, ClearChild,[$("DivTeach")]);
+    }, [a])
+  },
+  Skill: [
+{
+name:"天罚",
+tip:"后排随机一行出现路障，铁桶，窝瓜二爷",
+func:function(a){
+	var b=Math.round(Math.random()*3+2);
+	  for(l=1;l<=oS.R;l++){
+		var a=CustomZombie(a.HP>60000?oConeheadZombie:a.HP>30000?oBucketheadZombie:oNewspaperZombie,l,b);
+		a.PrivateBirth=function(){};
+		a.Act=a.Act1;
+		a.ActH=a.ActH1;
+	}
+ }
+},
+{
+name:"背叛",
+tip:"随机将植物变为僵尸",
+func:function(b){	    
+	let a = [];
+      for (let i in oGd.$) {
+        let p = oGd.$[i];
+        if (p.EName != "oLawnCleaner" && p.EName != "oPoolCleaner" && p.EName != "oBrains"&&p.EName != "oSpikeweed1") {
+          a.push(oGd.$[i]);
+        }
+      }
+      var i = a.length;
+	if(a.length){
+      let l = GetX(a[i].C) - 80,
+        t = GetY(a[i].R) - 80;
+      oSym.addTask(200, ClearChild, [NewImg(0, "images/Plants/PotatoMine/PotatoMine_mashed.gif", "left:" + l + "px;top:" + t + "px;height:93px;width:132px;z-index:25;", EDPZ)]);
+        PlayAudio("potato_mine");
+	while(i--){
+        a[i]&&Math.random()*60000>a.HP&&a[i].Die();
+	}
+  }
+ }
+}
+  ],
+shootPea:function(){},
+  Init: function(e, g, c, b) {
+    var a = 0,
+      f = this,
+      d = [];
+    g.AttackedRX = (g.X = (g.ZX = g.AttackedLX = e) - g.beAttackedPointL) + g.beAttackedPointR;
+    while (--b) {
+      g.CanPass(b, c[b]) && (d[a++] = b)
+    }
+    g.ArR = d;
+    g.ArHTML = ['<div id="', '" style="position:absolute;display:', ";left:", "px;top:", "px;z-index:", '"><img src="' + ShadowPNG + '" style="' + g.getShadow(g) + '"><img style="position:absolute;clip:rect(0,auto,', ",0);width:432px;height:328px;top:", 'px" src="', '"></div>']
+  },
+  getShadow: function(a) {
+    return "width:172px;height:72px;left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 44) + "px"
+  },
+  PrivateAct: function() {},
+  GoingDie: function(b) {
+    var a = this,
+      c = a.id;
+	for (i in $Z)i!==c&&$Z[i].DisappearDie();
+    a.EleBody.src = b;
+    a.FreeFreezeTime = a.FreeSetbodyTime = a.FreeSlowTime = 0;
+    a.AutoReduceHP(c)
+  },
+  getbedevil: function() {},
+  getPoison: function(e, b, c) {
+    this.getHit0(this,60,0)
+  },
+  CrushDie:function(){this.getHit0(this,2,0)}
 })
