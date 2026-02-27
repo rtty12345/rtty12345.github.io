@@ -2697,37 +2697,41 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	height: 78,
 	beAttackedPointL: 10,
 	beAttackedPointR: 61,
-	SunNum:225,
-	coolTime: 30,
+	SunNum:350,
+	coolTime: 50,
 	HP:1000,
+	canEat:0,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
 	Tooltip: "让一只僵尸为你作战",
-	Produce: '当僵尸吃下魅惑菇后，他将会掉转方向为你作战，每隔50秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>使用方法：<font color="#FF0000">单独使用，接触生效</font><br>特点：<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被严重误解了，僵尸们在我们的生态环境里扮演着重要角色。我们可以也应当更努力地让他们学会用我们的方式来思考。”',
+	Produce: '每隔15秒施法，魅惑3×3的僵尸，每隔50秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>特点：<font color="#FF0000">让一群僵尸为你作战<br>白天不睡觉</font></p>她是一位强大的魔法师，她的法力强大到几乎所有的僵尸都可以为之倾倒，强大到可以改天换地，她选择作为植物，是植物方莫大的荣幸。只是……<br><font color="#FF0000">她似乎并不想将这强大力量只用在“愚蠢的僵尸”身上</font>',
 	InitTrigger: function() {},
+	night:0,
+	BirthStyle:CPlants.prototype.BirthStyle,
 	PrivateBirth:function(b){
 try{
-!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>75 ? new oZombie2
-	      :Math.round(Math.random()*75)>50 ? new oNewspaperZombie
-	      :Math.round(Math.random()*50)>30 ? new oPoleVaultingZombie2
-		  :Math.round(Math.random()*30)>13 ? new oFootballZombie
-	      :Math.round(Math.random()*13)>6 ? new oPeaZombie
-	      :Math.round(Math.random()*6)>2? new oNewspaperZombie3
+!b.Sleep&&b.HP>=1&&CustomZombies(Math.round(Math.random()*100)>60 ? new oZombie2
+	      :Math.round(Math.random()*60)>35 ? new oPoleVaultingZombie2
+		  :Math.round(Math.random()*35)>20 ? new oFootballZombie
+	      :Math.round(Math.random()*20)>12? new oPeaZombie
+	      :Math.round(Math.random()*12)>8? new oNewspaperZombie3
 	      :new oFootballZombie1,b.R,b.C,1);
 	b.HP >= 1&& oSym.addTask(5000,arguments.callee,[b]);
 }catch{}
+oSym.addTask(0,function(b){
+	        var h = Math.max(b.R-1),
+				d=Math.min(oS.R,b.R+1),
+                k,
+                n;
+                do {
+                    k = (n = oZ.getArZ(b.pixelRight-80,b.pixelRight+80,h)).length;
+                    while (k--) {
+                        n[k] && n[k].PZ && n[k].bedevil(n[k])
+                    }
+                } while (h++ < d)
+	      b.HP >= 1&& oSym.addTask(2000,arguments.callee,[b]);
+        },[b])
 	},
-	getHurt: function(d, b, a) {
-		var c = this;
-		switch (b) {
-		case 3:
-			(c.HP -= a) < 1 && c.Die();
-			break;
-		case 0:
-			!c.Sleep && d.bedevil(d),d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
-		default:
-			c.Die()
-		}
-	}
+	getHurt: function(d, b, a) {}
 }),
 oIceShroom = InheritO(oFumeShroom, {
 	EName: "oIceShroom",
@@ -3589,4 +3593,5 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
+
 
