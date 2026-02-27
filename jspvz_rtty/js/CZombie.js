@@ -4306,7 +4306,7 @@ oZomboni = function() {
                             let p = oGd.$[i+"_"+j+"_"+k];
 			    p&&!p.Freeze&&((p.EName != "oLawnCleaner") && (p.EName != "oPoolCleaner") && (p.EName != "oBrains")&& (p.EName != "oSpikeweed")&& (p.EName != "oSnowPea")&& (p.EName != "oTorchwood")&& (p.EName != "oSpikerock")&&(p.EName!="oIceShroom")&&(p.EName!="oJalapeno"))&& ($(p.id).childNodes[1].src =p.PicArr[p.StaticGif],
 			      NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", p.getShadow(p), p.Ele),a.SetAlpha(p.id,30,0.3),p.NormalAttack=function(){},p.Freeze=1,
-				(p.EName != "oSunFlower")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGarlic"))&&(p.getHurt=CPlants.prototype.getHurt),$);
+				(p.EName != "oSunFlower")&& (p.EName != "oWallNut")&& (p.EName != "oTallNut")&& (p.EName != "oPumpkinHead")&&(p.EName!="oGarlic")&&(p.getHurt=CPlants.prototype.getHurt));
                         }
                     }
                 }
@@ -5525,6 +5525,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
     g.Stone_of_Sinan_Up = function() {};
   },
 });
+
 
 
 
