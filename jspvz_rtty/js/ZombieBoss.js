@@ -395,14 +395,17 @@ oHypnoShroomBoss = InheritO(oZombie, {
           oP.SetTimeoutZombie([oConeheadZombie, oBucketheadZombie, oNewspaperZombie, oZombie2, oZombie3, oPoleVaultingZombie], 0);
           oP.NumZombies += 6;
         } else if (a.HP >= 40000) {
-          oP.SetTimeoutZombie([oConeheadZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie], 0);
-          oP.NumZombies += 6;
+          oP.SetTimeoutZombie([oConeheadZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie,oJackinTheBoxZombie], 0);
+          oP.NumZombies += 7;
         } else if (a.HP >= 25000) {
-          oP.SetTimeoutZombie([oDancingZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie], 0);
-          oP.NumZombies += 6;
+          oP.SetTimeoutZombie([oDancingZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie,oJackinTheBoxZombie,oPoleVaultingZombie2,oPeaZombie], 0);
+          oP.NumZombies += 9;
+        } else if (a.HP >= 10000) {
+          oP.SetTimeoutZombie([oDancingZombie, oBucketheadZombie, oNewspaperZombie, oFootballZombie, oZombie3, oPoleVaultingZombie1,oJackinTheBoxZombie,oPoleVaultingZombie2,oPeaZombie,oNewspaperZombie], 0);
+          oP.NumZombies += 10;
         } else {
-          oP.SetTimeoutZombie([oDancingZombie, oPeaZombie, oNewspaperZombie, oFootballZombie, oNewspaperZombie3, oPoleVaultingZombie], 0);
-          oP.NumZombies += 6;
+          oP.SetTimeoutZombie([oDancingZombie, oPeaZombie, oNewspaperZombie, oFootballZombie, oNewspaperZombie3, oPoleVaultingZombie1,oBucketheadZombie, oNewspaperZombie2, oZombie3, oPoleVaultingZombie,oJackinTheBoxZombie,oPoleVaultingZombie2,oPeaZombie,oZombie], 0);
+          oP.NumZombies += 14;
         }
         a.Change = false;
       }, [a])
