@@ -908,7 +908,7 @@ oGatlingPea= InheritO(oPeashooter, {
 	PicArr: ["images/Card/Plants/GatlingPea.png", "images/Plants/GatlingPea/0.gif", "images/Plants/GatlingPea/GatlingPea.gif", "images/Plants/PB00.gif", "images/Plants/PeaBulletHit.gif"],
 	AudioArr: ["splat1", "splat2", "splat3", "plastichit", "shieldhit", "shieldhit2"],
 	Tooltip: "一次发射4~6颗豌豆<br>(需要双发射手)，120秒后成长为霰弹枪射手",
-	Produce: '加特林可以一次发射4~6颗豌豆，80秒后成长为霰弹枪射手<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
+	Produce: '加特林可以一次发射4~6颗豌豆，120秒后成长为霰弹枪射手<p>伤害：<font color="#FF0000">高(每颗)</font><br>发射速度：<font color="#FF0000"> 4~6倍<br>只能种在双发射手上</font></p>当加特林宣布他要参军的时候，他的父母很为他担心，他们异口同声地对他说：“亲爱的，但这太危险了。”加特林拒绝让步，“生活本就危险，”他这样回答着，此时他的眼睛里，正闪烁着钢铁般的信念。',
 	PrivateBirth: function(c) {
 		var b = c.AttackedLX,
 		a = b - 60;
@@ -1494,7 +1494,7 @@ oPotatoMine = InheritO(CPlants, {
 		}
 	},
 	PicArr: ["images/Card/Plants/PotatoMine.png", "images/Plants/PotatoMine/0.gif", "images/Plants/PotatoMine/PotatoMine.gif", "images/Plants/PotatoMine/PotatoMineNotReady.gif", "images/Plants/PotatoMine/PotatoMine_mashed.gif", "images/Plants/PotatoMine/ExplosionSpudow.gif"],
-	Tooltip: "敌人接触后爆炸，血量极高<br>不需要时间安放",
+	Tooltip: "敌人接触后爆炸<br>不需要时间安放",
 	Produce: '土豆雷具有强大的威力，但是他们需要点时间来武装自己。你应把他们种在僵尸前进的路上，当他们一被接触就会发生爆炸。<p>伤害：<font color="FF0000">大(1200)</font><br>范围：<font color="#FF0000">一个小区域内的所有僵尸</font><br>使用方法：<font color="#FF0000">单独使用，需要一定准备时间才能起作用。</font></p>一些人说土豆雷很懒，因为他总是把所有事情留到最后。土豆雷才没空理他们，他正忙着考虑他的投资战略呢。',
 	Status: 0,
 	AudioArr: ["potato_mine"],
@@ -2702,8 +2702,8 @@ oHypnoShroom = InheritO(oFumeShroom, {
 	HP:1000,
 	canEat:0,
 	PicArr: ["images/Card/Plants/HypnoShroom.png", "images/Plants/HypnoShroom/0.gif", "images/Plants/HypnoShroom/HypnoShroom.gif", "images/Plants/HypnoShroom/HypnoShroomSleep.gif"],
-	Tooltip: "让一只僵尸为你作战",
-	Produce: '每隔15秒施法，魅惑3×3的僵尸，每隔50秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>特点：<font color="#FF0000">让一群僵尸为你作战<br>白天不睡觉</font></p>她是一位强大的魔法师，她的法力强大到几乎所有的僵尸都可以为之倾倒，强大到可以改天换地，她选择作为植物，是植物方莫大的荣幸。只是……<br><font color="#FF0000">她似乎并不想将这强大力量只用在“愚蠢的僵尸”身上</font>',
+	Tooltip: "让亿只僵尸为你作战",
+	Produce: '每隔30秒施法，魅惑3×3的僵尸，每隔50秒召唤一个魅惑的带有植物元素的僵尸或者普通橄榄和二爷<p>特点：<font color="#FF0000">让一群僵尸为你作战<br>白天不睡觉</font></p>她是一位强大的魔法师，她的法力强大到几乎所有的僵尸都可以为之倾倒，强大到可以改天换地，她选择作为植物，是植物方莫大的荣幸。只是……<br><font color="#FF0000">她似乎并不想将这强大力量只用在“愚蠢的僵尸”身上</font>',
 	InitTrigger: function() {},
 	night:0,
 	BirthStyle:CPlants.prototype.BirthStyle,
@@ -2725,10 +2725,10 @@ oSym.addTask(0,function(b){
                 do {
                     k = (n = oZ.getArZ(b.pixelRight-80,b.pixelRight+80,h)).length;
                     while (k--) {
-                        n[k] && n[k].PZ && n[k].bedevil(n[k])
+                        n[k] && $P[b.id]&& n[k].bedevil(n[k])
                     }
                 } while (h++ < d)
-	      $P[b.id]&& oSym.addTask(2000,arguments.callee,[b]);
+	      $P[b.id]&& oSym.addTask(3000,arguments.callee,[b]);
         },[b])
 	},
 	getHurt: function(d, b, a) {}
