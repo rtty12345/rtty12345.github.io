@@ -338,7 +338,7 @@ oHypnoShroomBoss = InheritO(oZombie, {
   Produce: '意料之外，情理之中<p>韧性：<font color="#FF0000">极高（80100）</font><br>速度：0',
   ChkActs: function(h, f, j, e) {
     var d, c, g;
-    (h.ZX <= 720) && (h.Speed = h.oSpeed = 0);
+    (h.ZX <= 660) && (h.Speed = h.OSpeed = 0);
     !(h.FreeFreezeTime || h.FreeSetbodyTime) ? (h.beAttacked && !h.isAttacking && h.JudgeAttack(), !h.isAttacking ? ((c = h.AttackedRX -= (d = h.Speed)) < -50 ? (j.splice(e, 1), h.getHit0(h, 114514), g = 0) : (c < 100 && !h.PointZombie && (h.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), h.ChangeR({
       R: f,
       ar: [oS.R - 1],
