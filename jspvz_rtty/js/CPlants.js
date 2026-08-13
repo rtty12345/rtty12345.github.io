@@ -3593,6 +3593,3 @@ oFlowerVase = InheritO(CPlants, {
 		return true;
 	}
 })
-
-
-
